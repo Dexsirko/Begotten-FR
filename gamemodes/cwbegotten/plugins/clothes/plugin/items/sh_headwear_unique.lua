@@ -1,4 +1,4 @@
-local ITEM = Clockwork.item:New("bodygroup_base")
+﻿local ITEM = Clockwork.item:New("bodygroup_base")
 	ITEM.name = "Gothic Plate Helmet"
 	ITEM.model = "models/begotten/headgroup_props/vasso_helm.mdl"
 	ITEM.iconoverride = "materials/begotten/ui/itemicons/gothic_plate_helmet.png"
@@ -8,7 +8,7 @@ local ITEM = Clockwork.item:New("bodygroup_base")
 	ITEM.category = "Helms"
 	ITEM.bodyGroup = 1
 	ITEM.bodyGroupVal = 1
-	ITEM.description = "A Gothic plate helmet belonging to the one and only Lord Vasso."
+	ITEM.description = "Un casque de plaques gothique appartenant au seul et unique Seigneur Vasso."
 	ITEM.requiredFaiths = {"Faith of the Dark"};
 	ITEM.excludedFactions = {"Goreic Warrior"};
 	ITEM.useSound = "armor/plate_damage_02.wav";
@@ -45,7 +45,7 @@ local ITEM = Clockwork.item:New("bodygroup_base")
 	ITEM.bodyGroup = 1
 	ITEM.bodyGroupVal = 1
 	ITEM.headSuffix = "_gore";
-	ITEM.description = "A terrifying Shagalaxian steel helm shaped in the image of the Father. It is imposing enough to make any man feel that they are in the presence of a God."
+	ITEM.description = "Un casque d'acier Shagalaxien terrifiant, façonné à l'image du Père. Il est assez imposant pour donner à quiconque l'impression de se trouver en présence d'une divinité."
 	ITEM.requiredFactions = {"Goreic Warrior"};
 	ITEM.useSound = "armor/plate_damage_02.wav";
 
@@ -79,7 +79,7 @@ local ITEM = Clockwork.item:New("bodygroup_base")
 	ITEM.bodyGroup = 1
 	ITEM.bodyGroupVal = 1
 	ITEM.headSuffix = "_gore";
-	ITEM.description = "A practical plated helm that has survived many battles. It is custom fitted to that of the Chosen Son Singar."
+	ITEM.description = "Un casque pratique à plaques, qui a survécu à de nombreuses batailles. Il est ajusté sur mesure pour le Fils Élu Singar."
 	ITEM.requiredFactions = {"Goreic Warrior"};
 	ITEM.useSound = "armor/plate_damage_02.wav";
 

@@ -1,6 +1,6 @@
-local COMMAND = Clockwork.command:New("OffsetHelper");
+﻿local COMMAND = Clockwork.command:New("OffsetHelper");
 
-COMMAND.tip = "Helps you setup item offsets.";
+COMMAND.tip = "Aide à configurer les décalages d'objets.";
 COMMAND.text = "<string UniqueID>";
 COMMAND.flags = bit.bor(CMD_DEFAULT, CMD_FALLENOVER);
 COMMAND.access = "s";

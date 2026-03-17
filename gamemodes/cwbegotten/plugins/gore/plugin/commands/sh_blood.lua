@@ -1,5 +1,5 @@
-local COMMAND = Clockwork.command:New("Blood");
-	COMMAND.tip = "Make a blood effect on the entity you are looking at.";
+﻿local COMMAND = Clockwork.command:New("Blood");
+	COMMAND.tip = "Crée un effet de sang sur l'entité que tu regardes.";
 	COMMAND.flags = CMD_DEFAULT;
 	COMMAND.access = "s";
 

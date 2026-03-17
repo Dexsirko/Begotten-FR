@@ -1,4 +1,4 @@
---[[
+﻿--[[
 	Begotten 3: Jesus Wept
 	written by: cash wednesday, DETrooper, gabs and alyousha35.
 --]]
@@ -64,10 +64,10 @@ local ITEM = Clockwork.item:New(nil, true)
 				
 				netstream.Start(player, "OpenBook", self("uniqueID"))
 			else
-				Schema:EasyText(player, "chocolate", "You cannot decipher the glyphs in this scripture!");
+				Schema:EasyText(player, "chocolate", "Vous ne pouvez pas déchiffrer les glyphes de ce grimoire !");
 			end
 		else
-			Schema:EasyText(player, "chocolate", "You are not literate!");
+			Schema:EasyText(player, "chocolate", "Vous n'êtes pas lettré !");
 		end
 		
 		return false
@@ -80,7 +80,7 @@ local ITEM = Clockwork.item:New(nil, true)
 			if player:HasItemByID("quill") and player:HasItemByID("paper") then
 				if !cwBeliefs or (cwBeliefs and player:HasBelief("scribe")) then
 					if !table.HasValue(player:GetCharacterData("BooksRead", {}), self.uniqueID) then
-						Schema:EasyText(player, "chocolate", "You must have read this scripture before attempting to copy it!");
+						Schema:EasyText(player, "chocolate", "Vous devez avoir lu cette écriture avant de tenter de la copier !");
 						
 						return false;
 					end
@@ -128,18 +128,18 @@ local ITEM = Clockwork.item:New(nil, true)
 								end
 							end
 						else
-							Schema:EasyText(player, "chocolate", "You cannot decipher the glyphs in this scripture!");
+							Schema:EasyText(player, "chocolate", "Tu ne peux pas déchiffrer les glyphes de ce manuscrit !");
 						end
 					else
-						--Schema:EasyText(player, "firebrick", "Something went horribly wrong! Please contact an admin using /adminhelp.");
+						--Schema:EasyText(player, "firebrick", "Quelque chose a horriblement mal tourné ! Veuillez contacter un administrateur en utilisant /adminhelp.");
 						return false;
 					end
 				else
-					Schema:EasyText(player, "chocolate", "You do not have the required belief to do this!");
+					Schema:EasyText(player, "chocolate", "Vous n'avez pas la croyance requise pour faire cela !");
 					return false;
 				end
 			else
-				Schema:EasyText(player, "chocolate", "You need paper and a quill to copy scriptures!");
+				Schema:EasyText(player, "chocolate", "Il te faut du papier et une plume pour copier les écritures !");
 				return false;
 			end
 		end;
@@ -168,7 +168,7 @@ local ITEM = Clockwork.item:New();
 	ITEM.weight = 0.1;
 	ITEM.category = "Tools";
 	ITEM.stackable = true;
-	ITEM.description = "A small quill that can be used for writing by those who are sufficiently learned.";
+	ITEM.description = "Une petite plume utilisable pour écrire par ceux qui sont suffisamment instruits.";
 	ITEM.iconoverride = "materials/begotten/ui/itemicons/quill.png"
 
 	ITEM.itemSpawnerInfo = {category = "City Junk", rarity = 200, onGround = false, bNoSupercrate = true};
@@ -183,7 +183,7 @@ local ITEM = Clockwork.item:New("book_base")
 	ITEM.model = "models/props_monastery/book_small.mdl"
 	ITEM.weight = 0.6;
 	ITEM.uniqueID = "book_bbab"
-	ITEM.description = "A leatherbound book titled after the controversial Glazic figure, Booby Blagoona."
+	ITEM.description = "Un livre relié en cuir portant le nom de la figure glazique controversée, Booby Blagoona."
 	ITEM.background = "https://i.imgur.com/ofkBgu0.png"
 	ITEM.bookInformation = {Book_Booby_Page1, Book_Booby_Page2, Book_Booby_Page3, Book_Booby_Page4}
 	ITEM.bookType = "Glazic"
@@ -198,7 +198,7 @@ local ITEM = Clockwork.item:New("book_base")
 	ITEM.model = "models/props_monastery/book_small.mdl"
 	ITEM.weight = 0.6;
 	ITEM.uniqueID = "book_bhkab"
-	ITEM.description = "A leatherbound book titled after an esteemed Glazic philosopher."
+	ITEM.description = "Un livre relié en cuir portant le titre d'un éminent philosophe glazien."
 	ITEM.background = "https://i.imgur.com/ofkBgu0.png"
 	ITEM.bookInformation = {Book_Boxer_Page1, Book_Boxer_Page2, Book_Boxer_Page3, Book_Boxer_Page4, Book_Boxer_Page5}
 	ITEM.bookType = "Glazic"
@@ -213,7 +213,7 @@ local ITEM = Clockwork.item:New("book_base")
 	ITEM.model = "models/props_monastery/book_small.mdl"
 	ITEM.weight = 0.6;
 	ITEM.uniqueID = "book_vkhab"
-	ITEM.description = "A leatherbound book titled after the first Grand Inquisitor."
+	ITEM.description = "Un livre relié en cuir portant le titre du premier Grand Inquisiteur."
 	ITEM.background = "https://i.imgur.com/ofkBgu0.png"
 	ITEM.bookInformation = {Book_Vance_Page1, Book_Vance_Page2, Book_Vance_Page3, Book_Vance_Page4, Book_Vance_Page5}
 	ITEM.bookType = "Glazic"
@@ -228,7 +228,7 @@ local ITEM = Clockwork.item:New("book_base")
 	ITEM.model = "models/props_monastery/book_small.mdl"
 	ITEM.weight = 0.6;
 	ITEM.uniqueID = "book_fotgore"
-	ITEM.description = "A leatherbound book detailing a brief summary on the Gores."
+	ITEM.description = "Un livre relié en cuir détaillant un bref résumé sur les Gores."
 	ITEM.background = "https://i.imgur.com/ofkBgu0.png"
 	ITEM.bookInformation = {Book_GoreFolly_Page1, Book_GoreFolly_Page2, Book_GoreFolly_Page3}
 	ITEM.bookType = "Glazic"
@@ -243,7 +243,7 @@ local ITEM = Clockwork.item:New("book_base")
 	ITEM.model = "models/props_monastery/book_small.mdl"
 	ITEM.weight = 0.6;
 	ITEM.uniqueID = "book_thegs"
-	ITEM.description = "A leatherbound book detailing the history of the Knights of Sol."
+	ITEM.description = "Un livre relié en cuir détaillant l'histoire des Chevaliers de Sol."
 	ITEM.background = "https://i.imgur.com/ofkBgu0.png"
 	ITEM.bookInformation = {Book_Seventeen_Page1, Book_Seventeen_Page2, Book_Seventeen_Page3}
 	ITEM.bookType = "Glazic"
@@ -258,7 +258,7 @@ local ITEM = Clockwork.item:New("book_base")
 	ITEM.model = "models/props_monastery/book_small.mdl"
 	ITEM.weight = 0.6;
 	ITEM.uniqueID = "book_bosr"
-	ITEM.description = "A leatherbound book that details one of the two Northern saints - the first, the Gore."
+	ITEM.description = "Un livre relié de cuir détaillant l'un des deux saints du Nord - le premier, le Givre."
 	ITEM.background = "https://i.imgur.com/ofkBgu0.png"
 	ITEM.bookInformation = {Book_SaintRagnar_Page1, Book_SaintRagnar_Page2, Book_SaintRagnar_Page3}
 	ITEM.bookType = "Glazic"
@@ -273,7 +273,7 @@ local ITEM = Clockwork.item:New("book_base")
 	ITEM.model = "models/props_monastery/book_small.mdl"
 	ITEM.weight = 0.6;
 	ITEM.uniqueID = "book_sosjtb"
-	ITEM.description = "A leatherbound book that details one of the two Northern saints - the last, the Philimonjio."
+	ITEM.description = "Un livre relié de cuir qui détaille l'un des deux saints du Nord - le dernier, le Philimonjio."
 	ITEM.background = "https://i.imgur.com/ofkBgu0.png"
 	ITEM.bookInformation = {Book_SaintMatheus_Page1, Book_SaintMatheus_Page2, Book_SaintMatheus_Page3, Book_SaintMatheus_Page4}
 	ITEM.bookType = "Glazic"
@@ -288,7 +288,7 @@ local ITEM = Clockwork.item:New("book_base")
 	ITEM.model = "models/items/magic/scrolls/scroll_rolled.mdl"
 	ITEM.weight = 0.6;
 	ITEM.uniqueID = "book_tcd"
-	ITEM.description = "A scroll of paper detailing a brief summary of the poor outlying districts."
+	ITEM.description = "Un parchemin détaillant un bref résumé des pauvres quartiers périphériques."
 	ITEM.background = "https://i.imgur.com/ofkBgu0.png"
 	ITEM.bookInformation = {Book_County1}
 	ITEM.bookType = "Glazic"
@@ -303,7 +303,7 @@ local ITEM = Clockwork.item:New("book_base")
 	ITEM.model = "models/props_monastery/book_large.mdl"
 	ITEM.weight = 1.4;
 	ITEM.uniqueID = "book_gks"
-	ITEM.description = "A large leatherbound epic detailing the first encounter with the Northern threat."
+	ITEM.description = "Un vaste récit relié en cuir détaillant la première rencontre avec la menace du Nord."
 	ITEM.background = "https://i.imgur.com/ofkBgu0.png"
 	ITEM.bookInformation = {Book_Gay_Page1, Book_Gay_Page2, Book_Gay_Page3, Book_Gay_Page4, Book_Gay_Page5, Book_Gay_Page6, Book_Gay_Page7, Book_Gay_Page8, Book_Gay_Page9, Book_Gay_Page10, Book_Gay_Page11, Book_Gay_Page12, Book_Gay_Page13, Book_Gay_Page14, Book_Gay_Page15, Book_Gay_Page16, Book_Gay_Page17, Book_Gay_Page18, Book_Gay_Page19, Book_Gay_Page20, Book_Gay_Page21, Book_Gay_Page22, Book_Gay_Page23, Book_Gay_Page24, Book_Gay_Page25, Book_Gay_Page26, Book_Gay_Page27}
 	ITEM.bookType = "Glazic"
@@ -318,7 +318,7 @@ local ITEM = Clockwork.item:New("book_base")
 	ITEM.model = "models/items/magic/scrolls/scroll_rolled.mdl"
 	ITEM.weight = 0.6;
 	ITEM.uniqueID = "book_s"
-	ITEM.description = "A scroll of paper dictating the practice of spooning."
+	ITEM.description = "Un parchemin décrivant la pratique de la cuillère."
 	ITEM.background = "https://i.imgur.com/ofkBgu0.png"
 	ITEM.bookInformation = {Book_Spooning}
 	ITEM.bookType = "Glazic"
@@ -333,7 +333,7 @@ local ITEM = Clockwork.item:New("book_base")
 	ITEM.model = "models/items/magic/scrolls/scroll_rolled.mdl"
 	ITEM.weight = 0.6;
 	ITEM.uniqueID = "book_rot"
-	ITEM.description = "A scroll of paper dictating the use of the Ride of Tears."
+	ITEM.description = "Un parchemin décrivant l'usage de la Chevauchée des Larmes."
 	ITEM.background = "https://i.imgur.com/ofkBgu0.png"
 	ITEM.bookInformation = {Book_Tears}
 	ITEM.bookType = "Glazic"
@@ -348,7 +348,7 @@ local ITEM = Clockwork.item:New("book_base")
 	ITEM.model = "models/items/magic/scrolls/scroll_rolled.mdl"
 	ITEM.weight = 0.6;
 	ITEM.uniqueID = "book_qogr"
-	ITEM.description = "A scroll of paper displaying quotes of brilliance."
+	ITEM.description = "Un parchemin de papier affichant des citations de génie."
 	ITEM.background = "https://i.imgur.com/ofkBgu0.png"
 	ITEM.bookInformation = {Book_Quotes1, Book_Quotes2}
 	ITEM.bookType = "Glazic"
@@ -363,7 +363,7 @@ local ITEM = Clockwork.item:New("book_base")
 	ITEM.model = "models/items/magic/scrolls/scroll_rolled.mdl"
 	ITEM.weight = 0.6;
 	ITEM.uniqueID = "book_qonp"
-	ITEM.description = "A scroll of paper displaying quotes of Gore-Glazic faith."
+	ITEM.description = "Un parchemin de papier affichant des citations de la foi Gore-Glazic."
 	ITEM.background = "https://i.imgur.com/ofkBgu0.png"
 	ITEM.bookInformation = {Book_NorthQuotes_Page1, Book_NorthQuotes_Page2, Book_NorthQuotes_Page3}
 	ITEM.bookType = "Glazic"
@@ -378,7 +378,7 @@ local ITEM = Clockwork.item:New("book_base")
 	ITEM.model = "models/items/magic/scrolls/scroll_rolled.mdl"
 	ITEM.weight = 0.6;
 	ITEM.uniqueID = "book_tpu"
-	ITEM.description = "A scroll of paper regarding a publication on the Fourth Erotica Ban."
+	ITEM.description = "Un parchemin concernant une publication sur le Quatrième Bannissement Érotique."
 	ITEM.background = "https://i.imgur.com/ofkBgu0.png"
 	ITEM.bookInformation = {Book_Urges1}
 	ITEM.bookType = "Glazic"
@@ -393,7 +393,7 @@ local ITEM = Clockwork.item:New("book_base")
 	ITEM.model = "models/items/magic/scrolls/scroll_rolled.mdl"
 	ITEM.weight = 0.6;
 	ITEM.uniqueID = "book_g"
-	ITEM.description = "A scroll of paper regarding the essence of creation and the source of all Light."
+	ITEM.description = "Un parchemin traitant de l'essence de la création et de la source de toute Lumière."
 	ITEM.background = "https://i.imgur.com/ofkBgu0.png"
 	ITEM.bookInformation = {Book_Glaze1}
 	ITEM.bookType = "Glazic"
@@ -408,7 +408,7 @@ local ITEM = Clockwork.item:New("book_base")
 	ITEM.model = "models/items/magic/scrolls/scroll_rolled.mdl"
 	ITEM.weight = 0.6;
 	ITEM.uniqueID = "book_totgno"
-	ITEM.description = "A scroll of paper detailing a great betrayal in a Gore-Glazic settlement."
+	ITEM.description = "Un parchemin détaillant une grande trahison dans une colonie Gore-Glazic."
 	ITEM.background = "https://i.imgur.com/ofkBgu0.png"
 	ITEM.bookInformation = {Book_Treachery1}
 	ITEM.bookType = "Glazic"
@@ -423,7 +423,7 @@ local ITEM = Clockwork.item:New("book_base")
 	ITEM.model = "models/props_monastery/book_small.mdl"
 	ITEM.weight = 1;
 	ITEM.uniqueID = "book_ds"
-	ITEM.description = "A leatherbound book dictating the maiden voyage of the Death Ships."
+	ITEM.description = "Un livre relié en cuir relatant le voyage inaugural des Vaisseaux de la Mort."
 	ITEM.background = "https://i.imgur.com/ofkBgu0.png"
 	ITEM.bookInformation = {Book_Deathships_Page1, Book_Deathships_Page2, Book_Deathships_Page3, Book_Deathships_Page4, Book_Deathships_Page5}
 	ITEM.bookType = "Glazic"
@@ -438,7 +438,7 @@ local ITEM = Clockwork.item:New("book_base")
 	ITEM.model = "models/props_monastery/book_small.mdl"
 	ITEM.weight = 0.6;
 	ITEM.uniqueID = "book_assault"
-	ITEM.description = "A leatherbound book recalling the events of a terrible tragedy."
+	ITEM.description = "Un livre relié de cuivre relatant les événements d'une terrible tragédie."
 	ITEM.background = "https://i.imgur.com/ofkBgu0.png"
 	ITEM.bookInformation = {Book_Assault_Page1, Book_Assault_Page2, Book_Assault_Page3, Book_Assault_Page4, Book_Assault_Page5}
 	ITEM.bookType = "Glazic"
@@ -453,7 +453,7 @@ local ITEM = Clockwork.item:New("book_base")
 	ITEM.model = "models/props_monastery/book_small.mdl"
 	ITEM.weight = 0.6;
 	ITEM.uniqueID = "book_karmine"
-	ITEM.description = "A leatherbound book titled after a county man of faith."
+	ITEM.description = "Un livre relié en cuir intitulé d'après un homme de foi du comté."
 	ITEM.background = "https://i.imgur.com/ofkBgu0.png"
 	ITEM.bookInformation = {Book_Karmine_Page1, Book_Karmine_Page2, Book_Karmine_Page3}
 	ITEM.bookType = "Glazic"
@@ -468,7 +468,7 @@ local ITEM = Clockwork.item:New("book_base")
 	ITEM.model = "models/props_monastery/book_large.mdl"
 	ITEM.weight = 1.4;
 	ITEM.uniqueID = "book_lord"
-	ITEM.description = "A large leatherbound epic titled after the greatest of all Glazic figures."
+	ITEM.description = "Un vaste récit relié en cuir, portant le nom de la plus illustre figure glazique."
 	ITEM.background = "https://i.imgur.com/ofkBgu0.png"
 	ITEM.bookInformation = {Book_Maximus_Page1, Book_Maximus_Page2, Book_Maximus_Page3, Book_Maximus_Page4, Book_Maximus_Page5, Book_Maximus_Page6, Book_Maximus_Page7, Book_Maximus_Page8, Book_Maximus_Page9, Book_Maximus_Page10, Book_Maximus_Page11}
 	ITEM.bookType = "Glazic"
@@ -483,7 +483,7 @@ local ITEM = Clockwork.item:New("book_base")
 	ITEM.model = "models/props_monastery/book_small.mdl"
 	ITEM.weight = 0.6;
 	ITEM.uniqueID = "book_fuckerjoe"
-	ITEM.description = "A leatherbound book titled after an infamous serial killer."
+	ITEM.description = "Un livre relié en cuir portant le nom d'un célèbre tueur en série."
 	ITEM.background = "https://i.imgur.com/ofkBgu0.png"
 	ITEM.bookInformation = {Book_Fucker_Page1, Book_Fucker_Page2, Book_Fucker_Page3, Book_Fucker_Page4}
 	ITEM.bookType = "Glazic"
@@ -498,7 +498,7 @@ local ITEM = Clockwork.item:New("book_base")
 	ITEM.model = "models/items/magic/scrolls/scroll_rolled.mdl"
 	ITEM.weight = 0.6;
 	ITEM.uniqueID = "book_alamos"
-	ITEM.description = "A scroll of paper depicting the eulogy of a fallen follower."
+	ITEM.description = "Un parchemin de papier dépeignant l'éloge funèbre d'un disciple tombé."
 	ITEM.background = "https://i.imgur.com/ofkBgu0.png"
 	ITEM.bookInformation = {Book_Alamos_Page1}
 	ITEM.bookType = "Glazic"
@@ -513,7 +513,7 @@ local ITEM = Clockwork.item:New("book_base")
 	ITEM.model = "models/props_monastery/book_small.mdl"
 	ITEM.weight = 0.6;
 	ITEM.uniqueID = "book_underg"
-	ITEM.description = "A leatherbound book titled after the ultimate antagonist of mankind. Written by an unknown Glazic author. Its presence fills you with unease."
+	ITEM.description = "Un livre relié en cuir, intitulé d'après l'ultime antagoniste de l'humanité. Écrit par un auteur glazien inconnu. Sa présence vous remplit d'un malaise."
 	ITEM.background = "https://i.imgur.com/ofkBgu0.png"
 	ITEM.bookInformation = {Book_Undergod_Page1, Book_Undergod_Page2, Book_Undergod_Page3, Book_Undergod_Page4, Book_Undergod_Page5}
 	ITEM.bookType = "Glazic"
@@ -528,7 +528,7 @@ local ITEM = Clockwork.item:New("book_base")
 	ITEM.model = "models/props_monastery/book_small.mdl"
 	ITEM.weight = 0.6;
 	ITEM.uniqueID = "book_tfi"
-	ITEM.description = "A leatherbound book detailing the First Inquisition."
+	ITEM.description = "Un livre relié en cuir détaillant la Première Inquisition."
 	ITEM.background = "https://i.imgur.com/ofkBgu0.png"
 	ITEM.bookInformation = {Book_FirstInquisition_Page1, Book_FirstInquisition_Page2, Book_FirstInquisition_Page3, Book_FirstInquisition_Page4}
 	ITEM.bookType = "Glazic"
@@ -543,7 +543,7 @@ local ITEM = Clockwork.item:New("book_base")
 	ITEM.model = "models/props_monastery/book_small.mdl"
 	ITEM.weight = 0.6;
 	ITEM.uniqueID = "book_tbegot"
-	ITEM.description = "A leatherbound book titled after the unholy corruption that plagues the world. Written by an unknown Glazic author. Its presence fills you with unease."
+	ITEM.description = "Un livre relié de cuir, intitulé d'après la corruption impie qui ravage le monde. Écrit par un auteur glazic inconnu. Sa présence vous remplit d'un profond malaise."
 	ITEM.background = "https://i.imgur.com/ofkBgu0.png"
 	ITEM.bookInformation = {Book_Begotten_Page1, Book_Begotten_Page2, Book_Begotten_Page3, Book_Begotten_Page4, Book_Begotten_Page5, Book_Begotten_Page6}
 	ITEM.bookType = "Glazic"
@@ -558,7 +558,7 @@ local ITEM = Clockwork.item:New("book_base")
 	ITEM.model = "models/items/magic/scrolls/scroll_rolled.mdl"
 	ITEM.weight = 0.6;
 	ITEM.uniqueID = "book_deadgod"
-	ITEM.description = "A scroll of paper detailing an eye-witness account from an unknown county peasant."
+	ITEM.description = "Un parchemin détaillant le témoignage oculaire d'un paysan anonyme d'un comté inconnu."
 	ITEM.background = "https://i.imgur.com/ofkBgu0.png"
 	ITEM.bookInformation = {Book_GodSuicide_Page1, Book_GodSuicide_Page2, Book_GodSuicide_Page3, Book_GodSuicide_Page4}
 	ITEM.bookType = "Glazic"
@@ -573,7 +573,7 @@ local ITEM = Clockwork.item:New("book_base")
 	ITEM.model = "models/items/magic/scrolls/scroll_rolled.mdl"
 	ITEM.weight = 0.6;
 	ITEM.uniqueID = "book_phallus"
-	ITEM.description = "A scroll of paper from the Far East. It bears foreign words written in red text."
+	ITEM.description = "Un parchemin de papier venu de l'Extrême-Orient. Il porte des mots étrangers inscrits en caractères rouges."
 	ITEM.background = "https://i.imgur.com/ofkBgu0.png"
 	ITEM.bookInformation = {Book_Phallus_Page1, Book_Phallus_Page2}
 	ITEM.bookType = "Darklander"
@@ -588,7 +588,7 @@ local ITEM = Clockwork.item:New("book_base")
 	ITEM.model = "models/begoyten/goretablet/goretablet.mdl"
 	ITEM.weight = 1.4;
 	ITEM.uniqueID = "book_shagalax"
-	ITEM.description = "A runic stone of the North. It has foreign text carved into it."
+	ITEM.description = "Une pierre runique du Nord. Elle porte des inscriptions en une langue étrangère."
 	ITEM.background = "https://i.imgur.com/1rRASI3.png"
 	ITEM.bookInformation = {Book_Shagalax_Page1, Book_Shagalax_Page2, Book_Shagalax_Page3, Book_Shagalax_Page4, Book_Shagalax_Page5, Book_Shagalax_Page6}
 	ITEM.bookType = "Goreic"
@@ -603,7 +603,7 @@ local ITEM = Clockwork.item:New("book_base")
 	ITEM.model = "models/begoyten/goretablet/goretablet.mdl"
 	ITEM.weight = 1.4;
 	ITEM.uniqueID = "book_kalkaslash"
-	ITEM.description = "A runic stone of the North. It has foreign text carved into it."
+	ITEM.description = "Une pierre runique du Nord. Elle porte des inscriptions en une langue étrangère."
 	ITEM.background = "https://i.imgur.com/1rRASI3.png"
 	ITEM.bookInformation = {Book_Gore_Page1, Book_Gore_Page2, Book_Gore_Page3, Book_Gore_Page4}
 	ITEM.bookType = "Goreic"
@@ -618,7 +618,7 @@ local ITEM = Clockwork.item:New("book_base")
 	ITEM.model = "models/begoyten/goretablet/goretablet.mdl"
 	ITEM.weight = 1.4;
 	ITEM.uniqueID = "book_druids"
-	ITEM.description = "A runic stone of the North. It has foreign text carved into it."
+	ITEM.description = "Une pierre runique du Nord. Des inscriptions étrangères y sont gravées."
 	ITEM.background = "https://i.imgur.com/1rRASI3.png"
 	ITEM.bookInformation = {Book_Druids_Page1, Book_Druids_Page2, Book_Druids_Page3}
 	ITEM.bookType = "Goreic"
@@ -633,7 +633,7 @@ local ITEM = Clockwork.item:New("book_base")
 	ITEM.model = "models/begoyten/goretablet/goretablet.mdl"
 	ITEM.weight = 1.4;
 	ITEM.uniqueID = "book_crast"
-	ITEM.description = "A runic stone of the North. It has foreign text carved into it."
+	ITEM.description = "Une pierre runique du Nord. Elle porte des inscriptions en une langue étrangère."
 	ITEM.background = "https://i.imgur.com/1rRASI3.png"
 	ITEM.bookInformation = {Book_Crast_Page1, Book_Crast_Page2, Book_Crast_Page3, Book_Crast_Page4, Book_Crast_Page5}
 	ITEM.bookType = "Goreic"
@@ -648,7 +648,7 @@ local ITEM = Clockwork.item:New("book_base")
 	ITEM.model = "models/begoyten/goretablet/goretablet.mdl"
 	ITEM.weight = 1.4;
 	ITEM.uniqueID = "book_harald"
-	ITEM.description = "A runic stone of the North. It has foreign text carved into it."
+	ITEM.description = "Une pierre runique du Nord. Elle porte des inscriptions en une langue étrangère."
 	ITEM.background = "https://i.imgur.com/1rRASI3.png"
 	ITEM.bookInformation = {Book_Harald_Page1, Book_Harald_Page2, Book_Harald_Page3}
 	ITEM.bookType = "Goreic"
@@ -663,7 +663,7 @@ local ITEM = Clockwork.item:New("book_base")
 	ITEM.model = "models/begoyten/goretablet/goretablet.mdl"
 	ITEM.weight = 1.4;
 	ITEM.uniqueID = "book_reaver"
-	ITEM.description = "A runic stone of the North. It has foreign text carved into it."
+	ITEM.description = "Une pierre runique du Nord. Elle porte des inscriptions en une langue étrangère."
 	ITEM.background = "https://i.imgur.com/1rRASI3.png"
 	ITEM.bookInformation = {Book_Reaver_Page1, Book_Reaver_Page2, Book_Reaver_Page3, Book_Reaver_Page4}
 	ITEM.bookType = "Goreic"
@@ -678,7 +678,7 @@ local ITEM = Clockwork.item:New("book_base")
 	ITEM.model = "models/props_monastery/book_large.mdl"
 	ITEM.weight = 1.2;
 	ITEM.uniqueID = "book_doomed"
-	ITEM.description = "A large leatherbound book bearing the cursed chronicles of a doomed legion."
+	ITEM.description = "Un grand livre relié en cuir contenant les chroniques maudites d'une légion condamnée."
 	ITEM.background = "https://i.imgur.com/ofkBgu0.png"
 	ITEM.bookInformation = {Book_Doomed_Page1, Book_Doomed_Page2, Book_Doomed_Page3, Book_Doomed_Page4, Book_Doomed_Page5, Book_Doomed_Page6, Book_Doomed_Page7, Book_Doomed_Page8, Book_Doomed_Page9, Book_Doomed_Page10, Book_Doomed_Page11, Book_Doomed_Page12, Book_Doomed_Page13, Book_Doomed_Page14, Book_Doomed_Page15, Book_Doomed_Page16, Book_Doomed_Page17, Book_Doomed_Page18}
 	ITEM.bookType = "Glazic"
@@ -716,7 +716,7 @@ if (CLIENT) then
 		self:SetPos((scrW / 2) - (self:GetWide() / 2), (scrH / 2) - (self:GetTall() / 2) )
 		
 		local loadingText = vgui.Create("DLabel", self)
-		loadingText:SetText("Loading...")
+		loadingText:SetText("Chargement...")
 		loadingText:SetFont("Subtitle_Yell")
 		loadingText:SetTextColor(Color(255, 0, 0, 150))
 		loadingText:SetPos((self:GetWide() / 2) - (GetFontWidth("Subtitle_Yell", "Loading...") / 2), (self:GetTall() / 2) - (GetFontHeight("Subtitle_Yell", "Loading...") / 2))
@@ -791,7 +791,7 @@ if (CLIENT) then
 		self.closebutton = vgui.Create("DButton", self)
 		self.closebutton:SetSize(self:GetWide() - 4, 16)
 		self.closebutton:SetPos(4, 870 - 48 - 4 + 36)
-		self.closebutton:SetText("  Close Scripture")
+		self.closebutton:SetText("Fermer l'Écriture")
 		
 		if (#pages <= 1) then
 			self.alwaysDisabled = true

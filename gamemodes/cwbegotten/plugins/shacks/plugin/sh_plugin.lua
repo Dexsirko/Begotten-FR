@@ -1,4 +1,4 @@
---[[
+﻿--[[
 	Begotten 3: Jesus Wept
 	written by: cash wednesday, DETrooper, gabs and alyousha35.
 --]]
@@ -18,7 +18,7 @@ end;
 local coinslotSounds = {"buttons/lever1.wav", "buttons/lever4.wav"};
 
 local COMMAND = Clockwork.command:New("CoinslotPurchase");
-	COMMAND.tip = "Purchase property from the Coinslot.";
+	COMMAND.tip = "Achetez une propriété depuis le distributeur de jetons.";
 	COMMAND.text = "<string Shack>";
 	COMMAND.flags = CMD_DEFAULT;
 	COMMAND.arguments = 1;
@@ -32,7 +32,7 @@ local COMMAND = Clockwork.command:New("CoinslotPurchase");
 
 			if (entity:GetClass() == "cw_coinslot") then
 				if player:GetFaction() == "Holy Hierarchy" then
-					Schema:EasyText(player, "peru", "The Holy Hierarchy cannot purchase property!");
+					Schema:EasyText(player, "peru", "La Hiérarchie Sacrée ne peut pas acquérir de propriété !");
 					return false;
 				end
 				
@@ -52,12 +52,12 @@ local COMMAND = Clockwork.command:New("CoinslotPurchase");
 			end;
 		end;
 		
-		Schema:EasyText(player, "peru", "You must be looking at the Coinslot to purchase property!");
+		Schema:EasyText(player, "peru", "Vous devez regarder le distributeur pour acheter une propriété !");
 	end;
 COMMAND:Register();
 
 local COMMAND = Clockwork.command:New("CoinslotSell");
-	COMMAND.tip = "Sell your property to the Coinslot.";
+	COMMAND.tip = "Vendez votre propriété au Distributeur de pièces.";
 	COMMAND.text = "<string Shack>";
 	COMMAND.flags = CMD_DEFAULT;
 	COMMAND.arguments = 1;
@@ -86,12 +86,12 @@ local COMMAND = Clockwork.command:New("CoinslotSell");
 			end;
 		end;
 		
-		Schema:EasyText(player, "peru", "You must be looking at the Coinslot to sell property!");
+		Schema:EasyText(player, "peru", "Vous devez regarder le distributeur pour vendre une propriété !");
 	end;
 COMMAND:Register();
 
 local COMMAND = Clockwork.command:New("CoinslotAddCoowner");
-	COMMAND.tip = "Add a character as a co-owner to your property for a 100 coin fee.";
+	COMMAND.tip = "Ajoutez un personnage comme copropriétaire à votre propriété pour 100 pièces.";
 	COMMAND.flags = CMD_DEFAULT;
 
 	-- Called when the command has been run.
@@ -115,7 +115,7 @@ local COMMAND = Clockwork.command:New("CoinslotAddCoowner");
 								local targetShack = target:GetOwnedShack();
 								
 								if faction == "Holy Hierarchy" or faction == "Goreic Warrior" then
-									Schema:EasyText(player, "peru", "You do not have enough coin to add a co-owner!");
+									Schema:EasyText(player, "peru", "Vous n'avez pas assez de pièces pour ajouter un co-propriétaire !");
 								
 									return;
 								end;
@@ -144,8 +144,8 @@ local COMMAND = Clockwork.command:New("CoinslotAddCoowner");
 
 									cwShacks:ShackCoownerAdded(target, shack);
 									
-									Schema:EasyText(player, "olivedrab", "You have added "..target:Name().." as a co-owner to your property.");
-									Schema:EasyText(target, "olivedrab", "You have been added as a co-owner to a property ("..shack..") by: "..player:Name()..".");
+									Schema:EasyText(player, "olivedrab", "Vous avez ajouté"..target:Name().." as a co-owner to your property.");
+									Schema:EasyText(target, "olivedrab", "Vous avez été ajouté comme copropriétaire d'une propriété ("..shack..") by: "..player:Name()..".");
 									
 									entity:EmitSound(coinslotSounds[math.random(#coinslotSounds)]);
 									
@@ -156,7 +156,7 @@ local COMMAND = Clockwork.command:New("CoinslotAddCoowner");
 									end);
 									
 								else
-									Schema:EasyText(player, "peru", "You do not have enough coin to add a co-owner!");
+									Schema:EasyText(player, "peru", "Vous n'avez pas assez de pièces pour ajouter un co-propriétaire !");
 								end
 							else
 								Schema:EasyText(player, "peru", result.." is not a valid character!");
@@ -165,18 +165,18 @@ local COMMAND = Clockwork.command:New("CoinslotAddCoowner");
 						
 						return;
 					else
-						Schema:EasyText(player, "peru", "You do not own any property!");
+						Schema:EasyText(player, "peru", "Vous ne possédez aucune propriété !");
 					end
 				end
 			end;
 		end;
 		
-		Schema:EasyText(player, "peru", "You must be looking at the Coinslot to sell property!");
+		Schema:EasyText(player, "peru", "Vous devez regarder le distributeur pour vendre une propriété !");
 	end;
 COMMAND:Register();
 
 local COMMAND = Clockwork.command:New("CoinslotRemoveCoowner");
-	COMMAND.tip = "Remove a co-owner from your property.";
+	COMMAND.tip = "Retirer un co-propriétaire de votre propriété.";
 	COMMAND.text = "<string Character>";
 	COMMAND.flags = CMD_DEFAULT;
 	COMMAND.arguments = 1;
@@ -195,25 +195,25 @@ local COMMAND = Clockwork.command:New("CoinslotRemoveCoowner");
 					if shack then
 						cwShacks:ShackCoownerRemoved(tonumber(arguments[1]), shack);
 						
-						Schema:EasyText(player, "olivedrab", "You have removed "..target:Name().." as a co-owner from your property.");
-						Schema:EasyText(target, "olivedrab", "You have been removed as a co-owner from a property ("..shack..") by: "..player:Name()..".");
+						Schema:EasyText(player, "olivedrab", "Vous avez retiré"..target:Name().." as a co-owner from your property.");
+						Schema:EasyText(target, "olivedrab", "Vous avez été retiré en tant que copropriétaire d'une propriété ("..shack..") by: "..player:Name()..".");
 						
 						entity:EmitSound(coinslotSounds[math.random(#coinslotSounds)]);
 						
 						return;
 					else
-						Schema:EasyText(player, "peru", "You do not own any property!");
+						Schema:EasyText(player, "peru", "Vous ne possédez aucune propriété !");
 					end
 				end
 			end;
 		end;
 		
-		Schema:EasyText(player, "peru", "You must be looking at the Coinslot to sell property!");
+		Schema:EasyText(player, "peru", "Vous devez regarder le distributeur de jetons pour vendre une propriété !");
 	end;
 COMMAND:Register();
 
 local COMMAND = Clockwork.command:New("OpenStash");
-	COMMAND.tip = "Open your property's stash. Your stash is not accessible by anyone else except for admins and the inqusition.";
+	COMMAND.tip = "Ouvre le coffre de votre propriété. Votre coffre n'est accessible à personne d'autre, sauf aux administrateurs et à l'Inquisition.";
 	COMMAND.flags = CMD_DEFAULT;
 
 	-- Called when the command has been run.
@@ -223,7 +223,7 @@ local COMMAND = Clockwork.command:New("OpenStash");
 COMMAND:Register();
 
 local COMMAND = Clockwork.command:New("ClearProperty");
-	COMMAND.tip = "Clear a property that you are looking at or inside.";
+	COMMAND.tip = "Efface une propriété que vous regardez ou dans laquelle vous vous trouvez.";
 	COMMAND.access = "s";
 
 	-- Called when the command has been run.
@@ -261,13 +261,13 @@ local COMMAND = Clockwork.command:New("ClearProperty");
 			--cwShacks:SaveShackData();
 			Schema:EasyText(player, "cornflowerblue", "["..self.name.."] You have cleared this property.");
 		else
-			Schema:EasyText(player, "grey", "A valid property could not be found!");
+			Schema:EasyText(player, "grey", "Aucune propriété valide n'a pu être trouvée !");
 		end
 	end;
 COMMAND:Register();
 
 local COMMAND = Clockwork.command:New("GetPropertyInfo");
-	COMMAND.tip = "Get information about a property when looking at the property's front door or while standing inside of it. Will only work for the Holy Hierarchy.";
+	COMMAND.tip = "Obtenez des informations sur une propriété en regardant la porte d'entrée ou en vous tenant à l'intérieur. Fonctionne uniquement pour la Sainte Hiérarchie.";
 	COMMAND.flags = CMD_DEFAULT;
 
 	-- Called when the command has been run.

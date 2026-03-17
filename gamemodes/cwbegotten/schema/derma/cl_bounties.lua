@@ -1,4 +1,4 @@
---[[
+﻿--[[
 	Begotten III: Jesus Wept
 	By: DETrooper, cash wednesday, gabs, alyousha35
 
@@ -68,11 +68,11 @@ function PANEL:Rebuild(bounties, state)
 	if !table.IsEmpty(bounties) then
 		local bountyForm = vgui.Create("cwBasicForm", self);
 		bountyForm:StretchToParent(0, 28, self:GetWide() / 1.5, 0);
-		--bountyForm:SetText("Uncollected Bounties", nil, "basic_form_highlight");
+		--bountyForm:SetText("Primes non perçues", nil, "basic_form_highlight");
 		bountyForm:SetText("");
 	
 		local descriptionLabel = vgui.Create("cwInfoText", self);
-		descriptionLabel:SetText("Those listed here have committed transgressions against the Glaze and must be corpsed.");
+		descriptionLabel:SetText("Les individus listés ici ont commis des transgressions envers le Glaze et doivent être réduits à l'état de cadavre.");
 		descriptionLabel:SetWide(self:GetWide() - 8);
 		descriptionLabel:SetPos(4, 22);
 		
@@ -140,7 +140,7 @@ function PANEL:PaintOver(width, height)
 		surface.DrawTexturedRect(x, y, wid, hei)
 		draw.RoundedBox(4, x, y, wid, hei, Color(0, 0, 0, 100));
 		
-		draw.DrawText("There are currently no active bounties,\n though there are yet enemies of the Glaze.", self.font, (width / 2), (height / 2), Color(170, 0, 0, 255), 1, 1);
+		draw.DrawText("Il n'y a actuellement aucune prime active,\nmais il reste des ennemis de la Glaze.", self.font, (width / 2), (height / 2), Color(170, 0, 0, 255), 1, 1);
 	end
 end
 
@@ -175,7 +175,7 @@ function PANEL:DisplayWantedPoster(bountyData, charKey)
 	
 	local proclamationLabel = vgui.Create("DLabel", wantedPoster);
 	proclamationLabel:SetPos(0, 55);
-	proclamationLabel:SetText("PROCLAMATION OF THE HOLY HIERARCHY");
+	proclamationLabel:SetText("PROCLAMATION DE LA SAINTE HIÉRARCHIE");
 	proclamationLabel:SetTextColor(Color(25, 25, 25, 255));
 	proclamationLabel:SetFont("Papyrus_Text");
 	proclamationLabel:SizeToContents();
@@ -183,7 +183,7 @@ function PANEL:DisplayWantedPoster(bountyData, charKey)
 	
 	local wantedLabel = vgui.Create("DLabel", wantedPoster);
 	wantedLabel:SetPos(0, 80);
-	wantedLabel:SetText("WANTED");
+	wantedLabel:SetText("RECHERCHÉ");
 	wantedLabel:SetTextColor(Color(120, 25, 25, 255));
 	wantedLabel:SetFont("Papyrus_Header");
 	wantedLabel:SizeToContents();
@@ -201,7 +201,7 @@ function PANEL:DisplayWantedPoster(bountyData, charKey)
 	local reason = bountyData.reason or "crimes against the Holy Hierarchy.";
 	local reasonLabel = vgui.Create("DLabel", wantedPoster);
 	reasonLabel:SetPos(0, 165);
-	reasonLabel:SetText("For "..reason);
+	reasonLabel:SetText("Pour"..reason);
 	reasonLabel:SetTextColor(Color(25, 25, 25, 255));
 	reasonLabel:SetFont("Papyrus_Text");
 	reasonLabel:SetAutoStretchVertical(true);
@@ -355,12 +355,12 @@ function PANEL:DisplayWantedPoster(bountyData, charKey)
 	
 	local statusLabel = vgui.Create("DLabel", wantedPoster);
 	statusLabel:SetPos(0, 540);
-	statusLabel:SetText("CURRENT LOCATION UNKNOWN");
+	statusLabel:SetText("POSITION ACTUELLE INCONNUE");
 	statusLabel:SetTextColor(Color(120, 25, 25, 255));
 	
 	for _, v in _player.Iterator() do
 		if v:GetNetVar("Key") == charKey then
-			statusLabel:SetText("ACTIVE IN THE AREA");
+			statusLabel:SetText("ACTIF DANS LA ZONE");
 			statusLabel:SetTextColor(Color(25, 120, 25, 255));
 			
 			break;
@@ -381,7 +381,7 @@ function PANEL:DisplayWantedPoster(bountyData, charKey)
 	
 	local captureLabel = vgui.Create("DLabel", wantedPoster);
 	captureLabel:SetPos(0, 615);
-	captureLabel:SetText("FOR THEIR CAPTURE DEAD OR ALIVE!");
+	captureLabel:SetText("POUR LEUR CAPTURE, MORT OU VIF !");
 	captureLabel:SetTextColor(Color(25, 25, 25, 255));
 	captureLabel:SetFont("Papyrus_Text");
 	captureLabel:SizeToContents();
@@ -389,7 +389,7 @@ function PANEL:DisplayWantedPoster(bountyData, charKey)
 	
 	local authorityLabel = vgui.Create("DLabel", wantedPoster);
 	authorityLabel:SetPos(0, 666);
-	authorityLabel:SetText("This proclamation is issued by the authority of:");
+	authorityLabel:SetText("Cette proclamation est émise sous l'autorité de :");
 	authorityLabel:SetTextColor(Color(25, 25, 25, 255));
 	authorityLabel:SetFont("Papyrus_Text");
 	authorityLabel:SizeToContents();

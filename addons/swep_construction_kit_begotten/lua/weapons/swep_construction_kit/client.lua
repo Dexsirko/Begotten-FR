@@ -1,4 +1,4 @@
-
+﻿
 include('glon.lua')
 
 surface.CreateFont("12ptFont", {font = "Arial", size = 12, width = 500, antialias = true, additive = false})
@@ -921,7 +921,7 @@ function SWEP:OpenBrowser( current, browse_type, callback )
 	
 	local cancelbtn = vgui.Create("DButton", rpanel)
 		cancelbtn:SetTall(20)
-		cancelbtn:SetText("cancel")
+		cancelbtn:SetText("Annuler")
 		cancelbtn.DoClick = function()
 			if (wep.Frame) then
 				wep.Frame:SetVisible(true)
@@ -933,9 +933,9 @@ function SWEP:OpenBrowser( current, browse_type, callback )
 	local choosebtn = vgui.Create("DButton", rpanel)
 		choosebtn:SetTall(20)
 		if (browse_type == "model") then
-			choosebtn:SetText("DO WANT THIS MODEL")
+			choosebtn:SetText("VOUS VOULEZ CE MODÈLE")
 		elseif (browse_type == "material") then
-			choosebtn:SetText("DO WANT THIS MATERIAL")
+			choosebtn:SetText("VOUS VOULEZ CE MATÉRIAU")
 		end
 	
 		choosebtn.DoClick = function()
@@ -1072,7 +1072,7 @@ local function CreateMenu( preset )
 	tpsbonelist:Dock(RIGHT)
 	
 	local tlabel = vgui.Create( "DLabel", tpanel )
-		tlabel:SetText( "Focus:" )
+		tlabel:SetText( "Focus :" )
 		tlabel:SizeToContents()
 		tlabel:SetTall(20)
 	tlabel:DockMargin(10,0,0,0)
@@ -1081,7 +1081,7 @@ local function CreateMenu( preset )
 	PopulateBoneList( tpsbonelist, LocalPlayer() )
 	
 	local tbtn = vgui.Create( "DButton", tpanel )
-		tbtn:SetText( "Toggle thirdperson" )
+		tbtn:SetText( "Activer/désactiver la vue à la troisième personne" )
 		tbtn.DoClick = function()
 			RunConsoleCommand("swepck_togglethirdperson")
 		end

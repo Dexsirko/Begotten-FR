@@ -1,4 +1,4 @@
---[[
+﻿--[[
 	Begotten III: Jesus Wept
 --]]
 
@@ -39,7 +39,7 @@ function cwStaticEnts:CanEntityStatic(entity)
 end;
 
 local COMMAND = Clockwork.command:New("StaticAdd");
-COMMAND.tip = "Add a static entity at your target position.";
+COMMAND.tip = "Ajoute une entité statique à votre position cible.";
 COMMAND.access = "a";
 
 -- Called when the command has been run.
@@ -79,7 +79,7 @@ end;
 COMMAND:Register();
 
 local COMMAND = Clockwork.command:New("StaticRemove");
-COMMAND.tip = "Remove static entities at your target position.";
+COMMAND.tip = "Supprimez les entités statiques à votre position ciblée.";
 COMMAND.access = "a";
 
 -- Called when the command has been run.

@@ -1,4 +1,4 @@
-SWEP.VMPos = Vector(0.5, -4, 0.5) --The viewmodel positional offset, constantly.  Subtract this from any other modifications to viewmodel position.
+﻿SWEP.VMPos = Vector(0.5, -4, 0.5) --The viewmodel positional offset, constantly.  Subtract this from any other modifications to viewmodel position.
 SWEP.VMAng = Vector(0, 0, 0) --The viewmodel angular offset, constantly.   Subtract this from any other modifications to viewmodel angle.
 
 SWEP.ViewModelBoneMods = {
@@ -224,9 +224,9 @@ function SWEP:AdjustFireBegotten()
 									if SERVER then
 										local position = self.Owner:GetPos();
 										
-										Clockwork.chatBox:AddInTargetRadius(self.Owner, "me", "pulls the trigger on their "..self.PrintName.." and it suddenly explodes!", position, config.Get("talk_radius"):Get() * 2);
+										Clockwork.chatBox:AddInTargetRadius(self.Owner, "me", "appuie sur la détente de leur"..self.PrintName.." and it suddenly explodes!", position, config.Get("talk_radius"):Get() * 2);
 										
-										Schema:EasyText(Schema:GetAdmins(), "icon16/bomb.png", "tomato", self.Owner:Name().."'s "..self.PrintName.." exploded!");
+										Schema:EasyText(Schema:GetAdmins(), "icon16/bomb.png", "tomate", self.Owner:Name().."'s "..self.PrintName.." exploded!");
 									
 										local effectData = EffectData();
 										effectData:SetStart(position);
@@ -247,9 +247,9 @@ function SWEP:AdjustFireBegotten()
 										self.Owner:EmitSound("vj_weapons/dryfire_revolver.wav");
 										
 										if forceJam then
-											Clockwork.chatBox:Add(self.Owner, nil, "it", "Some magical force prevents your firearm from firing, jamming it in the process!")
+											Clockwork.chatBox:Add(self.Owner, nil, "it", "Une force magique empêche votre arme à feu de tirer, la bloquant dans le processus !")
 										else
-											Clockwork.chatBox:Add(self.Owner, nil, "it", "Your firearm was loaded with a dud round and misfires!")
+											Clockwork.chatBox:Add(self.Owner, nil, "it", "Votre arme était chargée avec une cartouche défectueuse et a fait long feu !")
 										end
 									end
 									
@@ -281,7 +281,7 @@ function SWEP:CanFireBegotten()
 			
 				if faction ~= "Gatekeeper" and faction ~= "Holy Hierarchy" and faction ~= "Pope Adyssa's Gatekeepers" and faction ~= "Hillkeeper" then
 					if SERVER then
-						Clockwork.player:Notify(self.Owner, "You cannot attack in this holy place!");
+						Clockwork.player:Notify(self.Owner, "Vous ne pouvez pas attaquer dans ce lieu sacré !");
 					end
 					
 					return false;
@@ -1282,7 +1282,7 @@ function SWEP:PostThink()
 								if ammo and #ammo > 0 and !itemTable.usesMagazine then
 									itemTable:SetData("Ammo", {});
 									
-									Clockwork.player:Notify(self.Owner, "Your weapon fills with water and your powder charge is ruined!");
+									Clockwork.player:Notify(self.Owner, "Votre arme s'emplit d'eau et votre charge de poudre est perdue !");
 								end
 							end
 						end

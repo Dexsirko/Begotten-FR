@@ -1,4 +1,4 @@
--- Phoenix Project © 2016
+﻿-- Phoenix Project © 2016
 SWEP.VElements = {
 	["ashot"] = { type = "Model", model = "models/arxweapon/ashot.mdl", bone = "doublebarr", rel = "", pos = Vector(-0.201, -0.519, 0.518), angle = Angle(90, -85.325, -8.183), size = Vector(1, 1, 1), color = Color(255, 255, 255, 255), surpresslightning = false, material = "", skin = 0, bodygroup = {} }
 }
@@ -12,7 +12,7 @@ SWEP.Category				= "Begotten"
 SWEP.Author				= "gabs"
 SWEP.Contact				= ""
 SWEP.Purpose				= ""
-SWEP.Instructions				= "Click the trigger to fire, use the Right click to aim the sights."
+SWEP.Instructions				= "Cliquez sur la gâchette pour tirer, utilisez le clic droit pour viser avec le viseur."
 SWEP.MuzzleAttachment			= "1" 	-- Should be "1" for CSS models or "muzzle" for hl2 models
 SWEP.ShellEjectAttachment			= "2" 	-- Should be "2" for CSS models or "1" for hl2 models
 SWEP.PrintName				= "Guard Blunderbuss"		-- Weapon name (Shown on HUD)	

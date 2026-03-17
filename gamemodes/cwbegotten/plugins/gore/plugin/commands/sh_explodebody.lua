@@ -1,5 +1,5 @@
-local COMMAND = Clockwork.command:New("GibRagdoll");
-	COMMAND.tip = "Gib the ragdoll you are looking at to bits.";
+﻿local COMMAND = Clockwork.command:New("GibRagdoll");
+	COMMAND.tip = "Réduisez en morceaux le ragdoll que vous regardez.";
 	COMMAND.flags = CMD_DEFAULT;
 	COMMAND.access = "s";
 

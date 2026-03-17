@@ -1,9 +1,9 @@
---[[
+﻿--[[
 	BEGOTTEN III: Developed by DETrooper, cash wednesday, gabs & alyousha35
 --]]
 
 local COMMAND = Clockwork.command:New("DoorSetFalse")
-COMMAND.tip = "Set whether a door is false."
+COMMAND.tip = "Définir si une porte est factice."
 COMMAND.text = "<bool IsFalse>"
 COMMAND.flags = CMD_DEFAULT
 COMMAND.access = "a"

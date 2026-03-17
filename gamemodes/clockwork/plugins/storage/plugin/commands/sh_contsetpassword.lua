@@ -1,9 +1,9 @@
---[[
+﻿--[[
 	BEGOTTEN III: Developed by DETrooper, cash wednesday, gabs & alyousha35
 --]]
 
 local COMMAND = Clockwork.command:New("ContSetPassword")
-COMMAND.tip = "Set a container's password."
+COMMAND.tip = "Définir le mot de passe d'un conteneur."
 COMMAND.text = "<string Pass>"
 COMMAND.flags = CMD_DEFAULT
 COMMAND.access = "a"
@@ -54,7 +54,7 @@ end
 COMMAND:Register()
 
 local COMMAND = Clockwork.command:New("ContGetPassword")
-COMMAND.tip = "Get a container's password."
+COMMAND.tip = "Obtenir le mot de passe d'un conteneur."
 COMMAND.flags = CMD_DEFAULT
 COMMAND.access = "a"
 
@@ -80,7 +80,7 @@ end
 COMMAND:Register()
 
 local COMMAND = Clockwork.command:New("ContForceOpen")
-COMMAND.tip = "Open a container without the password."
+COMMAND.tip = "Ouvrir un conteneur sans le mot de passe."
 COMMAND.flags = CMD_DEFAULT
 COMMAND.access = "s"
 

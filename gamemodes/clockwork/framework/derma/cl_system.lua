@@ -1,4 +1,4 @@
---[[
+﻿--[[
 	Begotten III: Jesus Wept
 	By: DETrooper, cash wednesday, gabs, alyousha35
 
@@ -38,7 +38,7 @@ function PANEL:Rebuild()
 		self.panelList:AddItem(self.navigationForm);
 	
 		local backButton = vgui.Create("DButton", self);
-			backButton:SetText("Back to Navigation");
+			backButton:SetText("Retour à la navigation");
 			backButton:SetWide(self:GetParent():GetWide());
 			
 			-- Called when the button is clicked.
@@ -62,7 +62,7 @@ function PANEL:Rebuild()
 		end;
 	else
 		local label = vgui.Create("cwInfoText", self);
-			label:SetText("The "..Clockwork.option:GetKey("name_system").." provides you with various tools.");
+			label:SetText("Le"..Clockwork.option:GetKey("name_system").." provides you with various tools.");
 			label:SetInfoColor("blue");
 		self.panelList:AddItem(label);
 		

@@ -1,4 +1,4 @@
---[[
+﻿--[[
 	Begotten 3
 	Created by cash wednesday, gabs, DETrooper and alyousha35
 --]]
@@ -182,7 +182,7 @@ function playerMeta:Cloak()
 	end
 	
 	if !self.cloaked then
-		Clockwork.chatBox:AddInTargetRadius(self, "me", "'s very flesh begins to fade until they are completely invisible!", self:GetPos(), Clockwork.config:Get("talk_radius"):Get());
+		Clockwork.chatBox:AddInTargetRadius(self, "me", "Sa chair même commence à s'estomper jusqu'à devenir complètement invisible !", self:GetPos(), Clockwork.config:Get("talk_radius"):Get());
 	end
 	
 	self:SetRenderMode(RENDERMODE_TRANSALPHA);
@@ -199,7 +199,7 @@ function playerMeta:Uncloak()
 	end
 	
 	if self.cloaked then
-		Clockwork.chatBox:AddInTargetRadius(self, "me", "begins to materialize and become visible!", self:GetPos(), Clockwork.config:Get("talk_radius"):Get());
+		Clockwork.chatBox:AddInTargetRadius(self, "me", "commence à se matérialiser et à devenir visible !", self:GetPos(), Clockwork.config:Get("talk_radius"):Get());
 	end
 
 	self:SetRenderMode(RENDERMODE_TRANSALPHA);

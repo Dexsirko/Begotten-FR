@@ -1,4 +1,4 @@
---[[
+﻿--[[
 	Begotten III: Jesus Wept
 	By: DETrooper, cash wednesday, gabs, alyousha35
 
@@ -11,7 +11,7 @@ local ITEM = item.New(nil, true);
 	ITEM.weight = 2
 	ITEM.useText = "Equip"
 	ITEM.category = "Charms"
-	ITEM.description = "An enchanted item with a mysterious aura."
+	ITEM.description = "Un objet enchanté dégageant une aura mystérieuse."
 	ITEM.requiredFaiths = nil;
 	ITEM.slots = {"Charm1", "Charm2"};
 	ITEM.equipmentSaveString = "charms";
@@ -59,7 +59,7 @@ local ITEM = item.New(nil, true);
 	function ITEM:OnDrop(player, position)
 		if (self:HasPlayerEquipped(player)) then
 			if !player.spawning then
-				Schema:EasyText(player, "peru", "You cannot drop an item you're currently wearing.")
+				Schema:EasyText(player, "peru", "Vous ne pouvez pas lâcher un objet que vous portez actuellement.")
 			end
 			
 			return false
@@ -70,7 +70,7 @@ local ITEM = item.New(nil, true);
 	function ITEM:OnUse(player, itemEntity)
 		if (self:HasPlayerEquipped(player)) then
 			if !player.spawning then
-				Schema:EasyText(player, "peru", "You already have a charm of this type equipped!")
+				Schema:EasyText(player, "peru", "Vous avez déjà un charme de ce type équipé !")
 			end
 			
 			return false
@@ -86,7 +86,7 @@ local ITEM = item.New(nil, true);
 				if (table.HasValue(self.excludedFactions, kinisgerOverride or faction)) then
 					if !self.includedSubfactions or #self.includedSubfactions < 1 or !table.HasValue(self.includedSubfactions, kinisgerOverrideSubfaction or subfaction) then
 						if !player.spawning then
-							Schema:EasyText(player, "chocolate", "You are not the correct faction to equip this charm!")
+							Schema:EasyText(player, "chocolate", "Vous n'êtes pas de la faction appropriée pour équiper ce charme !")
 						end
 						
 						return false
@@ -97,7 +97,7 @@ local ITEM = item.New(nil, true);
 			if self.excludedSubfactions and #self.excludedSubfactions > 0 then
 				if (table.HasValue(self.excludedSubfactions, kinisgerOverrideSubfaction or subfaction)) then
 					if !player.spawning then
-						Schema:EasyText(player, "chocolate", "You are not the correct subfaction to equip this charm!")
+						Schema:EasyText(player, "chocolate", "Vous n'êtes pas de la bonne sous-faction pour équiper ce charme !")
 					end
 					
 					return false
@@ -108,7 +108,7 @@ local ITEM = item.New(nil, true);
 				if (!table.HasValue(self.requiredFaiths, player:GetFaith())) then
 					if !self.kinisgerOverride or self.kinisgerOverride and !player:GetCharacterData("apostle_of_many_faces") then
 						if !player.spawning then
-							Schema:EasyText(player, "chocolate", "You are not the correct faith to equip this charm!")
+							Schema:EasyText(player, "chocolate", "Vous n'avez pas la foi requise pour équiper ce charme !")
 						end
 						
 						return false
@@ -120,7 +120,7 @@ local ITEM = item.New(nil, true);
 				if (!table.HasValue(self.requiredSubfaiths, player:GetSubfaith())) then
 					if !self.kinisgerOverride or self.kinisgerOverride and !player:GetCharacterData("apostle_of_many_faces") then
 						if !player.spawning then
-							Schema:EasyText(player, "chocolate", "You are not the correct subfaith to equip this charm!")
+							Schema:EasyText(player, "chocolate", "Vous n'êtes pas de la sous-foi appropriée pour équiper ce charme !")
 						end
 						
 						return false
@@ -131,7 +131,7 @@ local ITEM = item.New(nil, true);
 			if self.requiredFactions and #self.requiredFactions > 0 then
 				if (!table.HasValue(self.requiredFactions, faction) and (!kinisgerOverride or !table.HasValue(self.requiredFactions, kinisgerOverride))) then
 					if !player.spawning then
-						Schema:EasyText(player, "chocolate", "You are not the correct faction to equip this charm!")
+						Schema:EasyText(player, "chocolate", "Vous n'êtes pas de la faction appropriée pour équiper ce charme !")
 					end
 					
 					return false
@@ -141,7 +141,7 @@ local ITEM = item.New(nil, true);
 			if self.requiredSubfactions and #self.requiredSubfactions > 0 then
 				if (!table.HasValue(self.requiredSubfactions, subfaction) and (!kinisgerOverrideSubfaction or !table.HasValue(self.requiredSubfactions, kinisgerOverrideSubfaction))) then
 					if !player.spawning then
-						Schema:EasyText(player, "peru", "You are not the correct subfaction to equip this charm!")
+						Schema:EasyText(player, "peru", "Vous n'êtes pas de la bonne sous-faction pour équiper ce charme !")
 					end
 					
 					return false
@@ -157,7 +157,7 @@ local ITEM = item.New(nil, true);
 					if rankString then
 						if (!table.HasValue(self.requiredRanks, rankString)) then
 							if !player.spawning then
-								Schema:EasyText(player, "peru", "You are not the correct rank to equip this charm!")
+								Schema:EasyText(player, "peru", "Vous n'avez pas le rang requis pour équiper ce charme !")
 							
 								return false;
 							end
@@ -171,7 +171,7 @@ local ITEM = item.New(nil, true);
 			for i, v in ipairs(self.mutuallyExclusive) do
 				if player:GetCharmEquipped(v) then
 					if !player.spawning then
-						Schema:EasyText(player, "chocolate", "This charm is mutually exclusive with another equipped charm!")
+						Schema:EasyText(player, "chocolate", "Ce charme est mutuellement exclusif avec un autre charme équipé !")
 					end
 					
 					return false
@@ -195,13 +195,13 @@ local ITEM = item.New(nil, true);
 			end
 	
 			if !player.spawning then
-				Schema:EasyText(player, "peru", "You do not have an open slot to equip this charm in!")
+				Schema:EasyText(player, "peru", "Vous n'avez pas d'emplacement libre pour équiper ce charme !")
 			end
 			
 			return false;
 		else
 			if !player.spawning then
-				Schema:EasyText(player, "peru", "You cannot do this action at this moment.")
+				Schema:EasyText(player, "peru", "Vous ne pouvez pas effectuer cette action pour le moment.")
 			end
 		end
 

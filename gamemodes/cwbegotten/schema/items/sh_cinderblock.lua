@@ -1,4 +1,4 @@
---[[
+﻿--[[
 	Begotten 3
 	Created by cash wednesday, gabs, DETrooper and alyousha35
 --]]
@@ -6,7 +6,7 @@
 local ITEM = Clockwork.item:New()
 	ITEM.name = "Cinderblock with Rope"
 	ITEM.model = "models/props_junk/CinderBlock01a.mdl"
-	ITEM.description = "A concrete cinderblock with a length of rope tied around it."
+	ITEM.description = "Un parpaing en béton avec une corde attachée autour."
 	ITEM.weight = 20
 	ITEM.uniqueID = "cinder_block"
 	
@@ -20,14 +20,14 @@ local ITEM = Clockwork.item:New()
 		if (IsValid(trace.Entity) and (trace.Entity:GetClass() == "prop_ragdoll"--[[ or trace.Entity:IsPlayer()]])) then
 			return Schema:CinderBlockExecution(player, trace.Entity, self)
 		else
-			Schema:EasyText(player, "peru", "You must look at somebody to tie this!")
+			Schema:EasyText(player, "peru", "Tu dois regarder quelqu'un pour l'attacher !")
 			return false
 		end
 	end
 	
 	function ITEM:CanPickup(player, bQuickUse, entity)
 		if (player:HasItemByID("cinder_block")) then
-			Schema:EasyText(player, "peru", "You cannot carry more than one cinder block at a time!")
+			Schema:EasyText(player, "peru", "Vous ne pouvez pas transporter plus d'une brique à la fois !")
 			return false
 		end
 	end

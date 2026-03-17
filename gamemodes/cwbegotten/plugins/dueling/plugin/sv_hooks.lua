@@ -1,4 +1,4 @@
---[[
+﻿--[[
 	Begotten III: Jesus Wept
 --]]
 
@@ -103,11 +103,11 @@ end;
 -- Called when a player attempts to use an item.
 function cwDueling:PlayerCanUseItem(player, itemTable, noMessage)
 	if self:PlayerIsInMatchmaking(player) then
-		Schema:EasyText(player, "firebrick", "You cannot use items while matchmaking for a duel!");
+		Schema:EasyText(player, "firebrick", "Vous ne pouvez pas utiliser d'objets pendant la recherche de match pour un duel !");
 		return false;
 	--elseif self:PlayerIsDueling(player) then
 	elseif player.opponent then
-		Schema:EasyText(player, "firebrick", "You cannot use items while in a duel!");
+		Schema:EasyText(player, "firebrick", "Vous ne pouvez pas utiliser d'objets pendant un duel !");
 		return false;
 	end;
 end;
@@ -115,11 +115,11 @@ end;
 -- Called when a player attempts to drop an item.
 function cwDueling:PlayerCanDropItem(player, itemTable, noMessage)
 	if self:PlayerIsInMatchmaking(player) then
-		Schema:EasyText(player, "firebrick", "You cannot drop items while matchmaking for a duel!");
+		Schema:EasyText(player, "firebrick", "Vous ne pouvez pas lâcher d'objets pendant la recherche de duel !");
 		return false;
 	--elseif self:PlayerIsDueling(player) then
 	elseif player.opponent then
-		Schema:EasyText(player, "firebrick", "You cannot drop items while in a duel!");
+		Schema:EasyText(player, "firebrick", "Vous ne pouvez pas lâcher d'objets pendant un duel !");
 		return false;
 	end;
 end;

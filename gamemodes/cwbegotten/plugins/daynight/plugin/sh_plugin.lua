@@ -1,4 +1,4 @@
---[[
+﻿--[[
 	Begotten III: Jesus Wept
 --]]
 
@@ -10,7 +10,7 @@ Clockwork.kernel:IncludePrefixed("sv_plugin.lua");
 Clockwork.kernel:IncludePrefixed("sv_hooks.lua");
 
 local COMMAND = Clockwork.command:New("SetCycle");
-	COMMAND.tip = "Set whether it should be day or night. \"Force\" argument skips the transitionary period. \"Notify\" argument determines if a /event is automatically made.";
+	COMMAND.tip = "Définit s'il doit faire jour ou nuit."Force\" argument skips the transitionary period. \"Notify\" argument determines if a /event is automatically made.";
 	COMMAND.text = "<string Cycle> [bool Force] [bool Notify]";
 	COMMAND.access = "a";
 	COMMAND.arguments = 1;
@@ -37,13 +37,13 @@ local COMMAND = Clockwork.command:New("SetCycle");
 				end
 			end
 		else
-			Schema:EasyText(player, "darkgrey", "This is not a valid cycle! The valid cycles are \"day\" and \"night\".");
+			Schema:EasyText(player, "darkgrey", "Ce n'est pas un cycle valide ! Les cycles valides sont \"day\" and \"night\".");
 		end;
 	end;
 COMMAND:Register();
 
 local COMMAND = Clockwork.command:New("ChangeCycleLength");
-	COMMAND.tip = "Append or subtract from a cycle's length.";
+	COMMAND.tip = "Ajouter ou soustraire à la durée d'un cycle.";
 	COMMAND.text = "<number Seconds>";
 	COMMAND.access = "a";
 	COMMAND.arguments = 1;
@@ -56,13 +56,13 @@ local COMMAND = Clockwork.command:New("ChangeCycleLength");
 			cwDayNight:ModifyCycleTimeLeft(seconds);
 			Schema:EasyText(player, "cornflowerblue", "["..self.name.."] ".."The time left for "..cwDayNight:GetCurrentCycle().." is now "..tostring(cwDayNight:GetCycleTimeLeft()).." seconds!");
 		else
-			Schema:EasyText(player, "darkgrey", "This is not a valid amount!");
+			Schema:EasyText(player, "darkgrey", "Ce n'est pas un montant valide !");
 		end
 	end;
 COMMAND:Register();
 
 local COMMAND = Clockwork.command:New("GetCycle");
-	COMMAND.tip = "Get the current cycle of the day/night cycle.";
+	COMMAND.tip = "Obtenez le cycle actuel du cycle jour/nuit.";
 	COMMAND.access = "a";
 
 	-- Called when the command has been run.

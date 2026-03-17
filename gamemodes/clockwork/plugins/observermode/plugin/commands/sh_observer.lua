@@ -1,9 +1,9 @@
---[[
+﻿--[[
 	BEGOTTEN III: Developed by DETrooper, cash wednesday, gabs & alyousha35
 --]]
 
 local COMMAND = Clockwork.command:New("Observer")
-COMMAND.tip = "Enter or exit observer mode."
+COMMAND.tip = "Entrer ou sortir du mode observateur."
 COMMAND.access = "o"
 COMMAND.logless = true;
 
@@ -21,7 +21,7 @@ end
 COMMAND:Register()
 
 local COMMAND = Clockwork.command:New("ClientsideObserver")
-COMMAND.tip = "Enter or exit clientside observer mode."
+COMMAND.tip = "Entrer ou sortir du mode observateur côté client."
 COMMAND.access = "s"
 COMMAND.logless = true;
 
@@ -35,7 +35,7 @@ end
 COMMAND:Register()
 
 local COMMAND = Clockwork.command:New("MakeSpectate");
-	COMMAND.tip = "Make a player enter or exit spectator mode.";
+	COMMAND.tip = "Fait entrer ou sortir un joueur du mode spectateur.";
 	COMMAND.text = "<string Name>";
 	COMMAND.access = "s";
 	COMMAND.arguments = 1;
@@ -68,7 +68,7 @@ local COMMAND = Clockwork.command:New("MakeSpectate");
 COMMAND:Register();
 
 local COMMAND = Clockwork.command:New("MakeSpectateAll")
-	COMMAND.tip = "Make all non-admins enter spectator mode.";
+	COMMAND.tip = "Forcer tous les non-administrateurs à passer en mode spectateur.";
 	COMMAND.access = "s";
 	COMMAND.alias = {"SpectateAll", "ObserverAll", "NoclipAll"};
 	
@@ -81,7 +81,7 @@ local COMMAND = Clockwork.command:New("MakeSpectateAll")
 				end
 				
 				cwObserverMode:MakePlayerEnterObserverMode(v)
-				Schema:EasyText(v, "cornflowerblue", "You have entered spectator mode!");
+				Schema:EasyText(v, "cornflowerblue", "Vous êtes entré en mode spectateur !");
 				v:StripWeapons();
 			end
 		end
@@ -91,7 +91,7 @@ local COMMAND = Clockwork.command:New("MakeSpectateAll")
 COMMAND:Register();
 
 local COMMAND = Clockwork.command:New("MakeUnSpectateAll");
-	COMMAND.tip = "Make all non-admins exit spectator mode, optional argument for un-pking.";
+	COMMAND.tip = "Forcer tous les non-administrateurs à quitter le mode spectateur, argument optionnel pour annuler le mode PK.";
 	COMMAND.text = "[bool Unpermakill]";
 	COMMAND.access = "s";
 	COMMAND.optionalarguments = 1;
@@ -102,7 +102,7 @@ local COMMAND = Clockwork.command:New("MakeUnSpectateAll");
 		for _, v in _player.Iterator() do
 			if not v:IsAdmin() and v.cwObserverMode then
 				cwObserverMode:MakePlayerExitObserverMode(v);
-				Schema:EasyText(v, "cornflowerblue", "You have exited spectator mode!");
+				Schema:EasyText(v, "cornflowerblue", "Vous avez quitté le mode spectateur !");
 			end
 			
 			if arguments and arguments[1] then
@@ -117,7 +117,7 @@ local COMMAND = Clockwork.command:New("MakeUnSpectateAll");
 COMMAND:Register();
 
 local COMMAND = Clockwork.command:New("PlyTeleportSpectators");
-	COMMAND.tip = "Teleport all spectating player to your target location.";
+	COMMAND.tip = "Téléporte tous les joueurs en spectateur vers votre position cible.";
 	COMMAND.access = "s";
 	COMMAND.alias = {"PlyBringSpectators", "CharTeleportSpectators", "CharBringSpectators"};
 
@@ -136,7 +136,7 @@ local COMMAND = Clockwork.command:New("PlyTeleportSpectators");
 COMMAND:Register();
 
 local COMMAND = Clockwork.command:New("Spectate")
-COMMAND.tip = "Enter or exit spectator mode if spectator mode is enabled and you are dead."
+COMMAND.tip = "Entrez ou sortez du mode spectateur si celui-ci est activé et que vous êtes mort."
 COMMAND.logless = true;
 
 -- Called when the command has been run.
@@ -144,32 +144,32 @@ function COMMAND:OnRun(player, arguments)
 	if cwObserverMode.spectatorMode then
 		if (!player.cwObserverReset) then
 			if player.opponent then
-				Schema:EasyText(player, "darkgrey", "You cannot enter spectate mode while in a duel!");
+				Schema:EasyText(player, "darkgrey", "Vous ne pouvez pas entrer en mode spectateur pendant un duel !");
 				return false;
 			end
 			
 			if !player:Alive() then
 				if (player:GetMoveType(player) == MOVETYPE_NOCLIP) then
 					cwObserverMode:MakePlayerExitObserverMode(player)
-					Schema:EasyText(player, "cornflowerblue", "You have exited spectator mode!");
+					Schema:EasyText(player, "cornflowerblue", "Vous avez quitté le mode spectateur !");
 				else
 					cwObserverMode:MakePlayerEnterObserverMode(player)
-					Schema:EasyText(player, "cornflowerblue", "You have entered spectator mode!");
+					Schema:EasyText(player, "cornflowerblue", "Vous êtes entré en mode spectateur !");
 					player:StripWeapons();
 				end
 			else
-				Schema:EasyText(player, "darkgrey", "You must be dead in order to manually trigger spectate mode!");
+				Schema:EasyText(player, "darkgrey", "Vous devez être mort pour activer manuellement le mode spectateur !");
 			end
 		end
 	else
-		Schema:EasyText(player, "grey", "Spectator mode is not currently enabled!");
+		Schema:EasyText(player, "grey", "Le mode spectateur n'est pas actuellement activé !");
 	end
 end
 
 COMMAND:Register()
 
 local COMMAND = Clockwork.command:New("SpectatorModeOn");
-	COMMAND.tip = "Turn spectator mode on.";
+	COMMAND.tip = "Active le mode spectateur.";
 	COMMAND.access = "s";
 
 	-- Called when the command has been run.
@@ -187,7 +187,7 @@ local COMMAND = Clockwork.command:New("SpectatorModeOn");
 COMMAND:Register();
 
 local COMMAND = Clockwork.command:New("SpectatorModeOff");
-	COMMAND.tip = "Turn spectator mode off.";
+	COMMAND.tip = "Désactiver le mode spectateur.";
 	COMMAND.access = "s";
 
 	-- Called when the command has been run.
@@ -199,7 +199,7 @@ local COMMAND = Clockwork.command:New("SpectatorModeOff");
 COMMAND:Register();
 
 local COMMAND = Clockwork.command:New("SpectatorModeStatus");
-	COMMAND.tip = "Print whether spectator mode is on, and if so, who is in it.";
+	COMMAND.tip = "Affiche si le mode spectateur est activé et, le cas échéant, qui s'y trouve.";
 	COMMAND.access = "s";
 
 	-- Called when the command has been run.

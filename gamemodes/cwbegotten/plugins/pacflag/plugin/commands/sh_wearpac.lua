@@ -1,10 +1,10 @@
-COMMAND = Clockwork.command:New("WearPAC")
-COMMAND.tip = "Wears your PAC creation."
+﻿COMMAND = Clockwork.command:New("WearPAC")
+COMMAND.tip = "Porte votre création PAC."
 
 -- Called when the command has been run.
 function COMMAND:OnRun(player)
 	if !Clockwork.player:HasFlags(player, "W") then
-		Clockwork.player:Notify(player, "You don't have the permission to use PAC!")
+		Clockwork.player:Notify(player, "Vous n'avez pas l'autorisation d'utiliser PAC !")
 	else
 		player:ConCommand("pac_wear_parts")
 	end

@@ -1,4 +1,4 @@
---[[
+﻿--[[
 	Begotten III: Jesus Wept
 --]]
 
@@ -194,7 +194,7 @@ function cwPossession:StartCommand(player, ucmd)
 end;
 
 local COMMAND = Clockwork.command:New("DemonHeal");
-	COMMAND.tip = "Use demonic powers to heal the injuries of a vessel, should only be used on possessed people and is a very public occurrence.";
+	COMMAND.tip = "Utilise des pouvoirs démoniaques pour soigner les blessures d'un hôte, à n'utiliser que sur des personnes possédées. C'est un événement très visible.";
 	COMMAND.text = "<string Name>";
 	COMMAND.access = "s";
 	COMMAND.optionalArguments = 1;
@@ -244,9 +244,9 @@ local COMMAND = Clockwork.command:New("DemonHeal");
 					Clockwork.player:SetRagdollState(target, RAGDOLL_NONE);
 				end
 				
-				Clockwork.chatBox:AddInTargetRadius(target, "me", "is suddenly and miraculously healed of their wounds! Your eyes seem almost to deceive you as you watch their wounds disappear.", target:GetPos(), Clockwork.config:Get("talk_radius"):Get() * 2);
+				Clockwork.chatBox:AddInTargetRadius(target, "me", "est soudainement et miraculeusement guéri de ses blessures ! Vos yeux semblent presque vous tromper tandis que vous observez ses blessures disparaître.", target:GetPos(), Clockwork.config:Get("talk_radius"):Get() * 2);
 			else
-				Schema:EasyText(player, "peru", "You cannot use this command for another "..tostring(math.ceil(player.nextDemonHeal - curTime)).." seconds!");
+				Schema:EasyText(player, "peru", "Vous ne pouvez pas utiliser cette commande avant"..tostring(math.ceil(player.nextDemonHeal - curTime)).." seconds!");
 			end
 		else
 			Schema:EasyText(player, "grey", arguments[1].." is not a valid character!");
@@ -256,7 +256,7 @@ local COMMAND = Clockwork.command:New("DemonHeal");
 COMMAND:Register();
 
 local COMMAND = Clockwork.command:New("DemonShriek");
-COMMAND.tip = "If possessing a player, let out a blood-curdling shriek that disorients nearby players and drains their sanity.";
+COMMAND.tip = "Si vous possédez un joueur, poussez un hurlement à glacer le sang qui désoriente les joueurs proches et draine leur santé mentale.";
 COMMAND.access = "s";
 COMMAND.alias = {"Shriek"};
 
@@ -280,19 +280,19 @@ function COMMAND:OnRun(player, arguments)
 				end
 			end
 			
-			Clockwork.chatBox:AddInTargetRadius(player.victim, "me", "lets out an unholy and blood-curdling shriek!", player.victim:GetPos(), Clockwork.config:Get("talk_radius"):Get() * 2);
+			Clockwork.chatBox:AddInTargetRadius(player.victim, "me", "pousse un cri impie et à glacer le sang !", player.victim:GetPos(), Clockwork.config:Get("talk_radius"):Get() * 2);
 		else
-			Schema:EasyText(player, "peru", "You cannot use this command for another "..tostring(math.ceil(player.nextDemonShriek - curTime)).." seconds!");
+			Schema:EasyText(player, "peru", "Vous ne pouvez pas utiliser cette commande avant"..tostring(math.ceil(player.nextDemonShriek - curTime)).." seconds!");
 		end
 	else
-		Schema:EasyText(player, "grey", "You must be possessing someone to use this command!");
+		Schema:EasyText(player, "grey", "Vous devez posséder quelqu'un pour utiliser cette commande !");
 	end
 end;
 
 COMMAND:Register();
 
 local COMMAND = Clockwork.command:New("DemonTalk");
-COMMAND.tip = "Send a message to a player as a demon.";
+COMMAND.tip = "Envoyer un message à un joueur en tant que démon.";
 COMMAND.text = "<string Name> <string Message>";
 COMMAND.access = "s";
 COMMAND.arguments = 2;
@@ -322,7 +322,7 @@ end;
 COMMAND:Register();
 
 local COMMAND = Clockwork.command:New("DemonNiceTalk");
-COMMAND.tip = "Send a message to a player as a demon pretending to be something nicer.";
+COMMAND.tip = "Envoyer un message à un joueur en prétendant être une entité plus sympathique.";
 COMMAND.text = "<string Name> <string Message>";
 COMMAND.access = "s";
 COMMAND.arguments = 2;
@@ -352,7 +352,7 @@ end;
 COMMAND:Register();
 
 local COMMAND = Clockwork.command:New("DemonWhisper");
-COMMAND.tip = "Whisper a message into a player's ear.";
+COMMAND.tip = "Chuchote un message à l'oreille d'un joueur.";
 COMMAND.text = "<string Name> <string Message>";
 COMMAND.access = "s";
 COMMAND.arguments = 2;
@@ -369,7 +369,7 @@ function COMMAND:OnRun(player, arguments)
 			Clockwork.chatBox:Add(target, nil, "whispersomeone", message);
 		--end
 		
-		--Clockwork.chatBox:Add(player, nil, "whispersomeone", "[TO "..string.upper(target:Name())..":"..message);
+		--Clockwork.chatBox:Add(player, nil, "whispersomeone", "[À"..string.upper(target:Name())..":"..message);
 		Schema:EasyText(player, "cornflowerblue", "["..self.name.."] You have demonwhispered \""..message.."\" to "..target:Name()..".");
 	else
 		Schema:EasyText(player, "grey", "["..self.name.."] "..arguments[1].." is not a valid player!");
@@ -379,7 +379,7 @@ end;
 COMMAND:Register();
 
 local COMMAND = Clockwork.command:New("DemonFakeTalk");
-COMMAND.tip = "Make a player think another player is saying something.";
+COMMAND.tip = "Faire croire à un joueur qu'un autre joueur dit quelque chose.";
 COMMAND.text = "<string Target Name> <string Speaker Name> <string Message>";
 COMMAND.access = "s";
 COMMAND.arguments = 3;
@@ -395,7 +395,7 @@ function COMMAND:OnRun(player, arguments)
 		if (speaker) then
 			if (message) ~= "" then
 				Clockwork.chatBox:Add(target, speaker, "ic", message);
-				Clockwork.chatBox:Add(player, speaker, "ic", "[TO "..string.upper(target:Name()).." FROM "..string.upper(speaker:Name())..": "..message);
+				Clockwork.chatBox:Add(player, speaker, "ic", "[À"..string.upper(target:Name()).." FROM "..string.upper(speaker:Name())..": "..message);
 			else
 				Schema:EasyText(player, "darkgrey", "["..self.name.."] ".."This is not a valid message!");
 			end
@@ -410,7 +410,7 @@ end;
 COMMAND:Register();
 
 local COMMAND = Clockwork.command:New("DemonFakeWhisper");
-COMMAND.tip = "Make a player think another player is whispering something.";
+COMMAND.tip = "Faire croire à un joueur qu'un autre joueur lui murmure quelque chose.";
 COMMAND.text = "<string Target Name> <string Speaker Name> <string Message>";
 COMMAND.access = "s";
 COMMAND.arguments = 3;
@@ -426,7 +426,7 @@ function COMMAND:OnRun(player, arguments)
 		if (speaker) then
 			if (message) ~= "" then
 				Clockwork.chatBox:Add(target, speaker, "whisper", message);
-				Clockwork.chatBox:Add(player, speaker, "whisper", "[TO "..string.upper(target:Name()).." FROM "..string.upper(speaker:Name())..": "..message);
+				Clockwork.chatBox:Add(player, speaker, "whisper", "[À"..string.upper(target:Name()).." FROM "..string.upper(speaker:Name())..": "..message);
 			else
 				Schema:EasyText(player, "darkgrey", "["..self.name.."] ".."This is not a valid message!");
 			end
@@ -442,7 +442,7 @@ end;
 COMMAND:Register();
 
 local COMMAND = Clockwork.command:New("DemonFakeMe");
-COMMAND.tip = "Make a player think another player is whispering something.";
+COMMAND.tip = "Faire croire à un joueur qu'un autre joueur lui chuchote quelque chose.";
 COMMAND.text = "<string Target Name> <string Speaker Name> <string Message>";
 COMMAND.access = "s";
 COMMAND.arguments = 3;
@@ -458,7 +458,7 @@ function COMMAND:OnRun(player, arguments)
 		if (speaker) then
 			if (message) ~= "" then
 				Clockwork.chatBox:Add(target, speaker, "me", message);
-				Clockwork.chatBox:Add(player, speaker, "me", "[TO "..string.upper(target:Name()).." FROM "..string.upper(speaker:Name())..": "..message);
+				Clockwork.chatBox:Add(player, speaker, "me", "[À"..string.upper(target:Name()).." FROM "..string.upper(speaker:Name())..": "..message);
 			else
 				Schema:EasyText(player, "darkgrey", "["..self.name.."] ".."This is not a valid message!");
 			end
@@ -473,7 +473,7 @@ end;
 COMMAND:Register();
 
 local COMMAND = Clockwork.command:New("ForceSuicide");
-COMMAND.tip = "Force your enemies to fucking commit suicide.";
+COMMAND.tip = "Force tes ennemis à se foutre en l'air.";
 COMMAND.text = "<string Name>";
 COMMAND.access = "s";
 COMMAND.arguments = 1;
@@ -494,7 +494,7 @@ end;
 COMMAND:Register();
 
 local COMMAND = Clockwork.command:New("PlyMakeFreakout");
-COMMAND.tip = "Make a possessed player go fucking crazy!!! Lowers the sanity of nearby players. Lasts 30 seconds and then knocks the player unconscious, though possessing them prior will abort the latter behavior. Optional argument to ignore the trait requirement.";
+COMMAND.tip = "Rends un joueur possédé complètement dingue !!! Diminue la santé mentale des joueurs proches. Dure 30 secondes puis assomme le joueur, bien qu'une possession préalable annule cet effet. Argument optionnel pour ignorer la condition de trait.";
 COMMAND.text = "<string Name> [bool IgnoreTrait]";
 COMMAND.access = "s";
 COMMAND.arguments = 1;
@@ -522,7 +522,7 @@ end;
 COMMAND:Register();
 
 local COMMAND = Clockwork.command:New("PlySummonDemon");
-COMMAND.tip = "Make a possessed player explode and a thrall will spawn in their place.";
+COMMAND.tip = "Fait exploser un joueur possédé et un thrall apparaîtra à sa place.";
 COMMAND.text = "<string Name> [bool IgnoreTrait]";
 COMMAND.access = "s";
 COMMAND.arguments = 1;
@@ -535,7 +535,7 @@ function COMMAND:OnRun(player, arguments)
 	if (target) then
 		local targetPos = target:GetPos();
 		
-		Clockwork.chatBox:AddInTargetRadius(target, "me", "abruptly explodes into a shower of fire and gore as a fucking demon bursts from their very flesh!", targetPos, config.Get("talk_radius"):Get() * 2);
+		Clockwork.chatBox:AddInTargetRadius(target, "me", "explose soudainement en une pluie de feu et de viscères alors qu'un putain de démon jaillit de sa propre chair !", targetPos, config.Get("talk_radius"):Get() * 2);
 		
 		target:Kill();
 		
@@ -573,7 +573,7 @@ end;
 COMMAND:Register();
 
 local COMMAND = Clockwork.command:New("PlyMakeSay");
-COMMAND.tip = "Speak through another player. Put text in quotations. You can use /me, /y, etc. in the text. Example: /plymakesay aaron \"/me begins convulsing.\"";
+COMMAND.tip = "Parle à travers un autre joueur. Place le texte entre guillemets. Tu peux utiliser /me, /y, etc. dans le texte. Exemple : /plymakesay aaron"/me begins convulsing.\"";
 COMMAND.text = "<string Name> <string Text>";
 COMMAND.access = "s";
 COMMAND.arguments = 2;
@@ -593,7 +593,7 @@ end;
 COMMAND:Register();
 
 local COMMAND = Clockwork.command:New("PlyPossess");
-COMMAND.tip = "Possess a player, you should probably only do this if they have the 'Possessed' trait. Optional argument to ignore the trait requirement.";
+COMMAND.tip = "Possédez un joueur, vous ne devriez probablement faire cela que s'il a le trait 'Possédé'. Argument optionnel pour ignorer l'exigence de trait.";
 COMMAND.text = "<string Name> [bool IgnoreTrait]";
 COMMAND.access = "s";
 COMMAND.arguments = 1;
@@ -625,7 +625,7 @@ end;
 COMMAND:Register();
 
 local COMMAND = Clockwork.command:New("PlyUnPossess");
-COMMAND.tip = "Unpossess the player you are currently possessing.";
+COMMAND.tip = "Libère le joueur que tu possèdes actuellement.";
 COMMAND.access = "s";
 COMMAND.alias = {"UnPossess", "CharUnPossess"};
 
@@ -648,14 +648,14 @@ function COMMAND:OnRun(player, arguments)
 			end
 		end
 	else
-		Schema:EasyText(player, "grey", "You are not currently possessing a player!");
+		Schema:EasyText(player, "grey", "Vous ne possédez actuellement aucun joueur !");
 	end;
 end;
 
 COMMAND:Register();
 
 local COMMAND = Clockwork.command:New("PlyTrack");
-COMMAND.tip = "Set a player to actively track.";
+COMMAND.tip = "Définir un joueur à suivre activement.";
 COMMAND.text = "<string Name>";
 COMMAND.access = "o";
 COMMAND.arguments = 0;
@@ -667,19 +667,19 @@ function COMMAND:OnRun(player, arguments)
 	if (target) and (not target:IsBot()) then
 		player:SetNetVar("tracktarget", target:SteamID());
 		target:SetNetVar("trackedby", player:SteamID());
-		Schema:EasyText(player, "cornflowerblue", "Now tracking "..target:Name()..".");
+		Schema:EasyText(player, "cornflowerblue", "Suivi en cours"..target:Name()..".");
 	else
-		Schema:EasyText(player, "grey", "No valid target argument found.");
+		Schema:EasyText(player, "grey", "Aucun argument de cible valide trouvé.");
 		if player:GetNetVar("tracktarget") then 
 			for _, v in _player.Iterator() do
 				local steamID = v:SteamID();
 				if steamID == player:GetNetVar("tracktarget") then
 					
-					Schema:EasyText(player, "cornflowerblue", "Currently tracking "..v:Name()..".");
+					Schema:EasyText(player, "cornflowerblue", "En cours de suivi"..v:Name()..".");
 					return;
 				end
 			end
-			Schema:EasyText(player, "darkgrey", "Current target not connected.");
+			Schema:EasyText(player, "darkgrey", "Cible actuelle non connectée.");
 		end
 	end;
 end;
@@ -687,7 +687,7 @@ end;
 COMMAND:Register();
 
 local COMMAND = Clockwork.command:New("PlyClearTrack");
-COMMAND.tip = "Clear your set target.";
+COMMAND.tip = "Effacez votre cible définie.";
 COMMAND.text = "";
 COMMAND.access = "o";
 COMMAND.arguments = 0;
@@ -702,21 +702,21 @@ function COMMAND:OnRun(player, arguments)
 			end
 		end
 		player:SetNetVar("tracktarget", nil)
-		Schema:EasyText(player, "cornflowerblue", "Current target cleared.");
+		Schema:EasyText(player, "cornflowerblue", "Cible actuelle effacée.");
 	end;
 end;
 
 COMMAND:Register();
 
 local COMMAND = Clockwork.command:New("PlyTrackGoTo");
-COMMAND.tip = "Go to your currently tracked target.";
+COMMAND.tip = "Allez vers votre cible actuellement suivie.";
 COMMAND.text = "";
 COMMAND.access = "o";
 COMMAND.arguments = 0;
 
 -- Called when the command has been run.
 function COMMAND:OnRun(player, arguments)
-	Schema:EasyText(player, "grey", "No valid target argument found.");
+	Schema:EasyText(player, "grey", "Aucun argument de cible valide trouvé.");
 	if player:GetNetVar("tracktarget") then 
 		for _, v in _player.Iterator() do
 			local steamID = v:SteamID();
@@ -728,7 +728,7 @@ function COMMAND:OnRun(player, arguments)
 			end
 		end
 		
-		Schema:EasyText(player, "grey", "Invalid tracked player.");
+		Schema:EasyText(player, "grey", "Joueur suivi invalide.");
 	end;
 end;
 

@@ -1,4 +1,4 @@
---[[
+﻿--[[
 	Begotten 3: Jesus Wept
 	written by: cash wednesday, DETrooper, gabs and alyousha35.
 --]]
@@ -54,7 +54,7 @@ else
 end;
 
 local COMMAND = Clockwork.command:New("AddPileSpawn")
-	COMMAND.tip = "Add a pile spawn location using a spawned entity's positions and angles. (Valid types: gorewood, ore, wood)"
+	COMMAND.tip = "Ajoute un point d'apparition de pile en utilisant la position et l'orientation d'une entité générée. (Types valides : gorewood, ore, wood)"
 	COMMAND.text = "<string Category>"
 	COMMAND.access = "s"
 	COMMAND.arguments = 1;
@@ -66,7 +66,7 @@ local COMMAND = Clockwork.command:New("AddPileSpawn")
 COMMAND:Register()
 
 local COMMAND = Clockwork.command:New("RemovePileSpawn")
-	COMMAND.tip = "Remove a pile spawn location at your cursor."
+	COMMAND.tip = "Supprime un point d'apparition de pile à l'emplacement de votre curseur."
 	COMMAND.access = "s"
 	COMMAND.optionalArguments = 1;
 	COMMAND.text = "[int Radius]"
@@ -79,7 +79,7 @@ local COMMAND = Clockwork.command:New("RemovePileSpawn")
 COMMAND:Register()
 
 local COMMAND = Clockwork.command:New("PityOreSpawn")
-	COMMAND.tip = "Force an ore pile to have its next drop be gold ore or a blood diamond. Use 'gold' or 'blooddiamond'."
+	COMMAND.tip = "Forcer un tas de minerai à ce que sa prochaine chute soit de l'or ou un diamant de sang. Utilisez 'gold' ou 'blooddiamond'."
 	COMMAND.text = "<string dropType>"
 	COMMAND.access = "s"
 	COMMAND.arguments = 1;

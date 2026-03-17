@@ -1,9 +1,9 @@
---[[
+﻿--[[
 	BEGOTTEN III: Developed by DETrooper, cash wednesday, gabs & alyousha35
 --]]
 
 local COMMAND = Clockwork.command:New("DoorSetAllUnownable")
-COMMAND.tip = "Set all doors unownable."
+COMMAND.tip = "Rendre toutes les portes impossibles à posséder."
 COMMAND.text = "<string Name>"
 COMMAND.flags = CMD_DEFAULT
 COMMAND.access = "a"

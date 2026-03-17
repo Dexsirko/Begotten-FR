@@ -1,4 +1,4 @@
---[[
+﻿--[[
 	Begotten III: Jesus Wept
 	By: DETrooper, cash wednesday, gabs, alyousha35
 
@@ -6,7 +6,7 @@
 --]]
 
 local COMMAND = Clockwork.command:New("SpawnPointRemove")
-COMMAND.tip = "Remove spawn points at your target position."
+COMMAND.tip = "Supprime les points d'apparition à votre position cible."
 COMMAND.text = "<string Class|Faction|Default>"
 COMMAND.flags = CMD_DEFAULT
 COMMAND.access = "a"

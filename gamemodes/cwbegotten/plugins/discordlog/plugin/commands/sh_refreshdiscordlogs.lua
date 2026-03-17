@@ -1,5 +1,5 @@
-local COMMAND = Clockwork.command:New("EnableDiscordLogs");
-	COMMAND.tip = "Refresh and enable the discord logs.";
+﻿local COMMAND = Clockwork.command:New("EnableDiscordLogs");
+	COMMAND.tip = "Actualise et active les journaux Discord.";
 	COMMAND.access = "s";
 
 	-- Called when the command has been run.

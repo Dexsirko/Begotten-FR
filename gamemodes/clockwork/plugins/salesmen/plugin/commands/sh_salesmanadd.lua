@@ -1,9 +1,9 @@
---[[
+﻿--[[
 	BEGOTTEN III: Developed by DETrooper, cash wednesday, gabs & alyousha35
 --]]
 
 local COMMAND = Clockwork.command:New("SalesmanAdd")
-COMMAND.tip = "Add a salesman at your target position."
+COMMAND.tip = "Ajoute un vendeur à votre position cible."
 COMMAND.text = "[number Animation]"
 COMMAND.flags = CMD_DEFAULT
 COMMAND.access = "s"

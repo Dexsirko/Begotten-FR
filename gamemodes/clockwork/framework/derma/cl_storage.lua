@@ -1,4 +1,4 @@
---[[
+﻿--[[
 	Begotten III: Jesus Wept
 	By: DETrooper, cash wednesday, gabs, alyousha35
 
@@ -83,7 +83,7 @@ function PANEL:Init()
 	local font = Clockwork.fonts:GetMultiplied("nov_IntroTextSmallDETrooper", 2.25);
 	self.cumfont = font;
 	self.closeButton = vgui.Create("DButton", self);
-	self.closeButton:SetText("Close");
+	self.closeButton:SetText("Fermer");
 	self.closeButton:SetFont(font)
 	self.closeButton:SetTextColor(Color(170, 0, 0));
 	local fw, fh = GetFontWidth(font,"Close"),GetFontHeight(font,"Close")
@@ -210,7 +210,7 @@ function PANEL:RebuildPanel(storagePanel, storageType, usedWeight, weight, usedS
 		cashForm = vgui.Create("DForm", storagePanel);
 		button = vgui.Create("DButton", storagePanel);
 		
-		button:SetText("Transfer");
+		button:SetText("Transfert");
 		button.Stretch = true;
 		
 		-- Called when the button is clicked.
@@ -746,7 +746,7 @@ function PANEL:Init()
 			self.equipButton = vgui.Create("DButton", self.infoPlate)
 			
 			if player:GetItemEquipped(self.itemTable) then
-				self.equipButton:SetText("Unequip");
+				self.equipButton:SetText("Déséquiper");
 				
 				function self.equipButton.DoClick(panel)
 					if (!self.nextCanClick or CurTime() >= self.nextCanClick) then
@@ -764,7 +764,7 @@ function PANEL:Init()
 					end;
 				end
 			else
-				self.equipButton:SetText("Equip");
+				self.equipButton:SetText("Équiper");
 				
 				function self.equipButton.DoClick(panel)
 					if (!self.nextCanClick or CurTime() >= self.nextCanClick) then

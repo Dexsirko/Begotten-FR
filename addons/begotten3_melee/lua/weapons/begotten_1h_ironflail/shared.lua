@@ -1,4 +1,4 @@
-SWEP.Base = "sword_swepbase"
+﻿SWEP.Base = "sword_swepbase"
 -- WEAPON TYPE: One Handed
 
 SWEP.PrintName = "Iron Flail"
@@ -140,7 +140,7 @@ function SWEP:OnMiss()
 				selfless = "herself";
 			end
 			
-			Clockwork.chatBox:AddInTargetRadius(self.Owner, "me", "accidentally hits "..selfless.." with their own flail!", self.Owner:GetPos(), Clockwork.config:Get("talk_radius"):Get() * 2);
+			Clockwork.chatBox:AddInTargetRadius(self.Owner, "me", "touche accidentellement"..selfless.." avec leur propre fléau !", self.Owner:GetPos(), Clockwork.config:Get("talk_radius"):Get() * 2);
 		end
 	end
 end

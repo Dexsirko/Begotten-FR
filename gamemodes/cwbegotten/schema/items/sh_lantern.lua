@@ -1,4 +1,4 @@
---[[
+﻿--[[
 	Begotten III: Jesus Wept
 	By: DETrooper, cash wednesday, gabs, alyousha35
 
@@ -12,7 +12,7 @@ local ITEM = Clockwork.item:New("weapon_base");
 	ITEM.category = "Lights";
 	ITEM.uniqueID = "cw_lantern";
 	ITEM.iconoverride = "materials/begotten/ui/itemicons/lantern.png";
-	ITEM.description = "An old, dim oil lantern...";
+	ITEM.description = "Une vieille lanterne à huile, à la lueur vacillante...";
 	ITEM.isAttachment = true;
 	ITEM.attachmentBone = "ValveBiped.Bip01_R_Thigh";
 	ITEM.attachmentOffsetAngles = Angle(337.13, 76.57, 355.26);

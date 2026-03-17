@@ -1,4 +1,4 @@
---[[
+﻿--[[
 	Created by cash wednesday.
 --]]
 
@@ -117,7 +117,7 @@ function PANEL:Populate(itemTable)
 	if (!IsValid(self.panelTitle)) then
 		self.panelTitle = vgui.Create("DLabel", self);
 		self.panelTitle:SetPos(4, 4);
-		self.panelTitle:SetText("Select a key from your keyring.");
+		self.panelTitle:SetText("Sélectionnez une clé dans votre porte-clés.");
 		self.panelTitle:SetTextColor(Color(255, 255, 255));
 		self.panelTitle:SizeToContents();
 	end;
@@ -149,7 +149,7 @@ function PANEL:Populate(itemTable)
 		
 		if (!IsValid(self.keyTitle)) then
 			self.keyTitle = vgui.Create("DLabel", self);
-			self.keyTitle:SetText("You have no keys!");
+			self.keyTitle:SetText("Vous n'avez aucune clé !");
 			self.keyTitle:SetTextColor(Color(220, 0, 0));
 			self.keyTitle:SetFont("cwMainText");
 			self.keyTitle:SetPos(width - (textWidth * 1.15), 28);
@@ -160,7 +160,7 @@ function PANEL:Populate(itemTable)
 			local buttonWidth = width * 0.8;
 			
 			self.closeButton = vgui.Create("DButton", self);
-			self.closeButton:SetText("CLOSE");
+			self.closeButton:SetText("FERMER");
 			self.closeButton:SetSize(buttonWidth, 40); 
 			self.closeButton:SetPos(width - buttonWidth, textHeight + 36);
 			self.closeButton.Large = true;

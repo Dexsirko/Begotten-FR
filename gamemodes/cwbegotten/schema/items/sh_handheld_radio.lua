@@ -1,9 +1,9 @@
-local ITEM = Clockwork.item:New();
+﻿local ITEM = Clockwork.item:New();
 	ITEM.name = "Handheld Radio";
 	ITEM.model = "models/damnation/radio.mdl";
 	ITEM.weight = 0.4;
 	ITEM.category = "Communication"
-	ITEM.description = "An ancient piece of technology from a bygone era that allows communication over vast distances.";
+	ITEM.description = "Un antique fragment de technologie d'une ère révolue, permettant la communication sur de vastes distances.";
 	ITEM.iconoverride = "materials/begotten/ui/itemicons/handheld_radio.png"
 	ITEM.customFunctions = {"Frequency", "Turn On", "Turn Off"};
 	ITEM.itemSpawnerInfo = {category = "Communication", rarity = 800};

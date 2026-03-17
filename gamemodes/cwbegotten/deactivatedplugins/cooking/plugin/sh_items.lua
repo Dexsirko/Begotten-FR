@@ -1,4 +1,4 @@
---[[
+﻿--[[
 	B3 Jessu Weep
 --]]
 
@@ -7,7 +7,7 @@ local ITEM = Clockwork.item:New(nil)
 	ITEM.name = "Food Base";
 	ITEM.uniqueID = "food_base";
 	ITEM.model = "models/props_junk/garbage_metalcan002a.mdl";
-	ITEM.description = "A can of worms."
+	ITEM.description = "Une boîte de Pandore."
 	ITEM.openTool = {"snowdog", 4}; -- can be opened with snowdog or any equipped begotten weapons with DMG_SLASH damage type
 	ITEM.useSound = "common/null.wav";
 	ITEM.foodQuantityScale = 0.5; -- master scale for decaying food amount.
@@ -74,10 +74,10 @@ local ITEM = Clockwork.item:New(nil)
 			end;
 			
 			if (tool) then
-				Schema:EasyText(player, "olivedrab", "You open your "..self.name.." with your "..tool..".");
+				Schema:EasyText(player, "olivedrab", "Tu ouvres ton"..self.name.." with your "..tool..".");
 				self:Seal(false, player);
 			else
-				Schema:EasyText(player, "chocolate", "You cannot open this without the proper tool!");
+				Schema:EasyText(player, "chocolate", "Tu ne peux pas ouvrir ceci sans l'outil approprié !");
 				self:TakeCondition(math.random(1, 4), true)
 			end;
 			

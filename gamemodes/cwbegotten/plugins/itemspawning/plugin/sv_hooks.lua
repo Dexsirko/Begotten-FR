@@ -1,4 +1,4 @@
---[[
+﻿--[[
 	Begotten 3: Jesus Wept
 	written by: cash wednesday, DETrooper, gabs and alyousha35.
 --]]
@@ -487,7 +487,7 @@ function cwItemSpawner:PreOpenedContainer(player, container)
 							
 							Clockwork.kernel:PrintLog(LOGTYPE_MINOR, player:Name().." had a "..itemInstance.name.." added to their loot container from the 'Fortune' belief tree finisher bonus");
 							
-							Clockwork.chatBox:Add(player, nil, "it", "You feel very fortunate indeed!");
+							Clockwork.chatBox:Add(player, nil, "it", "Vous vous sentez vraiment très chanceux !");
 						end
 					end
 				end
@@ -559,7 +559,7 @@ function cwItemSpawner:PreOpenedContainer(player, container)
 					
 					Clockwork.kernel:PrintLog(LOGTYPE_MINOR, player:Name().." had a "..itemInstance.name.." added to their loot container from a belief, trait, or charm!");
 					
-					Clockwork.chatBox:Add(player, nil, "it", "You feel lucky.");
+					Clockwork.chatBox:Add(player, nil, "it", "Tu te sens chanceux.");
 				end
 			end
 		end

@@ -1,4 +1,4 @@
---[[
+﻿--[[
 	Begotten 3: Jesus Wept
 	written by: cash wednesday, DETrooper, gabs and alyousha35.
 --]]
@@ -47,7 +47,7 @@ function cwMelee:DoMeleeHitEffects(entity, attacker, inflictor, position, origin
 								entity:SetWeaponRaised(false);
 							end
 							
-							Clockwork.chatBox:AddInTargetRadius(entity, "me", "'s "..itemTable.name..dropMessages[math.random(1, #dropMessages)], entity:GetPos(), Clockwork.config:Get("talk_radius"):Get() * 2);
+							Clockwork.chatBox:AddInTargetRadius(entity, "me", "s"..itemTable.name..dropMessages[math.random(1, #dropMessages)], entity:GetPos(), Clockwork.config:Get("talk_radius"):Get() * 2);
 						else
 							itemTable:TakeCondition(10);
 						
@@ -59,14 +59,14 @@ function cwMelee:DoMeleeHitEffects(entity, attacker, inflictor, position, origin
 								entity:SelectWeapon("begotten_fists");
 								entity:StripWeapon(entWeapon:GetClass());
 								
-								Clockwork.chatBox:AddInTargetRadius(entity, "me", "'s "..itemTable.name..dropMessages[math.random(1, #dropMessages)], entity:GetPos(), Clockwork.config:Get("talk_radius"):Get() * 2);
+								Clockwork.chatBox:AddInTargetRadius(entity, "me", "s"..itemTable.name..dropMessages[math.random(1, #dropMessages)], entity:GetPos(), Clockwork.config:Get("talk_radius"):Get() * 2);
 							end
 						end
 					else
 						entity:SelectWeapon("begotten_fists");
 						entity:StripWeapon(entWeapon:GetClass());
 					
-						Clockwork.chatBox:AddInTargetRadius(entity, "me", "'s "..entWeapon.PrintName..dropMessages[math.random(1, #dropMessages)], entity:GetPos(), Clockwork.config:Get("talk_radius"):Get() * 2);
+						Clockwork.chatBox:AddInTargetRadius(entity, "me", "s"..entWeapon.PrintName..dropMessages[math.random(1, #dropMessages)], entity:GetPos(), Clockwork.config:Get("talk_radius"):Get() * 2);
 					end
 				end
 			end
@@ -809,7 +809,7 @@ end
 -- Called when a player attempts to use an item.
 function cwMelee:PlayerCanUseItem(player, itemTable, noMessage)
 	if player:GetNWBool("bliz_frozen") == true then
-		Schema:EasyText(player, "firebrick", "You cannot use items while you are frozen!");
+		Schema:EasyText(player, "firebrick", "Vous ne pouvez pas utiliser d'objets pendant que vous êtes gelé !");
 	
 		return false;
 	end
@@ -1120,16 +1120,16 @@ netstream.Hook("DummyGiveArmor", function(player, data)
 						
 						player:TakeItem(armorItem);
 					else
-						Schema:EasyText(player, "peru", "This item could not be found!");
+						Schema:EasyText(player, "peru", "Cet objet n'a pas pu être trouvé !");
 					end
 				else
-					Schema:EasyText(player, "peru", "This item could not be found!");
+					Schema:EasyText(player, "peru", "Cet objet n'a pas pu être trouvé !");
 				end
 			else
-				Schema:EasyText(player, "peru", "This training dummy is too far away to be interacted with!");
+				Schema:EasyText(player, "peru", "Cette cible d'entraînement est trop éloignée pour être utilisée !");
 			end
 		else
-			Schema:EasyText(player, "peru", "A valid training dummy could not be found!");
+			Schema:EasyText(player, "peru", "Aucune cible d'entraînement valide n'a été trouvée !");
 		end
 	end
 end);
@@ -1145,13 +1145,13 @@ netstream.Hook("DummyStripArmor", function(player, data)
 						data[1]:SetArmorItem(nil);
 					end
 				else
-					Schema:EasyText(player, "peru", "This item could not be found!");
+					Schema:EasyText(player, "peru", "Cet objet n'a pas pu être trouvé !");
 				end
 			else
-				Schema:EasyText(player, "peru", "This training dummy is too far away to be interacted with!");
+				Schema:EasyText(player, "peru", "Cette cible d'entraînement est trop éloignée pour être utilisée !");
 			end
 		else
-			Schema:EasyText(player, "peru", "A valid training dummy could not be found!");
+			Schema:EasyText(player, "peru", "Aucune cible d'entraînement valide n'a été trouvée !");
 		end
 	end
 end);
@@ -1168,16 +1168,16 @@ netstream.Hook("DummyGiveHelmet", function(player, data)
 						
 						player:TakeItem(helmetItem);
 					else
-						Schema:EasyText(player, "peru", "This item could not be found!");
+						Schema:EasyText(player, "peru", "Cet objet n'a pas pu être trouvé !");
 					end
 				else
-					Schema:EasyText(player, "peru", "This item could not be found!");
+					Schema:EasyText(player, "peru", "Cet objet n'a pas pu être trouvé !");
 				end
 			else
-				Schema:EasyText(player, "peru", "This training dummy is too far away to be interacted with!");
+				Schema:EasyText(player, "peru", "Cette cible d'entraînement est trop éloignée pour être utilisée !");
 			end
 		else
-			Schema:EasyText(player, "peru", "A valid training dummy could not be found!");
+			Schema:EasyText(player, "peru", "Aucune cible d'entraînement valide n'a été trouvée !");
 		end
 	end
 end);
@@ -1193,13 +1193,13 @@ netstream.Hook("DummyStripHelmet", function(player, data)
 						data[1]:SetHelmetItem(nil);
 					end
 				else
-					Schema:EasyText(player, "peru", "This item could not be found!");
+					Schema:EasyText(player, "peru", "Cet objet n'a pas pu être trouvé !");
 				end
 			else
-				Schema:EasyText(player, "peru", "This training dummy is too far away to be interacted with!");
+				Schema:EasyText(player, "peru", "Cette cible d'entraînement est trop éloignée pour être utilisée !");
 			end
 		else
-			Schema:EasyText(player, "peru", "A valid training dummy could not be found!");
+			Schema:EasyText(player, "peru", "Aucune cible d'entraînement valide n'a été trouvée !");
 		end
 	end
 end);
@@ -1209,19 +1209,19 @@ netstream.Hook("DummyExamine", function(player, data)
 		if data and data[1] and IsValid(data[1]) and data[1].isTrainingDummy then
 			if player:GetPos():Distance(data[1]:GetPos()) <= 96 then
 				if data[1].armor and data[1].helmet then
-					Schema:EasyText(player, "slateblue", "This training dummy's "..data[1].armor.name.." is at "..data[1].armor:GetCondition().." condition, and its "..data[1].helmet.name.." is at "..data[1].helmet:GetCondition().." condition.");
+					Schema:EasyText(player, "slateblue", "Ce mannequin d'entraînement"..data[1].armor.name.." is at "..data[1].armor:GetCondition().." condition, and its "..data[1].helmet.name.." is at "..data[1].helmet:GetCondition().." condition.");
 				elseif data[1].armor then
-					Schema:EasyText(player, "slateblue", "This training dummy's "..data[1].armor.name.." is at "..data[1].armor:GetCondition().." condition.");
+					Schema:EasyText(player, "slateblue", "Ce mannequin d'entraînement"..data[1].armor.name.." is at "..data[1].armor:GetCondition().." condition.");
 				elseif data[1].helmet then
-					Schema:EasyText(player, "slateblue", "This training dummy's "..data[1].helmet.name.." is at "..data[1].helmet:GetCondition().." condition.");
+					Schema:EasyText(player, "slateblue", "Ce mannequin d'entraînement"..data[1].helmet.name.." is at "..data[1].helmet:GetCondition().." condition.");
 				else
-					Schema:EasyText(player, "slateblue", "This training dummy is not wearing armor or a helmet.");
+					Schema:EasyText(player, "slateblue", "Ce mannequin d'entraînement ne porte ni armure ni casque.");
 				end
 			else
-				Schema:EasyText(player, "peru", "This training dummy is too far away to be interacted with!");
+				Schema:EasyText(player, "peru", "Cette cible d'entraînement est trop éloignée pour être utilisée !");
 			end
 		else
-			Schema:EasyText(player, "peru", "A valid training dummy could not be found!");
+			Schema:EasyText(player, "peru", "Aucune cible d'entraînement valide n'a été trouvée !");
 		end
 	end
 end);

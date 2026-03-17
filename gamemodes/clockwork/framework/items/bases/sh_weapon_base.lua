@@ -1,4 +1,4 @@
---[[
+﻿--[[
 	Begotten III: Jesus Wept
 	By: DETrooper, cash wednesday, gabs, alyousha35
 
@@ -70,13 +70,13 @@ function ITEM:Engrave(player, text, engravingItemTable)
 	local nospaces = string.gsub(text,"%s+","")
 	
 	if string.len(text) > 32 then
-		Schema:EasyText(player, "peru", "This name is too long!");
+		Schema:EasyText(player, "peru", "Ce nom est trop long !");
 	elseif #nospaces == 0 then
-		Schema:EasyText(player, "chocolate", "You can't leave this blank!");
+		Schema:EasyText(player, "chocolate", "Vous ne pouvez pas laisser ce champ vide !");
 	else
 		self:SetData("engraving", text);
 		player:TakeItem(engravingItemTable, true);
-		Schema:EasyText(player, "olivedrab", "You engrave \'"..text.."\' into the side of your "..self.name..".");
+		Schema:EasyText(player, "olivedrab", "Vous gravez \"..text.."\' into the side of your "..self.name..".");
 		Clockwork.kernel:PrintLog(LOGTYPE_GENERIC, player:Name().." has engraved a "..self.name.." "..self.itemID.." to "..tostring(text))
 		Clockwork.inventory:Rebuild(player);
 	end;
@@ -86,9 +86,9 @@ if (SERVER) then
 	function ITEM:OnCustomFunction(player, name)
 		if (name == "Engrave") then
 			if self:GetData("engraving") != "" then
-				Schema:EasyText(player, "peru", "This weapon has already been engraved!");
+				Schema:EasyText(player, "peru", "Cette arme a déjà été gravée !");
 			elseif cwBeliefs and !player:HasBelief("literacy") then
-				Schema:EasyText(player, "chocolate", "You are not literate!");
+				Schema:EasyText(player, "chocolate", "Vous n'êtes pas lettré !");
 			else
 				local itemList = Clockwork.inventory:GetItemsAsList(player:GetInventory());
 				local engravingItemTable;
@@ -105,7 +105,7 @@ if (SERVER) then
 						self:Engrave(player, result, engravingItemTable);
 					end);
 				else
-					Schema:EasyText(player, "chocolate", "You do not have an item you can engrave this item with!");
+					Schema:EasyText(player, "chocolate", "Vous ne possédez pas d'objet pour graver cet objet !");
 					return false;
 				end
 			end;
@@ -312,7 +312,7 @@ function ITEM:OnPlayerUnequipped(player, extraData)
 				return Clockwork.equipment:UnequipItem(player, self);
 			end
 		else
-			Schema:EasyText(player, "peru", "You cannot drop this item that far away.")
+			Schema:EasyText(player, "peru", "Vous ne pouvez pas lâcher cet objet aussi loin.")
 		end
 	end
 end;
@@ -366,7 +366,7 @@ end;]]--
 function ITEM:OnUse(player, itemEntity, interactItemTable)
 	if (self:HasPlayerEquipped(player)) then
 		if !player.spawning then
-			Schema:EasyText(player, "peru", "You cannot equip an item you're already using.")
+			Schema:EasyText(player, "peru", "Vous ne pouvez pas équiper un objet que vous utilisez déjà.")
 		end
 		
 		return false
@@ -382,7 +382,7 @@ function ITEM:OnUse(player, itemEntity, interactItemTable)
 			if (table.HasValue(self.excludedFactions, kinisgerOverride or faction)) then
 				if !self.includedSubfactions or #self.includedSubfactions < 1 or !table.HasValue(self.includedSubfactions, kinisgerOverrideSubfaction or subfaction) then
 					if !player.spawning then
-						Schema:EasyText(player, "chocolate", "You are not the correct faction to equip this weapon!")
+						Schema:EasyText(player, "chocolate", "Vous n'êtes pas de la bonne faction pour équiper cette arme !")
 					end
 					
 					return false
@@ -393,7 +393,7 @@ function ITEM:OnUse(player, itemEntity, interactItemTable)
 		if self.excludedSubfactions and #self.excludedSubfactions > 0 then
 			if (table.HasValue(self.excludedSubfactions, kinisgerOverrideSubfaction or subfaction)) then
 				if !player.spawning then
-					Schema:EasyText(player, "chocolate", "You are not the correct subfaction to equip this weapon!")
+					Schema:EasyText(player, "chocolate", "Vous n'êtes pas de la bonne sous-faction pour équiper cette arme !")
 				end
 				
 				return false
@@ -404,7 +404,7 @@ function ITEM:OnUse(player, itemEntity, interactItemTable)
 			if (!table.HasValue(self.requiredFaiths, player:GetFaith())) then
 				if !self.kinisgerOverride or self.kinisgerOverride and !player:GetCharacterData("apostle_of_many_faces") then
 					if !player.spawning then
-						Schema:EasyText(player, "chocolate", "You are not the correct faith to equip this weapon!")
+						Schema:EasyText(player, "chocolate", "Vous n'avez pas la foi requise pour manier cette arme !")
 					end
 					
 					return false
@@ -416,7 +416,7 @@ function ITEM:OnUse(player, itemEntity, interactItemTable)
 			if (!table.HasValue(self.requiredSubfaiths, player:GetSubfaith())) then
 				if !self.kinisgerOverride or self.kinisgerOverride and !player:GetCharacterData("apostle_of_many_faces") then
 					if !player.spawning then
-						Schema:EasyText(player, "chocolate", "You are not the correct subfaith to equip this weapon!")
+						Schema:EasyText(player, "chocolate", "Vous n'êtes pas de la sous-foi appropriée pour équiper cette arme !")
 					end
 					
 					return false
@@ -427,7 +427,7 @@ function ITEM:OnUse(player, itemEntity, interactItemTable)
 		if self.requiredFactions and #self.requiredFactions > 0 then
 			if (!table.HasValue(self.requiredFactions, faction) and (!kinisgerOverride or !table.HasValue(self.requiredFactions, kinisgerOverride))) then
 				if !player.spawning then
-					Schema:EasyText(player, "chocolate", "You are not the correct faction to equip this weapon!")
+					Schema:EasyText(player, "chocolate", "Vous n'êtes pas de la faction appropriée pour équiper cette arme !")
 				end
 				
 				return false
@@ -437,7 +437,7 @@ function ITEM:OnUse(player, itemEntity, interactItemTable)
 		if self.requiredSubfactions and #self.requiredSubfactions > 0 then
 			if (!table.HasValue(self.requiredSubfactions, subfaction) and (!kinisgerOverrideSubfaction or !table.HasValue(self.requiredSubfactions, kinisgerOverrideSubfaction))) then
 				if !player.spawning then
-					Schema:EasyText(player, "peru", "You are not the correct subfaction to equip this weapon!")
+					Schema:EasyText(player, "peru", "Vous n'êtes pas la bonne sous-faction pour équiper cette arme !")
 				end
 				
 				return false
@@ -453,7 +453,7 @@ function ITEM:OnUse(player, itemEntity, interactItemTable)
 				if rankString then
 					if (!table.HasValue(self.requiredRanks, rankString)) then
 						if !player.spawning then
-							Schema:EasyText(player, "peru", "You are not the correct rank to equip this weapon!")
+							Schema:EasyText(player, "peru", "Vous n'avez pas le rang requis pour équiper cette arme !")
 						
 							return false;
 						end
@@ -507,7 +507,7 @@ function ITEM:OnUse(player, itemEntity, interactItemTable)
 			end;
 		end;
 		
-		Schema:EasyText(player, "peru", "You already have a weapon of this type equipped!")
+		Schema:EasyText(player, "peru", "Vous avez déjà une arme de ce type équipée !")
 		
 		return false;
 	end;
@@ -520,7 +520,7 @@ function ITEM:OnConditionLoss(oldCondition, newCondition)
 				if (IsValid(player) and player:HasInitialized()) then
 					for i2, weaponItem in ipairs(player:GetWeaponsEquipped()) do
 						if weaponItem and weaponItem:IsTheSameAs(self) then
-							Clockwork.chatBox:AddInTargetRadius(player, "me", "'s "..self.name..v.message, player:GetPos(), Clockwork.config:Get("talk_radius"):Get() * 2);
+							Clockwork.chatBox:AddInTargetRadius(player, "me", "s"..self.name..v.message, player:GetPos(), Clockwork.config:Get("talk_radius"):Get() * 2);
 							
 							if v.sound then
 								player:EmitSound(v.sound);
@@ -542,7 +542,7 @@ end
 
 function ITEM:OnEquip(player, interactItemTable)
 	if self:IsBroken() then
-		Schema:EasyText(player, "peru", "This weapon is broken and cannot be used!");
+		Schema:EasyText(player, "peru", "Cette arme est cassée et ne peut pas être utilisée !");
 		return false;
 	end
 
@@ -561,7 +561,7 @@ function ITEM:OnEquip(player, interactItemTable)
 		
 		if slot then
 			if !player.equipmentSlots[slot] then
-				Schema:EasyText(player, "peru", "You cannot equip an offhand weapon in a slot with no weapon!")
+				Schema:EasyText(player, "peru", "Vous ne pouvez pas équiper une arme secondaire dans un emplacement sans arme principale !")
 				return false;
 			end
 			
@@ -580,7 +580,7 @@ function ITEM:OnEquip(player, interactItemTable)
 					local weaponItem = item.GetByWeapon(interactItemTable.weaponClass or interactItemTable.uniqueID);
 					
 					if !weaponItem or !weaponItem:IsTheSameAs(interactItemTable) then
-						Schema:EasyText(player, "peru", "You cannot equip an offhand weapon with a weapon that is using a shield!")
+						Schema:EasyText(player, "peru", "Vous ne pouvez pas équiper une arme secondaire avec une arme qui utilise un bouclier !")
 						return false;
 					end
 				end
@@ -594,10 +594,10 @@ function ITEM:OnEquip(player, interactItemTable)
 			local offhandAttackTable = GetTable(offhandWeaponTable.AttackTable);
 			
 			if !attackTable.canaltattack and attackTable.dmgtype == DMG_VEHICLE and !offhandAttackTable.canaltattack and offhandAttackTable.dmgtype ~= DMG_VEHICLE then
-				Schema:EasyText(player, "peru", "You cannot equip a slash-only weapon with a thrust-only weapon!");
+				Schema:EasyText(player, "peru", "Vous ne pouvez pas équiper une arme uniquement tranchante avec une arme uniquement perforante !");
 				return false;
 			elseif !attackTable.canaltattack and attackTable.dmgtype ~= DMG_VEHICLE and !offhandAttackTable.canaltattack and offhandAttackTable.dmgtype == DMG_VEHICLE then
-				Schema:EasyText(player, "peru", "You cannot equip a thrust-only weapon with a slash-only weapon!");
+				Schema:EasyText(player, "peru", "Vous ne pouvez pas équiper une arme à poussée uniquement avec une arme à taille uniquement !");
 				return false;
 			end
 			
@@ -605,11 +605,11 @@ function ITEM:OnEquip(player, interactItemTable)
 				return Clockwork.equipment:EquipItem(player, self, offhandSlot);
 			end
 			
-			Schema:EasyText(player, "peru", "You cannot equip another weapon in that slot!")
+			Schema:EasyText(player, "peru", "Vous ne pouvez pas équiper une autre arme dans cet emplacement !")
 			return false;
 		end
 		
-		Schema:EasyText(player, "peru", "A valid slot could not be found for this weapon!")
+		Schema:EasyText(player, "peru", "Aucun emplacement valide n'a pu être trouvé pour cette arme !")
 		return false;
 	else
 		for i, slot in ipairs(self.slots) do
@@ -618,7 +618,7 @@ function ITEM:OnEquip(player, interactItemTable)
 			end
 		end
 		
-		Schema:EasyText(player, "peru", "You do not have an open slot to equip this weapon in!")
+		Schema:EasyText(player, "peru", "Vous n'avez pas d'emplacement libre pour équiper cette arme !")
 		return false;
 	end
 end

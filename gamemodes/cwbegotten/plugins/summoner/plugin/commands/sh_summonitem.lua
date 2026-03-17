@@ -1,7 +1,7 @@
-local Clockwork = Clockwork;
+﻿local Clockwork = Clockwork;
 
 local COMMAND = Clockwork.command:New("SummonItem");
-COMMAND.tip = "Spawn an item where you are looking.";
+COMMAND.tip = "Fait apparaître un objet à l'endroit où vous regardez.";
 COMMAND.text = "<string Item>";
 COMMAND.access = "s";
 COMMAND.types = {"SpawnItem"}
@@ -33,10 +33,10 @@ function COMMAND:OnRun(player, arguments)
 				util.Decal("PentagramBurn", trace.HitPos + trace.HitNormal, trace.HitPos - trace.HitNormal);
             end);
         else
-            Schema:EasyText(player, "darkgrey", "Look at a valid spot! The item can't be spawned there.");
+            Schema:EasyText(player, "darkgrey", "Regarde un endroit valide ! L'objet ne peut pas être généré ici.");
         end;
     else
-        Schema:EasyText(player, "grey", "This isn't a valid item!");
+        Schema:EasyText(player, "grey", "Ceci n'est pas un objet valide !");
     end;
 end;
 

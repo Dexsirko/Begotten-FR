@@ -1,5 +1,5 @@
-local COMMAND = Clockwork.command:New("CharForceFallover")
-	COMMAND.tip = "Force a character to fallover."
+﻿local COMMAND = Clockwork.command:New("CharForceFallover")
+	COMMAND.tip = "Forcer un personnage à tomber."
 	COMMAND.text = "<string Name> [number Seconds]"
 	COMMAND.access = "a"
 	COMMAND.arguments = 1
@@ -18,7 +18,7 @@ local COMMAND = Clockwork.command:New("CharForceFallover")
 COMMAND:Register()
 
 local COMMAND = Clockwork.command:New("CharForceGetUp")
-	COMMAND.tip = "Force a character to get up."
+	COMMAND.tip = "Forcer un personnage à se relever."
 	COMMAND.text = "<string Name>"
 	COMMAND.access = "a"
 	COMMAND.arguments = 1
@@ -37,7 +37,7 @@ local COMMAND = Clockwork.command:New("CharForceGetUp")
 COMMAND:Register()
 
 local COMMAND = Clockwork.command:New("CharSetHealth");
-	COMMAND.tip = "Set a character's health, with an optional argument for making it their new maximum health.";
+	COMMAND.tip = "Définir la santé d'un personnage, avec un argument optionnel pour en faire sa nouvelle santé maximale.";
 	COMMAND.text = "<string Name> <int Amount> [bool SetMax]";
 	COMMAND.access = "o";
 	COMMAND.arguments = 2;
@@ -63,7 +63,7 @@ local COMMAND = Clockwork.command:New("CharSetHealth");
 COMMAND:Register();
 
 local COMMAND = Clockwork.command:New("CharSetMaxHealth");
-	COMMAND.tip = "Set a character's maximum health.";
+	COMMAND.tip = "Définir la santé maximale d'un personnage.";
 	COMMAND.text = "<string Name> <int Amount>";
 	COMMAND.access = "o";
 	COMMAND.arguments = 2;
@@ -83,7 +83,7 @@ local COMMAND = Clockwork.command:New("CharSetMaxHealth");
 COMMAND:Register();
 
 local COMMAND = Clockwork.command:New("SetHealthMaxAll");
-	COMMAND.tip = "Set all characters on the map to max health.";
+	COMMAND.tip = "Définir tous les personnages de la carte avec la santé maximale.";
 	COMMAND.text = "[bool AffectDuelists]";
 	COMMAND.access = "a";
 	COMMAND.optionalArguments = 1;
@@ -110,7 +110,7 @@ local COMMAND = Clockwork.command:New("SetHealthMaxAll");
 COMMAND:Register();
 
 local COMMAND = Clockwork.command:New("CharSetArmor");
-	COMMAND.tip = "Set a characters armor.";
+	COMMAND.tip = "Définir l'armure d'un personnage.";
 	COMMAND.text = "<string Name> <int Amount>";
 	COMMAND.access = "o";
 	COMMAND.arguments = 2;
@@ -130,7 +130,7 @@ local COMMAND = Clockwork.command:New("CharSetArmor");
 COMMAND:Register();
 
 local COMMAND = Clockwork.command:New("CharGetTraits");
-	COMMAND.tip = "Display a list of a character's traits.";
+	COMMAND.tip = "Affiche la liste des traits d'un personnage.";
 	COMMAND.text = "<string Name>";
 	COMMAND.access = "o";
 	COMMAND.arguments = 1;
@@ -153,7 +153,7 @@ local COMMAND = Clockwork.command:New("CharGetTraits");
 COMMAND:Register();
 
 local COMMAND = Clockwork.command:New("CharGiveTrait");
-	COMMAND.tip = "Give a character a trait.";
+	COMMAND.tip = "Attribuer un trait à un personnage.";
 	COMMAND.text = "<string Name> <string TraitID>";
 	COMMAND.access = "s";
 	COMMAND.arguments = 2;
@@ -178,7 +178,7 @@ local COMMAND = Clockwork.command:New("CharGiveTrait");
 COMMAND:Register();
 
 local COMMAND = Clockwork.command:New("CharTakeTrait");
-	COMMAND.tip = "Remove a trait from a character.";
+	COMMAND.tip = "Retirer un trait d'un personnage.";
 	COMMAND.text = "<string Name> <string TraitID>";
 	COMMAND.access = "s";
 	COMMAND.arguments = 2;
@@ -203,7 +203,7 @@ local COMMAND = Clockwork.command:New("CharTakeTrait");
 COMMAND:Register();
 
 local COMMAND = Clockwork.command:New("PlyGod");
-	COMMAND.tip = "Toggle godmode for a player.";
+	COMMAND.tip = "Activer/désactiver le mode invincible pour un joueur.";
 	COMMAND.text = "<string Name>";
 	COMMAND.access = "s";
 	COMMAND.arguments = 1;
@@ -228,7 +228,7 @@ local COMMAND = Clockwork.command:New("PlyGod");
 COMMAND:Register();
 
 local COMMAND = Clockwork.command:New("PlyGodAll");
-	COMMAND.tip = "Enable godmode for all players.";
+	COMMAND.tip = "Activer le mode dieu pour tous les joueurs.";
 	COMMAND.access = "s";
 	COMMAND.alias = {"CharGodAll", "GodAll"};
 
@@ -243,7 +243,7 @@ local COMMAND = Clockwork.command:New("PlyGodAll");
 COMMAND:Register();
 
 local COMMAND = Clockwork.command:New("PlyUnGodAll");
-	COMMAND.tip = "Disable godmode for all players.";
+	COMMAND.tip = "Désactiver le mode invincible pour tous les joueurs.";
 	COMMAND.access = "s";
 	COMMAND.alias = {"CharUnGodAll", "UnGodAll"};
 
@@ -258,7 +258,7 @@ local COMMAND = Clockwork.command:New("PlyUnGodAll");
 COMMAND:Register();
 
 local COMMAND = Clockwork.command:New("CharTransferFaction");
-	COMMAND.tip = "Transfer a character to a faction. This will clear their subfaction so be sure to set a new one!";
+	COMMAND.tip = "Transfère un personnage vers une faction. Cela réinitialisera sa sous-faction, pense donc à en définir une nouvelle !";
 	COMMAND.text = "<string Name> <string Faction> [string Subfaction] [string Data]";
 	COMMAND.access = "o";
 	COMMAND.arguments = 2;
@@ -402,7 +402,7 @@ local COMMAND = Clockwork.command:New("CharTransferFaction");
 COMMAND:Register();
 
 local COMMAND = Clockwork.command:New("CharTransferSubfaction");
-	COMMAND.tip = "Transfer a character to a subfaction.";
+	COMMAND.tip = "Transférer un personnage vers une sous-faction.";
 	COMMAND.text = "<string Name> <string Subfaction>";
 	COMMAND.access = "o";
 	COMMAND.arguments = 2;
@@ -499,7 +499,7 @@ local COMMAND = Clockwork.command:New("CharTransferSubfaction");
 COMMAND:Register();
 
 local COMMAND = Clockwork.command:New("CharTakeFlags");
-	COMMAND.tip = "Take flags from a character.";
+	COMMAND.tip = "Prendre les drapeaux d'un personnage.";
 	COMMAND.text = "<string Name> <string Flag(s)>";
 	COMMAND.access = "s";
 	COMMAND.arguments = 2;
@@ -510,7 +510,7 @@ local COMMAND = Clockwork.command:New("CharTakeFlags");
 		
 		if (target) then
 			if (string.find(arguments[2], "a") or string.find(arguments[2], "s") or string.find(arguments[2], "o")) then
-				Clockwork.player:Notify(player, "You cannot take 'o', 'a' or 's' flags!");
+				Clockwork.player:Notify(player, "Vous ne pouvez pas prendre les drapeaux 'o', 'a' ou 's' !");
 				return;
 			end;
 			
@@ -523,7 +523,7 @@ local COMMAND = Clockwork.command:New("CharTakeFlags");
 COMMAND:Register();
 
 local COMMAND = Clockwork.command:New("PlyTakeFlags");
-	COMMAND.tip = "Take flags from a player.";
+	COMMAND.tip = "Prendre les drapeaux d'un joueur.";
 	COMMAND.text = "<string Name> <string Flag(s)>";
 	COMMAND.access = "s";
 	COMMAND.arguments = 2;
@@ -534,7 +534,7 @@ local COMMAND = Clockwork.command:New("PlyTakeFlags");
 		
 		if (target) then
 			if (string.find(arguments[2], "a") or string.find(arguments[2], "s") or string.find(arguments[2], "o")) then
-				Clockwork.player:Notify(player, "You cannot take 'o', 'a' or 's' flags!");
+				Clockwork.player:Notify(player, "Vous ne pouvez pas prendre les drapeaux 'o', 'a' ou 's' !");
 				return;
 			end;
 
@@ -547,7 +547,7 @@ local COMMAND = Clockwork.command:New("PlyTakeFlags");
 COMMAND:Register();
 
 local COMMAND = Clockwork.command:New("CharTakeColor");
-	COMMAND.tip = "Take a player's custom color.";
+	COMMAND.tip = "Récupère la couleur personnalisée d'un joueur.";
 	COMMAND.text = "<string Name>";
 	COMMAND.access = "a";
 	COMMAND.arguments = 1;
@@ -559,7 +559,7 @@ local COMMAND = Clockwork.command:New("CharTakeColor");
 		
 		if (target) then
 			Clockwork.kernel:SetPlayerColor(target, nil);
-			Clockwork.player:Notify(player, "You have taken "..target:Name().."'s color.");
+			Clockwork.player:Notify(player, "Vous avez subi"..target:Name().."'s color.");
 		else
 			Clockwork.player:Notify(player, "'"..arguments[1].."' is not a valid player!");
 		end;
@@ -567,7 +567,7 @@ local COMMAND = Clockwork.command:New("CharTakeColor");
 COMMAND:Register();
 
 local COMMAND = Clockwork.command:New("CharSetName");
-	COMMAND.tip = "Set a character's name permanently.";
+	COMMAND.tip = "Définir le nom d'un personnage de manière permanente.";
 	COMMAND.text = "<string Name> <string Name>";
 	COMMAND.access = "o";
 	COMMAND.arguments = 2;
@@ -589,7 +589,7 @@ local COMMAND = Clockwork.command:New("CharSetName");
 COMMAND:Register();
 
 local COMMAND = Clockwork.command:New("CharSetModel");
-	COMMAND.tip = "Set a character's model permanently.";
+	COMMAND.tip = "Définir le modèle d'un personnage de manière permanente.";
 	COMMAND.text = "<string Name> <string Model>";
 	COMMAND.access = "s";
 	COMMAND.arguments = 2;
@@ -613,7 +613,7 @@ local COMMAND = Clockwork.command:New("CharSetModel");
 COMMAND:Register();
 
 local COMMAND = Clockwork.command:New("CharForcePhysDesc");
-	COMMAND.tip = "Set a character's description permanently.";
+	COMMAND.tip = "Définir la description d'un personnage de manière permanente.";
 	COMMAND.text = "<string Name> <string Description>";
 	COMMAND.access = "o";
 	COMMAND.arguments = 2;
@@ -627,13 +627,13 @@ local COMMAND = Clockwork.command:New("CharForcePhysDesc");
 		local text = tostring(arguments[2]);
 		
 		if (string.len(text) < minimumPhysDesc) then
-			Clockwork.player:Notify(player, "The physical description must be at least "..minimumPhysDesc.." characters long!");
+			Clockwork.player:Notify(player, "La description physique doit comporter au moins"..minimumPhysDesc.." characters long!");
 			
 			return;
 		end;
 
 		if (string.match(text, "%s%s+")) then
-			Clockwork.player:Notify(player, "The physical description must not have consecutive spaces.");
+			Clockwork.player:Notify(player, "La description physique ne doit pas contenir d'espaces consécutifs.");
 			return;
 		end;
 		
@@ -644,7 +644,7 @@ COMMAND:Register();
 
 
 local COMMAND = Clockwork.command:New("CharSetColor");
-	COMMAND.tip = "Set a player's chat color. Use /ListColors to view all available colors.";
+	COMMAND.tip = "Définir la couleur de chat d'un joueur. Utilisez /ListColors pour voir toutes les couleurs disponibles.";
 	COMMAND.text = "<string Name> <string Color>";
 	COMMAND.access = "a";
 	COMMAND.arguments = 2;
@@ -660,7 +660,7 @@ local COMMAND = Clockwork.command:New("CharSetColor");
 			
 			if (color and colorTable and !table.IsEmpty(colorTable) and colorTable[color]) then
 				Clockwork.kernel:SetPlayerColor(target, colorTable[color]);
-				Clockwork.player:Notify(player, "You have set "..target:Name().."'s color to '"..color.."'.")
+				Clockwork.player:Notify(player, "Vous avez défini"..target:Name().."'s color to '"..color.."'.")
 			else
 				Clockwork.player:Notify(player, "'"..arguments[2].."' is not a valid color!");
 			end;
@@ -672,7 +672,7 @@ COMMAND:Register();
 
 local NAME_CASH = Clockwork.option:GetKey("name_cash");
 local COMMAND = Clockwork.command:New("CharSetCoin");
-	COMMAND.tip = "Set a character's coin.";
+	COMMAND.tip = "Définir les pièces d'un personnage.";
 	COMMAND.text = "<string Name> <number Coin>";
 	COMMAND.flags = CMD_DEFAULT;
 	COMMAND.access = "s";
@@ -693,12 +693,12 @@ local COMMAND = Clockwork.command:New("CharSetCoin");
 				
 				Clockwork.player:GiveCash(target, giveCash);
 				
-				Clockwork.player:Notify(player, "You have set "..targetName.."'s "..cashName.." to "..Clockwork.kernel:FormatCash(cash, nil, true)..".");
-				Clockwork.player:Notify(target, "Your "..cashName.." was set to "..Clockwork.kernel:FormatCash(cash, nil, true).." by "..playerName..".");
+				Clockwork.player:Notify(player, "Vous avez défini"..targetName.."'s "..cashName.." to "..Clockwork.kernel:FormatCash(cash, nil, true)..".");
+				Clockwork.player:Notify(target, "Votre"..cashName.." was set to "..Clockwork.kernel:FormatCash(cash, nil, true).." by "..playerName..".");
 				
 				target:SaveCharacter();
 			else
-				Clockwork.player:Notify(player, "This is not a valid amount!");
+				Clockwork.player:Notify(player, "Ce montant n'est pas valide !");
 			end;
 		else
 			Clockwork.player:Notify(player, arguments[1].." is not a valid player!");
@@ -707,7 +707,7 @@ local COMMAND = Clockwork.command:New("CharSetCoin");
 COMMAND:Register();
 
 local COMMAND = Clockwork.command:New("CharAddCoin");
-	COMMAND.tip = "Add coin to a character. Use a negative value if you want to subtract.";
+	COMMAND.tip = "Ajoute des pièces à un personnage. Utilise une valeur négative pour soustraire.";
 	COMMAND.text = "<string Name> <number Coin>";
 	COMMAND.flags = CMD_DEFAULT;
 	COMMAND.access = "s";
@@ -727,14 +727,14 @@ local COMMAND = Clockwork.command:New("CharAddCoin");
 				Clockwork.player:GiveCash(target, cash);
 				
 				if cash > 0 then
-					Clockwork.player:Notify(player, "You have given "..targetName.." "..Clockwork.kernel:FormatCash(cash, nil, true)..".");
+					Clockwork.player:Notify(player, "Vous avez donné"..targetName.." "..Clockwork.kernel:FormatCash(cash, nil, true)..".");
 				else
-					Clockwork.player:Notify(player, "You have taken "..Clockwork.kernel:FormatCash(-cash, nil, true).." from "..targetName..".");
+					Clockwork.player:Notify(player, "Vous avez subi"..Clockwork.kernel:FormatCash(-cash, nil, true).." from "..targetName..".");
 				end
 				
 				target:SaveCharacter();
 			else
-				Clockwork.player:Notify(player, "This is not a valid amount!");
+				Clockwork.player:Notify(player, "Ce montant n'est pas valide !");
 			end;
 		else
 			Clockwork.player:Notify(player, arguments[1].." is not a valid player!");
@@ -743,7 +743,7 @@ local COMMAND = Clockwork.command:New("CharAddCoin");
 COMMAND:Register();
 
 local COMMAND = Clockwork.command:New("CharGiveItem");
-	COMMAND.tip = "Give an item to a character. Specify an amount to give or leave blank for 1.";
+	COMMAND.tip = "Donne un objet à un personnage. Spécifie une quantité à donner ou laisse vide pour 1.";
 	COMMAND.text = "<string Name> <string Item> [number Amount]";
 	COMMAND.access = "s";
 	COMMAND.arguments = 2;
@@ -768,9 +768,9 @@ local COMMAND = Clockwork.command:New("CharGiveItem");
 					if (bSuccess) and i == amount then
 						if amount == 1 then
 							if (string.sub(itemTable.name, -1) == "s") then
-								Clockwork.player:Notify(player, "You have given "..target:Name().." some "..itemTable.name..".");
+								Clockwork.player:Notify(player, "Vous avez donné"..target:Name().." some "..itemTable.name..".");
 							else
-								Clockwork.player:Notify(player, "You have given "..target:Name().." a "..itemTable.name..".");
+								Clockwork.player:Notify(player, "Vous avez donné"..target:Name().." a "..itemTable.name..".");
 							end;
 							
 							if (player != target) then
@@ -782,9 +782,9 @@ local COMMAND = Clockwork.command:New("CharGiveItem");
 							end;
 						else
 							if (string.sub(itemTable.name, -1) == "s") then
-								Clockwork.player:Notify(player, "You have given "..target:Name().." "..amount.." "..itemTable.name..".");
+								Clockwork.player:Notify(player, "Vous avez donné"..target:Name().." "..amount.." "..itemTable.name..".");
 							else
-								Clockwork.player:Notify(player, "You have given "..target:Name().." "..amount.." "..itemTable.name.."s.");
+								Clockwork.player:Notify(player, "Vous avez donné"..target:Name().." "..amount.." "..itemTable.name.."s.");
 							end;
 							
 							if (player != target) then
@@ -800,7 +800,7 @@ local COMMAND = Clockwork.command:New("CharGiveItem");
 					end;
 				end
 			else
-				Clockwork.player:Notify(player, "This is not a valid item!");
+				Clockwork.player:Notify(player, "Ceci n'est pas un objet valide !");
 			end;
 		else
 			Clockwork.player:Notify(player, arguments[1].." is not a valid character!");
@@ -809,7 +809,7 @@ local COMMAND = Clockwork.command:New("CharGiveItem");
 COMMAND:Register();
 
 local COMMAND = Clockwork.command:New("CharUseItem");
-	COMMAND.tip = "Make a character use/equip an item.";
+	COMMAND.tip = "Faire utiliser/équiper un objet à un personnage.";
 	COMMAND.text = "<string Name> <string Item> [int itemID]";
 	COMMAND.access = "s";
 	COMMAND.arguments = 2;
@@ -837,7 +837,7 @@ local COMMAND = Clockwork.command:New("CharUseItem");
 				local bSuccess, fault = Clockwork.item:Use(target, itemTable, true);
 				
 				if (bSuccess) then
-					Clockwork.player:Notify(player, "You have made "..target:Name().." use a "..itemTable.name..".");
+					Clockwork.player:Notify(player, "Vous avez effectué"..target:Name().." use a "..itemTable.name..".");
 					
 					--[[if (player != target) then
 							Clockwork.player:Notify(target, player:Name().." has made you use/equip a "..itemTable.name..".");
@@ -846,7 +846,7 @@ local COMMAND = Clockwork.command:New("CharUseItem");
 					Clockwork.player:Notify(player, target:Name().." cannot use this item!");
 				end;
 			else
-				Clockwork.player:Notify(player, "This is not a valid item or the player does not have it!");
+				Clockwork.player:Notify(player, "Ceci n'est pas un objet valide ou le joueur ne le possède pas !");
 			end;
 		else
 			Clockwork.player:Notify(player, arguments[1].." is not a valid character!");
@@ -855,7 +855,7 @@ local COMMAND = Clockwork.command:New("CharUseItem");
 COMMAND:Register();
 
 local COMMAND = Clockwork.command:New("CharUnequipItem");
-	COMMAND.tip = "Make a character unequip an item.";
+	COMMAND.tip = "Faire retirer un objet à un personnage.";
 	COMMAND.text = "<string Name> <string Item>";
 	COMMAND.access = "s";
 	COMMAND.arguments = 2;
@@ -883,7 +883,7 @@ local COMMAND = Clockwork.command:New("CharUnequipItem");
 				local bSuccess, fault = Clockwork.kernel:ForceUnequipItem(target, itemTable.uniqueID, itemTable.itemID);
 				
 				if (bSuccess) then
-					Clockwork.player:Notify(player, "You have made "..target:Name().." unequip a "..itemTable.name..".");
+					Clockwork.player:Notify(player, "Vous avez effectué"..target:Name().." unequip a "..itemTable.name..".");
 					
 					--[[if (player != target) then
 							Clockwork.player:Notify(target, player:Name().." has made you unequip "..itemTable.name..".");
@@ -892,7 +892,7 @@ local COMMAND = Clockwork.command:New("CharUnequipItem");
 					Clockwork.player:Notify(player, target:Name().." cannot unequip this item!");
 				end;
 			else
-				Clockwork.player:Notify(player, "This is not a valid item or the player does not have it!");
+				Clockwork.player:Notify(player, "Ceci n'est pas un objet valide ou le joueur ne le possède pas !");
 			end;
 		else
 			Clockwork.player:Notify(player, arguments[1].." is not a valid character!");
@@ -901,7 +901,7 @@ local COMMAND = Clockwork.command:New("CharUnequipItem");
 COMMAND:Register();
 
 local COMMAND = Clockwork.command:New("CharGiveFlags");
-	COMMAND.tip = "Give flags to a character.";
+	COMMAND.tip = "Accorde des drapeaux à un personnage.";
 	COMMAND.text = "<string Name> <string Flag(s)>";
 	COMMAND.access = "s";
 	COMMAND.arguments = 2;
@@ -911,13 +911,13 @@ local COMMAND = Clockwork.command:New("CharGiveFlags");
 		local target = Clockwork.player:FindByID(arguments[1])
 		
 		if (istable(target)) then
-			Clockwork.player:Notify(player, "Too many players with the identifier '"..arguments[1].."' were found. Re-enter the command with a specific player's name!");
+			Clockwork.player:Notify(player, "Trop de joueurs avec l'identifiant "..arguments[1].."' were found. Re-enter the command with a specific player's name!");
 			return;
 		end;
 		
 		if (target) then
 			if (string.find(arguments[2], "a") or string.find(arguments[2], "s") or string.find(arguments[2], "o")) then
-				Clockwork.player:Notify(player, "You cannot give 'o', 'a' or 's' flags!");
+				Clockwork.player:Notify(player, "Vous ne pouvez pas attribuer les drapeaux 'o', 'a' ou 's' !");
 				return;
 			end;
 			
@@ -931,7 +931,7 @@ local COMMAND = Clockwork.command:New("CharGiveFlags");
 COMMAND:Register();
 
 local COMMAND = Clockwork.command:New("CharKick");
-    COMMAND.tip = "Kicks somebody off of their character.";
+    COMMAND.tip = "Expulse quelqu'un de son personnage.";
     COMMAND.flags = CMD_DEFAULT;
     COMMAND.arguments = 1;
     COMMAND.access = "s";
@@ -940,7 +940,7 @@ local COMMAND = Clockwork.command:New("CharKick");
     -- Called when the command has been run.
     function COMMAND:OnRun(player, arguments)
         local target = Clockwork.player:FindByID(arguments[1]);
-        if(!IsValid(target)) then Schema:EasyText(player, "peru", "This is not a valid player!"); return; end
+        if(!IsValid(target)) then Schema:EasyText(player, "peru", "Ce n'est pas un joueur valide !"); return; end
 		if !target.cwCharacter then Schema:EasyText(player, "peru", target:Name().." does not have a character loaded!"); return; end
 		
 		Clockwork.player:UnloadCharacter(target);
@@ -950,7 +950,7 @@ local COMMAND = Clockwork.command:New("CharKick");
 COMMAND:Register();
 
 local COMMAND = Clockwork.command:New("EnableFaction");
-	COMMAND.tip = "Enable respawning and creating new characters for a faction.";
+	COMMAND.tip = "Activer la résurrection et la création de nouveaux personnages pour une faction.";
 	COMMAND.arguments = 1;
 	COMMAND.access = "s";
     COMMAND.text = "<string Faction>";
@@ -960,8 +960,8 @@ local COMMAND = Clockwork.command:New("EnableFaction");
 	function COMMAND:OnRun(player, arguments)
 		local factionTable = Clockwork.faction:FindByID(arguments[1]);
 		
-		if !factionTable then Schema:EasyText(player, "peru", "This is not a valid faction!"); return; end
-		if !factionTable.disabled then Schema:EasyText(player, "peru", "This faction is already enabled!"); return; end
+		if !factionTable then Schema:EasyText(player, "peru", "Ce n'est pas une faction valide !"); return; end
+		if !factionTable.disabled then Schema:EasyText(player, "peru", "Cette faction est déjà activée !"); return; end
 		
 		factionTable.disabled = false;
 		
@@ -970,7 +970,7 @@ local COMMAND = Clockwork.command:New("EnableFaction");
 COMMAND:Register();
 
 local COMMAND = Clockwork.command:New("DisableFaction");
-	COMMAND.tip = "Disable respawning and creating new characters for a faction.";
+	COMMAND.tip = "Désactiver la réapparition et la création de nouveaux personnages pour une faction.";
 	COMMAND.arguments = 1;
 	COMMAND.access = "s";
     COMMAND.text = "<string Faction>";
@@ -980,8 +980,8 @@ local COMMAND = Clockwork.command:New("DisableFaction");
 	function COMMAND:OnRun(player, arguments)
 		local factionTable = Clockwork.faction:FindByID(arguments[1]);
 		
-		if !factionTable then Schema:EasyText(player, "peru", "This is not a valid faction!"); return; end
-		if factionTable.disabled then Schema:EasyText(player, "peru", "This faction is already disabled!"); return; end
+		if !factionTable then Schema:EasyText(player, "peru", "Ce n'est pas une faction valide !"); return; end
+		if factionTable.disabled then Schema:EasyText(player, "peru", "Cette faction est déjà désactivée !"); return; end
 		
 		factionTable.disabled = true;
 		

@@ -1,4 +1,4 @@
-AddCSLuaFile()
+﻿AddCSLuaFile()
 
 ENT.Type = "anim"
 ENT.PrintName = "M2 Browning"
@@ -146,10 +146,10 @@ if (SERVER) then
 				if subfaction == "Clan Shagalax" then
 					self:OnUse(client)
 				else
-					Schema:EasyText(client, "peru", "Only Clan Shagalax can use firearms!");
+					Schema:EasyText(client, "peru", "Seul le Clan Shagalax peut utiliser des armes à feu !");
 				end
 			else
-				Schema:EasyText(client, "peru", "The turret is locked in place and cannot be budged!");
+				Schema:EasyText(client, "peru", "La tourelle est verrouillée en place et ne peut être déplacée !");
 			end
 		else
 			self:OnUse(client)

@@ -1,4 +1,4 @@
---[[
+﻿--[[
 	Begotten III: Jesus Wept
 	By: DETrooper, cash wednesday, gabs, alyousha35
 
@@ -45,7 +45,7 @@ function ENT:Initialize()
 	interface:SetPos(corepos + Vector(41,0,-5));
 	function interface:Use(activator, caller)
 		print("USED")
-		Clockwork.chatBox:AddInTargetRadius(activator, "me", "random taps some keys.", activator:GetPos(), Clockwork.config:Get("talk_radius"):Get() * 2);
+		Clockwork.chatBox:AddInTargetRadius(activator, "me", "random tape sur quelques touches.", activator:GetPos(), Clockwork.config:Get("talk_radius"):Get() * 2);
 		curtime = CurTime();
 		self.NextUse = self.NextUse or 0;
 		if self.NextUse < curtime then
@@ -195,7 +195,7 @@ function ENT:Use(activator, caller)
 			self.NextUse = self.NextUse or 0;
 			if self.NextUse < curtime then
 				self:EmitSound("ambient/machines/keyboard_slow_1second.wav");
-				Clockwork.chatBox:AddInTargetRadius(activator, "me", "randomly taps some keys.", activator:GetPos(), Clockwork.config:Get("talk_radius"):Get() * 2);
+				Clockwork.chatBox:AddInTargetRadius(activator, "me", "tape au hasard sur quelques touches.", activator:GetPos(), Clockwork.config:Get("talk_radius"):Get() * 2);
 				self.NextUse = curtime + 1;
 			end;
 		end

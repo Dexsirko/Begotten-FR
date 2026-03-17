@@ -1,4 +1,4 @@
---[[
+﻿--[[
 	Begotten III: Jesus Wept
 	By: DETrooper, cash wednesday, gabs, alyousha35
 
@@ -6,7 +6,7 @@
 --]]
 
 local COMMAND = Clockwork.command:New("CenterTextGlobal");
-COMMAND.tip = "Show everyone on the server a center text.";
+COMMAND.tip = "Affiche un texte au centre de l'écran pour tous les joueurs du serveur.";
 COMMAND.text = "<string Text>";
 COMMAND.access = "a";
 COMMAND.arguments = 1;

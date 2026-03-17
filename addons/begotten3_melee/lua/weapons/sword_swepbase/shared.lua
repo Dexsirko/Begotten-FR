@@ -1,4 +1,4 @@
--- to whoever is reading this I put comments starting with "OPTIMIZE NOTE:" around this file that we eventually come back to more indepth and fuck with
+﻿-- to whoever is reading this I put comments starting with "OPTIMIZE NOTE:" around this file that we eventually come back to more indepth and fuck with
 
 SWEP.Base = "weapon_base"
 
@@ -34,7 +34,7 @@ SWEP.IronSightsAng = Vector(0, 0, -70)
 SWEP.Category = "Begotten"
 SWEP.SlotPos = 1
 SWEP.DrawAmmo = true
-SWEP.Instructions = "LMB - Swing | RMB - Guard | R - Parry"
+SWEP.Instructions = "Clic gauche - Frappe | Clic droit - Garde | R - Parade"
 SWEP.Purpose = ""
 SWEP.HoldType = "melee2"
 SWEP.ViewModelFOV = 50
@@ -479,7 +479,7 @@ function SWEP:CanPrimaryAttack()
 		
 			if faction ~= "Gatekeeper" and faction ~= "Holy Hierarchy" and faction ~= "Pope Adyssa's Gatekeepers" and faction ~= "Hillkeeper" then
 				if SERVER then
-					Clockwork.player:Notify(self.Owner, "You cannot attack in this holy place!");
+					Clockwork.player:Notify(self.Owner, "Vous ne pouvez pas attaquer dans ce lieu sacré !");
 				end
 				
 				local curTime = CurTime();
@@ -1339,7 +1339,7 @@ end
 									local itemEnt = Clockwork.entity:CreateItem(hit, itemTable, dropPos);
 									
 									if (IsValid(itemEnt)) then
-										Clockwork.chatBox:AddInTargetRadius(hit, "me", "'s "..itemTable.name..dropMessages[math.random(1, #dropMessages)], hit:GetPos(), Clockwork.config:Get("talk_radius"):Get() * 2);
+										Clockwork.chatBox:AddInTargetRadius(hit, "me", "s"..itemTable.name..dropMessages[math.random(1, #dropMessages)], hit:GetPos(), Clockwork.config:Get("talk_radius"):Get() * 2);
 										hit:TakeItem(itemTable)
 										hit:SelectWeapon("begotten_fists")
 										hit:StripWeapon(enemywep:GetClass())

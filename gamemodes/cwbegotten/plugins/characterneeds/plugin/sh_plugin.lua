@@ -1,4 +1,4 @@
---[[
+﻿--[[
 	Begotten III: Jesus Wept
 --]]
 
@@ -11,7 +11,7 @@ Clockwork.kernel:IncludePrefixed("sv_hooks.lua");
 Clockwork.kernel:IncludePrefixed("sv_plugin.lua");
 
 local COMMAND = Clockwork.command:New("Drink");
-COMMAND.tip = "Drink from surviving bodies of water. This should be done sparingly, as the waters are filthy and drinking from them will drain your sanity.";
+COMMAND.tip = "Buvez dans les plans d'eau restants. À utiliser avec parcimonie, car les eaux sont souillées et en boire épuisera votre santé mentale.";
 COMMAND.text = "<none>";
 COMMAND.important = true;
 
@@ -29,23 +29,23 @@ function COMMAND:OnRun(player, arguments)
 				player:HandleNeed("corruption", 5);
 				
 				player:EmitSound("npc/barnacle/barnacle_gulp1.wav");
-				Schema:EasyText(player, "olivedrab", "This strange puddle of water is full of delicacy indeed...");
+				Schema:EasyText(player, "olivedrab", "Cette étrange flaque d'eau déborde de délicatesse, c'est certain...");
 			else
-				Schema:EasyText(player, "chocolate", "There is no blood in these waters, to drink from this would be a moot point.");
+				Schema:EasyText(player, "chocolate", "Il n'y a pas de sang dans ces eaux, en boire serait inutile.");
 			
 				return;
 			end
 		end;
 		
 		if cwBeliefs and (player:HasBelief("the_paradox_riddle_equation") or player:HasBelief("the_storm")) then
-			Schema:EasyText(player, "maroon", "You lap water down your receptacle, but it begins to short-circuit your insides!");
+			Schema:EasyText(player, "maroon", "Tu lèches l'eau de ton réceptacle, mais elle commence à court-circuiter tes entrailles !");
 			player:TakeDamage(25);
 			
 			return;
 		end
 		
 		if thirst <= 10 then
-			Schema:EasyText(player, "chocolate", "You aren't thirsty enough to drink from here.");
+			Schema:EasyText(player, "chocolate", "Tu n'as pas assez soif pour boire ici.");
 			
 			return;
 		end
@@ -53,21 +53,21 @@ function COMMAND:OnRun(player, arguments)
 		if lastZone == "gore" then
 			player:HandleNeed("thirst", -25);
 			player:EmitSound("npc/barnacle/barnacle_gulp1.wav");
-			Schema:EasyText(player, "olivedrab", "You drink from the pure waters of the Gore Forest, quenching your thirst.");
+			Schema:EasyText(player, "olivedrab", "Tu bois aux eaux pures de la Gore Forest, étanchant ta soif.");
 		elseif lastZone == "hotspring" then
 			player:HandleNeed("thirst", -25);
 			player:EmitSound("npc/barnacle/barnacle_gulp1.wav");
-			Schema:EasyText(player, "olivedrab", "You drink from the pure waters of the hot spring, quenching your thirst.");
+			Schema:EasyText(player, "olivedrab", "Tu bois aux eaux pures de la source chaude, étanchant ta soif.");
 		else
 			if cwRituals and player.drownedKingActive then
 				player:HandleNeed("thirst", -25);
 				player:EmitSound("npc/barnacle/barnacle_gulp1.wav");
-				Schema:EasyText(player, "olivedrab", "You drink from the Begotten waters, but the protection of the Drowned King keeps you safe.");
+				Schema:EasyText(player, "olivedrab", "Tu bois aux eaux des Engendrés, mais la protection du Roi Noyé te garde en sécurité.");
 			else
 				if cwBeliefs and player:HasBelief("savage_animal") then
 					player:HandleNeed("thirst", -25);
 					player:EmitSound("npc/barnacle/barnacle_gulp1.wav");
-					Schema:EasyText(player, "olivedrab", "You drink from the yummy Begotten waters.");
+					Schema:EasyText(player, "olivedrab", "Tu bois des délicieuses eaux des Engendrés.");
 				else
 					if cwMedicalSystem then
 						if cwBeliefs and player:HasBelief("sanitary") then
@@ -80,7 +80,7 @@ function COMMAND:OnRun(player, arguments)
 					player:HandleSanity(-10);
 					player:HandleNeed("thirst", -25);
 					player:EmitSound("npc/barnacle/barnacle_gulp1.wav");
-					Schema:EasyText(player, "olive", "You drink from the Begotten waters. Who knows what foulness you have just consumed? You feel your sanity drain.");
+					Schema:EasyText(player, "olive", "Tu bois aux eaux des Engendrés. Qui sait quelle infamie tu viens d'ingurgiter ? Tu sens ta raison se vider.");
 				end
 			end
 		end
@@ -100,13 +100,13 @@ function COMMAND:OnRun(player, arguments)
 					local thirst = player:GetNeed("thirst", 0);
 					
 					if !cwWeather:IsOutside(player:EyePos()) then
-						Schema:EasyText(player, "chocolate", "You must be standing in the rain to drink from it!");
+						Schema:EasyText(player, "chocolate", "Tu dois être sous la pluie pour boire de celle-ci !");
 						
 						return;
 					end
 					
 					if cwBeliefs and (player:HasBelief("the_paradox_riddle_equation") or player:HasBelief("the_storm")) then
-						Schema:EasyText(player, "maroon", "You lap water down your receptacle, but it begins to short-circuit your insides!");
+						Schema:EasyText(player, "maroon", "Tu lèches de l'eau dans ton réceptacle, mais cela commence à court-circuiter tes circuits internes !");
 						player:TakeDamage(25);
 						
 						return;
@@ -114,18 +114,18 @@ function COMMAND:OnRun(player, arguments)
 
 					if weather == "acidrain" then
 						if player:GetSubfaction() == "Varazdat" then
-							Schema:EasyText(player, "chocolate", "There is no blood in this rain, to drink from this would be a moot point.");
+							Schema:EasyText(player, "chocolate", "Il n'y a pas de sang dans cette pluie, en boire serait inutile.");
 							
 							return;
 						end;
 						
 						if thirst <= 10 then
-							Schema:EasyText(player, "chocolate", "You aren't thirsty enough to drink from the rain.");
+							Schema:EasyText(player, "chocolate", "Tu n'as pas assez soif pour boire l'eau de pluie.");
 							
 							return;
 						end
 					
-						Schema:EasyText(player, "olive", "You clasp a small amount of polluted rain in the cup of your hand, drinking it and burning your throat in the process!");
+						Schema:EasyText(player, "olive", "Tu recueilles une petite quantité de pluie polluée dans le creux de ta main, la bois et te brûles la gorge au passage !");
 						player:HandleSanity(-5);
 						player:HandleNeed("thirst", -15);
 						player:EmitSound("npc/barnacle/barnacle_gulp1.wav");
@@ -146,7 +146,7 @@ function COMMAND:OnRun(player, arguments)
 						return;
 					elseif weather == "bloodstorm" then
 						if thirst <= 10 then
-							Schema:EasyText(player, "chocolate", "You aren't thirsty enough to drink from the rain.");
+							Schema:EasyText(player, "chocolate", "Tu n'as pas assez soif pour boire l'eau de pluie.");
 							
 							return;
 						end
@@ -154,12 +154,12 @@ function COMMAND:OnRun(player, arguments)
 						if cwBeliefs and player:HasBelief("savage_animal") then
 							player:HandleNeed("thirst", -25);
 							player:EmitSound("npc/barnacle/barnacle_gulp1.wav");
-							Schema:EasyText(player, "olive", "You clasp a small amount of yummy blood in the cup of your hand, drinking it with glee!");
+							Schema:EasyText(player, "olive", "Tu recueilles une petite quantité de délicieux sang dans le creux de ta main et le bois avec ravissement !");
 						else
 							player:HandleSanity(-20);
 							player:HandleNeed("thirst", -15);
 							player:EmitSound("npc/barnacle/barnacle_gulp1.wav");
-							Schema:EasyText(player, "olive", "You clasp a small amount of foul smelling liquid in the cup of your hand, drinking it reluctantly. It tastes very iron-rich.");
+							Schema:EasyText(player, "olive", "Tu saisis une petite quantité de liquide à l'odeur fétide dans le creux de ta main, le buvant à contrecœur. Il a un goût très riche en fer.");
 						end
 						
 						if cwBeliefs then
@@ -169,20 +169,20 @@ function COMMAND:OnRun(player, arguments)
 						return;
 					elseif weather == "thunderstorm" then
 						if player:GetSubfaction() == "Varazdat" then
-							Schema:EasyText(player, "chocolate", "There is no blood in this rain, to drink from this would be a moot point.");
+							Schema:EasyText(player, "chocolate", "Il n'y a pas de sang dans cette pluie, en boire serait inutile.");
 							
 							return;
 						end;
 						
 						if thirst <= 10 then
-							Schema:EasyText(player, "chocolate", "You aren't thirsty enough to drink from the rain.");
+							Schema:EasyText(player, "chocolate", "Tu n'as pas assez soif pour boire l'eau de pluie.");
 							
 							return;
 						end
 						
 						player:HandleNeed("thirst", -15);
 						player:EmitSound("npc/barnacle/barnacle_gulp1.wav");
-						Schema:EasyText(player, "olive", "You clasp a small amount of rain in the cup of your hand, drinking it. It tastes surprisingly fresh.");
+						Schema:EasyText(player, "olive", "Tu recueilles une petite quantité de pluie dans le creux de ta main et la bois. Elle a un goût étonnamment frais.");
 						
 						if cwBeliefs then
 							player:HandleXP(cwBeliefs.xpValues["drink"]);
@@ -194,28 +194,28 @@ function COMMAND:OnRun(player, arguments)
 			end
 		end
 		
-		Schema:EasyText(player, "firebrick", "You must be near a source of water to drink!");
+		Schema:EasyText(player, "firebrick", "Vous devez être près d'une source d'eau pour boire !");
 	end;
 end;
 
 COMMAND:Register();
 
 local COMMAND = Clockwork.command:New("Sleep");
-COMMAND.tip = "Try your best to sleep. Note that you will gain hunger and thirst, and that sleeping on the ground won't be as effective as sleeping in proper bedding.";
+COMMAND.tip = "Fais de ton mieux pour dormir. Note que tu gagneras de la faim et de la soif, et que dormir au sol sera moins efficace que dans un lit approprié.";
 COMMAND.text = "<none>";
 COMMAND.important = true;
 
 -- Called when the command has been run.
 function COMMAND:OnRun(player, arguments)
 	if cwBeliefs and player:HasBelief("yellow_and_black") then
-		Schema:EasyText(player, "peru", "Your mortal coil no longer requires sleep!");
+		Schema:EasyText(player, "peru", "Ton enveloppe charnelle n'a plus besoin de sommeil !");
 	
 		return false;
 	end
 
 	if (player:GetNeed("sleep") >= 40) then
 		if player.OverEncumbered then
-			Schema:EasyText(player, "peru", "You cannot sleep while overencumbered!");
+			Schema:EasyText(player, "peru", "Vous ne pouvez pas dormir en étant surchargé !");
 			
 			return false;
 		end
@@ -235,9 +235,9 @@ function COMMAND:OnRun(player, arguments)
 					Clockwork.player:SetRagdollState(player, RAGDOLL_KNOCKEDOUT, 300);
 					
 					if v.owner == player:GetCharacterKey() then
-						Schema:EasyText(player, "olivedrab", "You climb into your bed and get some rest.");
+						Schema:EasyText(player, "olivedrab", "Tu grimpes dans ton lit et prends un peu de repos.");
 					else
-						Schema:EasyText(player, "olivedrab", "You climb into a bed and get some rest.");
+						Schema:EasyText(player, "olivedrab", "Tu grimpes dans un lit et te reposes un peu.");
 					end
 					
 					return;
@@ -262,7 +262,7 @@ function COMMAND:OnRun(player, arguments)
 				--player:HandleNeed("sleep", -60);
 				
 				Clockwork.player:SetRagdollState(player, RAGDOLL_KNOCKEDOUT, 150);
-				Schema:EasyText(player, "olivedrab", "You climb into a cot and get some rest.");
+				Schema:EasyText(player, "olivedrab", "Tu grimpes dans un lit de camp et prends un peu de repos.");
 				return;
 			end
 			--elseif faction == "Holy Hierarchy" then
@@ -275,7 +275,7 @@ function COMMAND:OnRun(player, arguments)
 						--player:HandleNeed("sleep", -100);
 						
 						Clockwork.player:SetRagdollState(player, RAGDOLL_KNOCKEDOUT, 100);
-						Schema:EasyText(player, "olivedrab", "You climb into a bed and get some rest.");
+						Schema:EasyText(player, "olivedrab", "Tu grimpes dans un lit et te reposes un peu.");
 						return;
 					end
 				end
@@ -289,7 +289,7 @@ function COMMAND:OnRun(player, arguments)
 						--player:HandleNeed("sleep", -100);
 						
 						Clockwork.player:SetRagdollState(player, RAGDOLL_KNOCKEDOUT, 100);
-						Schema:EasyText(player, "olivedrab", "You climb into a bed and get some rest.");
+						Schema:EasyText(player, "olivedrab", "Tu grimpes dans un lit et te reposes un peu.");
 						return;
 					end
 				end
@@ -302,7 +302,7 @@ function COMMAND:OnRun(player, arguments)
 					--player:HandleNeed("sleep", -100);
 					
 					Clockwork.player:SetRagdollState(player, RAGDOLL_KNOCKEDOUT, 100);
-					Schema:EasyText(player, "olivedrab", "You climb into a bed and get some rest.");
+					Schema:EasyText(player, "olivedrab", "Tu grimpes dans un lit et te reposes un peu.");
 					return;
 				end
 			--end
@@ -316,7 +316,7 @@ function COMMAND:OnRun(player, arguments)
 				--player:HandleNeed("sleep", -60);
 				
 				Clockwork.player:SetRagdollState(player, RAGDOLL_KNOCKEDOUT, 150);
-				Schema:EasyText(player, "olivedrab", "You climb into a cot and get some rest.");
+				Schema:EasyText(player, "olivedrab", "Tu grimpes dans un lit de camp et prends un peu de repos.");
 				return;
 			elseif playerPos:WithinAABox(cwCharacterNeeds.bedZones["gorehut"].pos1, cwCharacterNeeds.bedZones["gorehut"].pos2) then
 				player.sleepData = {health = 25, hunger = 10, thirst = 20, rest = -60, sanity = 25};
@@ -326,7 +326,7 @@ function COMMAND:OnRun(player, arguments)
 				--player:HandleNeed("sleep", -60);
 				
 				Clockwork.player:SetRagdollState(player, RAGDOLL_KNOCKEDOUT, 150);
-				Schema:EasyText(player, "olivedrab", "You climb into a cot and get some rest.");
+				Schema:EasyText(player, "olivedrab", "Tu grimpes dans un lit de camp et prends un peu de repos.");
 				return;
 			end
 		end
@@ -341,7 +341,7 @@ function COMMAND:OnRun(player, arguments)
 				--player:HandleNeed("sleep", -100);
 				
 				Clockwork.player:SetRagdollState(player, RAGDOLL_KNOCKEDOUT, 100);
-				Schema:EasyText(player, "olivedrab", "You climb into a bed and get some rest.");
+				Schema:EasyText(player, "olivedrab", "Tu montes dans un lit et te reposes un peu.");
 				return;
 			end
 		end
@@ -355,7 +355,7 @@ function COMMAND:OnRun(player, arguments)
 					--player:HandleNeed("sleep", -100);
 					
 					Clockwork.player:SetRagdollState(player, RAGDOLL_KNOCKEDOUT, 100);
-					Schema:EasyText(player, "olivedrab", "You climb into a bed and get some rest.");
+					Schema:EasyText(player, "olivedrab", "Tu grimpes dans un lit et te reposes un peu.");
 					return;
 				end
 			end
@@ -369,7 +369,7 @@ function COMMAND:OnRun(player, arguments)
 					--player:HandleNeed("sleep", -100);
 					
 					Clockwork.player:SetRagdollState(player, RAGDOLL_KNOCKEDOUT, 100);
-					Schema:EasyText(player, "olivedrab", "You climb into a bed and get some rest.");
+					Schema:EasyText(player, "olivedrab", "Tu grimpes dans un lit et te reposes un peu.");
 					return;
 				end
 			end
@@ -383,7 +383,7 @@ function COMMAND:OnRun(player, arguments)
 				--player:HandleNeed("sleep", -100);
 				
 				Clockwork.player:SetRagdollState(player, RAGDOLL_KNOCKEDOUT, 100);
-				Schema:EasyText(player, "olivedrab", "You climb into a bed and get some rest.");
+				Schema:EasyText(player, "olivedrab", "Tu montes dans un lit et te reposes un peu.");
 				return;
 			end
 		end
@@ -397,7 +397,7 @@ function COMMAND:OnRun(player, arguments)
 				--player:HandleNeed("sleep", -60);
 				
 				Clockwork.player:SetRagdollState(player, RAGDOLL_KNOCKEDOUT, 150);
-				Schema:EasyText(player, "olivedrab", "You climb into a cot and get some rest.");
+				Schema:EasyText(player, "olivedrab", "Tu grimpes dans un lit de camp et prends un peu de repos.");
 				return;
 			end
 		end
@@ -411,7 +411,7 @@ function COMMAND:OnRun(player, arguments)
 				--player:HandleNeed("sleep", -60);
 				
 				Clockwork.player:SetRagdollState(player, RAGDOLL_KNOCKEDOUT, 150);
-				Schema:EasyText(player, "olivedrab", "You climb into a cot and get some rest.");
+				Schema:EasyText(player, "olivedrab", "Tu grimpes dans un lit de camp et prends un peu de repos.");
 				return;
 			end
 		end
@@ -424,7 +424,7 @@ function COMMAND:OnRun(player, arguments)
 			--player:HandleNeed("sleep", -60);
 			
 			Clockwork.player:SetRagdollState(player, RAGDOLL_KNOCKEDOUT, 150);
-			Schema:EasyText(player, "olivedrab", "You climb into a cot and get some rest.");
+			Schema:EasyText(player, "olivedrab", "Tu grimpes dans un lit de camp et te reposes un peu.");
 			return;
 		end
 		
@@ -434,16 +434,16 @@ function COMMAND:OnRun(player, arguments)
 		--player:HandleNeed("sleep", -30);
 		
 		Clockwork.player:SetRagdollState(player, RAGDOLL_KNOCKEDOUT, 300);
-		Schema:EasyText(player, "olivedrab", "You clamber onto the ground and attempt to get some rest.");
+		Schema:EasyText(player, "olivedrab", "Tu grimpes sur le sol et tentes de te reposer un peu.");
 	else
-		Schema:EasyText(player, "firebrick", "You are not tired enough to sleep!");
+		Schema:EasyText(player, "firebrick", "Vous n'êtes pas assez fatigué pour dormir !");
 	end;
 end;
 
 COMMAND:Register();
 
 local COMMAND = Clockwork.command:New("CharSetStamina");
-COMMAND.tip = "Set a player's stamina level.";
+COMMAND.tip = "Définir le niveau d'endurance d'un joueur.";
 COMMAND.text = "<string Name> <number Amount>";
 COMMAND.access = "o";
 COMMAND.arguments = 2;
@@ -475,7 +475,7 @@ end;
 COMMAND:Register();
 
 local COMMAND = Clockwork.command:New("CharSetCorruption");
-COMMAND.tip = "Set a player's Corruption level. (0 = Not Corrupted, 100 = Possessed)";
+COMMAND.tip = "Définir le niveau de Corruption d'un joueur. (0 = Non Corrompu, 100 = Possédé)";
 COMMAND.text = "<string Name> <number Amount>";
 COMMAND.access = "o";
 COMMAND.arguments = 2;
@@ -506,7 +506,7 @@ end;
 COMMAND:Register();
 
 local COMMAND = Clockwork.command:New("CharSetHunger");
-COMMAND.tip = "Set a player's Hunger level. (0 = Full, 100 = Starving)";
+COMMAND.tip = "Définir le niveau de Faim d'un joueur. (0 = Rassasié, 100 = Affamé)";
 COMMAND.text = "<string Name> <number Amount>";
 COMMAND.access = "o";
 COMMAND.arguments = 2;
@@ -537,7 +537,7 @@ end;
 COMMAND:Register();
 
 local COMMAND = Clockwork.command:New("CharSetThirst");
-COMMAND.tip = "Set a player's Thirst level. (0 = Hydrated, 100 = Dehydrated)";
+COMMAND.tip = "Définir le niveau de Soif d'un joueur. (0 = Hydraté, 100 = Déshydraté)";
 COMMAND.text = "<string Name> <number Amount>";
 COMMAND.access = "o";
 COMMAND.arguments = 2;
@@ -568,7 +568,7 @@ end;
 COMMAND:Register();
 
 local COMMAND = Clockwork.command:New("CharSetSleep");
-COMMAND.tip = "Set a player's Sleep level. (0 = Rested, 100 = Exhausted)";
+COMMAND.tip = "Définir le niveau de fatigue d'un joueur. (0 = Reposé, 100 = Épuisé)";
 COMMAND.text = "<string Name> <number Amount>";
 COMMAND.access = "o";
 COMMAND.arguments = 2;
@@ -599,7 +599,7 @@ end;
 COMMAND:Register();
 
 local COMMAND = Clockwork.command:New("CharGetNeeds");
-	COMMAND.tip = "Display a list of a character's needs and their current status. Values of 0 are the default despite what might display on the UI.";
+	COMMAND.tip = "Affiche la liste des besoins d'un personnage et leur état actuel. Les valeurs de 0 représentent l'état par défaut, indépendamment de ce qui peut s'afficher dans l'interface.";
 	COMMAND.text = "<string Name>";
 	COMMAND.access = "o";
 	COMMAND.arguments = 1;

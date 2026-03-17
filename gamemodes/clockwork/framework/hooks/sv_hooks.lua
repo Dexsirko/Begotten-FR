@@ -1,4 +1,4 @@
---[[
+﻿--[[
 	Begotten III: Jesus Wept
 	By: DETrooper, cash wednesday, gabs, alyousha35
 
@@ -563,7 +563,7 @@ end
 function GM:PlayerCanTakeFromStorage(player, storageTable, itemTable)
 	if (itemTable.cwPropertyTab) then
 		--[[if (Clockwork.entity:BelongsToAnotherCharacter(player, itemTable)) then
-			Schema:EasyText(player, "peru", "You cannot pick up items belonging to your other character.")
+			Schema:EasyText(player, "peru", "Vous ne pouvez pas ramasser les objets appartenant à votre autre personnage.")
 			Clockwork.kernel:PrintLog(LOGTYPE_MAJOR, player:Name().." has attempted to take an item stored by another character.")
 
 			return false
@@ -2015,7 +2015,7 @@ end
 function GM:PlayerCanHolsterWeapon(player, itemTable, weapon, bForce, bNoMsg)
 	if (Clockwork.player:GetSpawnWeapon(player, itemTable:GetWeaponClass())) then
 		if (!bNoMsg) then
-			Schema:EasyText(player, "peru", "You cannot holster this weapon!")
+			Schema:EasyText(player, "peru", "Vous ne pouvez pas rengainer cette arme !")
 		end
 
 		return false
@@ -2030,7 +2030,7 @@ end
 function GM:PlayerCanDropWeapon(player, itemTable, weapon, bNoMsg)
 	if itemTable.GetWeaponClass and (Clockwork.player:GetSpawnWeapon(player, itemTable:GetWeaponClass())) then
 		if (!bNoMsg) then
-			Schema:EasyText(player, "peru", "You cannot drop this weapon!")
+			Schema:EasyText(player, "peru", "Vous ne pouvez pas lâcher cette arme !")
 		end
 
 		return false
@@ -2053,7 +2053,7 @@ function GM:PlayerCanUseItem(player, itemTable, bNoMsg)
 
 	if (isWeapon and isSpawnWeapon) then
 		if (!bNoMsg) then
-			Schema:EasyText(player, "peru", "You cannot use this weapon!")
+			Schema:EasyText(player, "peru", "Vous ne pouvez pas utiliser cette arme !")
 		end
 
 		return false
@@ -2307,7 +2307,7 @@ function GM:PlayerCanChangeClass(player, class)
 	local curTime = CurTime()
 
 	if (player.cwNextChangeClass and curTime < player.cwNextChangeClass) then
-		Schema:EasyText(player, "peru", "You cannot change classes for another "..math.ceil(player.cwNextChangeClass - curTime).." seconds!");
+		Schema:EasyText(player, "peru", "Vous ne pouvez pas changer de classe avant"..math.ceil(player.cwNextChangeClass - curTime).." seconds!");
 
 		return false
 	else
@@ -2334,7 +2334,7 @@ function GM:ClockworkInitPostEntity() end
 -- Called when a player attempts to say something in-character.
 function GM:PlayerCanSayIC(player, text)
 	if ((!player:Alive() or player:IsRagdolled(RAGDOLL_FALLENOVER)) and !Clockwork.player:GetDeathCode(player, true)) or player:IsMuted() then
-		Schema:EasyText(player, "peru", "You cannot do this action at the moment!")
+		Schema:EasyText(player, "peru", "Vous ne pouvez pas effectuer cette action pour le moment !")
 
 		return false
 	else
@@ -2401,7 +2401,7 @@ local function PlayerSayFunc(player, text)
 					Clockwork.chatBox:Add(nil, player, "ooc", text);
 					player.cwNextTalkOOC = curTime + config.Get("ooc_interval"):Get();
 				else
-					Schema:EasyText(player, "grey", "You cannot cannot talk out-of-character for another "..math.ceil(player.cwNextTalkOOC - CurTime()).." second(s)!");
+					Schema:EasyText(player, "grey", "Vous ne pouvez pas parler hors-jeu pendant encore"..math.ceil(player.cwNextTalkOOC - CurTime()).." second(s)!");
 					return;
 				end;
 			end;
@@ -2687,7 +2687,7 @@ function GM:PlayerSpawnNPC(player, model)
 	end
 
 	if (!player:Alive() or player:IsRagdolled()) then
-		Schema:EasyText(player, "peru", "You cannot do this action at the moment!")
+		Schema:EasyText(player, "peru", "Vous ne pouvez pas effectuer cette action pour le moment !")
 
 		return false
 	end
@@ -2758,7 +2758,7 @@ function GM:EntityHandleMenuOption(player, entity, option, arguments)
 		
 		if (arguments == "cwItemTake" or arguments == "cwItemUse") then
 			--[[if (Clockwork.entity:BelongsToAnotherCharacter(player, entity)) then
-				Schema:EasyText(player, "peru", "You cannot pick up items you've dropped on another character!")
+				Schema:EasyText(player, "peru", "Vous ne pouvez pas ramasser les objets que vous avez lâchés sur un autre personnage !")
 				return
 			end]]--
 
@@ -2846,18 +2846,18 @@ function GM:EntityHandleMenuOption(player, entity, option, arguments)
 						if repairItemTable:GetCondition() <= 0 then
 							player:TakeItem(repairItemTable, true);
 							
-							Schema:EasyText(player, "olivedrab", "You have repaired your "..itemTable.name.." to "..tostring(math.Round(itemTable:GetCondition(), 2))..", using the last of the repair kit's parts in the process.");
+							Schema:EasyText(player, "olivedrab", "Vous avez réparé votre"..itemTable.name.." to "..tostring(math.Round(itemTable:GetCondition(), 2))..", using the last of the repair kit's parts in the process.");
 						else
-							Schema:EasyText(player, "green", "You have repaired your "..itemTable.name.." to "..tostring(math.Round(itemTable:GetCondition(), 2))..".");
+							Schema:EasyText(player, "green", "Vous avez réparé votre"..itemTable.name.." to "..tostring(math.Round(itemTable:GetCondition(), 2))..".");
 							Clockwork.inventory:Rebuild(player);
 						end
 					else
-						Schema:EasyText(player, "chocolate", "You do not have an item you can repair this item with!");
+						Schema:EasyText(player, "chocolate", "Vous ne possédez pas d'objet pour réparer cet objet !");
 						return false;
 					end
 				end
 			else
-				Schema:EasyText(player, "peru", "This item is already in perfect condition and cannot be repaired.");
+				Schema:EasyText(player, "peru", "Cet objet est déjà en parfait état et ne peut pas être réparé.");
 				return false;
 			end
 		elseif (arguments == "cwItemExamine") then
@@ -3014,7 +3014,7 @@ function GM:EntityHandleMenuOption(player, entity, option, arguments)
 		})
 	elseif (class == "cw_cash" and arguments == "cwCashTake") then
 		--[[if (Clockwork.entity:BelongsToAnotherCharacter(player, entity)) then
-			Schema:EasyText(player, "peru", "You cannot pick up "..Clockwork.option:GetKey("name_cash", true).." that you've dropped on another character!");
+			Schema:EasyText(player, "peru", "Vous ne pouvez pas ramasser"..Clockwork.option:GetKey("name_cash", true).." that you've dropped on another character!");
 			return
 		end]]--
 
@@ -3043,7 +3043,7 @@ function GM:PlayerSpawnedProp(player, model, entity)
 				Clockwork.player:GiveCash(player, -info.cost, info.name)
 				entity.cwGiveRefundTab = {CurTime() + 10, player, info.cost}
 			else
-				Schema:EasyText(player, "chocolate", "You need another "..Clockwork.kernel:FormatCash(info.cost - player:GetCash(), nil, true).." to buy this!")
+				Schema:EasyText(player, "chocolate", "Il vous en faut un autre"..Clockwork.kernel:FormatCash(info.cost - player:GetCash(), nil, true).." to buy this!")
 				entity:Remove()
 				return
 			end
@@ -3071,7 +3071,7 @@ function GM:PlayerSpawnProp(player, model)
 	end
 
 	if (!player:Alive() or player:IsRagdolled()) then
-		Schema:EasyText(player, "peru", "You cannot do this action at the moment!")
+		Schema:EasyText(player, "peru", "Vous ne pouvez pas effectuer cette action pour le moment !")
 		return false
 	end
 
@@ -3087,7 +3087,7 @@ function GM:PlayerSpawnRagdoll(player, model)
 	if (!Clockwork.player:HasFlags(player, "r")) then return false end
 
 	if (!player:Alive() or player:IsRagdolled()) then
-		Schema:EasyText(player, "peru", "You cannot do this action at the moment!")
+		Schema:EasyText(player, "peru", "Vous ne pouvez pas effectuer cette action pour le moment !")
 
 		return false
 	end
@@ -3102,7 +3102,7 @@ end
 -- Called when a player attempts to spawn an effect.
 function GM:PlayerSpawnEffect(player, model)
 	if (!player:Alive() or player:IsRagdolled()) then
-		Schema:EasyText(player, "peru", "You cannot do this action at the moment!")
+		Schema:EasyText(player, "peru", "Vous ne pouvez pas effectuer cette action pour le moment !")
 
 		return false
 	end
@@ -3125,7 +3125,7 @@ function GM:PlayerSpawnVehicle(player, model)
 	end
 
 	if (!player:Alive() or player:IsRagdolled()) then
-		Schema:EasyText(player, "peru", "You cannot do this action at the moment!")
+		Schema:EasyText(player, "peru", "Vous ne pouvez pas effectuer cette action pour le moment !")
 
 		return false
 	end

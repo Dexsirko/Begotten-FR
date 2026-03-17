@@ -1,4 +1,4 @@
---[[
+﻿--[[
 	Begotten 3: Jesus Wept
 	written by: cash wednesday, DETrooper, gabs and alyousha35.
 --]]
@@ -112,7 +112,7 @@ local DARK = Schema.faiths:New("dark")
 Schema.faiths:Register(DARK)
 
 local COMMAND = Clockwork.command:New("CharTransferFaith");
-	COMMAND.tip = "Transfer a character to a faith.";
+	COMMAND.tip = "Transférer un personnage vers une foi.";
 	COMMAND.text = "<string Name> <string Faith>";
 	COMMAND.access = "o";
 	COMMAND.arguments = 2;

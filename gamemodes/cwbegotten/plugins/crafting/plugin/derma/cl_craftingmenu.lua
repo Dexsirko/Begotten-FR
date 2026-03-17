@@ -1,4 +1,4 @@
---[[
+﻿--[[
 	Begotten 3
 	Created by cash wednesday, gabs, DETrooper and alyousha35
 --]]
@@ -115,7 +115,7 @@ function PANEL:Rebuild()
 		self.categoryList:SetDrawBackground(false);
 		
 		self.weaponButton = vgui.Create("DButton", self)
-		self.weaponButton:SetText("Melees");
+		self.weaponButton:SetText("Armes de mêlée");
 		self.weaponButton:SetSize(256, 70);
 		self.weaponButton:SetTextColor(Color(160, 0, 0));
 		self.weaponButton:SetFont("nov_IntroTextSmallfaaaaa");
@@ -167,7 +167,7 @@ function PANEL:Rebuild()
 		end
 		
 		self.armorButton = vgui.Create("DButton", self)
-		self.armorButton:SetText("Armor");
+		self.armorButton:SetText("Armure");
 		self.armorButton:SetSize(256, 70);
 		self.armorButton:SetTextColor(Color(160, 0, 0));
 		self.armorButton:SetFont("nov_IntroTextSmallfaaaaa");
@@ -193,7 +193,7 @@ function PANEL:Rebuild()
 		end
 		
 		self.cookingButton = vgui.Create("DButton", self)
-		self.cookingButton:SetText("Cooking");
+		self.cookingButton:SetText("Cuisine");
 		self.cookingButton:SetSize(256, 70);
 		self.cookingButton:SetTextColor(Color(160, 0, 0));
 		self.cookingButton:SetFont("nov_IntroTextSmallfaaaaa");
@@ -219,7 +219,7 @@ function PANEL:Rebuild()
 		end
 		
 		self.medicalButton = vgui.Create("DButton", self)
-		self.medicalButton:SetText("Medical");
+		self.medicalButton:SetText("Médical");
 		self.medicalButton:SetSize(256, 70);
 		self.medicalButton:SetTextColor(Color(160, 0, 0));
 		self.medicalButton:SetFont("nov_IntroTextSmallfaaaaa");
@@ -245,7 +245,7 @@ function PANEL:Rebuild()
 		end
 		
 		self.otherButton = vgui.Create("DButton", self)
-		self.otherButton:SetText("Other");
+		self.otherButton:SetText("Autre");
 		self.otherButton:SetSize(256, 70);
 		self.otherButton:SetTextColor(Color(160, 0, 0));
 		self.otherButton:SetFont("nov_IntroTextSmallfaaaaa");
@@ -304,7 +304,7 @@ function PANEL:Rebuild()
 
 	if (!self.closeButton) then
 		self.closeButton = vgui.Create("DButton", self)
-		self.closeButton:SetText("CLOSE")
+		self.closeButton:SetText("FERMER")
 		self.closeButton:SetSize(252, 67)
 		self.closeButton:SetPos(14, (sizeH + 64) - (67 + 8) - 2)
 		self.closeButton:SetTextColor(Color(160, 0, 0))
@@ -431,7 +431,7 @@ function PANEL:UpdateSelectedRecipe(uniqueID)
 	
 	local recipeTable = cwRecipes.recipes.stored[uniqueID];
 	
-	self.rightSide.selectedRecipeLabel:SetText("Selected Recipe: "..recipeTable.name.." ("..self.rightSide.craftAmount.."x)");
+	self.rightSide.selectedRecipeLabel:SetText("Recette sélectionnée :"..recipeTable.name.." ("..self.rightSide.craftAmount.."x)");
 	self.rightSide.selectedRecipeLabel:SizeToContents();
 	self.rightSide.selectedRecipeLabel:SetPos(370 - (self.rightSide.selectedRecipeLabel:GetSize() / 2), 330);
 end
@@ -500,7 +500,7 @@ function PANEL:Rebuild()
 	
 	if recipeData.requiresHeatSource then
 		self.heatSourceLabel = vgui.Create("DLabel", self);
-		self.heatSourceLabel:SetText("Requires Heat Source");
+		self.heatSourceLabel:SetText("Nécessite une source de chaleur");
 		--self.heatSourceLabel:SetTextColor(Color(160, 145, 145));
 		self.heatSourceLabel:SetFont("Decay_FormText");
 		self.heatSourceLabel:SetPos(100, 52);
@@ -513,7 +513,7 @@ function PANEL:Rebuild()
 		end
 	elseif recipeData.requiresSmithy then
 		self.smithyLabel = vgui.Create("DLabel", self);
-		self.smithyLabel:SetText("Requires Smithy");
+		self.smithyLabel:SetText("Nécessite une Forge");
 		--self.smithyLabel:SetTextColor(Color(160, 145, 145));
 		self.smithyLabel:SetFont("Decay_FormText");
 		self.smithyLabel:SetPos(100, 52);
@@ -531,7 +531,7 @@ function PANEL:Rebuild()
 		
 		self.tierLabel = vgui.Create("DLabel", self);
 		self.tierLabel:SetFont("Decay_FormText");
-		self.tierLabel:SetText("Required Beliefs:");
+		self.tierLabel:SetText("Croyances requises :");
 		self.tierLabel:SetPos(100, 30);
 		self.tierLabel:SizeToContents();
 	
@@ -621,7 +621,7 @@ function PANEL:Rebuild()
 	
 	if recipeData.experience then
 		self.xpLabel = vgui.Create("DLabel", self);
-		self.xpLabel:SetText("Reward: "..tostring(recipeData.experience).." Faith");
+		self.xpLabel:SetText("Récompense :"..tostring(recipeData.experience).." Faith");
 		self.xpLabel:SetTextColor(Color(25, 150, 25));
 		self.xpLabel:SetFont("Decay_FormText");
 		self.xpLabel:SizeToContents();
@@ -655,7 +655,7 @@ function PANEL:Rebuild()
 	self.requirementsList:SetPos(300 + 224 - ((68 * #self.requirementsList:GetItems() / 2)), 28);
 	
 	self.requirementsLabel = vgui.Create("DLabel", self);
-	self.requirementsLabel:SetText("Items Required:");
+	self.requirementsLabel:SetText("Objets requis :");
 	self.requirementsLabel:SetTextColor(Color(160, 145, 145));
 	self.requirementsLabel:SetFont("Decay_FormText");
 	self.requirementsLabel:SizeToContents();
@@ -816,7 +816,7 @@ function PANEL:Init()
 	};
 	
 	self.craftButton = vgui.Create("DButton", self)
-	self.craftButton:SetText("Craft");
+	self.craftButton:SetText("Fabriquer");
 	self.craftButton:SetSize(256, 70);
 	self.craftButton:SetPos(242, 356);
 	self.craftButton:SetTextColor(Color(160, 0, 0));
@@ -927,11 +927,11 @@ function PANEL:Init()
 		self.selectedRecipeLabel = vgui.Create("DLabel", self);
 		
 		if !self:GetParent().selectedRecipe then
-			self.selectedRecipeLabel:SetText("You have no recipe selected!");
+			self.selectedRecipeLabel:SetText("Vous n'avez aucune recette sélectionnée !");
 		else
 			local recipeTable = cwRecipes.recipes.stored[self:GetParent().selectedRecipe];
 			
-			self.selectedRecipeLabel:SetText("Selected Recipe: "..recipeTable.name.." ("..self.craftAmount.."x)");
+			self.selectedRecipeLabel:SetText("Recette sélectionnée :"..recipeTable.name.." ("..self.craftAmount.."x)");
 		end
 		
 		self.selectedRecipeLabel:SetTextColor(Color(200, 20, 20));

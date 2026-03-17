@@ -1,4 +1,4 @@
---[[
+﻿--[[
 	Begotten III: Jesus Wept
 	By: DETrooper, cash wednesday, gabs, alyousha35
 
@@ -92,14 +92,14 @@ if (CLIENT) then
 				end
 			else
 				local label = vgui.Create("cwInfoText", systemPanel)
-					label:SetText("There are no banned players to display.")
+					label:SetText("Aucun joueur banni à afficher.")
 					label:SetInfoColor("orange")
 					label:DockMargin(0, 0, 0, 8)
 				systemPanel.panelList:AddItem(label)
 			end
 		else
 			local label = vgui.Create("cwInfoText", systemPanel)
-				label:SetText("Hold on while the banned player list is retrieved...")
+				label:SetText("Veuillez patienter pendant la récupération de la liste des joueurs bannis...")
 				label:SetInfoColor("blue")
 				label:DockMargin(0, 0, 0, 8)
 			systemPanel.panelList:AddItem(label)

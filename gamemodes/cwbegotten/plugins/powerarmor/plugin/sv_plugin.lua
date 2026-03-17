@@ -1,4 +1,4 @@
-function cwPowerArmor:DoPowerArmorTesla(entity, bDoesDamage, bSound)
+﻿function cwPowerArmor:DoPowerArmorTesla(entity, bDoesDamage, bSound)
 	if (IsValid(entity)) then
 		local teslaData = EffectData();
 		local sparkData = EffectData();
@@ -149,7 +149,7 @@ end;
 
 function playerMeta:EnterPowerArmor(entity)
 	if self:IsWearingPowerArmor() then
-		Schema:EasyText(self, "peru",  "You are already wearing power armor!");
+		Schema:EasyText(self, "peru",  "Vous portez déjà une armure assistée !");
 		
 		return false;
 	end
@@ -211,7 +211,7 @@ function playerMeta:ExitPowerArmor()
 		
 		Clockwork.player:SetSafePosition(self, self:GetPos());
 	else
-		Schema:EasyText(self, "chocolate",  "You are not wearing power armor!");
+		Schema:EasyText(self, "chocolate",  "Vous ne portez pas d'armure énergétique !");
 		
 		return false;
 	end

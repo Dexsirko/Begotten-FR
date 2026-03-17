@@ -1,9 +1,9 @@
-local ITEM = Clockwork.item:New("shot_base");
+﻿local ITEM = Clockwork.item:New("shot_base");
 	ITEM.name = "Grapeshot";
 	ITEM.model = "models/kali/weapons/metro 2033/magazines/12 gauge shotgun shell.mdl";
 	ITEM.weight = 0.25;
 	ITEM.stackable = true;
-	ITEM.description = "A single shell of Grapeshot.";
+	ITEM.description = "Une unique cartouche de mitraille.";
 	ITEM.iconoverride = "materials/begotten/ui/itemicons/grapeshot.png"
 	
 	ITEM.ammoType = "Grapeshot";
@@ -18,7 +18,7 @@ local ITEM = Clockwork.item:New("shot_base");
 	ITEM.model = "models/kali/weapons/metro 2033/magazines/12 gauge shotgun shell.mdl";
 	ITEM.weight = 0.2;
 	ITEM.stackable = true;
-	ITEM.description = "An ancient Grapeshot shell, pre-dating even the Empire of Light.";
+	ITEM.description = "Un obus Grapeshot antique, antérieur même à l'Empire de la Lumière.";
 	ITEM.iconoverride = "materials/begotten/ui/itemicons/grapeshot.png"
 	
 	ITEM.ammoType = "Old World Grapeshot";
@@ -33,7 +33,7 @@ local ITEM = Clockwork.item:New("shot_base");
 	ITEM.model = "models/bullets/w_pbullet1.mdl";
 	ITEM.weight = 0.1;
 	ITEM.stackable = true;
-	ITEM.description = "A single cartridge of black powder and small rusty balls that act as a bullet.";
+	ITEM.description = "Une cartouche unique de poudre noire et de petites billes rouillées servant de projectile.";
 	ITEM.iconoverride = "materials/begotten/ui/itemicons/pop-a-shot.png"
 	
 	ITEM.ammoType = "Pop-a-Shot";
@@ -48,7 +48,7 @@ local ITEM = Clockwork.item:New("shot_base");
 	ITEM.model = "models/shells/shell_338mag.mdl";
 	ITEM.weight = 0.2;
 	ITEM.stackable = true;
-	ITEM.description = "A single rusty round that can be fitted into a musket. It packs a punch.";
+	ITEM.description = "Une unique balle rouillée pouvant être chargée dans un mousquet. Elle a du coffre.";
 	ITEM.iconoverride = "materials/begotten/ui/itemicons/longshot.png"
 	
 	ITEM.ammoType = "Longshot";
@@ -62,7 +62,7 @@ local ITEM = Clockwork.item:New("shot_base");
 	ITEM.name = "Old World Magazine";
 	ITEM.model = "models/uzi megazine 20.mdl";
 	ITEM.weight = 0.8;
-	ITEM.description = "A magazine containing ammunition from days long past, a rare find indeed!";
+	ITEM.description = "Un chargeur contenant des munitions d'un temps révolu, une trouvaille vraiment rare !";
 	ITEM.iconoverride = "materials/begotten/ui/itemicons/scavenger_gun_magazine.png"
 	
 	ITEM.ammoType = "Old World Magazine";
@@ -77,7 +77,7 @@ local ITEM = Clockwork.item:New("shot_base");
 	ITEM.name = "Old World Large Magazine";
 	ITEM.model = "models/uzi megazine 32.mdl";
 	ITEM.weight = 1.2;
-	ITEM.description = "A large magazine containing ammunition from days long past, a rare find indeed!";
+	ITEM.description = "Un grand chargeur contenant des munitions d'un lointain passé, une trouvaille vraiment rare !";
 	ITEM.iconoverride = "materials/begotten/ui/itemicons/scavenger_gun_large_magazine.png"
 	
 	ITEM.ammoType = "Old World Large Magazine";
@@ -93,7 +93,7 @@ local ITEM = Clockwork.item:New("shot_base");
 	ITEM.model = "models/kali/weapons/metro 2033/magazines/12_7mm round.mdl";
 	ITEM.weight = 0.2;
 	ITEM.stackable = true;
-	ITEM.description = "A single cartridge of ancient manufacture, it surely outclasses anything fielded in this dark time.";
+	ITEM.description = "Une cartouche unique de fabrication ancienne, elle surpasse assurément tout ce qui est déployé en ces temps obscurs.";
 	ITEM.iconoverride = "materials/begotten/ui/itemicons/old_world_longshot.png"
 	
 	ITEM.ammoType = "Old World Longshot";
@@ -108,7 +108,7 @@ local ITEM = Clockwork.item:New("shot_base");
 	ITEM.model = "models/bullets/w_pbullet1.mdl";
 	ITEM.weight = 0.1;
 	ITEM.stackable = true;
-	ITEM.description = "A single cartridge of ancient manufacture, it surely outclasses anything fielded in this dark time.";
+	ITEM.description = "Une cartouche unique d'une fabrication ancienne, elle surpasse assurément tout ce qui est déployé en ces temps obscurs.";
 	ITEM.iconoverride = "materials/begotten/ui/itemicons/pop-a-shot.png"
 	
 	ITEM.ammoType = "Old World Shot";
@@ -122,7 +122,7 @@ local ITEM = Clockwork.item:New("shot_base");
 	ITEM.name = "Scavenger Gun Magazine";
 	ITEM.model = "models/uzi megazine 20.mdl";
 	ITEM.weight = 0.8;
-	ITEM.description = "A magazine that can fit 15 Scrapshot caliber rounds, for use in the ubiquitous Scavenger Gun.";
+	ITEM.description = "Un chargeur pouvant contenir 15 cartouches de calibre Scrapshot, destiné à l'omniprésent Fusil de Récupération.";
 	ITEM.iconoverride = "materials/begotten/ui/itemicons/scavenger_gun_magazine.png"
 	
 	ITEM.ammoType = "Scavenger Gun Magazine";
@@ -138,7 +138,7 @@ local ITEM = Clockwork.item:New("shot_base");
 	ITEM.name = "Scavenger Gun Large Magazine";
 	ITEM.model = "models/uzi megazine 32.mdl";
 	ITEM.weight = 1.2;
-	ITEM.description = "An extended magazine that can fit 25 Scrapshot caliber rounds, for use in the ubiquitous Scavenger Gun.";
+	ITEM.description = "Un chargeur allongé pouvant contenir 25 cartouches de calibre Scrapshot, destiné à l'usage du Fusil de Récupérateur omniprésent.";
 	ITEM.iconoverride = "materials/begotten/ui/itemicons/scavenger_gun_large_magazine.png"
 	
 	ITEM.ammoType = "Scavenger Gun Large Magazine";
@@ -154,7 +154,7 @@ local ITEM = Clockwork.item:New("shot_base");
 	ITEM.model = "models/bullets/w_pbullet1.mdl";
 	ITEM.weight = 0.1;
 	ITEM.stackable = true;
-	ITEM.description = "A very small cartridge made of scrap metal and black powder.";
+	ITEM.description = "Une toute petite cartouche fabriquée à partir de ferraille et de poudre noire.";
 	ITEM.iconoverride = "materials/begotten/ui/itemicons/pop-a-shot.png"
 	
 	ITEM.ammoType = "Scrapshot";
@@ -169,7 +169,7 @@ local ITEM = Clockwork.item:New("shot_base");
 	ITEM.model = "models/items/librounds.mdl";
 	ITEM.weight = 0.25;
 	ITEM.stackable = true;
-	ITEM.description = "A large, dense projectile launched by Voltist railguns.";
+	ITEM.description = "Un projectile imposant et dense, propulsé par les canons électromagnétiques Voltist.";
 	ITEM.iconoverride = "materials/begotten/ui/itemicons/volt_projectile.png"
 	
 	ITEM.ammoType = "Volt Projectile";
@@ -182,7 +182,7 @@ local ITEM = Clockwork.item:New("shot_base");
 	ITEM.model = "models/begotten/items/bolt.mdl";
 	ITEM.weight = 0.2;
 	ITEM.stackable = true;
-	ITEM.description = "An iron-tipped wooden crossbow bolt of good aerodynamic quality. It can punch holes through almost any armor.";
+	ITEM.description = "Un carreau d'arbalète en bois à pointe de fer, d'excellente qualité aérodynamique. Il peut percer presque toutes les armures.";
 	ITEM.iconoverride = "materials/begotten/ui/itemicons/iron_bolt.png"
 	
 	ITEM.ammoType = "Iron Bolt";
@@ -197,7 +197,7 @@ local ITEM = Clockwork.item:New("shot_base");
 	ITEM.model = "models/begotten/items/bolt.mdl";
 	ITEM.weight = 0.2;
 	ITEM.stackable = true;
-	ITEM.description = "An iron-tipped wooden crossbow bolt of good aerodynamic quality. It has been coated with oil that will ignite upon firing, sacrificing armor-piercing potential for setting targets alight upon contact.";
+	ITEM.description = "Un carreau d'arbalète en bois à pointe de fer, d'excellente qualité aérodynamique. Il a été enduit d'une huile qui s'enflamme au tir, sacrifiant le potentiel de perforation d'armure pour enflammer les cibles à l'impact.";
 	ITEM.iconoverride = "materials/begotten/ui/itemicons/iron_bolt_incendiary.png"
 	ITEM.uniqueID = "iron_bolt_incendiary";
 	
@@ -214,7 +214,7 @@ local ITEM = Clockwork.item:New("shot_base");
 	ITEM.model = "models/begotten/items/rebar.mdl";
 	ITEM.weight = 0.2;
 	ITEM.stackable = true;
-	ITEM.description = "A crudely constructed crossbow bolt made of scrap rebar found in the Wasteland.";
+	ITEM.description = "Une flèche d'arbalète grossièrement façonnée à partir de fers à béton de récupération trouvés dans le Désert.";
 	ITEM.iconoverride = "materials/begotten/ui/itemicons/scrap_bolt.png"
 	
 	ITEM.ammoType = "Scrap Bolt";
@@ -229,7 +229,7 @@ local ITEM = Clockwork.item:New("shot_base");
 	ITEM.name = "Shagalax Bullet Box Magazine";
 	ITEM.model = "models/begotten/items/shagalaxlmgammobox.mdl";
 	ITEM.weight = 1.5;
-	ITEM.description = "Beaten scrap formed into a box for Scrapshot belts. Commonly stockpiled by Scrapper bosses for use in terrifying assaults or oppressive defensives.";
+	ITEM.description = "De la ferraille martelée formée en boîte pour les ceintures Scrapshot. Souvent accumulée par les chefs Récupérateurs pour des assauts terrifiants ou des défenses oppressives.";
 	ITEM.iconoverride = "begotten/ui/itemicons/shagalaxlmgammobox.png"
 	
 	ITEM.ammoType = "Shagalax Bullet Box Magazine";

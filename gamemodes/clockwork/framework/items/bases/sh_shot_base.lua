@@ -1,4 +1,4 @@
---[[
+﻿--[[
 	Begotten III: Jesus Wept
 	By: DETrooper, cash wednesday, gabs, alyousha35
 
@@ -44,13 +44,13 @@ local ITEM = item.New(nil, true);
 	function ITEM:OnUse(player, itemEntity)
 		if self.ammoType then
 			if itemEntity and itemEntity.beingUsed then
-				Schema:EasyText(player, "peru", "This item is already being used!");
+				Schema:EasyText(player, "peru", "Cet objet est déjà en cours d'utilisation !");
 				return false;
 			end
 			
 			if player.HasBelief and self.requiredReloadBelief then
 				if !player:HasBelief(self.requiredReloadBelief) then
-					Schema:EasyText(player, "chocolate", "You do not have the required belief, '"..cwBeliefs:GetBeliefName(self.requiredReloadBelief).."', to load this weapon!");
+					Schema:EasyText(player, "chocolate", "Vous ne possédez pas la croyance requise,"..cwBeliefs:GetBeliefName(self.requiredReloadBelief).."', to load this weapon!");
 					
 					return false;
 				end
@@ -64,7 +64,7 @@ local ITEM = item.New(nil, true);
 			end
 		end
 		
-		Schema:EasyText(player, "chocolate", "No valid weapon could be found for this ammo type!");
+		Schema:EasyText(player, "chocolate", "Aucune arme valide n'a pu être trouvée pour ce type de munitions !");
 		return false;
 	end
 	
@@ -116,7 +116,7 @@ local ITEM = item.New(nil, true);
 			Clockwork.player:SetAction(player, "reloading", consumeTime, nil, function()
 				if IsValid(player) and weaponItem then
 					if itemEntity and !IsValid(itemEntity) then
-						Schema:EasyText(player, "peru", "The shot you were reloading no longer exists!");
+						Schema:EasyText(player, "peru", "La munition que vous rechargiez n'existe plus !");
 						return;
 					end
 					
@@ -165,7 +165,7 @@ local ITEM = item.New(nil, true);
 		
 		if (action == "reloading") then
 			if bNotify then
-				Schema:EasyText(player, "peru", "Your character is already reloading!");
+				Schema:EasyText(player, "peru", "Votre personnage est déjà en train de recharger !");
 			end
 			
 			return false;
@@ -176,7 +176,7 @@ local ITEM = item.New(nil, true);
 			
 			if stamina < 10 then
 				if bNotify then
-					Schema:EasyText(player, "chocolate", "You do not have enough stamina to reload this crossbow!");
+					Schema:EasyText(player, "chocolate", "Vous n'avez pas assez d'endurance pour recharger cette arbalète !");
 				end
 				
 				return false;
@@ -191,7 +191,7 @@ local ITEM = item.New(nil, true);
 					if player.HasBelief and self.requiredReloadBelief then
 						if !player:HasBelief(self.requiredReloadBelief) then
 							if bNotify then
-								Schema:EasyText(player, "chocolate", "You do not have the required belief, '"..cwBeliefs:GetBeliefName(self.requiredReloadBelief).."', to load this weapon!");
+								Schema:EasyText(player, "chocolate", "Vous ne possédez pas la croyance requise,"..cwBeliefs:GetBeliefName(self.requiredReloadBelief).."', to load this weapon!");
 							end
 							
 							return false;
@@ -200,7 +200,7 @@ local ITEM = item.New(nil, true);
 					
 					if weaponItem.category == "Firearms" then
 						if (player:WaterLevel() >= 3) then 
-							Schema:EasyText(player, "peru", "You can't load your powder charge while underwater!");
+							Schema:EasyText(player, "peru", "Vous ne pouvez pas charger votre poudre sous l'eau !");
 							
 							return false;
 						end
@@ -214,7 +214,7 @@ local ITEM = item.New(nil, true);
 									local weather = cwWeather.weather;
 									
 									if weather == "acidrain" or weather == "bloodstorm" or weather == "thunderstorm" then
-										Schema:EasyText(player, "peru", "You can't load your powder charge under these wet conditions!");
+										Schema:EasyText(player, "peru", "Tu ne peux pas charger ta poudre dans ces conditions humides !");
 								
 										return false;
 									end
@@ -238,7 +238,7 @@ local ITEM = item.New(nil, true);
 								return true;
 							else
 								if bNotify then
-									Schema:EasyText(player, "peru", "This magazine is empty!");
+									Schema:EasyText(player, "peru", "Ce chargeur est vide !");
 								end
 								
 								return false;
@@ -248,7 +248,7 @@ local ITEM = item.New(nil, true);
 							return true;
 						else
 							if bNotify then
-								Schema:EasyText(player, "peru", "This weapon is currently loaded with a magazine or a round in the chamber!");
+								Schema:EasyText(player, "peru", "Cette arme est actuellement chargée avec un chargeur ou une cartouche dans la chambre !");
 							end
 							
 							return false;
@@ -256,21 +256,21 @@ local ITEM = item.New(nil, true);
 					end
 				else
 					if bNotify then
-						Schema:EasyText(player, "peru", "This weapon is at its ammunition capacity!");
+						Schema:EasyText(player, "peru", "Cette arme a atteint sa capacité de munitions !");
 					end
 					
 					return false;
 				end
 			else
 				if bNotify then
-					Schema:EasyText(player, "peru", "This weapon cannot use this ammunition type!");
+					Schema:EasyText(player, "peru", "Cette arme ne peut pas utiliser ce type de munitions !");
 				end
 				
 				return false;
 			end
 		else
 			if bNotify then
-				Schema:EasyText(player, "peru", "This weapon cannot take ammunition!");
+				Schema:EasyText(player, "peru", "Cette arme ne peut pas recevoir de munitions !");
 			end
 			
 			return false;
@@ -292,15 +292,15 @@ local ITEM = item.New(nil, true);
 						return true;
 					end
 				else
-					Schema:EasyText(player, "peru", "This magazine is currently full!");
+					Schema:EasyText(player, "peru", "Ce chargeur est actuellement plein !");
 					return false;
 				end
 			else
-				Schema:EasyText(player, "peru", "This magazine is not the correct ammo type for this round!");
+				Schema:EasyText(player, "peru", "Ce chargeur n'est pas du bon type de munitions pour cette cartouche !");
 				return false;
 			end
 		else
-			Schema:EasyText(player, "chocolate", "You must load this round into a suitable magazine or weapon!");
+			Schema:EasyText(player, "chocolate", "Vous devez charger cette munition dans un chargeur ou une arme appropriée !");
 			return false;
 		end
 	end
@@ -322,7 +322,7 @@ local ITEM = item.New(nil, true);
 				return;
 			end
 			
-			Schema:EasyText(player, "peru", "This magazine has no ammo to unload!");
+			Schema:EasyText(player, "peru", "Ce chargeur n'a pas de munitions à décharger !");
 			return;
 		end
 	end

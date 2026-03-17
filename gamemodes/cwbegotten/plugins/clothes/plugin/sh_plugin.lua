@@ -1,4 +1,4 @@
---[[
+﻿--[[
 	Begotten III: Jesus Wept
 	By: DETrooper, cash wednesday, gabs, alyousha35
 
@@ -11,7 +11,7 @@ Clockwork.kernel:IncludePrefixed("cl_hooks.lua")
 Clockwork.kernel:IncludePrefixed("sv_plugin.lua")
 
 local COMMAND = Clockwork.command:New("CharSetHelmetCondition");
-COMMAND.tip = "Set a character's helmet condition. Defaults to 100% condition if no argument is provided.";
+COMMAND.tip = "Définir l'état du casque d'un personnage. Par défaut, l'état est fixé à 100% si aucun argument n'est fourni.";
 COMMAND.text = "<string Name> [number Condition]";
 COMMAND.flags = CMD_DEFAULT;
 COMMAND.access = "s";
@@ -53,7 +53,7 @@ end;
 COMMAND:Register();
 
 local COMMAND = Clockwork.command:New("CharSetArmorCondition");
-COMMAND.tip = "Set a character's armor condition. Defaults to 100% condition if no argument is provided.";
+COMMAND.tip = "Définir l'état de l'armure d'un personnage. Par défaut, l'état est fixé à 100% si aucun argument n'est fourni.";
 COMMAND.text = "<string Name> [number Condition]";
 COMMAND.flags = CMD_DEFAULT;
 COMMAND.access = "s";

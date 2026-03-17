@@ -1,9 +1,9 @@
---[[
+﻿--[[
 	BEGOTTEN III: Developed by DETrooper, cash wednesday, gabs & alyousha35
 --]]
 
 local COMMAND = Clockwork.command:New("ContTakeName")
-COMMAND.tip = "Take a container's name."
+COMMAND.tip = "Prends le nom d'un conteneur."
 COMMAND.flags = CMD_DEFAULT
 COMMAND.access = "a"
 
@@ -25,7 +25,7 @@ function COMMAND:OnRun(player, arguments)
 				trace.Entity:SetNetworkedString("Name", "")
 				cwStorage:SaveStorage()
 				
-				Schema:EasyText(player, "cornflowerblue", "This container's name has been removed.")
+				Schema:EasyText(player, "cornflowerblue", "Le nom de ce conteneur a été retiré.")
 			else
 				Schema:EasyText(player, "grey", "["..self.name.."] This is not a valid container!")
 			end

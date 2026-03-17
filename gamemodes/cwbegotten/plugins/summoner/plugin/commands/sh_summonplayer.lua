@@ -1,7 +1,7 @@
-local Clockwork = Clockwork;
+﻿local Clockwork = Clockwork;
 
 local COMMAND = Clockwork.command:New("SummonPlayer");
-COMMAND.tip = "Summon a player to your targeted point.";
+COMMAND.tip = "Invoque un joueur à l'endroit que tu vises.";
 COMMAND.text = "<string Name>";
 COMMAND.access = "s";
 COMMAND.arguments = 1;
@@ -39,14 +39,14 @@ function COMMAND:OnRun(player, arguments)
             Schema:EasyText(player, "grey", "["..self.name.."] "..arguments[1].." is not a valid player!");
         end;
     else
-        Schema:EasyText(player, "darkgrey", "Look at a valid spot!");
+        Schema:EasyText(player, "darkgrey", "Regarde un endroit valide !");
     end;
 end;
 
 COMMAND:Register();
 
 local COMMAND = Clockwork.command:New("SummonNPC");
-COMMAND.tip = "Summon an NPC at your targeted point.";
+COMMAND.tip = "Invoque un PNJ à l'endroit que tu vises.";
 COMMAND.text = "<string NPC>";
 COMMAND.access = "s";
 COMMAND.arguments = 1;
@@ -103,7 +103,7 @@ function COMMAND:OnRun(player, arguments)
 				end);
 			end);
 		else
-			Schema:EasyText(player, "darkgrey", "Look at a valid spot!");
+			Schema:EasyText(player, "darkgrey", "Regarde un endroit valide !");
 		end;
 	else
 		Schema:EasyText(player, "grey", arguments[1].." is not a valid npc!");
@@ -117,7 +117,7 @@ end;
 COMMAND:Register();
 
 local COMMAND = Clockwork.command:New("SummonSelf");
-COMMAND.tip = "Summon yourself to your targeted point. This will take you out of observer.";
+COMMAND.tip = "Invoquez-vous à l'endroit ciblé. Cela vous fera quitter le mode observateur.";
 COMMAND.access = "s";
 
 -- Called when the command has been run.
@@ -140,14 +140,14 @@ function COMMAND:OnRun(player, arguments)
 			end
 		end);
     else
-        Schema:EasyText(player, "darkgrey", "Look at a valid spot!");
+        Schema:EasyText(player, "darkgrey", "Regarde un endroit valide !");
     end;
 end;
 
 COMMAND:Register();
 
 local COMMAND = Clockwork.command:New("Summon");
-COMMAND.tip = "Summon a miscreant to your position, if you are of sufficient authority. Note that they must already be in Hell.";
+COMMAND.tip = "Invoque un malfaiteur à ta position, si tu as l'autorité nécessaire. Note qu'il doit déjà se trouver en Enfer.";
 COMMAND.text = "<string Name>";
 COMMAND.arguments = 1;
 COMMAND.faction = "Children of Satan";
@@ -155,13 +155,13 @@ COMMAND.faction = "Children of Satan";
 -- Called when the command has been run.
 function COMMAND:OnRun(player, arguments)
 	if player:GetFaction() ~= "Children of Satan" then
-		Schema:EasyText(player, "chocolate", "You are not the correct faction to do this!");
+		Schema:EasyText(player, "chocolate", "Vous n'êtes pas de la bonne faction pour faire cela !");
 	
 		return false;
 	end
 
 	if Schema:GetRankTier("Children of Satan", player:GetCharacterData("rank", 1)) < 4 then
-		Schema:EasyText(player, "chocolate", "You are not high enough in rank to use this command!");
+		Schema:EasyText(player, "chocolate", "Vous n'avez pas un rang suffisamment élevé pour utiliser cette commande !");
 	
 		return false;
 	end
@@ -201,7 +201,7 @@ function COMMAND:OnRun(player, arguments)
 						end
 					end);
 				else
-					Schema:EasyText(player, "grey", "You cannot summon for another "..math.ceil(player.nextSummon - CurTime()).." seconds!");
+					Schema:EasyText(player, "grey", "Vous ne pouvez pas invoquer pour le moment"..math.ceil(player.nextSummon - CurTime()).." seconds!");
 				end
 			else
 				Schema:EasyText(player, "firebrick", target:Name().." cannot be summoned!");
@@ -210,7 +210,7 @@ function COMMAND:OnRun(player, arguments)
             Schema:EasyText(player, "grey", "["..self.name.."] "..arguments[1].." is not a valid player!");
         end;
     else
-        Schema:EasyText(player, "darkgrey", "Look at a valid spot!");
+        Schema:EasyText(player, "darkgrey", "Regarde un endroit valide !");
     end;
 end;
 

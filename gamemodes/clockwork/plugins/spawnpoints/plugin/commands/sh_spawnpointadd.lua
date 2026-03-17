@@ -1,9 +1,9 @@
---[[
+﻿--[[
 	BEGOTTEN III: Developed by DETrooper, cash wednesday, gabs & alyousha35
 --]]
 
 local COMMAND = Clockwork.command:New("SpawnPointAdd")
-COMMAND.tip = "Add a spawn point at your target position."
+COMMAND.tip = "Ajoute un point d'apparition à votre position cible."
 COMMAND.text = "<string Class|Faction|Default> [number Rotate]"
 COMMAND.flags = CMD_DEFAULT
 COMMAND.access = "a"

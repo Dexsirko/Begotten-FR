@@ -1,4 +1,4 @@
-PLUGIN:SetGlobalAlias("cas");
+﻿PLUGIN:SetGlobalAlias("cas");
 
 Clockwork.kernel:IncludePrefixed("sv_hooks.lua");
 
@@ -25,7 +25,7 @@ if (SERVER) then
 end;
 
 local COMMAND = Clockwork.command:New("ToggleAFKKicker");
-	COMMAND.tip = "Toggle the AFK Kicker.";
+	COMMAND.tip = "Activer/Désactiver l'expulsion AFK.";
 	COMMAND.flags = CMD_DEFAULT;
 	COMMAND.access = "s";
 

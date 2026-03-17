@@ -1,4 +1,4 @@
---[[
+﻿--[[
 	Begotten 3: Jesus Wept
 	written by: cash wednesday, DETrooper, gabs and alyousha35.
 --]]
@@ -15,7 +15,7 @@ Clockwork.kernel:IncludePrefixed("sh_ritual_items.lua");
 Clockwork.kernel:IncludePrefixed("sh_rituals.lua");
 
 local COMMAND = Clockwork.command:New("CharMark");
-	COMMAND.tip = "Manually mark a character for death in the same way as the Satanist ritual. NOT THE SAME AS THE MARKED TRAIT.";
+	COMMAND.tip = "Marquer manuellement un personnage pour la mort, de la même manière que le rituel sataniste. PAS LA MÊME CHOSE QUE LE TRAIT "MARQUÉ".";
 	COMMAND.text = "<string Name>";
 	COMMAND.access = "s";
 	COMMAND.arguments = 1;
@@ -41,7 +41,7 @@ local COMMAND = Clockwork.command:New("CharMark");
 COMMAND:Register();
 
 local COMMAND = Clockwork.command:New("CharUnMark");
-	COMMAND.tip = "Unmark a character if they have been marked by Satanists. DOES NOT REMOVE THE MARKED TRAIT, USE '/CharTakeTrait marked' FOR THAT!";
+	COMMAND.tip = "Désigner un personnage s'il a été marqué par les Satanistes. NE RETIRE PAS LE TRAIT "MARKED", UTILISEZ '/CharTakeTrait marked' POUR CELA !";
 	COMMAND.text = "<string Name>";
 	COMMAND.access = "s";
 	COMMAND.arguments = 1;
@@ -67,7 +67,7 @@ local COMMAND = Clockwork.command:New("CharUnMark");
 COMMAND:Register();
 
 local COMMAND = Clockwork.command:New("CharMakeRitual");
-	COMMAND.tip = "Force a character to perform a ritual, useful for debugging.";
+	COMMAND.tip = "Forcer un personnage à effectuer un rituel, utile pour le débogage.";
 	COMMAND.text = "<string Name> <string RitualID> [bool ignoreItems] [bool ignoreBeliefs]";
 	COMMAND.access = "s";
 	COMMAND.arguments = 2;
@@ -96,7 +96,7 @@ local COMMAND = Clockwork.command:New("CharMakeRitual");
 COMMAND:Register();
 
 local COMMAND = Clockwork.command:New("CharTransferFactionOverride");
-	COMMAND.tip = "Transfer a Kinisger to a false-faction. This will clear their false-subfaction so be sure to set a new one!";
+	COMMAND.tip = "Transférer un Kinisger vers une fausse faction. Cela effacera leur fausse sous-faction, assurez-vous donc d'en définir une nouvelle !";
 	COMMAND.text = "<string Name> <string Faction>";
 	COMMAND.access = "o";
 	COMMAND.arguments = 2;
@@ -158,7 +158,7 @@ local COMMAND = Clockwork.command:New("CharTransferFactionOverride");
 COMMAND:Register();
 
 local COMMAND = Clockwork.command:New("CharTransferSubfactionOverride");
-	COMMAND.tip = "Transfer a Kinisger character to a false-subfaction.";
+	COMMAND.tip = "Transférer un personnage Kinisger vers une sous-faction factice.";
 	COMMAND.text = "<string Name> <string Subfaction>";
 	COMMAND.access = "o";
 	COMMAND.arguments = 2;

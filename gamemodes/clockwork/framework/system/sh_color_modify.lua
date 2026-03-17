@@ -1,4 +1,4 @@
---[[
+﻿--[[
 	Begotten III: Jesus Wept
 	By: DETrooper, cash wednesday, gabs, alyousha35
 
@@ -45,13 +45,13 @@ if (CLIENT) then
 	-- Called when the system should be displayed.
 	function SYSTEM:OnDisplay(systemPanel, systemForm)
 		local infoText = vgui.Create("cwInfoText", systemPanel)
-			infoText:SetText("Changing these values will affect the color for all players.")
+			infoText:SetText("Modifier ces valeurs affectera la couleur pour tous les joueurs.")
 			infoText:SetInfoColor("blue")
 			infoText:DockMargin(0, 0, 0, 8)
 		systemPanel.panelList:AddItem(infoText)
 
 		local infoText = vgui.Create("cwInfoText", systemPanel)
-			infoText:SetText("Please note that this is for advanced users only.")
+			infoText:SetText("Veuillez noter que cette fonctionnalité est réservée aux utilisateurs avancés.")
 			infoText:SetInfoColor("orange")
 			infoText:DockMargin(0, 0, 0, 8)
 		systemPanel.panelList:AddItem(infoText)

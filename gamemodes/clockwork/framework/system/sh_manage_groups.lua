@@ -1,4 +1,4 @@
---[[
+﻿--[[
 	Begotten III: Jesus Wept
 	By: DETrooper, cash wednesday, gabs, alyousha35
 
@@ -33,7 +33,7 @@ if (CLIENT) then
 	function SYSTEM:OnDisplay(systemPanel, systemForm)
 		if (self.groupType == GROUP_USER) then
 			local label = vgui.Create("cwInfoText", systemPanel)
-				label:SetText("Selecting a user group will bring up a list of users in that group.")
+				label:SetText("Sélectionner un groupe d'utilisateurs affichera la liste des membres de ce groupe.")
 				label:SetInfoColor("blue")
 				label:DockMargin(0, 0, 0, 8)
 			systemPanel.panelList:AddItem(label)
@@ -61,7 +61,7 @@ if (CLIENT) then
 			end
 		else
 			local backButton = vgui.Create("DButton", systemPanel)
-				backButton:SetText("Back to User Groups")
+				backButton:SetText("Retour aux groupes d'utilisateurs")
 				backButton:SetWide(systemPanel:GetParent():GetWide())
 
 				-- Called when the button is clicked.
@@ -125,13 +125,13 @@ if (CLIENT) then
 					end
 				else
 					local label = vgui.Create("cwInfoText", systemPanel)
-						label:SetText("There are no users to display in this group.")
+						label:SetText("Aucun utilisateur à afficher dans ce groupe.")
 						label:SetInfoColor("orange")
 					systemPanel.panelList:AddItem(label)
 				end
 			else
 				local label = vgui.Create("cwInfoText", systemPanel)
-					label:SetText("Hold on while the group users are retrieved...")
+					label:SetText("Veuillez patienter pendant la récupération des utilisateurs du groupe...")
 					label:SetInfoColor("blue")
 				systemPanel.panelList:AddItem(label)
 			end

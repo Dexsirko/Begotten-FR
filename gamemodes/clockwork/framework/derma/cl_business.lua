@@ -1,4 +1,4 @@
---[[
+﻿--[[
 	Begotten III: Jesus Wept
 	By: DETrooper, cash wednesday, gabs, alyousha35
 
@@ -56,7 +56,7 @@ function PANEL:Rebuild()
 	
 	if (#categories == 0) then
 		local label = vgui.Create("cwInfoText", self);
-			label:SetText("You do not have access to the "..Clockwork.option:GetKey("name_business", true).." menu!");
+			label:SetText("Vous n'avez pas accès au"..Clockwork.option:GetKey("name_business", true).." menu!");
 			label:SetInfoColor("red");
 		self.panelList:AddItem(label);
 		

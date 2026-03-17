@@ -1,9 +1,9 @@
---[[
+﻿--[[
 	BEGOTTEN III: Developed by DETrooper, cash wednesday, gabs & alyousha35
 --]]
 
 local COMMAND = Clockwork.command:New("ContSetName")
-COMMAND.tip = "Set a container's name."
+COMMAND.tip = "Définir le nom d'un conteneur."
 COMMAND.text = "[string Name]"
 COMMAND.flags = CMD_DEFAULT
 COMMAND.access = "a"

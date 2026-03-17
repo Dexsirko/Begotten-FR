@@ -1,4 +1,4 @@
---[[
+﻿--[[
 	Begotten III: Jesus Wept
 --]]
 
@@ -320,7 +320,7 @@ function cwSanity:PlayerDeath(player, inflictor, attacker)
 			
 			if (attacker:HasTrait("pacifist")) and !attacker.possessor then
 				attacker:HandleSanity(-40);
-				Clockwork.chatBox:Add(attacker, nil, "itnofake", "You feel your sanity slipping as you take the life of another.");
+				Clockwork.chatBox:Add(attacker, nil, "itnofake", "Tu sens ta raison s'effriter en prenant la vie d'un autre.");
 			elseif (sanity >= 70) then
 				attacker:HandleSanity(-1)
 			end

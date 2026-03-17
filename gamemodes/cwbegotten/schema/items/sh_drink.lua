@@ -1,11 +1,11 @@
-local ITEM = Clockwork.item:New();
+﻿local ITEM = Clockwork.item:New();
 	ITEM.name = "Carton of Milk";
 	ITEM.model = "models/props_junk/garbage_milkcarton002a.mdl";
 	ITEM.weight = 0.5;
 	ITEM.useText = "Get Milk";
 	ITEM.category = "Drinks";
 	ITEM.useSound = "npc/barnacle/barnacle_crunch2.wav";
-	ITEM.description = "A foul fucking carton of milk, completely fucked by age. It smells fucking disgusting and makes you want to kill yourself.";
+	ITEM.description = "Un putain de carton de lait dégueulasse, complètement foutu par le temps. Ça pue à gerber et ça donne envie de se foutre en l'air.";
 	ITEM.iconoverride = "materials/begotten/ui/itemicons/milk.png"
 	ITEM.stackable = true;
 	ITEM.infectchance = 75;
@@ -26,13 +26,13 @@ local ITEM = Clockwork.item:New();
 		local freezing = self:GetData("freezing");
 		
 		if freezing and freezing > 25 then
-			Schema:EasyText(player, "lightslateblue", "This drink is frozen solid and needs to be thawed before it can be consumed!");
+			Schema:EasyText(player, "lightslateblue", "Cette boisson est complètement gelée et doit être décongelée avant d'être consommée !");
 		
 			return false;
 		end
 	
 		if !player:HasBelief("savage_animal") then
-			Schema:EasyText(player, "olive", "You feel fucking disgusted that you just drank something so foul. As a result you begin feel emotionally and mentally unstable.");
+			Schema:EasyText(player, "olive", "Tu te sens vraiment dégoûté d'avoir bu quelque chose d'aussi infect. En conséquence, tu commences à te sentir émotionnellement et mentalement instable.");
 			player:HandleSanity(-25);
 		end
 		
@@ -49,7 +49,7 @@ local ITEM = Clockwork.item:New("alcohol_base");
 	ITEM.weight = 0.35;
 	ITEM.skin = 1;
 	ITEM.useSound = "ambient/levels/canals/toxic_slime_gurgle4.wav";
-	ITEM.description = "A glass bottle filled with a stale, frothy liquid. It reads 'Willtan's Brew'.";
+	ITEM.description = "Une bouteille en verre remplie d'un liquide éventé et mousseux. On peut y lire 'Willtan's Brew'.";
 	ITEM.iconoverride = "materials/begotten/ui/itemicons/cold_pop.png"
 	ITEM.stackable = true;
 	ITEM.cauldronLiquidity = 1;
@@ -61,7 +61,7 @@ local ITEM = Clockwork.item:New("alcohol_base");
 
 	-- Called when a player uses the item.
 	function ITEM:OnUse(player, itemEntity)
-		Schema:EasyText(player, "olivedrab", "This drink has no taste, but it makes you feel very good.");
+		Schema:EasyText(player, "olivedrab", "Cette boisson n'a aucun goût, mais elle te fait te sentir très bien.");
 		Clockwork.player:SetDrunk(player, self.expireTime)
 		player:HandleSanity(5);
 		player:HandleXP(cwBeliefs.xpValues["drink"]);
@@ -72,7 +72,7 @@ local ITEM = Clockwork.item:New("alcohol_base");
 	ITEM.name = "Old Beer";
 	ITEM.model = "models/props_junk/garbage_glassbottle001a.mdl";
 	ITEM.weight = 0.5;
-	ITEM.description = "A brown colored bottle containing very old and stale beer. Still drinkable, though.";
+	ITEM.description = "Une bouteille marron contenant une bière très vieille et éventée. Toujours buvable, cela dit.";
 	ITEM.iconoverride = "materials/begotten/ui/itemicons/beer.png"
 	ITEM.infectchance = 5;
 	ITEM.stackable = true;
@@ -85,7 +85,7 @@ local ITEM = Clockwork.item:New("alcohol_base");
 
 	-- Called when a player uses the item.
 	function ITEM:OnUse(player, itemEntity)
-		Schema:EasyText(player, "olivedrab", "This drink tastes like shit, but it still makes you feel good! How weird!");
+		Schema:EasyText(player, "olivedrab", "Cette boisson a un goût de merde, mais elle te fait quand même du bien ! C'est bizarre !");
 		Clockwork.player:SetDrunk(player, self.expireTime)
 		player:HandleSanity(10);
 		player:HandleXP(cwBeliefs.xpValues["drink"]);
@@ -97,7 +97,7 @@ local ITEM = Clockwork.item:New("alcohol_base");
 	ITEM.model = "models/kali/miscstuff/stalker/food/cossacks vodka.mdl";
 	ITEM.weight = 0.35;
 	ITEM.useText = "Chug";
-	ITEM.description = "An innocuous, polished bottle of a clear liquid. It has a very strong smell.";
+	ITEM.description = "Une bouteille polie et inoffensive contenant un liquide transparent. Elle dégage une odeur très forte.";
 	ITEM.iconoverride = "materials/begotten/ui/itemicons/corpsebrew.png"
 	ITEM.stackable = true;
 	ITEM.cauldronLiquidity = 1;
@@ -111,12 +111,12 @@ local ITEM = Clockwork.item:New("alcohol_base");
 	-- Called when a player uses the item.
 	function ITEM:OnUse(player, itemEntity)
 		if player:HasBelief("favored") then
-			Schema:EasyText(player, "lawngreen", "To your merry surprise (or disappointment), the contents of this corpsebrew were actually quite delicious! Furthermore, you feel extra coinage in your pockets! You are truly blessed by the Gods!");
+			Schema:EasyText(player, "lawngreen", "À ta grande surprise (ou déception), le contenu de cette bière-cadavre était en fait délicieux ! De plus, tu sens des pièces supplémentaires dans tes poches ! Tu es vraiment béni des Dieux !");
 			player:HandleSanity(15);
 			Clockwork.player:GiveCash(player, math.random(10, 50), "Blessed coins!");
 			player:HandleXP(cwBeliefs.xpValues["drink"]);
 		else
-			Schema:EasyText(player, "maroon", "In some suicidal rage, you decide to chug the corpsebrew. You stop halfway, as you feel your insides melt and your throat ignite.");
+			Schema:EasyText(player, "maroon", "Dans un accès de rage suicidaire, tu décides d'engloutir la bière de cadavre. Tu t'arrêtes à mi-chemin, sentant tes entrailles fondre et ta gorge s'embraser.");
 			player:ScriptedDeath("Chugged some Corpsebrew and became a corpse.");
 		end
 		
@@ -131,7 +131,7 @@ local ITEM = Clockwork.item:New();
 	ITEM.useText = "Drink";
 	ITEM.category = "Drinks";
 	ITEM.useSound = "ambient/levels/canals/toxic_slime_gurgle4.wav";
-	ITEM.description = "A dust-covered bottle filled partially with dirty water.";
+	ITEM.description = "Une bouteille poussiéreuse partiellement remplie d'eau trouble.";
 	ITEM.iconoverride = "materials/begotten/ui/itemicons/bottle_1.png"
 	ITEM.stackable = true;
 	ITEM.uniqueID = "dirtywater"
@@ -152,7 +152,7 @@ local ITEM = Clockwork.item:New();
 		local freezing = self:GetData("freezing");
 		
 		if freezing and freezing > 25 then
-			Schema:EasyText(player, "lightslateblue", "This drink is frozen solid and needs to be thawed before it can be consumed!");
+			Schema:EasyText(player, "lightslateblue", "Cette boisson est complètement gelée et doit être décongelée avant d'être consommée !");
 		
 			return false;
 		end
@@ -160,13 +160,13 @@ local ITEM = Clockwork.item:New();
 		player:GiveItem(Clockwork.item:CreateInstance("empty_bottle"), true);
 	
 		if player:HasBelief("the_paradox_riddle_equation") or player:HasBelief("the_storm") then
-			Schema:EasyText(player, "maroon", "You open the bottle and pour water down your receptacle, but it begins to short-circuit your insides!");
+			Schema:EasyText(player, "maroon", "Tu ouvres la bouteille et verses de l'eau dans ton réceptacle, mais cela commence à court-circuiter ton intérieur !");
 			Schema:DoTesla(player, true);			
 			return;
 		end
 		
 		if !player:HasBelief("savage_animal") then
-			Schema:EasyText(player, "olive", "You begin to feel light headed and nauseous. You feel like you're gonna throw up.");
+			Schema:EasyText(player, "olive", "Tu commences à te sentir étourdi et nauséeux. Tu as l'impression que tu vas vomir.");
 			player:HandleSanity(-25);
 		end
 		
@@ -181,7 +181,7 @@ local ITEM = Clockwork.item:New("alcohol_base");
 	ITEM.name = "Finechug";
 	ITEM.model = "models/kali/miscstuff/stalker/food/cossacks vodka.mdl";
 	ITEM.weight = 0.35;
-	ITEM.description = "A silver-coloured bottle, appearing extremely well preserved. Enticing white wine is kept within.";
+	ITEM.description = "Une bouteille couleur argent, semblant remarquablement bien conservée. Elle contient un vin blanc alléchant.";
 	ITEM.iconoverride = "materials/begotten/ui/itemicons/corpsebrew.png"
 	ITEM.stackable = true;
 	ITEM.cauldronLiquidity = 1;
@@ -193,7 +193,7 @@ local ITEM = Clockwork.item:New("alcohol_base");
 	
 	-- Called when a player uses the item.
 	function ITEM:OnUse(player, itemEntity)
-		Schema:EasyText(player, "lawngreen", "This drink tastes good! You feel really good too!");
+		Schema:EasyText(player, "lawngreen", "Cette boisson a bon goût ! Tu te sens vraiment bien aussi !");
 		Clockwork.player:SetDrunk(player, self.expireTime)
 		player:HandleSanity(20);
 		player:HandleXP(cwBeliefs.xpValues["drink"]);
@@ -207,7 +207,7 @@ local ITEM = Clockwork.item:New();
 	ITEM.useText = "Drink";
 	ITEM.category = "Drinks";
 	ITEM.useSound = "ambient/levels/canals/toxic_slime_gurgle4.wav";
-	ITEM.description = "An off-brand can of soda from the county districts. It would be unwise to consume this in the vicinity of Papa Pete.";
+	ITEM.description = "Une canette de soda de marque générique des districts ruraux. Il serait imprudent de la consommer à proximité de Papa Pete.";
 	ITEM.iconoverride = "materials/begotten/ui/itemicons/soda.png"
 	ITEM.stackable = true;
 	ITEM.cauldronLiquidity = 1;
@@ -230,12 +230,12 @@ local ITEM = Clockwork.item:New();
 		local freezing = self:GetData("freezing");
 		
 		if freezing and freezing > 25 then
-			Schema:EasyText(player, "lightslateblue", "This drink is frozen solid and needs to be thawed before it can be consumed!");
+			Schema:EasyText(player, "lightslateblue", "Cette boisson est complètement gelée et doit être décongelée avant d'être consommée !");
 		
 			return false;
 		end
 	
-		Schema:EasyText(player, "lawngreen", "When you pop open the can, it still has a fizz. It tastes very sweet compared to anything else you've had before. You also feel more energized.");
+		Schema:EasyText(player, "lawngreen", "Quand tu ouvres la canette, elle pétille encore. Le goût est très sucré comparé à tout ce que tu as bu auparavant. Tu te sens aussi plus énergique.");
 		player:HandleSanity(2);
 		player:HandleXP(cwBeliefs.xpValues["drink"]);
 	end;
@@ -251,7 +251,7 @@ local ITEM = Clockwork.item:New();
 	ITEM.useText = "Drink";
 	ITEM.category = "Drinks";
 	ITEM.useSound = "ambient/levels/canals/toxic_slime_gurgle4.wav";
-	ITEM.description = "Can it be? A bottle of fresh water! Miracles do happen, it seems.";
+	ITEM.description = "Est-ce possible ? Une bouteille d'eau fraîche ! Les miracles existent donc, à ce qu'il paraît.";
 	ITEM.iconoverride = "materials/begotten/ui/itemicons/cold_pop.png"
 	ITEM.stackable = true;
 
@@ -269,7 +269,7 @@ local ITEM = Clockwork.item:New();
 		local freezing = self:GetData("freezing");
 		
 		if freezing and freezing > 25 then
-			Schema:EasyText(player, "lightslateblue", "This drink is frozen solid and needs to be thawed before it can be consumed!");
+			Schema:EasyText(player, "lightslateblue", "Cette boisson est complètement gelée et doit être décongelée avant d'être consommée !");
 		
 			return false;
 		end
@@ -277,14 +277,14 @@ local ITEM = Clockwork.item:New();
 		player:GiveItem(Clockwork.item:CreateInstance("empty_bottle"), true);
 	
 		if player:HasBelief("the_paradox_riddle_equation") or player:HasBelief("the_storm") then
-			Schema:EasyText(player, "maroon", "You open the bottle and pour water down your receptacle, but it begins to short-circuit your insides!");
+			Schema:EasyText(player, "maroon", "Tu ouvres la bouteille et verses de l'eau dans ton réceptacle, mais cela commence à court-circuiter tes circuits internes !");
 			Schema:DoTesla(player, true);
 			--player:TakeDamage(25);
 			
 			return;
 		end
 	
-		Schema:EasyText(player, "lawngreen", "As clean water enters your parched throat, you feel an immense satisfaction knowing that you will not die of disease today.");
+		Schema:EasyText(player, "lawngreen", "Alors que l'eau pure coule dans ta gorge desséchée, tu ressens une immense satisfaction à savoir que tu ne mourras pas de maladie aujourd'hui.");
 		player:HandleSanity(8);
 		--player:HandleXP(cwBeliefs.xpValues["drink"]);
 	end;
@@ -301,7 +301,7 @@ local ITEM = Clockwork.item:New();
 	ITEM.useText = "Drink";
 	ITEM.category = "Drinks";
 	ITEM.useSound = "ambient/levels/canals/toxic_slime_gurgle4.wav";
-	ITEM.description = "A bottle of an alien liquid, it feels ice cold and fresh though it lacks any sort of refrigeration. Its mere existance disturbs you on an existential level. Regardless, it tastes very good.";
+	ITEM.description = "Une bouteille d'un liquide extraterrestre, glaciale et fraîche malgré l'absence de réfrigération. Sa simple existence vous trouble au plus profond de votre être. Quoi qu'il en soit, son goût est excellent.";
 	ITEM.iconoverride = "materials/begotten/ui/itemicons/cold_pop.png"
 	ITEM.stackable = true;
 
@@ -310,7 +310,7 @@ local ITEM = Clockwork.item:New();
 
 	-- Called when a player uses the item.
 	function ITEM:OnUse(player, itemEntity)
-		Schema:EasyText(player, "lawngreen", "You slurp of some of Papa Pete's® Ice Cold Pop™. You feel mentally and physically reinvigorated.");
+		Schema:EasyText(player, "lawngreen", "Tu sirotes un peu de la Pop™ Glacée de Papa Pete's®. Tu te sens mentalement et physiquement revigoré.");
 		player:HandleSanity(10);
 		player:HandleXP(cwBeliefs.xpValues["drink"]);
 	end;
@@ -327,7 +327,7 @@ local ITEM = Clockwork.item:New();
 	ITEM.useText = "Drink";
 	ITEM.category = "Drinks";
 	ITEM.useSound = "ambient/levels/canals/toxic_slime_gurgle4.wav";
-	ITEM.description = "A bottle of Papa Pete's® Ice Cold Pop™. It advertises a chance of winning a solid golden coin.";
+	ITEM.description = "Une bouteille de Papa Pete's® Ice Cold Pop™. Elle promet une chance de gagner une pièce d'or massif.";
 	ITEM.iconoverride = "materials/begotten/ui/itemicons/cold_pop.png"
 	ITEM.stackable = true;
 
@@ -337,12 +337,12 @@ local ITEM = Clockwork.item:New();
 	-- Called when a player uses the item.
 	function ITEM:OnUse(player, itemEntity)
 		if player:HasBelief("favored") then
-			Schema:EasyText(player, "lawngreen", "You slurp up another classic Papa Pete's Ice Cold Pop! Once you are finished, the bottle starts gushing coins all over! You've hit the jackpot!");
+			Schema:EasyText(player, "lawngreen", "Tu sirotes une autre classique Papa Pete's Ice Cold Pop ! Une fois terminé, la bouteille se met à déverser des pièces partout ! Tu as touché le jackpot !");
 			player:HandleSanity(10);
 			Clockwork.player:GiveCash(player, math.random(50, 300), "You win the prize!");
 			player:HandleXP(cwBeliefs.xpValues["drink"]);
 		else
-			Schema:EasyText(player, "maroon", "You slurp of some of Papa Pete's Ice Cold Pop, but as you do you feel a golden coin lodge itself in your throat! You've won the prize! But now you're about to choke to death.");
+			Schema:EasyText(player, "maroon", "Tu sirotes un peu de la Pop Glacée de Papa Pete, mais en le faisant, tu sens une pièce d'or se coincer dans ta gorge ! Tu as gagné le prix ! Mais maintenant, tu es sur le point de t'étouffer à mort.");
 			player:ScriptedDeath("Won a prize from a Papa Pete's® Ice Cold Pop™!");
 		end
 	end;
@@ -361,7 +361,7 @@ local ITEM = Clockwork.item:New();
 	ITEM.useText = "Drink";
 	ITEM.category = "Drinks";
 	ITEM.useSound = "ambient/levels/canals/toxic_slime_gurgle4.wav";
-	ITEM.description = "A bottle Papa Pete's® Ice Cold Pop™ with a citrus twist!";
+	ITEM.description = "Une bouteille de Papa Pete's® Ice Cold Pop™ avec une touche d'agrumes !";
 	ITEM.iconoverride = "materials/begotten/ui/itemicons/cold_pop.png"
 	ITEM.stackable = true;
 	ITEM.cauldronLiquidity = 1;
@@ -372,7 +372,7 @@ local ITEM = Clockwork.item:New();
 
 	-- Called when a player uses the item.
 	function ITEM:OnUse(player, itemEntity)
-		Schema:EasyText(player, "lawngreen", "You slurp of some of Papa Pete's® Orange-Flavored Ice Cold Pop™. You feel mentally and physically reinvigorated.");
+		Schema:EasyText(player, "lawngreen", "Tu sirotes un peu de la Pop™ Glacée Saveur Orange de Papa Pete's®. Tu te sens mentalement et physiquement revigoré.");
 		player:HandleSanity(10);
 		player:HandleXP(cwBeliefs.xpValues["drink"]);
 	end;
@@ -390,7 +390,7 @@ local ITEM = Clockwork.item:New();
 	ITEM.useText = "Drink";
 	ITEM.category = "Drinks";
 	ITEM.useSound = "ambient/levels/canals/toxic_slime_gurgle4.wav";
-	ITEM.description = "A bottle Papa Pete's® Ice Cold Pop™ with a grape flavor!";
+	ITEM.description = "Une bouteille de Papa Pete's® Ice Cold Pop™ au goût raisin !";
 	ITEM.iconoverride = "materials/begotten/ui/itemicons/cold_pop.png"
 	ITEM.stackable = true;
 	ITEM.cauldronLiquidity = 1;
@@ -402,8 +402,8 @@ local ITEM = Clockwork.item:New();
 	-- Called when a player uses the item.
 	function ITEM:OnUse(player, itemEntity)
 		if player:HasTrait("marked") and math.random(1, 3) == 1 then
-			Clockwork.chatBox:AddInTargetRadius(player, "me", "pops open a bottle of Papa Pete's® Grape-Flavored Ice Cold Pop™, only to have a rigged grapeshot shell explode in their face!", player:GetPos(), config.Get("talk_radius"):Get() * 2);
-			Schema:EasyText(Schema:GetAdmins(), "icon16/bomb.png", "tomato", player:Name().." got graped by Papa Pete!");
+			Clockwork.chatBox:AddInTargetRadius(player, "me", "ouvre une bouteille de Papa Pete's® Grape-Flavored Ice Cold Pop™, pour se prendre une salve de mitraille piégée en pleine face !", player:GetPos(), config.Get("talk_radius"):Get() * 2);
+			Schema:EasyText(Schema:GetAdmins(), "icon16/bomb.png", "tomate", player:Name().." got graped by Papa Pete!");
 			
 			local filter = RecipientFilter();
 			
@@ -434,9 +434,9 @@ local ITEM = Clockwork.item:New();
 			return;
 		elseif player:HasBelief("favored") then
 			player:GiveItem(Clockwork.item:CreateInstance("grapeshot"));
-			Schema:EasyText(player, "lawngreen", "You slurp of some of Papa Pete's® Grape-Flavored Ice Cold Pop™. Interestingly, you find a loose grapeshot shell inside the bottle. You feel mentally and physically reinvigorated.");
+			Schema:EasyText(player, "lawngreen", "Tu sirotes un peu de la Pop™ Glacée Saveur Raisin de Papa Pete's®. Curieusement, tu trouves une cartouche à mitraille détachée dans la bouteille. Tu te sens mentalement et physiquement revigoré.");
 		else
-			Schema:EasyText(player, "lawngreen", "You slurp of some of Papa Pete's® Grape-Flavored Ice Cold Pop™. You feel mentally and physically reinvigorated.");
+			Schema:EasyText(player, "lawngreen", "Tu sirotes un peu de la Boisson Glacée® à Saveur de Raisin de Papa Pete™. Tu te sens mentalement et physiquement revigoré.");
 		end
 		
 		player:HandleSanity(10);
@@ -455,7 +455,7 @@ local ITEM = Clockwork.item:New();
 	ITEM.useText = "Drink";
 	ITEM.category = "Drinks";
 	ITEM.useSound = "ambient/levels/canals/toxic_slime_gurgle4.wav";
-	ITEM.description = "A bottle of Papa Pete's® Ice Cold Crazy Pop™. It advertises the fact that the taste of this Ice Cold Pop™ is so good that it will make you crazy.";
+	ITEM.description = "Une bouteille de Papa Pete's® Ice Cold Crazy Pop™. Elle vante le fait que le goût de cette Ice Cold Pop™ est si délicieux qu'il vous rendra fou.";
 	ITEM.iconoverride = "materials/begotten/ui/itemicons/cold_pop.png"
 	ITEM.stackable = true;
 	ITEM.cauldronLiquidity = 1;
@@ -469,7 +469,7 @@ local ITEM = Clockwork.item:New();
 		player:HandleStamina(self.needs.stamina);
 
 		if !player:HasBelief("savage_animal") then
-			Schema:EasyText(player, "olive", "You slurp of some of Papa Pete's® Ice Cold Crazy Pop™. You feel refreshed, though your sanity is savagely torn apart.");
+			Schema:EasyText(player, "olive", "Tu sirotes un peu de la Pop Folle Glacée® de Papa Pete™. Tu te sens revigoré, bien que ta santé mentale soit sauvagement mise en pièces.");
 			player:HandleSanity(-75);
 		end
 
@@ -489,7 +489,7 @@ local ITEM = Clockwork.item:New();
 	ITEM.useText = "Drink";
 	ITEM.category = "Drinks";
 	ITEM.useSound = "ambient/levels/canals/toxic_slime_gurgle4.wav";
-	ITEM.description = "A bottle of Papa Pete's cream. We all scream for Papa Pete's cream!";
+	ITEM.description = "Une bouteille de crème Papa Pete. On crie tous pour la crème Papa Pete !";
 	ITEM.iconoverride = "materials/begotten/ui/itemicons/cold_pop.png"
 	ITEM.stackable = true;
 	ITEM.cauldronLiquidity = 1;
@@ -501,7 +501,7 @@ local ITEM = Clockwork.item:New();
 	-- Called when a player uses the item.
 	function ITEM:OnUse(player, itemEntity)
 		player:HandleStamina(self.needs.stamina);
-		Schema:EasyText(player, "lawngreen", "You slurp of some of Papa Pete's® Cream Pop™. It is very creamy and delicious. You feel mentally and physically reinvigorated, and you feel a renewed sense of energy!");
+		Schema:EasyText(player, "lawngreen", "Tu sirotes un peu de la Crème Pop™ de Papa Pete's®. C'est très crémeux et délicieux. Tu te sens mentalement et physiquement revigoré, et tu ressens un regain d'énergie !");
 		player:HandleSanity(15);
 		player:HandleXP(cwBeliefs.xpValues["drink"]);
 	end;
@@ -518,7 +518,7 @@ local ITEM = Clockwork.item:New();
 	ITEM.useText = "Drink";
 	ITEM.category = "Drinks";
 	ITEM.useSound = "ambient/levels/canals/toxic_slime_gurgle4.wav";
-	ITEM.description = "An unusual brand of Papa Pete's Cold Pop. It's filled with a pink slime.";
+	ITEM.description = "Une marque inhabituelle de Cold Pop de Papa Pete. Elle est remplie d'une gelée rose.";
 	ITEM.iconoverride = "materials/begotten/ui/itemicons/cold_pop.png"
 	ITEM.stackable = true;
 	ITEM.cauldronLiquidity = 1;
@@ -529,7 +529,7 @@ local ITEM = Clockwork.item:New();
 
 	-- Called when a player uses the item.
 	function ITEM:OnUse(player, itemEntity)
-		Schema:EasyText(player, "lawngreen", "You slurp of some of Papa Pete's® Meat Pop™. The meaty taste comes as a surprise, but it fills your tummy up all the same.");
+		Schema:EasyText(player, "lawngreen", "Tu sirotes un peu de la Pop™ à la viande de Papa Pete's®. Le goût charnu surprend, mais ça remplit ton estomac tout de même.");
 		player:HandleSanity(5);
 		player:HandleXP(cwBeliefs.xpValues["drink"]);
 	end;
@@ -546,7 +546,7 @@ local ITEM = Clockwork.item:New();
 	ITEM.useText = "Drink";
 	ITEM.category = "Drinks";
 	ITEM.useSound = "ambient/levels/canals/toxic_slime_gurgle4.wav";
-	ITEM.description = "An incredibly cold Papa Pete's Ice Cold Pop. This one comes with a warning that you might get a brain freeze.";
+	ITEM.description = "Une boisson Papa Pete's incroyablement glaciale. Celle-ci est accompagnée d'un avertissement : risque de gel cérébral.";
 	ITEM.iconoverride = "materials/begotten/ui/itemicons/cold_pop.png"
 	ITEM.stackable = true;
 	ITEM.cauldronLiquidity = 1;
@@ -558,12 +558,12 @@ local ITEM = Clockwork.item:New();
 	-- Called when a player uses the item.
 	function ITEM:OnUse(player, itemEntity)
 		if player:HasBelief("favored") then
-			Schema:EasyText(player, "lawngreen", "You slurp of some of Papa Pete's® Ice Cold Ice Pop™. Aside from a minor brain freeze, you feel really good!");
+			Schema:EasyText(player, "lawngreen", "Tu sirotes un peu de la glace glacée Papa Pete's® Ice Pop™. À part un léger mal de crâne dû au froid, tu te sens vraiment bien !");
 			player:AddFreeze(25, player);
 			player:HandleSanity(2);
 			player:HandleXP(cwBeliefs.xpValues["drink"]);
 		else
-			Schema:EasyText(player, "olive", "You slurp of some of Papa Pete's® Ice Cold Ice Pop™. It tastes good, but you're instantly frozen into a block of ice!");
+			Schema:EasyText(player, "olive", "Tu sirotes un peu de la glace glacée Papa Pete's® Ice Pop™. C'est délicieux, mais tu es instantanément transformé en un bloc de glace !");
 			player:AddFreeze(100, player);
 			player:HandleXP(cwBeliefs.xpValues["drink"]);
 		end
@@ -581,7 +581,7 @@ ITEM:Register();
 	ITEM.useText = "Drink";
 	ITEM.category = "Drinks";
 	ITEM.useSound = "ambient/levels/canals/toxic_slime_gurgle4.wav";
-	ITEM.description = "A very hot bottle of Papa Pete's brand. It has red sizzling liquid. It must be very spicy!";
+	ITEM.description = "Une bouteille très chaude de la marque Papa Pete's. Elle contient un liquide rouge pétillant. Ça doit être très épicé !";
 	ITEM.iconoverride = "materials/begotten/ui/itemicons/cold_pop.png"
 	ITEM.stackable = true;
 	ITEM.cauldronLiquidity = 1;
@@ -595,12 +595,12 @@ ITEM:Register();
 		player:HandleStamina(self.needs.stamina);
 
 		if player:HasBelief("favored") then
-			Schema:EasyText(player, "lawngreen", "You slurp of some of Papa Pete's® Pipin' Hot Pop™! It has a spicy aftertaste. After you're done drinking, some coins spill out the bottle!");
+			Schema:EasyText(player, "lawngreen", "Tu sirotes un peu du Pipin' Hot Pop™ de Papa Pete's® ! Il a un arrière-goût épicé. Après avoir fini de boire, quelques pièces tombent de la bouteille !");
 			player:HandleSanity(10);
 			Clockwork.player:GiveCash(player, math.random(25, 100), "Blessed coins!");
 			player:HandleXP(cwBeliefs.xpValues["drink"]);
 		else
-			Schema:EasyText(player, "olive", "You slurp of some of Papa Pete's® Pipin' Hot Pop™. It tastes good, but you're engulfed in flames!");
+			Schema:EasyText(player, "olive", "Tu sirotes un peu du Pipin' Hot Pop™ de Papa Pete's®. C'est délicieux, mais tu es enveloppé de flammes !");
 			player:HandleSanity(-15);
 			player:Ignite(20);
 			player:HandleXP(cwBeliefs.xpValues["drink"]);
@@ -618,7 +618,7 @@ local ITEM = Clockwork.item:New();
 	ITEM.weight = 0.25;
 	ITEM.category = "Drinks";
 	ITEM.useSound = "ambient/levels/canals/toxic_slime_gurgle4.wav";
-	ITEM.description = "A Papa Pete Cold Pop that states that this funny taste will make you silly!";
+	ITEM.description = "Une Papa Pete Cold Pop qui affirme que ce goût étrange va te rendre fou !";
 	ITEM.iconoverride = "materials/begotten/ui/itemicons/cold_pop.png"
 	ITEM.stackable = true;
 	ITEM.cauldronLiquidity = 1;
@@ -632,11 +632,11 @@ local ITEM = Clockwork.item:New();
 		player:HandleStamina(self.needs.stamina);
 
 		if player:HasBelief("favored") then
-			Schema:EasyText(player, "lawngreen", "You slurp of some of Papa Pete's® Silly Pop™. It tastes alright, and it makes you burst into a fit of laughter afterwards! Your sanity is greatly restored!");
+			Schema:EasyText(player, "lawngreen", "Tu sirotes un peu de la Boisson Folle™ de Papa Pete's®. Le goût est correct, et cela te fait éclater de rire par la suite ! Ta santé mentale est grandement restaurée !");
 			player:HandleSanity(60);
 			player:HandleXP(cwBeliefs.xpValues["drink"]);
 		else
-			Schema:EasyText(player, "olive", "You slurp of some of Papa Pete's® Silly Pop™. It tastes good, but you're now tongue twisted from brain damage!");
+			Schema:EasyText(player, "olive", "Tu sirotes un peu de la Pop Folle™ de Papa Pete's®. C'est bon, mais ton cerveau est maintenant tout embrouillé !");
 			if(!player:HasTrait("lobotomite")) then player:GiveTrait("imbecile"); end
 			player:HandleXP(cwBeliefs.xpValues["drink"]);
 		end
@@ -653,7 +653,7 @@ ITEM:Register();
 	ITEM.weight = 0.25;
 	ITEM.category = "Drinks";
 	ITEM.useSound = "ambient/levels/canals/toxic_slime_gurgle4.wav";
-	ITEM.description = "A Papa Pete Cold Pop that states that claims it tastes so good it'll bring out the end of days for mortal men!";
+	ITEM.description = "Une Papa Pete Cold Pop qui prétend avoir un goût si délicieux qu'elle pourrait déclencher la fin des temps pour les mortels !";
 	ITEM.iconoverride = "materials/begotten/ui/itemicons/cold_pop.png"
 	ITEM.stackable = true;
 	ITEM.cauldronLiquidity = 1;
@@ -668,12 +668,12 @@ ITEM:Register();
 		player:HandleStamina(self.needs.stamina);
 
 		if player:HasBelief("favored") then
-			Schema:EasyText(player, "lawngreen", "You slurp of some of Papa Pete's® Plague Pop™. It didn't taste very good, but you feel your pockets grow heavier with coins! The Gods have blessed you!");
+			Schema:EasyText(player, "lawngreen", "Tu sirotes un peu du Plague Pop™ de Papa Pete's®. Ce n'était pas très bon, mais tu sens tes poches s'alourdir de pièces ! Les dieux t'ont béni !");
 			player:HandleSanity(5);
 			Clockwork.player:GiveCash(player, math.random(50, 250), "Blessed coins!");
 			player:HandleXP(cwBeliefs.xpValues["drink"]);
 		else
-			Schema:EasyText(player, "lawngreen", "You slurp of some of Papa Pete's® Plague Pop™. It tastes pretty good, but you can't help but notice a sore throat as you finish the bottle.");
+			Schema:EasyText(player, "lawngreen", "Tu sirotes un peu du Plague Pop™ de Papa Pete's®. Le goût est plutôt bon, mais tu ne peux t'empêcher de remarquer un mal de gorge en finissant la bouteille.");
 			player:GiveDisease("begotten_plague", 1, true);
 			player:HandleXP(cwBeliefs.xpValues["drink"]);
 		end
@@ -690,7 +690,7 @@ local ITEM = Clockwork.item:New();
 	ITEM.useText = "Chug";
 	ITEM.category = "Drinks";
 	ITEM.useSound = "npc/barnacle/barnacle_crunch2.wav";
-	ITEM.description = "A bottle of yummy chug, it looks like white thick liquid, it must taste very good.";
+	ITEM.description = "Une bouteille de délicieuse lampée, elle contient un liquide blanc et épais, ça doit être très bon.";
 	ITEM.iconoverride = "materials/begotten/ui/itemicons/yumchug.png"
 	ITEM.stackable = true;
 	ITEM.cauldronLiquidity = 1;
@@ -704,14 +704,14 @@ local ITEM = Clockwork.item:New();
 	function ITEM:OnUse(player, itemEntity)
 		--Clockwork.player:SetRagdollState(player, RAGDOLL_KNOCKEDOUT, 60);
 		if player:HasBelief("favored") then
-			Schema:EasyText(player, "lawngreen", "Instead of chugging the bleach like a moron, you carefully look inside the container and discover a deposit of coinage! How fortunate!");
+			Schema:EasyText(player, "lawngreen", "Plutôt que d'avaler l'eau de Javel comme un imbécile, tu examines prudemment l'intérieur du récipient et découvres un dépôt de pièces ! Quelle chance !");
 			player:HandleSanity(5);
 			Clockwork.player:GiveCash(player, math.random(5, 40), "Blessed coins!");
 			player:HandleXP(cwBeliefs.xpValues["drink"]);
 		else
 			player:HandleSanity(-100);
 			player:ScriptedDeath("Chugged the Yum Chug.");
-			Schema:EasyText(player, "maroon", "You begin to chug the yummy chug. You feel your throat burn and you lose all ability to taste. You begin to die choking. You fucking idiot.");
+			Schema:EasyText(player, "maroon", "Tu commences à descendre la délicieuse lampée. Tu sens ta gorge brûler et tu perds toute capacité à goûter. Tu commences à mourir en t'étouffant. Espèce de crétin fini.");
 			Schema:EasyText(Schema:GetAdmins(), "tomato", player:Name().." chugged the Yum Chug!", nil);
 		end
 	end;
@@ -727,7 +727,7 @@ local ITEM = Clockwork.item:New();
 	ITEM.useText = "Purify Youself";
 	ITEM.category = "Drinks"
 	ITEM.useSound = "ambient/levels/canals/toxic_slime_gurgle5.wav";
-	ITEM.description = "A glass bottle of blessed water. It is said to cleanse all impurities.";
+	ITEM.description = "Une bouteille en verre d'eau bénite. On dit qu'elle purifie toutes les impuretés.";
 	ITEM.iconoverride = "materials/begotten/ui/itemicons/laudanum.png"
 	ITEM.stackable = true;
 	ITEM.cauldronLiquidity = 1;
@@ -740,7 +740,7 @@ local ITEM = Clockwork.item:New();
 	function ITEM:OnUse(player, itemEntity)
 
 		if player:HasBelief("favored") then
-			Schema:EasyText(player, "lawngreen", "You drink the contents of the glass bottle. Alas, it is not actually holy water but a hidden flavor of Papa Pete's Ice Cold Pop™! You feel rejuvenated! Also, there's coins too!");
+			Schema:EasyText(player, "lawngreen", "Tu bois le contenu de la bouteille en verre. Hélas, ce n'est pas de l'eau bénite mais un parfum secret de Papa Pete's Ice Cold Pop™ ! Tu te sens revigoré ! Et il y a aussi des pièces !");
 			player:HandleSanity(15);
 			Clockwork.player:GiveCash(player, math.random(5, 50), "Blessed coins!");
 			player:HandleXP(cwBeliefs.xpValues["drink"]);
@@ -748,7 +748,7 @@ local ITEM = Clockwork.item:New();
 			player:HandleNeed("corruption", -100);
 			player:ScriptedDeath("Cleansed of impurities.");
 			player:Ignite(8, 0);
-			Schema:EasyText(player, "maroon", "As you chug the Holy Water and it begins to cleanse the impurities in your body, you suddenly realize that nobody in this forsaken world is pure, including yourself. Your very soul ignites and is engulfed in flames.");
+			Schema:EasyText(player, "maroon", "Alors que tu avales l'Eau Bénite et qu'elle commence à purifier les impuretés de ton corps, tu réalises soudain que personne dans ce monde maudit n'est pur, toi y compris. Ton âme même s'embrase et est consumée par les flammes.");
 			Schema:EasyText(Schema:GetAdmins(), "tomato", player:Name().." drank holy water!", nil);
 		end
 	end;
@@ -764,7 +764,7 @@ local ITEM = Clockwork.item:New();
 	ITEM.useText = "Drink";
 	ITEM.category = "Alcohol";
 	ITEM.useSound = "ambient/levels/canals/toxic_slime_gurgle4.wav";
-	ITEM.description = "A bottle of finely aged wine from the Darklands. It is apparently fermented with human blood, expensive spices, and delicious berries.";
+	ITEM.description = "Une bouteille de vin finement vieilli des Terres Obscures. Il semble fermenté avec du sang humain, des épices coûteuses et de délicieuses baies.";
 	ITEM.iconoverride = "materials/begotten/ui/itemicons/bottle02.png"
 	ITEM.stackable = true;
 	ITEM.cauldronLiquidity = 1;
@@ -774,7 +774,7 @@ local ITEM = Clockwork.item:New();
 
 	-- Called when a player uses the item.
 	function ITEM:OnUse(player, itemEntity)
-		Schema:EasyText(player, "lawngreen", "The wine tastes excellent! You are filled with a sense of elevated self-worth.");
+		Schema:EasyText(player, "lawngreen", "Ce vin a un goût excellent ! Vous vous sentez empli d'un sentiment de valeur personnelle accrue.");
 		player:HandleSanity(30);
 		player:HandleXP(cwBeliefs.xpValues["drink"]);
 	end;
@@ -790,7 +790,7 @@ local ITEM = Clockwork.item:New();
 	ITEM.useText = "Drink";
 	ITEM.category = "Alcohol";
 	ITEM.useSound = "ambient/levels/canals/toxic_slime_gurgle4.wav";
-	ITEM.description = "A bottle of exotic wine from the Darklands. It is apparently fermented with human blood, expensive spices, and delicious berries. This particular bottle is said to be spiced with the blood of virgin slave-whores and aged for over 300 years.";
+	ITEM.description = "Une bouteille de vin exotique provenant des Terres Obscures. Elle serait fermentée avec du sang humain, des épices coûteuses et de délicieuses baies. Cette bouteille en particulier serait épicée avec le sang d'esclaves-putains vierges et vieillie pendant plus de 300 ans.";
 	ITEM.iconoverride = "materials/begotten/ui/itemicons/bottle02.png"
 	ITEM.stackable = true;
 	ITEM.cauldronLiquidity = 1;
@@ -800,7 +800,7 @@ local ITEM = Clockwork.item:New();
 
 	-- Called when a player uses the item.
 	function ITEM:OnUse(player, itemEntity)
-		Schema:EasyText(player, "lawngreen", "The wine tastes excellent! You are filled with a sense of elevated self-worth.");
+		Schema:EasyText(player, "lawngreen", "Ce vin a un goût excellent ! Vous vous sentez empli d'un sentiment de valeur personnelle accrue.");
 		player:HandleSanity(50);
 		player:HandleXP(cwBeliefs.xpValues["drink"]);
 		
@@ -828,7 +828,7 @@ local ITEM = Clockwork.item:New();
 	ITEM.useText = "Chug";
 	ITEM.category = "Drinks";
 	ITEM.useSound = "npc/barnacle/barnacle_crunch2.wav";
-	ITEM.description = "A jug of piss - it has been filtered through faulty machines by the Scrappers. It will certainly fill you up, at a slight cost to your mental state..";
+	ITEM.description = "Une cruche de pisse - elle a été filtrée par des machines défectueuses des Récupérateurs. Elle te remplira certainement l'estomac, au léger détriment de ta santé mentale.";
 	ITEM.iconoverride = "materials/begotten/ui/itemicons/yumchug.png"
 	ITEM.stackable = true;
 	ITEM.infectchance = 8;
@@ -848,13 +848,13 @@ local ITEM = Clockwork.item:New();
 		local freezing = self:GetData("freezing");
 		
 		if freezing and freezing > 25 then
-			Schema:EasyText(player, "lightslateblue", "This drink is frozen solid and needs to be thawed before it can be consumed!");
+			Schema:EasyText(player, "lightslateblue", "Cette boisson est complètement gelée et doit être décongelée avant d'être consommée !");
 		
 			return false;
 		end
 	
 		if player:HasBelief("the_paradox_riddle_equation") or player:HasBelief("the_storm") then
-			Schema:EasyText(player, "maroon", "You open jug and pour piss down your receptacle, but it begins to short-circuit your insides!");
+			Schema:EasyText(player, "maroon", "Tu ouvres la cruche et verses la pisse dans ton réceptacle, mais cela commence à court-circuiter tes entrailles !");
 			Schema:DoTesla(player, true);
 			--player:TakeDamage(25);
 			
@@ -862,7 +862,7 @@ local ITEM = Clockwork.item:New();
 		end
 		
 		if !player:HasBelief("savage_animal") then
-			Schema:EasyText(player, "olive", "You chug the pissjug. It tastes of salt and misery.");
+			Schema:EasyText(player, "olive", "Tu avales le pot à pisse. Ça a un goût de sel et de misère.");
 			player:HandleSanity(-8);
 		end
 		
@@ -880,7 +880,7 @@ local ITEM = Clockwork.item:New();
 	ITEM.useText = "Drink";
 	ITEM.category = "Drinks";
 	ITEM.useSound = "ambient/levels/canals/toxic_slime_gurgle4.wav";
-	ITEM.description = "A bucket filled with purified water.";
+	ITEM.description = "Un seau rempli d'eau purifiée.";
 	ITEM.stackable = false;
 	ITEM.needs = {thirst = 70};
 	ITEM.uniqueID = "purified_water_bucket";
@@ -897,24 +897,24 @@ local ITEM = Clockwork.item:New();
 		local freezing = self:GetData("freezing");
 		
 		if freezing and freezing > 25 then
-			Schema:EasyText(player, "lightslateblue", "This drink is frozen solid and needs to be thawed before it can be consumed!");
+			Schema:EasyText(player, "lightslateblue", "Cette boisson est complètement gelée et doit être décongelée avant d'être consommée !");
 		
 			return false;
 		end
 	
-		Clockwork.chatBox:AddInTargetRadius(player, "me", "brings a bucket of water up to their face, chugging its entire contents uninterrupted.", player:GetPos(), Clockwork.config:Get("talk_radius"):Get() * 2);
+		Clockwork.chatBox:AddInTargetRadius(player, "me", "apporte un seau d'eau à son visage et en boit le contenu entier sans s'arrêter.", player:GetPos(), Clockwork.config:Get("talk_radius"):Get() * 2);
 		
 		player:GiveItem(Clockwork.item:CreateInstance("empty_bucket"), true);
 
 		if player:HasBelief("the_paradox_riddle_equation") or player:HasBelief("the_storm") then
-			Schema:EasyText(player, "maroon", "You pour water down your receptacle, but it begins to short-circuit your insides!");
+			Schema:EasyText(player, "maroon", "Tu verses de l'eau dans ton réceptacle, mais cela commence à court-circuiter tes entrailles !");
 			Schema:DoTesla(player, true);
 			--player:TakeDamage(25);
 			
 			return;
 		end
 	
-		Schema:EasyText(player, "lawngreen", "As clean water enters your parched throat, you feel an immense satisfaction knowing that you will not die of disease today.");
+		Schema:EasyText(player, "lawngreen", "Alors que l'eau pure coule dans ta gorge desséchée, tu ressens une immense satisfaction à savoir que tu ne mourras pas de maladie aujourd'hui.");
 		player:HandleSanity(20);
 		--player:HandleXP(cwBeliefs.xpValues["drink"]);
 	end;
@@ -930,7 +930,7 @@ local ITEM = Clockwork.item:New();
 	ITEM.useText = "Drink";
 	ITEM.category = "Drinks";
 	ITEM.useSound = "ambient/levels/canals/toxic_slime_gurgle4.wav";
-	ITEM.description = "A bucket filled with dirty water.";
+	ITEM.description = "Un seau rempli d'eau sale.";
 	ITEM.stackable = false;
 	ITEM.needs = {thirst = 30};
 	ITEM.uniqueID = "dirty_water_bucket";
@@ -949,23 +949,23 @@ local ITEM = Clockwork.item:New();
 		local freezing = self:GetData("freezing");
 		
 		if freezing and freezing > 25 then
-			Schema:EasyText(player, "lightslateblue", "This drink is frozen solid and needs to be thawed before it can be consumed!");
+			Schema:EasyText(player, "lightslateblue", "Cette boisson est complètement gelée et doit être décongelée avant d'être consommée !");
 		
 			return false;
 		end
 	
-		Clockwork.chatBox:AddInTargetRadius(player, "me", "brings a bucket of water up to their face, chugging its entire contents uninterrupted.", player:GetPos(), Clockwork.config:Get("talk_radius"):Get() * 2);
+		Clockwork.chatBox:AddInTargetRadius(player, "me", "apporte un seau d'eau à son visage et en boit le contenu d'une traite, sans s'arrêter.", player:GetPos(), Clockwork.config:Get("talk_radius"):Get() * 2);
 		
 		player:GiveItem(Clockwork.item:CreateInstance("empty_bucket"), true);
 		
 		if player:HasBelief("the_paradox_riddle_equation") or player:HasBelief("the_storm") then
-			Schema:EasyText(player, "maroon", "You chug the bucket of dirty water, but it begins to short-circuit your insides!");
+			Schema:EasyText(player, "maroon", "Tu avales le seau d'eau sale, mais il commence à court-circuiter tes entrailles !");
 			Schema:DoTesla(player, true);
 			return;
 		end
 
 		if !player:HasBelief("savage_animal") then
-			Schema:EasyText(player, "olive", "Cold, vile water from the freezing wasteland travels through your gullet and into your stomach. You feel like you could throw up.");
+			Schema:EasyText(player, "olive", "Une eau glaciale et répugnante, venue des terres gelées, descend dans votre gorge jusqu'à votre estomac. Vous avez l'impression de pouvoir vomir.");
 			player:HandleSanity(-25);
 		end
 			--player:HandleXP(cwBeliefs.xpValues["drink"]);
@@ -982,7 +982,7 @@ local ITEM = Clockwork.item:New();
 	ITEM.useText = "Drink";
 	ITEM.category = "Drinks";
 	ITEM.useSound = "ambient/levels/canals/toxic_slime_gurgle4.wav";
-	ITEM.description = "A bottle of blood appraised by flesh cultists and bizarros.";
+	ITEM.description = "Une bouteille de sang expertisée par des cultistes de la chair et des bizarros.";
 	ITEM.iconoverride = "materials/begotten/ui/itemicons/bottle_2.png"
 	ITEM.stackable = true;
 	ITEM.infectchance = 30;
@@ -1001,7 +1001,7 @@ local ITEM = Clockwork.item:New();
 		local freezing = self:GetData("freezing");
 		
 		if freezing and freezing > 25 then
-			Schema:EasyText(player, "lightslateblue", "This drink is frozen solid and needs to be thawed before it can be consumed!");
+			Schema:EasyText(player, "lightslateblue", "Cette boisson est complètement gelée et doit être décongelée avant d'être consommée !");
 		
 			return false;
 		end
@@ -1009,21 +1009,21 @@ local ITEM = Clockwork.item:New();
 		player:GiveItem(Clockwork.item:CreateInstance("empty_bottle"), true);
 	
 		if player:HasBelief("the_paradox_riddle_equation") or player:HasBelief("the_storm") then
-			Schema:EasyText(player, "maroon", "You open the bottle and pour blood down your receptacle, but it begins to short-circuit your insides!");
+			Schema:EasyText(player, "maroon", "Tu ouvres la bouteille et verses du sang dans ton réceptacle, mais cela commence à court-circuiter tes entrailles !");
 			Schema:DoTesla(player, true);	
 			player:HandleSanity(-5);			
 			return;
 		end
 		
 		if !player:HasBelief("heart_eater") then
-			Schema:EasyText(player, "olive", "The blood oozes out the bottle and down your throat.. You feel repulsed, both physically and spiritually..");
+			Schema:EasyText(player, "olive", "Le sang suinte de la bouteille et coule dans ta gorge... Tu te sens répugné, à la fois physiquement et spirituellement.");
 			player:HandleSanity(-50);
 			player:HandleXP(cwBeliefs.xpValues["drink"]);
 		elseif player:HasBelief("heart_eater") and !player:HasBelief("savage_animal") then
-			Schema:EasyText(player, "olivedrab", "The blood oozes out the bottle and down your throat.. Even as an experienced drinker of blood, you find the taste and consistency disturbing.");
+			Schema:EasyText(player, "olivedrab", "Le sang suinte de la bouteille et coule dans ta gorge... Même en tant que buveur de sang expérimenté, tu trouves le goût et la texture dérangeants.");
 			player:HandleSanity(-15);
 		else
-			Schema:EasyText(player, "lawngreen", "The blood oozes out the bottle and down your throat.. Delicious!");
+			Schema:EasyText(player, "lawngreen", "Le sang s'écoule de la bouteille et coule dans ta gorge... Délicieux !");
 		end
 		
 		player:HandleXP(cwBeliefs.xpValues["drink"]);

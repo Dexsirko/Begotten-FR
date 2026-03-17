@@ -1,4 +1,4 @@
---[[
+﻿--[[
 	Begotten III: Jesus Wept
 --]]
 
@@ -84,7 +84,7 @@ function playerMeta:HandleSanity(amount)
 	
 	if newSanity <= 0 and not self:IsRagdolled() and not self.cwWakingUp and (not player.moonCooldown or player.moonCooldown < CurTime()) then
 		Clockwork.player:SetRagdollState(self, RAGDOLL_KNOCKEDOUT, 120);
-		Clockwork.chatBox:AddInTargetRadius(self, "me", "stares blankly and then collapses onto the ground!", self:GetPos(), Clockwork.config:Get("talk_radius"):Get() * 2);
+		Clockwork.chatBox:AddInTargetRadius(self, "me", "fixe le vide puis s'effondre sur le sol !", self:GetPos(), Clockwork.config:Get("talk_radius"):Get() * 2);
 		newSanity = 20;
 		player.moonCooldown = CurTime() + 125;
 	end

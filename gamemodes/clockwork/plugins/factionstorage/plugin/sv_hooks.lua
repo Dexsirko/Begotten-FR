@@ -1,4 +1,4 @@
---[[
+﻿--[[
 	BEGOTTEN III: Developed by DETrooper, cash wednesday, gabs & alyousha35
 --]]
 
@@ -30,7 +30,7 @@ function cwFactionStorage:PlayerCanOpenContainer(player, entity, bForce)
 		if data.factions and !table.IsEmpty(data.factions) then
 			if !data.factions[faction] then
 				if !data.factions["Children of Satan"] or data.factions["Children of Satan"] and player:GetSubfaction() ~= "Kinisger" then
-					Schema:EasyText(player, "peru", "You are not the correct faction to open this container!");
+					Schema:EasyText(player, "peru", "Vous n'êtes pas de la faction autorisée pour ouvrir ce conteneur !");
 					
 					return false;
 				end
@@ -42,7 +42,7 @@ function cwFactionStorage:PlayerCanOpenContainer(player, entity, bForce)
 			
 			if !data.subfactions[subfaction] then
 				if !data.subfactions["Kinisger"] or data.subfactions["Kinisger"] and player:GetSubfaction() ~= "Kinisger" then
-					Schema:EasyText(player, "peru", "You are not the correct subfaction to open this container!");
+					Schema:EasyText(player, "peru", "Vous n'êtes pas de la bonne sous-faction pour ouvrir ce conteneur !");
 			
 					return false;
 				end
@@ -54,7 +54,7 @@ function cwFactionStorage:PlayerCanOpenContainer(player, entity, bForce)
 				local subfaith = player:GetSubfaith();
 				
 				if !data.subfaiths[subfaith] then
-					Schema:EasyText(player, "peru", "You are not the correct subfaith to open this container!");
+					Schema:EasyText(player, "peru", "Vous n'êtes pas de la bonne sous-foi pour ouvrir ce conteneur !");
 				
 					return false;
 				end
@@ -69,18 +69,18 @@ function cwFactionStorage:PlayerCanOpenContainer(player, entity, bForce)
 					local rankString = Schema.Ranks[faction][rank];
 
 					if !rankString then
-						Schema:EasyText(player, "peru", "You are not the correct rank to open this container!");
+						Schema:EasyText(player, "peru", "Vous n'avez pas le rang requis pour ouvrir ce conteneur !");
 					
 						return false;
 					end
 					
 					if !data.ranks[rankString] then
-						Schema:EasyText(player, "peru", "You are not the correct rank to open this container!");
+						Schema:EasyText(player, "peru", "Vous n'avez pas le rang requis pour ouvrir ce conteneur !");
 					
 						return false;
 					end
 				else
-					Schema:EasyText(player, "peru", "You are not the correct rank to open this container!");
+					Schema:EasyText(player, "peru", "Vous n'avez pas le rang requis pour ouvrir ce conteneur !");
 				
 					return false;
 				end

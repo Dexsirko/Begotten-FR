@@ -1,9 +1,9 @@
---[[
+﻿--[[
 	BEGOTTEN III: Developed by DETrooper, cash wednesday, gabs & alyousha35
 --]]
 
 local COMMAND = Clockwork.command:New("ContFill")
-COMMAND.tip = "Fill a container with random items."
+COMMAND.tip = "Remplir un conteneur avec des objets aléatoires."
 COMMAND.text = "<number Density: 1-5> [string Category]"
 COMMAND.flags = CMD_DEFAULT
 COMMAND.access = "s"
@@ -70,7 +70,7 @@ end
 COMMAND:Register()
 
 local COMMAND = Clockwork.command:New("ContClear")
-COMMAND.tip = "Clear a container of items."
+COMMAND.tip = "Vider un conteneur de ses objets."
 COMMAND.flags = CMD_DEFAULT
 COMMAND.access = "s"
 
@@ -91,7 +91,7 @@ function COMMAND:OnRun(player, arguments)
 					trace.Entity.cwInventory = {}
 				end
 				
-				Schema:EasyText(player, "grey", "This container has been cleared!");
+				Schema:EasyText(player, "grey", "Ce conteneur a été vidé !");
 
 				return;
 			end

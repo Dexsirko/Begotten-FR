@@ -1,4 +1,4 @@
---[[
+﻿--[[
 	Begotten 3: Jesus Wept
 	written by: cash wednesday, DETrooper, gabs and alyousha35.
 --]]
@@ -130,7 +130,7 @@ function cwRecipes:PlayerCanCraft(player, uniqueID, craftAmount)
 	local subfaith = player:GetNetVar("subfaith");
 	
 	if Clockwork.player:GetAction(player) or player:IsRagdolled() or !player:Alive() or player.opponent or (cwDueling and cwDueling:PlayerIsInMatchmaking(player)) or player:GetNetVar("tied") != 0 then
-		Schema:EasyText(player, "lightslategrey", "Your character cannot craft at this moment!");
+		Schema:EasyText(player, "lightslategrey", "Votre personnage ne peut pas fabriquer pour le moment !");
 		return false;
 	end
 	
@@ -194,7 +194,7 @@ function cwRecipes:PlayerCanCraft(player, uniqueID, craftAmount)
 							end
 						end
 					
-						Schema:EasyText(player, "lightslategrey", "You require the '"..cwBeliefs:GetBeliefName(recipeTable.requiredBeliefs[i]).."' belief to craft this recipe!");
+						Schema:EasyText(player, "lightslategrey", "Vous avez besoin du "..cwBeliefs:GetBeliefName(recipeTable.requiredBeliefs[i]).."' belief to craft this recipe!");
 						return false;
 					end
 				end
@@ -213,7 +213,7 @@ function cwRecipes:PlayerCanCraft(player, uniqueID, craftAmount)
 		end;
 		
 		if not fire_found then
-			Schema:EasyText(player, "firebrick", "You must be standing next to a heat source to craft this recipe!");
+			Schema:EasyText(player, "firebrick", "Vous devez être à côté d'une source de chaleur pour fabriquer cette recette !");
 			return false;
 		end
 	end
@@ -229,7 +229,7 @@ function cwRecipes:PlayerCanCraft(player, uniqueID, craftAmount)
 		end
 		
 		if not valid_smithy_found then
-			Schema:EasyText(player, "firebrick", "You must be standing next to a smithy to craft this recipe!");
+			Schema:EasyText(player, "firebrick", "Vous devez être à côté d'une forge pour fabriquer cette recette !");
 			return false;
 		end
 	end
@@ -315,7 +315,7 @@ function cwRecipes:Craft(player, uniqueID, itemIDs, craftAmount)
 							player:SetLocalVar("cwProgressBarVerb", craftVerb);
 							player:SetLocalVar("cwProgressBarItem", craftName);
 							
-							Clockwork.chatBox:AddInTargetRadius(player, "me", "begins "..craftVerb.." a "..craftName..".", player:GetPos(), config.Get("talk_radius"):Get() * 2);
+							Clockwork.chatBox:AddInTargetRadius(player, "me", "commence"..craftVerb.." a "..craftName..".", player:GetPos(), config.Get("talk_radius"):Get() * 2);
 						end;
 						
 						if (recipeTable.StartCraft) then
@@ -364,7 +364,7 @@ end;
 -- This function is expensive as FUCK. You can make a better one if you want cash.
 function cwRecipes:PlayerMeetsCraftingItemRequirements(player, recipeTable, itemIDs, bTake, craftAmount)
 	if !itemIDs or table.IsEmpty(itemIDs) then
-		Schema:EasyText(player, "lightslategrey", "You have no items selected to craft!");
+		Schema:EasyText(player, "lightslategrey", "Vous n'avez sélectionné aucun objet à fabriquer !");
 		return false;
 	end
 
@@ -372,7 +372,7 @@ function cwRecipes:PlayerMeetsCraftingItemRequirements(player, recipeTable, item
 		recipeTable = self.recipes.stored[recipeTable];
 		
 		if !recipeTable or isstring(recipeTable) then
-			Schema:EasyText(player, "lightslategrey", "No valid recipe for this combination of items could be found!");
+			Schema:EasyText(player, "lightslategrey", "Aucune recette valide n'a été trouvée pour cette combinaison d'objets !");
 			return false;
 		end
 	end
@@ -420,7 +420,7 @@ function cwRecipes:PlayerMeetsCraftingItemRequirements(player, recipeTable, item
 				end
 
 				if not goods_found then
-					Schema:EasyText(player, "lightslategrey", "The items inputted for crafting do not match the selected recipe's requirements!");
+					Schema:EasyText(player, "lightslategrey", "Les objets insérés pour la fabrication ne correspondent pas aux exigences de la recette sélectionnée !");
 					return false;
 				end
 			end
@@ -428,7 +428,7 @@ function cwRecipes:PlayerMeetsCraftingItemRequirements(player, recipeTable, item
 	end
 	
 	if #temptab > 0 then
-		Schema:EasyText(player, "lightslategrey", "The items inputted for crafting do not match the selected recipe's requirements!");
+		Schema:EasyText(player, "lightslategrey", "Les objets insérés pour la fabrication ne correspondent pas aux exigences de la recette sélectionnée !");
 		return false;
 	end
 	

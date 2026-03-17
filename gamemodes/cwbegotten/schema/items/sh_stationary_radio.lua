@@ -1,4 +1,4 @@
---[[
+﻿--[[
 	Begotten III: Jesus Wept
 	By: DETrooper, cash wednesday, gabs, alyousha35
 
@@ -10,7 +10,7 @@ local ITEM = Clockwork.item:New();
 	ITEM.model = "models/props_lab/citizenradio_remake.mdl";
 	ITEM.weight = 5;
 	ITEM.category = "Communication"
-	ITEM.description = "An antique radio, do you think this'll still work?";
+	ITEM.description = "Une radio ancienne, tu penses qu'elle fonctionne encore ?";
 
 	-- Called when a player uses the item.
 	function ITEM:OnUse(player, itemEntity)
@@ -44,7 +44,7 @@ local ITEM = Clockwork.item:New();
 				Clockwork.entity:MakeFlushToGround(entity, trace.HitPos, trace.HitNormal);
 			end;
 		else
-			Schema:EasyText(player, "firebrick", "You cannot drop a radio that far away!");
+			Schema:EasyText(player, "firebrick", "Vous ne pouvez pas lâcher une radio aussi loin !");
 			
 			return false;
 		end;

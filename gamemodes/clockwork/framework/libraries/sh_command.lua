@@ -1,4 +1,4 @@
---[[
+﻿--[[
 	Begotten III: Jesus Wept
 	By: DETrooper, cash wednesday, gabs, alyousha35
 
@@ -139,7 +139,7 @@ if (SERVER) then
 
 						if (cmdCD) then
 							if (cmdCD > curTime) then
-								Schema:EasyText(player, "peru", "You cannot use this command for another "..math.Round(cmdCD - curTime).." seconds.")
+								Schema:EasyText(player, "peru", "Vous ne pouvez pas utiliser cette commande avant"..math.Round(cmdCD - curTime).." seconds.")
 
 								return false
 							end
@@ -169,23 +169,23 @@ if (SERVER) then
 
 								if (bit.band(flags, CMD_DEAD) > 0 and !player:Alive()) then
 									if (!player.cwDeathCodeAuth) then
-										Schema:EasyText(player, "darkgrey", "You cannot do this action at the moment!")
+										Schema:EasyText(player, "darkgrey", "Vous ne pouvez pas effectuer cette action pour le moment !")
 									end return
 								elseif (bit.band(flags, CMD_VEHICLE) > 0 and player:InVehicle()) then
 									if (!player.cwDeathCodeAuth) then
-										Schema:EasyText(player, "darkgrey", "You cannot do this action at the moment!")
+										Schema:EasyText(player, "darkgrey", "Vous ne pouvez pas effectuer cette action pour le moment !")
 									end return
 								elseif (bit.band(flags, CMD_RAGDOLLED) > 0 and player:IsRagdolled()) then
 									if (!player.cwDeathCodeAuth) then
-										Schema:EasyText(player, "darkgrey", "You cannot do this action at the moment!")
+										Schema:EasyText(player, "darkgrey", "Vous ne pouvez pas effectuer cette action pour le moment !")
 									end return
 								elseif (bit.band(flags, CMD_FALLENOVER) > 0 and player:GetRagdollState() == RAGDOLL_FALLENOVER) then
 									if (!player.cwDeathCodeAuth) then
-										Schema:EasyText(player, "darkgrey", "You cannot do this action at the moment!")
+										Schema:EasyText(player, "darkgrey", "Vous ne pouvez pas effectuer cette action pour le moment !")
 									end return
 								elseif (bit.band(flags, CMD_KNOCKEDOUT) > 0 and player:GetRagdollState() == RAGDOLL_KNOCKEDOUT) then
 									if (!player.cwDeathCodeAuth) then
-										Schema:EasyText(player, "darkgrey", "You cannot do this action at the moment!")
+										Schema:EasyText(player, "darkgrey", "Vous ne pouvez pas effectuer cette action pour le moment !")
 									end return
 								end
 
@@ -213,24 +213,24 @@ if (SERVER) then
 									hook.Run("PostCommandUsed", player, commandTable, arguments)
 								end
 							else
-								Schema:EasyText(player, "firebrick", "You do not have access to this command, "..player:SteamName()..".")
+								Schema:EasyText(player, "firebrick", "Vous n'avez pas accès à cette commande,"..player:SteamName()..".")
 							end
 						else
 							Schema:EasyText(player, "tomato", commandTable.name.." "..commandTable.text.."!")
 						end
 					end
 				elseif (!Clockwork.player:GetDeathCode(player, true)) then
-					Schema:EasyText(player, "darkgrey", "This is not a valid command or alias!")
+					Schema:EasyText(player, "darkgrey", "Ce n'est pas une commande ou un alias valide !")
 				end
 			elseif (!Clockwork.player:GetDeathCode(player, true)) then
-				Schema:EasyText(player, "darkgrey", "This is not a valid command or alias!")
+				Schema:EasyText(player, "darkgrey", "Ce n'est pas une commande ou un alias valide !")
 			end
 
 			if (Clockwork.player:GetDeathCode(player)) then
 				Clockwork.player:TakeDeathCode(player)
 			end
 		else
-			Schema:EasyText(player, "peru", "You cannot use commands yet!")
+			Schema:EasyText(player, "peru", "Vous ne pouvez pas encore utiliser de commandes !")
 		end
 	end
 

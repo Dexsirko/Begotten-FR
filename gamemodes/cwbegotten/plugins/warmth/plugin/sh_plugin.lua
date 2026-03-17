@@ -1,4 +1,4 @@
-PLUGIN:SetGlobalAlias("cwWarmth");
+﻿PLUGIN:SetGlobalAlias("cwWarmth");
 
 cwWarmth.enabledMaps = {
     ["rp_district21"] = true,
@@ -11,7 +11,7 @@ if cwWarmth.systemEnabled then
 	Clockwork.kernel:IncludePrefixed("sv_hooks.lua");
 
 	local COMMAND = Clockwork.command:New("CharSetTemperature");
-		COMMAND.tip = "Set a player's temperature level. (0 = Freezing, 100 = Normal)";
+		COMMAND.tip = "Définir le niveau de température d'un joueur. (0 = Gelé, 100 = Normal)";
 		COMMAND.text = "<string Name> <number Amount>";
 		COMMAND.access = "o";
 		COMMAND.arguments = 2;

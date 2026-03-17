@@ -1,4 +1,4 @@
---[[
+﻿--[[
 	Begotten III: Jesus Wept
 	By: DETrooper, cash wednesday, gabs, alyousha35
 
@@ -6,7 +6,7 @@
 --]]
 
 local COMMAND = Clockwork.command:New("CenterTextTarget");
-COMMAND.tip = "Show a target a center text. This will display the centertext for you as well.";
+COMMAND.tip = "Affiche un texte central à une cible. Cela affichera également le texte central pour vous.";
 COMMAND.text = "<string Target> <string Text>";
 COMMAND.access = "a";
 COMMAND.arguments = 2;

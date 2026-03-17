@@ -1,9 +1,9 @@
-local ITEM = Clockwork.item:New();
+﻿local ITEM = Clockwork.item:New();
 	ITEM.name = "Unbreakable Lock";
 	ITEM.model = "models/props_wasteland/prison_padlock001a.mdl";
 	ITEM.weight = 0.3;
 	ITEM.category = "Locks";
-	ITEM.description = "A generic looking key lock.";
+	ITEM.description = "Une serrure à clé d'apparence générique.";
 	ITEM.lockType = "key";
 	ITEM.lockTier = 4;
 

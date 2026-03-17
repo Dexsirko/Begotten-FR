@@ -1,4 +1,4 @@
---[[
+﻿--[[
 	Begotten III: Jesus Wept
 	By: DETrooper, cash wednesday, gabs, alyousha35
 
@@ -92,7 +92,7 @@ function ENT:Touch(entity)
 				if entity.teleporting then
 					damageInfo:SetDamage(0);
 				else
-					Clockwork.chatBox:AddInTargetRadius(entity, "me", "steps on a bear trap, triggering it!", entity:GetPos(), Clockwork.config:Get("talk_radius"):Get() * 2);
+					Clockwork.chatBox:AddInTargetRadius(entity, "me", "marche sur un piège à ours et le déclenche !", entity:GetPos(), Clockwork.config:Get("talk_radius"):Get() * 2);
 					
 					if math.random(1, 2) == 1 then
 						-- Left leg.
@@ -112,7 +112,7 @@ function ENT:Touch(entity)
 								entity:StartBleeding(HITGROUP_LEFTLEG);
 							end
 							
-							Clockwork.chatBox:AddInTargetRadius(entity, "me", "'s left leg audibly breaks with a horrifying snap!", entity:GetPos(), Clockwork.config:Get("talk_radius"):Get() * 2);
+							Clockwork.chatBox:AddInTargetRadius(entity, "me", "La jambe gauche de  se brise avec un craquement horrifiant !", entity:GetPos(), Clockwork.config:Get("talk_radius"):Get() * 2);
 								
 							entity:EmitSound("misc/bone_fracture.wav", 75, math.random(95, 100));
 						end
@@ -134,7 +134,7 @@ function ENT:Touch(entity)
 								entity:StartBleeding(HITGROUP_RIGHTLEG);
 							end
 							
-							Clockwork.chatBox:AddInTargetRadius(entity, "me", "'s right leg audibly breaks with a horrifying snap!", entity:GetPos(), Clockwork.config:Get("talk_radius"):Get() * 2);
+							Clockwork.chatBox:AddInTargetRadius(entity, "me", "La jambe droite de [nom] se brise avec un craquement horrifiant !", entity:GetPos(), Clockwork.config:Get("talk_radius"):Get() * 2);
 								
 							entity:EmitSound("misc/bone_fracture.wav", 75, math.random(95, 100));
 						end

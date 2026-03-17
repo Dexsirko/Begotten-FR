@@ -1,4 +1,4 @@
---[[
+﻿--[[
 	Begotten III: Jesus Wept
 	By: DETrooper, cash wednesday, gabs, alyousha35
 
@@ -11,7 +11,7 @@ local ITEM = Clockwork.item:New();
 	ITEM.weight = 0.25;
 	ITEM.useText = "Refill";
 	ITEM.category = "Fuel"
-	ITEM.description = "A large bottle of oil.";
+	ITEM.description = "Une grande bouteille d'huile.";
 	ITEM.iconoverride = "materials/begotten/ui/itemicons/small_oil.png";
 	ITEM.useSound = "begotten/ui/use_oil.mp3";
 	ITEM.uniqueID = "large_oil";
@@ -31,14 +31,14 @@ local ITEM = Clockwork.item:New();
 				player:SetNetVar("oil", math.Round(weaponItemTable:GetData("oil"), 0));
 				
 				if (currentOil + 60) > 100 then
-					Schema:EasyText(player, "olive", "Some of the oil did not make it into your lantern, as it is now full.");
+					Schema:EasyText(player, "olive", "Une partie de l'huile n'a pas pu entrer dans votre lanterne, car elle est désormais pleine.");
 				end;
 				
 				return;
 			end
 		end
 		
-		Schema:EasyText(player, "firebrick", "You must be holding your lantern to refill it!");
+		Schema:EasyText(player, "firebrick", "Vous devez tenir votre lanterne pour la remplir !");
 		
 		return false;
 	end;

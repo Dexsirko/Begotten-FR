@@ -1,4 +1,4 @@
-
+﻿
 local function GetWeaponPrintText( wep )
 	
 	str = ""
@@ -90,7 +90,7 @@ local pweapon_vmodel = SimplePanel( pweapon )
 
 	local vlabel = vgui.Create( "DLabel", pweapon_vmodel )
 		vlabel:SetTall( 20 )
-		vlabel:SetText( "View model:" )
+		vlabel:SetText( "Modèle de vue :" )
 	vlabel:Dock(LEFT)
 	
 	local vtext = vgui.Create( "DTextEntry", pweapon_vmodel)
@@ -127,7 +127,7 @@ local pweapon_wmodel = SimplePanel( pweapon )
 
 	local wlabel = vgui.Create( "DLabel", pweapon_wmodel )
 		wlabel:SetTall( 20 )
-		wlabel:SetText( "World model:" )
+		wlabel:SetText( "Modèle du monde :" )
 	wlabel:Dock(LEFT)
 	
 	local wtext = vgui.Create( "DTextEntry", pweapon_wmodel)
@@ -163,7 +163,7 @@ local pweapon_holdtype = SimplePanel( pweapon )
 	// Weapon hold type
 	local hlabel = vgui.Create( "DLabel", pweapon_holdtype )
 		hlabel:SetSize( 150, 20 )
-		hlabel:SetText( "Hold type (3rd person):" )
+		hlabel:SetText( "Type de maintien (3e personne) :" )
 	hlabel:Dock(LEFT)
 	
 	local hbox = vgui.Create( "DComboBox", pweapon_holdtype )
@@ -189,7 +189,7 @@ pweapon_holdtype:Dock(TOP)
 // Show viewmodel
 local vhbox = vgui.Create( "DCheckBoxLabel", pweapon )
 	vhbox:SetTall( 20 )
-	vhbox:SetText( "Show view model" )
+	vhbox:SetText( "Afficher le modèle de vue" )
 	vhbox.OnChange = function()
 		wep.ShowViewModel = vhbox:GetChecked()
 		if (wep.ShowViewModel) then
@@ -210,7 +210,7 @@ vhbox:Dock(TOP)
 // Show worldmodel
 local whbox = vgui.Create( "DCheckBoxLabel", pweapon )
 	whbox:SetTall( 20 )
-	whbox:SetText( "Show world model" )
+	whbox:SetText( "Afficher le modèle du monde" )
 	whbox.OnChange = function()
 		wep.ShowWorldModel = whbox:GetChecked()
 	end
@@ -222,7 +222,7 @@ whbox:Dock(TOP)
 // Flip viewmodel
 local fcbox = vgui.Create( "DCheckBoxLabel", pweapon )
 	fcbox:SetTall( 20 )
-	fcbox:SetText( "Flip viewmodel" )
+	fcbox:SetText( "Inverser le modèle de vue" )
 	fcbox.OnChange = function()
 		wep.ViewModelFlip = fcbox:GetChecked()
 	end
@@ -234,7 +234,7 @@ fcbox:Dock(TOP)
 // Use Hands
 local fcbox = vgui.Create( "DCheckBoxLabel", pweapon )
 	fcbox:SetTall( 20 )
-	fcbox:SetText( "Use Hands" )
+	fcbox:SetText( "Utiliser les mains" )
 	fcbox.OnChange = function()
 		wep.UseHands = fcbox:GetChecked()
 	end
@@ -245,7 +245,7 @@ fcbox:Dock(TOP)
 
 // View model FOV slider
 local fovslider = vgui.Create( "DNumSlider", pweapon )
-	fovslider:SetText( "View model FOV" )
+	fovslider:SetText( "Champ de vision du modèle de vue" )
 	fovslider:SetMin( 20 )
 	fovslider:SetMax( 140 )
 	fovslider:SetDecimals( 0 )
@@ -265,7 +265,7 @@ local pweapon_bone = SimplePanel( pweapon )
 		
 		// View model bone scaling
 		local vsbonelabel = vgui.Create( "DLabel", pbone_left )
-			vsbonelabel:SetText( "Viewmodel bone mods:" )
+			vsbonelabel:SetText( "Modifications des os du modèle de vue :" )
 			vsbonelabel:SizeToContentsX()
 			vsbonelabel:SetTall( 20 )
 		vsbonelabel:Dock(TOP)
@@ -280,13 +280,13 @@ local pweapon_bone = SimplePanel( pweapon )
 	
 		local resbtn = vgui.Create( "DButton", pbone_right )
 			resbtn:SetTall( 20 )
-			resbtn:SetText("Reset all bone mods")
+			resbtn:SetText("Réinitialiser toutes les modifications osseuses")
 		resbtn:DockMargin(10,0,0,0)
 		resbtn:Dock(TOP)
 		
 		local resselbtn = vgui.Create( "DButton", pbone_right )
 			resselbtn:SetTall( 20 )
-			resselbtn:SetText("Reset selected bone mod")
+			resselbtn:SetText("Réinitialiser la modification d'os sélectionnée")
 		resselbtn:DockMargin(10,0,0,0)
 		resselbtn:Dock(BOTTOM)
 		
@@ -338,7 +338,7 @@ local function CreateBoneMod( selbone, preset_data )
 	pscale:SetTall(32*3)
 	
 		local vslabel = vgui.Create( "DLabel", pscale )
-			vslabel:SetText( "Scale" )
+			vslabel:SetText( "Échelle" )
 			vslabel:SizeToContents()
 			vslabel:SetWide(45)
 		vslabel:Dock(LEFT)
@@ -395,7 +395,7 @@ local function CreateBoneMod( selbone, preset_data )
 	ppos:SetTall(32*3)
 	
 		local vposlabel = vgui.Create( "DLabel", ppos )
-			vposlabel:SetText( "Pos" )
+			vposlabel:SetText( "Poser" )
 			vposlabel:SizeToContents()
 			vposlabel:SetWide(45)
 		vposlabel:Dock(LEFT)
@@ -453,7 +453,7 @@ local function CreateBoneMod( selbone, preset_data )
 		vanglabel:Dock(LEFT)
 		
 		local vangxwang = vgui.Create( "DNumSlider", pang )
-			vangxwang:SetText("pitch")
+			vangxwang:SetText("Angle")
 			vangxwang:SetWide(sliderw)
 			vangxwang:SetMinMax( -180, 180 )
 			vangxwang:SetDecimals( 3 )
@@ -463,7 +463,7 @@ local function CreateBoneMod( selbone, preset_data )
 		vangxwang:DockMargin(10,0,0,0)
 		
 		local vangywang = vgui.Create( "DNumSlider", pang )
-			vangywang:SetText("yaw")
+			vangywang:SetText("Lacet")
 			vangywang:SetWide(sliderw)
 			vangywang:SetMinMax( -180, 180 )
 			vangywang:SetDecimals( 3 )
@@ -473,7 +473,7 @@ local function CreateBoneMod( selbone, preset_data )
 		vangywang:DockMargin(10,0,0,0)
 		
 		local vangzwang = vgui.Create( "DNumSlider", pang )
-			vangzwang:SetText("roll")
+			vangzwang:SetText("lancer")
 			vangzwang:SetWide(sliderw)
 			vangzwang:SetMinMax( -180, 180 )
 			vangzwang:SetDecimals( 3 )
@@ -563,7 +563,7 @@ wep.v_modelbonebox = vsbonebox
 
 local wpdbtn = vgui.Create( "DButton", pweapon )
 	wpdbtn:SetTall( 30 )
-	wpdbtn:SetText( "Drop weapon (hold reload key to pick back up)" )
+	wpdbtn:SetText( "Lâcher l'arme (maintenir la touche de rechargement pour la récupérer)" )
 	wpdbtn.DoClick = function()
 		RunConsoleCommand("swepck_dropwep")
 	end
@@ -572,7 +572,7 @@ wpdbtn:Dock(BOTTOM)
 
 local wpcbtn = vgui.Create( "DButton", pweapon )
 	wpcbtn:SetTall( 30 )
-	wpcbtn:SetText( "Copy weapon code to clipboard" )
+	wpcbtn:SetText( "Copier le code de l'arme dans le presse-papiers" )
 	wpcbtn.DoClick = function()
 		SetClipboardText(GetWeaponPrintText(wep))
 		LocalPlayer():ChatPrint("Code copied to clipboard!")
@@ -582,7 +582,7 @@ wpcbtn:Dock(BOTTOM)
 
 local wpbtn = vgui.Create( "DButton", pweapon )
 	wpbtn:SetTall( 30 )
-	wpbtn:SetText( "Print weapon code to console" )
+	wpbtn:SetText( "Afficher le code de l'arme dans la console" )
 	wpbtn.DoClick = function()
 		MsgN("*********************************************")
 		for k, v in pairs(string.Explode("\n",GetWeaponPrintText(wep))) do

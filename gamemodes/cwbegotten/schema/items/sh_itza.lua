@@ -1,9 +1,9 @@
---[[
+﻿--[[
 local ITEM = Clockwork.item:New("armor_base")
 	-- first some default shit
 	ITEM.name = "Armor Example"
 	ITEM.model = "models/error.mdl"
-	ITEM.description = "An example armor item."
+	ITEM.description = "Un exemple d'équipement d'armure."
 	ITEM.weight = 5 -- 5kg
 	
 	-- damage scaling, you could 
@@ -38,7 +38,7 @@ ITEM:Register()--]]
 --[[
 local ITEM = Clockwork.item:New()
 	ITEM.name = "sex";
-	ITEM.description = "sex";
+	ITEM.description = "sexe";
 	ITEM.model = "models/props_combine/breenglobe.mdl";
 	ITEM.uniqueID = "sex";
 	ITEM:AddData("sex", 100, true);

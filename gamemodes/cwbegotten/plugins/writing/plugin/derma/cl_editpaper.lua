@@ -1,4 +1,4 @@
---[[
+﻿--[[
 	Begotten III: Jesus Wept
 	By: DETrooper, cash wednesday, gabs, alyousha35
 
@@ -57,7 +57,7 @@ function PANEL:Populate()
 	textEntry:SetMultiline(true);
 	textEntry:SetHeight(194);
 	
-	button:SetText("Okay");
+	button:SetText("D'accord");
 	
 	-- A function to set the text entry's real value.
 	function textEntry:SetRealValue(text)
@@ -86,7 +86,8 @@ function PANEL:Populate()
 			netstream.Start( "EditPaper", { self.entity, string.sub(textEntry:GetValue(), 0, 500) } );
 		end;
 	end;
-	
+	
+
 	self.panelList:AddItem(textEntry);
 	self.panelList:AddItem(button);
 end;

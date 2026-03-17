@@ -1,4 +1,4 @@
---[[
+﻿--[[
 	Begotten III: Jesus Wept
 	By: DETrooper, cash wednesday, gabs, alyousha35
 
@@ -6,7 +6,7 @@
 --]]
 
 local COMMAND = Clockwork.command:New();
-COMMAND.tip = "Jam a radio frequency if you have an ECW radio.";
+COMMAND.tip = "Brouillez une fréquence radio si vous possédez une radio ECW.";
 COMMAND.text = "[bool TurnOn]"
 COMMAND.flags = bit.bor(CMD_DEFAULT, CMD_DEATHCODE, CMD_FALLENOVER);
 COMMAND.arguments = 1;
@@ -14,7 +14,7 @@ COMMAND.arguments = 1;
 -- Called when the command has been run.
 function COMMAND:OnRun(player, arguments)
 	if !player:HasItemByID("ecw_radio") then
-		Clockwork.player:Notify(player, "You must have an ECW radio in order to use this command!");
+		Clockwork.player:Notify(player, "Vous devez posséder une radio ECW pour utiliser cette commande !");
 		
 		return false;
 	end
@@ -29,7 +29,7 @@ function COMMAND:OnRun(player, arguments)
 			if active then
 				term = "on"
 			end
-			Clockwork.player:Notify(player, "This device is already "..term.."!");
+			Clockwork.player:Notify(player, "Cet appareil est déjà"..term.."!");
 			return false
 		end
 		
@@ -49,7 +49,7 @@ function COMMAND:OnRun(player, arguments)
 			netstream.Start(player, "radioJamming", false);
 		end
 	else
-		Clockwork.player:Notify(player, "You must specify true or false!");
+		Clockwork.player:Notify(player, "Vous devez spécifier vrai ou faux !");
 	end
 end;
 

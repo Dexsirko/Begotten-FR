@@ -1,9 +1,9 @@
---[[
+﻿--[[
 	BEGOTTEN III: Developed by DETrooper, cash wednesday, gabs & alyousha35
 --]]
 
 local COMMAND = Clockwork.command:New("AdvertRemove")
-COMMAND.tip = "Remove a dynamic advert."
+COMMAND.tip = "Supprimer une annonce dynamique."
 COMMAND.flags = CMD_DEFAULT
 COMMAND.access = "a"
 

@@ -1,4 +1,4 @@
---[[
+﻿--[[
 	Begotten III: Jesus Wept
 	By: DETrooper, cash wednesday, gabs, alyousha35
 
@@ -66,7 +66,7 @@ function PANEL:Rebuild()
 	
 	if (table.Count(categories) > 0) then
 		--[[local label = vgui.Create("cwInfoText", self);
-			label:SetText("These settings are client-side to help you personalise Clockwork.");
+			label:SetText("Ces paramètres sont côté client pour vous aider à personnaliser Clockwork.");
 			label:SetInfoColor("blue");
 		self.panelList:AddItem(label);]]
 		
@@ -210,7 +210,7 @@ function PANEL:Rebuild()
 		end;
 	else
 		local label = vgui.Create("cwInfoText", self);
-			label:SetText("You do not have access to any settings!");
+			label:SetText("Vous n'avez accès à aucun paramètre !");
 			label:SetInfoColor("red");
 		self.panelList:AddItem(label);
 	end;

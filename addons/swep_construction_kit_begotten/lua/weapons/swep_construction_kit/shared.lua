@@ -1,4 +1,4 @@
-
+﻿
 if SERVER then
 	AddCSLuaFile("shared.lua")
 	AddCSLuaFile("client.lua")
@@ -16,7 +16,8 @@ if CLIENT then
 	SWEP.Author			= "Clavus"
 	SWEP.Contact		= "clavus@clavusstudios.com"
 	SWEP.Purpose		= "Design SWEP ironsights and clientside models"
-	SWEP.Instructions	= "http://tinyurl.com/swepkit"
+	SWEP.Instructions	= "Contexte : Instruction d'arme  
+Texte à traduire : http://tinyurl.com/swepkit"
 	SWEP.Slot			= 5
 	SWEP.SlotPos		= 10
 	SWEP.ViewModelFlip	= false

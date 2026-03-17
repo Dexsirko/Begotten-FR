@@ -1,9 +1,9 @@
---[[
+﻿--[[
 	BEGOTTEN III: Developed by DETrooper, cash wednesday, gabs & alyousha35
 --]]
 
 local COMMAND = Clockwork.command:New("DoorSetHidden")
-COMMAND.tip = "Set whether a door is hidden."
+COMMAND.tip = "Définir si une porte est cachée."
 COMMAND.text = "<bool IsHidden>"
 COMMAND.flags = CMD_DEFAULT
 COMMAND.access = "a"

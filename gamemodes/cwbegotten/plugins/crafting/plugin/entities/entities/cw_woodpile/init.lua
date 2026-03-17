@@ -1,4 +1,4 @@
---[[
+﻿--[[
 	Begotten III: Jesus Wept
 	By: DETrooper, cash wednesday, gabs, alyousha35
 
@@ -116,7 +116,7 @@ function ENT:OnTakeDamage(damageInfo)
 			end
 			
 			if self.woodLeft <= 0 then
-				Clockwork.chatBox:AddInTargetRadius(player, "it", "The wood pile is reduced to nothing, its resources fully extracted.", player:GetPos(), config.Get("talk_radius"):Get() * 2);
+				Clockwork.chatBox:AddInTargetRadius(player, "it", "Le tas de bois est réduit à néant, ses ressources entièrement extraites.", player:GetPos(), config.Get("talk_radius"):Get() * 2);
 				
 				self:Remove();
 			end

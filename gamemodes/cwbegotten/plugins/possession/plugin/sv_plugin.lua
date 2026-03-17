@@ -1,4 +1,4 @@
---[[
+﻿--[[
 	Begotten III: Jesus Wept
 --]]
 
@@ -9,7 +9,7 @@ util.AddNetworkString("PossessionFreakoutAnim")
 -- A function to get if the player can be possessed.
 function playerMeta:CanBePossessed(possessor, bIgnoreTrait)
 	if self == possessor then
-		Schema:EasyText(possessor, "firebrick", "You cannot possess yourself!");
+		Schema:EasyText(possessor, "firebrick", "Vous ne pouvez pas vous posséder vous-même !");
 	
 		return false;
 	end
@@ -27,13 +27,13 @@ function playerMeta:CanBePossessed(possessor, bIgnoreTrait)
 	end
 	
 	if !self:Alive() or !self:HasInitialized() or self.scriptedDying or self.dyingOfDisease then
-		Schema:EasyText(possessor, "firebrick", "You cannot possess a dead or dying character!");
+		Schema:EasyText(possessor, "firebrick", "Vous ne pouvez pas posséder un personnage mort ou mourant !");
 		
 		return false;
 	end
 	
 	if self.opponent then
-		Schema:EasyText(possessor, "firebrick", "You cannot possess characters that are in a duel!");
+		Schema:EasyText(possessor, "firebrick", "Vous ne pouvez pas posséder de personnages engagés dans un duel !");
 		
 		return false;
 	end
@@ -87,7 +87,7 @@ function playerMeta:Possess(possessor)
 		
 		self:SetNetVar("currentlyPossessed", true);
 		
-		Clockwork.chatBox:Add(self, nil, "itnofake", "As much as you struggle, you cannot fight off the entity that is now taking control of your body!");
+		Clockwork.chatBox:Add(self, nil, "itnofake", "Malgré tes efforts, tu ne peux repousser l'entité qui prend maintenant le contrôle de ton corps !");
 		
 		--local max_poise = self:GetMaxPoise();
 		local max_stability = self:GetMaxStability();
@@ -114,7 +114,7 @@ function playerMeta:Possess(possessor)
 		if self:IsRagdolled() then
 			Clockwork.player:SetRagdollState(self, RAGDOLL_NONE);
 			
-			Clockwork.chatBox:AddInTargetRadius(self, "me", "suddenly pulls themself up in a manner that seems to defy gravity!", self:GetPos(), Clockwork.config:Get("talk_radius"):Get() * 2);
+			Clockwork.chatBox:AddInTargetRadius(self, "me", "se redresse soudainement d'une manière qui semble défier la gravité !", self:GetPos(), Clockwork.config:Get("talk_radius"):Get() * 2);
 		end
 		
 		if self:HasWeapon("cw_senses") then
@@ -149,8 +149,8 @@ function playerMeta:PossessionFreakout()
 	self:SetNetVar("possessionFreakout", true);
 	self:Freeze(true);
 	
-	Clockwork.chatBox:Add(self, nil, "itnofake", "You feel something claw its way into your mind!");
-	Clockwork.chatBox:AddInTargetRadius(self, "me", "begins involuntarily convulsing and trembling, almost as if they are losing control of their body!", self:GetPos(), Clockwork.config:Get("talk_radius"):Get() * 2);
+	Clockwork.chatBox:Add(self, nil, "itnofake", "Tu sens quelque chose s'infiltrer dans ton esprit !");
+	Clockwork.chatBox:AddInTargetRadius(self, "me", "commence à convulser et trembler de manière incontrôlable, comme s'ils perdaient le contrôle de leur corps !", self:GetPos(), Clockwork.config:Get("talk_radius"):Get() * 2);
 	
 	net.Start("PossessionFreakoutAnim")
 	net.WriteEntity(self);
@@ -176,7 +176,7 @@ function playerMeta:PossessionFreakout()
 			if !self.possessor then
 				if self:Alive() then
 					Clockwork.player:SetRagdollState(self, RAGDOLL_KNOCKEDOUT, 15);
-					Clockwork.chatBox:AddInTargetRadius(self, "me", "suddenly falls limp and drops to the ground!", self:GetPos(), Clockwork.config:Get("talk_radius"):Get() * 2);
+					Clockwork.chatBox:AddInTargetRadius(self, "me", "s'effondre soudainement et s'écroule au sol !", self:GetPos(), Clockwork.config:Get("talk_radius"):Get() * 2);
 					
 					self:EmitSound("possession/spiritsting.wav");
 				end
@@ -210,7 +210,7 @@ function playerMeta:Unpossess()
 	self:SetNetVar("possessionFreakout", false);
 	netstream.Start(self, "Stunned", 5); -- Replace with damnation or custom VFX later!
 	Clockwork.player:SetRagdollState(self, RAGDOLL_KNOCKEDOUT, 15);
-	Clockwork.chatBox:AddInTargetRadius(self, "me", "suddenly falls limp and drops to the ground!", self:GetPos(), Clockwork.config:Get("talk_radius"):Get() * 2);
+	Clockwork.chatBox:AddInTargetRadius(self, "me", "s'effondre soudainement et s'affaisse au sol !", self:GetPos(), Clockwork.config:Get("talk_radius"):Get() * 2);
 	self:EmitSound("possession/spiritsting.wav");
 	
 	if cwSenses and !self:HasWeapon("cw_senses") then

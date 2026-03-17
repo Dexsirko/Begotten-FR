@@ -1,4 +1,4 @@
---[[
+﻿--[[
 	Begotten III: Jesus Wept
 --]]
 
@@ -27,7 +27,7 @@ function playerMeta:GetMaxSanity()
 end;
 
 local COMMAND = Clockwork.command:New("CharSetSanity");
-COMMAND.tip = "Set a players Sanity level.";
+COMMAND.tip = "Définir le niveau de Santé mentale d'un joueur.";
 COMMAND.text = "<string Name> [number Amount]";
 COMMAND.flags = CMD_DEFAULT;
 COMMAND.access = "s";
@@ -63,7 +63,7 @@ end;
 COMMAND:Register();
 
 local COMMAND = Clockwork.command:New("PlyScare");
-COMMAND.tip = "Scare a player and reduce their sanity by 10. Leave argument blank to scare the player you are looking at.";
+COMMAND.tip = "Effraie un joueur et réduit sa santé mentale de 10. Laisse l'argument vide pour effrayer le joueur que tu regardes.";
 COMMAND.text = "<string Name>";
 COMMAND.flags = CMD_DEFAULT;
 COMMAND.access = "s";
@@ -100,7 +100,7 @@ end;
 COMMAND:Register();
 
 local COMMAND = Clockwork.command:New("PlyScareDoor");
-COMMAND.tip = "Scare a player with a door jumpscare.";
+COMMAND.tip = "Effrayez un joueur avec un saut de porte effrayant.";
 COMMAND.text = "<string Name>";
 COMMAND.access = "s";
 COMMAND.arguments = 1;
@@ -142,7 +142,7 @@ end;
 COMMAND:Register();
 
 local COMMAND = Clockwork.command:New("BlowDoor");
-COMMAND.tip = "Blow down a door.";
+COMMAND.tip = "Faites sauter une porte.";
 COMMAND.access = "s";
 COMMAND.alias = {"DoorBlow", "BreakDoor"}
 
@@ -211,7 +211,7 @@ COMMAND.alias = {"DoorBlow", "BreakDoor"}
 COMMAND:Register();
 
 local COMMAND = Clockwork.command:New("ToggleHellSanityLoss");
-COMMAND.tip = "Toggle Hell's residual sanity loss.";
+COMMAND.tip = "Activer/Désactiver la perte de santé mentale résiduelle de Hell.";
 COMMAND.flags = CMD_DEFAULT;
 COMMAND.access = "s";
 
@@ -219,10 +219,10 @@ COMMAND.access = "s";
 function COMMAND:OnRun(player, arguments)
 	if cwSanity.hellZoneSanityDisabled then
 		cwSanity.hellZoneSanityDisabled = false;
-		Schema:EasyText(player, "cornflowerblue", "Residual sanity loss in Hell has been disabled.");
+		Schema:EasyText(player, "cornflowerblue", "La perte de santé mentale résiduelle en Enfer a été désactivée.");
 	else
 		cwSanity.hellZoneSanityDisabled = true;
-		Schema:EasyText(player, "cornflowerblue", "Residual sanity loss in Hell has been enabled.");
+		Schema:EasyText(player, "cornflowerblue", "La perte de santé mentale résiduelle en Enfer a été activée.");
 	end
 end;
 

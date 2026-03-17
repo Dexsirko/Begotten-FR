@@ -1,4 +1,4 @@
-
+﻿
 local tutorialURL = "http://www.facepunch.com/threads/1032378-SWEP-Construction-Kit-developer-tool-for-modifying-viewmodels-ironsights/"
 local wep = GetSCKSWEP( LocalPlayer() )
 local ptool = wep.ptool
@@ -8,7 +8,7 @@ local panim = SimplePanel(ptool)
 	
 	local alabel = vgui.Create( "DLabel", panim )
 		alabel:SetTall( 18 )
-		alabel:SetText( "Play animation (only works properly in third person):" )
+		alabel:SetText( "Jouer l'animation (fonctionne correctement uniquement en vue à la troisième personne) :" )
 	alabel:Dock( TOP )
 	
 	local cols = 4
@@ -71,7 +71,7 @@ local psettings = SimplePanel(ptool)
 	
 	local selabel = vgui.Create( "DLabel", psettings )
 		selabel:SetTall( 20 )
-		selabel:SetText( "Configuration:" )
+		selabel:SetText( "Configuration :" )
 	selabel:Dock(TOP)
 	
 	local psave = SimplePanel(psettings)
@@ -82,14 +82,14 @@ local psettings = SimplePanel(ptool)
 			if (wep.save_data._savename) then
 				satext:SetText( wep.save_data._savename )
 			else
-				satext:SetText( "save1" )
+				satext:SetText( "sauvegarde1" )
 			end
 		satext:DockMargin(5,0,0,0)
 		satext:Dock(FILL)
 		
 		local sabtn = vgui.Create( "DButton", psave )
 			sabtn:SetTall( 16 )
-			sabtn:SetText( "Save as:" )
+			sabtn:SetText( "Enregistrer sous :" )
 			sabtn.DoClick = function()
 			
 				if !IsValid(wep) then return end
@@ -142,14 +142,14 @@ local psettings = SimplePanel(ptool)
 		local lftext = vgui.Create( "DTextEntry", pload )
 			lftext:SetTall( 20 )
 			lftext:SetMultiline(false)
-			lftext:SetText( "save1" )
+			lftext:SetText( "sauvegarde1" )
 		
 		lftext:DockMargin(5,0,0,0)
 		lftext:Dock(FILL)
 		
 		local lfbtn = vgui.Create( "DButton", pload )
 			lfbtn:SetTall( 16 )
-			lfbtn:SetText( "Load file:" )
+			lfbtn:SetText( "Charger le fichier :" )
 			lfbtn.DoClick = function()
 			local text = string.Trim(lftext:GetValue())
 			if (text == "") then return end
@@ -182,7 +182,7 @@ psettings:Dock(TOP)
 // link to FP thread
 local threadbtn = vgui.Create( "DButton", ptool )
 	threadbtn:SetTall( 30 )
-	threadbtn:SetText( "Open Tutorial (Facepunch thread)" )
+	threadbtn:SetText( "Ouvrir le tutoriel (fil Facepunch)" )
 	threadbtn.DoClick = function()
 		gui.OpenURL(tutorialURL) // Removed in Gmod 13
 		//SetClipboardText(tutorialURL)
@@ -193,7 +193,7 @@ threadbtn:Dock(TOP)
 // base code
 local basecbtn = vgui.Create( "DButton", ptool )
 	basecbtn:SetTall( 30 )
-	basecbtn:SetText( "Copy SWEP base code to clipboard" )
+	basecbtn:SetText( "Copier le code de base du SWEP dans le presse-papiers" )
 	basecbtn.DoClick = function()
 		SetClipboardText(wep.basecode)
 		LocalPlayer():ChatPrint("Base code copied to clipboard!")

@@ -1,4 +1,4 @@
---[[
+﻿--[[
 	Begotten III: Jesus Wept
 	By: DETrooper, cash wednesday, gabs, alyousha35
 
@@ -6,7 +6,7 @@
 --]]
 
 local COMMAND = Clockwork.command:New("CinematicTextRadius");
-	COMMAND.tip = "Show targets in a radius a center text. THIS IS NOT THE SAME AS CENTER TEXT! Your message will appear smaller, and lower down on the screen.";
+	COMMAND.tip = "Affiche les cibles dans un rayon avec un texte central. CE N'EST PAS LA MÊME CHOSE QUE LE TEXTE CENTRAL ! Votre message apparaîtra plus petit et plus bas sur l'écran.";
 	COMMAND.text = "[int Radius] <string Text>";
 	COMMAND.access = "a";
 	COMMAND.arguments = 2;

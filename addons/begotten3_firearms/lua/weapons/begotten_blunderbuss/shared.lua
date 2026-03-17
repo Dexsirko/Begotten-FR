@@ -1,4 +1,4 @@
-SWEP.ViewModelBoneMods = {
+﻿SWEP.ViewModelBoneMods = {
 	["ValveBiped.Bip01_L_Finger01"] = { scale = Vector(1, 1, 1), pos = Vector(0, -0.556, 0), angle = Angle(0, 0, 0) },
 	["ValveBiped.Bip01_L_Finger02"] = { scale = Vector(1, 1, 1), pos = Vector(0, -0.5, 0), angle = Angle(16.666, 1.11, -12.223) },
 	["v_ee3_reference001"] = { scale = Vector(0.009, 0.009, 0.009), pos = Vector(0, 0, 0), angle = Angle(0, 0, 0) },
@@ -18,7 +18,7 @@ SWEP.Category				= "Begotten"
 SWEP.Author				= "gabs"
 SWEP.Contact				= ""
 SWEP.Purpose				= ""
-SWEP.Instructions				= "Click the trigger to fire, use the Right click to aim the sights."
+SWEP.Instructions				= "Cliquez sur la gâchette pour tirer, utilisez le clic droit pour viser avec le viseur."
 SWEP.MuzzleAttachment			= "1" 	-- Should be "1" for CSS models or "muzzle" for hl2 models
 SWEP.ShellEjectAttachment			= "2" 	-- Should be "2" for CSS models or "1" for hl2 models
 SWEP.PrintName				= "Blunderbuss"		-- Weapon name (Shown on HUD)	

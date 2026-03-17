@@ -1,5 +1,5 @@
-local COMMAND = Clockwork.command:New("ScreenShake");
-COMMAND.tip = "Shakes the screen of all players.";
+﻿local COMMAND = Clockwork.command:New("ScreenShake");
+COMMAND.tip = "Secoue l'écran de tous les joueurs.";
 COMMAND.arguments = 1;
 COMMAND.optionalArguments = 1;
 COMMAND.text = "<time Seconds> [Shake strength] [Shake frequency] [Vector x] [Vector y] [Vector z] [Radius]";

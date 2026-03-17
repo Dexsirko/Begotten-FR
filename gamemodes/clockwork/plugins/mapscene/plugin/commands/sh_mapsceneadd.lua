@@ -1,9 +1,9 @@
---[[
+﻿--[[
 	BEGOTTEN III: Developed by DETrooper, cash wednesday, gabs & alyousha35
 --]]
 
 local COMMAND = Clockwork.command:New("MapSceneAdd")
-COMMAND.tip = "Add a map scene at your current position."
+COMMAND.tip = "Ajoute une scène de carte à votre position actuelle."
 COMMAND.text = "<bool ShouldSpin>"
 COMMAND.flags = CMD_DEFAULT
 COMMAND.access = "a"

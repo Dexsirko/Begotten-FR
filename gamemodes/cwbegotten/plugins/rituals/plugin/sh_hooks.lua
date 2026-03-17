@@ -1,4 +1,4 @@
---[[
+﻿--[[
 	Begotten 3: Jesus Wept
 	written by: cash wednesday, DETrooper, gabs and alyousha35.
 --]]
@@ -113,7 +113,7 @@ function cwRituals.rituals:Register(ritual)
 							util.Decal("PentagramBurn", trace.HitPos + trace.HitNormal, trace.HitPos - trace.HitNormal);
 						end);
 					else
-						Schema:EasyText(player, "firebrick", "You must be looking at a closer position to summon this ritual's item.");
+						Schema:EasyText(player, "firebrick", "Vous devez regarder une position plus proche pour invoquer l'objet de ce rituel.");
 						return;
 					end;
 				end

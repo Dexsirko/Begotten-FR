@@ -1,5 +1,5 @@
-local COMMAND = Clockwork.command:New("StorageTakeItem");
-	COMMAND.tip = "Take an item from storage.";
+﻿local COMMAND = Clockwork.command:New("StorageTakeItem");
+	COMMAND.tip = "Prendre un objet du stockage.";
 	COMMAND.text = "<string uniqueID> <string ItemID>";
 	COMMAND.flags = CMD_DEFAULT;
 	COMMAND.arguments = 2;
@@ -16,19 +16,19 @@ local COMMAND = Clockwork.command:New("StorageTakeItem");
 			);
 			
 			if (!itemTable) then
-				Clockwork.player:Notify(player, "The storage does not contain an instance of this item!");
+				Clockwork.player:Notify(player, "Le stockage ne contient pas d'instance de cet objet !");
 				return;
 			end;
 			
 			Clockwork.storage:TakeFrom(player, itemTable);
 		else
-			Clockwork.player:Notify(player, "You do not have storage open!");
+			Clockwork.player:Notify(player, "Vous n'avez pas de stockage ouvert !");
 		end;
 	end;
 COMMAND:Register();
 
 local COMMAND = Clockwork.command:New("StorageTakeItems");
-	COMMAND.tip = "Take multiple items from storage. Not specifying an amount will take all items matching the specified uniqueID.";
+	COMMAND.tip = "Prendre plusieurs objets du stock. Ne pas spécifier de quantité prendra tous les objets correspondant à l'identifiant unique spécifié.";
 	COMMAND.text = "<string UniqueID> [number Amount] [string Sort]";
 	COMMAND.flags = CMD_DEFAULT;
 	COMMAND.arguments = 1;
@@ -45,14 +45,14 @@ local COMMAND = Clockwork.command:New("StorageTakeItems");
 			local target = storageTable.entity;
 			
 			if (storageTable.isOneSided) then
-				Clockwork.player:Notify(player, "You cannot give items to this container!");
+				Clockwork.player:Notify(player, "Vous ne pouvez pas donner d'objets à ce conteneur !");
 				return;
 			end;
 			
 			local items = Clockwork.inventory:GetItemsByID(storageTable.inventory, uniqueID);
 			
 			if !items or table.IsEmpty(items) then
-				Clockwork.player:Notify(player, "The storage does not contain any items of this type!");
+				Clockwork.player:Notify(player, "Le stockage ne contient aucun objet de ce type !");
 				return;
 			end
 			
@@ -189,13 +189,13 @@ local COMMAND = Clockwork.command:New("StorageTakeItems");
 
 			hook.Run("PostPlayerTakeFromStorage", player, storageTable, itemTable)
 		else
-			Clockwork.player:Notify(player, "You do not have storage open!");
+			Clockwork.player:Notify(player, "Vous n'avez pas de stockage ouvert !");
 		end;
 	end;
 COMMAND:Register();
 
 local COMMAND = Clockwork.command:New("Unequip");
-	COMMAND.tip = "Unequip a weapon.";
+	COMMAND.tip = "Retirer une arme.";
 	COMMAND.flags = CMD_DEFAULT;
 	COMMAND.arguments = 1;
 
@@ -216,7 +216,7 @@ local COMMAND = Clockwork.command:New("Unequip");
 COMMAND:Register();
 
 local COMMAND = Clockwork.command:New("StorageTakeCash");
-	COMMAND.tip = "Take some cash from storage.";
+	COMMAND.tip = "Prends de l'argent dans le stockage.";
 	COMMAND.text = "<number Cash>";
 	COMMAND.flags = CMD_DEFAULT;
 	COMMAND.arguments = 1;
@@ -252,13 +252,13 @@ local COMMAND = Clockwork.command:New("StorageTakeCash");
 				end;
 			end;
 		else
-			Clockwork.player:Notify(player, "You do not have storage open!");
+			Clockwork.player:Notify(player, "Vous n'avez pas de stockage ouvert !");
 		end;
 	end;
 COMMAND:Register();
 
 local COMMAND = Clockwork.command:New("StorageGiveItem");
-	COMMAND.tip = "Give an item to storage.";
+	COMMAND.tip = "Donner un objet au stockage.";
 	COMMAND.text = "<string UniqueID> <string ItemID>";
 	COMMAND.flags = CMD_DEFAULT;
 	COMMAND.arguments = 2;
@@ -274,24 +274,24 @@ local COMMAND = Clockwork.command:New("StorageGiveItem");
 			local target = storageTable.entity;
 			
 			if (!itemTable) then
-				Clockwork.player:Notify(player, "You do not have an instance of this item!");
+				Clockwork.player:Notify(player, "Vous ne possédez pas d'exemplaire de cet objet !");
 				return;
 			end;
 			
 			if (storageTable.isOneSided) then
-				Clockwork.player:Notify(player, "You cannot give items to this container!");
+				Clockwork.player:Notify(player, "Vous ne pouvez pas donner d'objets à ce conteneur !");
 				return;
 			end;
 			
 			Clockwork.storage:GiveTo(player, itemTable);
 		else
-			Clockwork.player:Notify(player, "You do not have storage open!");
+			Clockwork.player:Notify(player, "Vous n'avez pas de stockage ouvert !");
 		end;
 	end;
 COMMAND:Register();
 
 local COMMAND = Clockwork.command:New("StorageGiveItems");
-	COMMAND.tip = "Give multiple items to storage. Not specifying an amount will give all items matching the specified uniqueID.";
+	COMMAND.tip = "Donne plusieurs objets au stockage. Ne pas spécifier de quantité donnera tous les objets correspondant à l'identifiant unique spécifié.";
 	COMMAND.text = "<string UniqueID> [number Amount] [string Sort]";
 	COMMAND.flags = CMD_DEFAULT;
 	COMMAND.arguments = 1;
@@ -308,14 +308,14 @@ local COMMAND = Clockwork.command:New("StorageGiveItems");
 			local target = storageTable.entity;
 			
 			if (storageTable.isOneSided) then
-				Clockwork.player:Notify(player, "You cannot give items to this container!");
+				Clockwork.player:Notify(player, "Vous ne pouvez pas donner d'objets à ce conteneur !");
 				return;
 			end;
 			
 			local items = player:GetItemsByID(uniqueID);
 			
 			if !items or table.IsEmpty(items) then
-				Clockwork.player:Notify(player, "You do not have any items of this type!");
+				Clockwork.player:Notify(player, "Vous ne possédez aucun objet de ce type !");
 				return;
 			end
 			
@@ -411,14 +411,14 @@ local COMMAND = Clockwork.command:New("StorageGiveItems");
 
 			hook.Run("PostPlayerGiveToStorage", player, storageTable, itemTable)
 		else
-			Clockwork.player:Notify(player, "You do not have storage open!");
+			Clockwork.player:Notify(player, "Vous n'avez pas de stockage ouvert !");
 		end;
 	end;
 COMMAND:Register();
 
 local NAME_CASH = Clockwork.option:GetKey("name_cash");
 local COMMAND = Clockwork.command:New("StorageGiveCash");
-	COMMAND.tip = "Give some cash to storage.";
+	COMMAND.tip = "Donne un peu d'argent au stockage.";
 	COMMAND.text = "<number Cash>";
 	COMMAND.flags = CMD_DEFAULT;
 	COMMAND.arguments = 1;
@@ -462,13 +462,13 @@ local COMMAND = Clockwork.command:New("StorageGiveCash");
 				end;
 			end;
 		else
-			Clockwork.player:Notify(player, "You do not have storage open!");
+			Clockwork.player:Notify(player, "Vous n'avez pas de stockage ouvert !");
 		end;
 	end;
 COMMAND:Register();
 
 local COMMAND = Clockwork.command:New("StorageClose");
-	COMMAND.tip = "Close the active storage.";
+	COMMAND.tip = "Fermez le stockage actif.";
 	COMMAND.flags = CMD_DEFAULT;
 
 	-- Called when the command has been run.
@@ -478,13 +478,13 @@ local COMMAND = Clockwork.command:New("StorageClose");
 		if (storageTable) then
 			Clockwork.storage:Close(player, true);
 		else
-			Clockwork.player:Notify(player, "You do not have storage open!");
+			Clockwork.player:Notify(player, "Vous n'avez pas de stockage ouvert !");
 		end;
 	end;
 COMMAND:Register();
 
 local COMMAND = Clockwork.command:New("SetClass");
-	COMMAND.tip = "Set the class of your character.";
+	COMMAND.tip = "Définis la classe de ton personnage.";
 	COMMAND.text = "<string Class>";
 	COMMAND.flags = CMD_HEAVY;
 	COMMAND.arguments = 1;
@@ -494,7 +494,7 @@ local COMMAND = Clockwork.command:New("SetClass");
 		local class = Clockwork.class:FindByID(arguments[1]);
 		
 		if (player:InVehicle()) then
-			Clockwork.player:Notify(player, "You cannot do this action at the moment!");
+			Clockwork.player:Notify(player, "Vous ne pouvez pas effectuer cette action pour le moment !");
 			return;
 		end;
 		
@@ -518,19 +518,19 @@ local COMMAND = Clockwork.command:New("SetClass");
 						end;
 					end;
 				else
-					Clockwork.player:Notify(player, "You do not have access to this class!");
+					Clockwork.player:Notify(player, "Vous n'avez pas accès à cette classe !");
 				end;
 			else
-				Clockwork.player:Notify(player, "There are too many characters with this class!");
+				Clockwork.player:Notify(player, "Il y a trop de personnages avec cette classe !");
 			end;
 		else
-			Clockwork.player:Notify(player, "This is not a valid class!");
+			Clockwork.player:Notify(player, "Ce n'est pas une classe valide !");
 		end;
 	end;
 COMMAND:Register();
 
 --[[local COMMAND = Clockwork.command:New("OrderShipment");
-	COMMAND.tip = "Order an item shipment at your target position.";
+	COMMAND.tip = "Commande une livraison d'articles à votre position cible.";
 	COMMAND.text = "<string UniqueID>";
 	COMMAND.flags = bit.bor(CMD_DEFAULT, CMD_FALLENOVER);
 	COMMAND.arguments = 1;
@@ -547,7 +547,7 @@ COMMAND:Register();
 		hook.Run("PlayerAdjustOrderItemTable", player, itemTable);
 		
 		if (!Clockwork.kernel:HasObjectAccess(player, itemTable)) then
-			Clockwork.player:Notify(player, "You not have access to order this item!");
+			Clockwork.player:Notify(player, "Vous n'avez pas l'autorisation de commander cet objet !");
 			return false;
 		end;
 		
@@ -597,17 +597,17 @@ COMMAND:Register();
 				
 				netstream.Start(player, "OrderTime", player.cwNextOrderTime);
 			else
-				Clockwork.player:Notify(player, "You cannot order this item that far away!");
+				Clockwork.player:Notify(player, "Vous ne pouvez pas commander cet article à une telle distance !");
 			end;
 		else
 			local amount = (itemTable.cost * itemTable.batch) - player:GetCash();
-			Clockwork.player:Notify(player, "You need another "..Clockwork.kernel:FormatCash(amount, nil, true).."!");
+			Clockwork.player:Notify(player, "Il vous en faut encore"..Clockwork.kernel:FormatCash(amount, nil, true).."!");
 		end;
 	end;
 COMMAND:Register();]]--
 
 local COMMAND = Clockwork.command:New("GiveCoin");
-COMMAND.tip = "Give coin to a target character.";
+COMMAND.tip = "Donne une pièce à un personnage ciblé.";
 COMMAND.text = "<number Coin>";
 COMMAND.flags = CMD_DEFAULT;
 COMMAND.arguments = 1;
@@ -617,7 +617,7 @@ COMMAND.important = true;
 -- Called when the command has been run.
 function COMMAND:OnRun(player, arguments)
 	if player:GetNetVar("tied") != 0 or player:IsRagdolled() then
-		Schema:EasyText(player, "firebrick", "You cannot do this right now!");
+		Schema:EasyText(player, "firebrick", "Vous ne pouvez pas faire cela maintenant !");
 	
 		return false;
 	end;
@@ -649,35 +649,35 @@ function COMMAND:OnRun(player, arguments)
 						
 						local cashStr = Clockwork.kernel:FormatCash(cash, nil, true);
 						
-						Clockwork.player:Notify(player, "You have given "..cashStr.." to "..targetName..".");
-						Clockwork.player:Notify(target, "You were given "..cashStr.." by "..playerName..".");
+						Clockwork.player:Notify(player, "Vous avez donné"..cashStr.." to "..targetName..".");
+						Clockwork.player:Notify(target, "Vous avez reçu"..cashStr.." by "..playerName..".");
 						
 						for k, v in pairs(ents.FindInSphere(player:GetPos(), Clockwork.config:Get("talk_radius"):Get() * 2)) do
 							if v:IsPlayer() then
-								Clockwork.chatBox:Add(v, player, "me", "hands "..cashStr.." to "..Clockwork.player:FormatRecognisedText(v, "%s", target)..".");
+								Clockwork.chatBox:Add(v, player, "me", "mains"..cashStr.." to "..Clockwork.player:FormatRecognisedText(v, "%s", target)..".");
 							end
 						end
 					else
 						local amount = cash - player:GetCash();
-						Clockwork.player:Notify(player, "You need another "..Clockwork.kernel:FormatCash(amount, nil, true).."!");
+						Clockwork.player:Notify(player, "Il vous en faut encore"..Clockwork.kernel:FormatCash(amount, nil, true).."!");
 					end;
 				else
-					Clockwork.player:Notify(player, "This is not a valid amount!");
+					Clockwork.player:Notify(player, "Ce montant n'est pas valide !");
 				end;
 			else
-				Clockwork.player:Notify(player, "This character is too far away!");
+				Clockwork.player:Notify(player, "Ce personnage est trop éloigné !");
 			end;
 		else
-			Clockwork.player:Notify(player, "You must look at a valid character!");
+			Clockwork.player:Notify(player, "Vous devez regarder un personnage valide !");
 		end;
 	else
-		Clockwork.player:Notify(player, "This is not a valid amount!");
+		Clockwork.player:Notify(player, "Ce montant n'est pas valide !");
 	end
 end;
 COMMAND:Register();
 
 local COMMAND = Clockwork.command:New("DropWeapon");
-	COMMAND.tip = "Drop your weapon at your target position.";
+	COMMAND.tip = "Lâchez votre arme à l'endroit ciblé.";
 	COMMAND.flags = bit.bor(CMD_DEFAULT, CMD_FALLENOVER);
 
 	-- Called when the command has been run.
@@ -690,7 +690,7 @@ local COMMAND = Clockwork.command:New("DropWeapon");
 				local itemTable = item.GetByWeapon(weapon);
 				
 				if (!itemTable) then
-					Clockwork.player:Notify(player, "This is not a valid weapon!");
+					Clockwork.player:Notify(player, "Ceci n'est pas une arme valide !");
 					return;
 				end;
 				
@@ -711,20 +711,20 @@ local COMMAND = Clockwork.command:New("DropWeapon");
 							hook.Run("PlayerDropWeapon", player, itemTable, entity, weapon);
 						end;
 					else
-						Schema:EasyText(player, "peru", "You cannot drop your weapon that far away!");
+						Schema:EasyText(player, "peru", "Vous ne pouvez pas lâcher votre arme aussi loin !");
 					end;
 				end;
 			else
-				Schema:EasyText(player, "peru", "This is not a valid weapon!");
+				Schema:EasyText(player, "peru", "Ceci n'est pas une arme valide !");
 			end;
 		else
-			Schema:EasyText(player, "peru", "You cannot perform this action while in a duel!");
+			Schema:EasyText(player, "peru", "Vous ne pouvez pas effectuer cette action pendant un duel !");
 		end;
 	end;
 COMMAND:Register();
 
 local COMMAND = Clockwork.command:New("DropShield");
-	COMMAND.tip = "Drop your shield at your target position.";
+	COMMAND.tip = "Lâche ton bouclier à ta position cible.";
 	COMMAND.flags = bit.bor(CMD_DEFAULT, CMD_FALLENOVER);
 
 	-- Called when the command has been run.
@@ -748,21 +748,21 @@ local COMMAND = Clockwork.command:New("DropShield");
 								end
 							end;
 						else
-							Schema:EasyText(player, "peru", "You cannot drop your shield that far away!");
+							Schema:EasyText(player, "peru", "Vous ne pouvez pas lâcher votre bouclier aussi loin !");
 						end;
 					end
 				end
 			end;
 			
-			Schema:EasyText(player, "peru", "This is not a valid shield!");
+			Schema:EasyText(player, "peru", "Ceci n'est pas un bouclier valide !");
 		else
-			Schema:EasyText(player, "peru", "You cannot perform this action while in a duel!");
+			Schema:EasyText(player, "peru", "Vous ne pouvez pas effectuer cette action pendant un duel !");
 		end
 	end;
 COMMAND:Register();
 
 local COMMAND = Clockwork.command:New("DropCoin");
-	COMMAND.tip = "Drop coin at your target position.";
+	COMMAND.tip = "Lâchez une pièce à votre position cible.";
 	COMMAND.text = "<number Coin>";
 	COMMAND.flags = CMD_DEFAULT;
 	COMMAND.arguments = 1;
@@ -789,22 +789,22 @@ local COMMAND = Clockwork.command:New("DropCoin");
 						end;
 					else
 						local amount = cash - player:GetCash();
-						Clockwork.player:Notify(player, "You need another "..Clockwork.kernel:FormatCash(amount, nil, true).."!");
+						Clockwork.player:Notify(player, "Il vous en faut encore"..Clockwork.kernel:FormatCash(amount, nil, true).."!");
 					end;
 				else
-					Clockwork.player:Notify(player, "You cannot drop "..string.lower(NAME_CASH).." that far away!");
+					Clockwork.player:Notify(player, "Vous ne pouvez pas lâcher"..string.lower(NAME_CASH).." that far away!");
 				end;
 			else
-				Clockwork.player:Notify(player, "This is not a valid amount!");
+				Clockwork.player:Notify(player, "Ce montant n'est pas valide !");
 			end;
 		else
-			Clockwork.player:Notify(player, "You cannot perform this action while in a duel!");
+			Clockwork.player:Notify(player, "Vous ne pouvez pas effectuer cette action pendant un duel !");
 		end
 	end;
 COMMAND:Register();
 
 local COMMAND = Clockwork.command:New("CharPhysDesc");
-	COMMAND.tip = "Change your character's physical description.";
+	COMMAND.tip = "Modifiez la description physique de votre personnage.";
 	COMMAND.text = "[string Text]";
 	COMMAND.flags = CMD_DEFAULT;
 	COMMAND.arguments = 0;
@@ -819,12 +819,12 @@ local COMMAND = Clockwork.command:New("CharPhysDesc");
 			local text = table.concat(arguments, " ");
 			
 			if (string.len(text) < minimumPhysDesc) then
-				Clockwork.player:Notify(player, "The physical description must be at least "..minimumPhysDesc.." characters long!");
+				Clockwork.player:Notify(player, "La description physique doit comporter au moins"..minimumPhysDesc.." characters long!");
 				return;
 			end;
 
 			if (string.match(text, "%s%s+")) then
-				Clockwork.player:Notify(player, "The description must not have consecutive spaces.");
+				Clockwork.player:Notify(player, "La description ne doit pas contenir d'espaces consécutifs.");
 				return;
 			end;
 			
@@ -839,7 +839,7 @@ local COMMAND = Clockwork.command:New("CharPhysDesc");
 COMMAND:Register();
 
 local COMMAND = Clockwork.command:New("CharGetUp");
-	COMMAND.tip = "Get your character up from the floor.";
+	COMMAND.tip = "Redressez votre personnage du sol.";
 	COMMAND.flags = CMD_DEFAULT;
 
 	-- Called when the command has been run.
@@ -860,7 +860,7 @@ local COMMAND = Clockwork.command:New("CharGetUp");
 COMMAND:Register();
 
 local COMMAND = Clockwork.command:New("CharCancelGetUp");
-	COMMAND.tip = "Stop your character from getting up.";
+	COMMAND.tip = "Empêche ton personnage de se relever.";
 	COMMAND.flags = CMD_DEFAULT;
 
 	-- Called when the command has been run.
@@ -879,7 +879,7 @@ local COMMAND = Clockwork.command:New("CharCancelGetUp");
 COMMAND:Register();
 
 local COMMAND = Clockwork.command:New("CharFallOver");
-	COMMAND.tip = "Make your character fall to the floor.";
+	COMMAND.tip = "Faites tomber votre personnage au sol.";
 	--COMMAND.text = "[number Seconds]";
 	COMMAND.flags = CMD_DEFAULT;
 	--COMMAND.optionalArguments = 1;
@@ -894,14 +894,14 @@ local COMMAND = Clockwork.command:New("CharFallOver");
 			player.cwNextFallTime = curTime + 1;
 
 			if player:IsFrozen() then
-				Clockwork.player:Notify(player, "You cannot do this action right now!");
+				Clockwork.player:Notify(player, "Vous ne pouvez pas effectuer cette action pour le moment !");
 
 				return false;
 			end
 			
 			if (!player:IsRagdolled() and !player:InVehicle() and !Clockwork.player:IsNoClipping(player) and hook.Run("PlayerCanFallover", player) ~= false) then
 				if player:GetVelocity():Length() > 350 then
-					Clockwork.player:Notify(player, "You are moving too fast to fall over!");
+					Clockwork.player:Notify(player, "Vous vous déplacez trop vite pour tomber !");
 					
 					return false;
 				end
@@ -918,7 +918,7 @@ local COMMAND = Clockwork.command:New("CharFallOver");
 				
 				Clockwork.player:SetRagdollState(player, RAGDOLL_FALLENOVER);
 			else
-				Clockwork.player:Notify(player, "You cannot do this action at the moment!");
+				Clockwork.player:Notify(player, "Vous ne pouvez pas effectuer cette action pour le moment !");
 			end;
 		end;
 	end;

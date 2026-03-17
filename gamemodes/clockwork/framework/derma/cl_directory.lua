@@ -1,4 +1,4 @@
---[[
+﻿--[[
 	Begotten III: Jesus Wept
 	By: DETrooper, cash wednesday, gabs, alyousha35
 
@@ -101,7 +101,7 @@ function PANEL:Init()
 	
 	local manifestoTitle = vgui.Create("DLabel", logoHolder);
 	
-	manifestoTitle:SetText("Manifesto");
+	manifestoTitle:SetText("Manifeste");
 	manifestoTitle:SetFont("manifestoLogoFont");
 	manifestoTitle:SetTextColor(Color(190, 57, 64));
 	manifestoTitle:SizeToContents();

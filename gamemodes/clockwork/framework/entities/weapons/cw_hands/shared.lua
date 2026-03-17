@@ -1,4 +1,4 @@
---[[
+﻿--[[
 	Begotten III: Jesus Wept
 	By: DETrooper, cash wednesday, gabs, alyousha35
 
@@ -29,7 +29,9 @@ end
 
 if (CLIENT) then
 	SWEP.PrintName			= "Hands"
-	SWEP.Instructions		= "Primary Fire: Hit.\nSecondary Fire: Knock on a door.\nR: Drop an item."
+	SWEP.Instructions		= "Tir principal : Frapper.  
+Tir secondaire : Frapper à une porte.  
+R : Lâcher un objet."
 	SWEP.Purpose			= "Harming characters and knocking on doors."
 	SWEP.Author 			= "Cloud Sixteen"
 	SWEP.Contact			= "Cloudsixteen.com"

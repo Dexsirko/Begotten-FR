@@ -1,10 +1,10 @@
---[[
+﻿--[[
 	BEGOTTEN III: Developed by DETrooper, cash wednesday, gabs & alyousha35
 --]]
 
 -- Called when the command has been run.
 local COMMAND = Clockwork.command:New("AdvertAdd")
-COMMAND.tip = "Add a dynamic advert."
+COMMAND.tip = "Ajouter une annonce dynamique."
 COMMAND.text = "<string URL> <number Width> < number Height> [number Scale]"
 COMMAND.flags = CMD_DEFAULT
 COMMAND.access = "a"

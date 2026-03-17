@@ -1,4 +1,4 @@
---[[
+﻿--[[
 	Begotten III: Jesus Wept
 	By: DETrooper, cash wednesday, gabs, alyousha35
 
@@ -213,16 +213,16 @@ function GM:DirectoryOpenPage(panel, ...)
 			local adminCommandLabel;
 			local commandLabel = vgui.Create("DLabel", panel);
 			
-			importantCommandLabel:SetText("Important Commands");
+			importantCommandLabel:SetText("Commandes importantes");
 			importantCommandLabel:SetFont("manifestoContentHeader");
 
 			if Clockwork.Client:IsAdmin() then
 				adminCommandLabel = vgui.Create("DLabel", panel);
-				adminCommandLabel:SetText("Admin Commands");
+				adminCommandLabel:SetText("Commandes Administrateur");
 				adminCommandLabel:SetFont("manifestoContentHeader");
 			end
 			
-			commandLabel:SetText("Other Commands");
+			commandLabel:SetText("Autres Commandes");
 			commandLabel:SetFont("manifestoContentHeader");
 			
 			panelList:AddItem(importantCommandLabel);
@@ -1613,7 +1613,7 @@ function Clockwork.kernel:SetupDermaToolTip(parent)
 			if (IsValid(self.closebutton)) then
 				local x, y = self.closebutton:GetPos();
 				local smallLabel = vgui.Create("DLabel", self)
-				smallLabel:SetText("[Opened]")
+				smallLabel:SetText("[Ouvert]")
 				smallLabel:SetFont("Default");
 				smallLabel:SetTextColor(Color(220, 220, 220));
 				smallLabel:SetPos(x - (GetFontWidth("Default", "[Opened]") + 4), (GetFontHeight("Default", "[Opened]") / 2));

@@ -1,4 +1,4 @@
-
+﻿
 --
 -- The delay before a tooltip appears
 --
@@ -139,7 +139,7 @@ end
 function PANEL:GenerateExample( ClassName, PropertySheet, Width, Height )
 
 	local ctrl = vgui.Create( "DButton" )
-	ctrl:SetText( "Hover me" )
+	ctrl:SetText( "Survolez-moi" )
 	ctrl:SetWide( 200 )
 	ctrl:SetTooltip( "This is a tooltip" )
 

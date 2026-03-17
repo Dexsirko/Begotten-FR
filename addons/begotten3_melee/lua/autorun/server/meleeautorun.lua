@@ -1,4 +1,4 @@
-function Parry(parrier, dmginfo)
+﻿function Parry(parrier, dmginfo)
 	if (parrier:IsPlayer() and parrier:Alive() and !parrier:IsRagdolled() and parrier:GetNetVar("Parry", false) and parrier ~= dmginfo:GetAttacker()) then
 		local wep = parrier:GetActiveWeapon()
 
@@ -126,7 +126,7 @@ function Parry(parrier, dmginfo)
 								end
 								
 								if wep:GetClass() == "begotten_fists" then
-									Clockwork.chatBox:AddInTargetRadius(parrier, "me", "parries "..parryTarget:Name().." with their bare hands!", parrier:GetPos(), Clockwork.config:Get("talk_radius"):Get() * 2);
+									Clockwork.chatBox:AddInTargetRadius(parrier, "me", "Parades"..parryTarget:Name().." with their bare hands!", parrier:GetPos(), Clockwork.config:Get("talk_radius"):Get() * 2);
 								end
 							end
 							
@@ -1041,7 +1041,7 @@ local function Guarding(ent, dmginfo)
 												ent:SetWeaponRaised(false);
 											end
 											
-											Clockwork.chatBox:AddInTargetRadius(ent, "me", "'s "..itemTable.name..dropMessages[math.random(1, #dropMessages)], ent:GetPos(), Clockwork.config:Get("talk_radius"):Get() * 2);
+											Clockwork.chatBox:AddInTargetRadius(ent, "me", "s"..itemTable.name..dropMessages[math.random(1, #dropMessages)], ent:GetPos(), Clockwork.config:Get("talk_radius"):Get() * 2);
 										else
 											itemTable:TakeCondition(10);
 										
@@ -1049,7 +1049,7 @@ local function Guarding(ent, dmginfo)
 											local itemEnt = Clockwork.entity:CreateItem(ent, itemTable, dropPos);
 											
 											if (IsValid(itemEnt)) then
-												Clockwork.chatBox:AddInTargetRadius(ent, "me", "'s "..itemTable.name..dropMessages[math.random(1, #dropMessages)], ent:GetPos(), Clockwork.config:Get("talk_radius"):Get() * 2);
+												Clockwork.chatBox:AddInTargetRadius(ent, "me", "s"..itemTable.name..dropMessages[math.random(1, #dropMessages)], ent:GetPos(), Clockwork.config:Get("talk_radius"):Get() * 2);
 												ent:TakeItem(itemTable)
 												--ent:SelectWeapon("begotten_fists")
 												ent:StripWeapon(wep:GetClass())

@@ -1,4 +1,4 @@
---[[
+﻿--[[
 	Begotten III: Jesus Wept
 	By: DETrooper, cash wednesday, gabs, alyousha35
 
@@ -17,7 +17,8 @@ if (CLIENT) then
 	SWEP.PrintName = "Keys"
 end
 
-SWEP.Instructions 			= "Primary Fire: Lock.\nSecondary Fire: Unlock."
+SWEP.Instructions 			= "Tir principal : Verrouiller.
+Tir secondaire : Déverrouiller."
 SWEP.Purpose 				= "Locking and unlocking entities that you have access to."
 SWEP.Contact 				= "Cloudsixteen.com"
 SWEP.Author					= "Cloudsixteen"

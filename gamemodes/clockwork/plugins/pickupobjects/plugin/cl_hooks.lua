@@ -1,4 +1,4 @@
---[[
+﻿--[[
 	Begotten III: Jesus Wept
 --]]
 
@@ -38,7 +38,7 @@ timer.Simple(1, function()
 	local SWEP = weapons.GetStored("cw_hands");
 
 	if (SWEP) then
-		SWEP.Instructions = "Reload: Drop\n"..SWEP.Instructions;
+		SWEP.Instructions = "Rechargement : Lâcher"..SWEP.Instructions;
 		
 		SWEP.Instructions = Clockwork.kernel:Replace(SWEP.Instructions, "Knock.", "Knock/Pickup.");
 		SWEP.Instructions = Clockwork.kernel:Replace(SWEP.Instructions, "Punch.", "Punch/Throw.");

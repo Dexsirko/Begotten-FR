@@ -1,9 +1,9 @@
---[[
+﻿--[[
 	BEGOTTEN III: Developed by DETrooper, cash wednesday, gabs & alyousha35
 --]]
 
 local COMMAND = Clockwork.command:New("DoorSetChild")
-COMMAND.tip = "Add a child to the active parent door."
+COMMAND.tip = "Ajouter un enfant à la porte parent active."
 COMMAND.flags = CMD_DEFAULT
 COMMAND.access = "a"
 

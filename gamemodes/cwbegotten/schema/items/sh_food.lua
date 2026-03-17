@@ -1,4 +1,4 @@
-local ITEM = Clockwork.item:New();
+﻿local ITEM = Clockwork.item:New();
 	ITEM.name = "Can of Beans";
 	ITEM.cost = 8;
 	ITEM.model = "models/props_junk/garbage_metalcan001a.mdl";
@@ -6,7 +6,7 @@ local ITEM = Clockwork.item:New();
 	ITEM.useText = "Open & Eat";
 	ITEM.category = "Food";
 	ITEM.useSound = "npc/barnacle/barnacle_crunch2.wav";
-	ITEM.description = "An old can of beans, it seems to still be sealed although its freshness remains questionable.";
+	ITEM.description = "Une vieille boîte de haricots, elle semble toujours scellée bien que sa fraîcheur reste douteuse.";
 	ITEM.iconoverride = "materials/begotten/ui/itemicons/can.png"
 	ITEM.stackable = true;
 	ITEM.infectchance = 10; -- Chance to give you a disease.
@@ -26,14 +26,14 @@ local ITEM = Clockwork.item:New();
 		local freezing = self:GetData("freezing");
 		
 		if freezing and freezing > 25 then
-			Schema:EasyText(player, "lightslateblue", "This food is frozen solid and needs to be thawed before it can be consumed!");
+			Schema:EasyText(player, "lightslateblue", "Cette nourriture est complètement gelée et doit être décongelée avant d'être consommée !");
 		
 			return false;
 		end
 		
 		--player:GiveItem(Clockwork.item:CreateInstance("empty_can"));
 		
-		Schema:EasyText(player, "olivedrab", "Although long expired and slightly frothy, the beans are still perfectly palatable.");
+		Schema:EasyText(player, "olivedrab", "Bien que périmées depuis longtemps et légèrement écumeuses, ces fèves restent parfaitement comestibles.");
 
 		player:HandleXP(cwBeliefs.xpValues["food"]);
 	end;
@@ -50,7 +50,7 @@ local ITEM = Clockwork.item:New();
 	ITEM.useText = "Drink Slop";
 	ITEM.category = "Food";
 	ITEM.useSound = "npc/barnacle/barnacle_crunch2.wav";
-	ITEM.description = "A punctured tin can with what used to be beans inside. Now a soupy mix of maggots, mold and disease. Hey, at least it's something to fill your belly.";
+	ITEM.description = "Une boîte de conserve percée contenant ce qui fut autrefois des haricots. Maintenant, c'est un mélange boueux d'asticots, de moisissure et de maladies. Hé, au moins c'est quelque chose pour remplir ton estomac.";
 	ITEM.iconoverride = "materials/begotten/ui/itemicons/can_punctured.png"
 	ITEM.stackable = true;
 	ITEM.infectchance = 50; -- Chance to give you a disease.
@@ -70,13 +70,13 @@ local ITEM = Clockwork.item:New();
 		local freezing = self:GetData("freezing");
 		
 		if freezing and freezing > 25 then
-			Schema:EasyText(player, "lightslateblue", "This food is frozen solid and needs to be thawed before it can be consumed!");
+			Schema:EasyText(player, "lightslateblue", "Cette nourriture est complètement gelée et doit être décongelée avant d'être consommée !");
 		
 			return false;
 		end
 		
 		if !player:HasBelief("savage_animal") then
-			Schema:EasyText(player, "olive", "You feel fucking disgusted that you just ate something so foul. As a result you begin feel emotionally and mentally unstable.");
+			Schema:EasyText(player, "olive", "Tu te sens dégoûté à l'idée d'avoir mangé quelque chose d'aussi infect. En conséquence, tu commences à te sentir émotionnellement et mentalement instable.");
 			player:HandleSanity(-25);
 		end
 		
@@ -95,7 +95,7 @@ local ITEM = Clockwork.item:New();
 	ITEM.useText = "Eat";
 	ITEM.category = "Food";
 	ITEM.useSound = "npc/barnacle/barnacle_crunch2.wav";
-	ITEM.description = "A small loaf of bread, interlaced with mold and dirt.";
+	ITEM.description = "Un petit pain de pain, entrelacé de moisissure et de terre.";
 	ITEM.iconoverride = "materials/begotten/ui/itemicons/bread.png"
 	ITEM.stackable = true;
 	ITEM.infectchance = 15;
@@ -115,13 +115,13 @@ local ITEM = Clockwork.item:New();
 		local freezing = self:GetData("freezing");
 		
 		if freezing and freezing > 25 then
-			Schema:EasyText(player, "lightslateblue", "This food is frozen solid and needs to be thawed before it can be consumed!");
+			Schema:EasyText(player, "lightslateblue", "Cette nourriture est complètement gelée et doit être décongelée avant d'être consommée !");
 		
 			return false;
 		end
 	
 		if !player:HasBelief("savage_animal") then
-			Schema:EasyText(player, "olive", "The bread is mushy and moldy but it's far better than some of the other food found in the wasteland.");
+			Schema:EasyText(player, "olive", "Le pain est pâteux et moisi, mais il reste bien meilleur que la plupart des autres nourritures trouvées dans le désert.");
 			player:HandleSanity(-5);
 		end
 		
@@ -140,7 +140,7 @@ local ITEM = Clockwork.item:New();
 	ITEM.useText = "Open & Eat";
 	ITEM.category = "Food";
 	ITEM.useSound = "npc/barnacle/barnacle_crunch2.wav";
-	ITEM.description = "A dented tin can that supposedly contains beans and sausage, yet it is still sealed, a miracle!";
+	ITEM.description = "Une boîte de conserve cabossée censée contenir des haricots et de la saucisse, mais elle est toujours scellée, un miracle !";
 	ITEM.iconoverride = "materials/begotten/ui/itemicons/canned_meal.png"
 	ITEM.stackable = true;
 	ITEM.cauldronQuality = 1;
@@ -159,7 +159,7 @@ local ITEM = Clockwork.item:New();
 		local freezing = self:GetData("freezing");
 		
 		if freezing and freezing > 25 then
-			Schema:EasyText(player, "lightslateblue", "This food is frozen solid and needs to be thawed before it can be consumed!");
+			Schema:EasyText(player, "lightslateblue", "Cette nourriture est complètement gelée et doit être décongelée avant d'être consommée !");
 		
 			return false;
 		end
@@ -181,7 +181,7 @@ local ITEM = Clockwork.item:New();
 	ITEM.useText = "Force Down Your Throat";
 	ITEM.useSound = "npc/barnacle/barnacle_crunch3.wav";
 	ITEM.category = "Food";
-	ITEM.description = "Raw meat harvested from a bear.";
+	ITEM.description = "Viande crue prélevée sur un ours.";
 	ITEM.iconoverride = "materials/begotten/ui/itemicons/human_meat.png"
 	ITEM.stackable = true;
 	ITEM.uniqueID = "bear_meat"
@@ -200,13 +200,13 @@ local ITEM = Clockwork.item:New();
 		local freezing = self:GetData("freezing");
 		
 		if freezing and freezing > 25 then
-			Schema:EasyText(player, "lightslateblue", "This food is frozen solid and needs to be thawed before it can be consumed!");
+			Schema:EasyText(player, "lightslateblue", "Cette nourriture est complètement gelée et doit être décongelée avant d'être consommée !");
 		
 			return false;
 		end
 		
 		if !player:HasBelief("savage_animal") then
-			Schema:EasyText(player, "olive", "You begrudgingly consume raw meat.");
+			Schema:EasyText(player, "olive", "Tu manges de la viande crue à contrecœur.");
 			player:HandleSanity(-5);
 		end
 			
@@ -230,7 +230,7 @@ local ITEM = Clockwork.item:New();
 	ITEM.useText = "Eat";
 	ITEM.useSound = "npc/barnacle/barnacle_crunch3.wav";
 	ITEM.category = "Food";
-	ITEM.description = "Cooked bear meat, very nutritious.";
+	ITEM.description = "Viande d'ours cuite, très nutritive.";
 	ITEM.iconoverride = "materials/begotten/ui/itemicons/cooked_meat.png"
 	ITEM.stackable = true;
 	ITEM.uniqueID = "cooked_bear_meat"
@@ -249,7 +249,7 @@ local ITEM = Clockwork.item:New();
 		local freezing = self:GetData("freezing");
 		
 		if freezing and freezing > 25 then
-			Schema:EasyText(player, "lightslateblue", "This food is frozen solid and needs to be thawed before it can be consumed!");
+			Schema:EasyText(player, "lightslateblue", "Cette nourriture est complètement gelée et doit être décongelée avant d'être consommée !");
 		
 			return false;
 		end
@@ -271,7 +271,7 @@ local ITEM = Clockwork.item:New();
 	ITEM.useText = "Force Down Your Throat";
 	ITEM.useSound = "npc/barnacle/barnacle_crunch3.wav";
 	ITEM.category = "Food";
-	ITEM.description = "Raw meat harvested from a wolf. It is not very nutritious.";
+	ITEM.description = "Viande crue récoltée sur un loup. Elle n'est pas très nutritive.";
 	ITEM.iconoverride = "materials/begotten/ui/itemicons/human_meat.png"
 	ITEM.stackable = true;
 	ITEM.uniqueID = "wolf_meat"
@@ -291,13 +291,13 @@ local ITEM = Clockwork.item:New();
 		local freezing = self:GetData("freezing");
 		
 		if freezing and freezing > 25 then
-			Schema:EasyText(player, "lightslateblue", "This food is frozen solid and needs to be thawed before it can be consumed!");
+			Schema:EasyText(player, "lightslateblue", "Cette nourriture est complètement gelée et doit être décongelée avant d'être consommée !");
 		
 			return false;
 		end
 		
 		if !player:HasBelief("savage_animal") then
-			Schema:EasyText(player, "olive", "You begrudgingly consume raw meat.");
+			Schema:EasyText(player, "olive", "Tu manges de la viande crue à contrecœur.");
 			player:HandleSanity(-5);
 		end
 			
@@ -321,7 +321,7 @@ local ITEM = Clockwork.item:New();
 	ITEM.useText = "Eat";
 	ITEM.useSound = "npc/barnacle/barnacle_crunch3.wav";
 	ITEM.category = "Food";
-	ITEM.description = "Cooked wolf meat. It is not very nutritious.";
+	ITEM.description = "Viande de loup cuite. Elle n'est pas très nutritive.";
 	ITEM.iconoverride = "materials/begotten/ui/itemicons/cooked_meat.png"
 	ITEM.stackable = true;
 	ITEM.uniqueID = "cooked_wolf_meat"
@@ -340,7 +340,7 @@ local ITEM = Clockwork.item:New();
 		local freezing = self:GetData("freezing");
 		
 		if freezing and freezing > 25 then
-			Schema:EasyText(player, "lightslateblue", "This food is frozen solid and needs to be thawed before it can be consumed!");
+			Schema:EasyText(player, "lightslateblue", "Cette nourriture est complètement gelée et doit être décongelée avant d'être consommée !");
 		
 			return false;
 		end
@@ -362,7 +362,7 @@ local ITEM = Clockwork.item:New();
 	ITEM.useText = "Force Down Your Throat";
 	ITEM.useSound = "npc/barnacle/barnacle_crunch3.wav";
 	ITEM.category = "Food";
-	ITEM.description = "Raw meat harvested from a leopard.";
+	ITEM.description = "Viande crue prélevée sur un léopard.";
 	ITEM.iconoverride = "materials/begotten/ui/itemicons/human_meat.png"
 	ITEM.stackable = true;
 	ITEM.uniqueID = "leopard_meat"
@@ -382,13 +382,13 @@ local ITEM = Clockwork.item:New();
 		local freezing = self:GetData("freezing");
 		
 		if freezing and freezing > 25 then
-			Schema:EasyText(player, "lightslateblue", "This food is frozen solid and needs to be thawed before it can be consumed!");
+			Schema:EasyText(player, "lightslateblue", "Cette nourriture est complètement gelée et doit être décongelée avant d'être consommée !");
 		
 			return false;
 		end
 		
 		if !player:HasBelief("savage_animal") then
-			Schema:EasyText(player, "olive", "You begrudgingly consume raw meat.");
+			Schema:EasyText(player, "olive", "Tu manges de la viande crue à contrecœur.");
 			player:HandleSanity(-5);
 		end
 			
@@ -412,7 +412,7 @@ local ITEM = Clockwork.item:New();
 	ITEM.useText = "Eat";
 	ITEM.useSound = "npc/barnacle/barnacle_crunch3.wav";
 	ITEM.category = "Food";
-	ITEM.description = "Cooked leopard meat, very nutritious.";
+	ITEM.description = "Viande de léopard cuite, très nutritive.";
 	ITEM.iconoverride = "materials/begotten/ui/itemicons/cooked_meat.png"
 	ITEM.stackable = true;
 	ITEM.uniqueID = "cooked_leopard_meat"
@@ -430,7 +430,7 @@ local ITEM = Clockwork.item:New();
 		local freezing = self:GetData("freezing");
 		
 		if freezing and freezing > 25 then
-			Schema:EasyText(player, "lightslateblue", "This food is frozen solid and needs to be thawed before it can be consumed!");
+			Schema:EasyText(player, "lightslateblue", "Cette nourriture est complètement gelée et doit être décongelée avant d'être consommée !");
 		
 			return false;
 		end
@@ -452,7 +452,7 @@ local ITEM = Clockwork.item:New();
 	ITEM.useText = "Force Down Your Throat";
 	ITEM.useSound = "npc/barnacle/barnacle_crunch3.wav";
 	ITEM.category = "Food";
-	ITEM.description = "Raw meat harvested from a deer.";
+	ITEM.description = "Viande crue prélevée sur un cerf.";
 	ITEM.iconoverride = "materials/begotten/ui/itemicons/human_meat.png"
 	ITEM.stackable = true;
 	ITEM.uniqueID = "deer_meat"
@@ -472,13 +472,13 @@ local ITEM = Clockwork.item:New();
 		local freezing = self:GetData("freezing");
 		
 		if freezing and freezing > 25 then
-			Schema:EasyText(player, "lightslateblue", "This food is frozen solid and needs to be thawed before it can be consumed!");
+			Schema:EasyText(player, "lightslateblue", "Cette nourriture est complètement gelée et doit être décongelée avant d'être consommée !");
 		
 			return false;
 		end
 		
 		if !player:HasBelief("savage_animal") then
-			Schema:EasyText(player, "olive", "You begrudgingly consume raw meat.");
+			Schema:EasyText(player, "olive", "Tu manges de la viande crue à contrecœur.");
 			player:HandleSanity(-5);
 		end
 		
@@ -502,7 +502,7 @@ local ITEM = Clockwork.item:New();
 	ITEM.useText = "Eat";
 	ITEM.useSound = "npc/barnacle/barnacle_crunch3.wav";
 	ITEM.category = "Food";
-	ITEM.description = "Cooked deer meat, very nutritious.";
+	ITEM.description = "Viande de cerf cuite, très nutritive.";
 	ITEM.iconoverride = "materials/begotten/ui/itemicons/cooked_meat.png"
 	ITEM.stackable = true;
 	ITEM.uniqueID = "cooked_deer_meat"
@@ -521,7 +521,7 @@ local ITEM = Clockwork.item:New();
 		local freezing = self:GetData("freezing");
 		
 		if freezing and freezing > 25 then
-			Schema:EasyText(player, "lightslateblue", "This food is frozen solid and needs to be thawed before it can be consumed!");
+			Schema:EasyText(player, "lightslateblue", "Cette nourriture est complètement gelée et doit être décongelée avant d'être consommée !");
 		
 			return false;
 		end
@@ -543,7 +543,7 @@ local ITEM = Clockwork.item:New();
 	ITEM.useText = "Eat";
 	ITEM.useSound = "npc/barnacle/barnacle_crunch3.wav";
 	ITEM.category = "Food";
-	ITEM.description = "Cooked goat meat, very nutritious.";
+	ITEM.description = "Viande de chèvre cuite, très nutritive.";
 	ITEM.iconoverride = "materials/begotten/ui/itemicons/cooked_meat.png"
 	ITEM.stackable = true;
 	ITEM.uniqueID = "cooked_goat_meat"
@@ -562,7 +562,7 @@ local ITEM = Clockwork.item:New();
 		local freezing = self:GetData("freezing");
 		
 		if freezing and freezing > 25 then
-			Schema:EasyText(player, "lightslateblue", "This food is frozen solid and needs to be thawed before it can be consumed!");
+			Schema:EasyText(player, "lightslateblue", "Cette nourriture est complètement gelée et doit être décongelée avant d'être consommée !");
 		
 			return false;
 		end
@@ -584,7 +584,7 @@ local ITEM = Clockwork.item:New();
 	ITEM.useText = "Force Down Your Throat";
 	ITEM.useSound = "npc/barnacle/barnacle_crunch3.wav";
 	ITEM.category = "Food";
-	ITEM.description = "Raw meat harvested from a goat.";
+	ITEM.description = "Viande crue prélevée sur une chèvre.";
 	ITEM.iconoverride = "materials/begotten/ui/itemicons/human_meat.png"
 	ITEM.stackable = true;
 	ITEM.uniqueID = "goat_meat"
@@ -604,13 +604,13 @@ local ITEM = Clockwork.item:New();
 		local freezing = self:GetData("freezing");
 		
 		if freezing and freezing > 25 then
-			Schema:EasyText(player, "lightslateblue", "This food is frozen solid and needs to be thawed before it can be consumed!");
+			Schema:EasyText(player, "lightslateblue", "Cette nourriture est complètement gelée et doit être décongelée avant d'être consommée !");
 		
 			return false;
 		end
 		
 		if !player:HasBelief("savage_animal") then
-			Schema:EasyText(player, "olive", "You begrudgingly consume raw meat.");
+			Schema:EasyText(player, "olive", "Tu manges de la viande crue à contrecœur.");
 			player:HandleSanity(-5);
 		end
 	
@@ -634,7 +634,7 @@ local ITEM = Clockwork.item:New();
 	ITEM.useText = "Unwrap & Eat";
 	ITEM.category = "Food";
 	ITEM.useSound = "npc/barnacle/barnacle_crunch2.wav";
-	ITEM.description = "A large chunk of pinkish meat, though well prepared and wrapped for portability. You feel comfortably ignorant of whatever it was previously part of.";
+	ITEM.description = "Un gros morceau de viande rosâtre, bien préparé et emballé pour être transportable. Vous préférez rester dans l'ignorance quant à sa provenance précédente.";
 	ITEM.iconoverride = "materials/begotten/ui/itemicons/gatekeeper_ration.png"
 	ITEM.stackable = true;
 
@@ -651,7 +651,7 @@ local ITEM = Clockwork.item:New();
 		local freezing = self:GetData("freezing");
 		
 		if freezing and freezing > 25 then
-			Schema:EasyText(player, "lightslateblue", "This food is frozen solid and needs to be thawed before it can be consumed!");
+			Schema:EasyText(player, "lightslateblue", "Cette nourriture est complètement gelée et doit être décongelée avant d'être consommée !");
 		
 			return false;
 		end
@@ -672,7 +672,7 @@ local ITEM = Clockwork.item:New();
 	ITEM.useText = "Force Down Your Throat";
 	ITEM.useSound = "npc/barnacle/barnacle_crunch3.wav";
 	ITEM.category = "Food";
-	ITEM.description = "Mutilated bits and pieces from a slaughtered human.";
+	ITEM.description = "Morceaux mutilés provenant d'un humain abattu.";
 	ITEM.iconoverride = "materials/begotten/ui/itemicons/human_meat.png"
 	ITEM.stackable = true;
 	ITEM.uniqueID = "humanmeat"
@@ -692,13 +692,13 @@ local ITEM = Clockwork.item:New();
 		local freezing = self:GetData("freezing");
 		
 		if freezing and freezing > 25 then
-			Schema:EasyText(player, "lightslateblue", "This food is frozen solid and needs to be thawed before it can be consumed!");
+			Schema:EasyText(player, "lightslateblue", "Cette nourriture est complètement gelée et doit être décongelée avant d'être consommée !");
 		
 			return false;
 		end
 	
 		if !player:HasBelief("savage_animal") then
-			Schema:EasyText(player, "olive", "You engorge yourself on the fresh meat of another. You question your sanity.");
+			Schema:EasyText(player, "olive", "Tu te repais de la chair fraîche d'un autre. Tu remets en question ta santé mentale.");
 			player:HandleSanity(-20);
 		end
 		
@@ -722,7 +722,7 @@ local ITEM = Clockwork.item:New();
 	ITEM.useText = "Force Down Your Throat";
 	ITEM.useSound = "npc/barnacle/barnacle_crunch3.wav";
 	ITEM.category = "Food";
-	ITEM.description = "This meat is fucked! Or maybe it's not. Could you risk a bite?";
+	ITEM.description = "Cette viande est foutue ! Ou peut-être pas. Oserais-tu y goûter ?";
 	ITEM.iconoverride = "materials/begotten/ui/itemicons/human_meat.png"
 	ITEM.stackable = true;
 	ITEM.uniqueID = "fuckedmeat"
@@ -743,13 +743,13 @@ local ITEM = Clockwork.item:New();
 		local freezing = self:GetData("freezing");
 		
 		if freezing and freezing > 25 then
-			Schema:EasyText(player, "lightslateblue", "This food is frozen solid and needs to be thawed before it can be consumed!");
+			Schema:EasyText(player, "lightslateblue", "Cette nourriture est complètement gelée et doit être décongelée avant d'être consommée !");
 		
 			return false;
 		end
 	
 		if !player:HasBelief("savage_animal") then
-			Schema:EasyText(player, "olive", "You eat the fucked meat and to your suprise, the meat is fucked! You spit out the worms and rot and are left with a sinking feeling of regret.");
+			Schema:EasyText(player, "olive", "Tu manges la viande avariée et à ta grande surprise, la viande est pourrie ! Tu recraches les vers et la pourriture, laissant place à un profond sentiment de regret.");
 			player:HandleSanity(-25);
 		end
 		
@@ -773,7 +773,7 @@ local ITEM = Clockwork.item:New();
 	ITEM.useText = "Devour";
 	ITEM.useSound = "npc/barnacle/barnacle_crunch3.wav";
 	ITEM.category = "Food";
-	ITEM.description = "Ambiguous meat, possibly some dead animal or worse. It has since been grilled and is somewhat safe to eat.";
+	ITEM.description = "Viande douteuse, probablement un animal mort ou pire. Elle a été grillée depuis et est relativement sûre à consommer.";
 	ITEM.iconoverride = "materials/begotten/ui/itemicons/cooked_meat.png"
 	ITEM.stackable = true;
 	ITEM.uniqueID = "unfuckedmeat"
@@ -792,12 +792,12 @@ local ITEM = Clockwork.item:New();
 		local freezing = self:GetData("freezing");
 		
 		if freezing and freezing > 25 then
-			Schema:EasyText(player, "lightslateblue", "This food is frozen solid and needs to be thawed before it can be consumed!");
+			Schema:EasyText(player, "lightslateblue", "Cette nourriture est complètement gelée et doit être décongelée avant d'être consommée !");
 		
 			return false;
 		end
 	
-		Schema:EasyText(player, "olivedrab", "The meat is flavorful. You feel proud of such an honest meal.");
+		Schema:EasyText(player, "olivedrab", "La viande est savoureuse. Tu es fier d'un repas aussi honnête.");
 		player:HandleSanity(10);
 		player:SetHealth(math.Clamp(player:Health() + self.needs.health, 0, player:GetMaxHealth()));
 		player:HandleXP(cwBeliefs.xpValues["food"]);
@@ -819,7 +819,7 @@ local ITEM = Clockwork.item:New();
 	ITEM.useText = "Devour";
 	ITEM.useSound = "npc/barnacle/barnacle_crunch3.wav";
 	ITEM.category = "Food";
-	ITEM.description = "A meal of boiled meat. It will have to do.";
+	ITEM.description = "Un repas de viande bouillie. Ce sera suffisant.";
 	ITEM.iconoverride = "materials/begotten/ui/itemicons/cooked_meat.png"
 	ITEM.stackable = true;
 	ITEM.uniqueID = "meatmeal"
@@ -837,12 +837,12 @@ local ITEM = Clockwork.item:New();
 		local freezing = self:GetData("freezing");
 		
 		if freezing and freezing > 25 then
-			Schema:EasyText(player, "lightslateblue", "This food is frozen solid and needs to be thawed before it can be consumed!");
+			Schema:EasyText(player, "lightslateblue", "Cette nourriture est complètement gelée et doit être décongelée avant d'être consommée !");
 		
 			return false;
 		end
 	
-		Schema:EasyText(player, "olivedrab", "An honest meal!");
+		Schema:EasyText(player, "olivedrab", "Un repas honnête !");
 		player:HandleSanity(30);
 		player:SetHealth(math.Clamp(player:Health() + self.needs.health, 0, player:GetMaxHealth()));
 			
@@ -866,7 +866,7 @@ local ITEM = Clockwork.item:New();
 	ITEM.useText = "Devour";
 	ITEM.useSound = "npc/barnacle/barnacle_crunch3.wav";
 	ITEM.category = "Food";
-	ITEM.description = "Cooked meat from a slaughtered human.";
+	ITEM.description = "Viande cuite provenant d'un humain abattu.";
 	ITEM.iconoverride = "materials/begotten/ui/itemicons/cooked_meat.png"
 	ITEM.stackable = true;
 	ITEM.uniqueID = "cooked_human_meat"
@@ -886,17 +886,17 @@ local ITEM = Clockwork.item:New();
 		local freezing = self:GetData("freezing");
 		
 		if freezing and freezing > 25 then
-			Schema:EasyText(player, "lightslateblue", "This food is frozen solid and needs to be thawed before it can be consumed!");
+			Schema:EasyText(player, "lightslateblue", "Cette nourriture est complètement gelée et doit être décongelée avant d'être consommée !");
 		
 			return false;
 		end
 	
 		if player:HasBelief("savage") then
-			Schema:EasyText(player, "olivedrab", "You enjoy the savory taste of your fellow man.");
+			Schema:EasyText(player, "olivedrab", "Tu apprécies le goût savoureux de tes semblables.");
 			player:HandleSanity(2);
 			player:SetHealth(math.Clamp(player:Health() + self.needs.health, 0, player:GetMaxHealth()));
 		else
-			Schema:EasyText(player, "olivedrab", "This meat is prepared almost well enough to forget where it came from.");
+			Schema:EasyText(player, "olivedrab", "Cette viande est préparée presque assez bien pour oublier d'où elle vient.");
 			player:HandleSanity(-2);
 		end
 		
@@ -915,7 +915,7 @@ local ITEM = Clockwork.item:New();
 	ITEM.useText = "Drink Slop";
 	ITEM.category = "Food";
 	ITEM.useSound = "npc/barnacle/barnacle_crunch2.wav";
-	ITEM.description = "A punctured tin can with what used to be mushroom soup inside. Now a soupy mix of maggots, mold and disease. Hey, at least it's something to fill your belly.";
+	ITEM.description = "Une boîte de conserve percée qui contenait autrefois de la soupe aux champignons. Maintenant un mélange boueux d'asticots, de moisissure et de maladies. Hé, au moins c'est quelque chose pour remplir ton estomac.";
 	ITEM.iconoverride = "materials/begotten/ui/itemicons/can_punctured.png"
 	ITEM.stackable = true;
 	ITEM.infectchance = 50;
@@ -935,13 +935,13 @@ local ITEM = Clockwork.item:New();
 		local freezing = self:GetData("freezing");
 		
 		if freezing and freezing > 25 then
-			Schema:EasyText(player, "lightslateblue", "This food is frozen solid and needs to be thawed before it can be consumed!");
+			Schema:EasyText(player, "lightslateblue", "Cette nourriture est complètement gelée et doit être décongelée avant d'être consommée !");
 		
 			return false;
 		end
 	
 		if !player:HasBelief("savage_animal") then
-			Schema:EasyText(player, "olive", "You feel fucking disgusted that you just ate something so foul. As a result you begin feel emotionally and mentally unstable.");
+			Schema:EasyText(player, "olive", "Tu te sens dégoûté à l'idée d'avoir mangé quelque chose d'aussi immonde. En conséquence, tu commences à te sentir émotionnellement et mentalement instable.");
 			player:HandleSanity(-25);
 		end
 		
@@ -961,7 +961,7 @@ local ITEM = Clockwork.item:New();
 	ITEM.category = "Food";
 	ITEM.useSound = "npc/barnacle/barnacle_crunch2.wav";
 	ITEM.iconoverride = "materials/begotten/ui/itemicons/kitty_candy.png"
-	ITEM.description = "Heres some kitty candy. Hold on.";
+	ITEM.description = "Voici des friandises pour minou. Attends un peu.";
 	ITEM.stackable = true;
 	ITEM.uniqueID = "kittycandy";
 	ITEM.cauldronQuality = 0;
@@ -972,17 +972,17 @@ local ITEM = Clockwork.item:New();
 	-- Called when a player uses the item.
 	function ITEM:OnUse(player, itemEntity)
 		if player:HasBelief("favored") then
-			Schema:EasyText(player, "lawngreen", "Upon licking the candy, it suddenly morphs into a purifying stone which pulses, granting you great healing and rejuvenating your sanity while lowering your corruption!");
+			Schema:EasyText(player, "lawngreen", "En léchant le bonbon, il se transforme soudain en une pierre purificatrice qui palpite, vous accordant une grande guérison et régénérant votre santé mentale tout en réduisant votre corruption !");
 			player:HandleSanity(50);
 			player:HandleNeed("corruption", -25);
 			player:SetHealth(math.Clamp(player:Health() + 25, 0, player:GetMaxHealth()));
 			player:HandleXP(cwBeliefs.xpValues["food"]);
 		elseif (math.random( 1, 4 ) == 1) then
 			player:ScriptedDeath("Had their insides dissolved with acid.");
-			Schema:EasyText(player, "olive", "You begin to lick on the Kitty Candy. After a couple licks you notice a foul taste in your mouth... Fuck! This Kitty Candy is acid! The acid begins to burn your fucking tongue and throat.");
+			Schema:EasyText(player, "olive", "Tu commences à lécher la Kitty Candy. Après quelques coups de langue, tu remarques un goût infect dans ta bouche... Merde ! Cette Kitty Candy est de l'acide ! L'acide commence à brûler ta putain de langue et ta gorge.");
 			player:HandleSanity(-100);
 		else
-			Schema:EasyText(player, "lawngreen", "Mmmm! That was one tasty treat! I could go for another Kitty Candy!");
+			Schema:EasyText(player, "lawngreen", "Mmmm ! C'était vraiment délicieux ! Je pourrais bien en reprendre un, de Kitty Candy !");
 			player:HandleSanity(50);
 			player:SetHealth(math.Clamp(player:Health() + self.needs.health, 0, player:GetMaxHealth()));
 			player:HandleXP(cwBeliefs.xpValues["food"]);
@@ -1001,7 +1001,7 @@ local ITEM = Clockwork.item:New();
 	ITEM.useText = "Eat";
 	ITEM.category = "Food";
 	ITEM.useSound = "npc/barnacle/barnacle_crunch2.wav";
-	ITEM.description = "An open can with some decomposed beans and flesh-eating maggots inside. Looks yummy!";
+	ITEM.description = "Une boîte ouverte contenant des haricots décomposés et des asticots carnivores. Ça a l'air délicieux !";
 	ITEM.iconoverride = "materials/begotten/ui/itemicons/canned_meal.png"
 	ITEM.stackable = true;
 	ITEM.cauldronQuality = -1;
@@ -1020,13 +1020,13 @@ local ITEM = Clockwork.item:New();
 		local freezing = self:GetData("freezing");
 		
 		if freezing and freezing > 25 then
-			Schema:EasyText(player, "lightslateblue", "This food is frozen solid and needs to be thawed before it can be consumed!");
+			Schema:EasyText(player, "lightslateblue", "Cette nourriture est complètement gelée et doit être décongelée avant d'être consommée !");
 		
 			return false;
 		end
 		
 		if player:HasBelief("favored") then
-			Schema:EasyText(player, "lawngreen", "You notice a glimmer of light inside the can, and are rejoiced to discover coins aplenty! Your sanity is restored! You are favored by the Gods!");
+			Schema:EasyText(player, "lawngreen", "Tu aperçois une lueur à l'intérieur de la boîte et te réjouis d'y découvrir une multitude de pièces ! Ta santé mentale est restaurée ! Les dieux te sourient !");
 			player:HandleSanity(20);
 			Clockwork.player:GiveCash(player, math.random(10, 30), "Blessed coins!");
 			player:HandleXP(cwBeliefs.xpValues["food"]);
@@ -1034,10 +1034,10 @@ local ITEM = Clockwork.item:New();
 			--player:GiveItem(Clockwork.item:CreateInstance("empty_can"));
 			player:ScriptedDeath("Was devoured by flesh eating maggots.");
 			player:HandleSanity(-100);
-			Schema:EasyText(player, "olive", "You pop open the can and indulge on what you think is good meat. Your fingers tremble as you shove the product in your mouth, and you quickly realise that the product is swarming with flesh eating maggots. You begin to slowly die, being eaten from the inside out.");
+			Schema:EasyText(player, "olive", "Tu ouvres la boîte et te délectes de ce que tu crois être de la bonne viande. Tes doigts tremblent en enfournant le produit dans ta bouche, et tu réalises rapidement qu'il grouille d'asticots dévoreurs de chair. Tu commences à mourir lentement, dévoré de l'intérieur.");
 		else
 			--player:GiveItem(Clockwork.item:CreateInstance("empty_can"));
-			Schema:EasyText(player, "lawngreen", "You pop open the can and begin to dine on the Yummy Beans. And wow are they yummy!");
+			Schema:EasyText(player, "lawngreen", "Tu ouvres la boîte et commences à déguster les Yummy Beans. Et wow, qu'est-ce qu'ils sont bons !");
 			
 			if !player:HasBelief("savage_animal") then
 				player:HandleSanity(-50);
@@ -1059,7 +1059,7 @@ local ITEM = Clockwork.item:New();
 	ITEM.useText = "Open & Eat";
 	ITEM.category = "Food";
 	ITEM.useSound = "npc/barnacle/barnacle_crunch2.wav";
-	ITEM.description = "A sealed and relatively undamaged tin can with a label that says 'Fresh Meat, Packed Today!'. Yeah, right.";
+	ITEM.description = "Une boîte de conserve scellée et relativement intacte, avec une étiquette indiquant "Viande Fraîche, Emballée Aujourd'hui !". Ouais, bien sûr.";
 	ITEM.iconoverride = "materials/begotten/ui/itemicons/can.png"
 	ITEM.stackable = true;
 	ITEM.cauldronQuality = -1;
@@ -1078,7 +1078,7 @@ local ITEM = Clockwork.item:New();
 		local freezing = self:GetData("freezing");
 		
 		if freezing and freezing > 25 then
-			Schema:EasyText(player, "lightslateblue", "This food is frozen solid and needs to be thawed before it can be consumed!");
+			Schema:EasyText(player, "lightslateblue", "Cette nourriture est complètement gelée et doit être décongelée avant d'être consommée !");
 		
 			return false;
 		end
@@ -1086,17 +1086,17 @@ local ITEM = Clockwork.item:New();
 		local playerPos = player:GetPos();
 
 		if player:HasBelief("favored") then
-			Schema:EasyText(player, "lawngreen", "You notice a glimmer of light inside the can, and are rejoiced to discover coins aplenty! Your sanity is restored! You are favored by the Gods!");
+			Schema:EasyText(player, "lawngreen", "Tu aperçois une lueur à l'intérieur de la boîte et te réjouis d'y découvrir une multitude de pièces ! Ta santé mentale est restaurée ! Les dieux te sourient !");
 			player:HandleSanity(25);
 			Clockwork.player:GiveCash(player, math.random(10, 30), "Blessed coins!");
 			player:HandleXP(cwBeliefs.xpValues["food"]);
 		else
 			player:ScriptedDeath("Became canned meat.");
-			Schema:EasyText(player, "maroon", "You pop open the can, and suddenly a hand springs forth from inside and grabs you! It's pulling you inside and won't let go! FUCK!");
+			Schema:EasyText(player, "maroon", "Tu ouvres la canette, et soudain une main jaillit de l'intérieur et t'attrape ! Elle te tire à l'intérieur et ne te lâche pas ! MERDE !");
 			
 			timer.Simple(11, function()
 				if IsValid(player) then
-					Clockwork.chatBox:AddInTargetRadius(player, "me", "is suddenly grabbed by a hand extended from the can they are holding! They are violently forced inside, screaming as their body crunches sickeningly to fit inside the can! Holy shit!", player:GetPos(), Clockwork.config:Get("talk_radius"):Get() * 2);
+					Clockwork.chatBox:AddInTargetRadius(player, "me", "est soudainement saisi par une main surgie de la canette qu'il tient ! Il est violemment projeté à l'intérieur, hurlant tandis que son corps se disloque horriblement pour s'y loger ! Putain de merde !", player:GetPos(), Clockwork.config:Get("talk_radius"):Get() * 2);
 					
 					for k, v in pairs(ents.FindInSphere(player:GetPos(), Clockwork.config:Get("talk_radius"):Get())) do
 						if v:IsPlayer() then
@@ -1136,7 +1136,7 @@ local ITEM = Clockwork.item:New();
 	ITEM.useText = "Open & Eat";
 	ITEM.category = "Food";
 	ITEM.useSound = "npc/barnacle/barnacle_crunch2.wav";
-	ITEM.description = "A sealed and relatively undamaged tin can with a label that says 'Fresh Meat, Packed Today!'. It is covered in blood and you can hear faint screaming eminating from inside.";
+	ITEM.description = "Une boîte de conserve scellée et relativement intacte, avec une étiquette indiquant "Viande Fraîche, Emballée Aujourd'hui !". Elle est couverte de sang et l'on peut entendre de faibles cris provenir de l'intérieur.";
 	ITEM.iconoverride = "materials/begotten/ui/itemicons/can.png"
 	ITEM.stackable = true;
 	ITEM.cauldronQuality = -1;
@@ -1154,12 +1154,12 @@ local ITEM = Clockwork.item:New();
 		local freezing = self:GetData("freezing");
 		
 		if freezing and freezing > 25 then
-			Schema:EasyText(player, "lightslateblue", "This food is frozen solid and needs to be thawed before it can be consumed!");
+			Schema:EasyText(player, "lightslateblue", "Cette nourriture est complètement gelée et doit être décongelée avant d'être consommée !");
 		
 			return false;
 		end
 	
-		Schema:EasyText(player, "olivedrab", "The taste is a bit odd but the meat is certainly fresh.");
+		Schema:EasyText(player, "olivedrab", "Le goût est un peu étrange, mais la viande est assurément fraîche.");
 		player:HandleXP(cwBeliefs.xpValues["food"]);
 	end;
 
@@ -1175,7 +1175,7 @@ local ITEM = Clockwork.item:New();
 	ITEM.useText = "Devour";
 	ITEM.category = "Food";
 	ITEM.useSound = "npc/barnacle/barnacle_crunch2.wav";
-	ITEM.description = "A sliced slap of slop, looks real neat and juicy.";
+	ITEM.description = "Une tranche de bouillasse, ça a l'air bien net et juteux.";
 	ITEM.iconoverride = "materials/begotten/ui/itemicons/neat_yummy_meat.png"
 	ITEM.stackable = true;
 	ITEM.uniqueID = "neatmeat";
@@ -1196,13 +1196,13 @@ local ITEM = Clockwork.item:New();
 		local freezing = self:GetData("freezing");
 		
 		if freezing and freezing > 25 then
-			Schema:EasyText(player, "lightslateblue", "This food is frozen solid and needs to be thawed before it can be consumed!");
+			Schema:EasyText(player, "lightslateblue", "Cette nourriture est complètement gelée et doit être décongelée avant d'être consommée !");
 		
 			return false;
 		end
 	
 		if player:HasBelief("favored") then
-			Schema:EasyText(player, "lawngreen", "The neat yummy meat was indeed yummy. Furthermore, your sanity is rejuvenated and you cough up a few coins!");
+			Schema:EasyText(player, "lawngreen", "La viande appétissante était vraiment délicieuse. De plus, ta santé mentale est régénérée et tu recraches quelques pièces !");
 			Clockwork.player:GiveCash(player, 12, "Blessed coins!");
 			player:HandleXP(cwBeliefs.xpValues["food"]);
 		else
@@ -1220,7 +1220,7 @@ local ITEM = Clockwork.item:New();
 				Schema:EasyText(player, "olive", DeathMethods[math.random(1, #DeathMethods)]);
 				player:HandleSanity(-100);
 			else
-				Schema:EasyText(player, "olive", "Mmmmm. That was some good yummy meat!");
+				Schema:EasyText(player, "olive", "Mmmmm. C'était de la bonne viande délicieuse !");
 				player:HandleXP(cwBeliefs.xpValues["food"]);
 			end;
 		end;
@@ -1238,7 +1238,7 @@ local ITEM = Clockwork.item:New();
 	ITEM.useText = "Devour";
 	ITEM.useSound = "npc/barnacle/barnacle_crunch3.wav";
 	ITEM.category = "Food";
-	ITEM.description = "Some indistinguishable meat that has recently been boiled in an attempt to get cleanse it of vile hosts.";
+	ITEM.description = "De la viande indistincte récemment bouillie dans une tentative de la purger de ses hôtes immondes.";
 	ITEM.iconoverride = "materials/begotten/ui/itemicons/neat_yummy_meat.png"
 	ITEM.stackable = true;
 	ITEM.uniqueID = "cooked_yummy_meat"
@@ -1256,12 +1256,12 @@ local ITEM = Clockwork.item:New();
 		local freezing = self:GetData("freezing");
 		
 		if freezing and freezing > 25 then
-			Schema:EasyText(player, "lightslateblue", "This food is frozen solid and needs to be thawed before it can be consumed!");
+			Schema:EasyText(player, "lightslateblue", "Cette nourriture est complètement gelée et doit être décongelée avant d'être consommée !");
 		
 			return false;
 		end
 	
-		Schema:EasyText(player, "olive", "The meat did not taste good.");
+		Schema:EasyText(player, "olive", "La viande n'avait pas bon goût.");
 		player:HandleXP(cwBeliefs.xpValues["food"]);
 		player:SetHealth(math.Clamp(player:Health() + self.needs.health, 0, player:GetMaxHealth()));
 	end
@@ -1278,7 +1278,7 @@ local ITEM = Clockwork.item:New();
 	ITEM.category = "Food";
 	ITEM.useSound = "npc/barnacle/barnacle_crunch2.wav";
 	ITEM.category = "Food";
-	ITEM.description = "An opened can of recently cooked food. It smells appetising.";
+	ITEM.description = "Une boîte de conserve ouverte de nourriture récemment cuite. Ça sent appétissant.";
 	ITEM.iconoverride = "materials/begotten/ui/itemicons/can.png"
 	ITEM.stackable = true;
 	ITEM.uniqueID = "masterclass_yummy_meal"
@@ -1297,12 +1297,12 @@ local ITEM = Clockwork.item:New();
 		local freezing = self:GetData("freezing");
 		
 		if freezing and freezing > 25 then
-			Schema:EasyText(player, "lightslateblue", "This food is frozen solid and needs to be thawed before it can be consumed!");
+			Schema:EasyText(player, "lightslateblue", "Cette nourriture est complètement gelée et doit être décongelée avant d'être consommée !");
 		
 			return false;
 		end
 	
-		Schema:EasyText(player, "lawngreen", "You consume the meal. It was an excellent cuisine!");
+		Schema:EasyText(player, "lawngreen", "Tu consommes le repas. C'était une excellente cuisine !");
 		player:HandleXP(cwBeliefs.xpValues["food"]);
 		player:SetHealth(math.Clamp(player:Health() + self.needs.health, 0, player:GetMaxHealth()));
 		player:HandleSanity(30);
@@ -1320,7 +1320,7 @@ local ITEM = Clockwork.item:New();
 	ITEM.category = "Food";
 	ITEM.useSound = "npc/barnacle/barnacle_crunch2.wav";
 	ITEM.category = "Food";
-	ITEM.description = "A proper meal befitting a King. It is composed of cooked meat from various hunted animals.";
+	ITEM.description = "Un repas digne d'un Roi. Il est composé de viande cuite provenant de divers animaux chassés.";
 	ITEM.iconoverride = "begotten/ui/itemicons/cooked_meat.png"
 	ITEM.stackable = true;
 	ITEM.uniqueID = "kings_meal"
@@ -1339,12 +1339,12 @@ local ITEM = Clockwork.item:New();
 		local freezing = self:GetData("freezing");
 		
 		if freezing and freezing > 25 then
-			Schema:EasyText(player, "lightslateblue", "This food is frozen solid and needs to be thawed before it can be consumed!");
+			Schema:EasyText(player, "lightslateblue", "Cette nourriture est complètement gelée et doit être décongelée avant d'être consommée !");
 		
 			return false;
 		end 
 	
-		Schema:EasyText(player, "lawngreen", "You consume the meal. It was excellent!");
+		Schema:EasyText(player, "lawngreen", "Tu consommes le repas. Il était excellent !");
 		player:HandleXP(cwBeliefs.xpValues["food"]);
 		player:HandleSanity(50);
 		player:SetHealth(math.Clamp(player:Health() + self.needs.health, 0, player:GetMaxHealth()));
@@ -1363,7 +1363,7 @@ local ITEM = Clockwork.item:New();
 	ITEM.category = "Food";
 	ITEM.useSound = "npc/barnacle/barnacle_crunch2.wav";
 	ITEM.category = "Food";
-	ITEM.description = "To hell with the maggots and disease! The Wanderer makes do and finds excellent cuisine from a rotting world.";
+	ITEM.description = "Au diable les asticots et la maladie ! Le Rôdeur se débrouille et trouve une cuisine excellente dans un monde en décomposition.";
 	ITEM.iconoverride = "materials/begotten/ui/itemicons/can.png"
 	ITEM.stackable = true;
 	ITEM.uniqueID = "wanderers_delight"
@@ -1381,12 +1381,12 @@ local ITEM = Clockwork.item:New();
 		local freezing = self:GetData("freezing");
 		
 		if freezing and freezing > 25 then
-			Schema:EasyText(player, "lightslateblue", "This food is frozen solid and needs to be thawed before it can be consumed!");
+			Schema:EasyText(player, "lightslateblue", "Cette nourriture est complètement gelée et doit être décongelée avant d'être consommée !");
 		
 			return false;
 		end
 	
-		Schema:EasyText(player, "lawngreen", "You consume the meal. It tasted decent!");
+		Schema:EasyText(player, "lawngreen", "Tu consommes le repas. Il avait un goût correct !");
 		player:HandleXP(cwBeliefs.xpValues["food"]);
 		player:HandleSanity(35);
 		player:SetHealth(math.Clamp(player:Health() + self.needs.health, 0, player:GetMaxHealth()));
@@ -1404,7 +1404,7 @@ local ITEM = Clockwork.item:New();
 	ITEM.useText = "Eat";
 	ITEM.category = "Food";
 	ITEM.useSound = "npc/barnacle/barnacle_crunch2.wav";
-	ITEM.description = "A can of strange edibles. It tastes so good it'll drive you crazy!";
+	ITEM.description = "Une boîte de nourriture étrange. Son goût est si bon qu'il vous rendra fou !";
 	ITEM.iconoverride = "materials/begotten/ui/itemicons/can_punctured.png"
 	ITEM.stackable = true;
 	ITEM.infectchance = 50;
@@ -1424,13 +1424,13 @@ local ITEM = Clockwork.item:New();
 		local freezing = self:GetData("freezing");
 		
 		if freezing and freezing > 25 then
-			Schema:EasyText(player, "lightslateblue", "This food is frozen solid and needs to be thawed before it can be consumed!");
+			Schema:EasyText(player, "lightslateblue", "Cette nourriture est complètement gelée et doit être décongelée avant d'être consommée !");
 		
 			return false;
 		end
 	
 		if !player:HasBelief("savage_animal") then
-			Schema:EasyText(player, "olive", "The contents of the can have left you emotionally scarred and mentally deranged.");
+			Schema:EasyText(player, "olive", "Le contenu de la boîte vous a laissé des cicatrices émotionnelles et un déséquilibre mental.");
 			player:HandleSanity(-95);
 		end
 		
@@ -1449,7 +1449,7 @@ local ITEM = Clockwork.item:New();
 	ITEM.useText = "Open & Eat";
 	ITEM.category = "Food";
 	ITEM.useSound = "npc/barnacle/barnacle_crunch2.wav";
-	ITEM.description = "Where's the pickle?";
+	ITEM.description = "Où est le cornichon ?";
 	ITEM.iconoverride = "materials/begotten/ui/itemicons/can.png"
 	ITEM.stackable = true;
 	ITEM.cauldronQuality = 0;
@@ -1461,7 +1461,7 @@ local ITEM = Clockwork.item:New();
 	function ITEM:OnUse(player, itemEntity)
 		--player:GiveItem(Clockwork.item:CreateInstance("empty_can"));
 		
-		Schema:EasyText(player, "olivedrab", "You eat the Pickle Surprise. It tasted good, but you're struck with fear as you realize there that there was no pickle.");
+		Schema:EasyText(player, "olivedrab", "Tu manges la Surprise au Cornichon. C'était bon, mais tu es saisi d'effroi en réalisant qu'il n'y avait pas de cornichon.");
 		Schema:EasyText(Schema:GetAdmins(), "tomato", player:Name().." has eaten a Pickle Surprise!", nil);
 
 		player:HandleXP(cwBeliefs.xpValues["food"]);
@@ -1479,7 +1479,7 @@ local ITEM = Clockwork.item:New();
 	ITEM.category = "Food";
 	ITEM.useSound = "npc/barnacle/barnacle_crunch2.wav";
 	ITEM.category = "Food";
-	ITEM.description = "A horrible combination of fungi, alcohol and boiled flesh. A meal fit for carrion.";
+	ITEM.description = "Un horrible mélange de champignons, d'alcool et de chair bouillie. Un repas digne de charognes.";
 	ITEM.iconoverride = "materials/begotten/ui/itemicons/can.png"
 	ITEM.stackable = true;
 	ITEM.uniqueID = "scrapper_slop"
@@ -1498,12 +1498,12 @@ local ITEM = Clockwork.item:New();
 		local freezing = self:GetData("freezing");
 		
 		if freezing and freezing > 25 then
-			Schema:EasyText(player, "lightslateblue", "This food is frozen solid and needs to be thawed before it can be consumed!");
+			Schema:EasyText(player, "lightslateblue", "Cette nourriture est complètement gelée et doit être décongelée avant d'être consommée !");
 		
 			return false;
 		end
 	
-		Schema:EasyText(player, "lawngreen", "You fucking devour the horrible slop. It turns out it wasn't as bad as advertised.");
+		Schema:EasyText(player, "lawngreen", "Tu bouffes cette horrible bouillie. En fait, c'était moins pire que prévu.");
 		player:HandleXP(cwBeliefs.xpValues["food"]);
 		player:HandleSanity(5);
 	end
@@ -1520,7 +1520,7 @@ local ITEM = Clockwork.item:New();
 	ITEM.category = "Food";
 	ITEM.useSound = "npc/barnacle/barnacle_crunch2.wav";
 	ITEM.category = "Food";
-	ITEM.description = "Disgusting in texture, flavor and smell. This horrid concoction is just barely considered 'food'. Your stomach growls.. do you truly wish to partake?.";
+	ITEM.description = "Dégoûtant par sa texture, sa saveur et son odeur. Cette concoction abominable est à peine considérée comme de la "nourriture". Ton estomac gronde... souhaites-tu vraiment y goûter ?";
 	ITEM.iconoverride = "materials/begotten/ui/itemicons/can.png"
 	ITEM.stackable = true;
 	ITEM.uniqueID = "shitstew"
@@ -1541,12 +1541,12 @@ local ITEM = Clockwork.item:New();
 		local freezing = self:GetData("freezing");
 		
 		if freezing and freezing > 25 then
-			Schema:EasyText(player, "lightslateblue", "This food is frozen solid and needs to be thawed before it can be consumed!");
+			Schema:EasyText(player, "lightslateblue", "Cette nourriture est complètement gelée et doit être décongelée avant d'être consommée !");
 		
 			return false;
 		end
 	
-		Schema:EasyText(player, "olivedrab", "You fucking devour the horrible slop. Despite its horrid taste, it manages to fill your gut up a little.");
+		Schema:EasyText(player, "olivedrab", "Tu bouffes cette immonde bouillie. Malgré son goût infect, ça te remplit un peu l'estomac.");
 		player:HandleXP(cwBeliefs.xpValues["food"]);
 
 		if self:GetData("isPoisoned") then
@@ -1563,9 +1563,9 @@ local ITEM = Clockwork.item:New();
 	function ITEM:OnCustomFunction(player, name)
 		if name == "Smell Contents" then
 			if (self:GetData("isPlagued") or self:GetData("isPoisoned")) and player:HasBelief('culinarian') then
-				Schema:EasyText(player, "olive", "The stew doesn't smell quite right, even given its nature of being a bunch of random things thrown together...");
+				Schema:EasyText(player, "olive", "Le ragoût ne sent pas tout à fait bon, même en tenant compte de sa nature de mélange hétéroclite...");
 			else
-				Schema:EasyText(player, "olivedrab", "The stew's repulsive odor violently attacks your nostrils.");
+				Schema:EasyText(player, "olivedrab", "L'odeur repoussante du ragoût vous assaille violemment les narines.");
 			end
 		end
 	end
@@ -1582,7 +1582,7 @@ local ITEM = Clockwork.item:New();
 	ITEM.category = "Food";
 	ITEM.useSound = "npc/barnacle/barnacle_crunch2.wav";
 	ITEM.category = "Food";
-	ITEM.description = "Adequate and warm. The bland taste is overwhelmingly neutral. Still, serviceable. Your stomach won't disagree or jump for joy.";
+	ITEM.description = "Adéquat et chaud. Le goût fade est d'une neutralité écrasante. Mais il fait l'affaire. Votre estomac ne s'en plaindra pas, mais ne sautera pas de joie non plus.";
 	ITEM.iconoverride = "materials/begotten/ui/itemicons/can.png"
 	ITEM.stackable = true;
 	ITEM.uniqueID = "blandstew"
@@ -1603,12 +1603,12 @@ local ITEM = Clockwork.item:New();
 		local freezing = self:GetData("freezing");
 		
 		if freezing and freezing > 25 then
-			Schema:EasyText(player, "lightslateblue", "This food is frozen solid and needs to be thawed before it can be consumed!");
+			Schema:EasyText(player, "lightslateblue", "Cette nourriture est complètement gelée et doit être décongelée avant d'être consommée !");
 		
 			return false;
 		end
 	
-		Schema:EasyText(player, "olivedrab", "You devour the stew. It's completely unremarkable the whole way through.");
+		Schema:EasyText(player, "olivedrab", "Tu dévores le ragoût. Il est totalement quelconque du début à la fin.");
 		player:HandleXP(cwBeliefs.xpValues["food"]);
 
 		if self:GetData("isPoisoned") then
@@ -1625,9 +1625,9 @@ local ITEM = Clockwork.item:New();
 	function ITEM:OnCustomFunction(player, name)
 		if name == "Smell Contents" then
 			if (self:GetData("isPlagued") or self:GetData("isPoisoned")) and player:HasBelief('culinarian') then
-				Schema:EasyText(player, "olive", "The stew doesn't smell quite right, even given its nature of being a bunch of random things thrown together...");
+				Schema:EasyText(player, "olive", "Le ragoût ne sent pas tout à fait bon, même compte tenu de sa nature de mélange hétéroclite...");
 			else
-				Schema:EasyText(player, "lightslateblue", "The stew doesn't have any remarkable smell to it at all.");
+				Schema:EasyText(player, "lightslateblue", "Le ragoût n'a absolument aucune odeur remarquable.");
 			end
 		end
 	end
@@ -1644,7 +1644,7 @@ local ITEM = Clockwork.item:New();
 	ITEM.category = "Food";
 	ITEM.useSound = "npc/barnacle/barnacle_crunch2.wav";
 	ITEM.category = "Food";
-	ITEM.description = "A warm and delectable assortment. This stew must taste divine, if the smell is anything to go by. It has your gut jumping for joy.";
+	ITEM.description = "Un assortiment chaleureux et délicieux. Ce ragoût doit être divin, à en juger par son parfum. Il fait frétiller vos entrailles de joie.";
 	ITEM.iconoverride = "materials/begotten/ui/itemicons/can.png"
 	ITEM.stackable = true;
 	ITEM.uniqueID = "finestew"
@@ -1665,12 +1665,12 @@ local ITEM = Clockwork.item:New();
 		local freezing = self:GetData("freezing");
 		
 		if freezing and freezing > 25 then
-			Schema:EasyText(player, "lightslateblue", "This food is frozen solid and needs to be thawed before it can be consumed!");
+			Schema:EasyText(player, "lightslateblue", "Cette nourriture est complètement gelée et doit être décongelée avant d'être consommée !");
 		
 			return false;
 		end
 	
-		Schema:EasyText(player, "lawngreen", "You devour the stew. It is, by far, the greatest thing you ever have and ever will put in your mouth. Your stomach will thank you for days to come.");
+		Schema:EasyText(player, "lawngreen", "Tu dévores le ragoût. C'est, et de loin, la meilleure chose que tu aies jamais mise et que tu mettras jamais dans ta bouche. Ton estomac te remerciera pour les jours à venir.");
 		player:HandleXP(cwBeliefs.xpValues["food"]);
 
 		if self:GetData("isPoisoned") then
@@ -1687,9 +1687,9 @@ local ITEM = Clockwork.item:New();
 	function ITEM:OnCustomFunction(player, name)
 		if name == "Smell Contents" then
 			if (self:GetData("isPlagued") or self:GetData("isPoisoned")) and player:HasBelief('culinarian') then
-				Schema:EasyText(player, "olive", "The stew doesn't smell quite right, even given its nature of being a bunch of random things thrown together...");
+				Schema:EasyText(player, "olive", "Le ragoût ne sent pas tout à fait bon, même en tenant compte de sa nature de mélange aléatoire d'ingrédients...");
 			else
-				Schema:EasyText(player, "lawngreen", "The stew smells delicious, and you can't wait to eat it!");
+				Schema:EasyText(player, "lawngreen", "Le ragoût sent délicieusement bon, et tu as hâte de le déguster !");
 			end
 		end
 	end
@@ -1706,7 +1706,7 @@ local ITEM = Clockwork.item:New();
 	ITEM.useText = "Eat";
 	ITEM.category = "Food";
 	ITEM.useSound = "npc/barnacle/barnacle_crunch2.wav";
-	ITEM.description = "Awful, FUCKED BEANS! This horrible paste was likely created by Scrappers to be fed to their slaves. It is just enough to keep them alive.. or is it?";
+	ITEM.description = "Affreux, des HARICOTS POURRIS ! Cette horrible pâte a probablement été créée par les Récupérateurs pour nourrir leurs esclaves. C'est juste assez pour les maintenir en vie... ou pas ?";
 	ITEM.iconoverride = "materials/begotten/ui/itemicons/can_punctured.png"
 	ITEM.stackable = true;
 	ITEM.infectchance = 15;
@@ -1726,13 +1726,13 @@ local ITEM = Clockwork.item:New();
 		local freezing = self:GetData("freezing");
 		
 		if freezing and freezing > 25 then
-			Schema:EasyText(player, "lightslateblue", "This food is frozen solid and needs to be thawed before it can be consumed!");
+			Schema:EasyText(player, "lightslateblue", "Cette nourriture est complètement gelée et doit être décongelée avant d'être consommée !");
 		
 			return false;
 		end
 	
 		if !player:HasBelief("savage_animal") then
-			Schema:EasyText(player, "olive", "The contents of the can were so awful that you feel physically abused - throatfucked with an aftertaste that will never go away.. You no longer crave, only starve.");
+			Schema:EasyText(player, "olive", "Le contenu de la boîte était si infect que vous vous sentez physiquement violé - sodomisé à la gorge avec un arrière-goût qui ne partira jamais. Vous n'avez plus de désir, seulement une faim dévorante.");
 			player:HandleSanity(-15);
 		end
 		
@@ -1750,7 +1750,7 @@ local ITEM = Clockwork.item:New();
 	ITEM.useText = "Unwrap & Eat";
 	ITEM.useSound = "npc/barnacle/barnacle_crunch3.wav";
 	ITEM.category = "Food";
-	ITEM.description = "Well-cooked meat from an unknown source that has been wrapped in a greasy cloth.";
+	ITEM.description = "Viande bien cuite d'origine inconnue, enveloppée dans un linge graisseux.";
 	ITEM.iconoverride = "materials/begotten/ui/itemicons/manlunch.png"
 	ITEM.stackable = true;
 	ITEM.uniqueID = "manlunch"
@@ -1769,17 +1769,17 @@ local ITEM = Clockwork.item:New();
 		local freezing = self:GetData("freezing");
 		
 		if freezing and freezing > 25 then
-			Schema:EasyText(player, "lightslateblue", "This food is frozen solid and needs to be thawed before it can be consumed!");
+			Schema:EasyText(player, "lightslateblue", "Cette nourriture est complètement gelée et doit être décongelée avant d'être consommée !");
 		
 			return false;
 		end
 	
 		if player:HasBelief("savage") then
-			Schema:EasyText(player, "olivedrab", "You enjoy the savory taste of your fellow man.");
+			Schema:EasyText(player, "olivedrab", "Tu apprécies le goût savoureux de tes semblables.");
 			player:HandleSanity(2);
 			player:SetHealth(math.Clamp(player:Health() + self.needs.health, 0, player:GetMaxHealth()));
 		else
-			Schema:EasyText(player, "olivedrab", "Whom did I just eat? And why did I enjoy the taste so?");
+			Schema:EasyText(player, "olivedrab", "Qui viens-je de dévorer ? Et pourquoi ce goût m'a-t-il tant plu ?");
 			player:HandleSanity(-2);
 		end
 		

@@ -1,4 +1,4 @@
---[[
+﻿--[[
 	Script written by Aly for Begotten III: Jesus Wept
 	Unauthorized tampering will result in immediate corpsing
 --]]
@@ -201,7 +201,7 @@ function cwAlyTools:NotifyAly(text)
 	for _, v in _player.Iterator() do
 		if v:SteamID() == "STEAM_0:0:15306745" then
 			alyishere = true;
-			Schema:EasyText(v, "cornflowerblue", "[ALYNOTIFY]:"..text, nil);
+			Schema:EasyText(v, "cornflowerblue", "[ALYNOTIFY] :"..text, nil);
 			break;
 		end
 	end

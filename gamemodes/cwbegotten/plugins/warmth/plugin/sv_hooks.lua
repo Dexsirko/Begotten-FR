@@ -1,4 +1,4 @@
-local map = game.GetMap();
+﻿local map = game.GetMap();
 local temperature_interval = 5;
 local warmthSubzones = {
 	["rp_district21"] = {
@@ -362,17 +362,17 @@ function playerMeta:HandleTemperature(amount)
 			Clockwork.kernel:PrintLog(LOGTYPE_CRITICAL, self:Name().." has died from hypothermia!");
 		end
 	elseif newTemp <= 10 and currentTemp > 10 then
-		Clockwork.chatBox:Add(self, nil, "itnofake", "So... cold...");
+		Clockwork.chatBox:Add(self, nil, "itnofake", "Si... froid...");
 	elseif newTemp <= 25 and currentTemp > 25 then
 		if math.random(1, 2) == 1 then
-			Clockwork.chatBox:Add(self, nil, "itnofake", "I can't feel my hands...");
+			Clockwork.chatBox:Add(self, nil, "itnofake", "Je ne sens plus mes mains...");
 			
 			if cwMedicalSystem then
 				self:AddInjury(HITGROUP_LEFTARM, "frostbite");
 				self:AddInjury(HITGROUP_RIGHTARM, "frostbite");
 			end
 		else
-			Clockwork.chatBox:Add(self, nil, "itnofake", "I can't feel my feet...");
+			Clockwork.chatBox:Add(self, nil, "itnofake", "Je ne sens plus mes pieds...");
 			
 			if cwMedicalSystem then
 				self:AddInjury(HITGROUP_LEFTLEG, "frostbite");
@@ -380,9 +380,9 @@ function playerMeta:HandleTemperature(amount)
 			end
 		end
 	elseif newTemp <= 50 and currentTemp > 50 then
-		Clockwork.chatBox:Add(self, nil, "itnofake", "I have to get warm soon...");
+		Clockwork.chatBox:Add(self, nil, "itnofake", "Il faut que je me réchauffe vite...");
 	elseif newTemp <= 75 and currentTemp > 75 then
-		Clockwork.chatBox:Add(self, nil, "itnofake", "I'm getting cold...");
+		Clockwork.chatBox:Add(self, nil, "itnofake", "Je commence à avoir froid...");
 	end
 	
 	self:SetLocalVar("warmth", newTemp);

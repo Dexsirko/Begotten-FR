@@ -1,4 +1,4 @@
---[[
+﻿--[[
 	Begotten III: Jesus Wept
 	By: DETrooper, cash wednesday, gabs, alyousha35
 
@@ -52,7 +52,7 @@ function ENT:OnTakeDamage(damageInfo)
 			end
 			
 			if self.strikesRequired <= 0 then
-				Clockwork.chatBox:AddInTargetRadius(player, "it", "The siege ladder finally gives way and breaks into several pieces!", player:GetPos(), config.Get("talk_radius"):Get() * 2);
+				Clockwork.chatBox:AddInTargetRadius(player, "it", "L'échelle de siège cède enfin et se brise en plusieurs morceaux !", player:GetPos(), config.Get("talk_radius"):Get() * 2);
 				self:EmitSound("physics/wood/wood_plank_break3.wav");
 				self:Remove();
 			end

@@ -1,4 +1,4 @@
---[[
+﻿--[[
 	Begotten 3: Jesus Wept
 	written by: cash wednesday, DETrooper, gabs and alyousha35.
 --]]
@@ -503,7 +503,7 @@ RITUAL = cwRituals.rituals:New("call_of_the_blood_moon");
 
 		if cwDayNight then
 			if cwDayNight.currentCycle == "night" then
-				Clockwork.chatBox:Add(player, nil, "event", "You feel the Blood Moon's radiance pulsating, as though it were drawing power from something.");
+				Clockwork.chatBox:Add(player, nil, "event", "Tu sens la lueur de la Lune de Sang palpiter, comme si elle puisait son pouvoir de quelque chose.");
 				netstream.Start(player, "PlaySound", "begotten/ui/sanity_touch.mp3");
 			
 				for _, v in _player.Iterator() do
@@ -512,7 +512,7 @@ RITUAL = cwRituals.rituals:New("call_of_the_blood_moon");
 
 						if lastZone == "wasteland" or lastZone == "tower" then
 							if v ~= player then
-								Clockwork.chatBox:Add(v, nil, "event", "You feel the Blood Moon's radiance pulsating, as though it were drawing power from something.");
+								Clockwork.chatBox:Add(v, nil, "event", "Tu sens les radiations de la Lune de Sang palpiter, comme si elle puisait son pouvoir dans quelque chose.");
 								netstream.Start(v, "PlaySound", "begotten/ambient/hits/wall_stomp5.mp3");
 							end
 							
@@ -547,7 +547,7 @@ RITUAL = cwRituals.rituals:New("call_of_the_blood_moon");
 				
 				return true;
 			else
-				Schema:EasyText(player, "peru", "The Blood Moon must be out in order for you to perform this ritual!");
+				Schema:EasyText(player, "peru", "La Lune de Sang doit être visible pour que tu puisses accomplir ce rituel !");
 				
 				return false;
 			end
@@ -583,7 +583,7 @@ RITUAL = cwRituals.rituals:New("call_of_the_blood_storm");
 	function RITUAL:StartRitual(player)
 		if cwWeather then
 			if !cwWeather.weatherTypes["bloodstorm"] then
-				Schema:EasyText(player, "peru", "This climate is unsuited for blood rain!");
+				Schema:EasyText(player, "peru", "Ce climat ne convient pas à une pluie de sang !");
 				
 				return false;
 			end
@@ -596,7 +596,7 @@ RITUAL = cwRituals.rituals:New("call_of_the_blood_storm");
 				
 				return true;
 			else
-				Schema:EasyText(player, "peru", "There is already an active blood storm!");
+				Schema:EasyText(player, "peru", "Il y a déjà une tempête de sang active !");
 				
 				return false;
 			end
@@ -729,10 +729,10 @@ RITUAL = cwRituals.rituals:New("demon_hunter");
 		player.demonHunterActive = true;
 		player.thrallsToKill = math.random(1, 3);
 		
-		Schema:EasyText(player, "goldenrod", "You now have 25 minutes to kill "..player.thrallsToKill.." Begotten thralls for your reward.");
+		Schema:EasyText(player, "goldenrod", "Vous avez maintenant 25 minutes pour éliminer"..player.thrallsToKill.." Begotten thralls for your reward.");
 		
 		Schema:EasyText(Schema:GetAdmins(), "tomato", player:Name().." just activated the 'Demon Hunter' ritual! Make sure there are enough thrall NPCs ("..player.thrallsToKill..") for him to kill!");
-		if(math.random(1,10) == 1) then Schema:EasyText(GetAdmin(), "tomato", "The die have been cast...by random chance, an admin thrall has been requested to participate in this ritual!"); end
+		if(math.random(1,10) == 1) then Schema:EasyText(GetAdmin(), "tomato", "Les dés sont jetés... par le hasard, un thrall administrateur a été désigné pour participer à ce rituel !"); end
 		local endtime = CurTime() + 1500
 		UpdateActiveRituals(player, "Demon Hunter", endtime);
 		timer.Create("DemonHunterTimer_"..player:EntIndex(), 1500, 1, function()
@@ -766,9 +766,9 @@ RITUAL:Register()
 	function RITUAL:OnPerformed(player)
 		player.thrallsToKill = math.random(1, 3);
 		
-		Schema:EasyText(player, "goldenrod", "You now have 25 minutes to kill "..player.thrallsToKill.." Begotten thralls for your reward.");
+		Schema:EasyText(player, "goldenrod", "Vous avez maintenant 25 minutes pour éliminer"..player.thrallsToKill.." Begotten thralls for your reward.");
 		Schema:EasyText(Schema:GetAdmins(), "tomato", player:Name().." just activated the 'Infernal Incursion' ritual! Make sure there are enough thrall NPCs ("..player.thrallsToKill..") for him to kill!");
-		if(math.random(1,10) == 1) then Schema:EasyText(GetAdmin(), "tomato", "The die have been cast...by random chance, an admin thrall has been requested to participate in this ritual!"); end
+		if(math.random(1,10) == 1) then Schema:EasyText(GetAdmin(), "tomato", "Les dés sont jetés... par le hasard, un thrall administrateur a été convoqué pour participer à ce rituel !"); end
 	end;
 	function RITUAL:OnFail(player)
 	end;
@@ -889,7 +889,7 @@ RITUAL = cwRituals.rituals:New("hear_me");
 	end;
 	function RITUAL:StartRitual(player)
 		if(player:GetFaction() == "Children of Satan" and bit.band(Schema.hearMeFlags, HEARME_ENABLED) <= 0 and (bit.band(Schema.hearMeFlags, HEARME_INCLUDEHELLBARON) > 0 or Schema:GetRankTier("Children of Satan", player:GetCharacterData("rank", 1)) <= 3)) then
-			Schema:EasyText(player, "peru", "The Hell Baron has cut off your connection to the Dark Lord!")
+			Schema:EasyText(player, "peru", "Le Baron de l'Enfer a coupé votre lien avec le Seigneur des Ténèbres !")
 
 			return false
 		
@@ -915,7 +915,7 @@ RITUAL = cwRituals.rituals:New("hellgorge");
 		player:SetNeed("hunger", 0);
 		player:SetNeed("sleep", 0);
 		
-		Clockwork.chatBox:Add(player, nil, "itnofake", "An overwhelming rush of relief overcomes you as you feel rejuvenated.");
+		Clockwork.chatBox:Add(player, nil, "itnofake", "Un immense soulagement vous submerge alors que vous vous sentez revigoré.");
 	end;
 	function RITUAL:OnFail(player)
 	end;
@@ -1031,7 +1031,7 @@ RITUAL = cwRituals.rituals:New("apostle_of_many_faces");
 	end;
 	function RITUAL:StartRitual(player)
 		if player:GetCharacterData("apostle_of_many_faces") then
-			Schema:EasyText(player, "firebrick", "You have already performed this ritual!");
+			Schema:EasyText(player, "firebrick", "Vous avez déjà accompli ce rituel !");
 		
 			return false;
 		end
@@ -1112,10 +1112,10 @@ RITUAL = cwRituals.rituals:New("mark_of_the_devil");
 						
 						return true;
 					else
-						Schema:EasyText(player, "firebrick", "This character is protected by some magical aura and cannot be marked!");
+						Schema:EasyText(player, "firebrick", "Ce personnage est protégé par une aura magique et ne peut être marqué !");
 					end
 				else
-					Schema:EasyText(player, "darkgrey", "The target character is already dead!");
+					Schema:EasyText(player, "darkgrey", "Le personnage ciblé est déjà mort !");
 				end
 			else
 				Schema:EasyText(player, "grey", tostring(result).." is not a valid character!");
@@ -1176,19 +1176,19 @@ RITUAL = cwRituals.rituals:New("mark_of_the_devil_target");
 						
 						return true;
 					else
-						Schema:EasyText(player, "firebrick", "This character is too far away!");
+						Schema:EasyText(player, "firebrick", "Ce personnage est trop éloigné !");
 					end
 				else
-					Schema:EasyText(player, "firebrick", "This character is protected by some magical aura and cannot be marked!");
+					Schema:EasyText(player, "firebrick", "Ce personnage est protégé par une aura magique et ne peut être marqué !");
 				end
 			else
-				Schema:EasyText(player, "darkgrey", "The target character is already dead!");
+				Schema:EasyText(player, "darkgrey", "Le personnage ciblé est déjà mort !");
 			end
 		else
-			Schema:EasyText(player, "firebrick", "You must look at a valid character!");
+			Schema:EasyText(player, "firebrick", "Vous devez regarder un personnage valide !");
 		end
 		
-		Schema:EasyText(player, "firebrick", "You must look at a valid character!");
+		Schema:EasyText(player, "firebrick", "Vous devez regarder un personnage valide !");
 
 		return false;
 	end;
@@ -1213,16 +1213,16 @@ RITUAL = cwRituals.rituals:New("mark_of_the_devil_target");
 					if (target:GetShootPos():Distance(player:GetShootPos()) <= 192) then
 						return true;
 					else
-						Schema:EasyText(player, "firebrick", "This character is too far away!");
+						Schema:EasyText(player, "firebrick", "Ce personnage est trop éloigné !");
 					end
 				else
-					Schema:EasyText(player, "firebrick", "This character is protected by some magical aura and cannot be marked!");
+					Schema:EasyText(player, "firebrick", "Ce personnage est protégé par une aura magique et ne peut être marqué !");
 				end
 			else
-				Schema:EasyText(player, "darkgrey", "The target character is already dead!");
+				Schema:EasyText(player, "darkgrey", "Le personnage ciblé est déjà mort !");
 			end
 		else
-			Schema:EasyText(player, "firebrick", "You must look at a valid character!");
+			Schema:EasyText(player, "firebrick", "Vous devez regarder un personnage valide !");
 		end
 		
 		return false;
@@ -1394,13 +1394,13 @@ RITUAL = cwRituals.rituals:New("regrowth_target");
 				if (target:GetShootPos():Distance(player:GetShootPos()) <= 192) then
 					return true;
 				else
-					Schema:EasyText(player, "firebrick", "This character is too far away!");
+					Schema:EasyText(player, "firebrick", "Ce personnage est trop éloigné !");
 				end
 			else
-				Schema:EasyText(player, "darkgrey", "The target character is already dead!");
+				Schema:EasyText(player, "darkgrey", "Le personnage ciblé est déjà mort !");
 			end
 		else
-			Schema:EasyText(player, "firebrick", "You must look at a valid character!");
+			Schema:EasyText(player, "firebrick", "Vous devez regarder un personnage valide !");
 		end
 		
 		return false;
@@ -1451,13 +1451,13 @@ RITUAL = cwRituals.rituals:New("regrowth_target");
 					
 					return true;
 				else
-					Schema:EasyText(player, "firebrick", "This character is too far away!");
+					Schema:EasyText(player, "firebrick", "Ce personnage est trop éloigné !");
 				end
 			else
-				Schema:EasyText(player, "darkgrey", "The target character is already dead!");
+				Schema:EasyText(player, "darkgrey", "Le personnage ciblé est déjà mort !");
 			end
 		else
-			Schema:EasyText(player, "firebrick", "You must look at a valid character!");
+			Schema:EasyText(player, "firebrick", "Vous devez regarder un personnage valide !");
 		end
 		
 		return false;
@@ -1553,7 +1553,7 @@ if game.GetMap() == "rp_district21" then
 		function RITUAL:StartRitual(player)
 			if cwWeather then
 				if !cwWeather.weatherTypes["blizzard"] then
-					Schema:EasyText(player, "peru", "This climate is unsuited for a blizzard!");
+					Schema:EasyText(player, "peru", "Ce climat ne convient pas à une tempête de neige !");
 					
 					return false;
 				end
@@ -1566,7 +1566,7 @@ if game.GetMap() == "rp_district21" then
 					
 					return true;
 				else
-					Schema:EasyText(player, "peru", "There is already an active blizzard!");
+					Schema:EasyText(player, "peru", "Il y a déjà une tempête de neige en cours !");
 					
 					return false;
 				end
@@ -1602,7 +1602,7 @@ else
 		function RITUAL:StartRitual(player)
 			if cwWeather then
 				if !cwWeather.weatherTypes["thunderstorm"] then
-					Schema:EasyText(player, "peru", "This climate is unsuited for a thunderstorm!");
+					Schema:EasyText(player, "peru", "Ce climat ne convient pas à un orage !");
 					
 					return false;
 				end
@@ -1615,7 +1615,7 @@ else
 					
 					return true;
 				else
-					Schema:EasyText(player, "peru", "There is already an active thunderstorm!");
+					Schema:EasyText(player, "peru", "Il y a déjà un orage actif !");
 					
 					return false;
 				end
@@ -1648,7 +1648,7 @@ RITUAL = cwRituals.rituals:New("glazic_rite_of_clear_skies");
 				if IsValid(v) and v:HasInitialized() then
 					local vLastZone = v:GetCharacterData("LastZone");
 						
-					Clockwork.chatBox:Add(v, nil, "event", "Praise be! A Glazic Astronomer has manipulated the heavens, and soon the skies will be clear!");
+					Clockwork.chatBox:Add(v, nil, "event", "Loué soit ! Un Astronome Glazic a manipulé les cieux, et bientôt le ciel sera dégagé !");
 				end
 			end
 		end
@@ -1667,13 +1667,13 @@ RITUAL = cwRituals.rituals:New("glazic_rite_of_clear_skies");
 		local lastZone = player:GetCharacterData("LastZone");
 		
 		if lastZone ~= "wasteland" and lastZone ~= "hotspring" then
-			Schema:EasyText(player, "peru", "You must be in the wasteland to perform this ritual!")
+			Schema:EasyText(player, "peru", "Vous devez être dans le désert pour accomplir ce rituel !")
 			return false
 		end
 
 		if cwWeather then
 			if !cwWeather.weatherTypes["normal"] then
-				Schema:EasyText(player, "peru", "This climate is unsuited for this!");
+				Schema:EasyText(player, "peru", "Ce climat ne convient pas pour cela !");
 				
 				return false;
 			end
@@ -1686,7 +1686,7 @@ RITUAL = cwRituals.rituals:New("glazic_rite_of_clear_skies");
 				
 				return true;
 			else
-				Schema:EasyText(player, "peru", "The skies are already clear!");
+				Schema:EasyText(player, "peru", "Le ciel est déjà dégagé !");
 				
 				return false;
 			end
@@ -1716,17 +1716,17 @@ RITUAL = cwRituals.rituals:New("Sister's Blessing");
 		local target = player:GetEyeTraceNoCursor().Entity;
 
 		if target:GetClass() != "cw_longship" then 
-			Schema:EasyText(player, "firebrick", "You must look at a longship!");
+			Schema:EasyText(player, "firebrick", "Tu dois regarder un drakkar !");
 			return false;
 		end
 
 		if (target:GetPos():Distance(player:GetShootPos()) > 256) then
-			Schema:EasyText(player, "firebrick", "You are too far from the longship!");
+			Schema:EasyText(player, "firebrick", "Vous êtes trop loin du drakkar !");
 			return false;
 		end
 
 		if target.enchantment == true then
-			Schema:EasyText(player, "firebrick", "This longship is already enchanted!");
+			Schema:EasyText(player, "firebrick", "Ce drakkar est déjà enchanté !");
 			return false;
 		end
 
@@ -1738,21 +1738,21 @@ RITUAL = cwRituals.rituals:New("Sister's Blessing");
 		local target = player:GetEyeTraceNoCursor().Entity;
 
 		if target:GetClass() != "cw_longship" then 
-			Schema:EasyText(player, "firebrick", "You must look at a longship!");
+			Schema:EasyText(player, "firebrick", "Tu dois regarder un drakkar !");
 			return false;
 		end
 
 		if (target:GetPos():Distance(player:GetShootPos()) > 256) then
-			Schema:EasyText(player, "firebrick", "You are too far from the longship!");
+			Schema:EasyText(player, "firebrick", "Vous êtes trop loin du drakkar !");
 			return false;
 		end
 
 		if target.enchantment == true then
-			Schema:EasyText(player, "firebrick", "This longship is already enchanted!");
+			Schema:EasyText(player, "firebrick", "Ce drakkar est déjà enchanté !");
 			return false;
 		end
 
-		Schema:EasyText(player, "icon16/anchor.png", "cornflowerblue", "This ship can now navigate the River Styx!");
+		Schema:EasyText(player, "icon16/anchor.png", "bleuet", "This ship can now navigate the River Styx!");
 		Schema:EasyText(Schema:GetAdmins(), "icon16/anchor.png", "goldenrod", player:Name() .. " has enchanted a boat to navigate the River Styx! You can perform the /ToggleHellSailing command to allow them to sail to the Hell Manor!")
 		target.enchantment = true;
 			
@@ -1838,7 +1838,7 @@ RITUAL = cwRituals.rituals:New("sprouting");
 		player:SetHealth(math.min(player:Health() + 200, player:GetMaxHealth()));
 		player:SetBloodLevel(5000);
 		
-		Clockwork.chatBox:Add(player, nil, "itnofake", "An overwhelming rush of relief overcomes you as you feel rejuvenated.");
+		Clockwork.chatBox:Add(player, nil, "itnofake", "Un immense soulagement vous submerge alors que vous vous sentez revigoré.");
 	end;
 	function RITUAL:OnFail(player)
 	end;
@@ -1874,7 +1874,7 @@ RITUAL = cwRituals.rituals:New("soulscorch");
 			end
 		end);
 		
-		Clockwork.chatBox:AddInTargetRadius(player, "me", "begins glowing with divine radiance!", player:GetPos(), config.Get("talk_radius"):Get() * 2);
+		Clockwork.chatBox:AddInTargetRadius(player, "me", "commence à rayonner d'une lumière divine !", player:GetPos(), config.Get("talk_radius"):Get() * 2);
 	end;
 	function RITUAL:OnFail(player)
 	end;
@@ -1883,7 +1883,7 @@ RITUAL = cwRituals.rituals:New("soulscorch");
 		
 		if lastZone == "theater" or lastZone == "tower" then
 			if Schema.towerSafeZoneEnabled then
-				Schema:EasyText(player, "firebrick", "There is some sort of supernatural force preventing you from doing this here!");
+				Schema:EasyText(player, "firebrick", "Une force surnaturelle t'empêche de faire ça ici !");
 				return false;
 			end
 		end
@@ -1917,7 +1917,7 @@ RITUAL = cwRituals.rituals:New("steel_will");
 			end
 		end);
 		
-		Clockwork.chatBox:Add(player, nil, "itnofake", "You feel like your mind is a stalwart fortress!");
+		Clockwork.chatBox:Add(player, nil, "itnofake", "Tu as l'impression que ton esprit est une forteresse inébranlable !");
 	end;
 	function RITUAL:OnFail(player)
 	end;
@@ -1951,7 +1951,7 @@ RITUAL = cwRituals.rituals:New("enlightenment");
 			end
 		end);
 		
-		Clockwork.chatBox:Add(player, nil, "itnofake", "You can feel a warm holy light exuding from every orifice in your body!");
+		Clockwork.chatBox:Add(player, nil, "itnofake", "Tu sens une chaleureuse lumière sacrée émaner de chaque orifice de ton corps !");
 	end;
 	function RITUAL:OnFail(player)
 	end;
@@ -1981,7 +1981,7 @@ RITUAL = cwRituals.rituals:New("summon_champion");
 	end;
 	function RITUAL:StartRitual(player)
 		if player.nextRitualSummon and player.nextRitualSummon > CurTime() then
-			Schema:EasyText(player, "firebrick", "You cannot summon again for "..tostring(math.ceil(player.nextRitualSummon - CurTime())).." more seconds!");
+			Schema:EasyText(player, "firebrick", "Vous ne pouvez pas invoquer à nouveau avant"..tostring(math.ceil(player.nextRitualSummon - CurTime())).." more seconds!");
 			return false;
 		end
 	
@@ -1989,26 +1989,26 @@ RITUAL = cwRituals.rituals:New("summon_champion");
 		
 		if lastZone == "theater" or lastZone == "tower" then
 			if Schema.towerSafeZoneEnabled then
-				Schema:EasyText(player, "firebrick", "There is some sort of supernatural force preventing you from doing this here!");
+				Schema:EasyText(player, "firebrick", "Une force surnaturelle t'empêche de faire ça ici !");
 				return false;
 			end
 		end
 
 		if lastZone == "gore_tree" or lastZone == "gore_hallway" or lastZone == "gore" or lastZone == "sea_rough" or lastZone == "sea_calm" or lastZone == "sea_styx" or lastZone == "gore_soil" then
-			Schema:EasyText(player, "firebrick", "There is some sort of supernatural force preventing you from doing this here!");
+			Schema:EasyText(player, "firebrick", "Une force surnaturelle t'empêche de faire ça ici !");
 			return false;
 		end
 		
 		local trace = player:GetEyeTraceNoCursor();
 		
 		if (trace.HitPos:Distance(player:GetShootPos()) > 192) then
-			Schema:EasyText(player, "firebrick", "You cannot summon that far away!");
+			Schema:EasyText(player, "firebrick", "Vous ne pouvez pas invoquer aussi loin !");
 			
 			return false;
 		end;
 		
 		if !IsAreaClear(trace.HitPos, 32, player) then
-			Schema:EasyText(player, "firebrick", "The area you are trying to summon in is not clear!");
+			Schema:EasyText(player, "firebrick", "La zone où vous tentez d'invoquer n'est pas dégagée !");
 			
 			return false;
 		end
@@ -2017,13 +2017,13 @@ RITUAL = cwRituals.rituals:New("summon_champion");
 		local lastZone = player:GetCharacterData("LastZone");
 		
 		if lastZone == "gore_tree" or lastZone == "gore_hallway" or lastZone == "gore" or lastZone == "sea_rough" or lastZone == "sea_calm" or lastZone == "sea_styx" or lastZone == "gore_soil" then
-			Schema:EasyText(player, "firebrick", "There is some sort of supernatural force preventing you from doing this here!");
+			Schema:EasyText(player, "firebrick", "Une force surnaturelle t'empêche de faire ça ici !");
 			return false;
 		end
 
 		if lastZone == "theater" or lastZone == "tower" then
 			if Schema.towerSafeZoneEnabled then
-				Schema:EasyText(player, "firebrick", "There is some sort of supernatural force preventing you from doing this here!");
+				Schema:EasyText(player, "firebrick", "Une force surnaturelle t'empêche de faire ça ici !");
 				return false;
 			end
 		end
@@ -2032,7 +2032,7 @@ RITUAL = cwRituals.rituals:New("summon_champion");
 		
 		if (trace.HitPos:Distance(player:GetShootPos()) <= 192) then
 			if !IsAreaClear(trace.HitPos, 32, player) then
-				Schema:EasyText(player, "firebrick", "The area you are trying to summon in is not clear!");
+				Schema:EasyText(player, "firebrick", "La zone où vous tentez d'invoquer n'est pas dégagée !");
 				
 				return false;
 			end
@@ -2071,11 +2071,11 @@ RITUAL = cwRituals.rituals:New("summon_champion");
 					--Clockwork.entity:MakeFlushToGround(entity, trace.HitPos + Vector(0, 0, 64), trace.HitNormal);
 					entity:SetPos(trace.HitPos + Vector(0, 0, 16));
 					
-					Clockwork.chatBox:AddInTargetRadius(player, "it", "There is a blinding flash of light and thunderous noise as an unholy champion of Hell appears!", trace.HitPos, config.Get("talk_radius"):Get() * 3);
+					Clockwork.chatBox:AddInTargetRadius(player, "it", "Un éclair aveuglant et un grondement assourdissant marquent l'apparition d'un champion impie des Enfers !", trace.HitPos, config.Get("talk_radius"):Get() * 3);
 				end
 			end);
 		else
-			Schema:EasyText(player, "firebrick", "You cannot summon that far away!");
+			Schema:EasyText(player, "firebrick", "Vous ne pouvez pas invoquer aussi loin !");
 			
 			return false;
 		end;
@@ -2102,7 +2102,7 @@ RITUAL = cwRituals.rituals:New("summon_soldier");
 	end;
 	function RITUAL:StartRitual(player)
 		if player.nextRitualSummon and player.nextRitualSummon > CurTime() then
-			Schema:EasyText(player, "firebrick", "You cannot summon again for "..tostring(math.ceil(player.nextRitualSummon - CurTime())).." more seconds!");
+			Schema:EasyText(player, "firebrick", "Vous ne pouvez pas invoquer à nouveau avant"..tostring(math.ceil(player.nextRitualSummon - CurTime())).." more seconds!");
 			return false;
 		end
 	
@@ -2110,26 +2110,26 @@ RITUAL = cwRituals.rituals:New("summon_soldier");
 		
 		if lastZone == "theater" or lastZone == "tower" then
 			if Schema.towerSafeZoneEnabled then
-				Schema:EasyText(player, "firebrick", "There is some sort of supernatural force preventing you from doing this here!");
+				Schema:EasyText(player, "firebrick", "Une force surnaturelle t'empêche de faire ça ici !");
 				return false;
 			end
 		end
 
 		if lastZone == "gore_tree" or lastZone == "gore_hallway" or lastZone == "gore" or lastZone == "sea_rough" or lastZone == "sea_calm" or lastZone == "sea_styx" or lastZone == "gore_soil" then
-			Schema:EasyText(player, "firebrick", "There is some sort of supernatural force preventing you from doing this here!");
+			Schema:EasyText(player, "firebrick", "Une force surnaturelle t'empêche de faire ça ici !");
 			return false;
 		end
 		
 		local trace = player:GetEyeTraceNoCursor();
 		
 		if (trace.HitPos:Distance(player:GetShootPos()) > 192) then
-			Schema:EasyText(player, "firebrick", "You cannot summon that far away!");
+			Schema:EasyText(player, "firebrick", "Vous ne pouvez pas invoquer aussi loin !");
 			
 			return false;
 		end;
 		
 		if !IsAreaClear(trace.HitPos, 32, player) then
-			Schema:EasyText(player, "firebrick", "The area you are trying to summon in is not clear!");
+			Schema:EasyText(player, "firebrick", "La zone où vous tentez d'invoquer n'est pas dégagée !");
 			
 			return false;
 		end
@@ -2138,13 +2138,13 @@ RITUAL = cwRituals.rituals:New("summon_soldier");
 		local lastZone = player:GetCharacterData("LastZone");
 		
 		if lastZone == "gore_tree" or lastZone == "gore_hallway" or lastZone == "gore" or lastZone == "sea_rough" or lastZone == "sea_calm" or lastZone == "sea_styx" or lastZone == "gore_soil" then
-			Schema:EasyText(player, "firebrick", "There is some sort of supernatural force preventing you from doing this here!");
+			Schema:EasyText(player, "firebrick", "Une force surnaturelle t'empêche de faire ça ici !");
 			return false;
 		end
 
 		if lastZone == "theater" or lastZone == "tower" then
 			if Schema.towerSafeZoneEnabled then
-				Schema:EasyText(player, "firebrick", "There is some sort of supernatural force preventing you from doing this here!");
+				Schema:EasyText(player, "firebrick", "Une force surnaturelle t'empêche de faire ça ici !");
 				return false;
 			end
 		end
@@ -2153,7 +2153,7 @@ RITUAL = cwRituals.rituals:New("summon_soldier");
 		
 		if (trace.HitPos:Distance(player:GetShootPos()) <= 192) then
 			if !IsAreaClear(trace.HitPos, 32, player) then
-				Schema:EasyText(player, "firebrick", "The area you are trying to summon in is not clear!");
+				Schema:EasyText(player, "firebrick", "La zone où vous tentez d'invoquer n'est pas dégagée !");
 				
 				return false;
 			end
@@ -2192,11 +2192,11 @@ RITUAL = cwRituals.rituals:New("summon_soldier");
 					--Clockwork.entity:MakeFlushToGround(entity, trace.HitPos + Vector(0, 0, 64), trace.HitNormal);
 					entity:SetPos(trace.HitPos + Vector(0, 0, 16));
 					
-					Clockwork.chatBox:AddInTargetRadius(player, "it", "There is a blinding flash of light and thunderous noise as an unholy creature of Hell suddenly appears!", trace.HitPos, config.Get("talk_radius"):Get() * 3);
+					Clockwork.chatBox:AddInTargetRadius(player, "it", "Un éclair aveuglant et un grondement assourdissant annoncent l'apparition soudaine d'une créature impie des Enfers !", trace.HitPos, config.Get("talk_radius"):Get() * 3);
 				end
 			end);
 		else
-			Schema:EasyText(player, "firebrick", "You cannot summon that far away!");
+			Schema:EasyText(player, "firebrick", "Vous ne pouvez pas invoquer aussi loin !");
 			
 			return false;
 		end;
@@ -2256,7 +2256,7 @@ RITUAL = cwRituals.rituals:New("summon_otis");
 	end;
 	function RITUAL:StartRitual(player)
 		if player.nextRitualSummon and player.nextRitualSummon > CurTime() then
-			Schema:EasyText(player, "firebrick", "You cannot summon again for "..tostring(math.ceil(player.nextRitualSummon - CurTime())).." more seconds!");
+			Schema:EasyText(player, "firebrick", "Vous ne pouvez pas invoquer à nouveau avant"..tostring(math.ceil(player.nextRitualSummon - CurTime())).." more seconds!");
 			return false;
 		end
 	
@@ -2264,26 +2264,26 @@ RITUAL = cwRituals.rituals:New("summon_otis");
 		
 		if lastZone == "theater" or lastZone == "tower" then
 			if Schema.towerSafeZoneEnabled then
-				Schema:EasyText(player, "firebrick", "There is some sort of supernatural force preventing you from doing this here!");
+				Schema:EasyText(player, "firebrick", "Une force surnaturelle t'empêche d'agir ainsi ici !");
 				return false;
 			end
 		end
 
 		if lastZone == "gore_tree" or lastZone == "gore_hallway" or lastZone == "gore" or lastZone == "sea_rough" or lastZone == "sea_calm" or lastZone == "sea_styx" or lastZone == "gore_soil" then
-			Schema:EasyText(player, "firebrick", "There is some sort of supernatural force preventing you from doing this here!");
+			Schema:EasyText(player, "firebrick", "Une force surnaturelle t'empêche de faire ça ici !");
 			return false;
 		end
 		
 		local trace = player:GetEyeTraceNoCursor();
 		
 		if (trace.HitPos:Distance(player:GetShootPos()) > 192) then
-			Schema:EasyText(player, "firebrick", "You cannot summon that far away!");
+			Schema:EasyText(player, "firebrick", "Vous ne pouvez pas invoquer aussi loin !");
 			
 			return false;
 		end;
 		
 		if !IsAreaClear(trace.HitPos, 32, player) then
-			Schema:EasyText(player, "firebrick", "The area you are trying to summon in is not clear!");
+			Schema:EasyText(player, "firebrick", "La zone où vous tentez d'invoquer n'est pas dégagée !");
 			
 			return false;
 		end
@@ -2292,13 +2292,13 @@ RITUAL = cwRituals.rituals:New("summon_otis");
 		local lastZone = player:GetCharacterData("LastZone");
 		
 		if lastZone == "gore_tree" or lastZone == "gore_hallway" or lastZone == "gore" or lastZone == "sea_rough" or lastZone == "sea_calm" or lastZone == "sea_styx" or lastZone == "gore_soil" then
-			Schema:EasyText(player, "firebrick", "There is some sort of supernatural force preventing you from doing this here!");
+			Schema:EasyText(player, "firebrick", "Une force surnaturelle t'empêche de faire ça ici !");
 			return false;
 		end
 
 		if lastZone == "theater" or lastZone == "tower" then
 			if Schema.towerSafeZoneEnabled then
-				Schema:EasyText(player, "firebrick", "There is some sort of supernatural force preventing you from doing this here!");
+				Schema:EasyText(player, "firebrick", "Une force surnaturelle t'empêche de faire ça ici !");
 				return false;
 			end
 		end
@@ -2307,7 +2307,7 @@ RITUAL = cwRituals.rituals:New("summon_otis");
 		
 		if (trace.HitPos:Distance(player:GetShootPos()) <= 192) then
 			if !IsAreaClear(trace.HitPos, 32, player) then
-				Schema:EasyText(player, "firebrick", "The area you are trying to summon in is not clear!");
+				Schema:EasyText(player, "firebrick", "La zone où vous tentez d'invoquer n'est pas dégagée !");
 				
 				return false;
 			end
@@ -2347,11 +2347,11 @@ RITUAL = cwRituals.rituals:New("summon_otis");
 					--Clockwork.entity:MakeFlushToGround(entity, trace.HitPos + Vector(0, 0, 64), trace.HitNormal);
 					entity:SetPos(trace.HitPos + Vector(0, 0, 16));
 					
-					Clockwork.chatBox:AddInTargetRadius(player, "it", "There is a blinding flash of light and thunderous noise as an unholy creature of Hell suddenly appears!", trace.HitPos, config.Get("talk_radius"):Get() * 3);
+					Clockwork.chatBox:AddInTargetRadius(player, "it", "Un éclair aveuglant et un grondement assourdissant annoncent l'apparition soudaine d'une créature impie des Enfers !", trace.HitPos, config.Get("talk_radius"):Get() * 3);
 				end
 			end);
 		else
-			Schema:EasyText(player, "firebrick", "You cannot summon that far away!");
+			Schema:EasyText(player, "firebrick", "Vous ne pouvez pas invoquer aussi loin !");
 			
 			return false;
 		end;
@@ -2378,20 +2378,20 @@ RITUAL = cwRituals.rituals:New("summon_sprinter");
 	end;
 	function RITUAL:StartRitual(player)
 		if player.nextRitualSummon and player.nextRitualSummon > CurTime() then
-			Schema:EasyText(player, "firebrick", "You cannot summon again for "..tostring(math.ceil(player.nextRitualSummon - CurTime())).." more seconds!");
+			Schema:EasyText(player, "firebrick", "Vous ne pouvez pas invoquer à nouveau avant"..tostring(math.ceil(player.nextRitualSummon - CurTime())).." more seconds!");
 			return false;
 		end
 		
 		local lastZone = player:GetCharacterData("LastZone");
 		
 		if lastZone == "gore_tree" or lastZone == "gore_hallway" or lastZone == "gore" or lastZone == "sea_rough" or lastZone == "sea_calm" or lastZone == "sea_styx" or lastZone == "gore_soil" then
-			Schema:EasyText(player, "firebrick", "There is some sort of supernatural force preventing you from doing this here!");
+			Schema:EasyText(player, "firebrick", "Une force surnaturelle t'empêche d'agir ainsi ici !");
 			return false;
 		end
 
 		if lastZone == "theater" or lastZone == "tower" then
 			if Schema.towerSafeZoneEnabled then
-				Schema:EasyText(player, "firebrick", "There is some sort of supernatural force preventing you from doing this here!");
+				Schema:EasyText(player, "firebrick", "Une force surnaturelle t'empêche de faire cela ici !");
 				return false;
 			end
 		end
@@ -2399,13 +2399,13 @@ RITUAL = cwRituals.rituals:New("summon_sprinter");
 		local trace = player:GetEyeTraceNoCursor();
 		
 		if (trace.HitPos:Distance(player:GetShootPos()) > 192) then
-			Schema:EasyText(player, "firebrick", "You cannot summon that far away!");
+			Schema:EasyText(player, "firebrick", "Vous ne pouvez pas invoquer aussi loin !");
 			
 			return false;
 		end;
 		
 		if !IsAreaClear(trace.HitPos, 32, player) then
-			Schema:EasyText(player, "firebrick", "The area you are trying to summon in is not clear!");
+			Schema:EasyText(player, "firebrick", "La zone où vous tentez d'invoquer n'est pas dégagée !");
 			
 			return false;
 		end
@@ -2415,14 +2415,14 @@ RITUAL = cwRituals.rituals:New("summon_sprinter");
 
 
 		if lastZone == "gore_tree" or lastZone == "gore_hallway" or lastZone == "gore" or lastZone == "sea_rough" or lastZone == "sea_calm" or lastZone == "sea_styx" or lastZone == "gore_soil" then
-			Schema:EasyText(player, "firebrick", "There is some sort of supernatural force preventing you from doing this here!");
+			Schema:EasyText(player, "firebrick", "Une force surnaturelle t'empêche de faire ça ici !");
 			return false;
 		end
 		
 		
 		if lastZone == "theater" or lastZone == "tower" then
 			if Schema.towerSafeZoneEnabled then
-				Schema:EasyText(player, "firebrick", "There is some sort of supernatural force preventing you from doing this here!");
+				Schema:EasyText(player, "firebrick", "Une force surnaturelle t'empêche de faire ça ici !");
 				return false;
 			end
 		end
@@ -2431,7 +2431,7 @@ RITUAL = cwRituals.rituals:New("summon_sprinter");
 		
 		if (trace.HitPos:Distance(player:GetShootPos()) <= 192) then
 			if !IsAreaClear(trace.HitPos, 32, player) then
-				Schema:EasyText(player, "firebrick", "The area you are trying to summon in is not clear!");
+				Schema:EasyText(player, "firebrick", "La zone où vous tentez d'invoquer n'est pas dégagée !");
 				
 				return false;
 			end
@@ -2479,11 +2479,11 @@ RITUAL = cwRituals.rituals:New("summon_sprinter");
 					entity:SetPos(v + Vector(0, 0, 16));
 				end
 					
-				Clockwork.chatBox:AddInTargetRadius(player, "it", "There is a blinding flash of light and thunderous noise as two unholy Sprinters of Hell summon into this plane! Oh fuck!", trace.HitPos, config.Get("talk_radius"):Get() * 3);
+				Clockwork.chatBox:AddInTargetRadius(player, "it", "Un éclair aveuglant et un grondement assourdissant annoncent l'arrivée de deux Sprinters infernaux dans ce plan ! Oh merde !", trace.HitPos, config.Get("talk_radius"):Get() * 3);
 
 			end);
 		else
-			Schema:EasyText(player, "firebrick", "You cannot summon that far away!");
+			Schema:EasyText(player, "firebrick", "Vous ne pouvez pas invoquer aussi loin !");
 			
 			return false;
 		end;
@@ -2509,7 +2509,7 @@ RITUAL = cwRituals.rituals:New("summon_familiar_bear");
 	end;
 	function RITUAL:StartRitual(player)
 		if player.nextRitualSummon and player.nextRitualSummon > CurTime() then
-			Schema:EasyText(player, "firebrick", "You cannot summon again for "..tostring(math.ceil(player.nextRitualSummon - CurTime())).." more seconds!");
+			Schema:EasyText(player, "firebrick", "Vous ne pouvez pas invoquer à nouveau avant"..tostring(math.ceil(player.nextRitualSummon - CurTime())).." more seconds!");
 			return false;
 		end
 		
@@ -2517,7 +2517,7 @@ RITUAL = cwRituals.rituals:New("summon_familiar_bear");
 		
 		if lastZone == "theater" or lastZone == "tower" then
 			if Schema.towerSafeZoneEnabled then
-				Schema:EasyText(player, "firebrick", "There is some sort of supernatural force preventing you from doing this here!");
+				Schema:EasyText(player, "firebrick", "Une force surnaturelle t'empêche de faire ça ici !");
 				return false;
 			end
 		end
@@ -2525,13 +2525,13 @@ RITUAL = cwRituals.rituals:New("summon_familiar_bear");
 		local trace = player:GetEyeTraceNoCursor();
 		
 		if (trace.HitPos:Distance(player:GetShootPos()) > 192) then
-			Schema:EasyText(player, "firebrick", "You cannot summon that far away!");
+			Schema:EasyText(player, "firebrick", "Vous ne pouvez pas invoquer aussi loin !");
 			
 			return false;
 		end;
 		
 		if !IsAreaClear(trace.HitPos, 32, player) then
-			Schema:EasyText(player, "firebrick", "The area you are trying to summon in is not clear!");
+			Schema:EasyText(player, "firebrick", "La zone où vous tentez d'invoquer n'est pas dégagée !");
 			
 			return false;
 		end
@@ -2541,7 +2541,7 @@ RITUAL = cwRituals.rituals:New("summon_familiar_bear");
 		
 		if lastZone == "theater" or lastZone == "tower" then
 			if Schema.towerSafeZoneEnabled then
-				Schema:EasyText(player, "firebrick", "There is some sort of supernatural force preventing you from doing this here!");
+				Schema:EasyText(player, "firebrick", "Une force surnaturelle t'empêche de faire ça ici !");
 				return false;
 			end
 		end
@@ -2550,7 +2550,7 @@ RITUAL = cwRituals.rituals:New("summon_familiar_bear");
 		
 		if (trace.HitPos:Distance(player:GetShootPos()) <= 192) then
 			if !IsAreaClear(trace.HitPos, 32, player) then
-				Schema:EasyText(player, "firebrick", "The area you are trying to summon in is not clear!");
+				Schema:EasyText(player, "firebrick", "La zone où vous tentez d'invoquer n'est pas dégagée !");
 				
 				return false;
 			end
@@ -2593,11 +2593,11 @@ RITUAL = cwRituals.rituals:New("summon_familiar_bear");
 					--Clockwork.entity:MakeFlushToGround(entity, trace.HitPos + Vector(0, 0, 64), trace.HitNormal);
 					entity:SetPos(trace.HitPos + Vector(0, 0, 16));
 					
-					Clockwork.chatBox:AddInTargetRadius(player, "it", "There is a blinding flash of light and thunderous noise as a creature of the Gore Forest suddenly appears!", trace.HitPos, config.Get("talk_radius"):Get() * 3);
+					Clockwork.chatBox:AddInTargetRadius(player, "it", "Un éclair aveuglant et un grondement assourdissant annoncent l'apparition soudaine d'une créature de la Forêt de Gore !", trace.HitPos, config.Get("talk_radius"):Get() * 3);
 				end
 			end);
 		else
-			Schema:EasyText(player, "firebrick", "You cannot summon that far away!");
+			Schema:EasyText(player, "firebrick", "Vous ne pouvez pas invoquer aussi loin !");
 			
 			return false;
 		end;
@@ -2625,7 +2625,7 @@ RITUAL = cwRituals.rituals:New("summon_familiar_leopard");
 	end;
 	function RITUAL:StartRitual(player)
 		if player.nextRitualSummon and player.nextRitualSummon > CurTime() then
-			Schema:EasyText(player, "firebrick", "You cannot summon again for "..tostring(math.ceil(player.nextRitualSummon - CurTime())).." more seconds!");
+			Schema:EasyText(player, "firebrick", "Vous ne pouvez pas invoquer à nouveau avant"..tostring(math.ceil(player.nextRitualSummon - CurTime())).." more seconds!");
 			return false;
 		end
 		
@@ -2633,7 +2633,7 @@ RITUAL = cwRituals.rituals:New("summon_familiar_leopard");
 		
 		if lastZone == "theater" or lastZone == "tower" then
 			if Schema.towerSafeZoneEnabled then
-				Schema:EasyText(player, "firebrick", "There is some sort of supernatural force preventing you from doing this here!");
+				Schema:EasyText(player, "firebrick", "Une force surnaturelle t'empêche de faire ça ici !");
 				return false;
 			end
 		end
@@ -2641,13 +2641,13 @@ RITUAL = cwRituals.rituals:New("summon_familiar_leopard");
 		local trace = player:GetEyeTraceNoCursor();
 		
 		if (trace.HitPos:Distance(player:GetShootPos()) > 192) then
-			Schema:EasyText(player, "firebrick", "You cannot summon that far away!");
+			Schema:EasyText(player, "firebrick", "Vous ne pouvez pas invoquer aussi loin !");
 			
 			return false;
 		end;
 		
 		if !IsAreaClear(trace.HitPos, 32, player) then
-			Schema:EasyText(player, "firebrick", "The area you are trying to summon in is not clear!");
+			Schema:EasyText(player, "firebrick", "La zone où vous tentez d'invoquer n'est pas dégagée !");
 			
 			return false;
 		end
@@ -2657,7 +2657,7 @@ RITUAL = cwRituals.rituals:New("summon_familiar_leopard");
 		
 		if lastZone == "theater" or lastZone == "tower" then
 			if Schema.towerSafeZoneEnabled then
-				Schema:EasyText(player, "firebrick", "There is some sort of supernatural force preventing you from doing this here!");
+				Schema:EasyText(player, "firebrick", "Une force surnaturelle t'empêche de faire ça ici !");
 				return false;
 			end
 		end
@@ -2666,7 +2666,7 @@ RITUAL = cwRituals.rituals:New("summon_familiar_leopard");
 		
 		if (trace.HitPos:Distance(player:GetShootPos()) <= 192) then
 			if !IsAreaClear(trace.HitPos, 32, player) then
-				Schema:EasyText(player, "firebrick", "The area you are trying to summon in is not clear!");
+				Schema:EasyText(player, "firebrick", "La zone où vous tentez d'invoquer n'est pas dégagée !");
 				
 				return false;
 			end
@@ -2710,11 +2710,11 @@ RITUAL = cwRituals.rituals:New("summon_familiar_leopard");
 					--Clockwork.entity:MakeFlushToGround(entity, trace.HitPos + Vector(0, 0, 64), trace.HitNormal);
 					entity:SetPos(trace.HitPos + Vector(0, 0, 16));
 					
-					Clockwork.chatBox:AddInTargetRadius(player, "it", "There is a blinding flash of light and thunderous noise as a creature of the Gore Forest suddenly appears!", trace.HitPos, config.Get("talk_radius"):Get() * 3);
+					Clockwork.chatBox:AddInTargetRadius(player, "it", "Un éclair aveuglant et un grondement tonitruant annoncent l'apparition soudaine d'une créature de la Forêt de Gore !", trace.HitPos, config.Get("talk_radius"):Get() * 3);
 				end
 			end);
 		else
-			Schema:EasyText(player, "firebrick", "You cannot summon that far away!");
+			Schema:EasyText(player, "firebrick", "Vous ne pouvez pas invoquer aussi loin !");
 			
 			return false;
 		end;
@@ -2741,7 +2741,7 @@ RITUAL = cwRituals.rituals:New("summon_familiar_elk");
 	end;
 	function RITUAL:StartRitual(player)
 		if player.nextRitualSummon and player.nextRitualSummon > CurTime() then
-			Schema:EasyText(player, "firebrick", "You cannot summon again for "..tostring(math.ceil(player.nextRitualSummon - CurTime())).." more seconds!");
+			Schema:EasyText(player, "firebrick", "Vous ne pouvez pas invoquer à nouveau avant"..tostring(math.ceil(player.nextRitualSummon - CurTime())).." more seconds!");
 			return false;
 		end
 		
@@ -2749,7 +2749,7 @@ RITUAL = cwRituals.rituals:New("summon_familiar_elk");
 		
 		if lastZone == "theater" or lastZone == "tower" then
 			if Schema.towerSafeZoneEnabled then
-				Schema:EasyText(player, "firebrick", "There is some sort of supernatural force preventing you from doing this here!");
+				Schema:EasyText(player, "firebrick", "Une force surnaturelle t'empêche de faire ça ici !");
 				return false;
 			end
 		end
@@ -2757,13 +2757,13 @@ RITUAL = cwRituals.rituals:New("summon_familiar_elk");
 		local trace = player:GetEyeTraceNoCursor();
 		
 		if (trace.HitPos:Distance(player:GetShootPos()) > 192) then
-			Schema:EasyText(player, "firebrick", "You cannot summon that far away!");
+			Schema:EasyText(player, "firebrick", "Vous ne pouvez pas invoquer aussi loin !");
 			
 			return false;
 		end;
 		
 		if !IsAreaClear(trace.HitPos, 32, player) then
-			Schema:EasyText(player, "firebrick", "The area you are trying to summon in is not clear!");
+			Schema:EasyText(player, "firebrick", "La zone où vous tentez d'invoquer n'est pas dégagée !");
 			
 			return false;
 		end
@@ -2773,7 +2773,7 @@ RITUAL = cwRituals.rituals:New("summon_familiar_elk");
 		
 		if lastZone == "theater" or lastZone == "tower" then
 			if Schema.towerSafeZoneEnabled then
-				Schema:EasyText(player, "firebrick", "There is some sort of supernatural force preventing you from doing this here!");
+				Schema:EasyText(player, "firebrick", "Une force surnaturelle t'empêche de faire ça ici !");
 				return false;
 			end
 		end
@@ -2782,7 +2782,7 @@ RITUAL = cwRituals.rituals:New("summon_familiar_elk");
 		
 		if (trace.HitPos:Distance(player:GetShootPos()) <= 192) then
 			if !IsAreaClear(trace.HitPos, 32, player) then
-				Schema:EasyText(player, "firebrick", "The area you are trying to summon in is not clear!");
+				Schema:EasyText(player, "firebrick", "La zone où vous tentez d'invoquer n'est pas dégagée !");
 				
 				return false;
 			end
@@ -2825,11 +2825,11 @@ RITUAL = cwRituals.rituals:New("summon_familiar_elk");
 					--Clockwork.entity:MakeFlushToGround(entity, trace.HitPos + Vector(0, 0, 64), trace.HitNormal);
 					entity:SetPos(trace.HitPos + Vector(0, 0, 16));
 					
-					Clockwork.chatBox:AddInTargetRadius(player, "it", "There is a blinding flash of light and thunderous noise as a creature of the Gore Forest suddenly appears!", trace.HitPos, config.Get("talk_radius"):Get() * 3);
+					Clockwork.chatBox:AddInTargetRadius(player, "it", "Un éclair aveuglant et un grondement assourdissant annoncent l'apparition soudaine d'une créature de la Forêt de Gore !", trace.HitPos, config.Get("talk_radius"):Get() * 3);
 				end
 			end);
 		else
-			Schema:EasyText(player, "firebrick", "You cannot summon that far away!");
+			Schema:EasyText(player, "firebrick", "Vous ne pouvez pas invoquer aussi loin !");
 			
 			return false;
 		end;
@@ -2950,7 +2950,7 @@ RITUAL = cwRituals.rituals:New("ascension_house_varazdat");
 		local subfaction = player:GetSubfaction();
 		
 		if subfaction and subfaction ~= "" and subfaction ~= "N/A" then
-			Schema:EasyText(player, "peru", "You have already ascended to a bloodline!");
+			Schema:EasyText(player, "peru", "Tu as déjà accédé à une lignée sanguine !");
 		
 			return false;
 		end
@@ -2984,7 +2984,7 @@ RITUAL = cwRituals.rituals:New("ascension_house_philimaxio");
 		local subfaction = player:GetSubfaction();
 		
 		if subfaction and subfaction ~= "" and subfaction ~= "N/A" then
-			Schema:EasyText(player, "peru", "You have already ascended to a bloodline!");
+			Schema:EasyText(player, "peru", "Tu as déjà accédé à une lignée sanguine !");
 		
 			return false;
 		end
@@ -3019,7 +3019,7 @@ RITUAL = cwRituals.rituals:New("ascension_house_rekh-khet-sa");
 		local subfaction = player:GetSubfaction();
 		
 		if subfaction and subfaction ~= "" and subfaction ~= "N/A" then
-			Schema:EasyText(player, "peru", "You have already ascended to a bloodline!");
+			Schema:EasyText(player, "peru", "Tu as déjà accédé à une lignée sanguine !");
 		
 			return false;
 		end
@@ -3053,7 +3053,7 @@ RITUAL = cwRituals.rituals:New("ascension_house_kinisger");
 		local subfaction = player:GetSubfaction();
 		
 		if subfaction and subfaction ~= "" and subfaction ~= "N/A" then
-			Schema:EasyText(player, "peru", "You have already ascended to a bloodline!");
+			Schema:EasyText(player, "peru", "Tu as déjà accédé à une lignée sanguine !");
 		
 			return false;
 		end

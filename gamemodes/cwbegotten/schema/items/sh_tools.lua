@@ -1,4 +1,4 @@
-if (SERVER) then
+﻿if (SERVER) then
 	local map = game.GetMap();
 
 	Schema.siegeLadderPositions = {};
@@ -65,14 +65,14 @@ local ITEM = Clockwork.item:New();
 	ITEM.model = "models/begotten/beartrap/beartrapopen.mdl";
 	ITEM.weight = 5;
 	ITEM.category = "Tools";
-	ITEM.description = "A metal pressure-activated trap with jagged teeth, designed to capture the strongest of prey, be they animal or man.";
+	ITEM.description = "Un piège métallique à pression avec des dents acérées, conçu pour capturer les proies les plus robustes, qu'elles soient animales ou humaines.";
 	ITEM.iconoverride = "materials/begotten/ui/itemicons/bear_trap.png";
 	ITEM.useText = "Deploy";
 	ITEM.requiredbeliefs = {"ingenious"};
 	
 	function ITEM:OnUse(player, itemEntity)
 		if Schema.towerSafeZoneEnabled and player:InTower() then
-			Schema:EasyText(player, "chocolate", "You cannot deploy a bear trap inside a safezone!");
+			Schema:EasyText(player, "chocolate", "Vous ne pouvez pas poser un piège à ours dans une zone sécurisée !");
 			
 			return false;
 		end
@@ -100,7 +100,7 @@ local ITEM = Clockwork.item:New();
 	ITEM.model = "models/begotten_apocalypse/items/houndcage.mdl";
 	ITEM.weight = 10;
 	ITEM.category = "Tools";
-	ITEM.description = "A steel cage for tamed wolves provided by the Headsman and his slaving ilk. The numerous wolves of the North, believed to be descendants of once-loyal hounds, can still be brought back into the fold and live a loyal life. Snakecatchers and Headsmen often used these hounds to hunt men in the woods, for the mines or for their faith. ";
+	ITEM.description = "Une cage d'acier pour loups apprivoisés, fournie par le Bourreau et sa clique d'esclavagistes. Les nombreux loups du Nord, considérés comme les descendants de chiens jadis loyaux, peuvent encore être ramenés dans le giron et mener une vie de dévouement. Les Chasseurs de serpents et les Bourreaux utilisaient souvent ces molosses pour traquer les hommes dans les bois, pour les mines ou pour leur foi.";
 	ITEM.iconoverride = "begotten_apocalypse/ui/itemicons/houndcage.png";
 	--ITEM.useText = "Deploy";
 	ITEM.requiredbeliefs = {};
@@ -146,7 +146,7 @@ local ITEM = Clockwork.item:New();
 	ITEM.model = "models/begotten_apocalypse/items/houndcage.mdl";
 	ITEM.weight = 5;
 	ITEM.category = "Tools";
-	ITEM.description = "A steel cage for tamed wolves provided by the Headsman and his slaving ilk. The cage is empty, devoid of a loyal companion. Fetch one, would you?";
+	ITEM.description = "Une cage en acier pour les loups apprivoisés, fournie par le Bourreau et sa clique d'esclavagistes. La cage est vide, privée d'un compagnon loyal. Va en chercher un, tu veux bien ?";
 	ITEM.iconoverride = "begotten_apocalypse/ui/itemicons/houndcage.png";
 	ITEM.useText = "Capture";
 	ITEM.requiredbeliefs = {};
@@ -163,7 +163,7 @@ local ITEM = Clockwork.item:New();
 				end
 				ent:Remove();
 				player:TakeItem(self, true);
-				Schema:EasyText(player, "chocolate", "A hound is captured.");
+				Schema:EasyText(player, "chocolate", "Un limier est capturé.");
 				player:EmitSound("fiend/cageshut.wav")
 				return
 			end
@@ -171,7 +171,7 @@ local ITEM = Clockwork.item:New();
 			
 			
 		end
-		Schema:EasyText(player, "chocolate", "Nothing to catch.");
+		Schema:EasyText(player, "chocolate", "Rien à attraper.");
 		return false
 	end
 	
@@ -196,7 +196,7 @@ local ITEM = Clockwork.item:New();
 	ITEM.useText = "Deploy";
 	ITEM.category = "Other";
 	ITEM.useSound = "physics/wood/wood_strain3.wav";
-	ITEM.description = "A large kit that is able to deploy a campfire which will last for 10 minutes, though more wood may be added as fuel to extend its lifetime.";
+	ITEM.description = "Un grand kit capable de déployer un feu de camp qui durera 10 minutes, bien que l'on puisse ajouter davantage de bois comme combustible pour prolonger sa durée.";
 	ITEM.iconoverride = "materials/begotten/ui/itemicons/wood.png"
 	ITEM.stackable = false;
 
@@ -207,12 +207,12 @@ local ITEM = Clockwork.item:New();
 		local valuewater = bit.band(util.PointContents(position), CONTENTS_WATER) == CONTENTS_WATER;
 		
 		if player:InTower() then
-			Schema:EasyText(player, "peru", "You cannot deploy this in the Tower of Light!");
+			Schema:EasyText(player, "peru", "Vous ne pouvez pas déployer ceci dans la Tour de Lumière !");
 			return false;
 		end
 		
 		if tr.Entity and tr.Entity:GetClass() == "cw_longship" then
-			Schema:EasyText(player, "peru", "You cannot deploy this on a longship!");
+			Schema:EasyText(player, "peru", "Vous ne pouvez pas déployer ceci sur un drakkar !");
 			return false;
 		end
 		
@@ -220,7 +220,7 @@ local ITEM = Clockwork.item:New();
 			if v.playersOnBoard then
 				for i2, v2 in ipairs(v.playersOnBoard) do
 					if player == v2 then
-						Schema:EasyText(player, "peru", "You cannot deploy this while sailing!");
+						Schema:EasyText(player, "peru", "Vous ne pouvez pas déployer cela en naviguant !");
 						return false;
 					end
 				end
@@ -232,10 +232,10 @@ local ITEM = Clockwork.item:New();
 			ent:SetPos(position)
 			ent:Spawn()
 		elseif valuewater == true then
-			Schema:EasyText(player, "peru", "You cannot deploy this underwater!");
+			Schema:EasyText(player, "peru", "Vous ne pouvez pas déployer ceci sous l'eau !");
 			return false;
 		else
-			Schema:EasyText(player, "peru", "You cannot deploy this that far away!")
+			Schema:EasyText(player, "peru", "Vous ne pouvez pas déployer cela aussi loin !")
 			return false;
 		end
 	end;
@@ -250,7 +250,7 @@ local ITEM = Clockwork.item:New();
 	ITEM.model = "models/begotten/misc/siegeladder_compact.mdl";
 	ITEM.weight = 8;
 	ITEM.category = "Tools";
-	ITEM.description = "A long, sturdy siege ladder for the express purpose of scaling the fortifications of the Castle, Gorewatch, or the Tower of Light.";
+	ITEM.description = "Une longue et robuste échelle de siège, conçue spécifiquement pour franchir les fortifications du Château, de Gorewatch ou de la Tour de Lumière.";
 	ITEM.iconoverride = "materials/begotten/ui/itemicons/siege_ladder.png";
 	ITEM.useText = "Erect";
 	
@@ -269,7 +269,7 @@ local ITEM = Clockwork.item:New();
 						player:Uncloak();
 					end
 					
-					Clockwork.chatBox:AddInTargetRadius(player, "me", "begins erecting a siege ladder!", player:GetPos(), config.Get("talk_radius"):Get() * 2);
+					Clockwork.chatBox:AddInTargetRadius(player, "me", "commence à ériger une échelle de siège !", player:GetPos(), config.Get("talk_radius"):Get() * 2);
 					
 					Clockwork.player:SetAction(player, "building", 30, 3, function()
 						if IsValid(player) and player.ladderConstructing and player:HasItemInstance(self) then
@@ -303,9 +303,9 @@ local ITEM = Clockwork.item:New();
 		local map = game.GetMap();
 		
 		if map == "rp_district21" then
-			Schema:EasyText(player, "chocolate", "You must erect this siege ladder at a valid location outside the walls of the Hill of Light or Gorewatch, or near the Crane or Water Tower!");
+			Schema:EasyText(player, "chocolate", "Vous devez ériger cette échelle de siège à un emplacement valide à l'extérieur des murs de la Colline de Lumière ou de Guet-Sanglant, ou près de la Grue ou du Château d'Eau !");
 		else
-			Schema:EasyText(player, "chocolate", "You must erect this siege ladder at a valid location outside the walls of the Castle or the Tower of Light!");
+			Schema:EasyText(player, "chocolate", "Vous devez dresser cette échelle de siège à un emplacement valide, à l'extérieur des murs du Château ou de la Tour de Lumière !");
 		end
 		
 		return false;
@@ -327,12 +327,12 @@ local ITEM = Clockwork.item:New();
 	ITEM.model = "models/food/hotdog.mdl";
 	ITEM.category = "Other";
 	ITEM.weight = 0.3;
-	ITEM.description = "A snowdog. You can wear it as a hat..";
+	ITEM.description = "Un chien de neige. Vous pouvez le porter comme un chapeau.";
 	ITEM.uniqueID = "snowdog";
 	ITEM.useText = "Wear"
 	-- Called when a player drops the item.
 	function ITEM:OnUse(player, position)
-		Clockwork.player:Notify(player, "You attempt to wear your new snowdog prize hat, but end up eating it instead.");
+		Clockwork.player:Notify(player, "Vous tentez de porter votre nouveau chapeau récompense de chien des neiges, mais finissez par le manger à la place.");
 		player:EmitSound("npc/barnacle/barnacle_digesting1.wav");
 		timer.Simple(0.5, function()
 			if (player:GetGender() == GENDER_MALE) then
@@ -368,7 +368,7 @@ local ITEM = Clockwork.item:New();
 	ITEM.model = "models/props/de_prodigy/ammo_can_02.mdl";
 	ITEM.weight = 2.5;
 	ITEM.category = "Tools";
-	ITEM.description = "A collection of tools and materials that can easily be used to repair one's armor.";
+	ITEM.description = "Un assortiment d'outils et de matériaux permettant de réparer facilement son armure.";
 	ITEM.iconoverride = "materials/begotten/ui/itemicons/repair_kit_armor.png";
 	ITEM.conditionReplenishment = 200;
 	ITEM.stackable = false;
@@ -386,7 +386,7 @@ local ITEM = Clockwork.item:New();
 	ITEM.model = "models/props/de_prodigy/ammo_can_02.mdl";
 	ITEM.weight = 2.5;
 	ITEM.category = "Tools";
-	ITEM.description = "A collection of delicate tools and spare parts that can be used to repair firearms.";
+	ITEM.description = "Un assortiment d'outils délicats et de pièces de rechange permettant de réparer des armes à feu.";
 	ITEM.iconoverride = "materials/begotten/ui/itemicons/repair_kit_firearms.png";
 	ITEM.conditionReplenishment = 200;
 	ITEM.stackable = false;
@@ -404,7 +404,7 @@ local ITEM = Clockwork.item:New();
 	ITEM.model = "models/props/de_prodigy/ammo_can_02.mdl";
 	ITEM.weight = 2.5;
 	ITEM.category = "Tools";
-	ITEM.description = "A collection of tools and materials that can easily be used to repair one's melee weapon or shield.";
+	ITEM.description = "Un assortiment d'outils et de matériaux permettant de réparer facilement son arme de mêlée ou son bouclier.";
 	ITEM.iconoverride = "materials/begotten/ui/itemicons/repair_kit_melee.png";
 	ITEM.conditionReplenishment = 200;
 	ITEM.stackable = false;
@@ -422,7 +422,7 @@ local ITEM = Clockwork.item:New();
 	ITEM.model = "models/items/weapons/blacksmithhammer/bl_hammer.mdl";
 	ITEM.weight = 0.2;
 	ITEM.category = "Tools";
-	ITEM.description = "A small tool that can be used to etch a name into a weapon or shield.";
+	ITEM.description = "Un petit outil permettant de graver un nom sur une arme ou un bouclier.";
 	ITEM.iconoverride = "materials/begotten/ui/itemicons/engraving_tool.png"
 	--ITEM.itemSpawnerInfo = {category = "Junk", rarity = 95};
 	-- Called when a player drops the item.
@@ -437,14 +437,14 @@ local ITEM = Clockwork.item:New();
 	ITEM.weight = 0.2;
 	ITEM.access = "v";
 	ITEM.useText = "Tie";
-	ITEM.description = "A collection of rope that can be fitted around a person's wrists to bind them together.";
+	ITEM.description = "Un ensemble de cordes pouvant être ajustées autour des poignets d'une personne pour les lier ensemble.";
 	ITEM.iconoverride = "materials/begotten/ui/itemicons/bindings.png"
 	
 	ITEM.stackable = true;
 	-- Called when a player uses the item.
 	function ITEM:OnUse(player, itemEntity)
 		if (player.isTying) then
-			Schema:EasyText(player, "peru", "You are already tying a character!");
+			Schema:EasyText(player, "peru", "Vous êtes déjà en train d'attacher un personnage !");
 			
 			return false;
 		else
@@ -465,9 +465,9 @@ local ITEM = Clockwork.item:New();
 								
 								if target:InTower() and Schema.towerSafeZoneEnabled and (faction ~= "Gatekeeper" and faction ~= "Holy Hierarchy" and faction ~= "Hillkeeper") then
 									if game.GetMap() == "rp_begotten3" then
-										Schema:EasyText(player, "peru", "You cannot tie characters in the Tower of Light if you are not of the Holy Hierarchy!");
+										Schema:EasyText(player, "peru", "Vous ne pouvez pas attacher de personnages dans la Tour de Lumière si vous n'appartenez pas à la Hiérarchie Sacrée !");
 									else
-										Schema:EasyText(player, "peru", "You cannot tie characters in the safezone if you are not of the Holy Hierarchy!");
+										Schema:EasyText(player, "peru", "Vous ne pouvez pas ligoter des personnages dans la zone sécurisée si vous n'appartenez pas à la Hiérarchie Sacrée !");
 									end
 									
 									return false;
@@ -476,7 +476,7 @@ local ITEM = Clockwork.item:New();
 								if player:GetMoveType() == MOVETYPE_WALK then
 									for k, v in pairs(ents.FindInSphere(player:GetPos(), Clockwork.config:Get("talk_radius"):Get() * 2)) do
 										if v:IsPlayer() then
-											Clockwork.chatBox:Add(v, player, "me", "starts tying up "..Clockwork.player:FormatRecognisedText(v, "%s", target)..".");
+											Clockwork.chatBox:Add(v, player, "me", "commence à ligoter"..Clockwork.player:FormatRecognisedText(v, "%s", target)..".");
 										end
 									end
 								end
@@ -502,7 +502,7 @@ local ITEM = Clockwork.item:New();
 									Clockwork.player:SetAction(player, "tie", false);
 								end);
 							else
-								Schema:EasyText(player, "peru", "You cannot tie characters that are facing you!");
+								Schema:EasyText(player, "peru", "Vous ne pouvez pas ligoter les personnages qui vous font face !");
 								
 								return false;
 							end;
@@ -513,26 +513,26 @@ local ITEM = Clockwork.item:New();
 							
 							return false;
 						else
-							Schema:EasyText(player, "peru", "This character is already tied!");
+							Schema:EasyText(player, "peru", "Ce personnage est déjà attaché !");
 							
 							return false;
 						end;
 					else
-						Schema:EasyText(player, "firebrick", "This character is too far away!");
+						Schema:EasyText(player, "firebrick", "Ce personnage est trop éloigné !");
 						
 						return false;
 					end;
 				else
 					if player.cwWakingUp then
-						Schema:EasyText(player, "firebrick", "This character is waking up after spawning and cannot currently be tied!");
+						Schema:EasyText(player, "firebrick", "Ce personnage se réveille après son apparition et ne peut actuellement pas être attaché !");
 					else
-						Schema:EasyText(player, "firebrick", "This character cannot currently be tied!");
+						Schema:EasyText(player, "firebrick", "Ce personnage ne peut actuellement pas être attaché !");
 					end
 					
 					return false;
 				end
 			else
-				Schema:EasyText(player, "firebrick", "That is not a valid character!");
+				Schema:EasyText(player, "firebrick", "Ce n'est pas un personnage valide !");
 				
 				return false;
 			end;
@@ -541,7 +541,7 @@ local ITEM = Clockwork.item:New();
 	-- Called when a player drops the item.
 	function ITEM:OnDrop(player, position)
 		if (player.isTying) then
-			Schema:EasyText(player, "peru", "You are currently tying a character!");
+			Schema:EasyText(player, "peru", "Vous êtes en train d'attacher un personnage !");
 			
 			return false;
 		end;
@@ -556,14 +556,14 @@ local ITEM = Clockwork.item:New();
 	ITEM.model = "models/kali/miscstuff/stalker/aid/first aid kit.mdl";
 	ITEM.weight = 0.4;
 	ITEM.useText = "Test Blood";
-	ITEM.description = "An ancient device used to test another person's blood for corruption. This one is worn by age and may even be unreliable.";
+	ITEM.description = "Un antique appareil servant à détecter la corruption dans le sang d'autrui. Celui-ci, usé par le temps, pourrait même s'avérer peu fiable.";
 	ITEM.stackable = false;
 	
 	ITEM.iconoverride = "materials/begotten/ui/itemicons/blood_test_kit.png"
 	-- Called when a player uses the item.
 	function ITEM:OnUse(player, itemEntity)
 		if (player.isTying) then
-			Schema:EasyText(player, "peru", "You are already testing a character!");
+			Schema:EasyText(player, "peru", "Vous testez déjà un personnage !");
 			
 			return false;
 		else
@@ -576,7 +576,7 @@ local ITEM = Clockwork.item:New();
 					if player:GetMoveType() == MOVETYPE_WALK then
 						for k, v in pairs(ents.FindInSphere(player:GetPos(), Clockwork.config:Get("talk_radius"):Get() * 2)) do
 							if v:IsPlayer() then
-								Clockwork.chatBox:Add(v, player, "me", "begins a blood test on "..Clockwork.player:FormatRecognisedText(v, "%s", target)..".");
+								Clockwork.chatBox:Add(v, player, "me", "commence une prise de sang sur"..Clockwork.player:FormatRecognisedText(v, "%s", target)..".");
 							end
 						end
 					end
@@ -614,12 +614,12 @@ local ITEM = Clockwork.item:New();
 					
 					return false;
 				else
-					Schema:EasyText(player, "firebrick", "This character is too far away!");
+					Schema:EasyText(player, "firebrick", "Ce personnage est trop éloigné !");
 					
 					return false;
 				end;
 			else
-				Schema:EasyText(player, "firebrick", "That is not a valid character!");
+				Schema:EasyText(player, "firebrick", "Ce n'est pas un personnage valide !");
 				
 				return false;
 			end;
@@ -628,7 +628,7 @@ local ITEM = Clockwork.item:New();
 	-- Called when a player drops the item.
 	function ITEM:OnDrop(player, position)
 		if (player.isTying) then
-			Schema:EasyText(player, "peru", "You are currently tying a character!");
+			Schema:EasyText(player, "peru", "Vous êtes en train d'attacher un personnage !");
 			
 			return false;
 		end;
@@ -643,14 +643,14 @@ local ITEM = Clockwork.item:New();
 	ITEM.model = "models/kali/miscstuff/stalker/aid/first aid kit.mdl";
 	ITEM.weight = 0.4;
 	ITEM.useText = "Test Blood";
-	ITEM.description = "An ancient device used to test another person's blood for corruption. This device in particular is an advanced model, designed by Skylight engineers to detect the blood of the infamous Black Hats.";
+	ITEM.description = "Un appareil ancien utilisé pour tester la corruption dans le sang d'autrui. Ce modèle spécifique est une version avancée, conçue par les ingénieurs de Skylight pour détecter le sang des tristement célèbres Black Hats.";
 	ITEM.stackable = false;
 	
 	ITEM.iconoverride = "materials/begotten/ui/itemicons/blood_test_kit.png"
 	-- Called when a player uses the item.
 	function ITEM:OnUse(player, itemEntity)
 		if (player.isTying) then
-			Schema:EasyText(player, "peru", "You are already testing a character!");
+			Schema:EasyText(player, "peru", "Vous testez déjà un personnage !");
 			
 			return false;
 		else
@@ -663,7 +663,7 @@ local ITEM = Clockwork.item:New();
 					if player:GetMoveType() == MOVETYPE_WALK then
 						for k, v in pairs(ents.FindInSphere(player:GetPos(), Clockwork.config:Get("talk_radius"):Get() * 2)) do
 							if v:IsPlayer() then
-								Clockwork.chatBox:Add(v, player, "me", "begins a blood test on "..Clockwork.player:FormatRecognisedText(v, "%s", target)..".");
+								Clockwork.chatBox:Add(v, player, "me", "commence une prise de sang sur"..Clockwork.player:FormatRecognisedText(v, "%s", target)..".");
 							end
 						end
 					end
@@ -701,12 +701,12 @@ local ITEM = Clockwork.item:New();
 					
 					return false;
 				else
-					Schema:EasyText(player, "firebrick", "This character is too far away!");
+					Schema:EasyText(player, "firebrick", "Ce personnage est trop éloigné !");
 					
 					return false;
 				end;
 			else
-				Schema:EasyText(player, "firebrick", "That is not a valid character!");
+				Schema:EasyText(player, "firebrick", "Ce n'est pas un personnage valide !");
 				
 				return false;
 			end;
@@ -715,7 +715,7 @@ local ITEM = Clockwork.item:New();
 	-- Called when a player drops the item.
 	function ITEM:OnDrop(player, position)
 		if (player.isTying) then
-			Schema:EasyText(player, "peru", "You are currently testing a character!");
+			Schema:EasyText(player, "peru", "Vous testez actuellement un personnage !");
 			
 			return false;
 		end;
@@ -729,14 +729,14 @@ local ITEM = Clockwork.item:New();
 	ITEM.model = "models/kali/miscstuff/stalker/aid/first aid kit.mdl";
 	ITEM.weight = 0.4;
 	ITEM.useText = "Test Blood";
-	ITEM.description = "An ancient device used to test another person's blood for corruption.";
+	ITEM.description = "Un antique appareil servant à tester la corruption du sang d'autrui.";
 	ITEM.stackable = false;
 	
 	ITEM.iconoverride = "materials/begotten/ui/itemicons/blood_test_kit.png"
 	-- Called when a player uses the item.
 	function ITEM:OnUse(player, itemEntity)
 		if (player.isTying) then
-			Schema:EasyText(player, "peru", "You are already testing a character!");
+			Schema:EasyText(player, "peru", "Vous testez déjà un personnage !");
 			
 			return false;
 		else
@@ -749,7 +749,7 @@ local ITEM = Clockwork.item:New();
 					if player:GetMoveType() == MOVETYPE_WALK then
 						for k, v in pairs(ents.FindInSphere(player:GetPos(), Clockwork.config:Get("talk_radius"):Get() * 2)) do
 							if v:IsPlayer() then
-								Clockwork.chatBox:Add(v, player, "me", "begins a blood test on "..Clockwork.player:FormatRecognisedText(v, "%s", target)..".");
+								Clockwork.chatBox:Add(v, player, "me", "commence une prise de sang sur"..Clockwork.player:FormatRecognisedText(v, "%s", target)..".");
 							end
 						end
 					end
@@ -787,12 +787,12 @@ local ITEM = Clockwork.item:New();
 					
 					return false;
 				else
-					Schema:EasyText(player, "firebrick", "This character is too far away!");
+					Schema:EasyText(player, "firebrick", "Ce personnage est trop éloigné !");
 					
 					return false;
 				end;
 			else
-				Schema:EasyText(player, "firebrick", "That is not a valid character!");
+				Schema:EasyText(player, "firebrick", "Ce n'est pas un personnage valide !");
 				
 				return false;
 			end;
@@ -802,7 +802,7 @@ local ITEM = Clockwork.item:New();
 	-- Called when a player drops the item.
 	function ITEM:OnDrop(player, position)
 		if (player.isTying) then
-			Schema:EasyText(player, "peru", "You are currently testing a character!");
+			Schema:EasyText(player, "peru", "Vous testez actuellement un personnage !");
 			
 			return false;
 		end;
@@ -816,7 +816,7 @@ local ITEM = Clockwork.item:New();
 	ITEM.model = "models/mosi/fallout4/props/junk/components/nuclear.mdl";
 	ITEM.weight = 1;
 	ITEM.category = "Tools";
-	ITEM.description = "A nuclear power cell of ancient Glazic manufacture, used to power District One armor.";
+	ITEM.description = "Une pile nucléaire de fabrication glazienne antique, utilisée pour alimenter les armures du District Un.";
 	ITEM.iconoverride = "materials/begotten/ui/itemicons/power_cell.png"
 	ITEM.useText = "Recharge Power Armor";
 	ITEM.useSound = "items/battery_pickup.wav";
@@ -832,7 +832,7 @@ local ITEM = Clockwork.item:New();
 			
 			player.nextChargeDepleted = CurTime() + 120;
 		else
-			Schema:EasyText(player, "chocolate", "You must be inside a suit of power armor in order to recharge it!");
+			Schema:EasyText(player, "chocolate", "Vous devez être à l'intérieur d'une armure de puissance pour la recharger !");
 			
 			return false;
 		end
@@ -847,7 +847,7 @@ local ITEM = Clockwork.item:New();
 	ITEM.model = "models/begotten/misc/warhorn.mdl";
 	ITEM.weight = 0.3;
 	ITEM.category = "Communication"
-	ITEM.description = "A stout warhorn that when blown will communicate orders to nearby friendlies.";
+	ITEM.description = "Un cor de guerre robuste qui, lorsqu'il est sonné, transmet des ordres aux alliés proches.";
 	ITEM.iconoverride = "materials/begotten/ui/itemicons/warhorn.png"
 	ITEM.customFunctions = {"Sound Attack", "Sound Rally", "Sound Rally - Marching Formation", "Sound Rally - Shieldwall", "Sound Retreat"};
 	-- Called when a player drops the item.
@@ -1010,7 +1010,7 @@ local ITEM = Clockwork.item:New();
 					end;
  
 				else
-					Schema:EasyText(player, "peru", "You are not the correct faction to do this!");
+					Schema:EasyText(player, "peru", "Vous n'êtes pas de la bonne faction pour faire cela !");
 				end
 			end
 		end;
@@ -1035,7 +1035,7 @@ local ITEM = Clockwork.item:New();
 	ITEM.model = "models/begotten/misc/skull.mdl";
 	ITEM.weight = 0.2;
 	ITEM.category = "Communication"
-	ITEM.description = "A human skull that has been grafted with holes to generate a bone-chilling whistle.";
+	ITEM.description = "Un crâne humain percé de trous pour produire un sifflement glaçant.";
 	ITEM.iconoverride = "materials/begotten/ui/itemicons/skull.png"
 	ITEM.customFunctions = {"Sound Attack", "Sound Rally", "Sound Rally - Marching Formation", "Sound Rally - Shieldwall", "Sound Retreat"};
 	-- Called when a player drops the item.
@@ -1118,7 +1118,7 @@ local ITEM = Clockwork.item:New();
 						player:EmitSound("warhorns/deathwhistle"..math.random(3,4)..".mp3", 100, math.random(98, 102));
 					end;
 				else
-					Schema:EasyText(player, "peru", "You are not the correct faction to do this!");
+					Schema:EasyText(player, "peru", "Vous n'êtes pas de la bonne faction pour faire cela !");
 				end
 			end
 		end;
@@ -1131,7 +1131,7 @@ local ITEM = Clockwork.item:New();
 	ITEM.model = "models/props_junk/MetalBucket01a.mdl";
 	ITEM.weight = 1;
 	ITEM.category = "Tools";
-	ITEM.description = "An iron bucket devoid of any contents.";
+	ITEM.description = "Un seau en fer, vide de tout contenu.";
 	ITEM.customFunctions = {"Fill"};
 	ITEM.iconoverride = "begotten_apocalypse/ui/itemicons/bucket.png"
 	--ITEM.itemSpawnerInfo = {category = "Junk", rarity = 95};
@@ -1146,13 +1146,13 @@ local ITEM = Clockwork.item:New();
 			if (waterLevel and waterLevel > 0) then
 				for i = 1, #cwRecipes.smithyLocations do
 					if player:GetPos():DistToSqr(cwRecipes.smithyLocations[i]) < (256 * 256) then
-						Schema:EasyText(player, "firebrick", "You cannot fill a bucket with this water!");
+						Schema:EasyText(player, "firebrick", "Vous ne pouvez pas remplir un seau avec cette eau !");
 						return false;
 					end
 				end
 
 				
-				Clockwork.chatBox:AddInTargetRadius(player, "me", "begins filling a bucket with water.", player:GetPos(), Clockwork.config:Get("talk_radius"):Get() * 2);
+				Clockwork.chatBox:AddInTargetRadius(player, "me", "commence à remplir un seau d'eau.", player:GetPos(), Clockwork.config:Get("talk_radius"):Get() * 2);
 				-- input water swish sound
 
 				player:EmitSound("apocalypse/cauldron/fillup.mp3");
@@ -1169,7 +1169,7 @@ local ITEM = Clockwork.item:New();
 					player:TakeItem(self, true);
 				end);
 			else
-				Schema:EasyText(player, "firebrick", "You must be standing in water to fill this bucket!");
+				Schema:EasyText(player, "firebrick", "Tu dois te tenir dans l'eau pour remplir ce seau !");
 			end;
 		end;
 	end;
@@ -1181,7 +1181,7 @@ local ITEM = Clockwork.item:New();
 	ITEM.model = "models/props_junk/GlassBottle01a.mdl";
 	ITEM.weight = 0.1;
 	ITEM.category = "Tools";
-	ITEM.description = "A glass bottle devoid of any contents.";
+	ITEM.description = "Une bouteille en verre totalement vide.";
 	ITEM.customFunctions = {"Fill"};
 	ITEM.iconoverride = "materials/begotten/ui/itemicons/empty_bottle.png";
 	ITEM.stackable = true;
@@ -1196,13 +1196,13 @@ local ITEM = Clockwork.item:New();
 			if waterLevel and waterLevel > 0 then
 				for i = 1, #cwRecipes.smithyLocations do
 					if player:GetPos():DistToSqr(cwRecipes.smithyLocations[i]) < (256 * 256) then
-						Schema:EasyText(player, "firebrick", "You cannot fill a bucket with this water!");
+						Schema:EasyText(player, "firebrick", "Vous ne pouvez pas remplir un seau avec cette eau !");
 						return false;
 					end
 				end
 
 				if (lastZone ~= "gore" and lastZone ~= "hotspring") and cwWarmth and cwWarmth.systemEnabled then
-					Clockwork.chatBox:AddInTargetRadius(player, "me", "begins filling an empty bottle with water, almost spilling the contents multiple times as they struggle to fight off the cold biting their fingers.", player:GetPos(), Clockwork.config:Get("talk_radius"):Get() * 2);
+					Clockwork.chatBox:AddInTargetRadius(player, "me", "commence à remplir une bouteille vide d'eau, faillissant renverser le contenu à plusieurs reprises en luttant contre le froid qui mord ses doigts.", player:GetPos(), Clockwork.config:Get("talk_radius"):Get() * 2);
 					-- input water swish sound
 
 					-- start progress bar for begins filling a bucket of water.
@@ -1212,7 +1212,7 @@ local ITEM = Clockwork.item:New();
 						player:TakeItem(self, true);
 					end);
 				else
-					Clockwork.chatBox:AddInTargetRadius(player, "me", "begins filling an empty bottle with water.", player:GetPos(), Clockwork.config:Get("talk_radius"):Get() * 2);
+					Clockwork.chatBox:AddInTargetRadius(player, "me", "commence à remplir une bouteille vide d'eau.", player:GetPos(), Clockwork.config:Get("talk_radius"):Get() * 2);
 					-- input water swish sound
 
 					if (lastZone ~= "gore" and lastZone ~= "hotspring") then
@@ -1232,7 +1232,7 @@ local ITEM = Clockwork.item:New();
 					end
 				end
 			else
-				Schema:EasyText(player, "firebrick", "You must be standing in water to fill this bottle!");
+				Schema:EasyText(player, "firebrick", "Tu dois être debout dans l'eau pour remplir cette bouteille !");
 			end;
 		end;
 	end;

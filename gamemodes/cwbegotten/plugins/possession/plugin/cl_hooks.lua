@@ -1,4 +1,4 @@
---[[
+﻿--[[
 	Begotten III: Jesus Wept
 --]]
 
@@ -443,7 +443,7 @@ function cwPossession:ScoreboardShow()
 
 	radialMenu.center:SetSize( (size), (size) )
 	radialMenu.center:SetPos( centerpos, centerpos )
-	radialMenu.center:SetText( "Heal" )
+	radialMenu.center:SetText( "Soigner" )
 	radialMenu.center:SetTextColor(textColor);
 	radialMenu.center:SetContentAlignment(5);
 	radialMenu.center:SetFont("radial");
@@ -453,7 +453,7 @@ function cwPossession:ScoreboardShow()
 
 	radialMenu.north:SetSize( (size), (size) )
 	radialMenu.north:SetPos( centerpos, centerpos * .25 )
-	radialMenu.north:SetText( "Shriek" )
+	radialMenu.north:SetText( "Hurlement" )
 	radialMenu.north:SetTextColor(textColor);
 	radialMenu.north:SetContentAlignment(5);
 	radialMenu.north:SetFont("radial");
@@ -463,7 +463,7 @@ function cwPossession:ScoreboardShow()
 
 	radialMenu.northeast:SetSize( (size), (size) )
 	radialMenu.northeast:SetPos( centerpos * 1.525, centerpos * .625 )
-	radialMenu.northeast:SetText( "Untie" )
+	radialMenu.northeast:SetText( "Détacher" )
 	radialMenu.northeast:SetTextColor(textColor);
 	radialMenu.northeast:SetContentAlignment(5);
 	radialMenu.northeast:SetFont("radial");
@@ -473,7 +473,7 @@ function cwPossession:ScoreboardShow()
 
 	radialMenu.east:SetSize( (size), (size) )
 	radialMenu.east:SetPos( centerpos * 1.625, centerpos )
-	radialMenu.east:SetText( "Summon" )
+	radialMenu.east:SetText( "Invoquer" )
 	radialMenu.east:SetTextColor(textColor);
 	radialMenu.east:SetContentAlignment(5);
 	radialMenu.east:SetFont("radial");
@@ -483,7 +483,7 @@ function cwPossession:ScoreboardShow()
 	
 	radialMenu.southeast:SetSize( (size), (size) )
 	radialMenu.southeast:SetPos( centerpos * 1.525, centerpos * 1.375 )
-	radialMenu.southeast:SetText( "Fallover" )
+	radialMenu.southeast:SetText( "Chute" )
 	radialMenu.southeast:SetTextColor(textColor);
 	radialMenu.southeast:SetContentAlignment(5);
 	radialMenu.southeast:SetFont("radial");
@@ -493,7 +493,7 @@ function cwPossession:ScoreboardShow()
 	
 	radialMenu.south:SetSize( (size), (size) )
 	radialMenu.south:SetPos( centerpos, centerpos * 1.75 )
-	radialMenu.south:SetText( "Unpossess" )
+	radialMenu.south:SetText( "Libérer" )
 	radialMenu.south:SetTextColor(textColor);
 	radialMenu.south:SetContentAlignment(5);
 	radialMenu.south:SetFont("radial");
@@ -513,7 +513,7 @@ function cwPossession:ScoreboardShow()
 	
 	radialMenu.west:SetSize( (size), (size) )
 	radialMenu.west:SetPos( centerpos * .375, centerpos )
-	radialMenu.west:SetText( "Explode" )
+	radialMenu.west:SetText( "Exploser" )
 	radialMenu.west:SetTextColor(textColor);
 	radialMenu.west:SetContentAlignment(5);
 	radialMenu.west:SetFont("radial");
@@ -523,7 +523,7 @@ function cwPossession:ScoreboardShow()
 	
 	radialMenu.northwest:SetSize( (size), (size) )
 	radialMenu.northwest:SetPos( centerpos * 0.475, centerpos * .625 )
-	radialMenu.northwest:SetText( "Open Inventory" )
+	radialMenu.northwest:SetText( "Ouvrir l'inventaire" )
 	radialMenu.northwest:SetTextColor(textColor);
 	radialMenu.northwest:SetContentAlignment(5);
 	radialMenu.northwest:SetFont("radial");

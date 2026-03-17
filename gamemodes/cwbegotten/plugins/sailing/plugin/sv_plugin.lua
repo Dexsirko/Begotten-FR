@@ -1,4 +1,4 @@
---[[
+﻿--[[
 	Begotten III: Jesus Wept
 	Sailing
 	By: DETrooper
@@ -300,7 +300,7 @@ function cwSailing:SpawnLongship(owner, location, itemTable)
 			end
 			
 			-- No available spot found so remove it.
-			Schema:EasyText(owner, "peru", "The location you are trying to spawn your longship in is currently full or invalid!");
+			Schema:EasyText(owner, "peru", "L'emplacement où vous tentez de faire apparaître votre drakkar est actuellement plein ou invalide !");
 			
 			-- Add these so the owner gets refunded when it gets deleted.
 			longshipEnt.owner = owner;
@@ -308,7 +308,7 @@ function cwSailing:SpawnLongship(owner, location, itemTable)
 			
 			longshipEnt:Remove();
 		else
-			Schema:EasyText(owner, "peru", "The longship for this scroll is already undocked!");
+			Schema:EasyText(owner, "peru", "Le drakkar de ce parchemin est déjà sorti du port !");
 		end
 	end
 end
@@ -384,8 +384,8 @@ function cwSailing:BeginSailing(longshipEnt, destination, caller)
 			end
 			
 			--printp("selected sea zone: "..sea_zone);
-			Schema:EasyText(owner, "icon16/anchor.png", "cornflowerblue", "Setting sail in "..tostring(sail_time).." seconds!");
-			Schema:EasyText(Schema:GetAdmins(), "icon16/anchor.png", "cornflowerblue", owner:Name().."'s "..longshipEnt.longshipType.." is setting sail to destination "..destination.."!");
+			Schema:EasyText(owner, "icon16/anchor.png", "bleu barbeau", "Setting sail in "..tostring(sail_time).." seconds!");
+			Schema:EasyText(Schema:GetAdmins(), "icon16/anchor.png", "bleuet", owner:Name().."'s "..longshipEnt.longshipType.." is setting sail to destination "..destination.."!");
 			
 			if longshipEnt.longshipType == "longship" then
 				longshipEnt:EmitSound("ambient/machines/thumper_dust.wav");
@@ -408,7 +408,7 @@ function cwSailing:BeginSailing(longshipEnt, destination, caller)
 				util.ScreenShake(longshipEntPos, 1, 20, 15, 1024, true);
 			end
 		
-			Clockwork.chatBox:AddInTargetRadius(owner, "me", "prepares to set sail for "..tostring(self.shipDestinations[destination].name)..".", owner:GetPos(), Clockwork.config:Get("talk_radius"):Get() * 2);
+			Clockwork.chatBox:AddInTargetRadius(owner, "me", "se prépare à mettre les voiles pour"..tostring(self.shipDestinations[destination].name)..".", owner:GetPos(), Clockwork.config:Get("talk_radius"):Get() * 2);
 			
 			longshipEnt:SetBodygroup(0, 0);
 			
@@ -440,7 +440,7 @@ function cwSailing:BeginSailing(longshipEnt, destination, caller)
 				longshipEnt.destination = nil;
 				--printp("sailing aborted!");
 				
-				Schema:EasyText(Schema:GetAdmins(), "icon16/anchor.png", "cornflowerblue", "Sailing aborted for "..longshipEnt.longshipType.." "..longshipEnt:EntIndex().."!");
+				Schema:EasyText(Schema:GetAdmins(), "icon16/anchor.png", "bleu barbeau", "Sailing aborted for "..longshipEnt.longshipType.." "..longshipEnt:EntIndex().."!");
 			end);
 		end
 	else
@@ -453,7 +453,7 @@ function cwSailing:BeginSailing(longshipEnt, destination, caller)
 		local sail_time = 30;
 		local sea_zone = self:DetermineSeaZone(longshipEnt, destination);
 		
-		Schema:EasyText(Schema:GetAdmins(), "icon16/anchor.png", "cornflowerblue", "A "..longshipEnt.longshipType.." with no owner is setting sail to destination "..destination.."!");
+		Schema:EasyText(Schema:GetAdmins(), "icon16/anchor.png", "bleuet", "A "..longshipEnt.longshipType.." with no owner is setting sail to destination "..destination.."!");
 		
 		if longshipEnt.longshipType == "longship" then
 			longshipEnt:EmitSound("ambient/machines/thumper_dust.wav");
@@ -611,9 +611,9 @@ function cwSailing:MoveLongship(longshipEnt, location)
 					end
 				
 					if IsValid(longshipEnt.owner) then
-						Schema:EasyText(Schema:GetAdmins(), "icon16/anchor.png", "cornflowerblue", longshipEnt.owner:Name().."'s longship with "..#longshipPlayers.." players aboard has arrived at "..location.."!");
+						Schema:EasyText(Schema:GetAdmins(), "icon16/anchor.png", "bleuet", longshipEnt.owner:Name().."'s longship with "..#longshipPlayers.." players aboard has arrived at "..location.."!");
 					else
-						Schema:EasyText(Schema:GetAdmins(), "icon16/anchor.png", "cornflowerblue", "A longship with no owner with "..#longshipPlayers.." players aboard has arrived at "..location.."!");
+						Schema:EasyText(Schema:GetAdmins(), "icon16/anchor.png", "bleu barbeau", "A longship with no owner with "..#longshipPlayers.." players aboard has arrived at "..location.."!");
 					end
 					
 					if longshipEnt.OnMoved then
@@ -810,7 +810,7 @@ function cwSailing:MoveLongship(longshipEnt, location)
 							for _, v in _player.Iterator() do
 								if v:GetFaction() == "Children of Satan" and v:Alive() then
 									v:SendLua([[Clockwork.Client:EmitSound("begotten/sfx/hellwind.wav")]]);
-									Schema:EasyText(v, "red", "An overwhelming gust of infernal wind erupts past you, carrying the whispers of damned souls released from their suffering. The Dark Lord's domain has been breached by a Goreic host, and they will soon descend upon the manor.");
+									Schema:EasyText(v, "red", "Une rafale infernale déferle autour de vous, charriant les murmures des âmes damnées libérées de leur souffrance. Le domaine du Seigneur des Ténèbres a été percé par une horde goreique, et ils ne tarderont pas à fondre sur le manoir.");
 									v:HandleSanity(-15);
 								end
 							end
@@ -845,7 +845,7 @@ function cwSailing:MoveLongship(longshipEnt, location)
 		
 		-- No available spot found.
 		if IsValid(longshipEnt.owner) then
-			Schema:EasyText(longshipEnt.owner, "peru", "The location you are trying to move your longship to is currently full or invalid! Waiting 30 more seconds.");
+			Schema:EasyText(longshipEnt.owner, "peru", "L'emplacement vers lequel vous essayez de déplacer votre drakkar est actuellement plein ou invalide ! Attente de 30 secondes supplémentaires.");
 		end
 		
 		for _, player in _player.Iterator() do
@@ -1003,10 +1003,10 @@ function cwSailing:RemoveLongship(longshipEnt)
 		if IsValid(longshipEnt.owner) then
 			if longshipEnt.health then
 				if longshipEnt.health > 0 then
-					Schema:EasyText(longshipEnt.owner, "icon16/anchor.png", "cornflowerblue", "Your "..longshipEnt.longshipType.." has returned to its dock.");
+					Schema:EasyText(longshipEnt.owner, "icon16/anchor.png", "bleuet", "Your "..longshipEnt.longshipType.." has returned to its dock.");
 				end
 			else
-				Schema:EasyText(longshipEnt.owner, "icon16/anchor.png", "cornflowerblue", "Your "..longshipEnt.longshipType.." has returned to its dock.");
+				Schema:EasyText(longshipEnt.owner, "icon16/anchor.png", "bleuet", "Your "..longshipEnt.longshipType.." has returned to its dock.");
 			end
 		end
 
@@ -1180,7 +1180,7 @@ concommand.Add("cw_BurnShip", function(player, cmd, args)
 		if entity:GetPos():Distance(player:GetPos()) < 256 then
 			if (entity:GetClass() == "cw_longship") then
 				if entity.enchantment then
-					Schema:EasyText(player, "peru", "This longship seems to have an invisible force that prevents it from being burnt!");
+					Schema:EasyText(player, "peru", "Ce drakkar semble posséder une force invisible qui l'empêche de brûler !");
 					
 					return false;
 				end
@@ -1206,13 +1206,13 @@ concommand.Add("cw_BurnShip", function(player, cmd, args)
 						end
 						
 						if oil_count < 2 then
-							Schema:EasyText(player, "peru", "You need at least two large oils to burn this longship!");
+							Schema:EasyText(player, "peru", "Il te faut au moins deux grandes huiles pour brûler ce drakkar !");
 							
 							return false;
 						end
 						
 						if cwWeather and cwWeather.weather == "rainstorm" or cwWeather.weather == "bloodstorm" or cwWeather.weather == "acidrain" then
-							Schema:EasyText(player, "peru", "You cannot start a fire while it is raining outside!");
+							Schema:EasyText(player, "peru", "Vous ne pouvez pas allumer un feu lorsqu'il pleut dehors !");
 							
 							return false;
 						end
@@ -1242,13 +1242,13 @@ concommand.Add("cw_BurnShip", function(player, cmd, args)
 												end
 												
 												if oil_count < 2 then
-													Schema:EasyText(player, "peru", "You need at least two large oils to burn this longship!");
+													Schema:EasyText(player, "peru", "Il te faut au moins deux grandes huiles pour brûler ce drakkar !");
 													
 													return false;
 												end
 												
 												if cwWeather and cwWeather.weather == "rainstorm" or cwWeather.weather == "bloodstorm" or cwWeather.weather == "acidrain" then
-													Schema:EasyText(player, "peru", "You cannot start a fire while it is raining outside!");
+													Schema:EasyText(player, "peru", "Vous ne pouvez pas allumer un feu lorsqu'il pleut dehors !");
 													
 													return false;
 												end
@@ -1283,26 +1283,26 @@ concommand.Add("cw_BurnShip", function(player, cmd, args)
 													local owner = entity.owner;
 													
 													if IsValid(owner) and owner:GetSubfaction() == "Clan Harald" and owner:Alive() and owner:HasBelief("daring_trout") then
-														Schema:EasyText(owner, "icon16/anchor.png", "red", "A raven lands on your shoulder with smoldering wings! Your longship has been set alight and must be extinguished soon!");
+														Schema:EasyText(owner, "icon16/anchor.png", "rouge", "A raven lands on your shoulder with smoldering wings! Your longship has been set alight and must be extinguished soon!");
 														owner.nextShipDamageNotif = CurTime() + 60;
 													end
 													
-													Clockwork.chatBox:AddInTargetRadius(player, "me", "ignites the longship before them with their lantern!", player:GetPos(), Clockwork.config:Get("talk_radius"):Get() * 2);
+													Clockwork.chatBox:AddInTargetRadius(player, "me", "allume le drakkar devant eux avec leur lanterne !", player:GetPos(), Clockwork.config:Get("talk_radius"):Get() * 2);
 												--else
-													--Schema:EasyText(player, "peru", "This longship cannot be lit on fire as it is currently setting sail!");
+													--Schema:EasyText(player, "peru", "Ce drakkar ne peut être enflammé car il est actuellement en train de lever l'ancre !");
 												--end
 											else
-												Schema:EasyText(player, "peru", "Your lantern must be lit in order to ignite this longship!");
+												Schema:EasyText(player, "peru", "Votre lanterne doit être allumée pour pouvoir enflammer ce drakkar !");
 											end
 										end
 									end
 								end
 							end);
 						--else
-							--Schema:EasyText(player, "peru", "This longship cannot be lit on fire as it is currently setting sail!");
+							--Schema:EasyText(player, "peru", "Ce drakkar ne peut être enflammé car il est en train de lever l'ancre !");
 						--end
 					else
-						Schema:EasyText(player, "peru", "Your lantern must be lit in order to ignite this longship!");
+						Schema:EasyText(player, "peru", "Votre lanterne doit être allumée pour pouvoir enflammer ce drakkar !");
 					end
 				end
 			end
@@ -1457,7 +1457,7 @@ concommand.Add("cw_RepairShip", function(player, cmd, args)
 					end
 				end);
 			else
-				Schema:EasyText(player, "chocolate", "You do not have any wood to repair this Longship with!");
+				Schema:EasyText(player, "chocolate", "Vous n'avez pas de bois pour réparer ce Longship !");
 			end
 		end
 	end;
@@ -1475,13 +1475,13 @@ concommand.Add("cw_MoveShipGoreForest", function(player, cmd, args)
 					if hook.Run("CanPlayerMoveLongship", entity, player) then
 						cwSailing:BeginSailing(entity, "docks", player);
 					else
-						Schema:EasyText(player, "maroon", "You do not have permission to sail this "..entity.longshipType.."!");
+						Schema:EasyText(player, "maroon", "Vous n'avez pas l'autorisation de naviguer avec ce navire"..entity.longshipType.."!");
 					end
 				else
-					Schema:EasyText(player, "maroon", "This "..entity.longshipType.." cannot sail because it is on fire!");
+					Schema:EasyText(player, "maroon", "Ceci"..entity.longshipType.." cannot sail because it is on fire!");
 				end
 			else
-				Schema:EasyText(player, "maroon", "This "..entity.longshipType.." is already preparing to sail!");
+				Schema:EasyText(player, "maroon", "Ceci"..entity.longshipType.." is already preparing to sail!");
 			end
 		end
 	end;
@@ -1499,13 +1499,13 @@ concommand.Add("cw_MoveShipWasteland", function(player, cmd, args)
 					if hook.Run("CanPlayerMoveLongship", entity, player) then
 						cwSailing:BeginSailing(entity, "wasteland", player);
 					else
-						Schema:EasyText(player, "maroon", "You do not have permission to sail this "..entity.longshipType.."!");
+						Schema:EasyText(player, "maroon", "Vous n'avez pas l'autorisation de naviguer avec ce navire"..entity.longshipType.."!");
 					end
 				else
-					Schema:EasyText(player, "maroon", "This "..entity.longshipType.." cannot sail because it is on fire!");
+					Schema:EasyText(player, "maroon", "Ceci"..entity.longshipType.." cannot sail because it is on fire!");
 				end
 			else
-				Schema:EasyText(player, "maroon", "This "..entity.longshipType.." is already preparing to sail!");
+				Schema:EasyText(player, "maroon", "Ceci"..entity.longshipType.." is already preparing to sail!");
 			end
 		end
 	end;
@@ -1526,16 +1526,16 @@ concommand.Add("cw_MoveShipLava", function(player, cmd, args)
 						if hook.Run("CanPlayerMoveLongship", entity, player) then
 							cwSailing:BeginSailing(entity, "wastelandlava", player);
 						else
-							Schema:EasyText(player, "maroon", "You do not have permission to sail this "..entity.longshipType.."!");
+							Schema:EasyText(player, "maroon", "Vous n'avez pas l'autorisation de naviguer avec ce navire"..entity.longshipType.."!");
 						end
 					else
-						Schema:EasyText(player, "maroon", "This "..entity.longshipType.." cannot sail because it is on fire!");
+						Schema:EasyText(player, "maroon", "Ceci"..entity.longshipType.." cannot sail because it is on fire!");
 					end
 				else
-					Schema:EasyText(player, "maroon", "This "..entity.longshipType.." is already preparing to sail!");
+					Schema:EasyText(player, "maroon", "Ceci"..entity.longshipType.." is already preparing to sail!");
 				end
 			else
-				Schema:EasyText(player, "chocolate", "Your longship lacks the enchantment required to navigate the River Styx safely.");
+				Schema:EasyText(player, "chocolate", "Votre drakkar ne possède pas l'enchantement nécessaire pour naviguer en sécurité sur le Styx.");
 			end
 		end
 	end;
@@ -1555,22 +1555,22 @@ concommand.Add("cw_MoveShipHell", function(player, cmd, args)
 							if hook.Run("CanPlayerMoveLongship", entity, player) then
 								cwSailing:BeginSailing(entity, "hell", player);
 							else
-								Schema:EasyText(player, "maroon", "You do not have permission to sail this "..entity.longshipType.."!");
+								Schema:EasyText(player, "maroon", "Vous n'avez pas l'autorisation de naviguer avec ce navire"..entity.longshipType.."!");
 							end
 						else
-							Schema:EasyText(player, "maroon", "This "..entity.longshipType.." cannot sail because it is on fire!");
+							Schema:EasyText(player, "maroon", "Ceci"..entity.longshipType.." cannot sail because it is on fire!");
 						end
 					else
-						Schema:EasyText(player, "maroon", "This "..entity.longshipType.." is already preparing to sail!");
+						Schema:EasyText(player, "maroon", "Ceci"..entity.longshipType.." is already preparing to sail!");
 					end
 				else
-					Schema:EasyText(player, "chocolate", "The mere thought of sailing to Hell drives a nail into your mind. Consult the gods for guidance.");
+					Schema:EasyText(player, "chocolate", "La simple idée de naviguer vers l'Enfer enfonce un clou dans ton esprit. Consulte les dieux pour obtenir des conseils.");
 					player:HandleSanity(-5);
 
-					Schema:EasyText(Schema:GetAdmins(), "icon16/anchor.png", "goldenrod", player:Name() .. " has attempted to sail to Hell while /ToggleHellSailing is disabled! Expect a prayer.")
+					Schema:EasyText(Schema:GetAdmins(), "icon16/anchor.png", "dorée", player:Name() .. " has attempted to sail to Hell while /ToggleHellSailing is disabled! Expect a prayer.")
 				end
 			else
-				Schema:EasyText(player, "chocolate", "Your longship lacks the enchantment required to navigate the River Styx safely.");
+				Schema:EasyText(player, "chocolate", "Votre drakkar ne possède pas l'enchantement nécessaire pour naviguer sur le Styx en toute sécurité.");
 			end
 		end
 	end;
@@ -1590,14 +1590,14 @@ concommand.Add("cw_AbortSailing", function(player, cmd, args)
 					
 					timer.Remove("SailTimer_"..tostring(entity:EntIndex()));
 					
-					Clockwork.chatBox:AddInTargetRadius(player, "me", "aborts their preparations for sailing.", player:GetPos(), Clockwork.config:Get("talk_radius"):Get() * 2);
+					Clockwork.chatBox:AddInTargetRadius(player, "me", "interrompt ses préparatifs de navigation.", player:GetPos(), Clockwork.config:Get("talk_radius"):Get() * 2);
 					
-					Schema:EasyText(Schema:GetAdmins(), "icon16/anchor.png", "cornflowerblue", "Sailing aborted for longship "..entity:EntIndex().." by "..player:Name().."!");
+					Schema:EasyText(Schema:GetAdmins(), "icon16/anchor.png", "bleu barbeau", "Sailing aborted for longship "..entity:EntIndex().." by "..player:Name().."!");
 				else
-					Schema:EasyText(player, "maroon", "You do not have permission to abort this "..entity.longshipType.."'s sailing!");
+					Schema:EasyText(player, "maroon", "Vous n'avez pas l'autorisation d'annuler ceci"..entity.longshipType.."'s sailing!");
 				end
 			else
-				Schema:EasyText(player, "maroon", "This "..entity.longshipType.." is not preparing to sail!");
+				Schema:EasyText(player, "maroon", "Ceci"..entity.longshipType.." is not preparing to sail!");
 			end
 		end
 	end;
@@ -1618,10 +1618,10 @@ concommand.Add("cw_DockLongship", function(player, cmd, args)
 				if entity.owner == player then
 					entity:Remove();
 				else
-					Schema:EasyText(player, "maroon", "This "..entity.longshipType.." does not belong to you!");
+					Schema:EasyText(player, "maroon", "Ceci"..entity.longshipType.." does not belong to you!");
 				end
 			else
-				Schema:EasyText(player, "maroon", "This "..entity.longshipType.." must be at the Gore Forest to dock!");
+				Schema:EasyText(player, "maroon", "Ceci"..entity.longshipType.." must be at the Gore Forest to dock!");
 			end
 		end
 	end;
@@ -1704,9 +1704,9 @@ concommand.Add("cw_ShipTimerPause", function(player, cmd, args)
 					timer.Toggle("TravelTimer_"..tostring(entity:EntIndex()));
 					
 					if timer.TimeLeft("TravelTimer_"..tostring(entity:EntIndex())) < 0 then
-						Schema:EasyText(player, "icon16/anchor.png", "cornflowerblue", "[cw_ShipTimerPause] Timer paused!");
+						Schema:EasyText(player, "icon16/anchor.png", "bleuet", "[cw_ShipTimerPause] Timer paused!");
 					else
-						Schema:EasyText(player, "icon16/anchor.png", "cornflowerblue", "[cw_ShipTimerPause] Timer unpaused!");
+						Schema:EasyText(player, "icon16/anchor.png", "bleuet", "[cw_ShipTimerPause] Timer unpaused!");
 					end
 				end
 			end
@@ -1725,11 +1725,11 @@ concommand.Add("cw_ShipToggleEnchantment", function(player, cmd, args)
 				if entity.enchantment then
 					entity.enchantment = false;
 					
-					Schema:EasyText(player, "icon16/anchor.png", "cornflowerblue", "[cw_ShipToggleEnchantment] This ship can no longer navigate the River Styx!");
+					Schema:EasyText(player, "icon16/anchor.png", "bleuet", "[cw_ShipToggleEnchantment] This ship can no longer navigate the River Styx!");
 				else
 					entity.enchantment = true;
 					
-					Schema:EasyText(player, "icon16/anchor.png", "cornflowerblue", "[cw_ShipToggleEnchantment] This ship can now navigate the River Styx!");
+					Schema:EasyText(player, "icon16/anchor.png", "bleuet", "[cw_ShipToggleEnchantment] This ship can now navigate the River Styx!");
 				end
 				
 				local itemID = entity.itemID;
@@ -1757,14 +1757,14 @@ concommand.Add("cw_ShipToggleFreeSailing", function(player, cmd, args)
 				if entity:GetNWBool("freeSailing") then
 					entity:SetNWBool("freeSailing", false);
 					
-					Schema:EasyText(player, "maroon", "You have disabled free sailing for this "..entity.longshipType..". Only you may sail it unless you are incapacitated.");
+					Schema:EasyText(player, "maroon", "Vous avez désactivé la navigation libre pour ceci"..entity.longshipType..". Only you may sail it unless you are incapacitated.");
 				else
 					entity:SetNWBool("freeSailing", true);
 					
-					Schema:EasyText(player, "olivedrab", "You have enabled free sailing for this "..entity.longshipType..". Any Gore can now sail it.");
+					Schema:EasyText(player, "olivedrab", "Vous avez activé la navigation libre pour ce"..entity.longshipType..". Any Gore can now sail it.");
 				end
 			else
-				Schema:EasyText(player, "maroon", "You do not have permission to toggle free sailing for this "..entity.longshipType.."!");
+				Schema:EasyText(player, "maroon", "Vous n'avez pas l'autorisation d'activer la navigation libre pour ceci"..entity.longshipType.."!");
 			end
 		end
 	end;
@@ -1778,7 +1778,7 @@ concommand.Add("cw_RepairGorewatchAlarm", function(player, cmd, args)
 
 		if (entity:GetClass() == "cw_gorewatchalarm") and player:GetPos():Distance2D(entity:GetPos()) < 300 then
 			if !entity:GetNWBool("broken") then
-				Schema:EasyText(player, "chocolate", "The alarm system has already been repaired!");
+				Schema:EasyText(player, "chocolate", "Le système d'alarme a déjà été réparé !");
 				
 				return;
 			end
@@ -1805,7 +1805,7 @@ concommand.Add("cw_RepairGorewatchAlarm", function(player, cmd, args)
 					end
 				end);
 			else
-				Schema:EasyText(player, "chocolate", "You do not have any tech to repair the alarm system with!");
+				Schema:EasyText(player, "chocolate", "Vous n'avez pas le matériel nécessaire pour réparer le système d'alarme !");
 			end
 		end
 	end;
@@ -1819,7 +1819,7 @@ concommand.Add("cw_SteamEngineRepair", function(player, cmd, args)
 
 		if (entity:GetClass() == "cw_steam_engine") and player:GetPos():Distance2D(entity:GetPos()) < 300 then
 			if !entity:GetNWBool("broken") then
-				Schema:EasyText(player, "chocolate", "The steam engine has already been fully repaired!");
+				Schema:EasyText(player, "chocolate", "Le moteur à vapeur a déjà été entièrement réparé !");
 				
 				return;
 			end
@@ -1862,7 +1862,7 @@ concommand.Add("cw_SteamEngineRepair", function(player, cmd, args)
 									return;
 								end
 								
-								Schema:EasyText(player, "chocolate", "You do not have enough scrap to repair the steam engine with! You require "..tostring(scrapRequired).." scrap!");
+								Schema:EasyText(player, "chocolate", "Vous n'avez pas assez de ferraille pour réparer la machine à vapeur ! Il vous en faut"..tostring(scrapRequired).." scrap!");
 							end
 						end);
 						
@@ -1871,7 +1871,7 @@ concommand.Add("cw_SteamEngineRepair", function(player, cmd, args)
 				end
 			end
 			
-			Schema:EasyText(player, "chocolate", "You do not have enough scrap to repair the steam engine with! You require 6 scrap!");
+			Schema:EasyText(player, "chocolate", "Vous n'avez pas assez de ferraille pour réparer le moteur à vapeur ! Il vous faut 6 unités de ferraille !");
 		end
 	end;
 end);
@@ -1908,15 +1908,15 @@ concommand.Add("cw_SteamEngineFuel", function(player, cmd, args)
 						end
 					end);
 				else
-					Schema:EasyText(player, "chocolate", "You do not have any charcoal to fuel the steam engine with!");
+					Schema:EasyText(player, "chocolate", "Vous n'avez pas de charbon pour alimenter le moteur à vapeur !");
 				end
 			else
 				local fuel = entity.fuel;
 				
 				if fuel and fuel > 0 then
-					Schema:EasyText(player, "olivedrab", "The fuel gauge reads "..tostring(math.Round(fuel, 2)).."%.");
+					Schema:EasyText(player, "olivedrab", "La jauge de carburant indique"..tostring(math.Round(fuel, 2)).."%.");
 				else
-					Schema:EasyText(player, "chocolate", "The fuel gauge reads empty!");
+					Schema:EasyText(player, "chocolate", "La jauge de carburant indique le réservoir vide !");
 				end
 			end
 		end
@@ -1937,7 +1937,7 @@ concommand.Add("cw_SteamEngine", function(player, cmd, args)
 					if fault then
 						Schema:EasyText(player, "chocolate", fault);
 					else
-						Schema:EasyText(player, "chocolate", "The steam engine cannot be turned on right now!");
+						Schema:EasyText(player, "chocolate", "Le moteur à vapeur ne peut pas être démarré pour le moment !");
 					end
 				end
 			else
@@ -1947,7 +1947,7 @@ concommand.Add("cw_SteamEngine", function(player, cmd, args)
 					if fault then
 						Schema:EasyText(player, "chocolate", fault);
 					else
-						Schema:EasyText(player, "chocolate", "The steam engine cannot be turned off right now!");
+						Schema:EasyText(player, "chocolate", "Le moteur à vapeur ne peut pas être éteint pour le moment !");
 					end
 				end
 			end

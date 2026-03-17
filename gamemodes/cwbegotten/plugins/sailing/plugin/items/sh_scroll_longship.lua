@@ -1,4 +1,4 @@
---[[
+﻿--[[
 	By: DETrooper
 --]]
 
@@ -10,7 +10,7 @@ local ITEM = Clockwork.item:New();
 	ITEM.category = "Naval";
 	ITEM.model = "models/items/magic/scrolls/scroll_open.mdl";
 	ITEM.weight = 0.1;
-	ITEM.description = "A scroll and some basic navigational equipment. It shows a detailed map to where a Goreic Longship is docked.";
+	ITEM.description = "Un parchemin et quelques équipements de navigation basiques. Il indique une carte détaillée menant à l'emplacement d'un Langskip Goréen à quai.";
 	ITEM.iconoverride = "materials/begotten/ui/itemicons/scroll_open.png";
 	ITEM.longshipEnt = "cw_longship";
 	ITEM:AddData("customName", "", true);
@@ -25,12 +25,12 @@ local ITEM = Clockwork.item:New();
 		local faction = player:GetFaction();
 		
 		if (faction ~= "Goreic Warrior") then
-			Schema:EasyText(player, "chocolate", "You are not the correct faction to use this item!");
+			Schema:EasyText(player, "chocolate", "Vous n'êtes pas de la faction autorisée à utiliser cet objet !");
 			return false;
 		end;
 		
 		if player:GetCharacterData("LastZone") ~= "gore" then
-			Schema:EasyText(player, "peru", "You must be in the Goreic forest to use this item!");
+			Schema:EasyText(player, "peru", "Vous devez être dans la forêt de Goreic pour utiliser cet objet !");
 			return false;
 		end
 		
@@ -40,11 +40,11 @@ local ITEM = Clockwork.item:New();
 			if longshipEnt then
 				longshipEnt:Remove();
 			else
-				Schema:EasyText(player, "peru", "This longship is already docked!");
+				Schema:EasyText(player, "peru", "Ce drakkar est déjà amarré !");
 			end
 		else]]if itemFunction == "undock" then
 			if cwSailing:LongshipExists(self.itemID) then
-				Schema:EasyText(player, "peru", "This longship is already undocked!");
+				Schema:EasyText(player, "peru", "Ce drakkar est déjà détaché !");
 				return false;
 			end
 			
@@ -135,7 +135,7 @@ local ITEM = Clockwork.item:New();
 	ITEM.category = "Naval";
 	ITEM.model = "models/items/magic/scrolls/scroll_open.mdl";
 	ITEM.weight = 0.1;
-	ITEM.description = "In the legends of Clan Shagalax, it is said that a thousand steam tanks descended upon the followers of the Glaze. Confined to the Gore Forest, Clan Shagalax has continued this tradition by adapting their methods to naval war machines.";
+	ITEM.description = "Dans les légendes du Clan Shagalax, on raconte que mille chars à vapeur fondirent sur les adeptes du Glaze. Confinés dans la Forêt de Gore, le Clan Shagalax a perpétué cette tradition en adaptant leurs méthodes aux machines de guerre navales.";
 	ITEM.iconoverride = "materials/begotten/ui/itemicons/scroll_open.png";
 	ITEM.longshipEnt = "cw_longship_ironclad";
 	ITEM:AddData("customName", "", true);
@@ -152,12 +152,12 @@ local ITEM = Clockwork.item:New();
 		local faction = player:GetFaction();
 		
 		if (faction ~= "Goreic Warrior") then
-			Schema:EasyText(player, "chocolate", "You are not the correct faction to use this item!");
+			Schema:EasyText(player, "chocolate", "Vous n'êtes pas de la faction appropriée pour utiliser cet objet !");
 			return false;
 		end;
 		
 		if player:GetCharacterData("LastZone") ~= "gore" then
-			Schema:EasyText(player, "peru", "You must be in the Goreic forest to use this item!");
+			Schema:EasyText(player, "peru", "Vous devez être dans la forêt Goreic pour utiliser cet objet !");
 			return false;
 		end
 		
@@ -167,11 +167,11 @@ local ITEM = Clockwork.item:New();
 			if longshipEnt then
 				longshipEnt:Remove();
 			else
-				Schema:EasyText(player, "peru", "This ironclad is already docked!");
+				Schema:EasyText(player, "peru", "Ce cuirassé est déjà amarré !");
 			end
 		else]]if itemFunction == "undock" then
 			if cwSailing:LongshipExists(self.itemID) then
-				Schema:EasyText(player, "peru", "This ironclad is already undocked!");
+				Schema:EasyText(player, "peru", "Ce cuirassé est déjà sorti du dock !");
 				return false;
 			end
 			
@@ -244,7 +244,7 @@ local ITEM = Clockwork.item:New();
 	ITEM.category = "Naval";
 	ITEM.model = "models/kali/vehicles/cod4/technical_mg_m2.mdl";
 	ITEM.weight = 30;
-	ITEM.description = "It is recorded in oral histories that Clan Shagalax once relied on overwhelming firepower in industrialized warfare with their southern rival. Among the tribes of the border area formerly known as Utah, such examples can be found and collected for an exorbitant price.";
+	ITEM.description = "Les traditions orales rapportent que le Clan Shagalax s'appuyait autrefois sur une puissance de feu écrasante dans ses guerres industrielles contre son rival du sud. Parmi les tribus de la zone frontalière autrefois appelée Utah, de tels exemplaires peuvent être trouvés et acquis à prix exorbitant.";
 	ITEM.iconoverride = "materials/begotten/ui/itemicons/ironclad_mgupgrade.png";
 	ITEM.useText = "Upgrade Ironclad";
 	
@@ -265,7 +265,7 @@ local ITEM = Clockwork.item:New();
 		end
 		
 		if !IsValid(longshipEnt) or longshipEnt:GetClass() ~= "cw_longship_ironclad" then
-			Schema:EasyText(player, "peru", "You must have an active Ironclad to mount this machinegun!");
+			Schema:EasyText(player, "peru", "Vous devez posséder un Ironclad actif pour monter cette mitrailleuse !");
 			
 			return false;
 		end
@@ -280,7 +280,7 @@ local ITEM = Clockwork.item:New();
 		});
 		
 		if !IsValid(tr.Entity) or tr.Entity ~= longshipEnt then
-			Schema:EasyText(player, "peru", "You must be standing on your Ironclad to mount this machinegun!");
+			Schema:EasyText(player, "peru", "Vous devez être debout sur votre Ironclad pour monter cette mitrailleuse !");
 			
 			return false;
 		end
@@ -290,7 +290,7 @@ local ITEM = Clockwork.item:New();
 			
 			if itemTable then
 				if itemTable:GetData("machinegunUpgrade") == true then
-					Schema:EasyText(player, "peru", "This ironclad has already been upgraded!");
+					Schema:EasyText(player, "peru", "Ce cuirassé a déjà été amélioré !");
 				
 					return false;
 				else
@@ -300,7 +300,7 @@ local ITEM = Clockwork.item:New();
 		end]]--
 		
 		if IsValid(longshipEnt.machinegun) then
-			Schema:EasyText(player, "peru", "This ironclad has already been upgraded!");
+			Schema:EasyText(player, "peru", "Ce cuirassé a déjà été amélioré !");
 			
 			return false;
 		end
@@ -321,7 +321,7 @@ local ITEM = Clockwork.item:New();
 	ITEM.category = "Naval";
 	ITEM.model = "models/kali/vehicles/cod4/technical_mg_m2_ammobox_closed.mdl";
 	ITEM.weight = 15;
-	ITEM.description = "A box of old world ammunition acquired from the distant Goreic tribes of Utah, specifically for use in the Ironclad's mounted machinegun.";
+	ITEM.description = "Une boîte de munitions de l'ancien monde, acquise auprès des lointaines tribus goréiques de l'Utah, spécifiquement conçue pour la mitrailleuse montée de l'Ironclad.";
 	ITEM.iconoverride = "materials/begotten/ui/itemicons/ironclad_ammo_box.png";
 	
 	function ITEM:OnDrop(player, itemEntity)

@@ -1,4 +1,4 @@
---[[
+﻿--[[
 	Begotten III: Jesus Wept
 --]]
 
@@ -46,7 +46,7 @@ function cwPossession:PlayerCanUseCommand(player, commandTable, arguments)
 		};
 		
 		if (table.HasValue(blacklisted, commandTable.name)) then
-			Schema:EasyText(player, "firebrick", "You cannot use this command while you are possessed!");
+			Schema:EasyText(player, "firebrick", "Vous ne pouvez pas utiliser cette commande pendant que vous êtes possédé !");
 			
 			return false;
 		end;
@@ -119,7 +119,7 @@ function cwPossession:PlayerDisconnected(player)
 
 		netstream.Start(player.victim, "Stunned", 5); -- Replace with damnation or custom VFX later!
 		Clockwork.player:SetRagdollState(player.victim, RAGDOLL_KNOCKEDOUT, 15);
-		Clockwork.chatBox:AddInTargetRadius(player.victim, "me", "is suddenly thrown to the ground by some unseen force!", player.victim:GetPos(), Clockwork.config:Get("talk_radius"):Get() * 2);
+		Clockwork.chatBox:AddInTargetRadius(player.victim, "me", "est soudainement projeté au sol par une force invisible !", player.victim:GetPos(), Clockwork.config:Get("talk_radius"):Get() * 2);
 		player.victim:EmitSound("possession/spiritsting.wav");
 	end
 end;

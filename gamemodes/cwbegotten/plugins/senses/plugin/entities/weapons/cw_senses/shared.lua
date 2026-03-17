@@ -1,4 +1,4 @@
---[[
+﻿--[[
 	Begotten 3
 	Created by cash wednesday, gabs, DETrooper and alyousha35
 --]]
@@ -15,7 +15,7 @@ if (CLIENT) then
 	SWEP.DrawCrosshair = false;
 end
 
-SWEP.Instructions = "Primary Fire: Toggle";
+SWEP.Instructions = "Tir principal : Basculer";
 SWEP.Purpose = "If you are in a dark area and cannot see, you can use your senses to navigate.";
 SWEP.Contact = "";
 SWEP.Author	= "";
@@ -151,18 +151,18 @@ function SWEP:SecondaryAttack()
 								self.Owner:Cloak();
 							end
 						elseif (self.Owner.cloakCooldown - curTime) > 5 then
-							Schema:EasyText(self.Owner, "chocolate", "You are covered in black powder and cannot cloak for another "..math.ceil(self.Owner.cloakCooldown - curTime).." seconds!");
+							Schema:EasyText(self.Owner, "chocolate", "Vous êtes couvert de poudre noire et ne pouvez pas vous camoufler pendant encore"..math.ceil(self.Owner.cloakCooldown - curTime).." seconds!");
 						else
-							Schema:EasyText(self.Owner, "chocolate", "You cannot cloak for another "..math.ceil(self.Owner.cloakCooldown - curTime).." seconds!");
+							Schema:EasyText(self.Owner, "chocolate", "Vous ne pouvez pas vous camoufler avant encore"..math.ceil(self.Owner.cloakCooldown - curTime).." seconds!");
 						end
 					else
 						self.Owner:Uncloak();
 					end
 				else
-					Schema:EasyText(self.Owner, "chocolate", "You must be crouching in order to toggle cloaking.");
+					Schema:EasyText(self.Owner, "chocolate", "Vous devez être accroupi pour activer ou désactiver le camouflage.");
 				end
 			else
-				Schema:EasyText(self.Owner, "peru", "You must be in the wasteland or the mines and it must currently be night or blood storming (if above ground) in order to toggle cloaking.");
+				Schema:EasyText(self.Owner, "peru", "Vous devez être dans le no man's land ou les mines, et il doit actuellement faire nuit ou y avoir une tempête de sang (si vous êtes en surface) pour activer le camouflage.");
 			end
 			
 			self:SetNextSecondaryFire(CurTime() + 2);

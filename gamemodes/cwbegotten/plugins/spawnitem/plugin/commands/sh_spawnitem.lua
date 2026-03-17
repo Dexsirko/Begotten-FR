@@ -1,4 +1,4 @@
-local Clockwork = Clockwork;
+﻿local Clockwork = Clockwork;
 
 if Clockwork.command.RegisterType then
 	Clockwork.command:RegisterType("SpawnItem", function (current_arg, _args)
@@ -17,7 +17,7 @@ if Clockwork.command.RegisterType then
 end
 
 local COMMAND = Clockwork.command:New("SpawnItem");
-COMMAND.tip = "Spawn an item where you are looking.";
+COMMAND.tip = "Fait apparaître un objet là où vous regardez.";
 COMMAND.text = "<string Item>";
 COMMAND.access = "s";
 COMMAND.types = {"SpawnItem"}
@@ -43,7 +43,7 @@ function COMMAND:OnRun(player, arguments)
 			
 			
 				else
-					Schema:EasyText(player, "grey", "This is not a valid item!");
+					Schema:EasyText(player, "grey", "Ceci n'est pas un objet valide !");
 				end;
 end;
 

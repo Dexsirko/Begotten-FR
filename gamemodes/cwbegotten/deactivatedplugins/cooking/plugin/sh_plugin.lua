@@ -1,4 +1,4 @@
---[[
+﻿--[[
 	B3 Jessu Weep
 --]]
 
@@ -39,7 +39,7 @@ FOOD_EMPTY = 10;
 
 --[[
 local COMMAND = Clockwork.command:New("CharForceOut");
-	COMMAND.tip = "Force a player out of the container they are in. Use 'true' as a second argument to make them quietly exit.";
+	COMMAND.tip = "Forcer un joueur à sortir du conteneur dans lequel il se trouve. Utilisez 'true' comme second argument pour qu'il sorte discrètement.";
 	COMMAND.text = "<string Name> <bool Quiet>";
 	COMMAND.access = "a";
 	COMMAND.arguments = 1;
@@ -52,7 +52,7 @@ local COMMAND = Clockwork.command:New("CharForceOut");
 COMMAND:Register();
 
 local COMMAND = Clockwork.command:New("CharGetOut");
-	COMMAND.tip = "Get out of a container you are in.";
+	COMMAND.tip = "Sortez du conteneur dans lequel vous vous trouvez.";
 	COMMAND.flags = CMD_DEFAULT;
 	COMMAND.alias = {"GetOut", "PlyGetOut", "CharExitContainer", "ExitContainer", "PlyExitContainer"};
 	

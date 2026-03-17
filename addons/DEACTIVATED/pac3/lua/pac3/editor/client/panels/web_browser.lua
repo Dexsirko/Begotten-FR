@@ -1,4 +1,4 @@
-local PANEL = {}
+﻿local PANEL = {}
 
 PANEL.Base = "DFrame"
 PANEL.ClassName = "web_browser"
@@ -16,7 +16,7 @@ function PANEL:Init()
 	self.top = top
 
 	local btn = vgui.Create("DButton", top)
-		btn:SetText("Back")
+		btn:SetText("Retour")
 		btn:SizeToContents()
 		btn:SetWide(btn:GetWide()+8)
 		btn:Dock(LEFT)
@@ -25,7 +25,7 @@ function PANEL:Init()
 		end
 
 	local btn = vgui.Create("DButton", top)
-		btn:SetText("Forward")
+		btn:SetText("Avancer")
 		btn:SizeToContents()
 		btn:SetWide(btn:GetWide()+8)
 		btn:Dock(LEFT)
@@ -34,7 +34,7 @@ function PANEL:Init()
 		end
 
 	local btn = vgui.Create("DButton", top)
-		btn:SetText("Refresh")
+		btn:SetText("Actualiser")
 		btn:SizeToContents()
 		btn:SetWide(btn:GetWide() + 8)
 		btn:Dock(LEFT)

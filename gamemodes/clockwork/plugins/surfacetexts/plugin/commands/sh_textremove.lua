@@ -1,9 +1,9 @@
---[[
+﻿--[[
 	Begotten III: Jesus Wept
 --]]
 
 local COMMAND = Clockwork.command:New("TextRemove");
-COMMAND.tip = "Remove some text from a surface.";
+COMMAND.tip = "Retire du texte d'une surface.";
 COMMAND.flags = CMD_DEFAULT;
 COMMAND.access = "a";
 

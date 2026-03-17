@@ -1,4 +1,4 @@
---[[
+﻿--[[
 	Begotten III: Jesus Wept
 	By: DETrooper, cash wednesday, gabs, alyousha35
 
@@ -327,7 +327,7 @@ function Clockwork.character:RefreshPanelList()
 		end);
 		
 		panel.label = vgui.Create("DLabel", panel);
-		panel.label:SetText("SELECT YOUR VESSEL...");
+		panel.label:SetText("CHOISISSEZ VOTRE VÉHICULE...");
 		panel.label:SetTextColor(Color(255, 255, 255));
 		panel.label:SetFont("nov_IntroTextSmallaaafaa");
 		panel.label:SizeToContents();
@@ -381,7 +381,7 @@ function Clockwork.character:RefreshPanelList()
 
 			panel.cancelButton = vgui.Create("cwLabelButton", panel);
 			panel.cancelButton:SetFont("demiurgemenuTextDistrict21Menu");
-			panel.cancelButton:SetText("Return");
+			panel.cancelButton:SetText("Retour");
 			panel.cancelButton.aText = "Return";
 			panel.cancelButton:SetCallback(function(panel)
 				Clockwork.character:GetPanel():ReturnToMainMenu();
@@ -398,7 +398,7 @@ function Clockwork.character:RefreshPanelList()
 
 			panel.necropolisButton = vgui.Create("cwLabelButton", panel);
 			panel.necropolisButton:SetFont("demiurgemenuTextDistrict21Menu");
-			panel.necropolisButton:SetText("Necropolis");
+			panel.necropolisButton:SetText("Nécropole");
 			panel.necropolisButton.aText = "Necropolis";
 			panel.necropolisButton:SetCallback(function(panel)
 				self:GetPanel():OpenPanel("cwNecropolis", nil);
@@ -415,7 +415,7 @@ function Clockwork.character:RefreshPanelList()
 
 			panel.enterHellButton = vgui.Create("cwLabelButton", panel);
 			panel.enterHellButton:SetFont("demiurgemenuTextDistrict21Menu");
-			panel.enterHellButton:SetText("Enter the Forest");
+			panel.enterHellButton:SetText("Entrez dans la Forêt");
 			panel.enterHellButton.aText = "Enter the Forest"
 			panel.enterHellButton:SetCallback(function(panel)
 				Clockwork.character:GetPanel():ReturnToMainMenu();
@@ -435,7 +435,7 @@ function Clockwork.character:RefreshPanelList()
 			
 			panel.cancelButton = vgui.Create("cwLabelButton", panel);
 			panel.cancelButton:SetFont(smallTextFont);
-			panel.cancelButton:SetText("RETURN");
+			panel.cancelButton:SetText("RETOUR");
 			panel.cancelButton:SetCallback(function(panel)
 				Clockwork.character:GetPanel():ReturnToMainMenu();
 			end);
@@ -456,7 +456,7 @@ function Clockwork.character:RefreshPanelList()
 			
 			panel.necropolisButton = vgui.Create("cwLabelButton", panel);
 			panel.necropolisButton:SetFont(smallTextFont);
-			panel.necropolisButton:SetText("NECROPOLIS");
+			panel.necropolisButton:SetText("NÉCROPOLE");
 			panel.necropolisButton:SetCallback(function(panel)
 				self:GetPanel():OpenPanel("cwNecropolis", nil);
 			end);
@@ -477,7 +477,7 @@ function Clockwork.character:RefreshPanelList()
 			
 			panel.enterHellButton = vgui.Create("cwLabelButton", panel);
 			panel.enterHellButton:SetFont(smallTextFont);
-			panel.enterHellButton:SetText("ENTER HELL");
+			panel.enterHellButton:SetText("ENTREZ EN ENFER");
 			panel.enterHellButton:SetCallback(function(panel)
 				local valid_characters = {};
 				local name = Clockwork.Client:Name(true);

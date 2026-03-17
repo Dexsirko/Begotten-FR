@@ -1,4 +1,4 @@
---[[
+﻿--[[
 	Begotten III: Jesus Wept
 	By: DETrooper, cash wednesday, gabs, alyousha35
 
@@ -45,14 +45,14 @@ function cwContainerHiding:EntityHandleMenuOption(player, entity, option, argume
 				
 				if (IsValid(physObj)) then
 					if (physObj:IsMotionEnabled()) then
-						Schema:EasyText(player, "firebrick", "You cannot get into a container that is free-moving!");
+						Schema:EasyText(player, "firebrick", "Vous ne pouvez pas entrer dans un conteneur qui est libre de ses mouvements !");
 						
 						return;
 					end;
 				end;
 				
 				if (entity:IsOnFire()) then
-					Schema:EasyText(player, "firebrick", "You cannot get into a container that is on fire!");
+					Schema:EasyText(player, "firebrick", "Vous ne pouvez pas entrer dans un conteneur qui est en feu !");
 
 					return;
 				end;
@@ -69,13 +69,13 @@ function cwContainerHiding:EntityHandleMenuOption(player, entity, option, argume
 							end);
 						end;
 					else
-						Schema:EasyText(player, "firebrick", "You cannot get into a container while in observer!");
+						Schema:EasyText(player, "firebrick", "Vous ne pouvez pas entrer dans un conteneur en mode observateur !");
 					end;
 				else
 					if (!entity.nextCooldown or curTime > entity.nextCooldown) then
 						entity.nextCooldown = curTime + 1;
 						
-						Schema:EasyText(player, "firebrick", "You cannot hide in this container for another "..math.ceil(entity.nextHideUse - curTime).." seconds!");
+						Schema:EasyText(player, "firebrick", "Vous ne pouvez plus vous cacher dans ce conteneur pour le moment."..math.ceil(entity.nextHideUse - curTime).." seconds!");
 					end;
 				end;
 			elseif (arguments == "cw_entityUnHide") then
@@ -84,11 +84,11 @@ function cwContainerHiding:EntityHandleMenuOption(player, entity, option, argume
 						self:AttemptHide(player, entity, false);
 					end);
 				else
-					Schema:EasyText(player, "maroon", "You are locked inside this container!");
+					Schema:EasyText(player, "maroon", "Vous êtes enfermé à l'intérieur de ce conteneur !");
 				end
 			--[[elseif (arguments == "cwContainerOpen") and (entity:GetNWBool("unlocked", true) == false) then
 				if (player:GetCharacterData("hidden") == true) then
-					Schema:EasyText(player, "firebrick", "You cannot do this right now!");
+					Schema:EasyText(player, "firebrick", "Vous ne pouvez pas faire cela maintenant !");
 					
 					return false;
 				elseif IsValid(entity.occupier) and entity.occupier ~= player then
@@ -145,7 +145,7 @@ function cwContainerHiding:PlayerCanUseCommand(player, commandTable, arguments)
 		};
 		
 		if (table.HasValue(blacklisted, commandTable.name)) then
-			Schema:EasyText(player, "firebrick", "You cannot use this command while you are hiding in a prop!");
+			Schema:EasyText(player, "firebrick", "Vous ne pouvez pas utiliser cette commande lorsque vous êtes caché dans un prop !");
 			
 			return false;
 		end;
@@ -167,7 +167,7 @@ function cwContainerHiding:PlayerCanDropItem(player, itemTable, noMessage)
 	
 	if (hidden) then
 		if (!noMessage) then
-			Schema:EasyText(player, "firebrick", "You cannot drop items while you are hiding in a closet!");
+			Schema:EasyText(player, "firebrick", "Vous ne pouvez pas lâcher d'objets pendant que vous êtes caché dans un placard !");
 		end;
 		
 		return false;
@@ -180,7 +180,7 @@ function cwContainerHiding:PlayerCanUseItem(player, itemTable, noMessage)
 	
 	if (hidden) then
 		if (!noMessage) then
-			Schema:EasyText(player, "firebrick", "You cannot use items while you are hiding in a closet!");
+			Schema:EasyText(player, "firebrick", "Vous ne pouvez pas utiliser d'objets lorsque vous êtes caché dans un placard !");
 		end;
 		
 		return false;

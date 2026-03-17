@@ -1,4 +1,4 @@
---[[
+﻿--[[
 	Begotten III: Jesus Wept
 	By: DETrooper, cash wednesday, gabs, alyousha35
 
@@ -228,7 +228,7 @@ function cwZombies:OnNPCKilled(npc, attacker, inflictor, attackers)
 									
 									Clockwork.hint:Send(iAttacker, "The 'Demon Hunter' ritual task has been successfully completed...", 10, Color(100, 175, 100), true, true);
 								else
-									Schema:EasyText(iAttacker, "goldenrod", "You must slay "..iAttacker.thrallsToKill.." more Begotten thralls for your reward...");
+									Schema:EasyText(iAttacker, "goldenrod", "Tu dois abattre"..iAttacker.thrallsToKill.." more Begotten thralls for your reward...");
 								end
 							else
 								iAttacker.demonHunterActive = nil;

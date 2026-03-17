@@ -1,4 +1,4 @@
---[[
+﻿--[[
 	Begotten 3: Jesus Wept
 	written by: cash wednesday, DETrooper, gabs and alyousha35.
 --]]
@@ -407,7 +407,7 @@ end;
 function Schema:AddNPCSpawn(position, category, player)
 	if category ~= "animal" and category ~= "thrall" and category ~= "thrallnight" and (Schema.spawnedNPCs["animalwasteland"] and category ~= "animalwasteland") then
 		if (player and player:IsPlayer()) then
-			Schema:EasyText(player, "darkgrey", "You have specified an invalid category!");
+			Schema:EasyText(player, "darkgrey", "Vous avez spécifié une catégorie invalide !");
 		end;
 	end
 	
@@ -1466,7 +1466,7 @@ function Schema:PermaKillPlayer(player, ragdoll, bSilent)
 		if player.GetCharmEquipped and player:GetCharmEquipped("satchel_denial") then
 			bSilent = true;
 			
-			Clockwork.chatBox:AddInTargetRadius(player, "me", "'s body disintegrates before you!", player:GetPos(), config.Get("talk_radius"):Get() * 2);
+			Clockwork.chatBox:AddInTargetRadius(player, "me", "Le corps de  se désintègre devant vous !", player:GetPos(), config.Get("talk_radius"):Get() * 2);
 		end
 		
 		Clockwork.player:DropWeapons(player);
@@ -1626,7 +1626,7 @@ function Schema:CheapleCaughtPlayer(player)
 			end;
 		end
 	
-		Clockwork.chatBox:Add(listeners, player, "me", "suddenly blinks out of existence, as though they were never there at all!", player:GetPos(), Clockwork.config:Get("talk_radius"):Get() * 2);
+		Clockwork.chatBox:Add(listeners, player, "me", "disparaît soudainement de l'existence, comme s'il n'avait jamais été là !", player:GetPos(), Clockwork.config:Get("talk_radius"):Get() * 2);
 		
 		player:DeathCauseOverride("Had their curse catch up with them.");
 		
@@ -1668,19 +1668,19 @@ function Schema:BloodTestPlayer(player, bFalsePositives, bDetectImposters)
 	local subfaction = player:GetSubfaction();
 	
 	if (faith ~= "Faith of the Light" and ((!bDetectImposters and subfaction ~= "Kinisger") or bDetectImposters)) or subfaith == "Voltism" or (bFalsePositives and math.random(1, 20) == 1 and not player:HasBelief("favored")) then
-		Clockwork.chatBox:AddInTargetRadius(player, "it", "The blood test comes up red.", player:GetPos(), config.Get("talk_radius"):Get() * 2);
+		Clockwork.chatBox:AddInTargetRadius(player, "it", "Le test sanguin révèle un résultat positif.", player:GetPos(), config.Get("talk_radius"):Get() * 2);
 		
 		player:EmitSound("ambient/alarms/klaxon1.wav");
 		
 		return;
 	elseif cwCharacterNeeds and player:GetNeed("corruption", 0) >= 50 and subfaction ~= "Kinisger" then
-		Clockwork.chatBox:AddInTargetRadius(player, "it", "The blood test comes up red.", player:GetPos(), config.Get("talk_radius"):Get() * 2);
+		Clockwork.chatBox:AddInTargetRadius(player, "it", "Le test sanguin s'avère positif.", player:GetPos(), config.Get("talk_radius"):Get() * 2);
 		
 		player:EmitSound("ambient/alarms/klaxon1.wav");
 		
 		return;
 	else
-		Clockwork.chatBox:AddInTargetRadius(player, "it", "The blood test comes up green.", player:GetPos(), config.Get("talk_radius"):Get() * 2);
+		Clockwork.chatBox:AddInTargetRadius(player, "it", "Le test sanguin est revenu vert.", player:GetPos(), config.Get("talk_radius"):Get() * 2);
 		
 		player:EmitSound("plats/elevbell1.wav");
 		
@@ -1771,7 +1771,7 @@ end);
 
 netstream.Hook("QueryBountyBoard", function(player, state)
 	if cwBeliefs and !player:HasBelief("literacy") then
-		Schema:EasyText(player, "chocolate", "You gaze upon the funny pictures on the bounty board, but as you are not literate you cannot read anything on it!");
+		Schema:EasyText(player, "chocolate", "Tu contemples les drôles d'images sur le tableau des primes, mais comme tu n'es pas lettré, tu ne peux rien y lire !");
 	else
 		local tab = {};
 
@@ -1801,7 +1801,7 @@ function playerMeta:AddBounty(bounty, reason, poster)
 		local faction = self:GetNetVar("kinisgerOverride") or self:GetFaction()
 		
 		if (faction  == "Gatekeeper" or faction == "Hillkeeper" or faction  == "Holy Hierarchy") and !poster:IsAdmin() then
-			Schema:EasyText(poster, "cornflowerblue", "You cannot place a bounty on "..self:Name().."!");
+			Schema:EasyText(poster, "cornflowerblue", "Vous ne pouvez pas placer une prime sur"..self:Name().."!");
 			
 			return;
 		end
@@ -1857,7 +1857,7 @@ function playerMeta:AddBounty(bounty, reason, poster)
 	Clockwork.kernel:SaveSchemaData("bountyData", Schema.bountyData);
 	
 	if IsValid(poster) and poster:IsPlayer() then
-		Schema:EasyText(poster, "cornflowerblue", "You have placed a "..tostring(tab.bounty).." coin bounty on "..tab.name.."!");
+		Schema:EasyText(poster, "cornflowerblue", "Vous avez placé un"..tostring(tab.bounty).." coin bounty on "..tab.name.."!");
 	
 		if tab.bounty == bounty then
 			Schema:EasyText(Schema:GetAdmins(), "green", poster:Name().." has placed a "..tostring(bounty).." coin bounty on "..tab.name.."!");
@@ -1891,7 +1891,7 @@ function playerMeta:RemoveBounty(remover)
 		Clockwork.kernel:SaveSchemaData("bountyData", Schema.bountyData);
 		
 		if IsValid(remover) and remover:IsPlayer() then
-			Schema:EasyText(remover, "cornflowerblue", "You have removed the bounty for "..self:Name().."!");
+			Schema:EasyText(remover, "cornflowerblue", "Vous avez retiré la prime pour"..self:Name().."!");
 			Schema:EasyText(Schema:GetAdmins(), "tomato", remover:Name().." has removed the bounty for "..self:Name().."!");
 			Clockwork.kernel:PrintLog(LOGTYPE_CRITICAL, remover:Name().." has removed the bounty for "..self:Name().."!");
 		end
@@ -1928,7 +1928,7 @@ function Schema:AddBounty(key, bounty, reason, poster)
 					
 					if IsValid(poster) and poster:IsPlayer() and faction then
 						if (faction  == "Gatekeeper" or faction == "Hillkeeper" or faction  == "Holy Hierarchy") and !poster:IsAdmin() then
-							Schema:EasyText(poster, "cornflowerblue", "You cannot place a bounty on "..v._Name.."!");
+							Schema:EasyText(poster, "cornflowerblue", "Vous ne pouvez pas placer une prime sur"..v._Name.."!");
 							
 							return;
 						end
@@ -1994,7 +1994,7 @@ function Schema:AddBounty(key, bounty, reason, poster)
 						Clockwork.kernel:SaveSchemaData("bountyData", Schema.bountyData);
 
 						if IsValid(poster) and poster:IsPlayer() then
-							Schema:EasyText(poster, "cornflowerblue", "You have placed a "..tostring(tab.bounty).." coin bounty on "..tab.name.."!");
+							Schema:EasyText(poster, "cornflowerblue", "Vous avez placé un"..tostring(tab.bounty).." coin bounty on "..tab.name.."!");
 						
 							if tab.bounty == bounty then
 								Schema:EasyText(Schema:GetAdmins(), "green", poster:Name().." has placed a "..tostring(bounty).." coin bounty on "..tab.name.."!");
@@ -2017,7 +2017,7 @@ function Schema:AddBounty(key, bounty, reason, poster)
 			end
 			
 			if IsValid(poster) and poster:IsPlayer() then
-				Schema:EasyText(poster, "peru", "The character "..tostring(key).." could not be located!");
+				Schema:EasyText(poster, "peru", "Le personnage"..tostring(key).." could not be located!");
 			end
 		end);
 		
@@ -2053,7 +2053,7 @@ function Schema:RemoveBounty(key, remover)
 						Clockwork.kernel:SaveSchemaData("bountyData", Schema.bountyData);
 						
 						if IsValid(remover) and remover:IsPlayer() then
-							Schema:EasyText(remover, "cornflowerblue", "You have removed the bounty for "..v._Name.."!");
+							Schema:EasyText(remover, "cornflowerblue", "Vous avez retiré la prime pour"..v._Name.."!");
 							Schema:EasyText(Schema:GetAdmins(), "tomato", remover:Name().." has removed the bounty for "..v._Name.."!");
 							Clockwork.kernel:PrintLog(LOGTYPE_CRITICAL, remover:Name().." has removed the bounty for "..v._Name.."!");
 						end
@@ -2064,7 +2064,7 @@ function Schema:RemoveBounty(key, remover)
 			end
 			
 			if IsValid(remover) and remover:IsPlayer() then
-				Schema:EasyText(remover, "peru", "The character "..tostring(key).." could not be located or does not have a bounty!");
+				Schema:EasyText(remover, "peru", "Le personnage"..tostring(key).." could not be located or does not have a bounty!");
 			end
 		end);
 		
@@ -2143,45 +2143,45 @@ function playerMeta:UnequipWeapons()
 end;
 
 function Schema:PlayerCommitSuicide(player)
-	local thirdPerson = "him";
-	local gender = "He";
-	local genderlc = "he";
-	local possessive = "his";
-	local selfless = "himself";
-	local madman = "madman";
+	local troisiemePersonne = "lui";
+	local genre = "Il";
+	local genreMinuscule = "il";
+	local possessif = "son";
+	local soiMeme = "lui-même";
+	local fou = "fou";
 
 	if (player:GetGender() == GENDER_FEMALE) then
-		thirdPerson = "her";
-		gender = "She";
-		genderlc = "she";
-		possessive = "her";
-		selfless = "herself";
-		madman = "madwoman";
+		troisiemePersonne = "elle";
+		genre = "Elle";
+		genreMinuscule = "elle";
+		possessif = "sa";
+		soiMeme = "elle-même";
+		fou = "folle";
 	end;
 	
-	local SuicideMethods = 
+	local MethodesSuicide = 
 	{
-		"pulls a makeshift shiv out of "..possessive.." pocket and sticks it in "..possessive.." fucking neck.",
-		"pulls a makeshift shiv out of "..possessive.." pocket and gouges it into both of "..possessive.." fucking eyes.",
-		"pulls a makeshift shiv out of "..possessive.." pocket and plunges it deep into "..possessive.." god damn stomach.",
-		"places "..possessive.." hands on "..possessive.." neck and twists it until it fucking snaps.",
-		"pulls out a knife and cuts out "..possessive.." tongue. "..gender.." would then stuff it down "..possessive.." fucking throat, and would quickly suffocate "..selfless.." before falling over and dying.",
-		"picks up a chunk of rubble off the ground. "..gender.." would then smash it into "..possessive.." fucking head, falling over and dying within a couple strikes.",
-		"screams like a "..madman.." and jams "..possessive.." thumbs into "..possessive.." eyes, reeling in pain as blood gushes all over the fucking place before finally collapsing, dead.",
-		"gets a mad look in "..possessive.." eyes and digs out "..possessive.." fucking throat with "..possessive.." nails, blood gushing from the wound everywhere.",
-		"rips off "..possessive.." nose with his bare hands, shoving it down "..possessive.." fucking throat, choking to death.",
-		"digs out "..possessive.." wrist arteries with "..possessive.." nails, screaming in agony as "..genderlc.." bleeds out.",
-		"pulls out a knife and fucking cuts open "..possessive.." stomach, digging inside with "..possessive.." and disemboweling himself with "..possessive.." bare hands.",
-		"gets on all fours and bangs "..possessive.." head repeatedly against the ground, shattering "..possessive.." skull after several successive hits.",
-		"starts fucking choking "..selfless.." with "..possessive.." own two hands! Holy shit! Eventually "..genderlc.." turns blue and collapses, dead. What a twisted fuck!",
-		"puts both "..possessive.." hands into "..possessive.." mouth, and violently fucking rips "..possessive.." jaw off! Jesus Christ! "..gender.." then would scream in agony for a split second before snapping "..possessive.." neck!",
-		"starts cutting "..possessive.." face into ribbons with "..possessive.." god damn nails. What a twisted fucking psychopath!",
-		"abruptly does a backflip, landing on "..possessive.." neck and breaking "..possessive.." skull against the floor with a sickening crunch of bone and cartilage as brain matter spews everywhere.",
-		"pulls out a knife and starts fucking flaying "..selfless.." alive! Holy shit! Layers upon layers of skin find themselves on the ground before "..genderlc.." finally collapses in a pool of blood.",
-		"suddenly plunges "..possessive.." fucking hand into "..possessive.." throat, driving "..possessive.." arm deep inside. "..gender.." then painfully pulls out "..possessive.." own god damn intestines! Holy fucking shit! "..gender.." would then collapsed in a pool of blood.",
-		"suddenly begins tightening "..possessive.." fists, clenching every muscle in "..possessive.." body. As "..genderlc.." does this, "..possessive.." face and knuckles begin to turn a bright red as "..possessive.." limbs tremble back and forth, increasing in magnitude until "..possessive.." epidermal layer is a bright lobster red. Abruptly, "..possessive.." entire fucking body rips apart, exploding in a massive cloud of red blood and bodyparts, viscera spilling everywhere! What the fuck happened?!?"
+		"sort une lame artisanale de "..possessif.." poche et se l'enfonce dans "..possessif.." putain de cou.",
+		"sort une lame artisanale de "..possessif.." poche et se lacère les deux putains d'yeux avec.",
+		"sort une lame artisanale de "..possessif.." poche et se l'enfonce profondément dans "..possessif.." satané ventre.",
+		"place "..possessif.." mains autour de "..possessif.." cou et le tord jusqu'à ce qu'il pète.",
+		"sort un couteau et se coupe "..possessif.." langue. "..genre.." se la fourre ensuite dans "..possessif.." putain de gorge, et s'étouffe rapidement avant de tomber et mourir.",
+		"ramasse un morceau de gravats au sol. "..genre.." se le fraie ensuite sur "..possessif.." putain de tête, tombant et mourant après quelques coups.",
+		"hurle comme "..unArticle..fou.." et s'enfonce "..possessif.." pouces dans les yeux, se tordant de douleur alors que le sang gicle partout avant de finalement s'effondrer, mort.",
+		"a une lueur folle dans "..possessif.." yeux et s'arrache "..possessif.." putain de gorge avec "..possessif.." ongles, le sang jaillissant de la blessure de partout.",
+		"s'arrache le nez à mains nues, se l'enfonçant dans "..possessif.." putain de gorge, et s'étouffe à mort.",
+		"s'ouvre les artères des poignets avec "..possessif.." ongles, hurlant d'agonie en se vidant de son sang.",
+		"sort un couteau et s'ouvre "..possessif.." putain de ventre, fouillant à l'intérieur avec "..possessif.." et s'éventrant à mains nues.",
+		"se met à quatre pattes et frappe "..possessif.." tête à plusieurs reprises contre le sol, se fracassant le crâne après plusieurs coups successifs.",
+		"commence à s'étrangler "..soiMeme.." avec "..possessif.." propres mains ! Putain ! Finalement "..genreMinuscule.." devient bleu et s'effondre, mort. Quel enfoiré tordu !",
+		"met "..possessif.." deux mains dans "..possessif.." bouche, et s'arrache violemment "..possessif.." putain de mâchoire ! Putain de merde ! "..genre.." hurle alors d'agonie une fraction de seconde avant de se briser "..possessif.." putain de nuque !",
+		"commence à se lacérer le visage en lambeaux avec "..possessif.." satanés ongles. Quel putain de psychopathe tordu !",
+		"fait soudain un salto arrière, atterrissant sur "..possessif.." nuque et se brisant le crâne contre le sol dans un craquement écœurant d'os et de cartilage tandis que la cervelle gicle partout.",
+		"sort un couteau et commence à s'écorcher vif "..soiMeme.." ! Putain ! Des couches et des couches de peau se retrouvent au sol avant qu' "..genreMinuscule.." ne s'effondre finalement dans une mare de sang.",
+		"plonge soudainement "..possessif.." putain de main dans "..possessif.." gorge, enfonçant "..possessif.." bras profondément à l'intérieur. "..genre.." s'extirpe alors douloureusement "..possessif.." propres satanés intestins ! Putain de merde ! "..genre.." s'effondre alors dans une mare de sang.",
+		"commence soudain à serrer "..possessif.." poings, contractant chaque muscle de "..possessif.." corps. Ce faisant, "..possessif.." visage et jointures commencent à rougir tandis que "..possessif.." membres tremblent d'avant en arrage, l'intensité augmentant jusqu'à ce que "..possessif.." couche épidermique soit rouge homard vif. Soudainement, "..possessif.." putain de corps entier se déchire, explosant dans un énorme nuage de sang rouge et de membres, les viscères giclant partout ! C'est quoi ce bordel ?!"
 	}
-
+	
 	player:Freeze(true);
 	
 	local suicideMethod = table.Random(SuicideMethods);
@@ -2303,7 +2303,7 @@ end
 
 function Schema:ModifyTowerTreasury(amount)
 	if !self.towerTreasury then
-		Schema:EasyText(Schema:GetAdmins(), "red", "The tower treasury was not initialized properly!", nil);
+		Schema:EasyText(Schema:GetAdmins(), "red", "Le trésor de la tour n'a pas été initialisé correctement !", nil);
 		self.towerTreasury = 0;
 	end
 	
@@ -2330,7 +2330,7 @@ function Schema:AddBookTowerArchives(player, itemTable)
 	end
 	
 	player:TakeItem(itemTable, true);
-	Schema:EasyText(player, "olivedrab", "You have added a copy of '"..itemTable.name.."' to the archives.");
+	Schema:EasyText(player, "olivedrab", "Vous avez ajouté une copie de "..itemTable.name.."' to the archives.");
 end
 
 function Schema:TakeBookTowerArchives(player, uniqueID)
@@ -2350,7 +2350,7 @@ function Schema:TakeBookTowerArchives(player, uniqueID)
 				self.archivesBookList[uniqueID] = nil
 			end
 		
-			Schema:EasyText(player, "olivedrab", "You have taken a copy of '"..itemTable.name.."' from the archives.");
+			Schema:EasyText(player, "olivedrab", "Vous avez pris une copie de "..itemTable.name.."' from the archives.");
 			
 			for _, v in _player.Iterator() do
 				if (v:HasInitialized()) then
@@ -2359,7 +2359,7 @@ function Schema:TakeBookTowerArchives(player, uniqueID)
 			end
 		end
 	else
-		Schema:EasyText(player, "peru", "This book does not exist in the archives!");
+		Schema:EasyText(player, "peru", "Ce livre n'existe pas dans les archives !");
 		self.archivesBookList[uniqueID] = nil
 	end
 end
@@ -2425,12 +2425,12 @@ function Schema:SacrificePlayer(player, sacrificer, method, bShared)
 				Clockwork.player:GiveCash(sacrificer, 666, "Marked Sacrifice");
 				sacrificer:HandleNeed("corruption", -50);
 				
-				Clockwork.chatBox:Add(sacrificer, nil, "itnofake", "As you sacrifice "..playerName.." and fulfill the blood contract fully, you feel your pockets suddenly become much heavier.");
+				Clockwork.chatBox:Add(sacrificer, nil, "itnofake", "En sacrifiant"..playerName.." and fulfill the blood contract fully, you feel your pockets suddenly become much heavier.");
 				
 				for _, v in _player.Iterator() do
 					if v:HasInitialized() then
 						if v == player or v:GetFaith() == "Faith of the Dark" then
-							Clockwork.chatBox:Add(v, nil, "darkwhispernoprefix", "Death has been delivered to a marked one. "..playerName.." has been sacrificed and his soul now belongs to the Dark Lord.");
+							Clockwork.chatBox:Add(v, nil, "darkwhispernoprefix", "La mort a été délivrée à un marqué."..playerName.." has been sacrificed and his soul now belongs to the Dark Lord.");
 						end
 					end
 				end
@@ -2544,7 +2544,7 @@ concommand.Add("cw_CheckTaxRate", function(player, cmd, args)
 			if (faction ~= "Goreic Warrior") then
 				local tax = math.Round(Schema.towerTax * 100);
 				
-				Schema:EasyText(player, "olive", "You pull the lever to check the Tower of Light's tax rate. According to the Coinslot's mechanical display, the current tax rate is "..tax.."%.");
+				Schema:EasyText(player, "olive", "Tu actionnes le levier pour vérifier le taux d'imposition de la Tour de Lumière. Selon l'affichage mécanique de la Fente à Pièces, le taux d'imposition actuel est de"..tax.."%.");
 				
 				entity:EmitSound(coinslotSounds[math.random(#coinslotSounds)]);
 			end
@@ -2567,10 +2567,10 @@ concommand.Add("cw_CoinslotSalaryCheck", function(player, cmd, args)
 				local ranksRestrictedWages = Schema.RanksRestrictedWages;
 				local rank = player:GetCharacterData("rank", 1);
 				
-				Schema:EasyText(player, "olive", "You pull the lever to check your salary. According to the Coinslot's mechanical display, you have "..collectableWages.." collectible salaries, for a total of "..coin.." coin.");
+				Schema:EasyText(player, "olive", "Tu actionnes le levier pour vérifier ton salaire. Selon l'affichage mécanique du Coinslot, tu as"..collectableWages.." collectible salaries, for a total of "..coin.." coin.");
 				
 				if ranksRestrictedWages and ranksRestrictedWages[faction] and table.HasValue(ranksRestrictedWages[faction], rank) then
-					Schema:EasyText(player, "peru", "At your current rank you will not accumulate salaries whilst inside the safezone!");
+					Schema:EasyText(player, "peru", "À votre rang actuel, vous ne cumulerez pas de salaires à l'intérieur de la zone sécurisée !");
 				end
 				
 				entity:EmitSound(coinslotSounds[math.random(#coinslotSounds)]);
@@ -2593,7 +2593,7 @@ concommand.Add("cw_CoinslotSalary", function(player, cmd, args)
 				local coin = player.cwInfoTable.coinslotWages * collectableWages
 				
 				if coin <= 0 then
-					Schema:EasyText(player, "olive", "You pull the lever to dispense your salary, but you have none available at present.");
+					Schema:EasyText(player, "olive", "Tu actionnes le levier pour obtenir ton salaire, mais tu n'en as aucun disponible pour le moment.");
 					entity:EmitSound(coinslotSounds[math.random(#coinslotSounds)]);
 					
 					return;
@@ -2605,7 +2605,7 @@ concommand.Add("cw_CoinslotSalary", function(player, cmd, args)
 					player:SetCharacterData("collectableWages", 0);
 					
 					Clockwork.kernel:PrintLog(LOGTYPE_GENERIC, player:Name().." has collected their salary of "..coin.." coin from the coinslot. The treasury now sits at "..Schema.towerTreasury..".");
-					Schema:EasyText(player, "olivedrab", "You pull the lever to dispense your salary, gaining "..coin.." coin.");
+					Schema:EasyText(player, "olivedrab", "Tu actionnes le levier pour recevoir ton salaire, obtenant"..coin.." coin.");
 					entity:EmitSound(coinslotSounds[math.random(#coinslotSounds)]);
 					
 					timer.Simple(0.5, function()
@@ -2614,7 +2614,7 @@ concommand.Add("cw_CoinslotSalary", function(player, cmd, args)
 						end
 					end);
 				else
-					Schema:EasyText(player, "olive", "Try as you might, the coinslot won't dispense your salary. How odd.");
+					Schema:EasyText(player, "olive", "Tu peux essayer autant que tu veux, la fente à pièces ne distribuera pas ton salaire. C'est étrange.");
 					Schema:EasyText(Schema:GetAdmins(), "tomato", player:Name().." has attempted to collect his salary, but the treasury is bankrupt!", nil);
 				end
 			end
@@ -2636,7 +2636,7 @@ concommand.Add("cw_CoinslotRation", function(player, cmd, args)
 				
 				if (unixTime >= player:GetCharacterData("nextration", 0)) then
 					if (Schema.towerTreasury and Schema.towerTreasury <= 250) or config.GetVal("enable_famine") then
-						Schema:EasyText(player, "olive", "You pull the ration lever but one is not dispensed, yet you feel as though it has been long enough. How odd.");
+						Schema:EasyText(player, "olive", "Tu actionnes le levier de ration, mais aucune n'est distribuée, pourtant tu as l'impression que le délai est écoulé. Comme c'est étrange.");
 						entity:EmitSound(coinslotSounds[math.random(#coinslotSounds)]);
 						
 						return;
@@ -2645,23 +2645,23 @@ concommand.Add("cw_CoinslotRation", function(player, cmd, args)
 					if (faction == "Gatekeeper" or faction == "Hillkeeper" or faction == "Pope Adyssa's Gatekeepers" or faction == "Holy Hierarchy") then
 						player:GiveItem(item.CreateInstance("gatekeeper_ration"), true);
 						player:GiveItem(item.CreateInstance("purified_water"), true);
-						Schema:EasyText(player, "olivedrab", "The machine dispenses a Gatekeeper ration and a bottle of purified water.");
+						Schema:EasyText(player, "olivedrab", "La machine distribue une ration de Gardien et une bouteille d'eau purifiée.");
 						entity:EmitSound(coinslotSounds[math.random(#coinslotSounds)]);
 					elseif player:HasBelief("favored") and math.random(1, 3) == 1 then
 						player:GiveItem(item.CreateInstance("canned_meal"), true);
 						player:GiveItem(item.CreateInstance("papa_petes_ice_cold_pop"), true);
-						Schema:EasyText(player, "lawngreen", "The machine appears to momentarily malfunction, dispensing goodies and sweet treats! It's your lucky day!");
+						Schema:EasyText(player, "lawngreen", "La machine semble avoir un court dysfonctionnement, distribuant des friandises et des sucreries ! C'est ton jour de chance !");
 						entity:EmitSound(coinslotSounds[math.random(#coinslotSounds)]);
 					else
 						player:GiveItem(item.CreateInstance("moldy_bread"), true);
 						player:GiveItem(item.CreateInstance("dirtywater"), true);
-						Schema:EasyText(player, "olivedrab", "The machine dispenses half of a loaf of moldy bread and a bottle of dirty water.");
+						Schema:EasyText(player, "olivedrab", "La machine distribue une demi-miche de pain moisi et une bouteille d'eau sale.");
 						entity:EmitSound(coinslotSounds[math.random(#coinslotSounds)]);
 					end
 					
 					player:SetCharacterData("nextration", unixTime + 7200);
 				else
-					Schema:EasyText(player, "olive", "You pull the ration lever but one is not dispensed. You must wait for now.");
+					Schema:EasyText(player, "olive", "Tu actionnes le levier de ration mais aucune n'est distribuée. Tu dois attendre pour le moment.");
 					entity:EmitSound(coinslotSounds[math.random(#coinslotSounds)]);
 				end;
 			end
@@ -2686,7 +2686,7 @@ concommand.Add("cw_CoinslotGear", function(player, cmd, args)
 					
 					if (unixTime >= player:GetData("nextGear", 0)) then
 						if (Schema.towerTreasury and Schema.towerTreasury <= 250) then
-							Schema:EasyText(player, "olive", "You pull the lever to dispense your standard issue "..faction.." kit, but one is not dispensed. How odd.");
+							Schema:EasyText(player, "olive", "Vous actionnez le levier pour obtenir votre équipement réglementaire"..faction.." kit, but one is not dispensed. How odd.");
 							entity:EmitSound(coinslotSounds[math.random(#coinslotSounds)]);
 							
 							return;
@@ -2702,7 +2702,7 @@ concommand.Add("cw_CoinslotGear", function(player, cmd, args)
 							player:GiveItem(item.CreateInstance("gatekeeper_standard_issue"), true);
 						end
 						
-						Schema:EasyText(player, "olive", "You pull the lever to dispense your standard issue "..faction.." kit. A receptacle beneath the machine opens and a crude duffel bag dispenses.");
+						Schema:EasyText(player, "olive", "Vous actionnez le levier pour obtenir votre équipement réglementaire"..faction.." kit. A receptacle beneath the machine opens and a crude duffel bag dispenses.");
 						entity:EmitSound(coinslotSounds[math.random(#coinslotSounds)]);
 						
 						timer.Simple(0.5, function()
@@ -2715,7 +2715,7 @@ concommand.Add("cw_CoinslotGear", function(player, cmd, args)
 						player:SetCharacterData("collectedGear", true);
 						player:SetLocalVar("collectedGear", true);
 					else
-						Schema:EasyText(player, "olive", "You pull the lever to dispense your standard issue "..faction.." kit, but one is not dispensed. You must wait for now.");
+						Schema:EasyText(player, "olive", "Tu actionnes le levier pour obtenir ton équipement réglementaire"..faction.." kit, but one is not dispensed. You must wait for now.");
 						entity:EmitSound(coinslotSounds[math.random(#coinslotSounds)]);
 					end
 				end;
@@ -2734,7 +2734,7 @@ concommand.Add("cw_CoinslotTreasury", function(player, cmd, args)
 			local faction = player:GetFaction();
 			
 			if (faction == "Holy Hierarchy" and player:GetSubfaction() == "Minister") or player:IsAdmin() then
-				Schema:EasyText(player, "lightslateblue", "The treasury currently sits at "..Schema.towerTreasury.." coin.");
+				Schema:EasyText(player, "lightslateblue", "Le trésor s'élève actuellement à"..Schema.towerTreasury.." coin.");
 			end
 		end
 	end;
@@ -2778,7 +2778,7 @@ if map == "rp_district21" then
 							end
 						end);
 					else
-						Schema:EasyText(player, "peru", "You cannot use the Hellportal for another "..nextTeleport.." seconds!");
+						Schema:EasyText(player, "peru", "Vous ne pouvez pas utiliser le Portail des Enfers avant encore"..nextTeleport.." seconds!");
 					end
 				end
 			end;
@@ -2823,7 +2823,7 @@ concommand.Add("cw_HellPortalArch", function(player, cmd, args)
 						end
 					end);
 				else
-					Schema:EasyText(player, "peru", "You cannot use the Hellportal for another "..nextTeleport.." seconds!");
+					Schema:EasyText(player, "peru", "Vous ne pouvez pas utiliser le Portail des Enfers avant encore"..nextTeleport.." seconds!");
 				end
 			end
 		end;
@@ -2867,7 +2867,7 @@ concommand.Add("cw_HellPortalPillars", function(player, cmd, args)
 						end
 					end);
 				else
-					Schema:EasyText(player, "peru", "You cannot use the Hellportal for another "..nextTeleport.." seconds!");
+					Schema:EasyText(player, "peru", "Vous ne pouvez pas utiliser le Portail des Enfers avant"..nextTeleport.." seconds!");
 				end
 			end
 		end;
@@ -2893,13 +2893,13 @@ concommand.Add("cw_AltarDisembowel", function(player, cmd, args)
 					if !player.sacrificing then
 						Schema:SacrificePlayer(ragdollPlayer, player, "disembowel");
 					else
-						Schema:EasyText(player, "peru", "You are already sacrificing someone!");
+						Schema:EasyText(player, "peru", "Tu es déjà en train de sacrifier quelqu'un !");
 					end
 				else
-					Schema:EasyText(player, "chocolate", "You must be holding a character to sacrifice them!");
+					Schema:EasyText(player, "chocolate", "Vous devez tenir un personnage pour le sacrifier !");
 				end
 			else
-				Schema:EasyText(player, "chocolate", "You are not the correct faction to do this!");
+				Schema:EasyText(player, "chocolate", "Vous n'êtes pas de la bonne faction pour faire cela !");
 			end
 		end
 	end
@@ -2924,13 +2924,13 @@ concommand.Add("cw_AltarDisembowelShared", function(player, cmd, args)
 					if !player.sacrificing then
 						Schema:SacrificePlayer(ragdollPlayer, player, "disembowel", true);
 					else
-						Schema:EasyText(player, "peru", "You are already sacrificing someone!");
+						Schema:EasyText(player, "peru", "Vous sacrifiez déjà quelqu'un !");
 					end
 				else
-					Schema:EasyText(player, "chocolate", "You must be holding a character to sacrifice them!");
+					Schema:EasyText(player, "chocolate", "Vous devez tenir un personnage pour le sacrifier !");
 				end
 			else
-				Schema:EasyText(player, "chocolate", "You are not the correct faction to do this!");
+				Schema:EasyText(player, "chocolate", "Vous n'êtes pas de la bonne faction pour faire cela !");
 			end
 		end
 	end
@@ -2955,13 +2955,13 @@ concommand.Add("cw_AltarDismember", function(player, cmd, args)
 					if !player.sacrificing then
 						Schema:SacrificePlayer(ragdollPlayer, player, "dismember");
 					else
-						Schema:EasyText(player, "peru", "You are already sacrificing someone!");
+						Schema:EasyText(player, "peru", "Tu es déjà en train de sacrifier quelqu'un !");
 					end
 				else
-					Schema:EasyText(player, "chocolate", "You must be holding a character to sacrifice them!");
+					Schema:EasyText(player, "chocolate", "Vous devez tenir un personnage pour le sacrifier !");
 				end
 			else
-				Schema:EasyText(player, "chocolate", "You are not the correct faction to do this!");
+				Schema:EasyText(player, "chocolate", "Vous n'êtes pas de la bonne faction pour faire cela !");
 			end
 		end
 	end
@@ -2986,13 +2986,13 @@ concommand.Add("cw_AltarDismemberShared", function(player, cmd, args)
 					if !player.sacrificing then
 						Schema:SacrificePlayer(ragdollPlayer, player, "dismember", true);
 					else
-						Schema:EasyText(player, "peru", "You are already sacrificing someone!");
+						Schema:EasyText(player, "peru", "Tu es déjà en train de sacrifier quelqu'un !");
 					end
 				else
-					Schema:EasyText(player, "chocolate", "You must be holding a character to sacrifice them!");
+					Schema:EasyText(player, "chocolate", "Vous devez tenir un personnage pour le sacrifier !");
 				end
 			else
-				Schema:EasyText(player, "chocolate", "You are not the correct faction to do this!");
+				Schema:EasyText(player, "chocolate", "Vous n'êtes pas de la bonne faction pour faire cela !");
 			end
 		end
 	end
@@ -3017,13 +3017,13 @@ concommand.Add("cw_AltarFlay", function(player, cmd, args)
 					if !player.sacrificing then
 						Schema:SacrificePlayer(ragdollPlayer, player, "flay");
 					else
-						Schema:EasyText(player, "peru", "You are already sacrificing someone!");
+						Schema:EasyText(player, "peru", "Vous sacrifiez déjà quelqu'un !");
 					end
 				else
-					Schema:EasyText(player, "chocolate", "You must be holding a character to sacrifice them!");
+					Schema:EasyText(player, "chocolate", "Vous devez tenir un personnage pour le sacrifier !");
 				end
 			else
-				Schema:EasyText(player, "chocolate", "You are not the correct faction to do this!");
+				Schema:EasyText(player, "chocolate", "Vous n'êtes pas de la bonne faction pour faire cela !");
 			end
 		end
 	end
@@ -3048,13 +3048,13 @@ concommand.Add("cw_AltarFlayShared", function(player, cmd, args)
 					if !player.sacrificing then
 						Schema:SacrificePlayer(ragdollPlayer, player, "flay", true);
 					else
-						Schema:EasyText(player, "peru", "You are already sacrificing someone!");
+						Schema:EasyText(player, "peru", "Vous sacrifiez déjà quelqu'un !");
 					end
 				else
-					Schema:EasyText(player, "chocolate", "You must be holding a character to sacrifice them!");
+					Schema:EasyText(player, "chocolate", "Vous devez tenir un personnage pour le sacrifier !");
 				end
 			else
-				Schema:EasyText(player, "chocolate", "You are not the correct faction to do this!");
+				Schema:EasyText(player, "chocolate", "Vous n'êtes pas de la bonne faction pour faire cela !");
 			end
 		end
 	end
@@ -3098,7 +3098,7 @@ function Schema:InvActionExternal(player, arguments)
 			end;
 		elseif (itemAction == "drop") then
 			if (itemTable("noDrop")) then
-				Schema:EasyText(player, "white", "You cannot drop this!");
+				Schema:EasyText(player, "white", "Tu ne peux pas lâcher ça !");
 				
 				return;
 			end;
@@ -3184,7 +3184,7 @@ function Schema:InvActionExternal(player, arguments)
 			local name = itemTable("name");
 			
 			if (player:InVehicle() and itemTable("useInVehicle") == false) then
-				Schema:EasyText(player, "white", "You cannot use this item in a vehicle!");
+				Schema:EasyText(player, "white", "Vous ne pouvez pas utiliser cet objet dans un véhicule !");
 				
 				return;
 			end;
@@ -3196,7 +3196,7 @@ function Schema:InvActionExternal(player, arguments)
 			Clockwork.plugin:Call("PlayerUseUnknownItemFunction", player, itemTable, itemAction);
 		end;
 	else
-		Schema:EasyText(player, "white", "You do not own this item!");
+		Schema:EasyText(player, "white", "Vous ne possédez pas cet objet !");
 	end;
 end;
 --]]

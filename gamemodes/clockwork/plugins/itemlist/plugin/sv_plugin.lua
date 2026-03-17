@@ -1,4 +1,4 @@
---[[
+﻿--[[
 	BEGOTTEN III: Developed by DETrooper, cash wednesday, gabs & alyousha35
 --]]
 
@@ -37,9 +37,9 @@ netstream.Hook("MenuItemGive", function(player, uniqueID, amount)
 			player:GiveItem(itemTable, true)
 			
 			if amount == 1 then
-				Schema:EasyText(player, "cornflowerblue", "You gave yourself a " .. itemTable.name .. ".")
+				Schema:EasyText(player, "cornflowerblue", "Tu t'es donné un" .. itemTable.name .. ".")
 			elseif i == amount then
-				Schema:EasyText(player, "cornflowerblue", "You gave yourself "..amount.." " .. itemTable.name .. "s.")
+				Schema:EasyText(player, "cornflowerblue", "Tu t'es donné"..amount.." " .. itemTable.name .. "s.")
 			end
 			
 			Clockwork.kernel:PrintLog(LOGTYPE_GENERIC, player:Name() .. " gave themselves a " .. itemTable.name .. " (" ..itemTable.uniqueID .. ") " .. itemTable.itemID .. ".")

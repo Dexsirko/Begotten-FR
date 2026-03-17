@@ -1,4 +1,4 @@
---[[
+﻿--[[
 	Begotten III: Jesus Wept
 --]]
 
@@ -106,9 +106,9 @@ function cwDayNight:ChangeCycle(cycle, notify)
 				end
 			elseif player:GetSubfaction() == "Rekh-khet-sa" then
 				if cycle == "night" then
-					Clockwork.chatBox:Add(player, nil, "event", "You feel the Blood Moon rising. It is time to prowl.");
+					Clockwork.chatBox:Add(player, nil, "event", "Tu sens la Lune de Sang se lever. Il est temps de rôder.");
 				elseif cycle == "nighttoday" then
-					Clockwork.chatBox:Add(player, nil, "event", "The Blood Moon is fading, it is no longer safe for you to stalk the Wastes.");
+					Clockwork.chatBox:Add(player, nil, "event", "La Lune de Sang s'estompe, il n'est plus prudent de rôder dans les Terres Désolées.");
 				end
 			end
 		end

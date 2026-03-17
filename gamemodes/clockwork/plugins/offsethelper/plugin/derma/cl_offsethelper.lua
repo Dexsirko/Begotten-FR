@@ -1,4 +1,4 @@
-local PANEL = {};
+﻿local PANEL = {};
 
 local function GetOutputText(category, itemTable)
 	local outputText = "ITEM."..category.." = ";
@@ -140,7 +140,7 @@ function PANEL:Init()
 	labelPanel:SetTall(20);
 
 	local label = vgui.Create("DLabel", labelPanel);
-	label:SetText("Closing this panel will reset all values!");
+	label:SetText("Fermer ce panneau réinitialisera toutes les valeurs !");
 	label:SetFont("DermaDefaultBold");
 	label:SetPaintBackgroundEnabled(true);
 	label:SetBGColor(Color(255, 255, 255, 255));
@@ -195,7 +195,7 @@ function PANEL:Init()
 		panels[v].reset = vgui.Create("DButton", self[v.."Panel"]);
 		panels[v].reset:Dock(TOP);
 		panels[v].reset:DockMargin(4, 4, 4, 0);
-		panels[v].reset:SetText("RESET");
+		panels[v].reset:SetText("RÉINITIALISER");
 		panels[v].reset:SizeToContents();
 
 		if (string.find(v, "Angle")) then
@@ -247,9 +247,9 @@ function PANEL:Init()
 
 	for k, v in pairs(panels) do
 		if (string.find(k, "Angle")) then
-			v.x:SetText("Pitch:");
-			v.y:SetText("Yaw:");
-			v.z:SetText("Roll:");
+			v.x:SetText("Angle :");
+			v.y:SetText("Lacet :");
+			v.z:SetText("Jet :");
 		end;
 
 		if (k == "attachmentModelScale") then

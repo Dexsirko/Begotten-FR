@@ -1,4 +1,4 @@
---[[
+﻿--[[
 	Begotten 3: Jesus Wept
 	written by: cash wednesday, DETrooper, gabs and alyousha35.
 --]]
@@ -101,7 +101,7 @@ if (Schema.MapLocations) then
 	local mapString = table.concat(mapString, ", ")
 
 	local COMMAND = Clockwork.command:New("MapLocation")
-		COMMAND.tip = "Teleport to a map location. Available locations: "..mapString
+		COMMAND.tip = "Téléportez-vous vers un emplacement de la carte. Emplacements disponibles :"..mapString
 		COMMAND.text = "<string Name>"
 		COMMAND.access = "o"
 		COMMAND.arguments = 1
@@ -124,7 +124,7 @@ if (Schema.MapLocations) then
 end
 
 local COMMAND = Clockwork.command:New("Discord");
-	COMMAND.tip = "Open a redirect to the server's Discord.";
+	COMMAND.tip = "Ouvre une redirection vers le Discord du serveur.";
 	COMMAND.important = true;
 
 	-- Called when the command has been run.
@@ -134,7 +134,7 @@ local COMMAND = Clockwork.command:New("Discord");
 COMMAND:Register();
 
 local COMMAND = Clockwork.command:New("Warhorn");
-	COMMAND.tip = "Sound a signal from your warhorn or death whistle.";
+	COMMAND.tip = "Émettez un signal avec votre cor de guerre ou votre sifflet de la mort.";
 	COMMAND.text = "[string Signal]";
 	COMMAND.flags = bit.bor(CMD_DEFAULT, CMD_DEATHCODE, CMD_FALLENOVER);
 	COMMAND.arguments = 1;
@@ -151,7 +151,7 @@ local COMMAND = Clockwork.command:New("Warhorn");
 		end
 
 		if !player:HasItemByID(warhornStr) then
-			Schema:EasyText(player, "darkgrey", "You do not possess a warhorn item!")
+			Schema:EasyText(player, "darkgrey", "Vous ne possédez pas d'objet cor de guerre !")
 		
 			return;
 		end
@@ -169,15 +169,15 @@ local COMMAND = Clockwork.command:New("Warhorn");
 				end
 			end
 			
-			Schema:EasyText(player, "darkgrey", "The signal you entered is invalid!");
+			Schema:EasyText(player, "darkgrey", "Le signal que vous avez saisi est invalide !");
 		else
-			Schema:EasyText(player, "darkgrey", "The warhorn item does not exist!");
+			Schema:EasyText(player, "darkgrey", "L'objet cor de guerre n'existe pas !");
 		end
 	end
 COMMAND:Register();
 
 local COMMAND = Clockwork.command:New("Enlist")
-	COMMAND.tip = "Enlist a character into your faction or a specified faction. This will only work if you are a rank of authority."
+	COMMAND.tip = "Enrôle un personnage dans ta faction ou une faction spécifiée. Cela ne fonctionnera que si tu as un rang d'autorité."
 	COMMAND.text = "[string Faction] [string Subfaction]"
 	COMMAND.flags = CMD_DEFAULT;
 	--COMMAND.access = "o"
@@ -203,7 +203,7 @@ local COMMAND = Clockwork.command:New("Enlist")
 				end
 				
 				if !enlistFactionTable.enlist then
-					Schema:EasyText(player, "firebrick", "Characters cannot be enlisted into the "..enlistFaction.." faction!");
+					Schema:EasyText(player, "firebrick", "Les personnages ne peuvent pas être enrôlés dans le"..enlistFaction.." faction!");
 					
 					return;
 				end
@@ -225,12 +225,12 @@ local COMMAND = Clockwork.command:New("Enlist")
 					
 					if player:InTower() then
 						if !Schema.towerSafeZoneEnabled then
-							Schema:EasyText(player, "firebrick", "The safezone must be enabled in order to run this commmand!");
+							Schema:EasyText(player, "firebrick", "La safezone doit être activée pour exécuter cette commande !");
 							
 							return;
 						end
 					else
-						Schema:EasyText(player, "firebrick", "You must do this inside a safezone!");
+						Schema:EasyText(player, "firebrick", "Vous devez effectuer cela à l'intérieur d'une zone sécurisée !");
 						
 						return;
 					end
@@ -356,12 +356,12 @@ local COMMAND = Clockwork.command:New("Enlist")
 								end
 							end)
 							
-							Schema:EasyText(player, "green", "You have invited "..target:Name().." to enlist into the "..enlistFaction.." faction!");
+							Schema:EasyText(player, "green", "Vous avez invité"..target:Name().." to enlist into the "..enlistFaction.." faction!");
 							Clockwork.kernel:PrintLog(LOGTYPE_MINOR, player:Name().." has invited "..target:Name().." to join the "..enlistFaction.." faction!");
 						elseif targetFaction == "Children of Satan" then
 							-- Bogus text to prevent metagame.
 							Schema:EasyText(target, "red", player:Name().." has tried to enlist you into the "..enlistFaction.." faction, but as a Child of Satan you are unable to accept! They have been sent a fake message saying you were invited.");
-							Schema:EasyText(player, "green", "You have invited "..target:Name().." to enlist into the "..enlistFaction.." faction!");
+							Schema:EasyText(player, "green", "Vous avez invité"..target:Name().." to enlist into the "..enlistFaction.." faction!");
 						else
 							Schema:EasyText(player, "firebrick", target:Name().." is not the right faction to be enlisted into this faction!");
 						end
@@ -369,19 +369,19 @@ local COMMAND = Clockwork.command:New("Enlist")
 						Schema:EasyText(player, "firebrick", subfaction.." is not a valid subfaction for this faction!");
 					end
 				else
-					Schema:EasyText(player, "firebrick", "You do not have permissions to enlist "..target:Name().."!");
+					Schema:EasyText(player, "firebrick", "Vous n'avez pas les autorisations nécessaires pour vous enrôler"..target:Name().."!");
 				end;
 			else
-				Schema:EasyText(player, "firebrick", "This character is too far away!");
+				Schema:EasyText(player, "firebrick", "Ce personnage est trop éloigné !");
 			end;
 		else
-			Schema:EasyText(player, "firebrick", "You must look at a character!");
+			Schema:EasyText(player, "firebrick", "Vous devez regarder un personnage !");
 		end
 	end
 COMMAND:Register()
 
 local COMMAND = Clockwork.command:New("Initiate")
-	COMMAND.tip = "Initiate an aspirant into the Children of Satan."
+	COMMAND.tip = "Initie un aspirant aux Enfants de Satan."
 	COMMAND.flags = CMD_DEFAULT;
 	COMMAND.alias = {"PlyInitiate", "CharInitiate"};
 	COMMAND.faction = "Children of Satan";
@@ -389,7 +389,7 @@ local COMMAND = Clockwork.command:New("Initiate")
 	-- Called when the command has been run.
 	function COMMAND:OnRun(player, arguments)
 		if player:GetFaction() ~= "Children of Satan" then
-			Schema:EasyText(player, "chocolate", "You are not the correct faction to do this!");
+			Schema:EasyText(player, "chocolate", "Vous n'êtes pas de la bonne faction pour faire cela !");
 
 			return false;
 		end
@@ -418,7 +418,7 @@ local COMMAND = Clockwork.command:New("Initiate")
 					end
 					
 					if lastZone ~= "hell" and lastZone ~= "manor" then
-						Schema:EasyText(player, "firebrick", "You must do this in hell!");
+						Schema:EasyText(player, "firebrick", "Tu dois faire ça en enfer !");
 						
 						return;
 					end
@@ -470,25 +470,25 @@ local COMMAND = Clockwork.command:New("Initiate")
 							end
 						end)
 						
-						Schema:EasyText(player, "green", "You have extended an invitation to "..target:Name().." to join he Children of Satan!");
+						Schema:EasyText(player, "green", "Vous avez envoyé une invitation à"..target:Name().." to join he Children of Satan!");
 						Clockwork.kernel:PrintLog(LOGTYPE_MINOR, player:Name().." has invited "..target:Name().." to join the Children of Satan!");
 					else
 						Schema:EasyText(player, "firebrick", target:Name().." is not the right faction to be initiated into this faction!");
 					end
 				else
-					Schema:EasyText(player, "firebrick", "You do not have permissions to enlist "..target:Name().."!");
+					Schema:EasyText(player, "firebrick", "Vous n'avez pas les autorisations nécessaires pour vous enrôler"..target:Name().."!");
 				end;
 			else
-				Schema:EasyText(player, "firebrick", "This character is too far away!");
+				Schema:EasyText(player, "firebrick", "Ce personnage est trop éloigné !");
 			end;
 		else
-			Schema:EasyText(player, "firebrick", "You must look at a character!");
+			Schema:EasyText(player, "firebrick", "Vous devez regarder un personnage !");
 		end
 	end
 COMMAND:Register()
 
 local COMMAND = Clockwork.command:New("SetCustomRank")
-	COMMAND.tip = "Set a character's custom rank. If blank, it will be reset. The optional rank index should correspond to what their actual rank would be (i.e. 2 for Acolyte)."
+	COMMAND.tip = "Définir le rang personnalisé d'un personnage. Si laissé vide, il sera réinitialisé. L'index de rang optionnel doit correspondre à son rang réel (par exemple, 2 pour Acolyte)."
 	COMMAND.text = "<string Character> [string Rank] [number RankIndex]"
 	COMMAND.access = "o"
 	COMMAND.arguments = 2;
@@ -531,7 +531,7 @@ local COMMAND = Clockwork.command:New("SetCustomRank")
 				if !rank or ranks[faction][rank] then
 					if !isMasterFaction and Schema:GetRankTier(faction, rank) >= Schema:GetRankTier(faction, player:GetCharacterData("rank", 1)) then
 						if !player:IsAdmin() then
-							Schema:EasyText(player, "grey", "You cannot change the rank of "..target:Name().."!");
+							Schema:EasyText(player, "grey", "Vous ne pouvez pas modifier le rang de"..target:Name().."!");
 							
 							return false;
 						end
@@ -539,14 +539,14 @@ local COMMAND = Clockwork.command:New("SetCustomRank")
 					
 					if !isMasterFaction and Schema:GetRankTier(faction, target:GetCharacterData("rank", 1)) >= Schema:GetRankTier(faction, player:GetCharacterData("rank", 1)) then
 						if !player:IsAdmin() then
-							Schema:EasyText(player, "grey", "You cannot change the rank of "..target:Name().."!");
+							Schema:EasyText(player, "grey", "Vous ne pouvez pas modifier le rang de"..target:Name().."!");
 							
 							return false;
 						end
 					end
 					
 					if factionTable.CanPromote and factionTable:CanPromote(player, target, faction, targetSubfaction) == false then
-						Schema:EasyText(player, "grey", "You cannot change the rank of "..target:Name().."!");
+						Schema:EasyText(player, "grey", "Vous ne pouvez pas modifier le rang de"..target:Name().."!");
 					
 						return false;
 					end
@@ -555,7 +555,7 @@ local COMMAND = Clockwork.command:New("SetCustomRank")
 						local subfaction = target:GetNetVar("kinisgerOverrideSubfaction") or target:GetSubfaction();
 						
 						if Schema.RanksToSubfaction[faction][ranks[faction][rank]] and Schema.RanksToSubfaction[faction][ranks[faction][rank]] ~= subfaction then
-							Schema:EasyText(player, "grey", "You cannot change the rank of "..target:Name().." to this rank as it is not valid for their subfaction!");
+							Schema:EasyText(player, "grey", "Vous ne pouvez pas modifier le rang de"..target:Name().." to this rank as it is not valid for their subfaction!");
 						
 							return false;
 						end
@@ -644,10 +644,10 @@ local COMMAND = Clockwork.command:New("SetCustomRank")
 					
 					if rankOverride then
 						if (notifyTarget) then
-							Schema:EasyText(target, "olivedrab", "You have been promoted to the rank of \""..rankOverride.."\".")
+							Schema:EasyText(target, "olivedrab", "Vous avez été promu au rang de \""..rankOverride.."\".")
 						end;
 						
-						Schema:EasyText(player, "cornflowerblue", "You have promoted "..name.." to the rank of \""..rankOverride.."\".");
+						Schema:EasyText(player, "cornflowerblue", "Vous avez promu"..name.." to the rank of \""..rankOverride.."\".");
 						
 						if target == player then
 							Schema:EasyText(Schema:GetAdmins(), "cornflowerblue", player:Name().." has promoted themself to the custom rank of \""..rankOverride.."\".");
@@ -656,10 +656,10 @@ local COMMAND = Clockwork.command:New("SetCustomRank")
 						end
 					end
 				else
-					Schema:EasyText(player, "darkgrey", "The rank index specified is not valid!");
+					Schema:EasyText(player, "darkgrey", "L'indice de rang spécifié n'est pas valide !");
 				end;
 			else
-				Schema:EasyText(player, "grey", "You do not have permissions to change the rank of "..target:Name().."!");
+				Schema:EasyText(player, "grey", "Vous n'avez pas les autorisations nécessaires pour modifier le rang de"..target:Name().."!");
 			end;
 		else
 			Schema:EasyText(player, "grey", arguments[1].." is not a valid character!");
@@ -668,7 +668,7 @@ local COMMAND = Clockwork.command:New("SetCustomRank")
 COMMAND:Register()
 
 local COMMAND = Clockwork.command:New("Promote")
-	COMMAND.tip = "Promote a character if they belong to a faction with ranks. Optional 2nd argument allows you to directly set the rank, otherwise they will be automatically promoted to the next rank available for their subfaction."
+	COMMAND.tip = "Promouvoir un personnage s'il appartient à une faction avec des grades. Le 2ème argument optionnel permet de définir directement le grade, sinon il sera automatiquement promu au grade suivant disponible pour sa sous-faction."
 	COMMAND.text = "<string Character> [string Rank]"
 	--COMMAND.access = "o"
 	COMMAND.arguments = 1;
@@ -751,7 +751,7 @@ local COMMAND = Clockwork.command:New("Promote")
 				
 					if !isMasterFaction and Schema:GetRankTier(faction, rank) >= Schema:GetRankTier(faction, player:GetCharacterData("rank", 1)) then
 						if !player:IsAdmin() then
-							Schema:EasyText(player, "grey", "You cannot change the rank of "..target:Name().." to "..ranks[faction][rank].."!");
+							Schema:EasyText(player, "grey", "Vous ne pouvez pas modifier le rang de"..target:Name().." to "..ranks[faction][rank].."!");
 							
 							return false;
 						end
@@ -759,14 +759,14 @@ local COMMAND = Clockwork.command:New("Promote")
 					
 					if !isMasterFaction and Schema:GetRankTier(faction, target:GetCharacterData("rank", 1)) >= Schema:GetRankTier(faction, player:GetCharacterData("rank", 1)) then
 						if !player:IsAdmin() then
-							Schema:EasyText(player, "grey", "You cannot change the rank of "..target:Name().." to "..ranks[faction][rank].."!");
+							Schema:EasyText(player, "grey", "Vous ne pouvez pas modifier le rang de"..target:Name().." to "..ranks[faction][rank].."!");
 							
 							return false;
 						end
 					end
 					
 					if factionTable.CanPromote and factionTable:CanPromote(player, target, faction, targetSubfaction) == false then
-						Schema:EasyText(player, "grey", "You cannot change the rank of "..target:Name().."!");
+						Schema:EasyText(player, "grey", "Vous ne pouvez pas modifier le rang de"..target:Name().."!");
 					
 						return false;
 					end
@@ -775,7 +775,7 @@ local COMMAND = Clockwork.command:New("Promote")
 						local subfaction = target:GetNetVar("kinisgerOverrideSubfaction") or target:GetSubfaction();
 						
 						if Schema.RanksToSubfaction[faction][ranks[faction][rank]] and Schema.RanksToSubfaction[faction][ranks[faction][rank]] ~= subfaction then
-							Schema:EasyText(player, "grey", "You cannot change the rank of "..target:Name().." to this rank as it is not valid for their subfaction!");
+							Schema:EasyText(player, "grey", "Vous ne pouvez pas modifier le rang de"..target:Name().." to this rank as it is not valid for their subfaction!");
 						
 							return false;
 						end
@@ -859,10 +859,10 @@ local COMMAND = Clockwork.command:New("Promote")
 					end;
 					
 					if (notifyTarget) then
-						Schema:EasyText(target, "olivedrab", "You have been promoted to the rank of \""..ranks[faction][rank].."\".")
+						Schema:EasyText(target, "olivedrab", "Vous avez été promu au grade de \""..ranks[faction][rank].."\".")
 					end;
 					
-					Schema:EasyText(player, "cornflowerblue", "You have promoted "..name.." to the rank of \""..ranks[faction][rank].."\".");
+					Schema:EasyText(player, "cornflowerblue", "Vous avez promu"..name.." to the rank of \""..ranks[faction][rank].."\".");
 					
 					if target == player then
 						Schema:EasyText(Schema:GetAdmins(), "cornflowerblue", player:Name().." has promoted themself to the rank of \""..ranks[faction][rank].."\".");
@@ -870,10 +870,10 @@ local COMMAND = Clockwork.command:New("Promote")
 						Schema:EasyText(Schema:GetAdmins(), "cornflowerblue", player:Name().." has promoted "..name.." to the rank of \""..ranks[faction][rank].."\".");
 					end
 				else
-					Schema:EasyText(player, "darkgrey", "The rank specified is not valid!");
+					Schema:EasyText(player, "darkgrey", "Le rang spécifié n'est pas valide !");
 				end;
 			else
-				Schema:EasyText(player, "grey", "You do not have permissions to change the rank of "..target:Name().."!");
+				Schema:EasyText(player, "grey", "Vous n'avez pas les permissions pour modifier le rang de"..target:Name().."!");
 			end;
 		else
 			Schema:EasyText(player, "grey", arguments[1].." is not a valid character!");
@@ -882,7 +882,7 @@ local COMMAND = Clockwork.command:New("Promote")
 COMMAND:Register()
 
 local COMMAND = Clockwork.command:New("Demote")
-	COMMAND.tip = "Demote a character if they belong to a faction with ranks."
+	COMMAND.tip = "Rétrograder un personnage s'il appartient à une faction avec des grades."
 	COMMAND.text = "<string Character>"
 	--COMMAND.access = "o"
 	COMMAND.arguments = 1;
@@ -910,14 +910,14 @@ local COMMAND = Clockwork.command:New("Demote")
 				
 				if !isMasterFaction and Schema:GetRankTier(faction, player:GetCharacterData("rank", 1)) <= Schema:GetRankTier(faction, target:GetCharacterData("rank", 1)) then
 					if !player:IsAdmin() then
-						Schema:EasyText(player, "grey", "You cannot demote "..target:Name().."!");
+						Schema:EasyText(player, "grey", "Vous ne pouvez pas rétrograder"..target:Name().."!");
 						
 						return false;
 					end
 				end
 				
 				if factionTable.CanDemote and factionTable:CanDemote(player, target, faction, targetSubfaction) == false then
-					Schema:EasyText(player, "grey", "You cannot change the rank of "..target:Name().."!");
+					Schema:EasyText(player, "grey", "Vous ne pouvez pas modifier le rang de"..target:Name().."!");
 				
 					return false;
 				end
@@ -973,7 +973,7 @@ local COMMAND = Clockwork.command:New("Demote")
 					local subfaction = target:GetNetVar("kinisgerOverrideSubfaction") or target:GetSubfaction();
 					
 					if Schema.RanksToSubfaction[faction][ranks[faction][rank]] and Schema.RanksToSubfaction[faction][ranks[faction][rank]] ~= subfaction then
-						Schema:EasyText(player, "grey", "You cannot change the rank of "..target:Name().." to this rank as it is not valid for their subfaction!");
+						Schema:EasyText(player, "grey", "Vous ne pouvez pas modifier le rang de"..target:Name().." to this rank as it is not valid for their subfaction!");
 					
 						return false;
 					end
@@ -1053,7 +1053,7 @@ local COMMAND = Clockwork.command:New("Demote")
 					name = "yourself";
 				end;
 
-				Schema:EasyText(player, "cornflowerblue", "You have demoted "..name.." to the rank of \""..ranks[faction][rank].."\".");
+				Schema:EasyText(player, "cornflowerblue", "Vous avez rétrogradé"..name.." to the rank of \""..ranks[faction][rank].."\".");
 				
 				if target == player then
 					Schema:EasyText(Schema:GetAdmins(), "cornflowerblue", player:Name().." has demoted themself to the rank of \""..ranks[faction][rank].."\".");
@@ -1061,7 +1061,7 @@ local COMMAND = Clockwork.command:New("Demote")
 					Schema:EasyText(Schema:GetAdmins(), "cornflowerblue", player:Name().." has promoted "..name.." to the rank of \""..ranks[faction][rank].."\".");
 				end
 			else
-				Schema:EasyText(player, "grey", "You do not have permissions to change the rank of "..target:Name().."!");
+				Schema:EasyText(player, "grey", "Vous n'avez pas les permissions pour modifier le rang de"..target:Name().."!");
 			end
 		else
 			Schema:EasyText(player, "grey", arguments[1].." is not a valid character!");
@@ -1070,7 +1070,7 @@ local COMMAND = Clockwork.command:New("Demote")
 COMMAND:Register()
 
 local COMMAND = Clockwork.command:New("Vector")
-	COMMAND.tip = "Get the vector of the position at your cursor."
+	COMMAND.tip = "Obtenez le vecteur de la position sous votre curseur."
 	COMMAND.access = "o"
 
 	-- Called when the command has been run.
@@ -1093,7 +1093,7 @@ local COMMAND = Clockwork.command:New("Vector")
 COMMAND:Register()
 
 local COMMAND = Clockwork.command:New("CharSearch");
-	COMMAND.tip = "Search a character if they are tied.";
+	COMMAND.tip = "Rechercher un personnage s'il est attaché.";
 	COMMAND.flags = CMD_DEFAULT;
 
 	-- Called when the command has been run.
@@ -1114,7 +1114,7 @@ local COMMAND = Clockwork.command:New("CharSearch");
 									
 									for k, v in pairs(ents.FindInSphere(player:GetPos(), Clockwork.config:Get("talk_radius"):Get() * 2)) do
 										if v:IsPlayer() then
-											Clockwork.chatBox:Add(v, player, "me", "starts searching "..Clockwork.player:FormatRecognisedText(v, "%s", target)..".");
+											Clockwork.chatBox:Add(v, player, "me", "commence à fouiller"..Clockwork.player:FormatRecognisedText(v, "%s", target)..".");
 										end
 									end
 								end
@@ -1139,28 +1139,28 @@ local COMMAND = Clockwork.command:New("CharSearch");
 									end
 								});
 							else
-								Schema:EasyText(player, "peru", "You are already searching a character!");
+								Schema:EasyText(player, "peru", "Vous êtes déjà en train de chercher un personnage !");
 							end;
 						else
-							Schema:EasyText(player, "peru", "You cannot search a moving character!");
+							Schema:EasyText(player, "peru", "Vous ne pouvez pas fouiller un personnage en mouvement !");
 						end;
 					else
-						Schema:EasyText(player, "peru", "This character is not tied!");
+						Schema:EasyText(player, "peru", "Ce personnage n'est pas attaché !");
 					end;
 				else
-					Schema:EasyText(player, "peru", "You don't have permission to do this right now!");
+					Schema:EasyText(player, "peru", "Vous n'avez pas la permission de faire cela pour le moment !");
 				end;
 			else
-				Schema:EasyText(player, "firebrick", "This character is too far away!");
+				Schema:EasyText(player, "firebrick", "Ce personnage est trop éloigné !");
 			end;
 		else
-			Schema:EasyText(player, "peru", "You must look at a character!");
+			Schema:EasyText(player, "peru", "Vous devez regarder un personnage !");
 		end;
 	end;
 COMMAND:Register();
 
 local COMMAND = Clockwork.command:New("CharPermaKill");
-	COMMAND.tip = "Permanently kill a character.";
+	COMMAND.tip = "Tuer définitivement un personnage.";
 	COMMAND.text = "<string Name>";
 	COMMAND.access = "o";
 	COMMAND.arguments = 1;
@@ -1173,7 +1173,7 @@ local COMMAND = Clockwork.command:New("CharPermaKill");
 			if (!target:GetCharacterData("permakilled")) then
 				Schema:PermaKillPlayer(target, target:GetRagdollEntity());
 			else
-				Schema:EasyText(player, "darkgrey", "This character is already permanently killed!");
+				Schema:EasyText(player, "darkgrey", "Ce personnage est déjà définitivement mort !");
 				
 				return;
 			end;
@@ -1186,7 +1186,7 @@ local COMMAND = Clockwork.command:New("CharPermaKill");
 COMMAND:Register();
 
 local COMMAND = Clockwork.command:New("CharUnPermakill");
-	COMMAND.tip = "Un-permanently kill a character. Be very sure their name is exact or you might end up unpermakilling someone else in the database.";
+	COMMAND.tip = "Annuler la mort permanente d'un personnage. Assure-toi absolument que son nom est exact, sinon tu risques de réanimer quelqu'un d'autre dans la base de données.";
 	COMMAND.text = "<string Name>";
 	COMMAND.access = "o";
 	COMMAND.arguments = 1;
@@ -1203,7 +1203,7 @@ local COMMAND = Clockwork.command:New("CharUnPermakill");
 				
 				return;
 			else
-				Schema:EasyText(player, "darkgrey", "This character is not permanently killed!");
+				Schema:EasyText(player, "darkgrey", "Ce personnage n'est pas définitivement éliminé !");
 				
 				return;
 			end;
@@ -1266,7 +1266,7 @@ local COMMAND = Clockwork.command:New("CharUnPermakill");
 COMMAND:Register();
 
 local COMMAND = Clockwork.command:New("CharUnPermakillStay");
-	COMMAND.tip = "Un-permanently kill a character and teleport them to where they died.";
+	COMMAND.tip = "Ressusciter définitivement un personnage et le téléporter à l'endroit de sa mort.";
 	COMMAND.text = "<string Name>";
 	COMMAND.access = "o";
 	COMMAND.arguments = 1;
@@ -1287,7 +1287,7 @@ local COMMAND = Clockwork.command:New("CharUnPermakillStay");
 				
 				return;
 			else
-				Schema:EasyText(player, "darkgrey", "This character is not permanently killed!");
+				Schema:EasyText(player, "darkgrey", "Ce personnage n'est pas définitivement éliminé !");
 				
 				return;
 			end;
@@ -1298,7 +1298,7 @@ local COMMAND = Clockwork.command:New("CharUnPermakillStay");
 COMMAND:Register();
 
 local COMMAND = Clockwork.command:New("CharUnPermakillAll");
-	COMMAND.tip = "Unpermakill all players on the map.";
+	COMMAND.tip = "Dépermakill tous les joueurs sur la carte.";
 	COMMAND.access = "s";
 	COMMAND.alias = {"PlyUnPermakillAll", "UnPermakillAll"};
 
@@ -1315,7 +1315,7 @@ local COMMAND = Clockwork.command:New("CharUnPermakillAll");
 COMMAND:Register();
 
 local COMMAND = Clockwork.command:New("EventLocal");
-	COMMAND.tip = "Send an event to characters around you.";
+	COMMAND.tip = "Envoyez un événement aux personnages autour de vous.";
 	COMMAND.text = "<string Text>";
 	COMMAND.flags = CMD_DEFAULT;
 	COMMAND.access = "o";
@@ -1358,7 +1358,7 @@ if Clockwork.command.RegisterType then
 end
 
 local COMMAND = Clockwork.command:New("EventZone");
-	COMMAND.tip = "Send an event to characters in a specific suprazone (suprawasteland will play for both wasteland and tower for example, or suprahell and supragore) or zone (i.e. wasteland, tower, caves, hell, gore).";
+	COMMAND.tip = "Envoyez un événement aux personnages dans une suprazone spécifique (suprawasteland s'appliquera à la fois au wasteland et à la tower par exemple, ou à suprahell et supragore) ou dans une zone (comme wasteland, tower, caves, hell, gore).";
 	COMMAND.text = "<string Zone> <string Text>";
 	COMMAND.flags = CMD_DEFAULT;
 	COMMAND.access = "o";
@@ -1413,13 +1413,13 @@ local COMMAND = Clockwork.command:New("EventZone");
 				end
 			end
 		else
-			Schema:EasyText(player, "grey", "You must specify a valid zone!");
+			Schema:EasyText(player, "grey", "Vous devez spécifier une zone valide !");
 		end
 	end;
 COMMAND:Register();
 
 local COMMAND = Clockwork.command:New("PlaySoundZone");
-	COMMAND.tip = "Play a sound to all players in a specific suprazone (suprawasteland will play for both wasteland and tower for example, or suprahell and supragore) or zone (i.e. wasteland, tower, caves, hell, gore).";
+	COMMAND.tip = "Joue un son à tous les joueurs d'une suprazone spécifique (suprawasteland jouera pour wasteland et tower par exemple, ou suprahell et supragore) ou zone (comme wasteland, tower, caves, hell, gore).";
 	COMMAND.text = "<string Zone> <string SoundName> [int Level] [int Pitch]";
 	COMMAND.access = "o";
 	COMMAND.types = {"Zones"}
@@ -1484,16 +1484,16 @@ local COMMAND = Clockwork.command:New("PlaySoundZone");
 				netstream.Start(plyTab, "EmitSound", info);
 				Schema:EasyText(Schema:GetAdmins(), "cornflowerblue", player:Name().." has played the sound sound \""..arguments[2].."\" in zone \""..zone.."\".");
 			else
-				Schema:EasyText(player, "grey", "You must specify a valid zone!");
+				Schema:EasyText(player, "grey", "Vous devez spécifier une zone valide !");
 			end
 		else
-			Schema:EasyText(player, "grey", "You must specify a valid sound!");
+			Schema:EasyText(player, "grey", "Vous devez spécifier un son valide !");
 		end;
 	end;
 COMMAND:Register();
 
 local COMMAND = Clockwork.command:New("StopSoundZone");
-	COMMAND.tip = "Stop all sounds for all players in a specified zone.";
+	COMMAND.tip = "Arrête tous les sons pour tous les joueurs dans une zone spécifiée.";
 	COMMAND.access = "s";
 	COMMAND.arguments = 1;
 	COMMAND.types = {"Zones"}
@@ -1536,13 +1536,13 @@ local COMMAND = Clockwork.command:New("StopSoundZone");
 				end;
 			end;
 		else
-			Schema:EasyText(player, "grey", "You must specify a valid zone!");
+			Schema:EasyText(player, "grey", "Vous devez spécifier une zone valide !");
 		end
 	end;
 COMMAND:Register();
 
 local COMMAND = Clockwork.command:New("PlyStrip");
-	COMMAND.tip = "Strip all of a player's weapons.";
+	COMMAND.tip = "Retirer toutes les armes d'un joueur.";
 	COMMAND.text = "<string Name>";
 	COMMAND.access = "s";
 	COMMAND.arguments = 1;
@@ -1553,7 +1553,7 @@ local COMMAND = Clockwork.command:New("PlyStrip");
 		
 		if (target) then
 			target:StripWeapons();
-			Schema:EasyText(player, "cornflowerblue", "You stripped all of "..target:Name().."'s weapons.");
+			Schema:EasyText(player, "cornflowerblue", "Vous avez retiré tous les"..target:Name().."'s weapons.");
 		else
 			Schema:EasyText(player, "grey", arguments[1].." is not a valid player!");
 		end;
@@ -1561,7 +1561,7 @@ local COMMAND = Clockwork.command:New("PlyStrip");
 COMMAND:Register();
 
 local COMMAND = Clockwork.command:New("PlyStripAll");
-	COMMAND.tip = "Strip all players' weapons.";
+	COMMAND.tip = "Désarmer tous les joueurs.";
 	COMMAND.access = "s";
 
 	-- Called when the command has been run.
@@ -1577,7 +1577,7 @@ local COMMAND = Clockwork.command:New("PlyStripAll");
 COMMAND:Register();
 
 local COMMAND = Clockwork.command:New("PlyGiveWeapon");
-	COMMAND.tip = "Give a player a specificed weapon.";
+	COMMAND.tip = "Donne à un joueur une arme spécifiée.";
 	COMMAND.text = "<string Name> <string Class Name>";
 	COMMAND.access = "s";
 	COMMAND.arguments = 2;
@@ -1588,7 +1588,7 @@ local COMMAND = Clockwork.command:New("PlyGiveWeapon");
 		
 		if (target and arguments[2] and istable(weapons.Get(arguments[2]))) then
 			target:Give(arguments[2]);
-			Schema:EasyText(player, "cornflowerblue", "You gave "..target:Name().." the "..arguments[2].." weapon.");
+			Schema:EasyText(player, "cornflowerblue", "Vous avez donné"..target:Name().." the "..arguments[2].." weapon.");
 		else
 			Schema:EasyText(player, "grey", arguments[1].." is not a valid player!");
 		end;
@@ -1596,7 +1596,7 @@ local COMMAND = Clockwork.command:New("PlyGiveWeapon");
 COMMAND:Register();
 
 local COMMAND = Clockwork.command:New("PlyGiveWeaponAll");
-	COMMAND.tip = "Strip all players' weapons.";
+	COMMAND.tip = "Désarmer tous les joueurs.";
 	COMMAND.text = "<string Class Name>";
 	COMMAND.access = "s";
 	COMMAND.arguments = 1;
@@ -1618,7 +1618,7 @@ local COMMAND = Clockwork.command:New("PlyGiveWeaponAll");
 COMMAND:Register();
 
 local COMMAND = Clockwork.command:New("BlowWarhorn");
-	COMMAND.tip = "Blow a warhorn in your current area (wasteland/tower or gore forest).";
+	COMMAND.tip = "Sonnez un cor de guerre dans votre zone actuelle (terres désolées/tour ou forêt de gore).";
 	COMMAND.flags = CMD_DEFAULT;
 	COMMAND.faction = "Goreic Warrior";
 
@@ -1627,7 +1627,7 @@ local COMMAND = Clockwork.command:New("BlowWarhorn");
 		local curTime = CurTime();
 	
 		if !player:IsAdmin() and !(player:GetFaction() == "Goreic Warrior" and Schema:GetRankTier("Goreic Warrior", player:GetCharacterData("rank", 1)) >= 5) then
-			Schema:EasyText(player, "peru", "Only the Gore King may use this command!");
+			Schema:EasyText(player, "peru", "Seul le Roi du Gore peut utiliser cette commande !");
 		
 			return false;
 		end
@@ -1656,7 +1656,7 @@ local COMMAND = Clockwork.command:New("BlowWarhorn");
 								v.lastWarCry = nil;
 							end
 							
-							Clockwork.chatBox:Add(v, nil, "event", "The ground quakes as the terrifying sound of a Goreic Warfighter horn pierces the sky.");
+							Clockwork.chatBox:Add(v, nil, "event", "Le sol tremble tandis que le son terrifiant d'un cor de Combattant de Guerre Goréen transperce le ciel.");
 							netstream.Start(v, "GoreWarhorn");
 						end
 					end
@@ -1675,7 +1675,7 @@ local COMMAND = Clockwork.command:New("BlowWarhorn");
 								v.lastWarCry = nil;
 							end
 						
-							Clockwork.chatBox:Add(v, nil, "event", "The ground quakes as the sound of a Goreic Warfighter horn pierces the sky.");
+							Clockwork.chatBox:Add(v, nil, "event", "Le sol tremble tandis que le son d'un cor de Guerrier Goréen déchire le ciel.");
 							netstream.Start(v, "GoreWarhorn");
 						end
 					end
@@ -1694,22 +1694,22 @@ local COMMAND = Clockwork.command:New("BlowWarhorn");
 								v.lastWarCry = nil;
 							end
 						
-							Clockwork.chatBox:Add(v, nil, "event", "The cacophony of tormented screams and suffering in Hell is temporarily broken by the overpowering sound of a Goreic Warfighter horn.");
+							Clockwork.chatBox:Add(v, nil, "event", "La cacophonie des cris torturés et des souffrances en Enfer est momentanément interrompue par le son assourdissant d'un cor de Guerrier Goreique.");
 							netstream.Start(v, "GoreWarhorn");
 						end
 					end
 				end
 			else
-				Schema:EasyText(player, "peru", "This command cannot be used in this area!");
+				Schema:EasyText(player, "peru", "Cette commande ne peut pas être utilisée dans cette zone !");
 			end
 		else
-			Schema:EasyText(player, "firebrick", "You cannot blow the gore warhorn again for another "..math.ceil(player.blowWarhornCooldown - curTime).." seconds!");
+			Schema:EasyText(player, "firebrick", "Vous ne pouvez pas souffler à nouveau dans le cor de gore avant encore"..math.ceil(player.blowWarhornCooldown - curTime).." seconds!");
 		end
 	end;
 COMMAND:Register();
 
 local COMMAND = Clockwork.command:New("GoreicHornSummonAll");
-	COMMAND.tip = "Summon all Goreic warriors to the village center using the Goreic Gathering Horn. Utilize discretion before doing so.";
+	COMMAND.tip = "Convoque tous les guerriers Goreic au centre du village en utilisant le Cor de Ralliement Goreic. Fais preuve de discernement avant d'agir.";
 
 	function COMMAND:OnRun(player, arguments)
 		local trace = player:GetEyeTrace();
@@ -1725,7 +1725,7 @@ local COMMAND = Clockwork.command:New("GoreicHornSummonAll");
 					local curTime = CurTime();
 				
 					if player.nextWarHorn and player.nextWarHorn > curTime then
-						Schema:EasyText(player, "chocolate", "You must wait another "..-math.ceil(curTime - player.nextWarHorn).." seconds before blowing the gathering horn again!");
+						Schema:EasyText(player, "chocolate", "Vous devez attendre encore"..-math.ceil(curTime - player.nextWarHorn).." seconds before blowing the gathering horn again!");
 						
 						return false;
 					end
@@ -1736,9 +1736,9 @@ local COMMAND = Clockwork.command:New("GoreicHornSummonAll");
 						local lastZone = v:GetCharacterData("LastZone");
 						if (lastZone == "gore" or lastZone == "gore_tree" or lastZone == "gore_hallway") then
 							if v:GetFaction() == "Goreic Warrior" then
-								Clockwork.chatBox:Add(v, nil, "event", "A familiar call of "..subfaction.." echoes throughout the forest. All Goreic warriors have been summoned to the village center.");
+								Clockwork.chatBox:Add(v, nil, "event", "Un appel familier de"..subfaction.." echoes throughout the forest. All Goreic warriors have been summoned to the village center.");
 							else
-								Clockwork.chatBox:Add(v, nil, "event", "The sound of a warhorn echoes throughout the forest, but you do not know its meaning!");
+								Clockwork.chatBox:Add(v, nil, "event", "Le son d'un cor de guerre résonne à travers la forêt, mais tu n'en comprends pas la signification !");
 							end
 							
 							v:SendLua([[Clockwork.Client:EmitSound("warhorns/summonhorn.mp3", 60, 100)]]);
@@ -1746,17 +1746,17 @@ local COMMAND = Clockwork.command:New("GoreicHornSummonAll");
 						end
 					end
 				else
-					Schema:EasyText(player, "firebrick", "You are not the correct faction to blow the Goreic Gathering Horn!");
+					Schema:EasyText(player, "firebrick", "Vous n'êtes pas de la faction autorisée à sonner le Cor du Rassemblement Goreic !");
 				end
 			else
-				Schema:EasyText(player, "firebrick", "You must be looking at a Goreic Gathering Horn to do this!");
+				Schema:EasyText(player, "firebrick", "Vous devez regarder un Corne de Rassemblement Goreique pour faire cela !");
 			end
 		end
 	end;
 COMMAND:Register();
 
 local COMMAND = Clockwork.command:New("GoreicHornSummonRaid");
-	COMMAND.tip = "Summon all Goreic warriors to the village center to organize for a raid.";
+	COMMAND.tip = "Convoquez tous les guerriers Goreic au centre du village pour organiser un raid.";
 
 	function COMMAND:OnRun(player, arguments)
 		local trace = player:GetEyeTrace();
@@ -1772,7 +1772,7 @@ local COMMAND = Clockwork.command:New("GoreicHornSummonRaid");
 					local curTime = CurTime();
 				
 					if player.nextWarHorn and player.nextWarHorn > curTime then
-						Schema:EasyText(player, "chocolate", "You must wait another "..-math.ceil(curTime - player.nextWarHorn).." seconds before blowing the gathering horn again!");
+						Schema:EasyText(player, "chocolate", "Vous devez attendre encore"..-math.ceil(curTime - player.nextWarHorn).." seconds before blowing the gathering horn again!");
 						
 						return false;
 					end
@@ -1783,9 +1783,9 @@ local COMMAND = Clockwork.command:New("GoreicHornSummonRaid");
 						local lastZone = v:GetCharacterData("LastZone");
 						if (lastZone == "gore" or lastZone == "gore_tree" or lastZone == "gore_hallway") then
 							if v:GetFaction() == "Goreic Warrior" then
-								Clockwork.chatBox:Add(v, nil, "event", "A familiar call of "..subfaction.." echoes throughout the forest. A raiding party has been requested to organize at the village center.");
+								Clockwork.chatBox:Add(v, nil, "event", "Un appel familier de"..subfaction.." echoes throughout the forest. A raiding party has been requested to organize at the village center.");
 							else
-								Clockwork.chatBox:Add(v, nil, "event", "The sound of a warhorn echoes throughout the forest, but you do not know its meaning!");
+								Clockwork.chatBox:Add(v, nil, "event", "Le son d'un cor de guerre résonne à travers la forêt, mais tu n'en comprends pas la signification !");
 							end
 							
 							v:SendLua([[Clockwork.Client:EmitSound("warhorns/raidhorn.mp3", 60, 100)]]);
@@ -1793,17 +1793,17 @@ local COMMAND = Clockwork.command:New("GoreicHornSummonRaid");
 						end
 					end
 				else
-					Schema:EasyText(player, "firebrick", "You are not the correct faction to blow the Goreic Gathering Horn!");
+					Schema:EasyText(player, "firebrick", "Vous n'êtes pas de la faction autorisée à sonner le Cor de Rassemblement Goreic !");
 				end
 			else
-				Schema:EasyText(player, "firebrick", "You must be looking at a Goreic Gathering Horn to do this!");
+				Schema:EasyText(player, "firebrick", "Vous devez regarder un Corne de Rassemblement Goreique pour faire cela !");
 			end
 		end
 	end;
 COMMAND:Register();
 
 local COMMAND = Clockwork.command:New("CallCongregation");
-	COMMAND.tip = "Call a congregation to the Tower of Light church.";
+	COMMAND.tip = "Convoque une assemblée à l'église de la Tour de Lumière.";
 	COMMAND.access = "s";
 
 	-- Called when the command has been run.
@@ -1822,11 +1822,11 @@ local COMMAND = Clockwork.command:New("CallCongregation");
 				
 				if lastZone == "wasteland" then
 					table.insert(far_players, v);
-					Clockwork.chatBox:Add(v, nil, "event", "The church bell tolls and the holy word is spread: A congregation has been called, and all beings high and lowly are required to attend... or else risk being marked for corpsing.");
+					Clockwork.chatBox:Add(v, nil, "event", "La cloche de l'église sonne et la parole sacrée se répand : Une assemblée a été convoquée, et tous les êtres, grands et humbles, sont tenus d'y assister... sous peine d'être marqués pour la mort.");
 					netstream.Start(v, "FadeAmbientMusic");
 				elseif lastZone == "tower" or lastZone == "theater" or lastZone == "hillbunker" then
 					table.insert(close_players, v);
-					Clockwork.chatBox:Add(v, nil, "event", "The church bell tolls and the holy word is spread: A congregation has been called, and all beings high and lowly are required to attend... or else risk being marked for corpsing.");
+					Clockwork.chatBox:Add(v, nil, "event", "La cloche de l'église sonne et la parole sacrée se répand : Une congrégation a été convoquée, et tous les êtres, grands et humbles, doivent y assister... sous peine d'être marqués pour la mort.");
 					netstream.Start(v, "FadeAmbientMusic");
 				end
 			end
@@ -1838,7 +1838,7 @@ local COMMAND = Clockwork.command:New("CallCongregation");
 COMMAND:Register();
 
 local COMMAND = Clockwork.command:New("FuckerJoeAlarm");
-	COMMAND.tip = "Sound the Fucker Joe alarm. Fucker Joe is coming!!!! This disables charswapping for alive non-admins. Re-enable by using /ToggleCharSwapping.";
+	COMMAND.tip = "Activez l'alarme Fucker Joe. Fucker Joe arrive !!! Cela désactive le changement de personnage pour les joueurs vivants non-administrateurs. Réactivez-le en utilisant /ToggleCharSwapping.";
 	COMMAND.access = "s";
 
 	-- Called when the command has been run.
@@ -1853,7 +1853,7 @@ local COMMAND = Clockwork.command:New("FuckerJoeAlarm");
 				local lastZone = v:GetCharacterData("LastZone");
 				
 				if lastZone == "wasteland" or lastZone == "tower" or lastZone == "theater" then
-					Clockwork.chatBox:Add(v, nil, "event", "Is it...? No, it cannot be... The alarms sound, for Fucker Joe comes...");
+					Clockwork.chatBox:Add(v, nil, "event", "Est-ce que... ? Non, ce n'est pas possible... Les sirènes retentissent, car Fucker Joe arrive...");
 					netstream.Start(v, "FadeAmbientMusic");
 					netstream.Start(v, "EmitSound", {name = "warhorns/fuckerjoealarm.mp3", pitch = 90, level = 60});
 				end
@@ -1865,7 +1865,7 @@ local COMMAND = Clockwork.command:New("FuckerJoeAlarm");
 COMMAND:Register();
 
 local COMMAND = Clockwork.command:New("Proclaim");
-	COMMAND.tip = "Proclaim your words with the attention they deserve if you are sufficiently noble stature.";
+	COMMAND.tip = "Proclamez vos paroles avec l'attention qu'elles méritent, si votre rang noble est suffisant.";
 	COMMAND.text = "<string Text>";
 	COMMAND.arguments = 1;
 	COMMAND.important = true;
@@ -1877,7 +1877,7 @@ local COMMAND = Clockwork.command:New("Proclaim");
 		local text = table.concat(arguments, " ");
 		
 		if (text == "") then
-			Clockwork.player:Notify(player, "You did not specify enough text!");
+			Clockwork.player:Notify(player, "Vous n'avez pas fourni suffisamment de texte !");
 			
 			return;
 		end;
@@ -1924,14 +1924,14 @@ local COMMAND = Clockwork.command:New("Proclaim");
 				
 				--Clockwork.chatBox:AddInRadius(player, "proclaim", arguments[1], player:GetPos(), config.Get("talk_radius"):Get() * 4);
 			else
-				Schema:EasyText(player, "peru", "You are not important enough to do this!");
+				Schema:EasyText(player, "peru", "Tu n'es pas assez important pour faire ça !");
 			end
 		end
 	end;
 COMMAND:Register();
 
 local COMMAND = Clockwork.command:New("RavenSpeak");
-COMMAND.tip = "Speak through your familiar, a Raven, to another Goreic Warrior.";
+COMMAND.tip = "Parle à travers ton familier, un Corbeau, à un autre Guerrier Goréen.";
 COMMAND.text = "<string Name> <string Message>";
 COMMAND.flags = CMD_DEFAULT;
 COMMAND.arguments = 2;
@@ -1963,13 +1963,13 @@ function COMMAND:OnRun(player, arguments)
 					
 					target.lastRavenSpeaker = player;
 				else
-					Schema:EasyText(player, "firebrick", "You must have the 'Watchful is the Raven' belief to do this!");
+					Schema:EasyText(player, "firebrick", "Vous devez avoir la croyance 'Watchful is the Raven' pour faire cela !");
 				end
 			else
 				Schema:EasyText(player, "firebrick", target:Name().." is not a Goreic Warrior!");
 			end
 		else
-			Schema:EasyText(player, "firebrick", "You are not the correct subfaction to do this!");
+			Schema:EasyText(player, "firebrick", "Vous n'êtes pas la bonne sous-faction pour faire cela !");
 		end
 	else
 		Schema:EasyText(player, "grey", arguments[1].." is not a valid character!");
@@ -1979,7 +1979,7 @@ end;
 COMMAND:Register();
 
 local COMMAND = Clockwork.command:New("RavenSpeakClan");
-	COMMAND.tip = "Speak through your familiar, a Raven, to other members of Clan Crast.";
+	COMMAND.tip = "Parle à travers ton familier, un Corbeau, aux autres membres du Clan Crast.";
 	COMMAND.text = "<string Message>";
 	COMMAND.flags = CMD_DEFAULT;
 	COMMAND.arguments = 1;
@@ -2006,17 +2006,17 @@ local COMMAND = Clockwork.command:New("RavenSpeakClan");
 					end;
 				end;
 			else
-				Schema:EasyText(player, "firebrick", "You must have the 'Watchful is the Raven' belief to do this!");
+				Schema:EasyText(player, "firebrick", "Vous devez avoir la croyance 'Watchful is the Raven' pour faire cela !");
 			end
 		else
-			Schema:EasyText(player, "firebrick", "You are not the correct subfaction to do this!");
+			Schema:EasyText(player, "firebrick", "Vous n'êtes pas la bonne sous-faction pour faire cela !");
 		end
 	end;
 COMMAND:Register();
 
 local COMMAND = Clockwork.command:New("RavenSpeakFaction");
-	COMMAND.tip = "Speak through your familiar, a Raven, to all members of the Goreic Warriors.";
-	--COMMAND.tip = "Speak through your familiar, a Raven, to all members of the Goreic Warriors. You must be near the Great Tree in order to do this.";
+	COMMAND.tip = "Parle à travers ton familier, un Corbeau, à tous les membres des Guerriers Goreic.";
+	--COMMAND.tip = "Parle à travers ton familier, un Corbeau, à tous les membres des Guerriers Goreic. Tu dois être près du Grand Arbre pour ce faire.";
 	COMMAND.text = "<string Message>";
 	COMMAND.flags = CMD_DEFAULT;
 	COMMAND.arguments = 1;
@@ -2050,19 +2050,19 @@ local COMMAND = Clockwork.command:New("RavenSpeakFaction");
 						end;
 					end;
 				--else
-					--Schema:EasyText(player, "firebrick", "You must be near the Great Tree to send more ravens!");
+					--Schema:EasyText(player, "firebrick", "Vous devez être près du Grand Arbre pour envoyer plus de corbeaux !");
 				--end
 			else
-				Schema:EasyText(player, "firebrick", "You must have the 'Watchful is the Raven' belief to do this!");
+				Schema:EasyText(player, "firebrick", "Vous devez avoir la croyance 'Watchful is the Raven' pour faire cela !");
 			end
 		else
-			Schema:EasyText(player, "firebrick", "You are not the correct subfaction to do this!");
+			Schema:EasyText(player, "firebrick", "Vous n'êtes pas la bonne sous-faction pour faire cela !");
 		end
 	end;
 COMMAND:Register();
 
 local COMMAND = Clockwork.command:New("RavenReply");
-COMMAND.tip = "Speak to the Ravens to deliver a message back to the Clan Crast member who last spoke to you directly.";
+COMMAND.tip = "Parle aux Corbeaux pour transmettre un message au membre du Clan Crast qui t'a parlé en dernier directement.";
 COMMAND.text = "<string Message>";
 COMMAND.flags = CMD_DEFAULT;
 COMMAND.arguments = 1;
@@ -2083,14 +2083,14 @@ function COMMAND:OnRun(player, arguments)
 		netstream.Start(player, "TriggerCrows");
 		netstream.Start(player.lastRavenSpeaker, "TriggerCrows");
 	else
-		Schema:EasyText(player, "firebrick", "There is no ravenspeak to reply to!");
+		Schema:EasyText(player, "firebrick", "Il n'y a aucun ravenspeak auquel répondre !");
 	end
 end;
 
 COMMAND:Register();
 
 local COMMAND = Clockwork.command:New("Speaker");
-	COMMAND.tip = "Announce something over the tower's PA system.";
+	COMMAND.tip = "Annoncez quelque chose via le système de sonorisation de la tour.";
 	COMMAND.text = "<string Text>";
 	COMMAND.arguments = 1;
 	COMMAND.access = "s";
@@ -2105,7 +2105,7 @@ local COMMAND = Clockwork.command:New("Speaker");
 COMMAND:Register();
 
 local COMMAND = Clockwork.command:New("SpeakerSound");
-	COMMAND.tip = "Emit a sound from all speaker entities in the tower.";
+	COMMAND.tip = "Émettre un son depuis toutes les entités haut-parleurs de la tour.";
 	COMMAND.text = "<string Sound> [int Level] [int Pitch]";
 	COMMAND.arguments = 1;
 	COMMAND.optionalArguments = 2;
@@ -2120,7 +2120,7 @@ local COMMAND = Clockwork.command:New("SpeakerSound");
 COMMAND:Register();
 
 local COMMAND = Clockwork.command:New("SpeakerSoundStop");
-	COMMAND.tip = "Stop all currently playing speaker sounds.";
+	COMMAND.tip = "Arrête tous les sons de haut-parleurs actuellement en cours de lecture.";
 	COMMAND.access = "s";
 
 	-- Called when the command has been run.
@@ -2177,7 +2177,7 @@ else
 end;
 
 local COMMAND = Clockwork.command:New("ProclaimMe");
-	COMMAND.tip = "Proclaim your gestures with the attention they deserve if you are sufficiently noble stature.";
+	COMMAND.tip = "Proclamez vos gestes avec l'attention qu'ils méritent, si votre stature est suffisamment noble.";
 	COMMAND.text = "<string Text>";
 	COMMAND.arguments = 1;
 	COMMAND.alias = {"MeProclaim"};
@@ -2190,7 +2190,7 @@ local COMMAND = Clockwork.command:New("ProclaimMe");
 		local text = table.concat(arguments, " ");
 		
 		if !text or (text == "") then
-			Clockwork.player:Notify(player, "You did not specify enough text!");
+			Clockwork.player:Notify(player, "Vous n'avez pas fourni suffisamment de texte !");
 			
 			return;
 		end;
@@ -2209,14 +2209,14 @@ local COMMAND = Clockwork.command:New("ProclaimMe");
 				
 				--Clockwork.chatBox:AddInRadius(player, "meproclaim", text, player:GetPos(), config.Get("talk_radius"):Get() * 4);
 			else
-				Schema:EasyText(player, "peru", "You are not important enough to do this!");
+				Schema:EasyText(player, "peru", "Tu n'es pas assez important pour faire ça !");
 			end
 		end
 	end;
 COMMAND:Register();
 
 local COMMAND = Clockwork.command:New("SpeakerIt");
-	COMMAND.tip = "Describe an action happening over the tower's PA system.";
+	COMMAND.tip = "Décris une action se produisant via le système de sonorisation de la tour.";
 	COMMAND.text = "<string Text>";
 	COMMAND.arguments = 1;
 	COMMAND.access = "s";
@@ -2231,7 +2231,7 @@ local COMMAND = Clockwork.command:New("SpeakerIt");
 COMMAND:Register();
 
 --[[local COMMAND = Clockwork.command:New("CharSetCustomClass");
-	COMMAND.tip = "Set a character's custom class.";
+	COMMAND.tip = "Définir la classe personnalisée d'un personnage.";
 	COMMAND.text = "<string Name> <string Class>";
 	COMMAND.access = "o";
 	COMMAND.arguments = 2;
@@ -2250,7 +2250,7 @@ COMMAND:Register();
 COMMAND:Register();
 
 local COMMAND = Clockwork.command:New("CharTakeCustomClass");
-	COMMAND.tip = "Take a character's custom class.";
+	COMMAND.tip = "Prendre la classe personnalisée d'un personnage.";
 	COMMAND.text = "<string Name>";
 	COMMAND.access = "o";
 	COMMAND.arguments = 1;
@@ -2269,7 +2269,7 @@ local COMMAND = Clockwork.command:New("CharTakeCustomClass");
 COMMAND:Register();]]--
 
 local COMMAND = Clockwork.command:New("InvTie");
-	COMMAND.tip = "Use bindings from your inventory to restrain a character that is looking away from you.";
+	COMMAND.tip = "Utilisez des menottes de votre inventaire pour entraver un personnage qui vous tourne le dos.";
 	COMMAND.flags = CMD_DEFAULT;
 	COMMAND.alias = {"InvZipTie", "InvBind", "InvRestrain"};
 
@@ -2278,7 +2278,7 @@ local COMMAND = Clockwork.command:New("InvTie");
 		local itemTable = player:FindItemByID("bindings");
 		
 		if (!itemTable) then
-			Schema:EasyText(player, "chocolate", "You have nothing to tie with!");
+			Schema:EasyText(player, "chocolate", "Tu n'as rien pour attacher !");
 			
 			return;
 		end;
@@ -2288,7 +2288,7 @@ local COMMAND = Clockwork.command:New("InvTie");
 COMMAND:Register();
 
 local COMMAND = Clockwork.command:New("ForceTie");
-	COMMAND.tip = "Force tie a player.";
+	COMMAND.tip = "Forcer l'attache d'un joueur.";
 	COMMAND.text = "<string Name>";
 	COMMAND.flags = CMD_DEFAULT;
 	COMMAND.access = "s";
@@ -2301,7 +2301,7 @@ local COMMAND = Clockwork.command:New("ForceTie");
 		
 		if (target) then
 			Schema:TiePlayer(target, true, nil);
-			Schema:EasyText(player, "cornflowerblue", "You have tied "..target:Name().."!");
+			Schema:EasyText(player, "cornflowerblue", "Vous avez attaché"..target:Name().."!");
 		else
 			Schema:EasyText(player, "grey", arguments[1].." is not a valid player!");
 		end;
@@ -2309,7 +2309,7 @@ local COMMAND = Clockwork.command:New("ForceTie");
 COMMAND:Register();
 
 local COMMAND = Clockwork.command:New("ForceUntie");
-	COMMAND.tip = "Force untie a player.";
+	COMMAND.tip = "Forcer le détachement d'un joueur.";
 	COMMAND.text = "<string Name>";
 	COMMAND.flags = CMD_DEFAULT;
 	COMMAND.access = "s";
@@ -2328,11 +2328,11 @@ local COMMAND = Clockwork.command:New("ForceUntie");
 			end
 			
 			if target.possessor and target:GetNetVar("tied") != 0 then
-				Clockwork.chatBox:AddInTargetRadius(target, "me", "'s bindings suddenly drop to the ground as they are removed by some unseen force!", target:GetPos(), Clockwork.config:Get("talk_radius"):Get() * 2);
+				Clockwork.chatBox:AddInTargetRadius(target, "me", "Les liens de 's tombent soudainement au sol, retirés par une force invisible !", target:GetPos(), Clockwork.config:Get("talk_radius"):Get() * 2);
 			end
 		
 			Schema:TiePlayer(target, false, nil);
-			Schema:EasyText(player, "cornflowerblue", "You have untied "..target:Name().."!");
+			Schema:EasyText(player, "cornflowerblue", "Tu as détaché"..target:Name().."!");
 		else
 			Schema:EasyText(player, "grey", arguments[1].." is not a valid player!");
 		end;
@@ -2340,7 +2340,7 @@ local COMMAND = Clockwork.command:New("ForceUntie");
 COMMAND:Register();
 
 local COMMAND = Clockwork.command:New("RemoveAllBelongings");
-	COMMAND.tip = "Clear all belongings entities on the map.";
+	COMMAND.tip = "Effacer toutes les entités d'objets personnels sur la carte.";
 	COMMAND.access = "s";
 	COMMAND.alias = {"ClearBelongings", "RemoveBelongings"};
 	
@@ -2358,7 +2358,7 @@ local COMMAND = Clockwork.command:New("RemoveAllBelongings");
 COMMAND:Register();
 
 local COMMAND = Clockwork.command:New("RemoveAllItems");
-	COMMAND.tip = "Clear all non-decoy items on the map. Optional arguments for deleting items: 1 - Item Spawner Items | 2 - Non-Item Spawner Items | 3 - Decoy Items.";
+	COMMAND.tip = "Supprime tous les objets non-leurres sur la carte. Arguments optionnels pour la suppression d'objets : 1 - Objets du générateur d'objets | 2 - Objets hors générateur | 3 - Leurres.";
 	COMMAND.access = "s";
 	COMMAND.alias = {"ClearItems", "RemoveItems"};
 	COMMAND.optionalArguments = 1;
@@ -2403,7 +2403,7 @@ local COMMAND = Clockwork.command:New("RemoveAllItems");
 COMMAND:Register();
 
 local COMMAND = Clockwork.command:New("RemoveItemsRadius");
-	COMMAND.tip = "Clear all items in a specified or 512 unit radius of yourself.";
+	COMMAND.tip = "Efface tous les objets dans un rayon spécifié ou de 512 unités autour de vous.";
 	COMMAND.text = "<int Radius>";
 	COMMAND.access = "s";
 	COMMAND.alias = {"ClearItemsRadius", "RemoveItemsInRadius"};
@@ -2431,7 +2431,7 @@ local COMMAND = Clockwork.command:New("RemoveItemsRadius");
 COMMAND:Register();
 
 local COMMAND = Clockwork.command:New("RemoveAllRagdolls");
-	COMMAND.tip = "Clear all items on the map.";
+	COMMAND.tip = "Supprimer tous les objets présents sur la carte.";
 	COMMAND.access = "s";
 	COMMAND.alias = {"ClearRagdolls", "RemoveRagdolls"};
 	
@@ -2458,7 +2458,7 @@ local COMMAND = Clockwork.command:New("RemoveAllRagdolls");
 COMMAND:Register();
 
 local COMMAND = Clockwork.command:New("PlyHealFull");
-	COMMAND.tip = "Clear all of a player's injuries and set their HP, limb HP, blood, hunger, thirst, corruption, and sanity to max.";
+	COMMAND.tip = "Efface toutes les blessures d'un joueur et rétablit ses points de vie, santé des membres, sang, faim, soif, corruption et santé mentale au maximum.";
 	COMMAND.text = "<string Name>";
 	COMMAND.access = "a";
 	COMMAND.optionalArguments = 1;
@@ -2521,7 +2521,7 @@ local COMMAND = Clockwork.command:New("PlyHealFull");
 COMMAND:Register();
 
 local COMMAND = Clockwork.command:New("PlyHealFullAll");
-	COMMAND.tip = "Clear every player on the server's injuries and set their HP, limb HP, blood, hunger, thirst, corruption, and sanity to max.";
+	COMMAND.tip = "Efface toutes les blessures des joueurs sur le serveur et rétablit leurs points de vie, santé des membres, sang, faim, soif, corruption et santé mentale au maximum.";
 	COMMAND.text = "[bool AffectDuelists]";
 	COMMAND.access = "a";
 	COMMAND.optionalArguments = 1;
@@ -2588,7 +2588,7 @@ local COMMAND = Clockwork.command:New("PlyHealFullAll");
 COMMAND:Register();
 
 local COMMAND = Clockwork.command:New("CharSetStability");
-COMMAND.tip = "Set a players Stability level.";
+COMMAND.tip = "Définir le niveau de Stabilité d'un joueur.";
 COMMAND.text = "<string Name> [number Amount]";
 COMMAND.flags = CMD_DEFAULT;
 COMMAND.access = "s";
@@ -2613,9 +2613,9 @@ function COMMAND:OnRun(player, arguments)
 		target:SetNWInt("stability", amount);
 
 		if (player != target)	then
-			Schema:EasyText(player, "cornflowerblue", "You have set "..target:Name().."'s stability to "..amount..".");
+			Schema:EasyText(player, "cornflowerblue", "Vous avez défini"..target:Name().."'s stability to "..amount..".");
 		else
-			Schema:EasyText(player, "cornflowerblue", "You have set your own stability to "..amount..".");
+			Schema:EasyText(player, "cornflowerblue", "Vous avez défini votre propre stabilité à"..amount..".");
 		end;
 	else
 		Schema:EasyText(player, "grey", arguments[1].." is not a valid player!");
@@ -2625,7 +2625,7 @@ end;
 COMMAND:Register();
 
 local COMMAND = Clockwork.command:New("CharSetWeaponCondition");
-COMMAND.tip = "Set a character's weapon condition. Defaults to 100% condition if no argument is provided.";
+COMMAND.tip = "Définir l'état de l'arme d'un personnage. Par défaut, l'état est fixé à 100% si aucun argument n'est fourni.";
 COMMAND.text = "<string Name> [number Condition]";
 COMMAND.flags = CMD_DEFAULT;
 COMMAND.access = "s";
@@ -2685,7 +2685,7 @@ end;
 COMMAND:Register();
 
 local COMMAND = Clockwork.command:New("ToggleAutoTie");
-COMMAND.tip = "Toggle the auto-tie system.";
+COMMAND.tip = "Activer/désactiver le système d'attache automatique.";
 COMMAND.flags = CMD_DEFAULT;
 COMMAND.access = "s";
 
@@ -2703,7 +2703,7 @@ end;
 COMMAND:Register();
 
 local COMMAND = Clockwork.command:New("AddNPCSpawn")
-	COMMAND.tip = "Add an npc spawn location at your cursor. (Valid types: animal, thrall)"
+	COMMAND.tip = "Ajoute un point d'apparition de PNJ à l'emplacement de votre curseur. (Types valides : animal, thrall)"
 	COMMAND.text = "<string Category>"
 	COMMAND.access = "s"
 	COMMAND.arguments = 1;
@@ -2715,7 +2715,7 @@ local COMMAND = Clockwork.command:New("AddNPCSpawn")
 COMMAND:Register()
 
 local COMMAND = Clockwork.command:New("RemoveNPCSpawn")
-	COMMAND.tip = "Remove an npc spawn location at your cursor."
+	COMMAND.tip = "Supprime un point d'apparition de PNJ à l'emplacement de votre curseur."
 	COMMAND.access = "s"
 	COMMAND.optionalArguments = 1;
 	COMMAND.text = "[int Radius]"
@@ -2728,7 +2728,7 @@ local COMMAND = Clockwork.command:New("RemoveNPCSpawn")
 COMMAND:Register()
 
 local COMMAND = Clockwork.command:New("ToggleNPCSpawns");
-COMMAND.tip = "Toggle the automatic NPC spawning system.";
+COMMAND.tip = "Activer/Désactiver le système automatique de génération de PNJ.";
 COMMAND.flags = CMD_DEFAULT;
 COMMAND.access = "s";
 
@@ -2746,7 +2746,7 @@ end;
 COMMAND:Register();
 
 local COMMAND = Clockwork.command:New("ToggleHellJaunting");
-COMMAND.tip = "Toggle whether helljaunting is enabled.";
+COMMAND.tip = "Activer ou désactiver la possibilité de se téléporter en enfer.";
 COMMAND.flags = CMD_DEFAULT;
 COMMAND.faction = "Children of Satan";
 
@@ -2803,7 +2803,7 @@ end;
 COMMAND:Register()
 
 local COMMAND = Clockwork.command:New("ToggleHearMe")
-COMMAND.tip = "Toggle whether or not Children of Satan can use the Hear Me ritual, Hell Baron excluded."
+COMMAND.tip = "Activer ou désactiver la possibilité pour les Enfants de Satan d'utiliser le rituel "Entends-Ma-Voix", à l'exception du Baron de l'Enfer."
 COMMAND.flags = CMD_DEFAULT
 COMMAND.faction = "Children of Satan"
 COMMAND.text = "[bool Include Hell Baron]"
@@ -2819,8 +2819,8 @@ function COMMAND:OnRun(player, arguments)
 	local isAdmin = player:IsAdmin()
 	local isHellBaron = (player:GetFaction() == "Children of Satan" and Schema:GetRankTier("Children of Satan", player:GetCharacterData("rank", 1)) > 3)
 
-	if(!isAdmin and !isHellBaron) then Schema:EasyText(player, "peru", "You are not the Hell Baron.") return end
-	if(!isAdmin and bit.band(Schema.hearMeFlags, HEARME_ADMINENFORCED) > 0) then Schema:EasyText(player, "peru", "A higher power has already made this decision for you.") return end
+	if(!isAdmin and !isHellBaron) then Schema:EasyText(player, "peru", "Vous n'êtes pas le Baron de l'Enfer.") return end
+	if(!isAdmin and bit.band(Schema.hearMeFlags, HEARME_ADMINENFORCED) > 0) then Schema:EasyText(player, "peru", "Une puissance supérieure a déjà pris cette décision à ta place.") return end
 	
 	local name = player:Name()
 
@@ -2858,7 +2858,7 @@ end
 COMMAND:Register()
 
 local COMMAND = Clockwork.command:New("ToggleHellTeleporting");
-COMMAND.tip = "Toggle whether teleporting to Hell is enabled.";
+COMMAND.tip = "Activer ou désactiver la possibilité de se téléporter en Enfer.";
 COMMAND.flags = CMD_DEFAULT;
 COMMAND.access = "s";
 
@@ -2876,7 +2876,7 @@ end;
 COMMAND:Register();
 
 local COMMAND = Clockwork.command:New("ToggleTowerSafeZone");
-COMMAND.tip = "Toggle the Tower of Light's safe zone status.";
+COMMAND.tip = "Basculer le statut de zone sécurisée de la Tour de Lumière.";
 COMMAND.flags = CMD_DEFAULT;
 COMMAND.access = "s";
 
@@ -2894,7 +2894,7 @@ end;
 COMMAND:Register();
 
 local COMMAND = Clockwork.command:New("ToggleFalloverEnabled");
-COMMAND.tip = "Toggle whether /charfallover is enabled for players.";
+COMMAND.tip = "Activer ou désactiver la fonction /charfallover pour les joueurs.";
 COMMAND.flags = CMD_DEFAULT;
 COMMAND.access = "s";
 
@@ -2913,7 +2913,7 @@ COMMAND:Register();
 
 local NAME_CASH = Clockwork.option:GetKey("name_cash");
 local COMMAND = Clockwork.command:New("CoinslotCollect");
-	COMMAND.tip = "Collect from the Coinslot.";
+	COMMAND.tip = "Récupère les pièces de la fente.";
 	COMMAND.text = "<number Coin>";
 	COMMAND.flags = CMD_DEFAULT;
 	COMMAND.arguments = 1;
@@ -2941,23 +2941,23 @@ local COMMAND = Clockwork.command:New("CoinslotCollect");
 							
 							return;
 						else
-							Schema:EasyText(player, "firebrick", "There is not enough coin in the treasury to collect this amount!");
+							Schema:EasyText(player, "firebrick", "Il n'y a pas assez de pièces dans le trésor pour récupérer cette somme !");
 							return;
 						end
 					end
 				end;
 			end;
 		else
-			Schema:EasyText(player, "peru", "You must be of noble stature to collect coin!");
+			Schema:EasyText(player, "peru", "Il te faut une stature noble pour amasser des pièces !");
 			return;
 		end
 		
-		Schema:EasyText(player, "peru", "You must be looking at the Coinslot to collect coin!");
+		Schema:EasyText(player, "peru", "Vous devez regarder la fente à pièces pour collecter la pièce !");
 	end;
 COMMAND:Register();
 
 local COMMAND = Clockwork.command:New("CoinslotTax");
-	COMMAND.tip = "Set the Tower of Light's tax rate.";
+	COMMAND.tip = "Définir le taux d'imposition de la Tour de Lumière.";
 	COMMAND.text = "<number Coin>";
 	COMMAND.flags = CMD_DEFAULT;
 	COMMAND.arguments = 1;
@@ -2984,23 +2984,23 @@ local COMMAND = Clockwork.command:New("CoinslotTax");
 							
 							return;
 						else
-							Schema:EasyText(player, "firebrick", "This is an invalid tax rate!");
+							Schema:EasyText(player, "firebrick", "Ce taux de taxe est invalide !");
 							return;
 						end
 					end
 				end;
 			end;
 		else
-			Schema:EasyText(player, "peru", "You must be of noble stature to set the tax rate!");
+			Schema:EasyText(player, "peru", "Vous devez être de noble stature pour fixer le taux d'imposition !");
 			return;
 		end
 		
-		Schema:EasyText(player, "peru", "You must be looking at the Coinslot to set the tax rate!");
+		Schema:EasyText(player, "peru", "Vous devez regarder la fente à pièces pour définir le taux de taxe !");
 	end;
 COMMAND:Register();
 
 local COMMAND = Clockwork.command:New("CoinslotDonate");
-	COMMAND.tip = "Offer your coin to the Coinslot.";
+	COMMAND.tip = "Offre ta pièce à la Fente à pièces.";
 	COMMAND.text = "<number Coin>";
 	COMMAND.flags = CMD_DEFAULT;
 	COMMAND.arguments = 1;
@@ -3034,7 +3034,7 @@ local COMMAND = Clockwork.command:New("CoinslotDonate");
 						
 					if (cash and Clockwork.player:CanAfford(player, cash)) then
 						if cash < 1 then
-							Schema:EasyText(player, "darkgrey", "You need to enter a positive value to donate coin!");
+							Schema:EasyText(player, "darkgrey", "Vous devez entrer une valeur positive pour faire un don de pièces !");
 							return;
 						end
 						
@@ -3068,22 +3068,22 @@ local COMMAND = Clockwork.command:New("CoinslotDonate");
 						entity:EmitSound("ambient/levels/labs/coinslot1.wav");
 						return;
 					else
-						Schema:EasyText(player, "darkgrey", "You do not have enough coin to donate this amount!");
+						Schema:EasyText(player, "darkgrey", "Vous n'avez pas assez de pièces pour faire un don de ce montant !");
 						return;
 					end;
 				else
-					Schema:EasyText(player, "darkgrey", "You need to enter a valid value to donate coin!");
+					Schema:EasyText(player, "darkgrey", "Vous devez entrer une valeur valide pour faire un don de pièces !");
 					return;
 				end
 			end;
 		end;
 		
-		Schema:EasyText(player, "peru", "You must be looking at the Coinslot to donate coin!");
+		Schema:EasyText(player, "peru", "Vous devez regarder la fente à pièces pour insérer une pièce !");
 	end;
 COMMAND:Register();
 
 local COMMAND = Clockwork.command:New("FireplaceAddFuel");
-	COMMAND.tip = "Add an item to a fireplace as fuel.";
+	COMMAND.tip = "Ajoute un objet à une cheminée comme combustible.";
 	COMMAND.text = "<string uniqueID>";
 	COMMAND.flags = CMD_DEFAULT;
 	COMMAND.arguments = 1;
@@ -3113,22 +3113,22 @@ local COMMAND = Clockwork.command:New("FireplaceAddFuel");
 						player:TakeItem(itemTable);
 						return;
 					else
-						Schema:EasyText(player, "grey", "This is not a valid item to add to the campfire, or you do not have it!");
+						Schema:EasyText(player, "grey", "Ceci n'est pas un objet valide à ajouter au feu de camp, ou vous ne le possédez pas !");
 						return;
 					end;
 				else
-					Schema:EasyText(player, "darkgrey", "You need to enter a valid item uniqueID to add fuel!");
+					Schema:EasyText(player, "darkgrey", "Vous devez entrer un identifiant unique d'objet valide pour ajouter du carburant !");
 					return;
 				end
 			end;
 		end;
 		
-		Schema:EasyText(player, "peru", "You must be looking at a fireplace to add fuel to!");
+		Schema:EasyText(player, "peru", "Tu dois regarder vers une cheminée pour y ajouter du combustible !");
 	end;
 COMMAND:Register();
 
 local COMMAND = Clockwork.command:New("ArchivesAdd");
-	COMMAND.tip = "Add a scripture to the Grand Archives.";
+	COMMAND.tip = "Ajoutez une écriture aux Grandes Archives.";
 	COMMAND.text = "<string uniqueID>";
 	COMMAND.flags = CMD_DEFAULT;
 	COMMAND.arguments = 1;
@@ -3156,22 +3156,22 @@ local COMMAND = Clockwork.command:New("ArchivesAdd");
 						Schema:AddBookTowerArchives(player, itemTable);
 						return;
 					else
-						Schema:EasyText(player, "grey", "This is not a valid item to add to the archives, or you do not have it!");
+						Schema:EasyText(player, "grey", "Ceci n'est pas un objet valide à ajouter aux archives, ou vous ne le possédez pas !");
 						return;
 					end;
 				else
-					Schema:EasyText(player, "darkgrey", "You need to enter a valid item uniqueID to donate scriptures!");
+					Schema:EasyText(player, "darkgrey", "Vous devez entrer un identifiant unique d'objet valide pour faire don des écritures !");
 					return;
 				end
 			end;
 		end;
 		
-		Schema:EasyText(player, "peru", "You must be looking at the Grand Archives to donate scriptures!");
+		Schema:EasyText(player, "peru", "Vous devez regarder les Grandes Archives pour faire don des écritures !");
 	end;
 COMMAND:Register();
 
 local COMMAND = Clockwork.command:New("ArchivesTake");
-	COMMAND.tip = "Take a scripture from the Grand Archives.";
+	COMMAND.tip = "Prends un écrit des Grandes Archives.";
 	COMMAND.text = "<string uniqueID>";
 	COMMAND.flags = CMD_DEFAULT;
 	COMMAND.arguments = 1;
@@ -3188,18 +3188,18 @@ local COMMAND = Clockwork.command:New("ArchivesTake");
 					Schema:TakeBookTowerArchives(player, arguments[1]);
 					return;
 				else
-					Schema:EasyText(player, "darkgrey", "You need to enter a valid item uniqueID to take scriptures!");
+					Schema:EasyText(player, "darkgrey", "Vous devez entrer un identifiant unique d'objet valide pour prendre les écritures !");
 					return;
 				end
 			end;
 		end;
 		
-		Schema:EasyText(player, "peru", "You must be looking at the Grand Archives to take scriptures!");
+		Schema:EasyText(player, "peru", "Vous devez regarder les Grandes Archives pour prendre les écritures !");
 	end;
 COMMAND:Register();
 
 local COMMAND = Clockwork.command:New("HellJaunt");
-	COMMAND.tip = "Return to Hell using dark magic if you are a Child of Satan, although this act will leave you temporarily vulnerable to the influence of demons and will thus incur extreme corruption. Anyone held in your hands will also be teleported. You cannot helljaunt while overencumbered.";
+	COMMAND.tip = "Retourne en Enfer par magie noire si tu es un Enfant de Satan, bien que cet acte te rende temporairement vulnérable à l'influence des démons et entraîne donc une corruption extrême. Toute personne que tu tiens dans tes mains sera également téléportée. Tu ne peux pas voyager en Enfer si tu es surchargé.";
 	COMMAND.flags = CMD_DEFAULT;
 	COMMAND.important = true;
 	COMMAND.faction = "Children of Satan";
@@ -3212,31 +3212,31 @@ local COMMAND = Clockwork.command:New("HellJaunt");
 			end
 			
 			if player:GetCharacterData("rank") == 10 and !player:GetCharacterData("kinisgerOverride") then -- Aspirants cannot helljaunt.
-				Schema:EasyText(player, "peru", "Aspirants cannot helljaunt!");
+				Schema:EasyText(player, "peru", "Les aspirants ne peuvent pas effectuer de voyage infernal !");
 				
 				return false;
 			end
 		
 			if Schema.hellJauntDisabled or (map ~= "rp_begotten3" and map ~= "rp_begotten_redux" and map ~= "rp_district21") then
-				Schema:EasyText(player, "peru", "Your connection with Hell appears to be severed and you cannot helljaunt!");
+				Schema:EasyText(player, "peru", "Votre connexion avec les Enfers semble rompue, vous ne pouvez pas vous téléporter en enfer !");
 				
 				return false;
 			end
 			
 			if player.OverEncumbered then
-				Schema:EasyText(player, "peru", "You cannot helljaunt while overencumbered!");
+				Schema:EasyText(player, "peru", "Vous ne pouvez pas voyager en enfer en étant surchargé !");
 				
 				return false;
 			end
 			
 			if player:GetNetVar("Parried") == true then
-				Schema:EasyText(player, "peru", "You are too discombobulated to helljaunt right now!");
+				Schema:EasyText(player, "peru", "Tu es trop désorienté pour entreprendre un voyage infernal maintenant !");
 				
 				return false;
 			end
 			
 			if player:GetNWBool("bliz_frozen") then
-				Schema:EasyText(player, "peru", "You cannot helljaunt while frozen solid!");
+				Schema:EasyText(player, "peru", "Vous ne pouvez pas voyager en enfer tant que vous êtes gelé solidement !");
 				
 				return false;
 			end
@@ -3244,11 +3244,11 @@ local COMMAND = Clockwork.command:New("HellJaunt");
 			local action = Clockwork.player:GetAction(player);
 			
 			if action == "pickupobject" then
-				Schema:EasyText(player, "peru", "You cannot helljaunt while in the process of picking up an object!");
+				Schema:EasyText(player, "peru", "Vous ne pouvez pas voyager en enfer pendant que vous ramassez un objet !");
 				
 				return false;
 			elseif action == "pickupragdoll" then
-				Schema:EasyText(player, "peru", "You cannot helljaunt while in the process of picking up a ragdoll!");
+				Schema:EasyText(player, "peru", "Vous ne pouvez pas voyager en enfer pendant que vous ramassez un pantin !");
 				
 				return false;
 			end
@@ -3259,7 +3259,7 @@ local COMMAND = Clockwork.command:New("HellJaunt");
 				local ragdollPlayer = Clockwork.entity:GetPlayer(holdingEnt);
 				
 				if ragdollPlayer and ragdollPlayer:GetFaction() == "Children of Satan" and ragdollPlayer:Alive() and ragdollPlayer.OverEncumbered then
-					Schema:EasyText(player, "peru", "You cannot helljaunt while holding another overencumbered Child of Satan!");
+					Schema:EasyText(player, "peru", "Vous ne pouvez pas voyager en enfer en portant un autre Enfant de Satan surchargé !");
 					
 					return false;
 				end
@@ -3276,8 +3276,8 @@ local COMMAND = Clockwork.command:New("HellJaunt");
 							if v:HasInitialized() and v:GetNetVar("yellowBanner") == true and v:Alive() then
 								if v:GetMoveType() == MOVETYPE_WALK or v:IsRagdolled() or v:InVehicle() then
 									if v:GetPos():Distance(player:GetPos()) <= 2048 then
-										Schema:EasyText(player, "peru", "There is one with a yellow banner raised, chaining you to this mortal plane! Vanquish them or distance yourself greatly!");
-										Schema:EasyText(v, "peru", "You feel your yellow banner pulsate with energy as the helljaunt of "..player:Name().." is foiled!");
+										Schema:EasyText(player, "peru", "Il y en a un avec une bannière jaune levée, qui t'enchaîne à ce plan mortel ! Vaincs-le ou éloigne-toi considérablement !");
+										Schema:EasyText(v, "peru", "Tu sens ta bannière jaune palpiter d'énergie lors de l'expédition infernale de"..player:Name().." is foiled!");
 										
 										local damageInfo = DamageInfo();
 										
@@ -3373,7 +3373,7 @@ local COMMAND = Clockwork.command:New("HellJaunt");
 						
 						player:SetCharacterData("nextTeleport", 600);
 						
-						Schema:EasyText(player, "red", "You begin to helljaunt away!");
+						Schema:EasyText(player, "red", "Tu commences à t'éloigner par un bond infernal !");
 						
 						timer.Simple(jauntTime, function()
 							if IsValid(player) and player:Alive() then
@@ -3381,16 +3381,16 @@ local COMMAND = Clockwork.command:New("HellJaunt");
 							end
 						end);
 					else
-						Schema:EasyText(player, "peru", "You cannot helljaunt for another "..nextTeleport.." seconds!");
+						Schema:EasyText(player, "peru", "Vous ne pouvez pas effectuer de voyage infernal avant encore"..nextTeleport.." seconds!");
 					end
 				else
-					Schema:EasyText(player, "peru", "You cannot helljaunt while in Hell!");
+					Schema:EasyText(player, "peru", "Vous ne pouvez pas vous téléporter en Enfer depuis l'Enfer !");
 				end
 			else
-				Schema:EasyText(player, "peru", "You cannot helljaunt right now!");
+				Schema:EasyText(player, "peru", "Vous ne pouvez pas effectuer de voyage infernal pour le moment !");
 			end
 		else
-			Schema:EasyText(player, "peru", "You are not the correct faction to do this!");
+			Schema:EasyText(player, "peru", "Vous n'êtes pas de la faction appropriée pour faire cela !");
 		end
 	end;
 	
@@ -3401,7 +3401,7 @@ local COMMAND = Clockwork.command:New("HellJaunt");
 COMMAND:Register();
 
 local COMMAND = Clockwork.command:New("HellJauntAdmin");
-	COMMAND.tip = "Return to Hell using dark magic with no consequences since you're an admin.";
+	COMMAND.tip = "Retournez en Enfer grâce à la magie noire sans subir de conséquences, puisque vous êtes administrateur.";
 	COMMAND.flags = CMD_DEFAULT;
 	COMMAND.access = "s";
 
@@ -3474,12 +3474,12 @@ local COMMAND = Clockwork.command:New("HellJauntAdmin");
 			end
 		end);
 		
-		Schema:EasyText(player, "red", "You begin to helljaunt away!");
+		Schema:EasyText(player, "red", "Tu commences à t'éloigner par un bond infernal !");
 	end;
 COMMAND:Register();
 
 local COMMAND = Clockwork.command:New("HellTeleport");
-	COMMAND.tip = "Return to Hell using dark magic if you are a Child of Satan if you are near Arch of Perdition or the Pillars of Creation, though this will take time. Anyone close to you or held in your hands will also be teleported.";
+	COMMAND.tip = "Retournez en Enfer par magie noire si vous êtes un Enfant de Satan, à proximité de l'Arche de la Perdition ou des Piliers de la Création, bien que cela prenne du temps. Toute personne proche de vous ou que vous tenez dans vos mains sera également téléportée.";
 	COMMAND.flags = CMD_DEFAULT;
 	COMMAND.important = true;
 	COMMAND.faction = "Children of Satan";
@@ -3492,7 +3492,7 @@ local COMMAND = Clockwork.command:New("HellTeleport");
 			end
 		
 			if Schema.hellTeleportDisabled or (!archPos and !pillarPos) then
-				Schema:EasyText(player, "peru", "Your connection with Hell appears to be severed and you cannot teleport there!");
+				Schema:EasyText(player, "peru", "Votre connexion avec l'Enfer semble rompue, vous ne pouvez pas vous y téléporter !");
 				
 				return false;
 			end
@@ -3507,7 +3507,7 @@ local COMMAND = Clockwork.command:New("HellTeleport");
 						local nextTeleport = player:GetCharacterData("nextTeleport", 0);
 						
 						if nextTeleport <= 0 then
-							Clockwork.chatBox:AddInTargetRadius(player, "me", "begins conjuring dark magic as they prepare to teleport back to Hell!", origin, Clockwork.config:Get("talk_radius"):Get() * 2);
+							Clockwork.chatBox:AddInTargetRadius(player, "me", "commence à invoquer une magie obscure en se préparant à se téléporter en Enfer !", origin, Clockwork.config:Get("talk_radius"):Get() * 2);
 							
 							Clockwork.player:SetAction(player, "hell_teleporting", 30, 2, function()
 								if IsValid(player) then
@@ -3603,40 +3603,40 @@ local COMMAND = Clockwork.command:New("HellTeleport");
 													end
 												end);
 
-												Schema:EasyText(player, "red", "You begin to teleport to Hell from an area protected by Satanic magic, thus sparing yourself any corruption!");
+												Schema:EasyText(player, "red", "Vous commencez à vous téléporter en Enfer depuis une zone protégée par la magie satanique, vous épargnant ainsi toute corruption !");
 											else
 												if game.GetMap() == "rp_district21" then
-													Schema:EasyText(player, "peru", "You must be near the Arch of Perdition or the Abandoned Church to teleport back to Hell!");
+													Schema:EasyText(player, "peru", "Vous devez être près de l'Arche de la Perdition ou de l'Église Abandonnée pour vous téléporter en Enfer !");
 												else
-													Schema:EasyText(player, "peru", "You must be near the Arch of Perdition or the Pillars of Creation to teleport back to Hell!");
+													Schema:EasyText(player, "peru", "Vous devez être près de l'Arche de la Perdition ou des Piliers de la Création pour vous téléporter en Enfer !");
 												end
 											end
 										else
-											Schema:EasyText(player, "peru", "You cannot teleport to Hell while in Hell!");
+											Schema:EasyText(player, "peru", "Vous ne pouvez pas vous téléporter en Enfer depuis l'Enfer !");
 										end
 									else
-										Schema:EasyText(player, "peru", "You cannot teleport to Hell right now!");
+										Schema:EasyText(player, "peru", "Vous ne pouvez pas vous téléporter en Enfer pour le moment !");
 									end
 								end
 							end);
 						else
-							Schema:EasyText(player, "peru", "You cannot teleport back to Hell for another "..nextTeleport.." seconds!");
+							Schema:EasyText(player, "peru", "Vous ne pouvez pas vous téléporter en Enfer avant encore"..nextTeleport.." seconds!");
 						end
 					else
 						if game.GetMap() == "rp_district21" then
-							Schema:EasyText(player, "peru", "You must be near the Arch of Perdition or the Abandoned Church to teleport back to Hell!");
+							Schema:EasyText(player, "peru", "Vous devez être près de l'Arche de la Perdition ou de l'Église Abandonnée pour vous téléporter en Enfer !");
 						else
-							Schema:EasyText(player, "peru", "You must be near the Arch of Perdition or the Pillars of Creation to teleport back to Hell!");
+							Schema:EasyText(player, "peru", "Vous devez être près de l'Arche de la Perdition ou des Piliers de la Création pour vous téléporter en Enfer !");
 						end
 					end
 				else
-					Schema:EasyText(player, "peru", "You cannot teleport to Hell while in Hell!");
+					Schema:EasyText(player, "peru", "Vous ne pouvez pas vous téléporter en Enfer depuis l'Enfer !");
 				end
 			else
-				Schema:EasyText(player, "peru", "You cannot teleport to Hell right now!");
+				Schema:EasyText(player, "peru", "Vous ne pouvez pas vous téléporter en Enfer pour le moment !");
 			end
 		else
-			Schema:EasyText(player, "peru", "You are not the correct faction to do this!");
+			Schema:EasyText(player, "peru", "Vous n'êtes pas de la bonne faction pour faire cela !");
 		end
 	end;
 	
@@ -3647,7 +3647,7 @@ local COMMAND = Clockwork.command:New("HellTeleport");
 COMMAND:Register();
 
 local COMMAND = Clockwork.command:New("AddBounty");
-	COMMAND.tip = "Add a bounty to a character if you are at the bounty board.";
+	COMMAND.tip = "Ajoutez une prime sur un personnage si vous êtes au tableau des primes.";
 	COMMAND.text = "<string Name or Key> <int Price> <string Reason>";
 	COMMAND.arguments = 3;
 
@@ -3657,7 +3657,7 @@ local COMMAND = Clockwork.command:New("AddBounty");
 		
 		if faction == "Holy Hierarchy" or faction == "Gatekeeper" or player:IsAdmin() then
 			if not player:IsAdmin() and faction == "Gatekeeper" and Schema:GetRankTier(faction, player:GetCharacterData("rank", 1)) < 3 then
-				Schema:EasyText(player, "darkgrey", "You are not important enough to do this!");
+				Schema:EasyText(player, "darkgrey", "Tu n'es pas assez important pour faire cela !");
 			
 				return;
 			end
@@ -3673,7 +3673,7 @@ local COMMAND = Clockwork.command:New("AddBounty");
 						
 						if reason then
 							if string.len(reason) > 128 then
-								Schema:EasyText(player, "peru", "The reason for this bounty is too long! It must be a maximum of 128 characters.");
+								Schema:EasyText(player, "peru", "La raison de cette prime est trop longue ! Elle doit faire au maximum 128 caractères.");
 								
 								return;
 							end
@@ -3691,22 +3691,22 @@ local COMMAND = Clockwork.command:New("AddBounty");
 							end
 						end
 					else
-						Schema:EasyText(player, "peru", "You do not have enough coin to place this bounty!");
+						Schema:EasyText(player, "peru", "Vous n'avez pas assez de pièces pour placer cette prime !");
 					end
 				else
 					Schema:EasyText(player, "darkgrey", arguments[2].." is not a valid price!");
 				end
 			else
-				Schema:EasyText(player, "firebrick", "You must be at the bounty board to add a bounty!");
+				Schema:EasyText(player, "firebrick", "Vous devez être devant le tableau des primes pour ajouter une prime !");
 			end
 		else
-			Schema:EasyText(player, "darkgrey", "You are not important enough to do this!");
+			Schema:EasyText(player, "darkgrey", "Tu n'es pas assez important pour faire cela !");
 		end
 	end;
 COMMAND:Register();
 
 local COMMAND = Clockwork.command:New("RemoveBounty");
-	COMMAND.tip = "Remove a bounty from a character if you are at the bounty board.";
+	COMMAND.tip = "Retirez une prime d'un personnage si vous êtes au tableau des primes.";
 	COMMAND.text = "<string Name>";
 	COMMAND.arguments = 1;
 
@@ -3716,7 +3716,7 @@ local COMMAND = Clockwork.command:New("RemoveBounty");
 		
 		if faction == "Holy Hierarchy" or faction == "Gatekeeper" or player:IsAdmin() then
 			if not player:IsAdmin() and faction == "Gatekeeper" and Schema:GetRankTier(faction, player:GetCharacterData("rank", 1)) < 3 then
-				Schema:EasyText(player, "darkgrey", "You are not important enough to do this!");
+				Schema:EasyText(player, "darkgrey", "Tu n'es pas assez important pour faire cela !");
 			
 				return;
 			end
@@ -3736,16 +3736,16 @@ local COMMAND = Clockwork.command:New("RemoveBounty");
 					end
 				end
 			else
-				Schema:EasyText(player, "firebrick", "You must be at the bounty board to remove a bounty!");
+				Schema:EasyText(player, "firebrick", "Vous devez être devant le tableau des primes pour retirer une prime !");
 			end
 		else
-			Schema:EasyText(player, "darkgrey", "You are not important enough to do this!");
+			Schema:EasyText(player, "darkgrey", "Tu n'es pas assez important pour faire ça !");
 		end
 	end;
 COMMAND:Register();
 
 local COMMAND = Clockwork.command:New("NoTarget");
-	COMMAND.tip = "Toggles NPC observer targetting for yourself (for leading).";
+	COMMAND.tip = "Active/désactive le ciblage des PNJ en tant qu'observateur pour vous-même (pour guider).";
 	COMMAND.access = "o";
 	COMMAND.alias = {"NPCTarget", "IgnoreObserver"};
 
@@ -3753,16 +3753,16 @@ local COMMAND = Clockwork.command:New("NoTarget");
 	function COMMAND:OnRun(player, arguments)
 		if (player:GetCharacterData("IsObserverTarget")) then
 			player:SetCharacterData("IsObserverTarget", false);
-			Schema:EasyText(player, "cornflowerblue", "Toggled off NPC observer targetting. NPCs will now no longer target you in observer.");
+			Schema:EasyText(player, "cornflowerblue", "Ciblage des PNJ en observateur désactivé. Les PNJ ne vous cibleront plus en mode observateur.");
 		else
 			player:SetCharacterData("IsObserverTarget", true);
-			Schema:EasyText(player, "cornflowerblue", "Toggled on NPC observer targetting. NPCs will now target you in observer.");
+			Schema:EasyText(player, "cornflowerblue", "Ciblage des PNJ en observateur activé. Les PNJ vous cibleront désormais en mode observateur.");
 		end;
 	end;
 COMMAND:Register();
 
 local COMMAND = Clockwork.command:New("SetFogDistance");
-COMMAND.tip = "Manually set the fog distance of a zone for all players (use false for 2nd argument to reset a zone's distance).";
+COMMAND.tip = "Définit manuellement la distance du brouillard d'une zone pour tous les joueurs (utilisez false pour le second argument afin de réinitialiser la distance d'une zone).";
 COMMAND.text = "<string Zone> <int FogDistance>"
 COMMAND.access = "s";
 COMMAND.arguments = 2;
@@ -3788,7 +3788,7 @@ end;
 COMMAND:Register();
 
 local COMMAND = Clockwork.command:New("PoisonedWineSequence")
-	COMMAND.tip = "Make everyone who drank poisoned wine die."
+	COMMAND.tip = "Fait mourir tous ceux qui ont bu le vin empoisonné."
 	COMMAND.access = "s"
 
 	-- Called when the command has been run.
@@ -3854,13 +3854,13 @@ local COMMAND = Clockwork.command:New("PoisonedWineSequence")
 				end
 			end
 		else
-			Schema:EasyText(player, "cornflowerblue", "Noone is currently poisoned!");
+			Schema:EasyText(player, "cornflowerblue", "Personne n'est actuellement empoisonné !");
 		end
 	end
 COMMAND:Register()
 
 local COMMAND = Clockwork.command:New("CauldronInspect");
-	COMMAND.tip = "Inspect the quality of the stew within the cauldron.";
+	COMMAND.tip = "Inspectez la qualité du ragoût dans le chaudron.";
 	
 	function COMMAND:OnRun(player, arguments)
 		local trace = player:GetEyeTrace();
@@ -3877,29 +3877,29 @@ local COMMAND = Clockwork.command:New("CauldronInspect");
 				local isDiseased = Schema:GetDiseasedServings() > 0;
 
 				if liquidity > 0 and liquidity < 5 then
-					Schema:EasyText(player, "lightslateblue", "The cauldron is getting low on liquid. A refill will soon be in order.");
+					Schema:EasyText(player, "lightslateblue", "Le chaudron commence à manquer de liquide. Un réapprovisionnement sera bientôt nécessaire.");
 				elseif liquidity > 5 then
-					Schema:EasyText(player, "lightslateblue", "The cauldron contains an adequate amount of liquid.");
+					Schema:EasyText(player, "lightslateblue", "Le chaudron contient une quantité suffisante de liquide.");
 				elseif liquidity == 0 then
-					Schema:EasyText(player, "lightslateblue", "The cauldron is devoid of any liquid.");
+					Schema:EasyText(player, "lightslateblue", "Le chaudron est dépourvu de tout liquide.");
 				end
 
 				if servings > 0 then
 					if quality >= 10 then
-						Schema:EasyText(player, "lightslateblue", "The cauldron is full of fresh, high quality ingredients.");
+						Schema:EasyText(player, "lightslateblue", "Le chaudron est rempli d'ingrédients frais et de haute qualité.");
 					elseif quality < 10 and quality >= 0 then
-						Schema:EasyText(player, "lightslateblue", "The cauldron is full of unremarkable, bland ingredients.");
+						Schema:EasyText(player, "lightslateblue", "Le chaudron est rempli d'ingrédients quelconques et sans saveur.");
 					elseif quality < 0 then
-						Schema:EasyText(player, "lightslateblue", "The cauldron is full of vile, inedible ingredients.");
+						Schema:EasyText(player, "lightslateblue", "Le chaudron est rempli d'ingrédients infâmes et immangeables.");
 					end
 
-					Schema:EasyText(player, "lightslateblue", "There are approximately "..servings.." servings of stew remaining.");
+					Schema:EasyText(player, "lightslateblue", "Il y a environ"..servings.." servings of stew remaining.");
 				else
-					Schema:EasyText(player, "lightslateblue", "The cauldron is out of ingredients.");
+					Schema:EasyText(player, "lightslateblue", "Le chaudron est à court d'ingrédients.");
 				end;
 
 				if (isPoisoned or isDiseased) and player:HasBelief("culinarian") then
-					Schema:EasyText(player, "olivedrab", "The stew doesn't smell quite right, even given its nature of being a bunch of random things thrown together.");
+					Schema:EasyText(player, "olivedrab", "Le ragoût ne sent pas tout à fait bon, même en tenant compte de sa nature de mélange hétéroclite.");
 				end
 			end;
 		end;
@@ -3908,7 +3908,7 @@ local COMMAND = Clockwork.command:New("CauldronInspect");
 COMMAND:Register();
 
 local COMMAND = Clockwork.command:New("CauldronReset");
-	COMMAND.tip = "Reset the cauldron entirely. Use this command carefully.";
+	COMMAND.tip = "Réinitialise complètement le chaudron. Utilise cette commande avec précaution.";
 	COMMAND.access = "s";
 	
 	function COMMAND:OnRun(player, arguments)
@@ -3924,7 +3924,7 @@ local COMMAND = Clockwork.command:New("CauldronReset");
 COMMAND:Register();
 
 local COMMAND = Clockwork.command:New("CauldronAddWater");
-	COMMAND.tip = "Add water to the caulron.";
+	COMMAND.tip = "Ajoutez de l'eau au chaudron.";
 	COMMAND.arguments = 1;
 	COMMAND.text = "<uniqueID>";
 	
@@ -3957,9 +3957,9 @@ local COMMAND = Clockwork.command:New("CauldronAddWater");
 					player:EmitSound("apocalypse/cauldron/putin.mp3");
 					player:TakeItem(player:FindItemByID(uniqueID));
 
-					Clockwork.chatBox:AddInTargetRadius(player, "me", "pours water into the cauldron, filling it up.", player:GetPos(), Clockwork.config:Get("talk_radius"):Get() * 2);
+					Clockwork.chatBox:AddInTargetRadius(player, "me", "verse de l'eau dans le chaudron, le remplissant.", player:GetPos(), Clockwork.config:Get("talk_radius"):Get() * 2);
 				else
-					Schema:EasyText(player, "firebrick", "You do not have water to add to the cauldron!");
+					Schema:EasyText(player, "firebrick", "Vous n'avez pas d'eau à ajouter au chaudron !");
 				end
 			end;
 		end;
@@ -3968,7 +3968,7 @@ local COMMAND = Clockwork.command:New("CauldronAddWater");
 COMMAND:Register();
 
 local COMMAND = Clockwork.command:New("CauldronDispense");
-	COMMAND.tip = "Dispense some stew from the cauldron.";
+	COMMAND.tip = "Sers-toi un peu de ragoût dans le chaudron.";
 	
 	function COMMAND:OnRun(player, arguments)
 		local trace = player:GetEyeTrace();
@@ -4014,9 +4014,9 @@ local COMMAND = Clockwork.command:New("CauldronDispense");
 
 					player:EmitSound("apocalypse/cauldron/foodget.mp3");
 
-					Clockwork.chatBox:AddInTargetRadius(player, "me", "dispenses a serving of stew from the cauldron.", player:GetPos(), Clockwork.config:Get("talk_radius"):Get() * 2);
+					Clockwork.chatBox:AddInTargetRadius(player, "me", "distribue une portion de ragoût du chaudron.", player:GetPos(), Clockwork.config:Get("talk_radius"):Get() * 2);
 				else
-					Schema:EasyText(player, "peru", "You try to dispense some stew from the cauldron, but nothing happens.");
+					Schema:EasyText(player, "peru", "Tu essaies de servir un peu de ragoût du chaudron, mais rien ne se passe.");
 				end;
 			end;
 		end;
@@ -4025,7 +4025,7 @@ local COMMAND = Clockwork.command:New("CauldronDispense");
 COMMAND:Register();
 
 local COMMAND = Clockwork.command:New("CauldronAddIngredient");
-	COMMAND.tip = "Dispense some stew from the cauldron.";
+	COMMAND.tip = "Sers un peu de ragoût du chaudron.";
 	COMMAND.arguments = 1;
 	COMMAND.text = "<uniqueID>";
 	
@@ -4069,7 +4069,7 @@ local COMMAND = Clockwork.command:New("CauldronAddIngredient");
 							end
 						end
 
-						Clockwork.chatBox:AddInTargetRadius(player, "me", "splashes an item into the cauldron.", player:GetPos(), Clockwork.config:Get("talk_radius"):Get() * 2);
+						Clockwork.chatBox:AddInTargetRadius(player, "me", "jette un objet dans le chaudron.", player:GetPos(), Clockwork.config:Get("talk_radius"):Get() * 2);
 
 						player:TakeItem(player:FindItemByID(itemID));
 					end;
@@ -4081,7 +4081,7 @@ local COMMAND = Clockwork.command:New("CauldronAddIngredient");
 COMMAND:Register();
 
 local COMMAND = Clockwork.command:New("CauldronDump");
-	COMMAND.tip = "Dump the contents of the cauldron.";
+	COMMAND.tip = "Videz le contenu du chaudron.";
 	COMMAND.arguments = 0;
 	
 	function COMMAND:OnRun(player, arguments)
@@ -4099,10 +4099,10 @@ local COMMAND = Clockwork.command:New("CauldronDump");
 					Schema:ResetDiseasedServings();
 					Schema:ResetPoisonedServings();
 
-					Clockwork.chatBox:AddInTargetRadius(player, "me", "dumps the contents of the cauldron onto the ground.", player:GetPos(), Clockwork.config:Get("talk_radius"):Get() * 2);
+					Clockwork.chatBox:AddInTargetRadius(player, "me", "vide le contenu du chaudron sur le sol.", player:GetPos(), Clockwork.config:Get("talk_radius"):Get() * 2);
 					Clockwork.player:NotifyAdmins("operator", player:Name().." has dumped the cauldron.");
 				else
-					Schema:EasyText(player, "firebrick", "There are no contents to dump!");
+					Schema:EasyText(player, "firebrick", "Il n'y a aucun contenu à vider !");
 				end;
 			end;
 		end
@@ -4112,7 +4112,7 @@ local COMMAND = Clockwork.command:New("CauldronDump");
 COMMAND:Register();
 
 local COMMAND = Clockwork.command:New("CheckRatio");
-COMMAND.tip = "Check the ratio of players between different factions who are flagged up.";
+COMMAND.tip = "Vérifie le ratio de joueurs entre les différentes factions qui sont signalés.";
 COMMAND.text = "[bool Include Admins] [bool Include Subfactions]";
 COMMAND.access = "s";
 
@@ -4152,7 +4152,7 @@ function COMMAND:OnRun(player, arguments)
 
     end
 
-	if tobool(arguments[1]) then Schema:EasyText(player, "cornflowerblue", "Including admins:"); end
+	if tobool(arguments[1]) then Schema:EasyText(player, "cornflowerblue", "Y compris les administrateurs :"); end
 
 	for i, v in pairs(factionCounts) do
 		local playerLimit = Clockwork.faction:FindByID(i).playerLimit and Clockwork.faction:FindByID(i).playerLimit or 0;
@@ -4171,7 +4171,7 @@ end
 COMMAND:Register();
 
 local COMMAND = Clockwork.command:New("HellPortalGaze");
-	COMMAND.tip = "Gaze through the veil of the Hell Portal.";
+	COMMAND.tip = "Contemple à travers le voile du Portail des Enfers.";
 	COMMAND.arguments = 1;
 	COMMAND.text = "<name of location>";
 
@@ -4219,7 +4219,7 @@ local COMMAND = Clockwork.command:New("HellPortalGaze");
 
 			if (entity:GetClass() == "cw_hellportal") then
 				if player:GetFaction() ~= "Children of Satan" then
-					Schema:EasyText(player, "olive", "You attempt to gaze through the Hell Portal, but you see nothing except a fiery veil.")
+					Schema:EasyText(player, "olive", "Tu tentes de scruter à travers le Portail Infernal, mais tu ne vois rien d'autre qu'un voile de flammes.")
 					return false;
 				end
 
@@ -4245,7 +4245,7 @@ local COMMAND = Clockwork.command:New("HellPortalGaze");
 						message = message.." One of the figures has a sickly yellow aura.";
 					end
 
-					Clockwork.chatBox:AddInTargetRadius(player, "me", "approaches the Hell Portal, their eyes staring deeply into the veil. Their pupils dilate rapidly for a brief moment.", player:GetPos(), config.Get("talk_radius"):Get() * 1.5);
+					Clockwork.chatBox:AddInTargetRadius(player, "me", "s'approche du Portail Infernal, les yeux plongés dans le voile. Leurs pupilles se dilatent brusquement un instant.", player:GetPos(), config.Get("talk_radius"):Get() * 1.5);
 					timer.Simple(1.5, function()
 						Schema:EasyText(player, "olivedrab", message);
 					end)
@@ -4257,7 +4257,7 @@ local COMMAND = Clockwork.command:New("HellPortalGaze");
 COMMAND:Register();
 
 local COMMAND = Clockwork.command:New("CharSetScale")
-	COMMAND.tip = "Set a character's model scale. Overrides built in scale modifiers."
+	COMMAND.tip = "Définir l'échelle du modèle d'un personnage. Remplace les modificateurs d'échelle intégrés."
 	COMMAND.arguments = 2
 	COMMAND.text = "<player Target> <float Scale>"
 	COMMAND.access = "s"

@@ -1,4 +1,4 @@
---[[
+﻿--[[
 	Begotten III: Jesus Wept
 	By: DETrooper, cash wednesday, gabs, alyousha35
 
@@ -46,7 +46,7 @@ function PANEL:Init()
 	
 	if (Clockwork.door:IsParent()) then
 		local label = vgui.Create("cwInfoText", self);
-			label:SetText("A parent is the main door in a property block.");
+			label:SetText("Un parent est la porte principale d'un bloc de propriété.");
 			label:SetInfoColor("blue");
 		self.settingsPanel:AddItem(label);
 	end;
@@ -71,9 +71,9 @@ function PANEL:Init()
 			self.comboBox:AddChoice("Seperate access between children.");
 			
 			if (Clockwork.door:HasSharedAccess()) then
-				self.comboBox:SetText("Share access to all children.");
+				self.comboBox:SetText("Partager l'accès à tous les éléments enfants.");
 			else
-				self.comboBox:SetText("Seperate access between children.");
+				self.comboBox:SetText("Accès distinct entre les enfants.");
 			end;
 			
 			-- Called when an option is selected.
@@ -90,9 +90,9 @@ function PANEL:Init()
 			self.parentText:AddChoice("Seperate text between children.");
 			
 			if (Clockwork.door:HasSharedText()) then
-				self.parentText:SetText("Share text to all children.");
+				self.parentText:SetText("Partager le texte à tous les enfants.");
 			else
-				self.parentText:SetText("Seperate text between children.");
+				self.parentText:SetText("Séparer le texte entre les enfants.");
 			end;
 			
 			-- Called when an option is selected.

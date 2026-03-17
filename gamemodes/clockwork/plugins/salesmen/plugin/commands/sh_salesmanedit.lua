@@ -1,9 +1,9 @@
---[[
+﻿--[[
 	BEGOTTEN III: Developed by DETrooper, cash wednesday, gabs & alyousha35
 --]]
 
 local COMMAND = Clockwork.command:New("SalesmanEdit")
-COMMAND.tip = "Edit a salesman at your target position."
+COMMAND.tip = "Modifie un vendeur à la position de votre cible."
 COMMAND.text = "[number Animation]"
 COMMAND.flags = CMD_DEFAULT
 COMMAND.access = "s"
@@ -45,10 +45,10 @@ function COMMAND:OnRun(player, arguments)
 				end
 			end]]--
 		else
-			Schema:EasyText(player, "darkgrey", "This entity is not a salesman!")
+			Schema:EasyText(player, "darkgrey", "Cette entité n'est pas un vendeur !")
 		end
 	else
-		Schema:EasyText(player, "grey", "You must look at a valid entity!")
+		Schema:EasyText(player, "grey", "Vous devez regarder une entité valide !")
 	end
 end
 

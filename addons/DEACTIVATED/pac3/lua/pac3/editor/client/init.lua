@@ -1,4 +1,4 @@
-include("autorun/pac_core_init.lua")
+﻿include("autorun/pac_core_init.lua")
 
 pace = pace or {}
 pace.luadata = include("pac3/libraries/luadata.lua")
@@ -342,7 +342,7 @@ do
 				local alpha = math.Clamp(pos_3d:Distance(EyePos()) * -1 + 500, 0, 500)/500
 				if alpha > 0 then
 					local pos_2d = pos_3d:ToScreen()
-					draw.DrawText("In PAC3 Editor", "ChatFont", pos_2d.x, pos_2d.y, Color(255,255,255,alpha*255), 1)
+					draw.DrawText("Dans l'éditeur PAC3", "ChatFont", pos_2d.x, pos_2d.y, Color(255,255,255,alpha*255), 1)
 				end
 			else
 				if ply.pac_editor_camera then

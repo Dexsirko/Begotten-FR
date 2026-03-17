@@ -1,4 +1,4 @@
---[[
+﻿--[[
 	Begotten III: Jesus Wept
 --]]
 
@@ -10,7 +10,7 @@ local ITEM = Clockwork.item:New();
 	ITEM.model = "models/mosi/fallout4/props/junk/modcrate.mdl";
 	ITEM.weight = 0.7;
 	ITEM.uniqueID = "breakdown_kit";
-	ITEM.description = "A kit of tools that can be used to break down items into their component pieces.";
+	ITEM.description = "Un kit d'outils permettant de décomposer des objets en leurs composants élémentaires.";
 	ITEM.iconoverride = "materials/begotten/ui/itemicons/breakdown_kit.png";
 	ITEM.stackable = false;
 	
@@ -27,7 +27,7 @@ local ITEM = Clockwork.item:New();
 	ITEM.model = "models/mosi/fallout4/props/junk/components/cloth.mdl";
 	ITEM.weight = 0.3;
 	ITEM.uniqueID = "cloth";
-	ITEM.description = "A roll of pieced-together cloth, it can be used in the creation of clothing or bandages.";
+	ITEM.description = "Un rouleau de tissu assemblé, il peut être utilisé pour créer des vêtements ou des bandages.";
 	ITEM.iconoverride = "materials/begotten/ui/itemicons/"..ITEM.uniqueID..".png";
 	ITEM.stackable = true;
 	ITEM.fireplaceFuel = 20;
@@ -45,7 +45,7 @@ local ITEM = Clockwork.item:New();
 	ITEM.model = "models/begotten/misc/charcoal.mdl";
 	ITEM.weight = 0.3;
 	ITEM.uniqueID = "charcoal";
-	ITEM.description = "Burnt fragments of wood that can be used as a fuel source for crafting.";
+	ITEM.description = "Fragments de bois carbonisés pouvant servir de combustible pour l'artisanat.";
 	ITEM.iconoverride = "materials/begotten/ui/itemicons/"..ITEM.uniqueID..".png";
 	ITEM.stackable = true;
 	ITEM.fireplaceFuel = 120;
@@ -61,7 +61,7 @@ local ITEM = Clockwork.item:New();
 	ITEM.model = "models/mosi/fallout4/props/junk/components/fertilizer.mdl";
 	ITEM.weight = 0.2;
 	ITEM.uniqueID = "fertilizer";
-	ITEM.description = "A jar containing sweet droppings.";
+	ITEM.description = "Un bocal contenant des excréments sucrés.";
 	ITEM.iconoverride = "materials/begotten/ui/itemicons/"..ITEM.uniqueID..".png";
 	ITEM.stackable = true;
 	
@@ -78,7 +78,7 @@ local ITEM = Clockwork.item:New();
 	ITEM.model = "models/props_lab/box01a.mdl";
 	ITEM.weight = 0.1;
 	ITEM.uniqueID = "gunpowder";
-	ITEM.description = "A box containing an explosive powdery substance that can be packed into munitions.";
+	ITEM.description = "Une boîte contenant une substance poudreuse explosive pouvant être conditionnée dans des munitions.";
 	ITEM.iconoverride = "materials/begotten/ui/itemicons/"..ITEM.uniqueID..".png";
 	ITEM.stackable = true;
 	
@@ -95,7 +95,7 @@ local ITEM = Clockwork.item:New();
 	ITEM.model = "models/mosi/fallout4/props/junk/components/lead.mdl";
 	ITEM.weight = 0.3;
 	ITEM.uniqueID = "wrought_iron_ingot";
-	ITEM.description = "A low-quality ingot of iron that can be smelted to form superior metals.";
+	ITEM.description = "Un lingot de fer de basse qualité qui peut être fondu pour produire des métaux supérieurs.";
 	ITEM.iconoverride = "materials/begotten/ui/itemicons/"..ITEM.uniqueID..".png";
 	ITEM.stackable = true;
 	
@@ -110,7 +110,7 @@ local ITEM = Clockwork.item:New();
 	ITEM.model = "models/mosi/fallout4/props/junk/components/lead.mdl";
 	ITEM.weight = 0.1;
 	ITEM.uniqueID = "iron_chunks";
-	ITEM.description = "Melted down chunks of metal. It should be reclaimed into an ingot.";
+	ITEM.description = "Morceaux de métal fondus. Ils devraient être transformés en lingot.";
 	ITEM.iconoverride = "materials/begotten/ui/itemicons/wrought_iron_ingot.png";
 	ITEM.stackable = true;
 	
@@ -127,7 +127,7 @@ local ITEM = Clockwork.item:New();
 	ITEM.model = "models/mosi/fallout4/props/junk/components/steel.mdl";
 	ITEM.weight = 0.1;
 	ITEM.uniqueID = "steel_chunks";
-	ITEM.description = "Melted down chunks of metal. It should be reclaimed into an ingot.";
+	ITEM.description = "Morceaux de métal fondus. Ils devraient être retraités en lingot.";
 	ITEM.iconoverride = "materials/begotten/ui/itemicons/crude_iron_ingot.png";
 	ITEM.stackable = true;
 	
@@ -144,7 +144,7 @@ local ITEM = Clockwork.item:New();
 	ITEM.model = "models/mosi/fallout4/props/junk/components/silver.mdl";
 	ITEM.weight = 0.1;
 	ITEM.uniqueID = "fine_steel_chunks";
-	ITEM.description = "Melted down chunks of metal. It should be reclaimed into an ingot.";
+	ITEM.description = "Morceaux de métal fondus. Ils devraient être refondus en lingot.";
 	ITEM.iconoverride = "materials/begotten/ui/itemicons/steel_ingot.png";
 	ITEM.stackable = true;
 	
@@ -161,7 +161,7 @@ local ITEM = Clockwork.item:New();
 	ITEM.model = "models/mosi/fallout4/props/junk/components/lead.mdl";
 	ITEM.weight = 0.3;
 	ITEM.uniqueID = "iron_ingot";
-	ITEM.description = "A low-quality ingot of iron that can be further smithed into a weapon or into a set of armor.";
+	ITEM.description = "Un lingot de fer de basse qualité qui peut être forgé en arme ou en armure.";
 	ITEM.iconoverride = "materials/begotten/ui/itemicons/wrought_iron_ingot.png";
 	ITEM.stackable = true;
 	
@@ -176,7 +176,7 @@ local ITEM = Clockwork.item:New();
 	ITEM.model = "models/mosi/fallout4/props/junk/components/steel.mdl";
 	ITEM.weight = 0.3;
 	ITEM.uniqueID = "steel_ingot";
-	ITEM.description = "An ingot of steel that can be further smithed into a weapon or into a set of armor.";
+	ITEM.description = "Un lingot d'acier pouvant être forgé en arme ou en armure.";
 	ITEM.iconoverride = "materials/begotten/ui/itemicons/crude_iron_ingot.png";
 	ITEM.stackable = true;
 
@@ -191,7 +191,7 @@ local ITEM = Clockwork.item:New();
 	ITEM.model = "models/mosi/fallout4/props/junk/components/silver.mdl";
 	ITEM.weight = 0.3;
 	ITEM.uniqueID = "fine_steel_ingot";
-	ITEM.description = "An ingot of refined, stronger steel that can be further smithed into a weapon or into a set of armor.";
+	ITEM.description = "Un lingot d'acier raffiné et plus résistant, pouvant être forgé en arme ou en armure.";
 	ITEM.iconoverride = "materials/begotten/ui/itemicons/steel_ingot.png";
 	ITEM.stackable = true;
 	
@@ -208,7 +208,7 @@ local ITEM = Clockwork.item:New();
 	ITEM.model = "models/mosi/fallout4/props/junk/components/silver.mdl";
 	ITEM.weight = 0.3;
 	ITEM.uniqueID = "hellforged_steel_ingot";
-	ITEM.description = "An ingot of black steel forged in the furnaces of Hell itself. It has supernatural durability and strength.";
+	ITEM.description = "Un lingot d'acier noir forgé dans les fournaises de l'Enfer lui-même. Il possède une durabilité et une résistance surnaturelles.";
 	ITEM.iconoverride = "materials/begotten/ui/itemicons/fine_steel_ingot.png";
 	ITEM.stackable = true;
 	
@@ -226,7 +226,7 @@ local ITEM = Clockwork.item:New();
 	ITEM.model = "models/mosi/fallout4/props/junk/components/silver.mdl";
 	ITEM.weight = 0.3;
 	ITEM.uniqueID = "maximilian_steel_ingot";
-	ITEM.description = "Considered by those of the Faith of the Light to be a holy representation of Lord Maximus' might due to its strength and purity, the legendary Maximilian steel is the purest form of steel imaginable. Forged in an ancient era, it has many reputed mystical properties.";
+	ITEM.description = "Considéré par les fidèles de la Lumière comme une sainte représentation de la puissance du Seigneur Maximus en raison de sa solidité et de sa pureté, l'acier légendaire Maximilian est la forme d'acier la plus pure que l'on puisse imaginer. Forgé à une époque ancienne, on lui prête de nombreuses propriétés mystiques.";
 	ITEM.iconoverride = "materials/begotten/ui/itemicons/fine_steel_ingot.png";
 	ITEM.stackable = true;
 	
@@ -244,7 +244,7 @@ local ITEM = Clockwork.item:New();
 	ITEM.model = "models/mosi/fallout4/props/junk/components/silver.mdl";
 	ITEM.weight = 0.3;
 	ITEM.uniqueID = "shagalaxian_steel_ingot";
-	ITEM.description = "Forged by the master blacksmiths of Clan Shagalax, Shagalaxian steel is of legendary quality and the strongest material available to the Gores. It has many reputed mystical properties.";
+	ITEM.description = "Forgée par les maîtres forgerons du Clan Shagalax, l'acier Shagalaxien est d'une qualité légendaire et constitue le matériau le plus résistant accessible aux Gores. On lui prête de nombreuses propriétés mystiques.";
 	ITEM.iconoverride = "materials/begotten/ui/itemicons/fine_steel_ingot.png";
 	ITEM.stackable = true;
 	
@@ -262,7 +262,7 @@ local ITEM = Clockwork.item:New();
 	ITEM.model = "models/mosi/fallout4/props/junk/components/gold.mdl";
 	ITEM.weight = 1;
 	ITEM.uniqueID = "gold_ingot";
-	ITEM.description = "An ingot of Gold, once considered to be of enormous value. While it may still be worth a great deal of coin if turned in to the Hierarchy, it may be more valuable for the smithing of ornate weapons and armor.";
+	ITEM.description = "Un lingot d'Or, autrefois considéré comme d'une valeur considérable. S'il peut encore valoir une belle somme s'il est rapporté à la Hiérarchie, il pourrait être encore plus précieux pour la forge d'armes et d'armures ornementales.";
 	ITEM.iconoverride = "materials/begotten/ui/itemicons/"..ITEM.uniqueID..".png";
 	ITEM.stackable = true;
 	
@@ -279,7 +279,7 @@ local ITEM = Clockwork.item:New();
 	ITEM.model = "models/mosi/fallout4/props/junk/hide.mdl";
 	ITEM.weight = 0.5;
 	ITEM.uniqueID = "hide";
-	ITEM.description = "A rolled animal hide, useful for crafting items which might require furs or animal skins.";
+	ITEM.description = "Une peau d'animal roulée, utile pour fabriquer des objets nécessitant des fourrures ou des peaux animales.";
 	ITEM.iconoverride = "materials/begotten/ui/itemicons/"..ITEM.uniqueID..".png";
 	ITEM.stackable = true;
 
@@ -294,7 +294,7 @@ local ITEM = Clockwork.item:New();
 	ITEM.model = "models/Gibs/HGIBS_rib.mdl";
 	ITEM.weight = 0.3;
 	ITEM.uniqueID = "human_bone";
-	ITEM.description = "A fragment of bone that can be used in the creation of weapons or armor.";
+	ITEM.description = "Un fragment d'os pouvant être utilisé dans la fabrication d'armes ou d'armures.";
 	ITEM.iconoverride = "materials/begotten/ui/itemicons/"..ITEM.uniqueID..".png";
 	ITEM.stackable = true;
 
@@ -309,7 +309,7 @@ local ITEM = Clockwork.item:New();
 	ITEM.model = "models/props_junk/rock001a.mdl";
 	ITEM.weight = 1.5;
 	ITEM.uniqueID = "iron_ore";
-	ITEM.description = "A chunk of iron ore that needs to be refined before anything useful can be made with it.";
+	ITEM.description = "Un morceau de minerai de fer qui doit être raffiné avant de pouvoir en tirer quelque chose d'utile.";
 	ITEM.iconoverride = "materials/begotten/ui/itemicons/"..ITEM.uniqueID..".png";
 	ITEM.stackable = true;
 
@@ -324,7 +324,7 @@ local ITEM = Clockwork.item:New();
 	ITEM.model = "models/props_junk/rock001a.mdl";
 	ITEM.weight = 1.5;
 	ITEM.uniqueID = "gold_ore";
-	ITEM.description = "A chunk of rock that contain sparking nuggets of gold that catch the light. Could it truly be?";
+	ITEM.description = "Un morceau de roche contenant des pépites d'or scintillantes qui captent la lumière. Serait-ce vraiment possible ?";
 	ITEM.iconoverride = "materials/begotten/ui/itemicons/"..ITEM.uniqueID..".png";
 	ITEM.stackable = true;
 
@@ -339,7 +339,7 @@ ITEM = Clockwork.item:New();
 	ITEM.model = "models/props_clutter/garnet_flawed.mdl";
 	ITEM.weight = 1;
 	ITEM.uniqueID = "uncut_blood_diamond";
-	ITEM.description = "A beautiful blood-red uncut gem. Its beauty entices the deepest senses of appreciation within you.";
+	ITEM.description = "Une magnifique gemme brute d'un rouge sang. Sa beauté captive les sens les plus profonds de l'appréciation en vous.";
 	ITEM.iconoverride = "materials/begotten/ui/itemicons/"..ITEM.uniqueID..".png";
 	ITEM.stackable = true;
 
@@ -354,7 +354,7 @@ ITEM = Clockwork.item:New();
 	ITEM.model = "models/begotten/thegoldenphallus.mdl";
 	ITEM.weight = 1;
 	ITEM.uniqueID = "thegoldenphallus";
-	ITEM.description = "A phallic object cast in pure gold. It is engraved with the markings of a long dead Darklander Emperor. By tradition, his perverted exploits continue on eternal.";
+	ITEM.description = "Un objet phallique moulé en or pur. Il est gravé des marques d'un Empereur des Ténèbres disparu depuis longtemps. Par tradition, ses exploits pervers se perpétuent éternellement.";
 	ITEM.iconoverride = "materials/begotten/ui/itemicons/"..ITEM.uniqueID..".png";
 	ITEM.stackable = false;
 
@@ -371,7 +371,7 @@ local ITEM = Clockwork.item:New();
 	ITEM.model = "models/mosi/fallout4/props/junk/components/leather.mdl";
 	ITEM.weight = 0.2;
 	ITEM.uniqueID = "leather";
-	ITEM.description = "A patch of leather that can be used in the crafting of clothing or shields.";
+	ITEM.description = "Un morceau de cuir pouvant être utilisé pour fabriquer des vêtements ou des boucliers.";
 	ITEM.iconoverride = "materials/begotten/ui/itemicons/"..ITEM.uniqueID..".png";
 	ITEM.stackable = true;
 	ITEM.fireplaceFuel = 30;
@@ -391,7 +391,7 @@ local ITEM = Clockwork.item:New();
 	ITEM.model = "models/mosi/fallout4/props/junk/modbox.mdl";
 	ITEM.weight = 0.3;
 	ITEM.uniqueID = "scrap";
-	ITEM.description = "A myriad of ancient technological components and scrap metal which can be used in the construction of many items.";
+	ITEM.description = "Une myriade de composants technologiques anciens et de ferraille pouvant être utilisés dans la construction de nombreux objets.";
 	ITEM.iconoverride = "materials/begotten/ui/itemicons/"..ITEM.uniqueID..".png";
 	ITEM.stackable = true;
 	
@@ -408,7 +408,7 @@ local ITEM = Clockwork.item:New("weapon_base");
 	ITEM.model = "models/props_mining/rock_caves01b.mdl";
 	ITEM.weight = 0.5;
 	ITEM.uniqueID = "stone";
-	ITEM.description = "A chunk of stone that can be used in the crafting of blunt weapons, or as a blunt weapon.";
+	ITEM.description = "Un morceau de pierre pouvant être utilisé pour fabriquer des armes contondantes, ou comme arme contondante.";
 	ITEM.iconoverride = "materials/begotten/ui/itemicons/"..ITEM.uniqueID..".png";
 	ITEM.stackable = true;
 	ITEM.weaponClass = "begotten_javelin_throwing_stone";
@@ -428,7 +428,7 @@ local ITEM = Clockwork.item:New();
 	ITEM.model = "models/mosi/fallout4/props/junk/components/wood.mdl";
 	ITEM.weight = 0.4;
 	ITEM.uniqueID = "wood";
-	ITEM.description = "A collection of wood that can be used in the construction of weaponry or shields.";
+	ITEM.description = "Un ensemble de bois pouvant être utilisé dans la fabrication d'armes ou de boucliers.";
 	ITEM.iconoverride = "materials/begotten/ui/itemicons/"..ITEM.uniqueID..".png";
 	ITEM.stackable = true;
 	ITEM.cauldronQuality = 0;
@@ -447,7 +447,7 @@ local ITEM = Clockwork.item:New();
 	ITEM.model = "models/items/magic/jewels/purses/big_purse.mdl";
 	ITEM.weight = 0.2;
 	ITEM.uniqueID = "spice";
-	ITEM.description = "A pouch of various spices. It was likely taken from a Darklander merchant host.";
+	ITEM.description = "Un sachet d'épices variées. Il a probablement été pris à une caravane marchande des Terres Sombres.";
 	ITEM.iconoverride = "begotten/ui/itemicons/big_purse.png";
 	ITEM.stackable = true;
 	ITEM.cauldronQuality = 1;
@@ -465,7 +465,7 @@ local ITEM = Clockwork.item:New();
 	ITEM.model = "models/begotten/headgroup_props/bearskin.mdl";
 	ITEM.weight = 0.4;
 	ITEM.uniqueID = "bearskin";
-	ITEM.description = "Skin and fur removed from a great mutant beast. A trophy worthy of a supreme hunter.";
+	ITEM.description = "Peau et fourrure prélevées sur une grande bête mutante. Un trophée digne d'un chasseur suprême.";
 	ITEM.iconoverride = "materials/begotten/ui/itemicons/bearskin.png";
 	ITEM.stackable = true;
 	
@@ -480,7 +480,7 @@ local ITEM = Clockwork.item:New();
 	ITEM.model = "models/begotten/taproot.mdl";
 	ITEM.weight = 0.6;
 	ITEM.uniqueID = "lifeseed";
-	ITEM.description = "A lifeseed of a Familial World Tree. It has been blessed (or tainted) by a paranormal alien magic. Capable of restarting civilization, or perhaps, with the right means, end all life.";
+	ITEM.description = "Une graine de vie d'un Arbre-Monde Familial. Elle a été bénie (ou souillée) par une magie extraterrestre paranormale. Capable de relancer la civilisation, ou peut-être, avec les bons moyens, d'anéantir toute vie.";
 	ITEM.iconoverride = "materials/begotten/ui/itemicons/lifeseed.png";
 	ITEM.stackable = true;
 	

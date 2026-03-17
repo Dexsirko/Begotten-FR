@@ -1,4 +1,4 @@
---[[
+﻿--[[
 	Begotten III: Jesus Wept
 --]]
 
@@ -15,7 +15,7 @@ Clockwork.kernel:IncludePrefixed("sv_plugin.lua");
 Clockwork.kernel:IncludePrefixed("sv_hooks.lua");
 
 local COMMAND = Clockwork.command:New("ToggleHellSailing");
-COMMAND.tip = "Toggle whether sailing to Hell is enabled.";
+COMMAND.tip = "Activer ou désactiver la possibilité de naviguer vers l'Enfer.";
 COMMAND.flags = CMD_DEFAULT;
 COMMAND.access = "s";
 

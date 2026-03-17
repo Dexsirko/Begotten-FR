@@ -1,4 +1,4 @@
---[[
+﻿--[[
 	Begotten III: Jesus Wept
 	By: DETrooper, cash wednesday, gabs, alyousha35
 
@@ -132,7 +132,7 @@ function ENT:Think()
 							local alive = player:Alive();
 							
 							if alive then
-								Schema:EasyText(Schema:GetAdmins(), "icon16/water.png", "cornflowerblue", player:Name().." went overboard!");
+								Schema:EasyText(Schema:GetAdmins(), "icon16/water.png", "bleuet", player:Name().." went overboard!");
 							end
 							
 							if self.location == "calm" or self.location == "rough" then

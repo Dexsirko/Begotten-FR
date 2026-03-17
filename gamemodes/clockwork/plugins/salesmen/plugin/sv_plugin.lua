@@ -1,4 +1,4 @@
---[[
+﻿--[[
 	BEGOTTEN III: Developed by DETrooper, cash wednesday, gabs & alyousha35
 --]]
 
@@ -43,7 +43,7 @@ netstream.Hook("Salesmenu", function(player, data)
 				end
 
 				if (!player:CanHoldWeight(itemTable.weight * amount)) then
-					Schema:EasyText(player, "peru", "You can only carry up to four times your non-overencumbered carrying capacity!");
+					Schema:EasyText(player, "peru", "Vous ne pouvez transporter que jusqu'à quatre fois votre capacité de portage sans surcharge !");
 
 					return
 				end
@@ -60,10 +60,10 @@ netstream.Hook("Salesmenu", function(player, data)
 
 						if (amount > 1) then
 							Clockwork.player:GiveCash(player, -(cost * amount), amount.." "..itemTable.name)
-							Schema:EasyText(player, "olive", "You bought "..amount.." "..itemTable.name.." from "..data.entity:GetNetworkedString("Name")..".")
+							Schema:EasyText(player, "olive", "Vous avez acheté"..amount.." "..itemTable.name.." from "..data.entity:GetNetworkedString("Name")..".")
 						else
 							Clockwork.player:GiveCash(player, -(cost * amount), amount.." "..itemTable.name)
-							Schema:EasyText(player, "olive", "You bought "..amount.." "..itemTable.name.." from "..data.entity:GetNetworkedString("Name")..".")
+							Schema:EasyText(player, "olive", "Vous avez acheté"..amount.." "..itemTable.name.." from "..data.entity:GetNetworkedString("Name")..".")
 						end
 
 						if Schema.towerTax and data.entity:InTower() then
@@ -136,7 +136,7 @@ netstream.Hook("Salesmenu", function(player, data)
 								Clockwork.player:GiveCash(player, cost, "1 "..itemTable.name)
 							end
 							
-							Schema:EasyText(player, "olivedrab", "You sold 1 "..itemTable.name.." to "..data.entity:GetNetworkedString("Name")..".")
+							Schema:EasyText(player, "olivedrab", "Vous avez vendu 1"..itemTable.name.." to "..data.entity:GetNetworkedString("Name")..".")
 							
 							netstream.Start(player, "PlaySound", "generic_ui/coin_positive_0"..math.random(1, 3)..".wav");
 						end

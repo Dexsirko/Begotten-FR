@@ -1,4 +1,4 @@
---[[
+﻿--[[
 	Created by cash wednesday.
 --]]
 
@@ -7,7 +7,7 @@ local ITEM = Clockwork.item:New();
 	ITEM.model = "models/props_c17/TrapPropeller_Lever.mdl";
 	ITEM.weight = 0.05;
 	ITEM.category = "Keys";
-	ITEM.description = "A dirty, unmarked key.";
+	ITEM.description = "Une clé sale, sans aucune inscription.";
 	ITEM.uniqueID = "key";
 	ITEM.bNoStacking = true;
 	

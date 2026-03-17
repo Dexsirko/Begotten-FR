@@ -1,4 +1,4 @@
---[[
+﻿--[[
 	Begotten III: Jesus Wept
 --]]
 
@@ -104,7 +104,7 @@ function cwDayNight:PlayerThink(player, curTime, infoTable, alive, initialized, 
 										if IsValid(ragdollEntity) and ragdollEntity.cwIsBeingHeld then
 											Clockwork.player:SetRagdollState(player, RAGDOLL_KNOCKEDOUT, 60);
 										else
-											Schema:EasyText(player, "maroon", "The moon is everything. There is no point anymore.");
+											Schema:EasyText(player, "maroon", "La lune est tout. Rien n'a plus d'importance.");
 											player:CommitSuicide();
 										end
 									end
@@ -194,5 +194,5 @@ netstream.Hook("ShadowDamage", function(player, data)
 		end;
 	end
 	
-	Clockwork.chatBox:Add(listeners, player, "me", "begins screaming and attacking "..selfless.."!", player:GetPos(), Clockwork.config:Get("talk_radius"):Get() * 2);
+	Clockwork.chatBox:Add(listeners, player, "me", "se met à hurler et à attaquer"..selfless.."!", player:GetPos(), Clockwork.config:Get("talk_radius"):Get() * 2);
 end)

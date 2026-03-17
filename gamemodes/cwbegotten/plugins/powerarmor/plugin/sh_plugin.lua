@@ -1,4 +1,4 @@
-PLUGIN:SetGlobalAlias("cwPowerArmor");
+﻿PLUGIN:SetGlobalAlias("cwPowerArmor");
 
 Clockwork.kernel:IncludePrefixed("cl_hooks.lua");
 Clockwork.kernel:IncludePrefixed("sv_hooks.lua");
@@ -23,7 +23,7 @@ function playerMeta:IsWearingPowerArmor()
 end
 
 local COMMAND = Clockwork.command:New("ExitPowerArmor");
-	COMMAND.tip = "Exit the power armor you are currently in.";
+	COMMAND.tip = "Quittez l'armure de puissance dans laquelle vous vous trouvez actuellement.";
 	COMMAND.flags = CMD_DEFAULT;
 	COMMAND.alias = {"ExitArmor", "PowerArmorExit"};
 
@@ -32,14 +32,14 @@ local COMMAND = Clockwork.command:New("ExitPowerArmor");
 		if player:IsWearingPowerArmor() then
 			player:ExitPowerArmor();
 		else
-			Schema:EasyText(player, "firebrick", "You are not currently in a suit of power armor!");
+			Schema:EasyText(player, "firebrick", "Vous ne portez actuellement pas d'armure de puissance !");
 			return;
 		end
 	end;
 COMMAND:Register();
 
 local COMMAND = Clockwork.command:New("CharSetBattery");
-COMMAND.tip = "Set a player's battery level for power armor.";
+COMMAND.tip = "Définir le niveau de batterie d'un joueur pour son armure énergétique.";
 COMMAND.text = "<string Name> <number Amount>";
 COMMAND.access = "o";
 COMMAND.arguments = 2;

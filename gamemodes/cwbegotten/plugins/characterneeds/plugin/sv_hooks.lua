@@ -1,4 +1,4 @@
---[[
+﻿--[[
 	Begotten III: Jesus Wept
 --]]
 
@@ -161,7 +161,7 @@ function cwCharacterNeeds:PlayerThink(player, curTime, infoTable, alive, initial
 							
 							player:TakeDamageInfo(d);
 							
-							Clockwork.chatBox:Add(player, nil, "itnofake", "Some of my systems are beginning to power down, I need to recharge!");
+							Clockwork.chatBox:Add(player, nil, "itnofake", "Certains de mes systèmes commencent à s'éteindre, j'ai besoin de me recharger !");
 						end
 					end
 				end

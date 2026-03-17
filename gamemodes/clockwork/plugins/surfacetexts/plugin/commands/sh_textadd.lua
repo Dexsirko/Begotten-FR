@@ -1,9 +1,9 @@
---[[
+﻿--[[
 	Begotten III: Jesus Wept
 --]]
 
 local COMMAND = Clockwork.command:New("TextAdd");
-COMMAND.tip = "Add some text to a surface.";
+COMMAND.tip = "Ajoutez du texte sur une surface.";
 COMMAND.text = "<markup Text> [number Scale]";
 COMMAND.flags = CMD_DEFAULT;
 COMMAND.access = "a";

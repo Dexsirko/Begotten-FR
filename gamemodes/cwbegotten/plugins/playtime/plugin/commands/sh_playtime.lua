@@ -1,7 +1,7 @@
-local PLUGIN = PLUGIN;
+﻿local PLUGIN = PLUGIN;
 
 local COMMAND = Clockwork.command:New("PlayTime");
-COMMAND.tip = "See your playtime.";
+COMMAND.tip = "Voir votre temps de jeu.";
 COMMAND.text = "<none>";
 
 function COMMAND:OnRun(player, arguments)
@@ -18,8 +18,8 @@ function COMMAND:OnRun(player, arguments)
 	local charhours = charPlayTime.hours
 	local charseconds = charPlayTime.seconds
 	
-	--Schema:EasyText(player, "lightslateblue", "You have played on the server for: "..days.." Days - "..hours.." Hours - "..minutes.." Minutes - "..seconds.." Seconds.")
-	Schema:EasyText(player, "lightslateblue", "You have played on this character for: "..chardays.." Days - "..charhours.." Hours - "..charminutes.." Minutes - "..charseconds.." Seconds.")
+	--Schema:EasyText(player, "lightslateblue", "Vous avez joué sur le serveur pendant :"..days.." Days - "..hours.." Hours - "..minutes.." Minutes - "..seconds.." Seconds.")
+	Schema:EasyText(player, "lightslateblue", "Vous avez joué sur ce personnage pendant :"..chardays.." Days - "..charhours.." Hours - "..charminutes.." Minutes - "..charseconds.." Seconds.")
 end;
 
 COMMAND:Register();

@@ -1,4 +1,4 @@
---[[
+﻿--[[
 	Begotten III: Jesus Wept
 --]]
 
@@ -141,13 +141,13 @@ function cwPickupObjects:KeyPress(player, key)
 								if (ragdollPlayer) and !ragdollPlayer:GetNetVar("IsDragged") and !ragdollPlayer.BeingPickedUp then
 									if ragdollPlayer:Alive() then
 										if ragdollPlayer.possessor then
-											Schema:EasyText(player, "chocolate", "No matter how hard you try you can't seem to hold this person down!");
+											Schema:EasyText(player, "chocolate", "Peu importe tes efforts, tu n'arrives pas à maintenir cette personne au sol !");
 											return;
 										end
 									
 										if ragdollPlayer.stabilityStunned and !player:HasBelief("wrestle_subdue") then
 											if ragdollPlayer:GetNetVar("tied") == 0 then
-												Schema:EasyText(player, "chocolate", "You cannot pick up this person while they are knocked over from low stability unless they are tied up or you have the 'Wrestle and Subdue' belief!");
+												Schema:EasyText(player, "chocolate", "Vous ne pouvez pas soulever cette personne lorsqu'elle est renversée à cause d'une faible stabilité, à moins qu'elle ne soit attachée ou que vous ayez la croyance 'Lutte et Maîtrise' !");
 												return;
 											end
 										end
@@ -171,7 +171,7 @@ function cwPickupObjects:KeyPress(player, key)
 										player:Uncloak();
 									end
 									
-									Clockwork.chatBox:AddInTargetRadius(player, "me", "starts picking up the body before them.", player:GetPos(), config.Get("talk_radius"):Get() * 2);
+									Clockwork.chatBox:AddInTargetRadius(player, "me", "commence à ramasser le corps devant lui.", player:GetPos(), config.Get("talk_radius"):Get() * 2);
 									
 									local pickupTime = 5;
 									
@@ -209,7 +209,7 @@ function cwPickupObjects:KeyPress(player, key)
 									entity.BeingPickedUp = true;
 									entity.PickedUpBy = player;
 									
-									Clockwork.chatBox:AddInTargetRadius(player, "me", "starts picking up the body before them.", player:GetPos(), config.Get("talk_radius"):Get() * 2);
+									Clockwork.chatBox:AddInTargetRadius(player, "me", "commence à ramasser le corps devant lui.", player:GetPos(), config.Get("talk_radius"):Get() * 2);
 									
 									local pickupTime = 5;
 									
@@ -262,7 +262,7 @@ function cwPickupObjects:KeyPress(player, key)
 									objectName = cwStorage.containerList[entity:GetModel()][2] or "object";
 								end
 								
-								Clockwork.chatBox:AddInTargetRadius(player, "me", "starts picking up the "..objectName.." before them.", player:GetPos(), config.Get("talk_radius"):Get() * 2);
+								Clockwork.chatBox:AddInTargetRadius(player, "me", "commence à ramasser le"..objectName.." before them.", player:GetPos(), config.Get("talk_radius"):Get() * 2);
 								
 								local pickupTime = math.min(10, entity:GetPhysicsObject():GetMass() / 5);
 								
@@ -317,9 +317,9 @@ function cwPickupObjects:KeyPress(player, key)
 						player.PickingUpObject.PickedUpBy = nil;
 						
 						if player.PickingUpObject:GetClass() == "prop_ragdoll" then
-							Clockwork.chatBox:AddInTargetRadius(player, "me", "releases their grip on the body before them.", player:GetPos(), config.Get("talk_radius"):Get() * 2);
+							Clockwork.chatBox:AddInTargetRadius(player, "me", "relâche son emprise sur le corps devant eux.", player:GetPos(), config.Get("talk_radius"):Get() * 2);
 						else
-							Clockwork.chatBox:AddInTargetRadius(player, "me", "releases their grip on the object before them.", player:GetPos(), config.Get("talk_radius"):Get() * 2);
+							Clockwork.chatBox:AddInTargetRadius(player, "me", "relâche leur emprise sur l'objet devant eux.", player:GetPos(), config.Get("talk_radius"):Get() * 2);
 						end
 					end;
 					
@@ -339,17 +339,17 @@ end;
 -- Called when a player attempts to pickup an object.
 function cwPickupObjects:CanHandsPickupEntity(player, entity, trace)
 	if (!player:IsAdmin() and player.cwObserverMode) then
-		Schema:EasyText(player, "grey", "You cannot interact with entities while in spectator mode!");
+		Schema:EasyText(player, "grey", "Vous ne pouvez pas interagir avec les entités en mode spectateur !");
 		return false;
 	end
 	
 	if cwDueling and cwDueling:PlayerIsInMatchmaking(player) then
-		Schema:EasyText(player, "grey", "You cannot interact with entities while in matchmaking for a duel!");
+		Schema:EasyText(player, "grey", "Vous ne pouvez pas interagir avec les entités pendant la recherche de match pour un duel !");
 		return false;
 	end
 	
 	if player.teleporting then
-		Schema:EasyText(player, "grey", "You cannot interact with entities while in the process of teleporting!");
+		Schema:EasyText(player, "grey", "Vous ne pouvez pas interagir avec les entités pendant le processus de téléportation !");
 		return false;
 	end
 	

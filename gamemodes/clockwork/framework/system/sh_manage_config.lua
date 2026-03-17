@@ -1,4 +1,4 @@
---[[
+﻿--[[
 	Begotten III: Jesus Wept
 	By: DETrooper, cash wednesday, gabs, alyousha35
 
@@ -28,7 +28,7 @@ if (CLIENT) then
 		self.adminValues = nil
 
 		self.infoText = vgui.Create("cwInfoText", systemPanel)
-			self.infoText:SetText("Click on a config key to begin editing the config value.")
+			self.infoText:SetText("Cliquez sur une clé de configuration pour commencer à modifier sa valeur.")
 			self.infoText:SetInfoColor("blue")
 			self.infoText:SetTextColor(Color(255, 255, 255));
 			self.infoText:DockMargin(0, 0, 0, 8)
@@ -70,7 +70,7 @@ if (CLIENT) then
 		if (self.activeKey) then
 			self.adminValues = config.GetFromSystem(self.activeKey.name)
 
-			self.infoText:SetText("Now you can start to edit the config value, or click another config key.")
+			self.infoText:SetText("Vous pouvez maintenant modifier la valeur de configuration ou cliquer sur une autre clé de configuration.")
 		end
 
 		if (self.editForm and !self.editForm:IsVisible()) then

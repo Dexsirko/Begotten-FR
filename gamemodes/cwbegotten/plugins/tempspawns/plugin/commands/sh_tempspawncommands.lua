@@ -1,5 +1,5 @@
-local COMMAND = Clockwork.command:New("TempSpawnPointAdd");
-COMMAND.tip = "Add a temporary spawn point at your target position."
+﻿local COMMAND = Clockwork.command:New("TempSpawnPointAdd");
+COMMAND.tip = "Ajoute un point de réapparition temporaire à votre position ciblée."
 COMMAND.text = "<string Class|Faction|Default> [number Rotate]"
 COMMAND.flags = CMD_DEFAULT
 COMMAND.access = "a"
@@ -27,21 +27,21 @@ function COMMAND:OnRun(player, arguments)
 		cwTempSpawns.spawnPoints[name] = cwTempSpawns.spawnPoints[name] or {}
 		cwTempSpawns.spawnPoints[name][#cwTempSpawns.spawnPoints[name] + 1] = {position = player:GetEyeTraceNoCursor().HitPos, rotate = rotate}
 
-		Schema:EasyText(player, "cornflowerblue", "You have added a temporary spawn point for "..name..".")
+		Schema:EasyText(player, "cornflowerblue", "Vous avez ajouté un point de réapparition temporaire pour"..name..".")
 	elseif (string.lower(arguments[1]) == "default") then
 		cwTempSpawns.spawnPoints["default"] = cwTempSpawns.spawnPoints["default"] or {}
 		cwTempSpawns.spawnPoints["default"][#cwTempSpawns.spawnPoints["default"] + 1] = {position = player:GetEyeTraceNoCursor().HitPos, rotate = rotate}
 		
-		Schema:EasyText(player, "cornflowerblue", "You have added a factionless temporary spawn point.")
+		Schema:EasyText(player, "cornflowerblue", "Vous avez ajouté un point de réapparition temporaire sans faction.")
 	else
-		Schema:EasyText(player, "grey", "This is not a valid class or faction!")
+		Schema:EasyText(player, "grey", "Ce n'est pas une classe ou faction valide !")
 	end
 end;
  
 COMMAND:Register();
 
 local COMMAND = Clockwork.command:New("TempSpawnPointRemove")
-COMMAND.tip = "Remove temporary spawn points at your target position."
+COMMAND.tip = "Supprime les points de réapparition temporaires à votre position cible."
 COMMAND.text = "<string Class|Faction|Default>"
 COMMAND.flags = CMD_DEFAULT
 COMMAND.access = "a"
@@ -83,10 +83,10 @@ function COMMAND:OnRun(player, arguments)
 					Schema:EasyText(player, "cornflowerblue", "["..self.name.."] You have removed "..removed.." "..name.." temporary spawn points.")
 				end
 			else
-				Schema:EasyText(player, "cornflowerblue", "There were no "..name.." temporary spawn points near this position.")
+				Schema:EasyText(player, "cornflowerblue", "Il n'y avait aucun"..name.." temporary spawn points near this position.")
 			end
 		else
-			Schema:EasyText(player, "darkgrey", "There are no "..name.." temporary spawn points.")
+			Schema:EasyText(player, "darkgrey", "Il n'y a pas de"..name.." temporary spawn points.")
 		end
 	elseif (string.lower(arguments[1]) == "default") then
 		if (cwTempSpawns.spawnPoints["default"]) then
@@ -108,20 +108,20 @@ function COMMAND:OnRun(player, arguments)
 					Schema:EasyText(player, "cornflowerblue", "["..self.name.."] You have removed "..removed.." factionless temporary spawn points.")
 				end
 			else
-				Schema:EasyText(player, "cornflowerblue", "There were no factionless temporary spawn points near this position.")
+				Schema:EasyText(player, "cornflowerblue", "Il n'y avait aucun point de réapparition temporaire sans faction près de cette position.")
 			end
 		else
-			Schema:EasyText(player, "darkgrey", "There are no factionless temporary spawn points.")
+			Schema:EasyText(player, "darkgrey", "Il n'y a pas de points de réapparition temporaires sans faction.")
 		end
 	else
-		Schema:EasyText(player, "grey", "This is not a valid class or faction!")
+		Schema:EasyText(player, "grey", "Ceci n'est pas une classe ou faction valide !")
 	end
 end
 
 COMMAND:Register()
 
 local COMMAND = Clockwork.command:New("ClearTempSpawnPoints")
-COMMAND.tip = "Remove all temporary spawn points on the map."
+COMMAND.tip = "Supprime tous les points d'apparition temporaires sur la carte."
 COMMAND.flags = CMD_DEFAULT
 COMMAND.access = "a"
 COMMAND.alias = {"TempSpawnPointRemoveAll"}

@@ -1,4 +1,4 @@
-TOOL.Tab = "DrGBase"
+﻿TOOL.Tab = "DrGBase"
 TOOL.Category = "Tools"
 TOOL.Name = "#tool.drgbase_tool_faction.name"
 TOOL.ClientConVar = {["list"] = "[]"}
@@ -18,13 +18,13 @@ TOOL.BuildCPanel = function(panel)
 	end
 	panel:AddItem(entry)
 	local insert = vgui.Create("DButton")
-	insert:SetText("Insert faction")
+	insert:SetText("Insérer faction")
 	function insert:DoClick()
 		dlist:AddLine(string.upper(entry:GetValue()))
 	end
 	panel:AddItem(insert)
 	local clear = vgui.Create("DButton")
-	clear:SetText("Clear factions")
+	clear:SetText("Effacer les factions")
 	function clear:DoClick()
 		dlist:Clear()
 	end

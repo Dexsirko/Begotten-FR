@@ -1,4 +1,4 @@
---[[
+﻿--[[
 	Script written by Aly for Begotten III: Jesus Wept
 	Unauthorized tampering will result in immediate corpsing
 --]]
@@ -249,7 +249,7 @@ end
 
 --Should be obvious
 local COMMAND = Clockwork.command:New("CharSetLoyalty");
-COMMAND.tip = "Set your loyalty to another character, empowering them slightly.";
+COMMAND.tip = "Définis ta loyauté envers un autre personnage, ce qui le renforce légèrement.";
 COMMAND.access = "s";
 COMMAND.alias = {"Loyalty","SetLoyal","Pledge","SetLoyalty"};
 
@@ -265,19 +265,19 @@ function COMMAND:OnRun(player, arguments)
 					-- Make sure people can't set themselves to be loyal to each other. There can be only one.
 					if (target:GetCharacterData("loyaltochar", "none") ~= plykey) then
 						player:SetCharacterData("loyaltochar", key);
-						Clockwork.player:Notify(player, "You have pledged your loyalty to "..target:Name().."!");
+						Clockwork.player:Notify(player, "Vous avez juré allégeance à"..target:Name().."!");
 						Clockwork.player:Notify(target, player:Name().." has pledged their loyalty to you!");
 					else
-						Clockwork.player:Notify(player, "This person is already loyal to you!");
+						Clockwork.player:Notify(player, "Cette personne vous est déjà loyale !");
 					end
 				else
-					Clockwork.player:Notify(player, "Being loyal to yourself is a good trait, but not applicable in this case.");
+					Clockwork.player:Notify(player, "Être loyal envers soi-même est une bonne qualité, mais pas dans ce cas-ci.");
 				end
 			else
-				Clockwork.player:Notify(player, "You don't know this person!");
+				Clockwork.player:Notify(player, "Vous ne connaissez pas cette personne !");
 			end
 		else
-			Clockwork.player:Notify(player, "Invalid argument!");
+			Clockwork.player:Notify(player, "Argument invalide !");
 		end
 	end
 end;
@@ -286,7 +286,7 @@ COMMAND:Register();
 
 --Should be obvious
 local COMMAND = Clockwork.command:New("CharClearLoyalty");
-COMMAND.tip = "Set your loyalty to another character, empowering them slightly.";
+COMMAND.tip = "Définis ta loyauté envers un autre personnage, le renforçant légèrement.";
 COMMAND.access = "s";
 COMMAND.alias = {"LoyaltyClear","UnSetLoyal","ClearLoyal","ResetLoyalty","ClearLoyalty"};
 
@@ -302,19 +302,19 @@ function COMMAND:OnRun(player, arguments)
 					-- Make sure people can't set themselves to be loyal to each other. There can be only one.
 					if (target:GetCharacterData("loyaltochar", "none") ~= plykey) then
 						player:SetCharacterData("loyaltochar", key);
-						Clockwork.player:Notify(player, "You have pledged your loyalty to "..target:Name().."!");
+						Clockwork.player:Notify(player, "Vous avez juré allégeance à"..target:Name().."!");
 						Clockwork.player:Notify(target, player:Name().." has pledged their loyalty to you!");
 					else
-						Clockwork.player:Notify(player, "This person is already loyal to you!");
+						Clockwork.player:Notify(player, "Cette personne vous est déjà loyale !");
 					end
 				else
-					Clockwork.player:Notify(player, "Being loyal to yourself is a good trait, but not applicable in this case.");
+					Clockwork.player:Notify(player, "Être loyal envers soi-même est une bonne qualité, mais pas dans ce cas-ci.");
 				end
 			else
-				Clockwork.player:Notify(player, "You don't know this person!");
+				Clockwork.player:Notify(player, "Vous ne connaissez pas cette personne !");
 			end
 		else
-			Clockwork.player:Notify(player, "Invalid argument!");
+			Clockwork.player:Notify(player, "Argument invalide !");
 		end
 	end
 end;
@@ -323,7 +323,7 @@ COMMAND:Register();
 
 --This command updates your score, shows your score, and lists the people who have set themselves as loyal to you.
 local COMMAND = Clockwork.command:New("CharGetLoyalty");
-COMMAND.tip = "See information on those who have pledged themselves to you or who you have pledged to.";
+COMMAND.tip = "Consultez les informations sur ceux qui se sont engagés envers vous ou envers qui vous vous êtes engagé.";
 COMMAND.access = "s";
 COMMAND.alias = {"CheckLoyalty","MyLoyalty","CharLoyalty","LoyaltyList","ListLoyalty"};
 
@@ -332,16 +332,16 @@ function COMMAND:OnRun(player, arguments)
 	local loyalscore = player:CalcLoyaltyScore()
 	if loyalscore.total > 0 then
 		if #loyalscore.people > 1 then
-			Clockwork.player:Notify(player, "Only one person has pledged to you.");
+			Clockwork.player:Notify(player, "Une seule personne s'est engagée envers vous.");
 		else
 			Clockwork.player:Notify(player, #loyalscore.people.." people have pledged their loyalty to you.");
 		end
 		for k, v in pairs(loyalscore.people) do
 			Clockwork.player:Notify(player, v.name..", worth "..v.score.."%.");
 		end
-		Clockwork.player:Notify(player, "Total loyalty boosts: "..loyalscore.total.."%.");
+		Clockwork.player:Notify(player, "Total des bonus de loyauté :"..loyalscore.total.."%.");
 	else
-		Clockwork.player:Notify(player, "Nobody has seen you worthy of pledging their allegiance.");
+		Clockwork.player:Notify(player, "Personne ne t'a jugé digne de recevoir son allégeance.");
 	end
 end;
 
@@ -349,7 +349,7 @@ COMMAND:Register();
 
 
 local COMMAND = Clockwork.command:New("CharSkyDrop");
-COMMAND.tip = "Spawn an object above the head of the fucklet of your choice. Will try to spawn as high up as possible, works best in open areas. The last arguments can be a list of items, including 'cash'/'coins' for a random amount of money, and 'random' for generated loot. You can also add X[num] to the end of an ID to define the number. For example: papa_petes_ice_cold_popX24 will add 24 bottles of delicious Papa Pete's® Ice Cold Pop™!";
+COMMAND.tip = "Fait apparaître un objet au-dessus de la tête du fucklet de ton choix. Le système tentera de le placer le plus haut possible, fonctionne mieux dans les zones dégagées. Les derniers arguments peuvent être une liste d'objets, incluant 'cash'/'coins' pour une somme d'argent aléatoire, et 'random' pour du butin généré aléatoirement. Tu peux aussi ajouter X[num] à la fin d'un ID pour définir la quantité. Par exemple : papa_petes_ice_cold_popX24 ajoutera 24 bouteilles de la délicieuse Papa Pete's® Ice Cold Pop™ !";
 COMMAND.text = "<string Name> <string Model> [num CleanupTimeInSeconds] [bool Burning] [Loot ItemIDs or Random or Cash/Coins]";
 COMMAND.access = "s";
 COMMAND.arguments = 2;
@@ -388,12 +388,12 @@ function COMMAND:OnRun(player, arguments)
 			end
 			dist = tgtpos:Distance( spawnpoint )
 
-			Clockwork.player:Notify(player, "Spawned a prop ["..model.."] "..(dist*0.01905).." meters above "..target:Name()..".");
+			Clockwork.player:Notify(player, "Prop créé"..model.."] "..(dist*0.01905).." meters above "..target:Name()..".");
 			timer.Create("SkyDrop"..target:Name()..""..math.Round(CurTime()), cleanuptime, 1, function()
 				if IsValid(dropped) then
 					dropped:Remove();
 				else
-					Clockwork.player:Notify(player, "Could not find the recently spawned object: ["..model.."] for cleanup. It might already be removed, or in need of manual cleanup.");
+					Clockwork.player:Notify(player, "Impossible de localiser l'objet récemment généré : ["..model.."] for cleanup. It might already be removed, or in need of manual cleanup.");
 				end
 			end);
 			
@@ -445,7 +445,7 @@ function COMMAND:OnRun(player, arguments)
 							local theitem = Clockwork.item:CreateInstance(instr);
 							if theitem then
 								Clockwork.inventory:AddInstance(dropped.cwInventory, theitem, numberof)
-								Clockwork.player:Notify(player, "Added: "..theitem.name.." x"..numberof);
+								Clockwork.player:Notify(player, "Ajouté :"..theitem.name.." x"..numberof);
 								itemcount = itemcount + 1
 							else
 								Clockwork.player:Notify(player, instr.." not found.");
@@ -453,7 +453,7 @@ function COMMAND:OnRun(player, arguments)
 						end
 					end
 				end
-				Clockwork.player:Notify(player, "Added "..itemcount.." items and "..dropped.cwCash.." coins to the object's inventory.");
+				Clockwork.player:Notify(player, "Ajouté"..itemcount.." items and "..dropped.cwCash.." coins to the object's inventory.");
 			end
 		else
 			Clockwork.player:Notify(player, arguments[2].." is not a valid model!");
@@ -467,7 +467,7 @@ COMMAND:Register();
 
 --Should be obvious
 local COMMAND = Clockwork.command:New("CharSetDemonic");
-COMMAND.tip = "Permanently enhance your active character's stats.";
+COMMAND.tip = "Améliorez définitivement les statistiques de votre personnage actif.";
 COMMAND.access = "s";
 COMMAND.alias = {"SetDemon","MakeDemon"};
 
@@ -476,17 +476,17 @@ function COMMAND:OnRun(player, arguments)
 	if player:HasInitialized() and player:Alive() then
 		cwAlyTools:SetStatMultiplier(player)
 		player:SetCharacterData("isDemon", true);
-		Clockwork.player:Notify(player, "Set your stats to demonic!");
+		Clockwork.player:Notify(player, "Définissez vos statistiques en mode démoniaque !");
 		
 	else
-		Clockwork.player:Notify(player, "Invalid!");
+		Clockwork.player:Notify(player, "Invalide !");
 	end
 end;
 
 COMMAND:Register();
 
 local COMMAND = Clockwork.command:New("MarkPoint")
-COMMAND.tip = "Designate a specific spot you're looking at for later use."
+COMMAND.tip = "Désigne un point spécifique que tu regardes pour une utilisation ultérieure."
 COMMAND.flags = CMD_DEFAULT
 COMMAND.access = "a"
 
@@ -517,16 +517,16 @@ function COMMAND:OnRun(player, arguments)
 			headroom = height * skytrace.Fraction,
 			indoors = ((skytrace.HitWorld) and (not skytrace.HitSky ))
 		});
-		Schema:EasyText(player, "cornflowerblue", "Point designated!")
+		Schema:EasyText(player, "cornflowerblue", "Point désigné !")
 	else
-		Schema:EasyText(player, "grey", "Invalid position!")
+		Schema:EasyText(player, "grey", "Position invalide !")
 	end
 end
 
 COMMAND:Register();
 
 local COMMAND = Clockwork.command:New("MarkEntity")
-COMMAND.tip = "Designate a specific entity you're looking at for tracking and aiming things at."
+COMMAND.tip = "Désigne une entité spécifique que tu regardes pour le suivi et le ciblage."
 COMMAND.flags = CMD_DEFAULT
 COMMAND.access = "s"
 
@@ -537,29 +537,29 @@ function COMMAND:OnRun(player, arguments)
 		player:SetNetVar("markedpoint", {
 			entity = plytrace.Entity
 		});
-		Schema:EasyText(player, "cornflowerblue", "Entity designated!")
+		Schema:EasyText(player, "cornflowerblue", "Entité désignée !")
 	else
-		Schema:EasyText(player, "grey", "Invalid position!")
+		Schema:EasyText(player, "grey", "Position invalide !")
 	end
 end
 
 COMMAND:Register();
 
 local COMMAND = Clockwork.command:New("ClearMarkedPoint")
-COMMAND.tip = "Clear your currently marked point."
+COMMAND.tip = "Efface ton point marqué actuel."
 COMMAND.flags = CMD_DEFAULT
 COMMAND.access = "a"
 
 -- Called when the command has been run.
 function COMMAND:OnRun(player, arguments)
 	player:SetNetVar("markedpoint", nil);
-	Schema:EasyText(player, "cornflowerblue", "Point cleared.")
+	Schema:EasyText(player, "cornflowerblue", "Point nettoyé.")
 end
 
 COMMAND:Register();
 
 local COMMAND = Clockwork.command:New("ToggleMarkedData")
-COMMAND.tip = "Designate a specific spot you're looking at for later use."
+COMMAND.tip = "Désigne un point spécifique que tu regardes pour une utilisation ultérieure."
 COMMAND.flags = CMD_DEFAULT
 COMMAND.access = "a"
 COMMAND.alias = {"MarkData","ToggleMarkData"};
@@ -569,16 +569,16 @@ function COMMAND:OnRun(player, arguments)
 	hidedata = player:GetNetVar("markeddata",false);
 	player:SetNetVar("markeddata", not hidedata)
 	if hidedata then
-		Schema:EasyText(player, "cornflowerblue", "Will hide marked point data!")
+		Schema:EasyText(player, "cornflowerblue", "Masquera les données des points marqués !")
 	else
-		Schema:EasyText(player, "cornflowerblue", "Will show marked point data!")
+		Schema:EasyText(player, "cornflowerblue", "Affichera les données du point marqué !")
 	end
 end
 
 COMMAND:Register();
 
 local COMMAND = Clockwork.command:New("CreateTeleporter")
-COMMAND.tip = "Create a teleporter at this spot, setting the destination to a spot designated with /MarkPoint"
+COMMAND.tip = "Crée un téléporteur à cet endroit, en définissant la destination vers un point marqué avec /MarkPoint"
 COMMAND.flags = CMD_DEFAULT
 COMMAND.access = "s"
 
@@ -592,24 +592,24 @@ function COMMAND:OnRun(player, arguments)
 		if plytrace.Hit then
 			height = tgtpoint.headroom or 0
 			if height > 64 then
-				Schema:EasyText(player, "cornflowerblue", "Adding teleporter.")
+				Schema:EasyText(player, "cornflowerblue", "Ajout d'un téléporteur.")
 				cwAlyTools:AddTeleporter(plytrace.HitPos+ Vector(0, 0, 16),tgtpoint)
 				cwAlyTools:NotifyAly(player:Name().." has spawned an admin teleporter." )
 			else
-				Schema:EasyText(player, "grey", "Destination is too cramped!")
+				Schema:EasyText(player, "grey", "Destination trop exiguë !")
 			end
 		else
-			Schema:EasyText(player, "grey", "Invalid position!")
+			Schema:EasyText(player, "grey", "Position invalide !")
 		end
 	else
-		Schema:EasyText(player, "grey", "No destination marked!")
+		Schema:EasyText(player, "grey", "Aucune destination indiquée !")
 	end
 end
 
 COMMAND:Register();
 
 local COMMAND = Clockwork.command:New("CreateFuckedTeleporter")
-COMMAND.tip = "Create a glitched teleporter at this spot, setting the destination to a spot designated with /MarkPoint"
+COMMAND.tip = "Crée un téléporteur défectueux à cet endroit, en définissant la destination vers un point marqué avec /MarkPoint"
 COMMAND.flags = CMD_DEFAULT
 COMMAND.access = "s"
 
@@ -623,20 +623,20 @@ function COMMAND:OnRun(player, arguments)
 		plytgt = Vector(0,0,0)
 	}
 	if not tgtpoint.valid then
-		Schema:EasyText(player, "grey", "No destination marked! Portal will destroy anything that enters!")
+		Schema:EasyText(player, "grey", "Aucune destination marquée ! Le portail détruira tout ce qui y entre !")
 	end
 	plytrace = player:GetEyeTraceNoCursor();
 	if plytrace.Hit then
 		height = tgtpoint.headroom or 128
 		if height > 64 then
-			Schema:EasyText(player, "cornflowerblue", "Adding fucked teleporter.")
+			Schema:EasyText(player, "cornflowerblue", "Ajout d'un téléporteur détraqué.")
 			cwAlyTools:NotifyAly(player:Name().." has spawned a fucked teleporter." )
 			cwAlyTools:AddFuckedTeleporter(plytrace.HitPos+ Vector(0, 0, 16),tgtpoint.plytgt)
 		else
-			Schema:EasyText(player, "grey", "Destination is too cramped!")
+			Schema:EasyText(player, "grey", "Destination trop exiguë !")
 		end
 	else
-		Schema:EasyText(player, "grey", "Invalid position!")
+		Schema:EasyText(player, "grey", "Position invalide !")
 	end
 
 end
@@ -644,7 +644,7 @@ end
 COMMAND:Register();
 
 local COMMAND = Clockwork.command:New("RemoveTeleporter")
-	COMMAND.tip = "Remove any teleporters at your cursor."
+	COMMAND.tip = "Supprime tous les téléporteurs sous votre curseur."
 	COMMAND.access = "s"
 	COMMAND.optionalArguments = 1;
 	COMMAND.text = "[int Radius]"
@@ -657,7 +657,7 @@ local COMMAND = Clockwork.command:New("RemoveTeleporter")
 COMMAND:Register()
 
 local COMMAND = Clockwork.command:New("RemoveAllTeleporters")
-	COMMAND.tip = "Remove all teleporters."
+	COMMAND.tip = "Supprimer tous les téléporteurs."
 	COMMAND.access = "s"
 
 	-- Called when the command has been run.
@@ -667,7 +667,7 @@ local COMMAND = Clockwork.command:New("RemoveAllTeleporters")
 COMMAND:Register()
 
 local COMMAND = Clockwork.command:New("CreatePowerCore")
-COMMAND.tip = "Create a power core at this spot."
+COMMAND.tip = "Crée un cœur d'énergie à cet endroit."
 COMMAND.flags = CMD_DEFAULT
 COMMAND.access = "s"
 
@@ -676,18 +676,18 @@ function COMMAND:OnRun(player, arguments)
 	local name = nil
 	plytrace = player:GetEyeTraceNoCursor();
 	if plytrace.Hit then
-		Schema:EasyText(player, "cornflowerblue", "Adding teleporter.")
+		Schema:EasyText(player, "cornflowerblue", "Ajout d'un téléporteur.")
 		cwAlyTools:AddPowerCore(plytrace.HitPos)
 		cwAlyTools:NotifyAly(player:Name().." has spawned a power core." )
 	else
-		Schema:EasyText(player, "grey", "Invalid position!")
+		Schema:EasyText(player, "grey", "Position invalide !")
 	end
 end
 
 COMMAND:Register();
 
 local COMMAND = Clockwork.command:New("RemovePowerCore")
-	COMMAND.tip = "Remove any power cores at your cursor."
+	COMMAND.tip = "Retirez les cœurs d'énergie situés sous votre curseur."
 	COMMAND.access = "s"
 
 	-- Called when the command has been run.
@@ -697,7 +697,7 @@ local COMMAND = Clockwork.command:New("RemovePowerCore")
 COMMAND:Register()
 
 local COMMAND = Clockwork.command:New("RemoveAllPowerCores")
-	COMMAND.tip = "Remove all power cores."
+	COMMAND.tip = "Retirez tous les noyaux d'énergie."
 	COMMAND.access = "s"
 
 	-- Called when the command has been run.
@@ -707,7 +707,7 @@ local COMMAND = Clockwork.command:New("RemoveAllPowerCores")
 COMMAND:Register()
 
 local COMMAND = Clockwork.command:New("PortalNPC");
-COMMAND.tip = "Summon an NPC at your targeted point.";
+COMMAND.tip = "Invoque un PNJ à l'endroit que tu vises.";
 COMMAND.text = "<string NPC>";
 COMMAND.access = "s";
 COMMAND.arguments = 1;
@@ -744,7 +744,7 @@ function COMMAND:OnRun(player, arguments)
 				end
 			end);
 		else
-			Schema:EasyText(player, "darkgrey", "Look at a valid spot!");
+			Schema:EasyText(player, "darkgrey", "Regarde un endroit valide !");
 		end;
 	else
 		Schema:EasyText(player, "grey", arguments[1].." is not a valid npc!");

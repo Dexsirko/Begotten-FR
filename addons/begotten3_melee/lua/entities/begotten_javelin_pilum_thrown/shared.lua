@@ -1,4 +1,4 @@
-ENT.Type 			= "anim"
+﻿ENT.Type 			= "anim"
 ENT.PrintName		= "Pilum"
 ENT.Author			= ""
 ENT.Contact			= ""
@@ -402,7 +402,7 @@ if SERVER then
 							Ent:EmitSound("meleesounds/DS2Parry.mp3");
 						end
 						
-						Clockwork.chatBox:AddInTargetRadius(Ent, "me", "suddenly catches the projectile mid-flight with their weapon and redirects it, showing impossible skill and grace as it is deflected in the direction of its hurler!", Ent:GetPos(), config.Get("talk_radius"):Get() * 4);
+						Clockwork.chatBox:AddInTargetRadius(Ent, "me", "attrape soudainement le projectile en plein vol avec son arme et le redirige, faisant preuve d'une habileté et d'une grâce impossibles en le déviant vers son lanceur !", Ent:GetPos(), config.Get("talk_radius"):Get() * 4);
 					else
 						phys:SetVelocity(Ent:GetAimVector() * 50);
 					end

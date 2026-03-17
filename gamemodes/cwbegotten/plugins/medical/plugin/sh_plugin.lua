@@ -1,4 +1,4 @@
---[[
+﻿--[[
 	Begotten III: Jesus Wept
 --]]
 
@@ -24,7 +24,7 @@ game.AddDecal("BloodLarge", "decals/bloodstain_002");
 end;]]--
 
 --[[local COMMAND = Clockwork.command:New("CharHeal");
-COMMAND.tip = "Heal a character if you own a medical item.";
+COMMAND.tip = "Soigne un personnage si tu possèdes un objet médical.";
 COMMAND.text = "<string Item>";
 COMMAND.flags = CMD_DEFAULT;
 COMMAND.arguments = 1;
@@ -42,26 +42,26 @@ function COMMAND:OnRun(player, arguments)
 					if (player:HasItemByID(itemTable.uniqueID)) then
 						cwMedicalSystem:HealPlayer(player, target, itemTable);
 					else
-						Schema:EasyText(player, "lightslateblue","You do not own a "..itemTable.name.."!");
+						Schema:EasyText(player, "lightslateblue","Vous ne possédez pas de"..itemTable.name.."!");
 					end;
 				else
-					Schema:EasyText(player, "lightslateblue","This is not a valid item!");
+					Schema:EasyText(player, "lightslateblue","Ceci n'est pas un objet valide !");
 				end;
 			else
-				Schema:EasyText(player, "firebrick", "This character is too far away!");
+				Schema:EasyText(player, "firebrick", "Ce personnage est trop éloigné !");
 			end;
 		else
-			Schema:EasyText(player, "firebrick", "You must look at a character!");
+			Schema:EasyText(player, "firebrick", "Vous devez regarder un personnage !");
 		end;
 	else
-		Schema:EasyText(player, "lightslateblue","You don't have permission to do this right now!");
+		Schema:EasyText(player, "lightslateblue","Vous n'avez pas la permission de faire cela pour le moment !");
 	end;
 end;
 
 COMMAND:Register();]]--
 
 local COMMAND = Clockwork.command:New("CharStopBleeding");
-COMMAND.tip = "Stop all bleeding on a character.";
+COMMAND.tip = "Arrête tout saignement sur un personnage.";
 COMMAND.text = "<string Name>";
 COMMAND.access = "s";
 COMMAND.arguments = 1;
@@ -87,7 +87,7 @@ end;
 COMMAND:Register();
 
 local COMMAND = Clockwork.command:New("CharResetInjuries");
-COMMAND.tip = "Remove all injuries on a character.";
+COMMAND.tip = "Retirer toutes les blessures d'un personnage.";
 COMMAND.text = "<string Name>";
 COMMAND.access = "s";
 COMMAND.arguments = 1;
@@ -113,7 +113,7 @@ end;
 COMMAND:Register();
 
 local COMMAND = Clockwork.command:New("CharGetInjuries");
-	COMMAND.tip = "Display a list of a character's injuries.";
+	COMMAND.tip = "Afficher la liste des blessures d'un personnage.";
 	COMMAND.text = "<string Name>";
 	COMMAND.access = "o";
 	COMMAND.arguments = 1;
@@ -149,7 +149,7 @@ local COMMAND = Clockwork.command:New("CharGetInjuries");
 COMMAND:Register();
 
 local COMMAND = Clockwork.command:New("CharGiveInjury");
-	COMMAND.tip = "Give a specified injury to a character.";
+	COMMAND.tip = "Inflige une blessure spécifique à un personnage.";
 	COMMAND.text = "<string Name> <string Injury> <string Limb>";
 	COMMAND.access = "s";
 	COMMAND.arguments = 3;
@@ -209,7 +209,7 @@ local COMMAND = Clockwork.command:New("CharGiveInjury");
 COMMAND:Register();
 
 local COMMAND = Clockwork.command:New("CharTakeInjury");
-	COMMAND.tip = "Take a specified injury from a character.";
+	COMMAND.tip = "Inflige une blessure spécifique à un personnage.";
 	COMMAND.text = "<string Name> <string Injury> <string Limb>";
 	COMMAND.access = "s";
 	COMMAND.arguments = 3;
@@ -252,7 +252,7 @@ local COMMAND = Clockwork.command:New("CharTakeInjury");
 COMMAND:Register();
 
 local COMMAND = Clockwork.command:New("CharClearInjuries");
-	COMMAND.tip = "Clear all injuries of a character.";
+	COMMAND.tip = "Effacer toutes les blessures d'un personnage.";
 	COMMAND.text = "<string Name>";
 	COMMAND.access = "s";
 	COMMAND.arguments = 1;
@@ -273,7 +273,7 @@ local COMMAND = Clockwork.command:New("CharClearInjuries");
 COMMAND:Register();
 
 local COMMAND = Clockwork.command:New("CharSetBloodLevel");
-COMMAND.tip = "Set a character's blood level (0-5000).";
+COMMAND.tip = "Définir le niveau de sang d'un personnage (0-5000).";
 COMMAND.text = "<string Name> <number Blood>";
 COMMAND.access = "s";
 COMMAND.arguments = 2;
@@ -304,14 +304,14 @@ end;
 COMMAND:Register();
 
 local COMMAND = Clockwork.command:New("CharDiagnose");
-	COMMAND.tip = "Diagnose a character for injuries.";
+	COMMAND.tip = "Diagnostique un personnage pour ses blessures.";
 	COMMAND.flags = CMD_DEFAULT;
 	COMMAND.alias = {"Diagnose", "PlyDiagnose"};
 
 	-- Called when the command has been run.
 	function COMMAND:OnRun(player, arguments)
 		if cwBeliefs and !player:HasBelief("doctor") then
-			Schema:EasyText(player, "chocolate","You lack the required belief to do this!");
+			Schema:EasyText(player, "chocolate","Vous n'avez pas la foi nécessaire pour faire cela !");
 			return false;
 		end
 		
@@ -457,16 +457,16 @@ local COMMAND = Clockwork.command:New("CharDiagnose");
 					Schema:EasyText(player, "indianred", diagnoseString.." They would appear to be deceased, there is nothing more you can do for them.");
 				end
 			else
-				Schema:EasyText(player, "firebrick", "This character is too far away!");
+				Schema:EasyText(player, "firebrick", "Ce personnage est trop éloigné !");
 			end;
 		else
-			Schema:EasyText(player, "firebrick", "You must look at a character!");
+			Schema:EasyText(player, "firebrick", "Vous devez regarder un personnage !");
 		end;
 	end;
 COMMAND:Register();
 
 local COMMAND = Clockwork.command:New("CharGiveDisease");
-	COMMAND.tip = "Give a character a disease. Optional argument for stage. (Default = 1)";
+	COMMAND.tip = "Donne une maladie à un personnage. Argument optionnel pour le stade. (Par défaut = 1)";
 	COMMAND.text = "<string Name> <string DiseaseID> [int Stage]";
 	COMMAND.access = "s";
 	COMMAND.arguments = 2;
@@ -517,7 +517,7 @@ local COMMAND = Clockwork.command:New("CharGiveDisease");
 COMMAND:Register();
 
 local COMMAND = Clockwork.command:New("CharTakeDisease");
-	COMMAND.tip = "Take a disease from a character.";
+	COMMAND.tip = "Retirer une maladie d'un personnage.";
 	COMMAND.text = "<string Name> <string DiseaseID>";
 	COMMAND.access = "s";
 	COMMAND.arguments = 2;
@@ -550,7 +550,7 @@ local COMMAND = Clockwork.command:New("CharTakeDisease");
 COMMAND:Register();
 
 local COMMAND = Clockwork.command:New("CharTakeAllDiseases");
-	COMMAND.tip = "Take all disease from a character.";
+	COMMAND.tip = "Retirer toutes les maladies d'un personnage.";
 	COMMAND.text = "<string Name>";
 	COMMAND.access = "s";
 	COMMAND.arguments = 1;
@@ -570,7 +570,7 @@ local COMMAND = Clockwork.command:New("CharTakeAllDiseases");
 COMMAND:Register();
 
 local COMMAND = Clockwork.command:New("CharGetDiseases");
-	COMMAND.tip = "Display a list of a character's diseases.";
+	COMMAND.tip = "Afficher la liste des maladies d'un personnage.";
 	COMMAND.text = "<string Name>";
 	COMMAND.access = "o";
 	COMMAND.arguments = 1;
@@ -613,7 +613,7 @@ local COMMAND = Clockwork.command:New("CharGetDiseases");
 COMMAND:Register();
 
 local COMMAND = Clockwork.command:New("CharForceVomit");
-COMMAND.tip = "Force a character to vomit.";
+COMMAND.tip = "Forcer un personnage à vomir.";
 COMMAND.text = "<string Name> [bool VomitBlood]";
 COMMAND.access = "s";
 COMMAND.arguments = 1;

@@ -1,4 +1,4 @@
---[[
+﻿--[[
 	Begotten 3: Jesus Wept
 	written by: cash wednesday, DETrooper, gabs and alyousha35.
 --]]
@@ -191,7 +191,7 @@ function Schema:InTower(entity)
 end;
 
 local COMMAND = Clockwork.command:New("StartSound");
-	COMMAND.tip = "Start a loopable/fadeable sound.";
+	COMMAND.tip = "Démarre un son en boucle avec fondu.";
 	COMMAND.flags = CMD_DEFAULT;
 	COMMAND.arguments = 2;
 	COMMAND.access = "s";
@@ -223,7 +223,7 @@ local COMMAND = Clockwork.command:New("StartSound");
 COMMAND:Register();
 
 local COMMAND = Clockwork.command:New("StartSoundGlobal");
-	COMMAND.tip = "Start a loopable/fadeable sound GLOBALLY.";
+	COMMAND.tip = "Démarre un son en boucle/avec fondu à l'échelle GLOBALE.";
 	COMMAND.flags = CMD_DEFAULT;
 	COMMAND.arguments = 1;
 	COMMAND.access = "s";
@@ -246,7 +246,7 @@ local COMMAND = Clockwork.command:New("StartSoundGlobal");
 COMMAND:Register();
 
 local COMMAND = Clockwork.command:New("StartSoundRadius");
-	COMMAND.tip = "Start a loopable/fadeable sound IN A RADIUS.";
+	COMMAND.tip = "Démarre un son en boucle/avec fondu DANS UN RAYON.";
 	COMMAND.flags = CMD_DEFAULT;
 	COMMAND.arguments = 2;
 	COMMAND.access = "s";
@@ -280,7 +280,7 @@ local COMMAND = Clockwork.command:New("StartSoundRadius");
 COMMAND:Register();
 
 local COMMAND = Clockwork.command:New("FadeSound");
-	COMMAND.tip = "Fade a loopable/fadeable sound.";
+	COMMAND.tip = "Fondu d'un son en boucle ou pouvant être fondu.";
 	COMMAND.flags = CMD_DEFAULT;
 	COMMAND.arguments = 2;
 	COMMAND.access = "s";
@@ -304,7 +304,7 @@ local COMMAND = Clockwork.command:New("FadeSound");
 COMMAND:Register();
 
 local COMMAND = Clockwork.command:New("FadeSoundGlobal");
-	COMMAND.tip = "Fade a loopable/fadeable sound GLOBALLY.";
+	COMMAND.tip = "Fondu d'un son en boucle/fondu à l'échelle GLOBALE.";
 	COMMAND.flags = CMD_DEFAULT;
 	COMMAND.arguments = 1;
 	COMMAND.access = "s";
@@ -317,7 +317,7 @@ local COMMAND = Clockwork.command:New("FadeSoundGlobal");
 COMMAND:Register();
 
 local COMMAND = Clockwork.command:New("FadeSoundRadius");
-	COMMAND.tip = "Fade a loopable/fadeable sound IN A RADIUS.";
+	COMMAND.tip = "Fondu d'un son en boucle/avec fondu DANS UN RAYON.";
 	COMMAND.flags = CMD_DEFAULT;
 	COMMAND.arguments = 2;
 	COMMAND.access = "s";
@@ -343,7 +343,7 @@ local COMMAND = Clockwork.command:New("FadeSoundRadius");
 COMMAND:Register();
 
 local COMMAND = Clockwork.command:New("ChangeVolume");
-	COMMAND.tip = "Change the volume on a loopable/fadeable sound.";
+	COMMAND.tip = "Modifie le volume d'un son avec boucle/fondu.";
 	COMMAND.flags = CMD_DEFAULT;
 	COMMAND.arguments = 3;
 	COMMAND.access = "s";
@@ -368,7 +368,7 @@ local COMMAND = Clockwork.command:New("ChangeVolume");
 COMMAND:Register();
 
 local COMMAND = Clockwork.command:New("ChangeVolumeGlobal");
-	COMMAND.tip = "Change the volume on a loopable/fadeable sound GLOBALLY.";
+	COMMAND.tip = "Modifie le volume d'un son en boucle/avec fondu de manière GLOBALE.";
 	COMMAND.flags = CMD_DEFAULT;
 	COMMAND.arguments = 1;
 	COMMAND.access = "s";
@@ -384,7 +384,7 @@ local COMMAND = Clockwork.command:New("ChangeVolumeGlobal");
 COMMAND:Register();
 
 local COMMAND = Clockwork.command:New("ChangeVolumeRadius");
-	COMMAND.tip = "Change the volume on a loopable/fadeable sound IN A RADIUS.";
+	COMMAND.tip = "Modifie le volume d'un son en boucle/avec fondu DANS UN RAYON.";
 	COMMAND.flags = CMD_DEFAULT;
 	COMMAND.arguments = 3;
 	COMMAND.access = "s";
@@ -411,7 +411,7 @@ local COMMAND = Clockwork.command:New("ChangeVolumeRadius");
 COMMAND:Register();
 
 local COMMAND = Clockwork.command:New("ChangePitch");
-	COMMAND.tip = "Change the pitch on a loopable/fadeable sound.";
+	COMMAND.tip = "Modifie la tonalité d'un son pouvant être mis en boucle ou fondu.";
 	COMMAND.flags = CMD_DEFAULT;
 	COMMAND.access = "s";
 	COMMAND.arguments = 3;
@@ -436,7 +436,7 @@ local COMMAND = Clockwork.command:New("ChangePitch");
 COMMAND:Register();
 
 local COMMAND = Clockwork.command:New("ChangePitchGlobal");
-	COMMAND.tip = "Change the pitch on a loopable/fadeable sound GLOBALLY.";
+	COMMAND.tip = "Modifie la hauteur d'un son bouclable/fondu à l'échelle GLOBALE.";
 	COMMAND.flags = CMD_DEFAULT;
 	COMMAND.arguments = 2;
 	COMMAND.access = "s";
@@ -452,7 +452,7 @@ local COMMAND = Clockwork.command:New("ChangePitchGlobal");
 COMMAND:Register();
 
 local COMMAND = Clockwork.command:New("ChangePitchRadius");
-	COMMAND.tip = "Change the pitch on a loopable/fadeable sound IN A RADIUS.";
+	COMMAND.tip = "Modifie la hauteur d'un son en boucle/fondu DANS UN RAYON.";
 	COMMAND.flags = CMD_DEFAULT;
 	COMMAND.arguments = 3;
 	COMMAND.access = "s";

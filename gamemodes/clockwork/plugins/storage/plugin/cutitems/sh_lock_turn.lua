@@ -1,9 +1,9 @@
-local ITEM = Clockwork.item:New();
+﻿local ITEM = Clockwork.item:New();
 	ITEM.name = "Turn Combination Lock";
 	ITEM.model = "models/props_wasteland/prison_padlock001a.mdl";
 	ITEM.weight = 0.5;
 	ITEM.category = "Locks";
-	ITEM.description = "A generic looking turn combination lock with numbers ranging from 0 to 50.";
+	ITEM.description = "Une serrure à combinaison tournante d'apparence générique avec des chiffres allant de 0 à 50.";
 	ITEM.lockType = "turn";
 
 	-- Called when a player drops the item.

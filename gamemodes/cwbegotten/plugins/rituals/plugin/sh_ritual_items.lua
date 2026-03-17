@@ -1,4 +1,4 @@
---[[
+﻿--[[
 	Begotten 3: Jesus Wept
 	written by: cash wednesday, DETrooper, gabs and alyousha35.
 --]]
@@ -9,7 +9,7 @@ local ITEM = Clockwork.item:New();
 	ITEM.iconoverride = "materials/begotten/ui/itemicons/purifying_stone.png";
 	ITEM.weight = 0.1;
 	ITEM.category = "Catalysts";
-	ITEM.description = "A highly luminescent stone that has various purifying properties.";
+	ITEM.description = "Une pierre hautement luminescente dotée de diverses propriétés purificatrices.";
 	ITEM.stackable = true;
 	
 	ITEM.itemSpawnerInfo = {category = "Rituals", rarity = 600, supercrateOnly = true};
@@ -25,9 +25,9 @@ local ITEM = Clockwork.item:New();
 			end
 			
 			player:HandleNeed("corruption", -30);
-			Clockwork.chatBox:Add(player, nil, "itnofake", "You crush the purifying stone in your hand and can immediately feel the corruption leaving your body.");
+			Clockwork.chatBox:Add(player, nil, "itnofake", "Tu écrases la pierre purificatrice dans ta main et ressens immédiatement la corruption quitter ton corps.");
 		else
-			Schema:EasyText(player, "firebrick", "You cannot do this action at this moment.")
+			Schema:EasyText(player, "firebrick", "Vous ne pouvez pas effectuer cette action pour le moment.")
 		end
 	end;
 	
@@ -42,7 +42,7 @@ local ITEM = Clockwork.item:New();
 	ITEM.iconoverride = "materials/begotten/ui/itemicons/up_catalyst.png";
 	ITEM.weight = 0.1;
 	ITEM.category = "Catalysts";
-	ITEM.description = "A large luminescent stone. Barely-visible glyphs appear to be inscribed within.";
+	ITEM.description = "Une grande pierre luminescente. Des glyphes à peine visibles semblent y être gravés.";
 	ITEM.stackable = true;
 
 	ITEM.itemSpawnerInfo = {category = "Rituals", rarity = 75};
@@ -57,7 +57,7 @@ local ITEM = Clockwork.item:New();
 	ITEM.iconoverride = "materials/begotten/ui/itemicons/tortured_spirit.png";
 	ITEM.weight = 0.1;
 	ITEM.category = "Catalysts";
-	ITEM.description = "A glass orb with billowing hot fumes writhing within. Occasionally, the fumes will take the appearance of a screaming face.";
+	ITEM.description = "Une sphère de verre d'où s'échappent des vapeurs brûlantes qui s'agitent à l'intérieur. Parfois, les fumées prennent l'apparence d'un visage hurlant.";
 	ITEM.stackable = true;
 	
 	ITEM.itemSpawnerInfo = {category = "Rituals", rarity = 400, supercrateOnly = true};
@@ -72,7 +72,7 @@ local ITEM = Clockwork.item:New();
 	ITEM.iconoverride = "materials/begotten/ui/itemicons/belphegor_catalyst.png";
 	ITEM.weight = 0.1;
 	ITEM.category = "Catalysts";
-	ITEM.description = "A rounded piece of volcanic rock that is warm to the touch. Pulsating magma can be seen within, forming Satanic signets.";
+	ITEM.description = "Un morceau arrondi de roche volcanique, tiède au contact. On peut y voir du magma palpitant, formant des sceaux sataniques.";
 	ITEM.stackable = true;
 
 	ITEM.itemSpawnerInfo = {category = "Rituals", rarity = 100};
@@ -87,7 +87,7 @@ local ITEM = Clockwork.item:New();
 	ITEM.iconoverride = "materials/begotten/ui/itemicons/xolotl_catalyst.png";
 	ITEM.weight = 0.1;
 	ITEM.category = "Catalysts";
-	ITEM.description = "A large piece of coiled rock. It appears electrically charged.";
+	ITEM.description = "Un gros morceau de roche enroulée. Elle semble chargée électriquement.";
 	ITEM.stackable = true;
 	
 	ITEM.itemSpawnerInfo = {category = "Rituals", rarity = 400, supercrateOnly = true};
@@ -102,7 +102,7 @@ local ITEM = Clockwork.item:New();
 	ITEM.iconoverride = "materials/begotten/ui/itemicons/down_catalyst.png";
 	ITEM.weight = 0.1;
 	ITEM.category = "Catalysts";
-	ITEM.description = "A rounded, crater-covered stone. Large luminescent bolts protrude from different angles, all with barely-visible glyphs within.";
+	ITEM.description = "Une pierre arrondie, criblée de cratères. De gros boulons luminescents en émergent sous différents angles, tous portant des glyphes à peine visibles à l'intérieur.";
 	ITEM.stackable = true;
 
 	ITEM.itemSpawnerInfo = {category = "Rituals", rarity = 75};
@@ -117,7 +117,7 @@ local ITEM = Clockwork.item:New();
 	ITEM.iconoverride = "materials/begotten/ui/itemicons/elysian_catalyst.png";
 	ITEM.weight = 0.1;
 	ITEM.category = "Catalysts";
-	ITEM.description = "A small piece of coiled rock. It appears electrically charged.";
+	ITEM.description = "Un petit morceau de roche enroulé. Il semble chargé électriquement.";
 	ITEM.stackable = true;
 
 	ITEM.itemSpawnerInfo = {category = "Rituals", rarity = 75, bNoSupercrate = true};
@@ -132,7 +132,7 @@ local ITEM = Clockwork.item:New();
 	ITEM.iconoverride = "materials/begotten/ui/itemicons/familial_catalyst.png";
 	ITEM.weight = 0.1;
 	ITEM.category = "Catalysts";
-	ITEM.description = "A chalky sedimentary rock with striking green-red hues. Northern glyphs have been inscribed on it.";
+	ITEM.description = "Une roche sédimentaire crayeuse aux teintes vert-rouge saisissantes. Des glyphes nordiques y ont été gravés.";
 	ITEM.stackable = true;
 
 	ITEM.itemSpawnerInfo = {category = "Rituals", rarity = 100};
@@ -147,7 +147,7 @@ local ITEM = Clockwork.item:New();
 	ITEM.iconoverride = "materials/begotten/ui/itemicons/ice_catalyst.png";
 	ITEM.weight = 0.1;
 	ITEM.category = "Catalysts";
-	ITEM.description = "A cold orb surrounded by small icicles.";
+	ITEM.description = "Une sphère glacée entourée de petits glaçons.";
 	ITEM.stackable = true;
 
 	ITEM.itemSpawnerInfo = {category = "Rituals", rarity = 150};
@@ -162,7 +162,7 @@ local ITEM = Clockwork.item:New();
 	ITEM.iconoverride = "materials/begotten/ui/itemicons/light_catalyst.png";
 	ITEM.weight = 0.1;
 	ITEM.category = "Catalysts";
-	ITEM.description = "A deformed gold-tinted stone. It is inscribed with glyphs of Light.";
+	ITEM.description = "Une pierre déformée aux reflets dorés. Elle est gravée de glyphes de Lumière.";
 	ITEM.stackable = true;
 	
 	ITEM.itemSpawnerInfo = {category = "Rituals", rarity = 100};
@@ -177,7 +177,7 @@ local ITEM = Clockwork.item:New();
 	ITEM.iconoverride = "materials/begotten/ui/itemicons/pantheistic_catalyst.png";
 	ITEM.weight = 0.1;
 	ITEM.category = "Catalysts";
-	ITEM.description = "A waxy round orb, an energized crystal forming a Northern signet.";
+	ITEM.description = "Un orbe cireux et rond, un cristal énergisé formant un sceau du Nord.";
 	ITEM.stackable = true;
 
 	ITEM.itemSpawnerInfo = {category = "Rituals", rarity = 100};
@@ -193,7 +193,7 @@ local ITEM = Clockwork.item:New();
 	ITEM.iconoverride = "materials/begotten/ui/itemicons/pentagram_catalyst.png";
 	ITEM.weight = 0.1;
 	ITEM.category = "Catalysts";
-	ITEM.description = "A glowing red crystal formation, with numerous Satanic signets inscribed within.";
+	ITEM.description = "Une formation de cristal rouge incandescent, ornée de nombreux sceaux sataniques gravés à l'intérieur.";
 	ITEM.stackable = true;
 	
 	ITEM.itemSpawnerInfo = {category = "Rituals", rarity = 400, supercrateOnly = true};
@@ -209,7 +209,7 @@ local ITEM = Clockwork.item:New();
 	ITEM.iconoverride = "materials/begotten/ui/itemicons/holy_spirit.png";
 	ITEM.weight = 0.1;
 	ITEM.category = "Catalysts";
-	ITEM.description = "A glass orb with white-hot billowing fumes writhing within. Occasionally, the fumes form the face of a majestic man.";
+	ITEM.description = "Un orbe de verre où tourbillonnent des fumées incandescentes. Parfois, ces fumées dessinent le visage d'un homme majestueux.";
 	ITEM.stackable = true;
 	
 	ITEM.itemSpawnerInfo = {category = "Rituals", rarity = 400, supercrateOnly = true};
@@ -225,7 +225,7 @@ local ITEM = Clockwork.item:New();
 	ITEM.iconoverride = "materials/begotten/ui/itemicons/trinity_catalyst.png";
 	ITEM.weight = 0.1;
 	ITEM.category = "Catalysts";
-	ITEM.description = "A deformed gold-tinted stone, with a large hollowed centre surrounded by thin tendrils. It is inscribed with glyphs of Light.";
+	ITEM.description = "Une pierre déformée aux reflets dorés, avec un large centre creux entouré de fins filaments. Elle est gravée de glyphes de Lumière.";
 	ITEM.stackable = true;
 
 	-- Called when a player drops the item.
@@ -241,7 +241,7 @@ local ITEM = Clockwork.item:New();
 	ITEM.iconoverride = "materials/begotten/ui/itemicons/art_ftoneflower.png";
 	ITEM.weight = 0.1;
 	ITEM.category = "Catalysts";
-	ITEM.description = "A sigil stone that makes you feel guilty for simply being alive when held in your hand.";
+	ITEM.description = "Une pierre sigillaire qui, tenue en main, vous fait ressentir de la culpabilité pour le simple fait d'être en vie.";
 	ITEM.stackable = true;
 
 	-- Called when a player drops the item.
@@ -257,7 +257,7 @@ local ITEM = Clockwork.item:New();
 	ITEM.iconoverride = "materials/begotten/ui/itemicons/art_stoneblood.png";
 	ITEM.weight = 0.1;
 	ITEM.category = "Catalysts";
-	ITEM.description = "A sigil stone that burns furiously in your hand.";
+	ITEM.description = "Une pierre sigillaire qui brûle furieusement dans votre main.";
 	ITEM.stackable = true;	
 	
 	-- Called when a player drops the item.
@@ -273,7 +273,7 @@ local ITEM = Clockwork.item:New();
 	ITEM.iconoverride = "materials/begotten/ui/itemicons/art_moldfish.png";
 	ITEM.weight = 0.1;
 	ITEM.category = "Catalysts";
-	ITEM.description = "A sigil stone that saps the air with an unbearable chill.";
+	ITEM.description = "Une pierre sigillaire qui draine l'air d'un froid insupportable.";
 	ITEM.stackable = true;
 
 	-- Called when a player drops the item.
@@ -289,7 +289,7 @@ local ITEM = Clockwork.item:New();
 	ITEM.iconoverride = "materials/begotten/ui/itemicons/art_mammasbeads.png";
 	ITEM.weight = 0.1;
 	ITEM.category = "Catalysts";
-	ITEM.description = "A sigil stone that bedazzles onlookers with a strong sense of envy and awe.";
+	ITEM.description = "Une pierre sigillaire qui éblouit les spectateurs d'un puissant sentiment d'envie et d'admiration.";
 	ITEM.stackable = true;
 
 	-- Called when a player drops the item.
@@ -305,7 +305,7 @@ local ITEM = Clockwork.item:New();
 	ITEM.iconoverride = "materials/begotten/ui/itemicons/art_slug.png";
 	ITEM.weight = 0.1;
 	ITEM.category = "Catalysts";
-	ITEM.description = "A sigil stone that is utterly repulsive to anyone with even the slightest notion of purity.";
+	ITEM.description = "Une pierre sigillaire qui inspire une répulsion totale à quiconque possède la moindre notion de pureté.";
 	ITEM.stackable = true;
 
 	-- Called when a player drops the item.
@@ -321,7 +321,7 @@ local ITEM = Clockwork.item:New();
 	ITEM.iconoverride = "materials/begotten/ui/itemicons/art_firefly.png";
 	ITEM.weight = 0.1;
 	ITEM.category = "Catalysts";
-	ITEM.description = "A sigil stone made from aspects of vengeance.";
+	ITEM.description = "Une pierre sigillaire forgée à partir d'aspects de la vengeance.";
 	ITEM.stackable = true;
 
 	-- Called when a player drops the item.

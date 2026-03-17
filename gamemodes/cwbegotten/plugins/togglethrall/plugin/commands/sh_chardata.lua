@@ -1,5 +1,5 @@
-local COMMAND = Clockwork.command:New("ToggleThrall");
-	COMMAND.tip = "Toggles whether or not you will die like a thrall on death. You can use this on other players, but generally you shouldn't.";
+﻿local COMMAND = Clockwork.command:New("ToggleThrall");
+	COMMAND.tip = "Active ou désactive la mort en tant que thrall. Vous pouvez l'utiliser sur d'autres joueurs, mais généralement, vous ne devriez pas.";
 	COMMAND.text = "[string Character Name]";
 	COMMAND.access = "s";
 	COMMAND.alias = {"PlySetData"};

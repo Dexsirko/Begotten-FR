@@ -1,4 +1,4 @@
-local warmthTexts = {"Freezing to Death", "Really Cold", "Getting Cold", "Warm", "Temperature is a measure of one's exposure to the cold and body temperature. Becoming too cold will result in a variety of maluses such as reduced movement speed and increased hunger and fatigue gain, eventually leading to death."};
+﻿local warmthTexts = {"Freezing to Death", "Really Cold", "Getting Cold", "Warm", "Temperature is a measure of one's exposure to the cold and body temperature. Becoming too cold will result in a variety of maluses such as reduced movement speed and increased hunger and fatigue gain, eventually leading to death."};
 
 function cwWarmth:LerpColor(fraction, from, to)
     if(!IsColor(from) or !IsColor(to)) then return; end
@@ -32,7 +32,7 @@ function cwWarmth:AddStatusIcons(iconFrame)
 	iconFrame.iconTemperature:SetPos(36, 320);
 	iconFrame.iconTemperature:SetImage("begotten/ui/othericons/thermometer.png");
 	iconFrame.iconTemperature.text = vgui.Create("DLabel", iconFrame);
-	iconFrame.iconTemperature.text:SetText("100%");
+	iconFrame.iconTemperature.text:SetText("100 %");
 	iconFrame.iconTemperature.text:SetTextColor(Color(160, 145, 145));
 	iconFrame.iconTemperature.text:SetFont("nov_IntroTextSmallDETrooper");
 	iconFrame.iconTemperature.text:SetPos(100, 336);

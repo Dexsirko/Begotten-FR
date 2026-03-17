@@ -1,4 +1,4 @@
---[[
+﻿--[[
 	Begotten III: Jesus Wept
 	By: DETrooper, cash wednesday, gabs, alyousha35
 
@@ -6,7 +6,7 @@
 --]]
 
 local COMMAND = Clockwork.command:New();
-COMMAND.tip = "Set your radio frequency, or a stationary radio's frequency.";
+COMMAND.tip = "Définis la fréquence de ta radio, ou celle d'une radio fixe.";
 COMMAND.flags = CMD_DEFAULT;
 COMMAND.arguments = 1;
 
@@ -19,7 +19,7 @@ function COMMAND:OnRun(player, arguments)
 		if (trace.HitPos:Distance( player:GetShootPos() ) <= 192) then
 			radio = trace.Entity;
 		else
-			Clockwork.player:Notify(player, "This stationary radio is too far away!");
+			Clockwork.player:Notify(player, "Cette radio fixe est trop éloignée !");
 			
 			return;
 		end;
@@ -38,24 +38,24 @@ function COMMAND:OnRun(player, arguments)
 			if (radio) then
 				trace.Entity:SetFrequency(frequency);
 				
-				Clockwork.player:Notify(player, "You have set this stationary radio's frequency to "..frequency..".");
+				Clockwork.player:Notify(player, "Vous avez réglé la fréquence de cette radio fixe sur"..frequency..".");
 			else
 				player:SetCharacterData("frequency", frequency);
 				
-				Clockwork.player:Notify(player, "You have set your radio frequency to "..frequency..".");
+				Clockwork.player:Notify(player, "Vous avez réglé votre fréquence radio sur"..frequency..".");
 			end;
 		else
-			Clockwork.player:Notify(player, "The radio frequency must be between 101.1 and 199.9!");
+			Clockwork.player:Notify(player, "La fréquence radio doit être comprise entre 101.1 et 199.9 !");
 		end;
 	else
-		Clockwork.player:Notify(player, "The radio frequency must look like xxx.x!");
+		Clockwork.player:Notify(player, "La fréquence radio doit ressembler à xxx.x !");
 	end;
 end;
 
 Clockwork.command:Register(COMMAND, "SetFreq");
 
 local COMMAND = Clockwork.command:New();
-COMMAND.tip = "Set a radio to be indestructible so it cannot be destroyed or have its frequency changed by non-admins.";
+COMMAND.tip = "Définir une radio comme indestructible pour qu'elle ne puisse être détruite ou voir sa fréquence modifiée par les non-administrateurs.";
 COMMAND.access = "s"
 
 -- Called when the command has been run.

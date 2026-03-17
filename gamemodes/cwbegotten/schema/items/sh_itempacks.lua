@@ -1,11 +1,11 @@
-local ITEM = Clockwork.item:New();
+﻿local ITEM = Clockwork.item:New();
 	ITEM.name = "Gatekeeper Standard Issue";
 	ITEM.model = "models/vj_props/duffle_bag.mdl";
 	ITEM.useText = "Open";
 	ITEM.uniqueID = "gatekeeper_standard_issue";
 	ITEM.useSound = "npc/combine_soldier/zipline_hitground1.wav";
 	ITEM.category = "Other";
-	ITEM.description = "A duffel bag containing equipment standard to that of the Gatekeeper Order.";
+	ITEM.description = "Un sac de sport contenant l'équipement standard de l'Ordre du Gardien.";
 	ITEM.weight = 5;
 	ITEM.randomWeapons = {"begotten_1h_brokensword", "begotten_1h_pipemace", "begotten_1h_spikedbat", "begotten_1h_spikedboard", "begotten_spear_pitchfork"};
 
@@ -63,7 +63,7 @@ local ITEM = Clockwork.item:New();
 	ITEM.uniqueID = "renegade_gatekeeper_standard_issue";
 	ITEM.useSound = "npc/combine_soldier/zipline_hitground1.wav";
 	ITEM.category = "Other";
-	ITEM.description = "A duffel bag containing equipment standard to that of Pope Adyssa's Gatekeeper Order.";
+	ITEM.description = "Un sac de sport contenant l'équipement standard de l'Ordre du Gardien du Pape Adyssa.";
 	ITEM.weight = 5;
 	ITEM.randomWeapons = {"begotten_1h_pipemace", "begotten_1h_scrapblade", "begotten_spear_scrapspear", "begotten_1h_bladedbat", "begotten_2h_great_sledge"};
 
@@ -96,7 +96,7 @@ local ITEM = Clockwork.item:New();
 	ITEM.uniqueID = "hillkeeper_standard_issue";
 	ITEM.useSound = "npc/combine_soldier/zipline_hitground1.wav";
 	ITEM.category = "Other";
-	ITEM.description = "A thinly sewn pouch containing equipment standard to that of the Hillkeepers.";
+	ITEM.description = "Une poche finement cousue contenant l'équipement standard des Gardiens des Collines.";
 	ITEM.weight = 5;
 	ITEM.randomWeapons = {"begotten_1h_brokensword", "begotten_1h_pipemace", "begotten_1h_spikedbat", "begotten_1h_spikedboard", "begotten_spear_pitchfork"};
 

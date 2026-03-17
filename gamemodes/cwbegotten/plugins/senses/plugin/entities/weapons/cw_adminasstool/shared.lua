@@ -1,4 +1,4 @@
---[[
+﻿--[[
 	Begotten 3
 	Created by cash wednesday, gabs, DETrooper and alyousha35
 --]]
@@ -15,7 +15,7 @@ if (CLIENT) then
 	SWEP.DrawCrosshair = true;
 end
 
-SWEP.Instructions = "Primary Fire: Toggle";
+SWEP.Instructions = "Tir principal : Basculer";
 SWEP.Purpose = "Sex.";
 SWEP.Contact = "";
 SWEP.Author	= "";

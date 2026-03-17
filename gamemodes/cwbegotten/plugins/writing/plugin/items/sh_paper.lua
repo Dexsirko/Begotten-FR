@@ -1,4 +1,4 @@
---[[
+﻿--[[
 	Begotten III: Jesus Wept
 	By: DETrooper, cash wednesday, gabs, alyousha35
 
@@ -13,7 +13,7 @@ ITEM.model = "models/items/magic/scrolls/scroll_rolled.mdl";
 ITEM.weight = 0.25;
 ITEM.category = "Tools";
 ITEM.stackable = true;
-ITEM.description = "A blank piece of paper, likely procured by the Hierarchy. It can be used to write on.";
+ITEM.description = "Une feuille de papier vierge, probablement obtenue par la Hiérarchie. Elle peut être utilisée pour écrire dessus.";
 ITEM.iconoverride = "materials/begotten/ui/itemicons/scroll.png";
 ITEM.fireplaceFuel = 30;
 
@@ -50,7 +50,7 @@ function ITEM:OnUse(player, itemEntity)
 			Clockwork.entity:MakeFlushToGround(entity, trace.HitPos, trace.HitNormal);
 		end;
 	else
-		Schema:EasyText(player, "firebrick", "You cannot drop paper that far away!");
+		Schema:EasyText(player, "firebrick", "Vous ne pouvez pas lâcher le papier aussi loin !");
 		
 		return false;
 	end;

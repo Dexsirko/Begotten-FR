@@ -1,4 +1,4 @@
---[[
+﻿--[[
 	Begotten 3: Jesus Wept
 	written by: cash wednesday, DETrooper, gabs and alyousha35.
 --]]
@@ -343,7 +343,7 @@ function Schema:EntityHandleMenuOption(player, entity, option, arguments)
 							cwDeathCauses:DeathCauseOverride(entity, "Sold into slavery by "..playerName..".");
 						end
 						
-						Schema:EasyText(entity, "firebrick", "You have been sold into slavery by "..playerName.."!");
+						Schema:EasyText(entity, "firebrick", "Tu as été vendu en esclavage par"..playerName.."!");
 						entity:KillSilent();
 						
 						if IsValid(entity:GetRagdollEntity()) then
@@ -361,10 +361,10 @@ function Schema:EntityHandleMenuOption(player, entity, option, arguments)
 					if v:GetClass() == "cw_salesman" and v:GetNetworkedString("Name") == "The Headsman" then
 						if entFaction == "Children of Satan" then
 							Clockwork.player:GiveCash(player, entity:GetCharacterData("level", 1) * 60, "Sold Slave");
-							Schema:EasyText(player, "lawngreen", "You have received a three times bonus for selling a captured Children of Satan!")
+							Schema:EasyText(player, "lawngreen", "Vous avez reçu un bonus triple pour avoir vendu un membre capturé des Enfants de Satan !")
 						elseif entFaction == "Goreic Warrior" then
 							Clockwork.player:GiveCash(player, entity:GetCharacterData("level", 1) * 40, "Sold Slave");
-							Schema:EasyText(player, "lawngreen", "You have received a two times bonus for selling a captured Goreic Warrior!")
+							Schema:EasyText(player, "lawngreen", "Vous avez reçu un bonus doublé pour avoir vendu un Guerrier Goréique capturé !")
 						else
 							Clockwork.player:GiveCash(player, entity:GetCharacterData("level", 1) * 20, "Sold Slave");
 						end
@@ -401,7 +401,7 @@ function Schema:EntityHandleMenuOption(player, entity, option, arguments)
 							cwDeathCauses:DeathCauseOverride(entity, "Sold into slavery by "..playerName..".");
 						end
 						
-						Schema:EasyText(entity, "firebrick", "You have been sold into slavery by "..playerName.."!");
+						Schema:EasyText(entity, "firebrick", "Vous avez été vendu en esclavage par"..playerName.."!");
 						entity:KillSilent();
 						
 						if IsValid(entity:GetRagdollEntity()) then
@@ -471,7 +471,7 @@ function Schema:EntityHandleMenuOption(player, entity, option, arguments)
 						cwDeathCauses:DeathCauseOverride(entity, "Turned in by "..playerName..".");
 					end
 					
-					Schema:EasyText(entity, "firebrick", "You have been turned in by "..playerName.."!");
+					Schema:EasyText(entity, "firebrick", "Vous avez été dénoncé par"..playerName.."!");
 					entity:RemoveBounty();
 					entity:KillSilent();
 					
@@ -563,7 +563,7 @@ function Schema:EntityHandleMenuOption(player, entity, option, arguments)
 								cwDeathCauses:DeathCauseOverride(entityPlayer, "Sold into slavery by "..playerName..".");
 							end
 							
-							Schema:EasyText(entityPlayer, "firebrick", "You have been sold into slavery by "..playerName.."!");
+							Schema:EasyText(entityPlayer, "firebrick", "Vous avez été vendu en esclavage par"..playerName.."!");
 							entityPlayer:KillSilent();
 							
 							if IsValid(entity) then
@@ -582,10 +582,10 @@ function Schema:EntityHandleMenuOption(player, entity, option, arguments)
 
 							if entFaction == "Children of Satan" then
 								Clockwork.player:GiveCash(player, entityPlayer:GetCharacterData("level", 1) * 60, "Sold Slave");
-								Schema:EasyText(player, "lawngreen", "You have received a three times bonus for selling a captured Children of Satan!")
+								Schema:EasyText(player, "lawngreen", "Vous avez reçu un bonus triple pour avoir vendu un membre capturé des Enfants de Satan !")
 							elseif entFaction == "Goreic Warrior" then
 								Clockwork.player:GiveCash(player, entityPlayer:GetCharacterData("level", 1) * 40, "Sold Slave");
-								Schema:EasyText(player, "lawngreen", "You have received a two times bonus for selling a captured Goreic Warrior!")
+								Schema:EasyText(player, "lawngreen", "Vous avez reçu un bonus doublé pour avoir vendu un Guerrier Goréique capturé !")
 							else
 								Clockwork.player:GiveCash(player, entityPlayer:GetCharacterData("level", 1) * 20, "Sold Slave");
 							end
@@ -620,7 +620,7 @@ function Schema:EntityHandleMenuOption(player, entity, option, arguments)
 								cwDeathCauses:DeathCauseOverride(entityPlayer, "Sold into slavery by "..playerName..".");
 							end
 							
-							Schema:EasyText(entityPlayer, "firebrick", "You have been sold into slavery by "..playerName.."!");
+							Schema:EasyText(entityPlayer, "firebrick", "Tu as été vendu en esclavage par"..playerName.."!");
 							entityPlayer:KillSilent();
 							
 							if IsValid(entityPlayer:GetRagdollEntity()) then
@@ -696,7 +696,7 @@ function Schema:EntityHandleMenuOption(player, entity, option, arguments)
 								cwDeathCauses:DeathCauseOverride(entityPlayer, "Turned in by "..playerName..".");
 							end
 							
-							Schema:EasyText(entityPlayer, "firebrick", "You have been turned in by "..playerName.."!");
+							Schema:EasyText(entityPlayer, "firebrick", "Vous avez été dénoncé par"..playerName.."!");
 							entityPlayer:KillSilent();
 						
 							Schema:PermaKillPlayer(entityPlayer, nil, true);
@@ -782,15 +782,15 @@ function Schema:EntityHandleMenuOption(player, entity, option, arguments)
 					if (start == 1 and finish > 0 and finish < 10 and decimal > 0 and decimal < 10) then
 						entity:SetFrequency(arguments);
 						
-						Schema:EasyText(player, "olivedrab", "You have set this stationary radio's arguments to "..arguments..".");
+						Schema:EasyText(player, "olivedrab", "Vous avez défini les arguments de cette radio fixe sur"..arguments..".");
 					else
-						Schema:EasyText(player, "peru", "The radio arguments must be between 101.1 and 199.9!");
+						Schema:EasyText(player, "peru", "Les arguments de la radio doivent être compris entre 101.1 et 199.9 !");
 					end;
 				else
-					Schema:EasyText(player, "peru", "The radio arguments must look like xxx.x!");
+					Schema:EasyText(player, "peru", "Les arguments de la radio doivent ressembler à xxx.x !");
 				end;
 			else
-				Schema:EasyText(player, "peru", "This radio cannot be tampered with!");
+				Schema:EasyText(player, "peru", "Cette radio ne peut pas être modifiée !");
 			end;
 		elseif (arguments == "cw_radioToggle") then
 			entity:Toggle();
@@ -805,7 +805,7 @@ function Schema:EntityHandleMenuOption(player, entity, option, arguments)
 					entity:Remove();
 				end;
 			else
-				Schema:EasyText(player, "peru", "This radio cannot be tampered with!");
+				Schema:EasyText(player, "peru", "Cette radio ne peut pas être modifiée !");
 			end
 		end
 	elseif ((arguments == "cwUntieCinderBlock" and entity:GetNWBool("BIsCinderBlock") == true) or IsValid(entity:GetNWEntity("CinderBlock"))) then
@@ -917,7 +917,7 @@ function Schema:EntityHandleMenuOption(player, entity, option, arguments)
 					if !entity.condition or entity.condition > 0 then
 						entity:SetTrap();
 					else
-						Schema:EasyText(player, "peru", "This bear trap has sustained too much damage and cannot be reset!");
+						Schema:EasyText(player, "peru", "Ce piège à ours a subi trop de dégâts et ne peut plus être réarmé !");
 					end
 				end
 			end
@@ -1125,7 +1125,7 @@ function Schema:ShowSpare1(player)
 				if player:GetMoveType() == MOVETYPE_WALK then
 					for k, v in pairs(ents.FindInSphere(player:GetPos(), Clockwork.config:Get("talk_radius"):Get() * 2)) do
 						if v:IsPlayer() and v:Alive() then
-							Clockwork.chatBox:Add(v, player, "me", "starts untying "..Clockwork.player:FormatRecognisedText(v, "%s", target)..".");
+							Clockwork.chatBox:Add(v, player, "me", "commence à se détacher"..Clockwork.player:FormatRecognisedText(v, "%s", target)..".");
 						end
 					end
 				end
@@ -1154,7 +1154,7 @@ function Schema:ShowSpare1(player)
 	local itemTable = player:FindItemByID("bindings");
 	
 	if (!itemTable) then
-		Schema:EasyText(player, "chocolate", "You have nothing to tie with!");
+		Schema:EasyText(player, "chocolate", "Tu n'as rien pour attacher !");
 		
 		return;
 	end;
@@ -1260,7 +1260,7 @@ end;
 -- Called when a player spawns an object.
 function Schema:PlayerSpawnObject(player)
 	if (player:GetNetVar("tied") != 0) then
-		Schema:EasyText(player, "firebrick", "You don't have permission to do this right now!");
+		Schema:EasyText(player, "firebrick", "Vous n'avez pas la permission de faire cela pour le moment !");
 		
 		return false;
 	end;
@@ -1374,7 +1374,7 @@ function Schema:KeyPress(player, key)
 		if (action == "reloading") or (action == "mutilating") or (action == "skinning") or (action == "building") then
 			Clockwork.player:SetAction(player, nil);
 		elseif (action == "bloodTest") then
-			Clockwork.chatBox:AddInTargetRadius(player, "me", "stops the blood test.", player:GetPos(), config.Get("talk_radius"):Get() * 2);
+			Clockwork.chatBox:AddInTargetRadius(player, "me", "arrête le test sanguin.", player:GetPos(), config.Get("talk_radius"):Get() * 2);
 			Clockwork.player:SetAction(player, nil);
 		end
 	end;
@@ -1959,7 +1959,7 @@ function Schema:PlayerThink(player, curTime, infoTable, alive, initialized, plyT
 						if (!plyTab.lastClumsyFallen or plyTab.lastClumsyFallen < curTime) then
 							if (math.random(1, 20) == 20) then
 								Clockwork.player:SetRagdollState(player, RAGDOLL_FALLENOVER, math.random(3, 5));
-								Clockwork.chatBox:AddInTargetRadius(player, "me", "trips and falls like a fucking idiot!", player:GetPos(), config.Get("talk_radius"):Get() * 2);
+								Clockwork.chatBox:AddInTargetRadius(player, "me", "trébuche et tombe comme un putain d'idiot !", player:GetPos(), config.Get("talk_radius"):Get() * 2);
 							
 								if (cwContainerHiding) then
 									local sound = table.Random(cwContainerHiding.startleSounds["female"]);
@@ -1989,7 +1989,7 @@ function Schema:PlayerThink(player, curTime, infoTable, alive, initialized, plyT
 									thirdPerson = "her";
 								end
 							
-								Clockwork.chatBox:AddInTargetRadius(player, "me", "bungles "..thirdPerson.." attempt to reload, fumbling "..thirdPerson.." shot!", player:GetPos(), config.Get("talk_radius"):Get() * 2);
+								Clockwork.chatBox:AddInTargetRadius(player, "me", "bungles"..thirdPerson.." attempt to reload, fumbling "..thirdPerson.." shot!", player:GetPos(), config.Get("talk_radius"):Get() * 2);
 								Clockwork.player:SetAction(player, false);
 							end
 						elseif action == "heal" or action == "healing" then
@@ -2000,7 +2000,7 @@ function Schema:PlayerThink(player, curTime, infoTable, alive, initialized, plyT
 									thirdPerson = "her";
 								end
 							
-								Clockwork.chatBox:AddInTargetRadius(player, "me", "bungles "..thirdPerson.." attempt to heal and has to start over!", player:GetPos(), config.Get("talk_radius"):Get() * 2);
+								Clockwork.chatBox:AddInTargetRadius(player, "me", "bungles"..thirdPerson.." attempt to heal and has to start over!", player:GetPos(), config.Get("talk_radius"):Get() * 2);
 								Clockwork.player:SetAction(player, false);
 							end
 						end
@@ -2355,7 +2355,7 @@ function Schema:PlayerCanUseCommand(player, commandTable, arguments)
 		};
 		
 		if (table.HasValue(blacklisted, commandTable.name)) then
-			Schema:EasyText(player, "firebrick", "You cannot use this command when you are tied!");
+			Schema:EasyText(player, "firebrick", "Vous ne pouvez pas utiliser cette commande lorsque vous êtes attaché !");
 			
 			return false;
 		end;
@@ -2423,7 +2423,7 @@ function Schema:PlayerCanUseDoor(player, door)
 				if !player.nextDoorNotify or player.nextDoorNotify < curTime then
 					player.nextDoorNotify = curTime + 1;
 				
-					Schema:EasyText(player, "firebrick", "You aren't the correct faction to open this blastdoor!");
+					Schema:EasyText(player, "firebrick", "Vous n'êtes pas de la bonne faction pour ouvrir cette porte blindée !");
 				end
 				
 				return false;
@@ -2437,7 +2437,7 @@ function Schema:PlayerCanUseDoor(player, door)
 						if !player.nextDoorNotify or player.nextDoorNotify < curTime then
 							player.nextDoorNotify = curTime + 1;
 						
-							Schema:EasyText(player, "firebrick", "You aren't a high enough rank to open this blastdoor!");
+							Schema:EasyText(player, "firebrick", "Vous n'avez pas un rang suffisamment élevé pour ouvrir cette porte blindée !");
 						end
 					
 						return false;
@@ -2453,7 +2453,7 @@ function Schema:PlayerCanUseDoor(player, door)
 				if !player.nextDoorNotify or player.nextDoorNotify < curTime then
 					player.nextDoorNotify = curTime + 1;
 				
-					Schema:EasyText(player, "firebrick", "You aren't the correct faction to open this blastdoor!");
+					Schema:EasyText(player, "firebrick", "Vous n'êtes pas de la faction autorisée à ouvrir cette porte blindée !");
 				end
 				
 				return false;
@@ -2467,7 +2467,7 @@ function Schema:PlayerCanUseDoor(player, door)
 				if !player.nextDoorNotify or player.nextDoorNotify < curTime then
 					player.nextDoorNotify = curTime + 1;
 				
-					Schema:EasyText(player, "firebrick", "You aren't the correct faction to open this blastdoor!");
+					Schema:EasyText(player, "firebrick", "Vous n'êtes pas de la faction autorisée à ouvrir cette porte blindée !");
 				end
 				
 				return false;
@@ -2480,7 +2480,7 @@ function Schema:PlayerCanUseDoor(player, door)
 				if !player.nextDoorNotify or player.nextDoorNotify < curTime then
 					player.nextDoorNotify = curTime + 1;
 				
-					Schema:EasyText(player, "firebrick", "You aren't the correct faction to open this blastdoor!");
+					Schema:EasyText(player, "firebrick", "Vous n'êtes pas de la bonne faction pour ouvrir cette porte blindée !");
 				end
 			
 				return false;
@@ -2489,7 +2489,7 @@ function Schema:PlayerCanUseDoor(player, door)
 			if player:GetSubfaith() ~= "Voltism" then
 				Schema:DoTesla(player, true);
 				player:TakeStability(player:GetMaxStability() * 3, nil, true);
-				Clockwork.chatBox:AddInTargetRadius(player, "me", "is sent to the ground by an arc of electricity!", player:GetPos(), Clockwork.config:Get("talk_radius"):Get() * 2);
+				Clockwork.chatBox:AddInTargetRadius(player, "me", "est projeté au sol par un arc électrique !", player:GetPos(), Clockwork.config:Get("talk_radius"):Get() * 2);
 				
 				return false;
 			end
@@ -2511,7 +2511,7 @@ function Schema:PlayerCharacterUnloaded(player) end;
 -- Called when a player attempts to change class.
 function Schema:PlayerCanChangeClass(player, class)
 	if (player:GetNetVar("tied") != 0) then
-		Schema:EasyText(player, "peru", "You cannot change classes when you are tied!");
+		Schema:EasyText(player, "peru", "Vous ne pouvez pas changer de classe lorsque vous êtes attaché !");
 		
 		return false;
 	end;
@@ -2533,7 +2533,7 @@ function Schema:PlayerUse(player, entity)
 		end;
 		
 		if (!player.nextTieNotify or player.nextTieNotify < curTime) then
-			Schema:EasyText(player, "peru", "You cannot use that when you are tied!");
+			Schema:EasyText(player, "peru", "Tu ne peux pas utiliser ça quand tu es attaché !");
 			
 			player.nextTieNotify = curTime + 2;
 		end;
@@ -2546,7 +2546,7 @@ end;
 function Schema:PlayerCanDestroyItem(player, itemTable, noMessage)
 	if (player:GetNetVar("tied") != 0) then
 		if (!noMessage) then
-			Schema:EasyText(player, "peru", "You cannot destroy items when you are tied!");
+			Schema:EasyText(player, "peru", "Vous ne pouvez pas détruire d'objets lorsque vous êtes attaché !");
 		end;
 		
 		return false;
@@ -2557,7 +2557,7 @@ end;
 function Schema:PlayerCanDropItem(player, itemTable, noMessage)
 	if (player:GetNetVar("tied") != 0) then
 		if (!noMessage) then
-			Schema:EasyText(player, "peru", "You cannot drop items when you are tied!");
+			Schema:EasyText(player, "peru", "Vous ne pouvez pas lâcher d'objets quand vous êtes attaché !");
 		end;
 		
 		return false;
@@ -2565,7 +2565,7 @@ function Schema:PlayerCanDropItem(player, itemTable, noMessage)
 	
 	if (player.scriptedDying) then
 		if (!noMessage) then
-			Schema:EasyText(player, "peru", "You cannot drop items while you are dying!");
+			Schema:EasyText(player, "peru", "Vous ne pouvez pas lâcher d'objets pendant que vous êtes en train de mourir !");
 		end
 		
 		return false;
@@ -2576,7 +2576,7 @@ end;
 function Schema:PlayerCanUseItem(player, itemTable, noMessage)
 	if (player:GetNetVar("tied") != 0) then
 		if (!noMessage) then
-			Schema:EasyText(player, "peru", "You cannot use items when you are tied!");
+			Schema:EasyText(player, "peru", "Vous ne pouvez pas utiliser d'objets lorsque vous êtes attaché !");
 		end;
 		
 		return false;
@@ -2584,7 +2584,7 @@ function Schema:PlayerCanUseItem(player, itemTable, noMessage)
 	
 	if (player.scriptedDying) then
 		if (!noMessage) then
-			Schema:EasyText(player, "peru", "You cannot use items while you are dying!");
+			Schema:EasyText(player, "peru", "Vous ne pouvez pas utiliser d'objets pendant que vous êtes en train de mourir !");
 		end
 		
 		return false;
@@ -2595,7 +2595,7 @@ function Schema:PlayerCanUseItem(player, itemTable, noMessage)
 		
 		if clothesItem and clothesItem.permanent and player:GetSubfaith() == "Voltism" then
 			if (!noMessage) then
-				Schema:EasyText(player, "peru", "You cannot use a thermal implant while using an exoskeleton!");
+				Schema:EasyText(player, "peru", "Vous ne pouvez pas utiliser un implant thermique en portant un exosquelette !");
 			end
 			
 			return false;
@@ -2615,7 +2615,7 @@ function Schema:PlayerUseItem(player, itemTable, itemEntity)
 				if !player:GetCharacterData("VoltistNameChanged") then
 					Clockwork.dermaRequest:RequestString(player, "Ascension Name Change", "What do you want to change your name to?", player:GetName(), function(result)
 						if result:len() < 6 then
-							Schema:EasyText(player, "peru", "This name is too short!");
+							Schema:EasyText(player, "peru", "Ce nom est trop court !");
 							
 							return;
 						end
@@ -2636,7 +2636,7 @@ function Schema:PlayerUseItem(player, itemTable, itemEntity)
 							local blacklistedName = blacklistedNames[i];
 						
 							if string.find(string.lower(result), blacklistedName) then
-								Schema:EasyText(player, "peru", "This name contains a blacklisted string!");
+								Schema:EasyText(player, "peru", "Ce nom contient une chaîne de caractères interdite !");
 							
 								return;
 							end
@@ -2767,7 +2767,7 @@ function Schema:ChatBoxAdjustInfo(info)
 				else
 					info.text = "";
 						
-					Schema:EasyText(info.speaker, "grey", "Your character is slow and cannot formulate another sentence for another "..math.ceil(info.speaker.nextChatDelay - CurTime()).." second(s)!");
+					Schema:EasyText(info.speaker, "grey", "Votre personnage est lent et ne peut formuler une autre phrase avant"..math.ceil(info.speaker.nextChatDelay - CurTime()).." second(s)!");
 					
 					return false;
 				end;
@@ -2872,10 +2872,10 @@ function Schema:PlayerDeath(player, inflictor, attacker, damageInfo)
 						end
 					end
 					
-					Clockwork.chatBox:AddInTargetRadius(attacker, "me", "strikes down "..player:Name().." as a sacrifice. Their blood seeps into the ground beneath the Great Tree and roots envelop their corpse. The usage of Clan Crast ritual chanting increases the fertility of the offering, thus enhancing the outcome and spreading its power to all those nearby.", attacker:GetPos(), config.Get("talk_radius"):Get() * 4);
+					Clockwork.chatBox:AddInTargetRadius(attacker, "me", "abat"..player:Name().." as a sacrifice. Their blood seeps into the ground beneath the Great Tree and roots envelop their corpse. The usage of Clan Crast ritual chanting increases the fertility of the offering, thus enhancing the outcome and spreading its power to all those nearby.", attacker:GetPos(), config.Get("talk_radius"):Get() * 4);
 				else
 					attacker:HandleXP(killXP);
-					Clockwork.chatBox:AddInTargetRadius(attacker, "me", "strikes down "..player:Name().." as a sacrifice. Their blood seeps into the ground beneath the Great Tree and roots envelop their corpse.", attacker:GetPos(), config.Get("talk_radius"):Get() * 4);
+					Clockwork.chatBox:AddInTargetRadius(attacker, "me", "abat"..player:Name().." as a sacrifice. Their blood seeps into the ground beneath the Great Tree and roots envelop their corpse.", attacker:GetPos(), config.Get("talk_radius"):Get() * 4);
 				end
 				
 				--[[[timer.Simple(1, function()
@@ -3652,7 +3652,7 @@ function Schema:CinderBlockExecution(player, target, itemTable)
 				Clockwork.player:SetRagdollState(target, RAGDOLL_FALLENOVER, nil);
 				entity = target:GetRagdollEntity()
 			else
-				Schema:EasyText(player, "peru", "This person must be tied before you can tie the cinder block!")
+				Schema:EasyText(player, "peru", "Cette personne doit être attachée avant de pouvoir attacher le parpaing !")
 			end
 		end
 		
@@ -3698,14 +3698,14 @@ function Schema:CinderBlockExecution(player, target, itemTable)
 						return
 					end
 				else
-					Schema:EasyText(player, "peru", "This person does not have valid foot bones for some reason! Try using /adminhelp and contacting an admin!");
+					Schema:EasyText(player, "peru", "Cette personne n'a pas de squelette de pied valide pour une raison inconnue ! Essayez d'utiliser /adminhelp et contactez un administrateur !");
 				end
 			else
-				Schema:EasyText(player, "peru", "You must tie this to your victim's foot!")
+				Schema:EasyText(player, "peru", "Tu dois attacher ça au pied de ta victime !")
 				return false
 			end
 		else
-			Schema:EasyText(player, "darkgrey", "You must look at a valid target!")
+			Schema:EasyText(player, "darkgrey", "Vous devez regarder une cible valide !")
 			return false
 		end
 	else

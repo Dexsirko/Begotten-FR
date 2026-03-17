@@ -1,4 +1,4 @@
---[[
+﻿--[[
 	BEGOTTEN III: Developed by DETrooper, cash wednesday, gabs & alyousha35
 --]]
 
@@ -41,7 +41,7 @@ function cwStorage:EntityHandleMenuOption(player, entity, option, arguments)
 				
 				if (!entity.cwPassword or entity.cwIsBreached or entity:GetNWBool("unlocked", true)) then
 					if (player:GetCharacterData("hidden") == true) then
-						Schema:EasyText(player, "firebrick", "You cannot do this right now!");
+						Schema:EasyText(player, "firebrick", "Tu ne peux pas faire ça maintenant !");
 						
 						return false;
 					elseif IsValid(entity.occupier) and entity.occupier ~= player then
@@ -71,7 +71,7 @@ function cwStorage:EntityHandleMenuOption(player, entity, option, arguments)
 	elseif (arguments == "cwContainerLock") then
 		if (entity:GetNWBool("unlocked", true) == true) then
 			entity:SetNWBool("unlocked", false);
-			Schema:EasyText(player, "olivedrab", "You lock the container.")
+			Schema:EasyText(player, "olivedrab", "Vous verrouillez le conteneur.")
 		end;
 	end;
 end;
@@ -135,7 +135,7 @@ end
 function cwStorage:PlayerCanGiveToStorage(player, storageTable, itemTable)
 	if (storageTable.entity.cwPassword) then
 		if (tostring(itemTable.itemID) == storageTable.entity.cwPassword) then
-			Schema:EasyText(player, "peru", "You cannot lock the only key to this container inside it!")
+			Schema:EasyText(player, "peru", "Vous ne pouvez pas enfermer la seule clé de ce conteneur à l'intérieur !")
 			return false;
 		end;
 	end;
@@ -154,7 +154,7 @@ function cwStorage:PlayerUseUnknownItemFunction(player, itemTable, itemFunction)
 			
 			netstream.Start(player, "CloseMenu");
 		else
-			Schema:EasyText(player, "peru", "You cannot make a copy of this key!")
+			Schema:EasyText(player, "peru", "Vous ne pouvez pas faire de copie de cette clé !")
 		end;
 	end;
 end;

@@ -1,9 +1,9 @@
---[[
+﻿--[[
 	BEGOTTEN III: Developed by DETrooper, cash wednesday, gabs & alyousha35
 --]]
 
 local COMMAND = Clockwork.command:New("DoorLock")
-COMMAND.tip = "Lock a door."
+COMMAND.tip = "Verrouiller une porte."
 COMMAND.flags = CMD_DEFAULT
 COMMAND.access = "o"
 

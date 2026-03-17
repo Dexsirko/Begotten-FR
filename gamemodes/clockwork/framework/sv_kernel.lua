@@ -1,4 +1,4 @@
---[[
+﻿--[[
 	Begotten III: Jesus Wept
 	By: DETrooper, cash wednesday, gabs, alyousha35
 
@@ -965,10 +965,10 @@ end
 function Clockwork.kernel:ForceUnequipItem(player, uniqueID, itemID, arguments)
 	if cwDueling then
 		if player.opponent then
-			Schema:EasyText(player, "peru", "You cannot unequip items while in a duel!");
+			Schema:EasyText(player, "peru", "Vous ne pouvez pas retirer d'équipement pendant un duel !");
 			return;
 		elseif cwDueling:PlayerIsInMatchmaking(player) then
-			Schema:EasyText(player, "peru", "You cannot unequip items while matchmaking for a duel!");
+			Schema:EasyText(player, "peru", "Vous ne pouvez pas retirer d'équipement pendant la recherche d'un duel !");
 			return;
 		end
 	end
@@ -2463,7 +2463,7 @@ concommand.Add("cwc", function(player, command, arguments)
 	
 	if IsValid(player) then
 		if !player:IsAdmin() then
-			Schema:EasyText(Schema:GetAdmins(), "firebrick", "Player "..player:Name().." has attempted to run cwc with the arguments ("..table.concat(arguments, ", ")..") in console! It could be a bind or it could be malicious.");
+			Schema:EasyText(Schema:GetAdmins(), "firebrick", "Joueur"..player:Name().." has attempted to run cwc with the arguments ("..table.concat(arguments, ", ")..") in console! It could be a bind or it could be malicious.");
 		end
 	end
 
@@ -2483,7 +2483,7 @@ concommand.Add("cwc", function(player, command, arguments)
 			if (target) then
 				if (!Clockwork.player:IsProtected(target)) then
 					print("Console has set "..target:Name().."'s user group to "..userGroup..".")
-					Schema:EasyText(Schema:GetAdmins(), "lightslategrey", "Console has set "..target:Name().."'s user group to "..userGroup..".")
+					Schema:EasyText(Schema:GetAdmins(), "lightslategrey", "La console a été définie"..target:Name().."'s user group to "..userGroup..".")
 						target:SetClockworkUserGroup(userGroup)
 					Clockwork.player:LightSpawn(target, true, true)
 				else
@@ -2504,7 +2504,7 @@ concommand.Add("cwc", function(player, command, arguments)
 
 					if (userGroup != "user") then
 						print("Console has demoted "..target:Name().." from "..userGroup.." to user.")
-						Schema:EasyText(Schema:GetAdmins(), "lightslategrey", "Console has demoted "..target:Name().." from "..userGroup.." to user.")
+						Schema:EasyText(Schema:GetAdmins(), "lightslategrey", "La console a rétrogradé"..target:Name().." from "..userGroup.." to user.")
 							target:SetClockworkUserGroup("user")
 						Clockwork.player:LightSpawn(target, true, true)
 					else
@@ -2554,7 +2554,7 @@ concommand.Add("cwc", function(player, command, arguments)
 							Clockwork.player:SaveCharacter(target)
 
 							print("Console has added "..target:Name().." to the "..factionTable.name.." whitelist.")
-							Schema:EasyText(Schema:GetAdmins(), "lightslategrey", "Console has added "..target:Name().." to the "..factionTable.name.." whitelist.")
+							Schema:EasyText(Schema:GetAdmins(), "lightslategrey", "La console a ajouté"..target:Name().." to the "..factionTable.name.." whitelist.")
 						else
 							MsgC(Color(255, 100, 0, 255), target:Name().." is already on the "..factionTable.name.." whitelist!\n")
 						end
@@ -2583,7 +2583,7 @@ concommand.Add("cwc", function(player, command, arguments)
 							Clockwork.player:SaveCharacter(target)
 
 							print("Console has removed "..target:Name().." from the "..factionTable.name.." whitelist.")
-							Schema:EasyText(Schema:GetAdmins(), "lightslategrey", "Console has removed "..target:Name().." from the "..factionTable.name.." whitelist.")
+							Schema:EasyText(Schema:GetAdmins(), "lightslategrey", "La console a supprimé"..target:Name().." from the "..factionTable.name.." whitelist.")
 						else
 							MsgC(Color(255, 100, 0, 255), target:Name().." is not on the "..factionTable.name.." whitelist!\n")
 						end
@@ -2618,14 +2618,14 @@ concommand.Add("cwc", function(player, command, arguments)
 
 									if (hours >= 1) then
 										print("Console has banned '"..steamName.."' for "..hours.." hour(s) ("..reason..").")
-										Schema:EasyText(Schema:GetAdmins(), "lightslategrey", "Console has banned '"..steamName.."' for "..hours.." hour(s) ("..reason..").")
+										Schema:EasyText(Schema:GetAdmins(), "lightslategrey", "La console a banni "..steamName.."' for "..hours.." hour(s) ("..reason..").")
 									else
 										print("Console has banned '"..steamName.."' for "..math.Round(duration / 60).." minute(s) ("..reason..").")
-										Schema:EasyText(Schema:GetAdmins(), "lightslategrey", "Console has banned '"..steamName.."' for "..math.Round(duration / 60).." minute(s) ("..reason..").")
+										Schema:EasyText(Schema:GetAdmins(), "lightslategrey", "La console a banni "..steamName.."' for "..math.Round(duration / 60).." minute(s) ("..reason..").")
 									end
 								else
 									print("Console has banned '"..steamName.."' permanently ("..reason..").")
-									Schema:EasyText(Schema:GetAdmins(), "lightslategrey", "Console has banned '"..steamName.."' permanently ("..reason..").")
+									Schema:EasyText(Schema:GetAdmins(), "lightslategrey", "La console a banni "..steamName.."' permanently ("..reason..").")
 								end
 							else
 								MsgC(Color(255, 100, 0, 255), "This is not a valid identifier!\n")
@@ -2658,7 +2658,7 @@ concommand.Add("cwc", function(player, command, arguments)
 			if (target) then
 				if (!Clockwork.player:IsProtected(arguments[2])) then
 					print("Console has kicked '"..target:Name().."' ("..reason..").")
-					Schema:EasyText(Schema:GetAdmins(), "lightslategrey", "Console has kicked '"..target:Name().."' ("..reason..").")
+					Schema:EasyText(Schema:GetAdmins(), "lightslategrey", "La console a expulsé "..target:Name().."' ("..reason..").")
 						target:Kick(reason)
 					target.kicked = true
 				else
@@ -2682,7 +2682,7 @@ concommand.Add("cwc", function(player, command, arguments)
 					local name = table.concat(arguments, " ", 3)
 
 					print("Console has set "..target:Name().."'s name to "..name..".")
-					Schema:EasyText(Schema:GetAdmins(), "lightslategrey", "Console has set "..target:Name().."'s name to "..name..".")
+					Schema:EasyText(Schema:GetAdmins(), "lightslategrey", "La console a été définie"..target:Name().."'s name to "..name..".")
 
 					Clockwork.player:SetName(target, name)
 				end
@@ -2702,7 +2702,7 @@ concommand.Add("cwc", function(player, command, arguments)
 				target:SetModel(model)
 
 				print("Console has set "..target:Name().."'s model to "..model..".")
-				Schema:EasyText(Schema:GetAdmins(), "lightslategrey", "Console has set "..target:Name().."'s model to "..model..".")
+				Schema:EasyText(Schema:GetAdmins(), "lightslategrey", "La console a été définie"..target:Name().."'s model to "..model..".")
 			else
 				MsgC(Color(255, 100, 0, 255), arguments[2].." is not a valid character!\n")
 			end
@@ -2717,7 +2717,7 @@ concommand.Add("cwc", function(player, command, arguments)
 			end
 
 			print("Console is restarting the map in "..delay.." seconds!")
-			Schema:EasyText(Schema:GetAdmins(), "lightslategrey", "Console is restarting the map in "..delay.." seconds!")
+			Schema:EasyText(Schema:GetAdmins(), "lightslategrey", "La console redémarre la carte dans"..delay.." seconds!")
 
 			timer.Simple(delay, function()
 				RunConsoleCommand("changelevel", game.GetMap())
@@ -2740,7 +2740,7 @@ concommand.Add("cwc", function(player, command, arguments)
 				Clockwork.player:GiveFlags(target, arguments[3])
 
 				print("Console gave "..target:Name().." '"..arguments[3].."' flags.")
-				Schema:EasyText(Schema:GetAdmins(), "lightslategrey", "Console gave "..target:Name().." '"..arguments[3].."' flags.")
+				Schema:EasyText(Schema:GetAdmins(), "lightslategrey", "Console a donné"..target:Name().." '"..arguments[3].."' flags.")
 			else
 				MsgC(Color(255, 100, 0, 255), arguments[2].." is not a valid character!\n")
 			end
@@ -2752,7 +2752,7 @@ concommand.Add("cwc", function(player, command, arguments)
 
 			if (target) then
 				if (string.find(arguments[3], "a") or string.find(arguments[3], "s") or string.find(arguments[3], "o")) then
-					Schema:EasyText(player, "grey", "You cannot take 'o', 'a' or 's' flags!")
+					Schema:EasyText(player, "grey", "Vous ne pouvez pas prendre les drapeaux 'o', 'a' ou 's' !")
 
 					return
 				end
@@ -2762,7 +2762,7 @@ concommand.Add("cwc", function(player, command, arguments)
 				Clockwork.player:TakeFlags(target, arguments[3])
 
 				print("Console took '"..arguments[3].."' flags from "..target:Name()..".")
-				Schema:EasyText(Schema:GetAdmins(), "lightslategrey", "Console took '"..arguments[3].."' flags from "..target:Name()..".")
+				Schema:EasyText(Schema:GetAdmins(), "lightslategrey", "Console a pris "..arguments[3].."' flags from "..target:Name()..".")
 			else
 				MsgC(Color(255, 100, 0, 255), arguments[2].." is not a valid character!\n")
 			end

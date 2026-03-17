@@ -1,9 +1,9 @@
---[[
+﻿--[[
 	BEGOTTEN III: Developed by DETrooper, cash wednesday, gabs & alyousha35
 --]]
 
 local COMMAND = Clockwork.command:New("DoorUnparent")
-COMMAND.tip = "Unparent the target door."
+COMMAND.tip = "Détacher la porte cible de son parent."
 COMMAND.flags = CMD_DEFAULT
 COMMAND.access = "a"
 

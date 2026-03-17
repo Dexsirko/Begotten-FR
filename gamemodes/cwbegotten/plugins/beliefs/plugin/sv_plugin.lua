@@ -1,4 +1,4 @@
---[[
+﻿--[[
 	Begotten 3
 	Created by cash wednesday, gabs, DETrooper and alyousha35
 --]]
@@ -104,12 +104,12 @@ function cwBeliefs:TakeBelief(player, uniqueID, niceName, category)
 	local points = player:GetCharacterData("points", 0)
 	
 	if (points <= 0) then
-		Schema:EasyText(player, "peru", "You do not have enough faith to follow this belief!")
+		Schema:EasyText(player, "peru", "Vous n'avez pas assez de foi pour suivre cette croyance !")
 		return false
 	end;
 
 	if (player:GetNetVar("tied") != 0) then
-		Schema:EasyText(player, "peru", "You cannot follow beliefs when you are tied!");
+		Schema:EasyText(player, "peru", "Vous ne pouvez pas suivre des croyances lorsque vous êtes attaché !");
 		return false
 	end;
 	

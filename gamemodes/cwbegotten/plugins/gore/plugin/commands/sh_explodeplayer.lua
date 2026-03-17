@@ -1,5 +1,5 @@
-local COMMAND = Clockwork.command:New("ExplodePlayer");
-	COMMAND.tip = "Gib a player to bits.";
+﻿local COMMAND = Clockwork.command:New("ExplodePlayer");
+	COMMAND.tip = "Réduis un joueur en miettes.";
 	COMMAND.flags = CMD_DEFAULT;
 	COMMAND.access = "s";
 	COMMAND.alias = {"EP", "ExplodeCharacter", "PlyExplode", "CharExplode", "PlyGib", "CharGib"};
@@ -29,14 +29,14 @@ local COMMAND = Clockwork.command:New("ExplodePlayer");
 COMMAND:Register();
 
 local COMMAND = Clockwork.command:New("Expel");
-	COMMAND.tip = "Expel a character's soul from Hell, violently.";
+	COMMAND.tip = "Expulse violemment l'âme d'un personnage des Enfers.";
 	COMMAND.flags = CMD_DEFAULT;
 	COMMAND.faction = "Children of Satan";
 
 	-- Called when the command has been run.
 	function COMMAND:OnRun(player, arguments)
 		if player:GetFaction() ~= "Children of Satan" then
-			Schema:EasyText(player, "chocolate", "You are not the correct faction to do this!");
+			Schema:EasyText(player, "chocolate", "Vous n'êtes pas de la bonne faction pour faire cela !");
 		
 			return false;
 		end
@@ -45,7 +45,7 @@ local COMMAND = Clockwork.command:New("Expel");
 			local curTime = CurTime();
 			
 			if player.nextExpel and player.nextExpel > curTime then
-				Schema:EasyText(player, "chocolate", "You must wait another "..-math.ceil(curTime - player.nextExpel).." seconds before expelling someone again!");
+				Schema:EasyText(player, "chocolate", "Vous devez attendre encore"..-math.ceil(curTime - player.nextExpel).." seconds before expelling someone again!");
 			
 				return false;
 			end
@@ -78,8 +78,8 @@ local COMMAND = Clockwork.command:New("Expel");
 						thirdPerson = "her";
 					end
 				
-					Clockwork.chatBox:AddInTargetRadius(player, "me", "snaps "..thirdPerson.." fingers.", player:GetPos(), config.Get("talk_radius"):Get() * 2);
-					Clockwork.chatBox:AddInTargetRadius(target, "me", "abruptly explodes into a shower of fire and gore!", target:GetPos(), config.Get("talk_radius"):Get() * 2);
+					Clockwork.chatBox:AddInTargetRadius(player, "me", "claque"..thirdPerson.." fingers.", player:GetPos(), config.Get("talk_radius"):Get() * 2);
+					Clockwork.chatBox:AddInTargetRadius(target, "me", "explose soudainement en une pluie de feu et de chair !", target:GetPos(), config.Get("talk_radius"):Get() * 2);
 				
 					target:Kill();
 					
@@ -104,10 +104,10 @@ local COMMAND = Clockwork.command:New("Expel");
 					end
 				end;
 			else
-				Schema:EasyText(player, "grey", "You must look at a valid character!");
+				Schema:EasyText(player, "grey", "Vous devez regarder un personnage valide !");
 			end;
 		else
-			Schema:EasyText(player, "chocolate", "You are not high enough in rank to use this command!");
+			Schema:EasyText(player, "chocolate", "Vous n'avez pas un rang suffisamment élevé pour utiliser cette commande !");
 		end
 	end;
 COMMAND:Register();

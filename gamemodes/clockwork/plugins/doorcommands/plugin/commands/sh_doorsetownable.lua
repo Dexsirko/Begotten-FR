@@ -1,9 +1,9 @@
---[[
+﻿--[[
 	BEGOTTEN III: Developed by DETrooper, cash wednesday, gabs & alyousha35
 --]]
 
 local COMMAND = Clockwork.command:New("DoorSetOwnable")
-COMMAND.tip = "Set an ownable door."
+COMMAND.tip = "Définir une porte pouvant être possédée."
 COMMAND.text = "<string Name>"
 COMMAND.flags = CMD_DEFAULT
 COMMAND.access = "a"

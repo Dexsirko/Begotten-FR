@@ -1,4 +1,4 @@
---[[
+﻿--[[
 	Begotten 3
 	Created by cash wednesday, gabs, DETrooper and alyousha35
 --]]
@@ -66,7 +66,7 @@ function PANEL:Rebuild()
 	self.buttonPeform = vgui.Create("DButton", self)
 	self.buttonPeform:SetPos(280, 26)
 	self.buttonPeform:SetSize(162, 114)
-	self.buttonPeform:SetText("Perform")
+	self.buttonPeform:SetText("Exécuter")
 	self.buttonPeform:SetTextColor(Color(200, 170, 170))
 	--self.buttonPeform:SetFont("Ritual_Button")
 	self.buttonPeform:SetFont("Ritual_Text")
@@ -106,7 +106,7 @@ function PANEL:Rebuild()
 	self.buttonHotkey = vgui.Create("DButton", self)
 	self.buttonHotkey:SetPos(446, 26)
 	self.buttonHotkey:SetSize(163, 114)
-	self.buttonHotkey:SetText("Bind")
+	self.buttonHotkey:SetText("Attribuer")
 	self.buttonHotkey:SetTextColor(Color(200, 170, 170))
 	--self.buttonHotkey:SetFont("Ritual_Button")
 	self.buttonHotkey:SetFont("Ritual_Text")
@@ -284,7 +284,7 @@ function PANEL:Rebuild()
 		local backpanew, backpaneh = self.ritualbackpane:GetSize()
 		local textw, texth = Clockwork.kernel:GetCachedTextSize("Ritual_Text", "SELECT THREE ITEMS TO PERFORM A RITUAL...")
 		local warning = vgui.Create("DLabel", self.ritualbackpane)
-		warning:SetText("SELECT THREE ITEMS TO PERFORM A RITUAL...")
+		warning:SetText("SÉLECTIONNEZ TROIS OBJETS POUR ACCOMPLIR UN RITUEL...")
 		warning:SetFont("Ritual_Text")
 		warning:SetTextColor(Color(170, 10, 10))
 		warning:SetPos((backpanew / 2) - (textw / 2), (backpaneh / 2) - (texth / 2) - (128 + 32 + 4))
@@ -335,7 +335,7 @@ function PANEL:Rebuild()
 		local backpanew, backpaneh = self.ritualbackpane:GetSize()
 		local textw, texth = Clockwork.kernel:GetCachedTextSize("Ritual_Text", "YOU DO NOT HAVE ENOUGH RITUAL ITEMS...")
 		local warning = vgui.Create("DLabel", self.ritualbackpane)
-		warning:SetText("YOU DO NOT HAVE ENOUGH RITUAL ITEMS...")
+		warning:SetText("VOUS N'AVEZ PAS ASSEZ D'OBJETS RITUELS...")
 		warning:SetFont("Ritual_Text")
 		warning:SetTextColor(Color(200, 0, 0))
 		warning:SetPos((backpanew / 2) - (textw / 2), (backpaneh / 2) - (texth / 2) - (128 + 32 + 4))
@@ -360,7 +360,7 @@ function PANEL:Rebuild()
 		local textw, texth = Clockwork.kernel:GetCachedTextSize("Ritual_Text", "YOU HAVE NOT DISCOVERED ANY RITUALS...")
 		local warning = vgui.Create("DLabel", self.ritualList)
 		
-		warning:SetText("YOU HAVE NOT DISCOVERED ANY RITUALS...")
+		warning:SetText("VOUS N'AVEZ DÉCOUVERT AUCUN RITUEL...")
 		warning:SetFont("Ritual_Text")
 		warning:SetTextColor(Color(200, 0, 0))
 		warning:SetPos((ritualListW / 2) - (textw / 2), (ritualListH / 2) - (texth / 2));
@@ -377,7 +377,7 @@ function PANEL:Rebuild()
 	self.ritualList:SetVisible(false);
 	
 	self.closeButton = vgui.Create("DButton", self)
-	self.closeButton:SetText("CLOSE")
+	self.closeButton:SetText("FERMER")
 	self.closeButton:SetSize(252, 67)
 	self.closeButton:SetPos(35, 554)
 	self.closeButton:SetTextColor(Color(160, 0, 0))
@@ -619,7 +619,7 @@ function PANEL:Rebuild()
 	self.requirementsList:SetPos(300 + 198 - ((68 * #self.requirementsList:GetItems() / 2)), 28);
 	
 	self.requirementsLabel = vgui.Create("DLabel", self);
-	self.requirementsLabel:SetText("Items Required:");
+	self.requirementsLabel:SetText("Objets requis :");
 	self.requirementsLabel:SetTextColor(Color(160, 145, 145));
 	self.requirementsLabel:SetFont("Decay_FormText");
 	self.requirementsLabel:SizeToContents();
@@ -809,7 +809,7 @@ function PANEL:Init()
 	end;
 	
 	self.closeButton = vgui.Create("DButton", self)
-	self.closeButton:SetText("CLOSE")
+	self.closeButton:SetText("FERMER")
 	self.closeButton:SetSize(252, 67)
 	self.closeButton:SetPos(2, 441)
 	self.closeButton:SetTextColor(Color(160, 0, 0))
@@ -839,7 +839,7 @@ function PANEL:Init()
 	end
 	
 	self.changeButton = vgui.Create("DButton", self)
-	self.changeButton:SetText("CHANGE")
+	self.changeButton:SetText("MODIFIER")
 	self.changeButton:SetSize(252, 67)
 	self.changeButton:SetPos(257, 441)
 	self.changeButton:SetTextColor(Color(160, 0, 0))

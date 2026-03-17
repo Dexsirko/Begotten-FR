@@ -1,4 +1,4 @@
---[[
+﻿--[[
 	Begotten III: Jesus Wept
 	By: DETrooper, cash wednesday, gabs, alyousha35
 
@@ -467,7 +467,7 @@ end;
 -- A function to get whether the player can equip the item or not.
 function CLASS_TABLE:CanEquip(player)
 	if self:IsBroken() then
-		Schema:EasyText(player, "peru", "This item is broken and cannot be equipped!");
+		Schema:EasyText(player, "peru", "Cet objet est cassé et ne peut pas être équipé !");
 		return false;
 	end
 	
@@ -632,7 +632,7 @@ if (SERVER) then
 					
 					if (self.breakMessage) then
 						--holder:Notify(self.breakMessage);
-						Clockwork.chatBox:AddInTargetRadius(holder, "me", "'s "..self.name..self.breakMessage, holder:GetPos(), Clockwork.config:Get("talk_radius"):Get() * 2);
+						Clockwork.chatBox:AddInTargetRadius(holder, "me", "s"..self.name..self.breakMessage, holder:GetPos(), Clockwork.config:Get("talk_radius"):Get() * 2);
 					end;
 					
 					holder:TakeItem(self, true);
@@ -659,7 +659,7 @@ if (SERVER) then
 				if (IsValid(holder)) then
 					if (self.breakMessage) then
 						--holder:Notify(self.breakMessage);
-						Clockwork.chatBox:AddInTargetRadius(holder, "me", "'s "..self.name..self.breakMessage, holder:GetPos(), Clockwork.config:Get("talk_radius"):Get() * 2);
+						Clockwork.chatBox:AddInTargetRadius(holder, "me", "s"..self.name..self.breakMessage, holder:GetPos(), Clockwork.config:Get("talk_radius"):Get() * 2);
 					end;
 						
 					Clockwork.kernel:ForceUnequipItem(holder, self.uniqueID, self.itemID)
@@ -704,7 +704,7 @@ if (SERVER) then
 				self.OnRepaired(player, itemTable, amount, degradation);
 			end;
 		elseif (holder) then
-			Schema:EasyText(holder, "peru", "You cannot repair this item!");
+			Schema:EasyText(holder, "peru", "Vous ne pouvez pas réparer cet objet !");
 		end;
 	end;
 	

@@ -1,4 +1,4 @@
---[[
+﻿--[[
 	Begotten III: Jesus Wept
 	By: DETrooper, cash wednesday, gabs, alyousha35
 
@@ -14,7 +14,7 @@ local ITEM = Clockwork.item:New(nil, true)
 	ITEM.weight = 1
 	ITEM.useText = "Wear"
 	ITEM.category = "Clothing"
-	ITEM.description = "Default Bodygroup Clothing Item."
+	ITEM.description = "Article de vêtement par défaut pour les groupes corporels."
 	ITEM.bodyGroup = -1
 	ITEM.bodyGroupVal = -1
 	ITEM.repairItem = "armor_repair_kit";
@@ -57,7 +57,7 @@ local ITEM = Clockwork.item:New(nil, true)
 
 				return true
 			else
-				Schema:EasyText(player, "peru", "You cannot wear this!")
+				Schema:EasyText(player, "peru", "Tu ne peux pas porter ça !")
 
 				return false
 			end
@@ -120,7 +120,7 @@ local ITEM = Clockwork.item:New(nil, true)
 	function ITEM:OnUse(player, itemEntity)
 		if (self:HasPlayerEquipped(player)) then
 			if !player.spawning then
-				Schema:EasyText(player, "peru", "You cannot equip an item you're already using.")
+				Schema:EasyText(player, "peru", "Vous ne pouvez pas équiper un objet que vous utilisez déjà.")
 			end
 			
 			return false
@@ -136,12 +136,12 @@ local ITEM = Clockwork.item:New(nil, true)
 			local kinisgerOverrideSubfaction = player:GetNetVar("kinisgerOverrideSubfaction");
 			
 			if cwPowerArmor and player:IsWearingPowerArmor() then
-				Schema:EasyText(player, "peru", "You cannot wear this while in power armor!");
+				Schema:EasyText(player, "peru", "Vous ne pouvez pas porter ceci en armure de puissance !");
 				return false;
 			end
 			
 			if self:IsBroken() then
-				Schema:EasyText(player, "peru", "This helmet is broken and cannot be used!");
+				Schema:EasyText(player, "peru", "Ce casque est cassé et ne peut pas être utilisé !");
 				return false;
 			end
 			
@@ -149,7 +149,7 @@ local ITEM = Clockwork.item:New(nil, true)
 				if (table.HasValue(self.excludedFactions, kinisgerOverride or faction)) then
 					if !self.includedSubfactions or #self.includedSubfactions < 1 or !table.HasValue(self.includedSubfactions, kinisgerOverrideSubfaction or subfaction) then
 						if !player.spawning then
-							Schema:EasyText(player, "chocolate", "You are not the correct faction to equip this helmet!")
+							Schema:EasyText(player, "chocolate", "Vous n'appartenez pas à la faction autorisée pour équiper ce casque !")
 						end
 						
 						return false
@@ -160,7 +160,7 @@ local ITEM = Clockwork.item:New(nil, true)
 			if self.excludedSubfactions and #self.excludedSubfactions > 0 then
 				if (table.HasValue(self.excludedSubfactions, kinisgerOverrideSubfaction or subfaction)) then
 					if !player.spawning then
-						Schema:EasyText(player, "chocolate", "You are not the correct subfaction to equip this helmet!")
+						Schema:EasyText(player, "chocolate", "Vous n'êtes pas de la bonne sous-faction pour équiper ce casque !")
 					end
 					
 					return false
@@ -171,7 +171,7 @@ local ITEM = Clockwork.item:New(nil, true)
 				if (!table.HasValue(self.requiredFaiths, player:GetFaith())) then
 					if !self.kinisgerOverride or self.kinisgerOverride and !player:GetCharacterData("apostle_of_many_faces") then
 						if !player.spawning then
-							Schema:EasyText(player, "chocolate", "You are not the correct faith to equip this helmet!")
+							Schema:EasyText(player, "chocolate", "Vous n'avez pas la foi requise pour équiper ce casque !")
 						end
 						
 						return false
@@ -183,7 +183,7 @@ local ITEM = Clockwork.item:New(nil, true)
 				if (!table.HasValue(self.requiredSubfaiths, player:GetSubfaith())) then
 					if !self.kinisgerOverride or self.kinisgerOverride and !player:GetCharacterData("apostle_of_many_faces") then
 						if !player.spawning then
-							Schema:EasyText(player, "chocolate", "You are not the correct subfaith to equip this helmet!")
+							Schema:EasyText(player, "chocolate", "Vous n'êtes pas de la sous-foi appropriée pour équiper ce casque !")
 						end
 						
 						return false
@@ -194,7 +194,7 @@ local ITEM = Clockwork.item:New(nil, true)
 			if self.requiredFactions and #self.requiredFactions > 0 then
 				if (!table.HasValue(self.requiredFactions, faction) and (!kinisgerOverride or !table.HasValue(self.requiredFactions, kinisgerOverride))) then
 					if !player.spawning then
-						Schema:EasyText(player, "chocolate", "You are not the correct faction to equip this helmet!")
+						Schema:EasyText(player, "chocolate", "Vous n'êtes pas de la faction appropriée pour équiper ce casque !")
 					end
 					
 					return false
@@ -204,7 +204,7 @@ local ITEM = Clockwork.item:New(nil, true)
 			if self.requiredSubfactions and #self.requiredSubfactions > 0 then
 				if (!table.HasValue(self.requiredSubfactions, subfaction) and (!kinisgerOverrideSubfaction or !table.HasValue(self.requiredSubfactions, kinisgerOverrideSubfaction))) then
 					if !player.spawning then
-						Schema:EasyText(player, "peru", "You are not the correct subfaction to equip this helmet!")
+						Schema:EasyText(player, "peru", "Vous n'êtes pas de la bonne sous-faction pour équiper ce casque !")
 					end
 					
 					return false
@@ -220,7 +220,7 @@ local ITEM = Clockwork.item:New(nil, true)
 					if rankString then
 						if (!table.HasValue(self.requiredRanks, rankString)) then
 							if !player.spawning then
-								Schema:EasyText(player, "peru", "You are not the correct rank to wear this!")
+								Schema:EasyText(player, "peru", "Vous n'avez pas le grade requis pour porter ceci !")
 							
 								return false;
 							end
@@ -232,7 +232,7 @@ local ITEM = Clockwork.item:New(nil, true)
 		
 		if clothesItem then
 			if clothesItem.hasHelmet then
-				Schema:EasyText(player, "peru", "You cannot wear this helmet, as your equipped armor already has one!")
+				Schema:EasyText(player, "peru", "Vous ne pouvez pas porter ce casque, car votre armure équipée en possède déjà un !")
 				return false
 			end
 		end
@@ -240,7 +240,7 @@ local ITEM = Clockwork.item:New(nil, true)
 		if helmetItem then
 			if helmetItem.attributes and table.HasValue(helmetItem.attributes, "not_unequippable") then
 				if !self.attributes or !table.HasValue(self.attributes, "not_unequippable") then
-					Schema:EasyText(player, "peru", "You cannot wear this, as your current helmet is grafted into your skin and fused with your flesh, and cannot be unequipped!");
+					Schema:EasyText(player, "peru", "Vous ne pouvez pas porter ceci, car votre casque actuel est greffé à votre peau et fusionné avec votre chair, et ne peut pas être retiré !");
 					return false;
 				end
 			end
@@ -256,7 +256,7 @@ local ITEM = Clockwork.item:New(nil, true)
 				return true
 			end
 		else
-			Schema:EasyText(player, "peru", "You cannot wear this!")
+			Schema:EasyText(player, "peru", "Tu ne peux pas porter ça !")
 
 			return false
 		end
@@ -270,7 +270,7 @@ local ITEM = Clockwork.item:New(nil, true)
 	-- Called when a player has unequipped the item.
 	function ITEM:OnPlayerUnequipped(player, extraData)
 		if self.permanent then
-			Schema:EasyText(player, "peru", "This helmet is grafted into your skin and fused with your flesh, and cannot be unequipped!");
+			Schema:EasyText(player, "peru", "Ce casque est greffé à votre peau et fusionné avec votre chair, il ne peut pas être retiré !");
 			return false;
 		end
 	
@@ -288,7 +288,7 @@ local ITEM = Clockwork.item:New(nil, true)
 						end
 					end
 				else
-					Clockwork.player:Notify(player, "You cannot drop the item that far away!");
+					Clockwork.player:Notify(player, "Vous ne pouvez pas lâcher l'objet aussi loin !");
 				end
 			end
 		
@@ -326,7 +326,7 @@ local ITEM = Clockwork.item:New(nil, true)
 	function ITEM:OnTakeFromPlayer(player)
 		if (player:GetHelmetEquipped() == self) then
 			if player:Alive() and self.permanent then
-				Schema:EasyText(player, "peru", "This helmet is grafted into this character's skin and fused with their flesh, and cannot be unequipped!");
+				Schema:EasyText(player, "peru", "Ce casque est greffé à la peau de ce personnage et fusionné avec sa chair, il ne peut pas être retiré !");
 				return false;
 			end
 		
@@ -342,7 +342,7 @@ local ITEM = Clockwork.item:New(nil, true)
 	function ITEM:OnDrop(player, position)
 		if (player:GetHelmetEquipped() == self) then
 			if self.permanent then
-				Schema:EasyText(player, "peru", "This helmet is grafted into your skin and fused with your flesh, and cannot be unequipped!");
+				Schema:EasyText(player, "peru", "Ce casque est greffé à votre peau et fusionné avec votre chair, il ne peut pas être retiré !");
 				return false;
 			end
 		end

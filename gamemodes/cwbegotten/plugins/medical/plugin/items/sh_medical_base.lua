@@ -1,4 +1,4 @@
---[[
+﻿--[[
 	Begotten III: Jesus Wept
 --]]
 
@@ -16,7 +16,7 @@ local hitgroupToString = {
 local ITEM = Clockwork.item:New(nil, true)
 	ITEM.name = "Medical Base"
 	ITEM.uniqueID = "medical_base";
-	ITEM.description = "Medical Base"
+	ITEM.description = "Base Médicale"
 	ITEM.model = "models/Items/HealthKit.mdl";
 	ITEM.category = "Medical"
 	ITEM.weight = 1;
@@ -46,15 +46,15 @@ local ITEM = Clockwork.item:New(nil, true)
 			local action = Clockwork.player:GetAction(player);
 				
 			if (action == "heal") then
-				Schema:EasyText(player, "peru","Your character is already healing!");
+				Schema:EasyText(player, "peru","Votre personnage est déjà en train de se soigner !");
 				
 				return false;
 			elseif (action == "healing") then
-				Schema:EasyText(player, "peru", "You are already healing somebody!");
+				Schema:EasyText(player, "peru", "Tu es déjà en train de soigner quelqu'un !");
 				
 				return false;
 			elseif (action == "performing_surgery") then
-				Schema:EasyText(player, "peru", "You are already performing surgery on someone!");
+				Schema:EasyText(player, "peru", "Vous êtes déjà en train d'opérer quelqu'un !");
 				
 				return false;
 			else
@@ -72,15 +72,15 @@ local ITEM = Clockwork.item:New(nil, true)
 			local action = Clockwork.player:GetAction(player);
 				
 			if (action == "heal") then
-				Schema:EasyText(player, "peru","Your character is already healing!");
+				Schema:EasyText(player, "peru","Votre personnage est déjà en train de se soigner !");
 				
 				return false;
 			elseif (action == "healing") then
-				Schema:EasyText(player, "peru", "You are already healing somebody!");
+				Schema:EasyText(player, "peru", "Tu es déjà en train de soigner quelqu'un !");
 				
 				return false;
 			elseif (action == "performing_surgery") then
-				Schema:EasyText(player, "peru", "You are already performing surgery on someone!");
+				Schema:EasyText(player, "peru", "Vous êtes déjà en train d'opérer quelqu'un !");
 				
 				return false;
 			else
@@ -101,15 +101,15 @@ local ITEM = Clockwork.item:New(nil, true)
 		local action = Clockwork.player:GetAction(player);
 			
 		if (action == "heal") then
-			Schema:EasyText(player, "firebrick", "You cannot drop this while healing!");
+			Schema:EasyText(player, "firebrick", "Vous ne pouvez pas lâcher cet objet pendant la guérison !");
 			
 			return false;
 		elseif (action == "healing") then
-			Schema:EasyText(player, "firebrick", "You cannot drop this while healing somebody!");
+			Schema:EasyText(player, "firebrick", "Vous ne pouvez pas lâcher cela pendant que vous soignez quelqu'un !");
 			
 			return false;
 		elseif (action == "performing_surgery") then
-			Schema:EasyText(player, "firebrick", "You cannot drop this while performing surgery on someone!");
+			Schema:EasyText(player, "firebrick", "Vous ne pouvez pas lâcher cela pendant une opération chirurgicale sur quelqu'un !");
 			
 			return false;
 		end;

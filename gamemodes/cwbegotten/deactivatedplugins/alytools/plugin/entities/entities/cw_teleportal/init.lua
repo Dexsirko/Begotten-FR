@@ -1,4 +1,4 @@
---[[
+﻿--[[
 	Begotten III: Jesus Wept
 	By: DETrooper, cash wednesday, gabs, alyousha35
 
@@ -78,7 +78,7 @@ function ENT:Think()
 						if (selfpos:Distance(target)<60) or (targetdata.entity == v) then
 							for k, v in pairs(ents.FindInSphere( self:GetPos() + Vector( 0, 0, 21*self:GetModelScale() ), config.Get("talk_radius"):Get()*2 )) do
 								if v:IsPlayer() then
-									Schema:EasyText(v, "cornflowerblue", "The portal implodes as it teleports into itself, turning inside out and disappearing in a spacetime prolapse!")
+									Schema:EasyText(v, "cornflowerblue", "Le portail implose en se téléportant en lui-même, se retournant comme un gant avant de disparaître dans un effondrement spatio-temporel !")
 								end
 							end
 							util.BlastDamage( self, self, selfpos, 32, 99999 )

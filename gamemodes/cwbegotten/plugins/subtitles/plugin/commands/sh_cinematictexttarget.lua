@@ -1,4 +1,4 @@
---[[
+﻿--[[
 	Begotten III: Jesus Wept
 	By: DETrooper, cash wednesday, gabs, alyousha35
 
@@ -6,7 +6,7 @@
 --]]
 
 local COMMAND = Clockwork.command:New("CinematicTextTarget");
-	COMMAND.tip = "Show a target a cinematic chat message. THIS IS NOT THE SAME AS CENTER TEXT! Your message will appear smaller, and lower down on the screen. This will show for you as well.";
+	COMMAND.tip = "Affiche un message cinématique dans le chat à une cible. CECI N'EST PAS LA MÊME CHOSE QUE LE TEXTE CENTRÉ ! Votre message apparaîtra plus petit et plus bas sur l'écran. Il sera également visible pour vous.";
 	COMMAND.text = "<string Target> <string Text>";
 	COMMAND.access = "a";
 	COMMAND.arguments = 2;
@@ -17,7 +17,7 @@ local COMMAND = Clockwork.command:New("CinematicTextTarget");
 		local text = table.concat(arguments, " ", 2);
 		
 		if (string.len(string) > 3 and string.find(string.sub(text, 0, 1), '"') or string.find(string.sub(text, 0, -1), '"')) then
-			Schema:EasyText(player, "firebrick", "You cannot include quotes at the beginning and end of your text!");
+			Schema:EasyText(player, "firebrick", "Tu ne peux pas inclure de guillemets au début et à la fin de ton texte !");
 			
 			return;
 		end;

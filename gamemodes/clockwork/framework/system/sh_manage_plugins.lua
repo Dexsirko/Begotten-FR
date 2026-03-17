@@ -1,4 +1,4 @@
---[[
+﻿--[[
 	Begotten III: Jesus Wept
 	By: DETrooper, cash wednesday, gabs, alyousha35
 
@@ -59,7 +59,7 @@ if (CLIENT) then
 
 		if (#mainPlugins > 0) then
 			local label = vgui.Create("cwInfoText", systemPanel)
-				label:SetText("Red plugins are unloaded, green ones are loaded, and orange are disabled.")
+				label:SetText("Les plugins rouges sont déchargés, les verts sont chargés, et les orange sont désactivés.")
 				label:SetInfoColor("blue")
 				label:DockMargin(0, 0, 0, 8)
 			systemPanel.panelList:AddItem(label)
@@ -108,7 +108,7 @@ if (CLIENT) then
 			end
 		else
 			local label = vgui.Create("cwInfoText", systemPanel)
-				label:SetText("There are no plugins installed on the server.")
+				label:SetText("Aucun plugin n'est installé sur le serveur.")
 				label:SetInfoColor("red")
 			systemPanel.panelList:AddItem(label)
 		end
@@ -181,7 +181,7 @@ else
 		local pluginTable = plugin.FindByID(data[1])
 
 		if (!pluginTable) then
-			Schema:EasyText(player, "grey", "This plugin is not valid!")
+			Schema:EasyText(player, "grey", "Ce plugin n'est pas valide !")
 			return
 		end
 
@@ -209,12 +209,12 @@ else
 					netstream.Start(recipients, "SystemPluginSet", { pluginTable.name, data[2] })
 				end
 			elseif (data[2]) then
-				Schema:EasyText(player, "grey", "This plugin could not be unloaded!")
+				Schema:EasyText(player, "grey", "Ce plugin n'a pas pu être déchargé !")
 			else
-				Schema:EasyText(player, "grey", "This plugin could not be loaded!")
+				Schema:EasyText(player, "grey", "Ce plugin n'a pas pu être chargé !")
 			end
 		else
-			Schema:EasyText(player, "darkgrey", "This plugin depends on another plugin!")
+			Schema:EasyText(player, "darkgrey", "Ce plugin dépend d'un autre plugin !")
 		end
 	end)
 end

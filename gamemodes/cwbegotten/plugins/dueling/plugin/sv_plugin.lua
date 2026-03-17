@@ -1,4 +1,4 @@
---[[
+﻿--[[
 	Begotten III: Jesus Wept
 --]]
 
@@ -334,9 +334,9 @@ function cwDueling:PlayerEntersMatchmaking(player)
 			player.PickingUpObject.PickedUpBy = nil;
 			
 			if player.PickingUpObject:GetClass() == "prop_ragdoll" then
-				Clockwork.chatBox:AddInTargetRadius(player, "me", "releases their grip on the body before them.", player:GetPos(), config.Get("talk_radius"):Get() * 2);
+				Clockwork.chatBox:AddInTargetRadius(player, "me", "relâche son emprise sur le corps devant eux.", player:GetPos(), config.Get("talk_radius"):Get() * 2);
 			else
-				Clockwork.chatBox:AddInTargetRadius(player, "me", "releases their grip on the object before them.", player:GetPos(), config.Get("talk_radius"):Get() * 2);
+				Clockwork.chatBox:AddInTargetRadius(player, "me", "relâche leur emprise sur l'objet devant eux.", player:GetPos(), config.Get("talk_radius"):Get() * 2);
 			end
 		end;
 		
@@ -422,13 +422,13 @@ function cwDueling:SetupDuel(player1, player2, available_arenas)
 			self.arenas[random_arena].duelingPlayer2 = nil;
 			
 			if IsValid(player1) then
-				Schema:EasyText(player1, "icon16/shield_go.png", "orangered", "Duel Aborted!")
+				Schema:EasyText(player1, "icon16/shield_go.png", "Orangered", "Duel Aborted!")
 				player1:ScreenFade(SCREENFADE.IN, Color(0, 0, 0, 255 ), 5, 0);
 				player1.opponent = nil;
 				
 				netstream.Start(player1, "SetPlayerDueling", false);
 			elseif IsValid(player2) then
-				Schema:EasyText(player2, "icon16/shield_go.png", "orangered", "Duel Aborted!")
+				Schema:EasyText(player2, "icon16/shield_go.png", "Orangé", "Duel Aborted!")
 				player2:ScreenFade(SCREENFADE.IN, Color(0, 0, 0, 255 ), 5, 0);
 				player2.opponent = nil;
 				
@@ -525,7 +525,7 @@ function cwDueling:DuelAborted(player1, player2)
 				-- player2 dropped
 				for _, v in _player.Iterator() do
 					if v:IsAdmin() then
-						Schema:EasyText(v, "orangered","[DUELLING] Player: "..player1:Name().." dropped from an in progress duel.");
+						Schema:EasyText(v, "orangered","[DUEL] Joueur :"..player1:Name().." dropped from an in progress duel.");
 					end;
 				end;
 				
@@ -556,7 +556,7 @@ function cwDueling:DuelAborted(player1, player2)
 				-- player1 dropped
 				for _, v in _player.Iterator() do
 					if v:IsAdmin() then
-						Schema:EasyText(v, "orange","[DUELLING] Player: "..player2:Name().." dropped from an in progress duel.");
+						Schema:EasyText(v, "orange","[DUEL] Joueur :"..player2:Name().." dropped from an in progress duel.");
 					end;
 				end;
 				
@@ -578,7 +578,7 @@ function cwDueling:DuelAborted(player1, player2)
 					end
 				end);
 
-				Schema:EasyText(player2, "icon16/shield.png", "orangered", "Draw!");
+				Schema:EasyText(player2, "icon16/shield.png", "Orangé", "Draw!");
 			end
 		end
 	end
@@ -668,7 +668,7 @@ function cwDueling:DuelCompleted(winner, loser)
 			
 				for _, v in _player.Iterator() do
 					if v:IsAdmin() then
-						Schema:EasyText(v, "orangered","[DUELLING] Player: "..loser:Name().." dropped from an in progress duel.");
+						Schema:EasyText(v, "orangered","[DUEL] Joueur :"..loser:Name().." dropped from an in progress duel.");
 					end;
 				end;
 				
@@ -708,9 +708,9 @@ function cwDueling:DuelCompleted(winner, loser)
 						end
 					end
 				
-					Schema:EasyText(winner, "icon16/shield_add.png", "forestgreen", winner:Name().." ("..level..") was the winner with "..winner:Health().." out of "..winner:GetMaxHealth().." health left!");
+					Schema:EasyText(winner, "icon16/shield_add.png", "vert forêt", winner:Name().." ("..level..") was the winner with "..winner:Health().." out of "..winner:GetMaxHealth().." health left!");
 				else
-					Schema:EasyText(winner, "icon16/shield_add.png", "forestgreen", winner:Name().." was the winner with "..winner:Health().." out of "..winner:GetMaxHealth().." health left!");
+					Schema:EasyText(winner, "icon16/shield_add.png", "vert forêt", winner:Name().." was the winner with "..winner:Health().." out of "..winner:GetMaxHealth().." health left!");
 				end
 			end
 		end
@@ -724,7 +724,7 @@ function cwDueling:DuelCompleted(winner, loser)
 
 				for _, v in _player.Iterator() do
 					if v:IsAdmin() then
-						Schema:EasyText(v, "orangered","[DUELLING] Player: "..winner:Name().." dropped from an in progress duel.");
+						Schema:EasyText(v, "orangered","[DUEL] Joueur :"..winner:Name().." dropped from an in progress duel.");
 					end;
 				end;
 				
@@ -743,7 +743,7 @@ function cwDueling:DuelCompleted(winner, loser)
 					end
 				end);
 
-				Schema:EasyText(loser, "icon16/shield_delete.png", "orangered", loser:Name().." loses!");
+				Schema:EasyText(loser, "icon16/shield_delete.png", "Orangered", loser:Name().." loses!");
 			end
 		end
 	end

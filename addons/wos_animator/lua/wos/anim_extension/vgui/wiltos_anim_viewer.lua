@@ -1,4 +1,4 @@
---[[-------------------------------------------------------------------
+﻿--[[-------------------------------------------------------------------
 	wiltOS Animation Viewer:
 		A Supplement to the animation base, it allows you to view more than	
 					2000 animations/sequences with it's model viewer
@@ -309,7 +309,7 @@ function wOS:OpenAnimationMenu()
 	local title = vgui.Create( "DLabel", holdframe )
 	title:SetSize( iw*0.8, fh*0.05 )
 	title:SetPos( iw*0.05, ih )
-	title:SetText( "Base Holdtype:" )
+	title:SetText( "Type de prise de base :" )
 	title:SetFont( "wOS.Anim.TitleFont" )
 	
 	local basetype = vgui.Create( "DTextEntry", holdframe )
@@ -343,7 +343,7 @@ function wOS:OpenAnimationMenu()
 	local title = vgui.Create( "DLabel", holdframe )
 	title:SetSize( iw*0.9, fh*0.05 )
 	title:SetPos( iw*0.05, ih + fh*0.09 )
-	title:SetText( "Holdtype Name:" )
+	title:SetText( "Nom du type de prise :" )
 	title:SetFont( "wOS.Anim.TitleFont" )
 	
 	local nametext = vgui.Create( "DTextEntry", holdframe )
@@ -353,18 +353,18 @@ function wOS:OpenAnimationMenu()
 	local title = vgui.Create( "DLabel", holdframe )
 	title:SetSize( iw*0.9, fh*0.05 )
 	title:SetPos( iw*0.05, ih + fh*0.19 )
-	title:SetText( "Holdtype Code:" )
+	title:SetText( "Code du type de maintien :" )
 	title:SetFont( "wOS.Anim.TitleFont" )
 	
 	local prefix = vgui.Create( "DTextEntry", holdframe )
 	prefix:SetSize( iw*0.9, fh*0.03 )
 	prefix:SetPos( iw*0.05, ih + fh*0.25 )
-	prefix:SetText( "wos-custom-xxx" )
+	prefix:SetText( "wos-personnalisé-xxx" )
 	
 	local title2 = vgui.Create( "DLabel", holdframe )
 	title2:SetSize( iw*0.9, fh*0.05 )
 	title2:SetPos( iw*0.05, ih + fh*0.29 )
-	title2:SetText( "Current Action:" )
+	title2:SetText( "Action en cours :" )
 	title2:SetFont( "wOS.Anim.TitleFont" )
 	
 	local DComboBox = vgui.Create( "DComboBox", holdframe )
@@ -471,7 +471,7 @@ function wOS:OpenAnimationMenu()
 		if !holdframe.Expand then
 			basetype:SetText( "" )
 			nametext:SetText( "" )
-			prefix:SetText( "wos-custom-xxx" )
+			prefix:SetText( "wos-personnalisé-xxx" )
 			DComboBox:SetValue( "Idle Standing" )
 			AppList.ActSelect = "Idle Standing"
 			AppList.Selections = {}

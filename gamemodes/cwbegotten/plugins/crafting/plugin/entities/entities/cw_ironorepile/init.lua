@@ -1,4 +1,4 @@
---[[
+﻿--[[
 	Begotten III: Jesus Wept
 	By: DETrooper, cash wednesday, gabs, alyousha35
 
@@ -101,11 +101,11 @@ function ENT:OnTakeDamage(damageInfo)
 				if math.random(1, (hasToilersStone and 130 or 150)) == 1 or self.nextDropOverride == "gold" then
 					itemName = "gold_ore";
 					
-					Clockwork.chatBox:AddInTargetRadius(player, "it", "As you strike the rocks, you notice a faint glimmer. Are your eyes decieving you? Gold!.", player:GetPos(), config.Get("talk_radius"):Get() * 2);
+					Clockwork.chatBox:AddInTargetRadius(player, "it", "En frappant les rochers, tu aperçois une faible lueur. Est-ce une illusion ? De l'or !", player:GetPos(), config.Get("talk_radius"):Get() * 2);
 				elseif math.random(1, (hasToilersStone and 640 or 666)) == 1 or self.nextDropOverride == "blooddiamond" then
 					itemName = "uncut_blood_diamond";
 					
-					Clockwork.chatBox:AddInTargetRadius(player, "it", "As you strike the rocks, a beautiful blood-red gem is unearthed from the pile. Whispers fill the caverns around you as the precious stone glimmers.", player:GetPos(), config.Get("talk_radius"):Get() * 2);
+					Clockwork.chatBox:AddInTargetRadius(player, "it", "En frappant les rochers, une magnifique gemme rouge sang est déterrée du tas. Des murmures emplissent les cavernes autour de toi tandis que la pierre précieuse scintille.", player:GetPos(), config.Get("talk_radius"):Get() * 2);
 					
 					self:EmitSound("darkwhisper/darkwhisper_long3.mp3", 500);
 					
@@ -114,7 +114,7 @@ function ENT:OnTakeDamage(damageInfo)
 					for _, v in _player.Iterator() do
 						if v ~= player and v:GetFaith() == "Faith of the Dark" then
 							v:SendLua([[Clockwork.Client:EmitSound("darkwhisper/darkwhisper_long"..math.random(1, 5)..".mp3", 80, 100)]]);
-							Schema:EasyText(v, "red", "Your mind is abruptly overcome with feelings of unrestrained desire. A Blood Diamond has been unearthed somewhere, and it must be yours...");
+							Schema:EasyText(v, "red", "Votre esprit est soudainement envahi par un désir incontrôlable. Un Diamant de Sang a été découvert quelque part, et il vous le faut...");
 							v:HandleSanity(10);
 						end
 					end
@@ -152,7 +152,7 @@ function ENT:OnTakeDamage(damageInfo)
 			end
 			
 			if self.oreLeft <= 0 then
-				Clockwork.chatBox:AddInTargetRadius(player, "it", "The ore pile is reduced to nothing, its resources fully extracted.", player:GetPos(), config.Get("talk_radius"):Get() * 2);
+				Clockwork.chatBox:AddInTargetRadius(player, "it", "Le tas de minerai est réduit à néant, ses ressources entièrement extraites.", player:GetPos(), config.Get("talk_radius"):Get() * 2);
 				
 				self:Remove();
 			end

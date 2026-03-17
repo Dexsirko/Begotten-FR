@@ -1,4 +1,4 @@
---[[
+﻿--[[
 	Begotten III: Jesus Wept
 --]]
 
@@ -9,7 +9,7 @@ Clockwork.kernel:IncludePrefixed("sv_plugin.lua");
 Clockwork.kernel:IncludePrefixed("sv_hooks.lua");
 
 local COMMAND = Clockwork.command:New("GetDuelDebug");
-	COMMAND.tip = "Get debug information about active duels and matchmaking.";
+	COMMAND.tip = "Obtenez des informations de débogage sur les duels actifs et le système de matchmaking.";
 	COMMAND.access = "a";
 	COMMAND.alias = {"DuelDebug"};
 
@@ -47,7 +47,7 @@ local COMMAND = Clockwork.command:New("GetDuelDebug");
 COMMAND:Register();
 
 local COMMAND = Clockwork.command:New("CharForceEnterMatchmaking")
-	COMMAND.tip = "Force a character to enter duel matchmaking. Useful for debugging with bots."
+	COMMAND.tip = "Force un personnage à entrer dans l'appariement de duel. Utile pour le débogage avec des bots."
 	COMMAND.text = "<string Name>"
 	COMMAND.access = "s"
 	COMMAND.arguments = 1

@@ -1,4 +1,4 @@
---[[
+﻿--[[
 	Begotten 3: Jesus Wept
 	written by: cash wednesday, DETrooper, gabs and alyousha35.
 --]]
@@ -22,19 +22,19 @@ end
 -- A function for when a player purchases (or attempts to purchase) a shack!
 function cwShacks:ShackPurchased(player, shack)
 	if player:GetOwnedShack() then
-		Schema:EasyText(player, "peru", "You already own a property and cannot own more than one!");
+		Schema:EasyText(player, "peru", "Vous possédez déjà une propriété et ne pouvez en posséder plus d'une !");
 		return;
 	end
 	
 	--[[if cwBeliefs and !player:HasBelief("literacy") then
-		Schema:EasyText(player, "chocolate", "You must be literate in order to buy property!");
+		Schema:EasyText(player, "chocolate", "Vous devez savoir lire et écrire pour acheter une propriété !");
 		return;
 	end]]--
 	
 	local characterKey = player:GetCharacterKey();
 	
 	if !characterKey then
-		Schema:EasyText(player, "red", "Your character key is invalid! You may need to rejoin in order to buy property!");
+		Schema:EasyText(player, "red", "Votre clé de personnage est invalide ! Vous devrez peut-être vous reconnecter pour acheter une propriété !");
 		
 		return;
 	end
@@ -59,26 +59,26 @@ function cwShacks:ShackPurchased(player, shack)
 					self:NetworkShackData(PlayerCache or _player.GetAll());
 					--self:SaveShackData();
 					
-					Schema:EasyText(player, "olivedrab", "You have bought a property. It will be in your ownership until you expire or if your character has inactive for longer than one week. You may use /OpenStash to access your property's inventory, and the positive effects of /Sleep will be boosted depending on the quality of your property. You will now also spawn with 'Keys' to unlock and lock your property.");
+					Schema:EasyText(player, "olivedrab", "Vous avez acheté une propriété. Elle restera en votre possession jusqu'à votre expiration ou si votre personnage reste inactif plus d'une semaine. Vous pouvez utiliser /OpenStash pour accéder à l'inventaire de votre propriété, et les effets positifs de /Sleep seront amplifiés selon la qualité de votre propriété. Vous disposerez désormais de 'Clés' pour ouvrir et verrouiller votre propriété lors de vos apparitions.");
 					Clockwork.kernel:PrintLog(LOGTYPE_GENERIC, player:Name().." has bought the property '"..k.."' for "..price.." coin! The treasury now sits at "..Schema.towerTreasury..".");
 					
 					return;
 				else
 					local amount = price - player:GetCash();
 					
-					Schema:EasyText(player, "chocolate", "You need another "..Clockwork.kernel:FormatCash(amount, nil, true).." to purchase this property!");
+					Schema:EasyText(player, "chocolate", "Il vous en faut un autre"..Clockwork.kernel:FormatCash(amount, nil, true).." to purchase this property!");
 					
 					return;
 				end
 			else
-				Schema:EasyText(player, "darkgrey", "This property is already owned by someone!");
+				Schema:EasyText(player, "darkgrey", "Cette propriété appartient déjà à quelqu'un !");
 				
 				return;
 			end
 		end
 	end
 	
-	Schema:EasyText(player, "grey", "The property "..shack.." could not be found!");
+	Schema:EasyText(player, "grey", "La propriété"..shack.." could not be found!");
 end
 
 -- A function for when a player is added as a co-owner to a shack!
@@ -127,7 +127,7 @@ function cwShacks:ShackSold(player, shack)
 	local characterKey = player:GetCharacterKey();
 	
 	if !characterKey then
-		Schema:EasyText(player, "red", "Your character key is invalid! You may need to rejoin in order to sell property!");
+		Schema:EasyText(player, "red", "Votre clé de personnage est invalide ! Vous devrez peut-être vous reconnecter pour vendre une propriété !");
 		
 		return;
 	end
@@ -171,10 +171,10 @@ function cwShacks:ShackSold(player, shack)
 					self:NetworkShackData(PlayerCache or _player.GetAll());
 					--self:SaveShackData();
 					
-					Schema:EasyText(player, "olivedrab", "You have sold your property for "..Clockwork.kernel:FormatCash(price, nil, true).."!");
+					Schema:EasyText(player, "olivedrab", "Vous avez vendu votre propriété pour"..Clockwork.kernel:FormatCash(price, nil, true).."!");
 					Clockwork.kernel:PrintLog(LOGTYPE_GENERIC, player:Name().." has sold the property '"..k.."' for "..price.." coin! The treasury now sits at "..Schema.towerTreasury..".");
 				else
-					Schema:EasyText(player, "olivedrab", "This property cannot be sold as there is not enough money in the Tower treasury to refund you!");
+					Schema:EasyText(player, "olivedrab", "Cette propriété ne peut être vendue car le trésor de la Tour ne contient pas assez d'argent pour vous rembourser !");
 				end
 			end
 		end
@@ -229,7 +229,7 @@ function cwShacks:ShackStashOpen(player)
 	local characterKey = player:GetCharacterKey();
 	
 	if !characterKey then
-		Schema:EasyText(player, "red", "Your character key is invalid! You may need to rejoin in order to interact with property!");
+		Schema:EasyText(player, "red", "Votre clé de personnage est invalide ! Vous devrez peut-être vous reconnecter pour interagir avec les propriétés !");
 		return;
 	end
 
@@ -309,13 +309,13 @@ function cwShacks:ShackStashOpen(player)
 					return;
 				end
 			else
-				Schema:EasyText(player, "darkgrey", "This property does not have a stash as it does not have an owner!");
+				Schema:EasyText(player, "darkgrey", "Cette propriété ne possède pas de cachette car elle n'a pas de propriétaire !");
 				return;
 			end
 		end
 	end
 	
-	Schema:EasyText(player, "peru", "You must be inside your own property to open its stash!");
+	Schema:EasyText(player, "peru", "Vous devez être à l'intérieur de votre propre propriété pour ouvrir son coffre !");
 end
 
 function cwShacks:GetPropertyInfo(player, shack)
@@ -367,18 +367,18 @@ function cwShacks:GetPropertyInfo(player, shack)
 									local timeLastPlayed = tostring(os.time() - tonumber(v._LastPlayed));
 									
 									if player:IsAdmin() then
-										Schema:EasyText(player, "cornflowerblue", "Property Owner: "..v._Name.." ("..v._SteamName..")");
+										Schema:EasyText(player, "cornflowerblue", "Propriétaire du bien :"..v._Name.." ("..v._SteamName..")");
 										
 										if #coowners > 0 then
-											Schema:EasyText(player, "cornflowerblue", "Property Co-Owners: "..table.concat(coowners, ", "));
+											Schema:EasyText(player, "cornflowerblue", "Copropriétaires :"..table.concat(coowners, ", "));
 										end
 										
-										Schema:EasyText(player, "cornflowerblue", "(ADMIN DEBUG) Door Ent: "..tostring(shack.doorEnt).."   # of Stash Items: "..tostring(items).."   Time Last Played: "..timeLastPlayed.." seconds ago");
+										Schema:EasyText(player, "cornflowerblue", "(DEBUG ADMIN) Entité Porte :"..tostring(shack.doorEnt).."   # of Stash Items: "..tostring(items).."   Time Last Played: "..timeLastPlayed.." seconds ago");
 									else
-										Schema:EasyText(player, "cornflowerblue", "Property Owner: "..v._Name);
+										Schema:EasyText(player, "cornflowerblue", "Propriétaire du bien :"..v._Name);
 										
 										if #coowners > 0 then
-											Schema:EasyText(player, "cornflowerblue", "Property Co-Owners: "..table.concat(coowners, ", "));
+											Schema:EasyText(player, "cornflowerblue", "Copropriétaires :"..table.concat(coowners, ", "));
 										end
 									end
 									
@@ -392,13 +392,13 @@ function cwShacks:GetPropertyInfo(player, shack)
 					queryObj:Where("_Key", shack.owner)
 				queryObj:Execute()
 			else
-				Schema:EasyText(player, "cornflowerblue", "Property Owner: Unowned");
+				Schema:EasyText(player, "cornflowerblue", "Propriétaire du bien : Non attribué");
 			end
 		else
-			Schema:EasyText(player, "grey", "A valid property could not be found!");
+			Schema:EasyText(player, "grey", "Aucune propriété valide n'a pu être trouvée !");
 		end
 	else
-		Schema:EasyText(player, "peru", "You are not the correct faction to do this!");
+		Schema:EasyText(player, "peru", "Vous n'êtes pas de la bonne faction pour faire cela !");
 	end
 end
 

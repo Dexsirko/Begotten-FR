@@ -1,4 +1,4 @@
-ENT.Type 			= "anim"
+﻿ENT.Type 			= "anim"
 ENT.PrintName		= "Iron Bolt"
 ENT.Author			= ""
 ENT.Contact			= ""
@@ -294,7 +294,7 @@ if SERVER then
 						Ent:EmitSound("meleesounds/DS2Parry.mp3");
 					end
 					
-					Clockwork.chatBox:AddInTargetRadius(Ent, "me", "suddenly catches the crossbow bolt mid-flight with their weapon and redirects it, showing impossible skill and grace as it is deflected in the direction of its shooter!", Ent:GetPos(), config.Get("talk_radius"):Get() * 4);
+					Clockwork.chatBox:AddInTargetRadius(Ent, "me", "attrape soudainement le carreau d'arbalète en plein vol avec son arme et le redirige, faisant preuve d'une habileté et d'une grâce impossibles alors qu'il est dévié en direction de son tireur !", Ent:GetPos(), config.Get("talk_radius"):Get() * 4);
 				else
 					phys:SetVelocity(Ent:GetAimVector() * 50);
 				end

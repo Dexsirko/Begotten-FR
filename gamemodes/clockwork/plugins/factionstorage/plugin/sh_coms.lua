@@ -1,10 +1,10 @@
---[[
+﻿--[[
 	Begotten 3: Jesus Wept
 	written by: cash wednesday, DETrooper, gabs and alyousha35.
 --]]
 
 local COMMAND = Clockwork.command:New("ContSetFactionLock")
-COMMAND.tip = "Set a container's faction lock."
+COMMAND.tip = "Définir le verrouillage de faction d'un conteneur."
 COMMAND.flags = CMD_DEFAULT
 COMMAND.access = "a"
 
@@ -48,7 +48,7 @@ end
 COMMAND:Register()
 
 local COMMAND = Clockwork.command:New("ContTakeFactionLock")
-COMMAND.tip = "Reset a container's faction lock."
+COMMAND.tip = "Réinitialiser le verrouillage de faction d'un conteneur."
 COMMAND.flags = CMD_DEFAULT
 COMMAND.access = "a"
 
@@ -96,7 +96,7 @@ end
 COMMAND:Register()
 
 local COMMAND = Clockwork.command:New("ContCopyFactionLock")
-COMMAND.tip = "Copy a container's faction lock. Paste with ContPasteFactionLock."
+COMMAND.tip = "Copiez le verrouillage de faction d'un conteneur. Collez avec ContPasteFactionLock."
 COMMAND.flags = CMD_DEFAULT
 COMMAND.access = "a"
 COMMAND.alias = {"CopyFactionLock"};
@@ -138,7 +138,7 @@ end
 COMMAND:Register()
 
 local COMMAND = Clockwork.command:New("ContPasteFactionLock")
-COMMAND.tip = "Paste a copied container's faction lock onto another container."
+COMMAND.tip = "Colle le verrouillage de faction d'un conteneur copié sur un autre conteneur."
 COMMAND.flags = CMD_DEFAULT
 COMMAND.access = "a"
 COMMAND.alias = {"PasteFactionLock"};

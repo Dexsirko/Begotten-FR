@@ -1,4 +1,4 @@
---[[
+﻿--[[
 	Begotten III: Jesus Wept
 --]]
 
@@ -381,7 +381,7 @@ function cwMedicalSystem:PlayerThink(player, curTime, infoTable, alive, initiali
 															plyTab.dyingOfDisease = true;
 															
 															-- Todo: make a reverse wakeup sequence where you collapse and die.
-															Clockwork.chatBox:Add(player, nil, "itnofake", "No... this can't be the end...");
+															Clockwork.chatBox:Add(player, nil, "itnofake", "Non... ce ne peut pas être la fin...");
 															
 															player:SetCharacterData("permakilled", true); -- In case the player tries to d/c to avoid their fate.
 															
@@ -400,7 +400,7 @@ function cwMedicalSystem:PlayerThink(player, curTime, infoTable, alive, initiali
 													end
 													
 													if !plyTab.dyingOfDisease then
-														Clockwork.chatBox:Add(player, nil, "itnofake", "You start to feel better, as though your disease has finally passed.");
+														Clockwork.chatBox:Add(player, nil, "itnofake", "Vous commencez à vous sentir mieux, comme si votre maladie avait enfin disparu.");
 														
 														local immunitiesTable = player:GetCharacterData("diseaseImmunities", {});
 													
@@ -476,7 +476,7 @@ function cwMedicalSystem:PlayerThink(player, curTime, infoTable, alive, initiali
 							Clockwork.chatBox:AddInTargetRadius(player, "me", strings[math.random(1, #strings)], player:GetPos(), Clockwork.config:Get("talk_radius"):Get() * 2);	
 						elseif random_symptom == "Fatigue" then
 							if math.random(1, 3) == 1 then
-								Clockwork.chatBox:Add(player, nil, "itnofake", "I don't feel so good...");
+								Clockwork.chatBox:Add(player, nil, "itnofake", "Je ne me sens pas très bien...");
 								
 								if cwCharacterNeeds and player.HandleNeed then
 									player:HandleNeed("sleep", 3);
@@ -490,7 +490,7 @@ function cwMedicalSystem:PlayerThink(player, curTime, infoTable, alive, initiali
 											gender = "her"
 										end
 										
-										Clockwork.chatBox:AddInTargetRadius(player, "me", "goes weak at "..gender.." knees with exhaustion, collapsing onto the ground.", player:GetPos(), Clockwork.config:Get("talk_radius"):Get() * 2);
+										Clockwork.chatBox:AddInTargetRadius(player, "me", "s'affaiblit à"..gender.." knees with exhaustion, collapsing onto the ground.", player:GetPos(), Clockwork.config:Get("talk_radius"):Get() * 2);
 										Clockwork.player:SetRagdollState(player, RAGDOLL_FALLENOVER, 10);
 									end
 								end);
@@ -532,7 +532,7 @@ function cwMedicalSystem:PlayerThink(player, curTime, infoTable, alive, initiali
 										player:HandleSanity(math.random(-5, -10));
 									end
 									
-									Clockwork.chatBox:AddInTargetRadius(player, "me", "screams in pain!", player:GetPos(), Clockwork.config:Get("talk_radius"):Get() * 2);
+									Clockwork.chatBox:AddInTargetRadius(player, "me", "crie de douleur !", player:GetPos(), Clockwork.config:Get("talk_radius"):Get() * 2);
 								end
 							elseif math.random(1, (100 - messupChance)) == 1 then
 								local injuries = self:GetInjuries(player);
@@ -779,7 +779,7 @@ function cwMedicalSystem:PostCalculatePlayerDamage(player, hitGroup, damageInfo)
 								player:AddInjury(self.cwHitGroupToString[hitGroup], "broken_bone");
 								player:StartBleeding(hitGroup);
 								
-								Clockwork.chatBox:AddInTargetRadius(player, "me", "'s "..self.cwHitGroupToString[hitGroup].." audibly breaks with a horrifying snap!", player:GetPos(), Clockwork.config:Get("talk_radius"):Get() * 2);
+								Clockwork.chatBox:AddInTargetRadius(player, "me", "s"..self.cwHitGroupToString[hitGroup].." audibly breaks with a horrifying snap!", player:GetPos(), Clockwork.config:Get("talk_radius"):Get() * 2);
 
 								player:EmitSound("misc/bone_fracture.wav", 75, math.random(95, 100));
 							end;
@@ -982,9 +982,9 @@ function cwMedicalSystem:PlayerLimbFallDamageTaken(player, amount)
 			
 			if bone_broken then
 				if both_bones_broken then
-					Clockwork.chatBox:AddInTargetRadius(player, "me", "'s legs audibly break with a horrifying snap!", player:GetPos(), Clockwork.config:Get("talk_radius"):Get() * 2);
+					Clockwork.chatBox:AddInTargetRadius(player, "me", "Les jambes de [joueur] se brisent avec un craquement horrifiant !", player:GetPos(), Clockwork.config:Get("talk_radius"):Get() * 2);
 				else
-					Clockwork.chatBox:AddInTargetRadius(player, "me", "'s "..bone_broken.." leg audibly breaks with a horrifying snap!", player:GetPos(), Clockwork.config:Get("talk_radius"):Get() * 2);
+					Clockwork.chatBox:AddInTargetRadius(player, "me", "s"..bone_broken.." leg audibly breaks with a horrifying snap!", player:GetPos(), Clockwork.config:Get("talk_radius"):Get() * 2);
 				end
 				
 				player:EmitSound("misc/bone_fracture.wav", 75, math.random(95, 100));
@@ -1123,7 +1123,7 @@ function cwMedicalSystem:PlayerCanUseItem(player, itemTable, noMessage)
 	local action = Clockwork.player:GetAction(player);
 	
 	if (action == "die") or (action == "die_bleedout") then
-		Schema:EasyText(player, "firebrick", "You cannot use items while you are dying!");
+		Schema:EasyText(player, "firebrick", "Vous ne pouvez pas utiliser d'objets pendant que vous êtes en train de mourir !");
 		
 		return false;
 	end;
@@ -1151,7 +1151,7 @@ function cwMedicalSystem:PreOpenedContainer(player, entity)
 		
 		if math.random(1, 100) <= 75 then
 			if player:GiveDisease(entity.disease) then
-				Schema:EasyText(Schema:GetAdmins(), "icon16/bug.png", "tomato", player:Name().." has been infected with "..entity.disease.." from looting a diseased corpse.");
+				Schema:EasyText(Schema:GetAdmins(), "icon16/bug.png", "tomate", player:Name().." has been infected with "..entity.disease.." from looting a diseased corpse.");
 				--Clockwork.kernel:PrintLog(LOGTYPE_MAJOR, player:Name().." has been infected with "..entity.disease.." from looting a diseased corpse.");
 			end
 		end

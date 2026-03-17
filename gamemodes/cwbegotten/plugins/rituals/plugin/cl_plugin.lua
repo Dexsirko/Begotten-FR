@@ -1,4 +1,4 @@
---[[
+﻿--[[
 	Begotten 3: Jesus Wept
 	written by: cash wednesday, DETrooper, gabs and alyousha35.
 --]]
@@ -104,14 +104,14 @@ function cwRituals:PlayerCanPerformRitual(uniqueID)
 	
 	if requiredFaction then
 		if faction and not table.HasValue(requiredFaction, faction) then
-			--Schema:EasyText(player, "firebrick", "You are not the correct faction to perform this ritual!");
+			--Schema:EasyText(player, "firebrick", "Vous n'êtes pas de la faction appropriée pour accomplir ce rituel !");
 			return false;
 		end
 	end
 	
 	if requiredSubfaction then
 		if subfaction and not table.HasValue(requiredSubfaction, subfaction) then
-			--Schema:EasyText(player, "firebrick", "You are not the correct subfaction to perform this ritual!");
+			--Schema:EasyText(player, "firebrick", "Vous n'êtes pas la bonne sous-faction pour accomplir ce rituel !");
 			return false;
 		end
 	end

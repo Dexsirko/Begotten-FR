@@ -1,7 +1,7 @@
-local PLUGIN = PLUGIN;
+﻿local PLUGIN = PLUGIN;
 
 local COMMAND = Clockwork.command:New("AdminPlayTime");
-COMMAND.tip = "See someone's playtime.";
+COMMAND.tip = "Voir le temps de jeu de quelqu'un.";
 COMMAND.text = "<string Name>";
 COMMAND.arguments = 1
 COMMAND.access = "o";

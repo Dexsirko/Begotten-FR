@@ -1,4 +1,4 @@
---[[
+﻿--[[
 	Begotten 3: Jesus Wept
 	written by: cash wednesday, DETrooper, gabs and alyousha35.
 --]]
@@ -10,7 +10,7 @@ Clockwork.kernel:IncludePrefixed("sv_hooks.lua");
 Clockwork.kernel:IncludePrefixed("sv_plugin.lua");
 
 local COMMAND = Clockwork.command:New("AddItemContainerSpawn")
-	COMMAND.tip = "Add an item container spawn location using a spawned entity's positions and angles. (Valid categories: "..table.concat(cwItemSpawner.Categories, ", ")..")";
+	COMMAND.tip = "Ajoute un emplacement de génération de conteneur d'objets en utilisant les positions et angles d'une entité générée. (Catégories valides :"..table.concat(cwItemSpawner.Categories, ", ")..")";
 	COMMAND.text = "<string Category>"
 	COMMAND.access = "s"
 	COMMAND.arguments = 1
@@ -23,7 +23,7 @@ local COMMAND = Clockwork.command:New("AddItemContainerSpawn")
 COMMAND:Register()
 
 local COMMAND = Clockwork.command:New("RemoveContainerSpawn")
-	COMMAND.tip = "Remove an item container spawn location at your cursor."
+	COMMAND.tip = "Supprime un point d'apparition de conteneur d'objets à l'emplacement de votre curseur."
 	COMMAND.access = "s"
 	COMMAND.optionalArguments = 1;
 	COMMAND.text = "[int Radius]"
@@ -36,7 +36,7 @@ local COMMAND = Clockwork.command:New("RemoveContainerSpawn")
 COMMAND:Register()
 
 local COMMAND = Clockwork.command:New("AddSupercrateSpawn")
-	COMMAND.tip = "Add a supercrate spawn location using a spawned entity's positions and angles."
+	COMMAND.tip = "Ajoute un point d'apparition de supercaisse en utilisant la position et l'orientation d'une entité générée."
 	COMMAND.access = "s"
 
 	-- Called when the command has been run.
@@ -46,7 +46,7 @@ local COMMAND = Clockwork.command:New("AddSupercrateSpawn")
 COMMAND:Register()
 
 local COMMAND = Clockwork.command:New("RemoveSupercrateSpawn")
-	COMMAND.tip = "Remove a supercrate spawn location at your cursor."
+	COMMAND.tip = "Supprime un point d'apparition de supercaisse à l'emplacement de votre curseur."
 	COMMAND.access = "s"
 	COMMAND.optionalArguments = 1;
 	COMMAND.text = "[int Radius]"
@@ -59,7 +59,7 @@ local COMMAND = Clockwork.command:New("RemoveSupercrateSpawn")
 COMMAND:Register()
 
 local COMMAND = Clockwork.command:New("AddItemSpawn")
-	COMMAND.tip = "Add an item spawn location."
+	COMMAND.tip = "Ajouter un emplacement d'apparition d'objet."
 	COMMAND.text = "<string Category>"
 	COMMAND.access = "s"
 	COMMAND.arguments = 1
@@ -73,13 +73,13 @@ local COMMAND = Clockwork.command:New("AddItemSpawn")
 			end
 		end
 		
-		Schema:EasyText(player, "darkgrey", "You have specified an invalid category!");
+		Schema:EasyText(player, "darkgrey", "Vous avez spécifié une catégorie invalide !");
 		return false;
 	end
 COMMAND:Register()
 
 local COMMAND = Clockwork.command:New("RemoveItemSpawn")
-	COMMAND.tip = "Remove an item spawn location at your cursor."
+	COMMAND.tip = "Supprime un point d'apparition d'objet à l'endroit de votre curseur."
 	COMMAND.access = "s"
 	COMMAND.optionalArguments = 1;
 	COMMAND.text = "[int Radius]"
@@ -92,7 +92,7 @@ local COMMAND = Clockwork.command:New("RemoveItemSpawn")
 COMMAND:Register()
 
 local COMMAND = Clockwork.command:New("SpawnSupercrate")
-	COMMAND.tip = "Add an item spawn location."
+	COMMAND.tip = "Ajouter un emplacement d'apparition d'objet."
 	COMMAND.text = "[bool TeleportTo]"
 	COMMAND.access = "s"
 	COMMAND.optionalArguments = 1
@@ -100,13 +100,13 @@ local COMMAND = Clockwork.command:New("SpawnSupercrate")
 	-- Called when the command has been run.
 	function COMMAND:OnRun(player, arguments)
 		if !cwItemSpawner.SupercrateLocations or #cwItemSpawner.SupercrateLocations <= 0 then
-			Schema:EasyText(player, "tomato", "This map does not support supercrates!");
+			Schema:EasyText(player, "tomato", "Cette carte ne prend pas en charge les supercrates !");
 			
 			return;
 		end
 		
 		if config.GetVal("loot_spawner_enabled") ~= true then
-			Schema:EasyText(player, "tomato", "Loot spawning is currently disabled in the server config!");
+			Schema:EasyText(player, "tomato", "Le spawn du butin est actuellement désactivé dans la configuration du serveur !");
 		
 			return;
 		end
@@ -121,7 +121,7 @@ local COMMAND = Clockwork.command:New("SpawnSupercrate")
 				
 				cwItemSpawner.SuperCrate = nil;
 				
-				Schema:EasyText(player, "lightslategrey", "You have removed the current supercrate.");
+				Schema:EasyText(player, "lightslategrey", "Vous avez retiré la caisse spéciale actuelle.");
 			end
 		end
 		
@@ -133,7 +133,7 @@ local COMMAND = Clockwork.command:New("SpawnSupercrate")
 			if IsValid(supercrate) then
 				local numItems = table.Count(supercrate.cwInventory);
 				
-				Schema:EasyText(player, "cornflowerblue", "You have spawned a supercrate with "..tostring(numItems).." items and "..tostring(supercrate.cwCash).." coin!");
+				Schema:EasyText(player, "cornflowerblue", "Vous avez fait apparaître une supercaisse avec"..tostring(numItems).." items and "..tostring(supercrate.cwCash).." coin!");
 		
 				if arguments and arguments[1] then
 					Clockwork.player:SetSafePosition(player, supercrate:GetPos());
@@ -143,12 +143,12 @@ local COMMAND = Clockwork.command:New("SpawnSupercrate")
 			end
 		end
 		
-		Schema:EasyText(player, "tomato", "A supecrate could not be created for some reason!")
+		Schema:EasyText(player, "tomato", "Une supercaisse n'a pas pu être créée pour une raison quelconque !")
 	end
 COMMAND:Register()
 
 local COMMAND = Clockwork.command:New("ItemSpawnerInfo")
-	COMMAND.tip = "Get some debug data about the item spawning."
+	COMMAND.tip = "Obtenez des données de débogage sur la génération d'objets."
 	COMMAND.access = "s"
 	COMMAND.alias = {"GetItemSpawnerInfo"}
 
@@ -167,7 +167,7 @@ local COMMAND = Clockwork.command:New("ItemSpawnerInfo")
 COMMAND:Register()
 
 local COMMAND = Clockwork.command:New("ItemSpawnerContainerToggleESP");
-COMMAND.tip = "Toggles container spawns on or off on the admin ESP.";
+COMMAND.tip = "Active ou désactive l'affichage des conteneurs sur l'ESP administrateur.";
 COMMAND.flags = CMD_DEFAULT;
 COMMAND.access = "s";
 
@@ -187,7 +187,7 @@ end;
 COMMAND:Register();
 
 local COMMAND = Clockwork.command:New("RemoveItemSpawnerStorage");
-	COMMAND.tip = "Clear all item spawner storage containers on the map.";
+	COMMAND.tip = "Effacer tous les conteneurs de stockage de générateurs d'objets sur la carte.";
 	COMMAND.access = "s";
 	COMMAND.alias = {"ClearItemSpawnerStorage", "RemoveItemSpawnerStorage"};
 	

@@ -1,4 +1,4 @@
---[[
+﻿--[[
 	Begotten III: Jesus Wept
 --]]
 
@@ -100,7 +100,7 @@ if cwWeather.systemEnabled then
 						end
 					end
 					
-					Clockwork.chatBox:Add(playersInWeatherZones, nil, "event", "An acrid smell slowly begins to permeate the Wasteland, foreshadowing the imminent arrival of acid rain.");
+					Clockwork.chatBox:Add(playersInWeatherZones, nil, "event", "Une odeur âcre commence lentement à imprégner le Wasteland, annonçant l'arrivée imminente des pluies acides.");
 				end,
 				leadupTime = 60,
 			},
@@ -141,7 +141,7 @@ if cwWeather.systemEnabled then
 					end
 				
 					netstream.Start(playersInWeatherZones, "EmitSound", {name = "begotten2/doom_moan.wav", pitch = 90, level = 80});
-					Clockwork.chatBox:Add(playersInWeatherZones, nil, "event", "The distant howls of Begotten thralls can be heard throughout the land. Something evil is coming.");
+					Clockwork.chatBox:Add(playersInWeatherZones, nil, "event", "Les hurlements lointains des thralles de Begotten résonnent à travers les terres. Un mal approche.");
 				end,
 				leadupTime = 60,
 			},
@@ -234,7 +234,7 @@ if cwWeather.systemEnabled then
 	end
 		
 	local COMMAND = Clockwork.command:New("SetWeather");
-		COMMAND.tip = "Set the weather. Valid weathers: "..table.concat(table.GetKeys(cwWeather.weatherTypes), ", ")..". \"Force\" argument skips the transitionary period. \"customDuration\" argument sets a custom duration for the weathertype.";
+		COMMAND.tip = "Définir la météo. Conditions météorologiques valides :"..table.concat(table.GetKeys(cwWeather.weatherTypes), ", ")..". \"Force\" argument skips the transitionary period. \"customDuration\" argument sets a custom duration for the weathertype.";
 		COMMAND.text = "<string Cycle> [bool Force] [int customDuration]";
 		COMMAND.access = "a";
 		COMMAND.arguments = 1;
@@ -260,7 +260,7 @@ if cwWeather.systemEnabled then
 	COMMAND:Register();
 	
 	local COMMAND = Clockwork.command:New("ChangeWeatherLength");
-		COMMAND.tip = "Append or subtract from an active weather's length.";
+		COMMAND.tip = "Ajouter ou soustraire à la durée d'une météo active.";
 		COMMAND.text = "<number Seconds>";
 		COMMAND.access = "a";
 		COMMAND.arguments = 1;
@@ -274,13 +274,13 @@ if cwWeather.systemEnabled then
 				
 				Schema:EasyText(Schema:GetAdmins(), "cornflowerblue", "["..self.name.."] "..player:Name().." has extended the "..cwWeather.weather.." by "..tostring(cwWeather.nextWeatherTime - CurTime()).." seconds!");
 			else
-				Schema:EasyText(player, "darkgrey", "This is not a valid amount!");
+				Schema:EasyText(player, "darkgrey", "Ce n'est pas un montant valide !");
 			end
 		end;
 	COMMAND:Register();
 
 	local COMMAND = Clockwork.command:New("GetWeather");
-		COMMAND.tip = "Get the active weather.";
+		COMMAND.tip = "Obtenez la météo active.";
 		COMMAND.access = "a";
 	
 		-- Called when the command has been run.

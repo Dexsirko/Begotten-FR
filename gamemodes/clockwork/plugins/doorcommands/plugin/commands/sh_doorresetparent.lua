@@ -1,9 +1,9 @@
---[[
+﻿--[[
 	BEGOTTEN III: Developed by DETrooper, cash wednesday, gabs & alyousha35
 --]]
 
 local COMMAND = Clockwork.command:New("DoorResetParent")
-COMMAND.tip = "Reset the player's active parent door."
+COMMAND.tip = "Réinitialiser la porte parent active du joueur."
 COMMAND.flags = CMD_DEFAULT
 COMMAND.access = "a"
 

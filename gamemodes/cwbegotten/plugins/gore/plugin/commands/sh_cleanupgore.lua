@@ -1,5 +1,5 @@
-local COMMAND = Clockwork.command:New("ClearGore");
-COMMAND.tip = "Remove all gore related entities.";
+﻿local COMMAND = Clockwork.command:New("ClearGore");
+COMMAND.tip = "Supprime toutes les entités liées aux effets gore.";
 COMMAND.text = "<bool Decals>";
 COMMAND.flags = CMD_DEFAULT;
 COMMAND.access = "s";

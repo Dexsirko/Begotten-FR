@@ -1,4 +1,4 @@
---[[
+﻿--[[
 	Begotten III: Jesus Wept
 	By: DETrooper, cash wednesday, gabs, alyousha35
 
@@ -49,7 +49,7 @@ function SYSTEM:OnDisplay(systemPanel, systemForm)
 
 	if (table.Count(classes) > 0) then
 		local label = vgui.Create("cwInfoText", systemPanel)
-			label:SetText("Clicking on a player will bring up all available commands.")
+			label:SetText("Cliquer sur un joueur affichera toutes les commandes disponibles.")
 			label:SetInfoColor("blue")
 			label:DockMargin(0, 0, 0, 8)
 		systemPanel.panelList:AddItem(label)
@@ -88,7 +88,7 @@ function SYSTEM:OnDisplay(systemPanel, systemForm)
 		end
 	else
 		local label = vgui.Create("cwInfoText", systemPanel)
-			label:SetText("There are no players to display.")
+			label:SetText("Aucun joueur à afficher.")
 			label:SetInfoColor("orange")
 		systemPanel.panelList:AddItem(label)
 	end

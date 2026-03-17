@@ -1,4 +1,4 @@
---[[
+﻿--[[
 	Begotten III: Jesus Wept
 --]]
 
@@ -105,7 +105,7 @@ function cwWeather:PlayerThink(player, curTime, infoTable, alive, initialized, p
 							if ammo and #ammo > 0 and !itemTable.usesMagazine then
 								itemTable:SetData("Ammo", {});
 								
-								Clockwork.player:Notify(player, "Your weapon fills with water and your powder charge is ruined!");
+								Clockwork.player:Notify(player, "Votre arme s'est remplie d'eau et votre charge de poudre est inutilisable !");
 							end
 						end
 					end
@@ -270,7 +270,7 @@ function cwWeather:WeatherChanged(weather, oldWeather)
 
 			if !v:HasBelief("thirst_blood_moon") and !v:HasBelief("embrace_the_darkness") then return; end
 
-			Clockwork.chatBox:Add(v, nil, "event", "You feel the Blood Moon's dark power fade away, obscured by the changing weather.");
+			Clockwork.chatBox:Add(v, nil, "event", "Tu sens le pouvoir sombre de la Lune de Sang s'estomper, masqué par le changement de temps.");
 		end
 	end
 end

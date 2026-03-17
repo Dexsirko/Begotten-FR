@@ -1,4 +1,4 @@
---[[
+﻿--[[
 	Begotten III: Jesus Wept
 	By: DETrooper, cash wednesday, gabs, alyousha35
 
@@ -90,7 +90,7 @@ function PANEL:Rebuild()
 	
 	if (table.Count(classes) > 0) then
 		local label = vgui.Create("cwInfoText", self);
-			label:SetText("Clicking a player's model icon may bring up some options.");
+			label:SetText("Cliquer sur l'icône du modèle d'un joueur peut afficher certaines options.");
 			label:SetInfoColor("blue");
 		self.panelList:AddItem(label);
 		
@@ -125,7 +125,7 @@ function PANEL:Rebuild()
 		end;
 	else
 		local label = vgui.Create("cwInfoText", self);
-			label:SetText("There are no players to display.");
+			label:SetText("Aucun joueur à afficher.");
 			label:SetInfoColor("orange");
 		self.panelList:AddItem(label);
 	end;

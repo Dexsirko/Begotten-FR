@@ -1,4 +1,4 @@
---[[
+﻿--[[
 	Begotten 3: Jesus Wept
 	written by: cash wednesday, DETrooper, gabs and alyousha35.
 --]]
@@ -4276,7 +4276,7 @@ end
 function Schema:DirectoryOpenHomePage(panel)
 	local WIPLabel = vgui.Create("DLabel", panel);
 	
-	WIPLabel:SetText("THE MANIFESTO IS A WORK IN PROGRESS!");
+	WIPLabel:SetText("LE MANIFESTE EST UN TRAVAIL EN COURS !");
 	WIPLabel:SetFont("manifestoContentHeader");
 	WIPLabel:SetTextColor(Color(255, 20, 20));
 	WIPLabel:SizeToContents();
@@ -4285,7 +4285,7 @@ function Schema:DirectoryOpenHomePage(panel)
 	
 	local videoLabel = vgui.Create("DLabel", panel);
 	
-	videoLabel:SetText("Featured Video:");
+	videoLabel:SetText("Vidéo à la une :");
 	videoLabel:SetFont("manifestoContentHeader");
 	videoLabel:SizeToContents();
 	
@@ -4300,7 +4300,7 @@ function Schema:DirectoryOpenHomePage(panel)
 
 	local beginnersLabel = vgui.Create("DLabel", panel);
 	
-	beginnersLabel:SetText("Beginner's Guide:");
+	beginnersLabel:SetText("Guide du Débutant :");
 	beginnersLabel:SetFont("manifestoContentHeader");
 	beginnersLabel:SizeToContents();
 	

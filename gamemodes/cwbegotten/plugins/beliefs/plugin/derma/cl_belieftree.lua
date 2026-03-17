@@ -1,4 +1,4 @@
---[[
+﻿--[[
 	Begotten 3
 	Created by cash wednesday, gabs, DETrooper and alyousha35
 --]]
@@ -693,7 +693,7 @@ function PANEL:Rebuild(player, level, experience, beliefs, points, faith, highli
 
 	if (!self.closeButton) then
 		self.closeButton = vgui.Create("DButton", self)
-		self.closeButton:SetText("CLOSE")
+		self.closeButton:SetText("FERMER")
 		self.closeButton:SetSize(252, 67)
 		self.closeButton:SetPos(14, (sizeH) - (67 + 8) - 2)
 		self.closeButton:SetTextColor(Color(160, 0, 0))

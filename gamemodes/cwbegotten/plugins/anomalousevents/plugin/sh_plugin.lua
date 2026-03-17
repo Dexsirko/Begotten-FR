@@ -1,16 +1,16 @@
-PLUGIN:SetGlobalAlias("cwAnomalous")
+﻿PLUGIN:SetGlobalAlias("cwAnomalous")
 
 Clockwork.kernel:IncludePrefixed("cl_hooks.lua");
 Clockwork.kernel:IncludePrefixed("cl_plugin.lua");
 Clockwork.kernel:IncludePrefixed("sv_hooks.lua");
 
 local COMMAND = Clockwork.command:New("cosmicrupture");
-	COMMAND.tip = "Cause a Cosmic Rupture to occur in the Wasteland.";
+	COMMAND.tip = "Provoque une Rupture Cosmique dans le Wasteland.";
 	COMMAND.access = "s";
 
 	-- Called when the command has been run.
 	function COMMAND:OnRun(player, arguments)
-		Clockwork.chatBox:Add(nil, player, "event", "The ground abruptly begins to shake violently and the sky explodes with lightning as a torrent of cosmic energy sweeps over the Wasteland. Experienced survivors will know what this means...");
+		Clockwork.chatBox:Add(nil, player, "event", "Le sol se met soudain à trembler violemment et le ciel explose d'éclairs tandis qu'un torrent d'énergie cosmique balaie le Wasteland. Les survivants expérimentés savent ce que cela signifie...");
 		
 		for _, v in _player.Iterator() do
 			if IsValid(v) then
@@ -24,7 +24,7 @@ local COMMAND = Clockwork.command:New("cosmicrupture");
 COMMAND:Register();
 
 local COMMAND = Clockwork.command:New("radiocrazy");
-	COMMAND.tip = "Make the radio you're looking at go crazy.";
+	COMMAND.tip = "Faites dérailler la radio que vous regardez.";
 	COMMAND.access = "s";
 
 	-- Called when the command has been run.
@@ -42,7 +42,7 @@ local COMMAND = Clockwork.command:New("radiocrazy");
 COMMAND:Register();
 
 local COMMAND = Clockwork.command:New("tvhallucination");
-	COMMAND.tip = "Trigger a TV hallucination for a player manually.";
+	COMMAND.tip = "Déclencher manuellement une hallucination de télévision pour un joueur.";
 	COMMAND.text = "<string Name> [bool TriggerOnSelf]"
 	COMMAND.access = "s";
 	COMMAND.arguments = 1

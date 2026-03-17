@@ -1,4 +1,4 @@
---[[
+﻿--[[
 	Begotten III: Jesus Wept
 	By: DETrooper, cash wednesday, gabs, alyousha35
 
@@ -8,7 +8,7 @@
 PrecacheParticleSystem("smoke_exhaust_01")
 
 local COMMAND = Clockwork.command:New();
-COMMAND.tip = "Punish a misbehaving player by entering their name or looking at them.";
+COMMAND.tip = "Punissez un joueur indiscipliné en saisissant son nom ou en le regardant.";
 COMMAND.text = "[string Name]";
 COMMAND.access = "s";
 COMMAND.alias = {"CharSmite", "Smite"};
@@ -131,18 +131,18 @@ function COMMAND:OnRun(player, arguments)
 		end
 		
 		netstream.Start(PlayerCache or _player.GetAll(), "EmitSound", {name = "ambient/weather/thunderstorm/lightning_strike_"..tostring(math.random(1, 4))..".wav", pitch = 100, level = 100});
-		Clockwork.chatBox:AddInTargetRadius(target, "me", "is struck by a huge bolt of electricity, their flesh and clothes burning to a crisp as their corpse spasms wildly!", target:GetPos(), config.Get("talk_radius"):Get() * 2);
-		Clockwork.chatBox:Add(PlayerCache or _player.GetAll(), nil, "event", "A crack of thunder can be heard throughout the Wasteland, as though someone has been smited by the gods.");
+		Clockwork.chatBox:AddInTargetRadius(target, "me", "est frappé par un immense éclair, sa chair et ses vêtements se consumant jusqu'à la carbonisation tandis que son cadavre s'agite violemment !", target:GetPos(), config.Get("talk_radius"):Get() * 2);
+		Clockwork.chatBox:Add(PlayerCache or _player.GetAll(), nil, "event", "Un coup de tonnerre résonne à travers le Wasteland, comme si quelqu'un avait été foudroyé par les dieux.");
 		Schema:EasyText(Schema:GetAdmins(), "icon16/weather_lightning.png", "goldenrod", target:Name().." incurred "..player:Name().."'s divine wrath!");
 	else
-		Clockwork.player:Notify(player, "Invalid target! Enter a name or look at a player!");
+		Clockwork.player:Notify(player, "Cible invalide ! Saisissez un nom ou visez un joueur !");
 	end
 end;
 
 Clockwork.command:Register(COMMAND, "PlySmite");
 
 local COMMAND = Clockwork.command:New("SkyDrop");
-COMMAND.tip = "Spawn an object above the head of the fucklet of your choice. Will try to spawn as high up as possible, works best in open areas. The last arguments can be a list of items, including 'cash'/'coins' for a random amount of money, and 'random' for generated loot. You can also add X[num] to the end of an ID to define the number. For example: papa_petes_ice_cold_popX24 will add 24 bottles of delicious Papa Pete's® Ice Cold Pop™!";
+COMMAND.tip = "Fait apparaître un objet au-dessus de la tête du fucklet de ton choix. Le système tentera de le placer le plus haut possible, fonctionne mieux dans les zones dégagées. Les derniers arguments peuvent être une liste d'objets, incluant 'cash'/'coins' pour une somme d'argent aléatoire, et 'random' pour du butin généré aléatoirement. Tu peux aussi ajouter X[num] à la fin d'un ID pour définir la quantité. Par exemple : papa_petes_ice_cold_popX24 ajoutera 24 bouteilles de la délicieuse Papa Pete's® Ice Cold Pop™ !";
 COMMAND.text = "<string Name> <string Model> [num CleanupTimeInSeconds] [bool Burning] [Loot ItemIDs or Random or Cash/Coins]";
 COMMAND.access = "s";
 COMMAND.arguments = 2;
@@ -183,12 +183,12 @@ function COMMAND:OnRun(player, arguments)
 			end
 			dist = tgtpos:Distance( spawnpoint )
 
-			Clockwork.player:Notify(player, "Spawned a prop ["..model.."] "..(dist*0.01905).." meters above "..target:Name()..".");
+			Clockwork.player:Notify(player, "Prop créé"..model.."] "..(dist*0.01905).." meters above "..target:Name()..".");
 			timer.Create("SkyDrop"..target:Name()..""..math.Round(CurTime()), cleanuptime, 1, function()
 				if IsValid(dropped) then
 					dropped:Remove();
 				else
-					Clockwork.player:Notify(player, "Could not find the recently spawned object: ["..model.."] for cleanup. It might already be removed, or in need of manual cleanup.");
+					Clockwork.player:Notify(player, "Impossible de localiser l'objet récemment généré : ["..model.."] for cleanup. It might already be removed, or in need of manual cleanup.");
 				end
 			end);
 			
@@ -240,7 +240,7 @@ function COMMAND:OnRun(player, arguments)
 							local theitem = Clockwork.item:CreateInstance(instr);
 							if theitem then
 								Clockwork.inventory:AddInstance(dropped.cwInventory, theitem, numberof)
-								Clockwork.player:Notify(player, "Added: "..theitem.name.." x"..numberof);
+								Clockwork.player:Notify(player, "Ajouté :"..theitem.name.." x"..numberof);
 								itemcount = itemcount + 1
 							else
 								Clockwork.player:Notify(player, instr.." not found.");
@@ -248,7 +248,7 @@ function COMMAND:OnRun(player, arguments)
 						end
 					end
 				end
-				Clockwork.player:Notify(player, "Added "..itemcount.." items and "..dropped.cwCash.." coins to the object's inventory.");
+				Clockwork.player:Notify(player, "Ajouté"..itemcount.." items and "..dropped.cwCash.." coins to the object's inventory.");
 			end
 		else
 			Clockwork.player:Notify(player, arguments[2].." is not a valid model!");

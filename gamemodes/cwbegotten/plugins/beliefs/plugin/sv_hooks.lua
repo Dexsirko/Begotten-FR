@@ -1,4 +1,4 @@
---[[
+﻿--[[
 	Begotten 3
 	Created by cash wednesday, gabs, DETrooper and alyousha35
 --]]
@@ -101,7 +101,7 @@ function cwBeliefs:PlayerThink(player, curTime, infoTable, alive, initialized, p
 
 			if !player:HasBelief("dexterity") and (player:HasItemByID("dirty_water_bucket") or player:HasItemByID("purified_water_bucket")) and !player.cwObserverMode then
 				if player:IsRunning() then
-					Clockwork.chatBox:AddInTargetRadius(player, "me", "drops a bucket of water as they run, spilling it all over themselves like a fucking idiot!", player:GetPos(), Clockwork.config:Get("talk_radius"):Get() * 2);
+					Clockwork.chatBox:AddInTargetRadius(player, "me", "lâche un seau d'eau en courant, se renversant tout dessus comme un putain d'imbécile !", player:GetPos(), Clockwork.config:Get("talk_radius"):Get() * 2);
 					player:EmitSound("apocalypse/cauldron/dropping.mp3");
 					player:HandleTemperature(-20);
 
@@ -131,16 +131,16 @@ function cwBeliefs:PlayerThink(player, curTime, infoTable, alive, initialized, p
 					for _, v in _player.Iterator() do
 						if v:GetNetVar("yellowBanner") then
 							if (v:GetPos():Distance(playerPos) <= config.Get("talk_radius"):Get()) then
-								Schema:EasyText(player, "peru", "There is one with a yellow banner raised, dispelling your dark magic! Vanquish them or distance yourself!");
-								Schema:EasyText(v, "peru", "You feel your yellow banner pulsate with energy as the dark magic of "..player:Name().." is foiled and they are uncloaked for all to see!");
+								Schema:EasyText(player, "peru", "Un drapeau jaune est levé, dissipant ta magie noire ! Vaincs-le ou éloigne-toi !");
+								Schema:EasyText(v, "peru", "Tu sens ta bannière jaune palpiter d'énergie sous l'emprise de la magie noire de"..player:Name().." is foiled and they are uncloaked for all to see!");
 								player:Uncloak();
 							
 								break;
 							end
 						elseif v:GetCharmEquipped("holy_sigils") or v:GetCharmEquipped("codex_solis") then
 							if (v:GetPos():Distance(playerPos) <= (config.Get("talk_radius"):Get() * 0.75)) then
-								Schema:EasyText(player, "peru", "There is one with a holy relic, dispelling your dark magic! Vanquish them or distance yourself!");
-								Schema:EasyText(v, "peru", "You feel your equipped charm pulsate with energy as the dark magic of "..player:Name().." is foiled and they are uncloaked for all to see!");
+								Schema:EasyText(player, "peru", "Il y en a un avec une relique sacrée, dissipant ta magie noire ! Vaincs-le ou éloigne-toi !");
+								Schema:EasyText(v, "peru", "Tu sens ton charme équipé palpiter d'énergie sous l'emprise de la magie noire de"..player:Name().." is foiled and they are uncloaked for all to see!");
 								player:Uncloak();
 							
 								break;
@@ -173,9 +173,9 @@ function cwBeliefs:PlayerThink(player, curTime, infoTable, alive, initialized, p
 								player:Cloak();
 							end
 						elseif (plyTab.cloakCooldown - curTime) > 5 then
-							Schema:EasyText(self.Owner, "chocolate", "You are covered in black powder and cannot cloak for another "..math.ceil(plyTab.cloakCooldown - curTime).." seconds!");
+							Schema:EasyText(self.Owner, "chocolate", "Vous êtes couvert de poudre noire et ne pouvez pas vous camoufler avant"..math.ceil(plyTab.cloakCooldown - curTime).." seconds!");
 						else
-							Schema:EasyText(self.Owner, "chocolate", "You cannot cloak for another "..math.ceil(plyTab.cloakCooldown - curTime).." seconds!");
+							Schema:EasyText(self.Owner, "chocolate", "Vous ne pouvez pas vous camoufler avant encore"..math.ceil(plyTab.cloakCooldown - curTime).." seconds!");
 						end
 					end
 				end
@@ -512,7 +512,7 @@ function cwBeliefs:EntityHandleMenuOption(player, entity, option, arguments)
 						local model = entity:GetModel();
 						
 						if model == "models/animals/deer1.mdl" then
-							Clockwork.chatBox:AddInTargetRadius(player, "me", "begins cutting the flesh of the stag before them, harvesting its meat.", player:GetPos(), Clockwork.config:Get("talk_radius"):Get() * 2);
+							Clockwork.chatBox:AddInTargetRadius(player, "me", "commence à découper la chair du cerf devant lui, en récoltant sa viande.", player:GetPos(), Clockwork.config:Get("talk_radius"):Get() * 2);
 							
 							Clockwork.player:SetAction(player, "mutilating", mutilationTime, 5, function()
 								if IsValid(player) and IsValid(entity) then
@@ -537,16 +537,16 @@ function cwBeliefs:EntityHandleMenuOption(player, entity, option, arguments)
 
 												weaponItemTable:TakeConditionByPlayer(player, conditionLoss, true);
 											else
-												Clockwork.player:Notify(player, "This corpse has no meat left to mutilate!");
+												Clockwork.player:Notify(player, "Ce cadavre n'a plus de chair à mutiler !");
 											end
 										else
-											Clockwork.player:Notify(player, "Your dagger is not strong enough to effectively mutilate this corpse!");
+											Clockwork.player:Notify(player, "Votre dague n'est pas assez affûtée pour mutiler efficacement ce cadavre !");
 										end
 									end
 								end
 							end);
 						elseif model == "models/animals/goat.mdl" then
-							Clockwork.chatBox:AddInTargetRadius(player, "me", "begins cutting the flesh of the goat before them, harvesting its meat.", player:GetPos(), Clockwork.config:Get("talk_radius"):Get() * 2);
+							Clockwork.chatBox:AddInTargetRadius(player, "me", "commence à découper la chair de la chèvre devant lui, en récoltant sa viande.", player:GetPos(), Clockwork.config:Get("talk_radius"):Get() * 2);
 						
 							Clockwork.player:SetAction(player, "mutilating", mutilationTime, 5, function()
 								if IsValid(player) and IsValid(entity) then
@@ -570,13 +570,13 @@ function cwBeliefs:EntityHandleMenuOption(player, entity, option, arguments)
 
 											weaponItemTable:TakeConditionByPlayer(player, conditionLoss, true);
 										else
-											Clockwork.player:Notify(player, "This corpse has no meat left to mutilate!");
+											Clockwork.player:Notify(player, "Ce cadavre n'a plus de chair à mutiler !");
 										end
 									end
 								end
 							end);
 						elseif model == "models/animal_ragd/piratecat_leopard.mdl" then
-							Clockwork.chatBox:AddInTargetRadius(player, "me", "begins cutting the flesh of the leopard before them, harvesting its meat.", player:GetPos(), Clockwork.config:Get("talk_radius"):Get() * 2);
+							Clockwork.chatBox:AddInTargetRadius(player, "me", "commence à découper la chair du léopard devant lui, en récoltant sa viande.", player:GetPos(), Clockwork.config:Get("talk_radius"):Get() * 2);
 						
 							Clockwork.player:SetAction(player, "mutilating", mutilationTime, 5, function()
 								if IsValid(player) and IsValid(entity) then
@@ -601,16 +601,16 @@ function cwBeliefs:EntityHandleMenuOption(player, entity, option, arguments)
 
 												weaponItemTable:TakeConditionByPlayer(player, conditionLoss, true);
 											else
-												Clockwork.player:Notify(player, "This corpse has no meat left to mutilate!");
+												Clockwork.player:Notify(player, "Ce cadavre n'a plus de chair à mutiler !");
 											end
 										else
-											Clockwork.player:Notify(player, "Your dagger is not strong enough to effectively mutilate this corpse!");
+											Clockwork.player:Notify(player, "Votre dague n'est pas assez affûtée pour mutiler efficacement ce cadavre !");
 										end
 									end
 								end
 							end);
 						elseif model == "models/begotten/creatures/wolf.mdl" then
-							Clockwork.chatBox:AddInTargetRadius(player, "me", "begins cutting the flesh of the wolf before them, harvesting its meat.", player:GetPos(), Clockwork.config:Get("talk_radius"):Get() * 2);
+							Clockwork.chatBox:AddInTargetRadius(player, "me", "commence à découper la chair du loup devant lui, en récoltant sa viande.", player:GetPos(), Clockwork.config:Get("talk_radius"):Get() * 2);
 						
 							Clockwork.player:SetAction(player, "mutilating", mutilationTime, 5, function()
 								if IsValid(player) and IsValid(entity) then
@@ -634,13 +634,13 @@ function cwBeliefs:EntityHandleMenuOption(player, entity, option, arguments)
 
 											weaponItemTable:TakeConditionByPlayer(player, conditionLoss, true);
 										else
-											Clockwork.player:Notify(player, "This corpse has no meat left to mutilate!");
+											Clockwork.player:Notify(player, "Ce cadavre n'a plus de chair à mutiler !");
 										end
 									end
 								end
 							end);
 						elseif model == "models/animals/bear.mdl" then
-							Clockwork.chatBox:AddInTargetRadius(player, "me", "begins cutting the flesh of the bear before them, harvesting its meat.", player:GetPos(), Clockwork.config:Get("talk_radius"):Get() * 2);
+							Clockwork.chatBox:AddInTargetRadius(player, "me", "commence à découper la chair de l'ours devant lui, en récoltant la viande.", player:GetPos(), Clockwork.config:Get("talk_radius"):Get() * 2);
 						
 							Clockwork.player:SetAction(player, "mutilating", mutilationTime, 5, function()
 								if IsValid(player) and IsValid(entity) then
@@ -665,17 +665,17 @@ function cwBeliefs:EntityHandleMenuOption(player, entity, option, arguments)
 																							
 												weaponItemTable:TakeConditionByPlayer(player, conditionLoss, true);
 											else
-												Clockwork.player:Notify(player, "This corpse has no meat left to mutilate!");
+												Clockwork.player:Notify(player, "Ce cadavre n'a plus de chair à mutiler !");
 											end
 										else
-											Clockwork.player:Notify(player, "Your dagger is not strong enough to effectively mutilate this corpse!");
+											Clockwork.player:Notify(player, "Votre dague n'est pas assez affûtée pour mutiler efficacement ce cadavre !");
 										end
 									end
 								end
 							end);
 						elseif entity:GetNWEntity("Player"):IsPlayer() or entity:GetNWEntity("Player") == game.GetWorld() then
 							if entity.hasMeat and entity.hasMeat == true then
-								Clockwork.chatBox:AddInTargetRadius(player, "me", "begins cutting the flesh of the body before them, harvesting its meat.", player:GetPos(), Clockwork.config:Get("talk_radius"):Get() * 2);
+								Clockwork.chatBox:AddInTargetRadius(player, "me", "commence à découper la chair du corps devant lui, en récoltant la viande.", player:GetPos(), Clockwork.config:Get("talk_radius"):Get() * 2);
 							
 								Clockwork.player:SetAction(player, "mutilating", mutilationTime, 5, function()
 									if IsValid(player) and IsValid(entity) then
@@ -699,20 +699,20 @@ function cwBeliefs:EntityHandleMenuOption(player, entity, option, arguments)
 																							
 												weaponItemTable:TakeConditionByPlayer(player, conditionLoss, true);
 											else
-												Clockwork.player:Notify(player, "This corpse has no meat left to mutilate!");
+												Clockwork.player:Notify(player, "Ce cadavre n'a plus de chair à mutiler !");
 											end
 										end
 									end
 								end);
 							else
-								Clockwork.player:Notify(player, "This corpse is far too frail and sickly to mutilate!");
+								Clockwork.player:Notify(player, "Ce cadavre est bien trop frêle et maladif pour être mutilé !");
 							end;
 						end
 					else
-						Clockwork.player:Notify(player, "This corpse has no meat left to mutilate!");
+						Clockwork.player:Notify(player, "Ce cadavre n'a plus de chair à mutiler !");
 					end;
 				else
-					Clockwork.player:Notify(player, "You must have a dagger equipped in order to mutilate corpses!");
+					Clockwork.player:Notify(player, "Vous devez avoir une dague équipée pour mutiler les cadavres !");
 				end;
 			end;
 		elseif (arguments == "cwEatHeart") then
@@ -732,23 +732,23 @@ function cwBeliefs:EntityHandleMenuOption(player, entity, option, arguments)
 						player:HandleXP(self.xpValues["mutilate"]);
 						
 						if model == "models/animals/deer1.mdl" then
-							Clockwork.chatBox:AddInTargetRadius(player, "me", "plunges their hand into the chest of the stag before them, ripping out its heart and devouring it whole.", player:GetPos(), Clockwork.config:Get("talk_radius"):Get() * 2);
+							Clockwork.chatBox:AddInTargetRadius(player, "me", "plonge sa main dans la poitrine du cerf devant lui, en arrache le cœur et le dévore tout entier.", player:GetPos(), Clockwork.config:Get("talk_radius"):Get() * 2);
 						elseif model == "models/animals/goat.mdl" then
-							Clockwork.chatBox:AddInTargetRadius(player, "me", "plunges their hand into the chest of the goat before them, ripping out its heart and devouring it whole.", player:GetPos(), Clockwork.config:Get("talk_radius"):Get() * 2);
+							Clockwork.chatBox:AddInTargetRadius(player, "me", "plonge sa main dans la poitrine de la chèvre devant lui, en arrache le cœur et le dévore tout entier.", player:GetPos(), Clockwork.config:Get("talk_radius"):Get() * 2);
 						elseif model == "models/animal_ragd/piratecat_leopard.mdl" then
-							Clockwork.chatBox:AddInTargetRadius(player, "me", "plunges their hand into the chest of the leopard before them, ripping out its heart and devouring it whole.", player:GetPos(), Clockwork.config:Get("talk_radius"):Get() * 2);
+							Clockwork.chatBox:AddInTargetRadius(player, "me", "plonge sa main dans la poitrine du léopard devant lui, en arrache le cœur et le dévore tout entier.", player:GetPos(), Clockwork.config:Get("talk_radius"):Get() * 2);
 						elseif model == "models/animals/bear.mdl" then
-							Clockwork.chatBox:AddInTargetRadius(player, "me", "plunges their hand into the chest of the bear before them, ripping out its heart and devouring it whole.", player:GetPos(), Clockwork.config:Get("talk_radius"):Get() * 2);
+							Clockwork.chatBox:AddInTargetRadius(player, "me", "plonge sa main dans la poitrine de l'ours devant lui, en arrache le cœur et le dévore tout entier.", player:GetPos(), Clockwork.config:Get("talk_radius"):Get() * 2);
 						elseif model == "models/begotten/creatures/wolf.mdl" then
-							Clockwork.chatBox:AddInTargetRadius(player, "me", "plunges their hand into the chest of the wolf before them, ripping out its heart and devouring it whole.", player:GetPos(), Clockwork.config:Get("talk_radius"):Get() * 2);
+							Clockwork.chatBox:AddInTargetRadius(player, "me", "plonge sa main dans la poitrine du loup devant lui, en arrache le cœur et l'avale d'un trait.", player:GetPos(), Clockwork.config:Get("talk_radius"):Get() * 2);
 						else
-							Clockwork.chatBox:AddInTargetRadius(player, "me", "plunges their hand into the chest of the body before them, ripping out its heart and devouring it whole.", player:GetPos(), Clockwork.config:Get("talk_radius"):Get() * 2);
+							Clockwork.chatBox:AddInTargetRadius(player, "me", "plonge sa main dans la poitrine du cadavre devant lui, en arrache le cœur et le dévore tout entier.", player:GetPos(), Clockwork.config:Get("talk_radius"):Get() * 2);
 						end
 						
 						player:EmitSound("npc/barnacle/barnacle_crunch"..math.random(2, 3)..".wav");
 						Clockwork.kernel:CreateBloodEffects(entity:NearestPoint(trace.HitPos), 1, entity);
 					else
-						Clockwork.player:Notify(player, "This corpse's heart has already been devoured!");
+						Clockwork.player:Notify(player, "Le cœur de ce cadavre a déjà été dévoré !");
 					end;
 				end;
 			end;
@@ -765,24 +765,24 @@ function cwBeliefs:EntityHandleMenuOption(player, entity, option, arguments)
 					player:HandleXP(math.Round(self.xpValues["mutilate"] / 2));
 					
 					if model == "models/animals/deer1.mdl" then
-						Clockwork.chatBox:AddInTargetRadius(player, "me", "uses their hands to dig into the flesh of the stag before them, harvesting its bones.", player:GetPos(), Clockwork.config:Get("talk_radius"):Get() * 2);
+						Clockwork.chatBox:AddInTargetRadius(player, "me", "utilise ses mains pour fouiller la chair du cerf devant lui, en récoltant les os.", player:GetPos(), Clockwork.config:Get("talk_radius"):Get() * 2);
 					elseif model == "models/animals/goat.mdl" then
-						Clockwork.chatBox:AddInTargetRadius(player, "me", "uses their hands to dig into the flesh of the goat before them, harvesting its bones.", player:GetPos(), Clockwork.config:Get("talk_radius"):Get() * 2);
+						Clockwork.chatBox:AddInTargetRadius(player, "me", "utilise ses mains pour fouiller la chair de la chèvre devant lui, en récoltant ses os.", player:GetPos(), Clockwork.config:Get("talk_radius"):Get() * 2);
 					elseif model == "models/animal_ragd/piratecat_leopard.mdl" then
-						Clockwork.chatBox:AddInTargetRadius(player, "me", "uses their hands to dig into the flesh of the leopard before them, harvesting its bones.", player:GetPos(), Clockwork.config:Get("talk_radius"):Get() * 2);
+						Clockwork.chatBox:AddInTargetRadius(player, "me", "utilise ses mains pour fouiller la chair du léopard devant lui, en récoltant ses os.", player:GetPos(), Clockwork.config:Get("talk_radius"):Get() * 2);
 					elseif model == "models/animals/bear.mdl" then
-						Clockwork.chatBox:AddInTargetRadius(player, "me", "uses their hands to dig into the flesh of the bear before them, harvesting its bones.", player:GetPos(), Clockwork.config:Get("talk_radius"):Get() * 2);
+						Clockwork.chatBox:AddInTargetRadius(player, "me", "utilise ses mains pour fouiller la chair de l'ours devant lui, en récoltant les os.", player:GetPos(), Clockwork.config:Get("talk_radius"):Get() * 2);
 					elseif model == "models/begotten/creatures/wolf.mdl" then
-						Clockwork.chatBox:AddInTargetRadius(player, "me", "uses their hands to dig into the flesh of the wolf before them, harvesting its bones.", player:GetPos(), Clockwork.config:Get("talk_radius"):Get() * 2);
+						Clockwork.chatBox:AddInTargetRadius(player, "me", "utilise ses mains pour fouiller la chair du loup devant lui, en récoltant ses os.", player:GetPos(), Clockwork.config:Get("talk_radius"):Get() * 2);
 					else
-						Clockwork.chatBox:AddInTargetRadius(player, "me", "uses their hands to dig into the flesh of the body before them, harvesting its bones.", player:GetPos(), Clockwork.config:Get("talk_radius"):Get() * 2);
+						Clockwork.chatBox:AddInTargetRadius(player, "me", "utilise ses mains pour fouiller la chair du corps devant lui, en récoltant les os.", player:GetPos(), Clockwork.config:Get("talk_radius"):Get() * 2);
 					end
 					
 					player:EmitSound("npc/barnacle/barnacle_crunch"..math.random(2, 3)..".wav");
 					Clockwork.kernel:CreateBloodEffects(entity:NearestPoint(trace.HitPos), 1, entity);
 											
 				else
-					Clockwork.player:Notify(player, "This corpse has already been harvested of all its bones!");
+					Clockwork.player:Notify(player, "Ce cadavre a déjà été dépouillé de tous ses os !");
 				end;
 			end;
 		elseif (arguments == "cwCorpseSkin") then
@@ -829,19 +829,19 @@ function cwBeliefs:EntityHandleMenuOption(player, entity, option, arguments)
 						
 						if model == "models/animals/deer1.mdl" then
 							requiredDaggerStrength = 2
-							Clockwork.chatBox:AddInTargetRadius(player, "me", "begins flaying the skin of the stag before them, harvesting its fur and hide.", player:GetPos(), Clockwork.config:Get("talk_radius"):Get() * 2);
+							Clockwork.chatBox:AddInTargetRadius(player, "me", "commence à dépouiller la peau du cerf devant lui, récoltant sa fourrure et son cuir.", player:GetPos(), Clockwork.config:Get("talk_radius"):Get() * 2);
 						elseif model == "models/animals/goat.mdl" then
 							requiredDaggerStrength = 1
-							Clockwork.chatBox:AddInTargetRadius(player, "me", "begins flaying the skin of the goat before them, harvesting its fur and hide.", player:GetPos(), Clockwork.config:Get("talk_radius"):Get() * 2);
+							Clockwork.chatBox:AddInTargetRadius(player, "me", "commence à écorcher la peau de la chèvre devant lui, récoltant sa fourrure et son cuir.", player:GetPos(), Clockwork.config:Get("talk_radius"):Get() * 2);
 						elseif model == "models/animal_ragd/piratecat_leopard.mdl" then
 							requiredDaggerStrength = 2
-							Clockwork.chatBox:AddInTargetRadius(player, "me", "begins flaying the skin of the leopard before them, harvesting its fur and hide.", player:GetPos(), Clockwork.config:Get("talk_radius"):Get() * 2);
+							Clockwork.chatBox:AddInTargetRadius(player, "me", "commence à dépouiller la peau du léopard devant lui, récoltant sa fourrure et son cuir.", player:GetPos(), Clockwork.config:Get("talk_radius"):Get() * 2);
 						elseif model == "models/begotten/creatures/wolf.mdl" then
 							requiredDaggerStrength = 1
-							Clockwork.chatBox:AddInTargetRadius(player, "me", "begins flaying the skin of the wolf before them, harvesting its fur and hide.", player:GetPos(), Clockwork.config:Get("talk_radius"):Get() * 2);
+							Clockwork.chatBox:AddInTargetRadius(player, "me", "commence à dépouiller la peau du loup devant lui, récoltant sa fourrure et son cuir.", player:GetPos(), Clockwork.config:Get("talk_radius"):Get() * 2);
 						elseif model == "models/animals/bear.mdl" then
 							requiredDaggerStrength = 3	
-							Clockwork.chatBox:AddInTargetRadius(player, "me", "begins flaying the skin of the bear before them, harvesting its fur and hide.", player:GetPos(), Clockwork.config:Get("talk_radius"):Get() * 2);
+							Clockwork.chatBox:AddInTargetRadius(player, "me", "commence à dépouiller la peau de l'ours devant lui, récoltant sa fourrure et son cuir.", player:GetPos(), Clockwork.config:Get("talk_radius"):Get() * 2);
 							uniqueID = "bearskin";
 						end
 						
@@ -880,19 +880,19 @@ function cwBeliefs:EntityHandleMenuOption(player, entity, option, arguments)
 												weaponItemTable:TakeConditionByPlayer(player, skinningConditionLoss, true);
 											end
 										else
-											Clockwork.player:Notify(player, "This corpse has already been skinned!");
+											Clockwork.player:Notify(player, "Ce cadavre a déjà été dépecé !");
 										end
 									else
-										Clockwork.player:Notify(player, "Your dagger is not strong enough to pierce this creature's hide!");
+										Clockwork.player:Notify(player, "Votre dague n'est pas assez affûtée pour percer la peau de cette créature !");
 									end
 								end
 							end
 						end);
 					else
-						Clockwork.player:Notify(player, "This corpse has already been skinned!");
+						Clockwork.player:Notify(player, "Ce cadavre a déjà été dépecé !");
 					end;
 				else
-					Clockwork.player:Notify(player, "You must have a dagger equipped in order to skin this animal!");
+					Clockwork.player:Notify(player, "Vous devez avoir une dague équipée pour dépecer cet animal !");
 				end;
 			end;
 		end
@@ -956,13 +956,13 @@ function cwBeliefs:EntityTakeDamageNew(entity, damageInfo)
 						if IsValid(attacker) and attacker:IsPlayer() then
 							for k, v in pairs(ents.FindInSphere(entity:GetPos(), Clockwork.config:Get("talk_radius"):Get() * 2)) do
 								if v:IsPlayer() then
-									Clockwork.chatBox:Add(v, attacker, "me", "'s blow against "..Clockwork.player:FormatRecognisedText(v, "%s", entity).." is deflected at the last moment by an invisible force!");
+									Clockwork.chatBox:Add(v, attacker, "me", "a porté un coup contre"..Clockwork.player:FormatRecognisedText(v, "%s", entity).." is deflected at the last moment by an invisible force!");
 								end
 							end
 						else
 							for k, v in pairs(ents.FindInSphere(entity:GetPos(), Clockwork.config:Get("talk_radius"):Get() * 2)) do
 								if v:IsPlayer() then
-									Clockwork.chatBox:Add(v, entity, "me", "'s damage is deflected at the last moment by an invisible force!");
+									Clockwork.chatBox:Add(v, entity, "me", "Les dégâts de 's sont déviés au dernier moment par une force invisible !");
 								end
 							end
 						end
@@ -1094,7 +1094,7 @@ function cwBeliefs:EntityTakeDamageNew(entity, damageInfo)
 												end
 											end
 											
-											Clockwork.player:Notify(entity, "Your Distorted Ring shatters and releases a tremendous amount of energy, giving you one last chance at life!");
+											Clockwork.player:Notify(entity, "Votre Anneau Déformé se brise et libère une énergie colossale, vous offrant une dernière chance de survie !");
 											
 											if cwMedicalSystem then
 												entTab.nextBleedPoint = CurTime() + 180;
@@ -1397,10 +1397,10 @@ function cwBeliefs:EntityTakeDamageNew(entity, damageInfo)
 							
 							if rand == 1 then
 								attacker:StopAllBleeding();
-								Clockwork.player:Notify(attacker, "You feel the power of the Blood Moon flow through your very soul! Your mortal vessel suddenly stops bleeding.");
+								Clockwork.player:Notify(attacker, "Tu sens le pouvoir de la Lune de Sang couler dans ton âme même ! Ton enveloppe mortelle cesse soudainement de saigner.");
 							elseif rand == 5 then
 								attacker:ResetInjuries();
-								Clockwork.player:Notify(attacker, "You feel the power of the Blood Moon flow through your very soul! Your mortal vessel suddenly heals of its injuries.");
+								Clockwork.player:Notify(attacker, "Tu sens le pouvoir de la Lune de Sang circuler dans ton âme même ! Ton enveloppe mortelle guérit soudainement de ses blessures.");
 							end
 						end
 					end
@@ -1686,7 +1686,7 @@ function cwBeliefs:FuckMyLife(entity, damageInfo)
 					entity:SetLocalVar("Hatred", 0);
 					entity:Extinguish();
 
-					Clockwork.chatBox:AddInTargetRadius(entity, "me", "'s hatred is so strong that they simply refuse to die yet!", entity:GetPos(), config.Get("talk_radius"):Get() * 2);
+					Clockwork.chatBox:AddInTargetRadius(entity, "me", "La haine de  est si intense qu'il refuse tout simplement de mourir pour l'instant !", entity:GetPos(), config.Get("talk_radius"):Get() * 2);
 					if entity:GetGender() == GENDER_MALE then
 						entity:EmitSound("misc/attack_01.ogg", 90, math.random(55,70))
 					else
@@ -1741,7 +1741,7 @@ function cwBeliefs:FuckMyLife(entity, damageInfo)
 					entity:EmitSound("physics/metal/metal_grate_impact_hard3.wav");
 					entity:Extinguish();
 					
-					Clockwork.player:Notify(entity, "Your Distorted Ring shatters and releases a tremendous amount of energy, giving you one last chance at life!");
+					Clockwork.player:Notify(entity, "Votre Anneau Distordu se brise et libère une énergie colossale, vous offrant une dernière chance de survie !");
 					
 					if cwMedicalSystem then
 						entTab.nextBleedPoint = CurTime() + 180;
@@ -2508,7 +2508,7 @@ function cwBeliefs:PlayerCanUseItem(player, itemTable, noMessage)
 			
 			if !player:HasBelief(belief) and (!itemTable.allowedSubfactions or !table.HasValue(itemTable.allowedSubfactions, subfaction)) then
 				if !itemTable.kinisgerOverride or itemTable.kinisgerOverride and !player:GetCharacterData("apostle_of_many_faces") then
-					Clockwork.player:Notify(player, "You cannot equip this item as you lack the belief required to do so!");
+					Clockwork.player:Notify(player, "Vous ne pouvez pas équiper cet objet car vous manquez de la foi nécessaire pour le faire !");
 					return false;
 				end
 			end;
@@ -2530,7 +2530,7 @@ function cwBeliefs:PlayerCanUseItem(player, itemTable, noMessage)
 		
 		if not has_needed_belief then
 			if !itemTable.kinisgerOverride or itemTable.kinisgerOverride and !player:GetCharacterData("apostle_of_many_faces") then
-				Clockwork.player:Notify(player, "You cannot equip this item as you lack one of the beliefs required to do so!");
+				Clockwork.player:Notify(player, "Vous ne pouvez pas équiper cet objet car il vous manque l'une des croyances requises pour le faire !");
 				return false;
 			end
 		end

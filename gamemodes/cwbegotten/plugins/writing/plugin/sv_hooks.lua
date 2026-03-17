@@ -1,4 +1,4 @@
---[[
+﻿--[[
 	Begotten III: Jesus Wept
 	By: DETrooper, cash wednesday, gabs, alyousha35
 
@@ -15,7 +15,7 @@ function PLUGIN:EntityHandleMenuOption(player, entity, option, arguments)
 		if arguments == "cw_paperOption" then
 			if (entity.text) then
 				if cwBeliefs and !player:HasBelief("literacy") then
-					Schema:EasyText(player, "chocolate", "You are not literate!");
+					Schema:EasyText(player, "chocolate", "Vous n'êtes pas lettré !");
 				
 					return false;
 				end
@@ -33,7 +33,7 @@ function PLUGIN:EntityHandleMenuOption(player, entity, option, arguments)
 				end;
 			else
 				if cwBeliefs and !player:HasBelief("literacy") then
-					Schema:EasyText(player, "chocolate", "You are not literate!");
+					Schema:EasyText(player, "chocolate", "Vous n'êtes pas lettré !");
 				
 					return false;
 				end
@@ -41,7 +41,7 @@ function PLUGIN:EntityHandleMenuOption(player, entity, option, arguments)
 				if player:HasItemByID("quill") then
 					netstream.Start(player, "EditPaper", entity);
 				else
-					Schema:EasyText(player, "chocolate", "You need a quill to write on paper!");
+					Schema:EasyText(player, "chocolate", "Il te faut une plume pour écrire sur du papier !");
 					
 					return false;
 				end

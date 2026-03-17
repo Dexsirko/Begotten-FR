@@ -1,4 +1,4 @@
---[[
+﻿--[[
 	Begotten III: Jesus Wept
 	By: DETrooper, cash wednesday, gabs, alyousha35
 
@@ -6,7 +6,7 @@
 --]]
 
 local COMMAND = Clockwork.command:New("CinematicText");
-	COMMAND.tip = "Show everyone a cinematic chat message. THIS IS NOT THE SAME AS CENTER TEXT! Your message will appear smaller, and lower down on the screen.";
+	COMMAND.tip = "Affiche un message cinématique à tous dans le chat. CECI N'EST PAS LA MÊME CHOSE QUE LE TEXTE CENTRÉ ! Votre message apparaîtra plus petit et plus bas sur l'écran.";
 	COMMAND.text = "<string Text>";
 	COMMAND.access = "a";
 	COMMAND.arguments = 1;

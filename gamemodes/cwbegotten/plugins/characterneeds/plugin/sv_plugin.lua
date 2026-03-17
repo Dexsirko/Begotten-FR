@@ -1,4 +1,4 @@
---[[
+﻿--[[
 	Begotten III: Jesus Wept
 --]]
 
@@ -107,7 +107,7 @@ function playerMeta:HandleNeed(need, amount)
 				
 				if newAmount >= 100 then
 					if !self:IsRagdolled() then
-						Clockwork.chatBox:Add(self, nil, "itnofake", "I can't go on like this for much longer...");
+						Clockwork.chatBox:Add(self, nil, "itnofake", "Je ne peux pas continuer comme ça encore longtemps...");
 						Clockwork.player:SetRagdollState(self, RAGDOLL_KNOCKEDOUT, 20);
 						
 						local health = self:Health();
@@ -127,11 +127,11 @@ function playerMeta:HandleNeed(need, amount)
 						end]]--
 					end;
 				elseif newAmount >= 90 and currentAmount < 90 then
-					Clockwork.chatBox:Add(self, nil, "itnofake", "I am starving. How long can I go on for?");
+					Clockwork.chatBox:Add(self, nil, "itnofake", "Je meurs de faim. Combien de temps vais-je encore tenir ?");
 				elseif newAmount >= 75 and currentAmount < 75 then
-					Clockwork.chatBox:Add(self, nil, "itnofake", "I am very hungry.");
+					Clockwork.chatBox:Add(self, nil, "itnofake", "J'ai très faim.");
 				elseif newAmount >= 50 and currentAmount < 50 then
-					Clockwork.chatBox:Add(self, nil, "itnofake", "I feel hungry.");
+					Clockwork.chatBox:Add(self, nil, "itnofake", "J'ai faim.");
 				end;
 			elseif need == "thirst" then
 				if cwBeliefs and self:HasBelief("yellow_and_black") and amount > 0 then
@@ -140,7 +140,7 @@ function playerMeta:HandleNeed(need, amount)
 			
 				if newAmount >= 100 then
 					if !self:IsRagdolled() then
-						Clockwork.chatBox:Add(self, nil, "itnofake", "I can't go on like this for much longer...");
+						Clockwork.chatBox:Add(self, nil, "itnofake", "Je ne peux pas continuer comme ça encore longtemps...");
 						Clockwork.player:SetRagdollState(self, RAGDOLL_KNOCKEDOUT, 20);
 
 						local health = self:Health();
@@ -160,11 +160,11 @@ function playerMeta:HandleNeed(need, amount)
 						end]]--
 					end;
 				elseif newAmount >= 90 and currentAmount < 90 then
-					Clockwork.chatBox:Add(self, nil, "itnofake", "This thirst will be the death of me. I need to find water SOON!");
+					Clockwork.chatBox:Add(self, nil, "itnofake", "Cette soif va causer ma perte. Il faut que je trouve de l'eau, et VITE !");
 				elseif newAmount >= 75 and currentAmount < 75 then
-					Clockwork.chatBox:Add(self, nil, "itnofake", "My mouth is dry and I feel very parched.");
+					Clockwork.chatBox:Add(self, nil, "itnofake", "Ma bouche est sèche et j'ai très soif.");
 				elseif newAmount >= 50 and currentAmount < 50 then
-					Clockwork.chatBox:Add(self, nil, "itnofake", "This thirst is getting to me. I must find clean water soon.");
+					Clockwork.chatBox:Add(self, nil, "itnofake", "Cette soif commence à me gagner. Il faut que je trouve de l'eau potable rapidement.");
 				end;
 			elseif need == "sleep" then
 				if amount > 0 then
@@ -184,29 +184,29 @@ function playerMeta:HandleNeed(need, amount)
 					if player.OverEncumbered then
 						self.sleepData = {health = 1, hunger = 1, thirst = 2, rest = -2};
 						Clockwork.player:SetRagdollState(self, RAGDOLL_KNOCKEDOUT, 15);
-						Schema:EasyText(self, "olive", "You finally collapse from exhaustion, but as you are overencumbered you do not rest well.");
+						Schema:EasyText(self, "olive", "Tu finis par t'effondrer d'épuisement, mais étant surchargé, tu ne te reposes pas bien.");
 					else
 						self.sleepData = {health = 10, hunger = 15, thirst = 30, rest = -30};
 						Clockwork.player:SetRagdollState(self, RAGDOLL_KNOCKEDOUT, 300)
-						Schema:EasyText(self, "olive", "You finally collapse from exhaustion.");
+						Schema:EasyText(self, "olive", "Tu finis par t'effondrer d'épuisement.");
 					end
 				elseif newAmount >= 90 and currentAmount < 90 then
 					if cwBeliefs and self:HasBelief("yellow_and_black") then
-						Clockwork.chatBox:Add(self, nil, "itnofake", "My systems are starting to shut down, I NEED TECH!");
+						Clockwork.chatBox:Add(self, nil, "itnofake", "Mes systèmes commencent à s'éteindre, J'AI BESOIN D'UN TECHNO !");
 					else
-						Clockwork.chatBox:Add(self, nil, "itnofake", "I'm gonna pass out soon if I can't find somewhere to go to bed...");
+						Clockwork.chatBox:Add(self, nil, "itnofake", "Je vais bientôt m'évanouir si je ne trouve pas un endroit où dormir...");
 					end
 				elseif newAmount >= 75 and currentAmount < 75 then
 					if cwBeliefs and self:HasBelief("yellow_and_black") then
-						Clockwork.chatBox:Add(self, nil, "itnofake", "My battery is getting very low, I must find tech and soon!");
+						Clockwork.chatBox:Add(self, nil, "itnofake", "Ma batterie est très basse, je dois trouver de la technologie, et vite !");
 					else
-						Clockwork.chatBox:Add(self, nil, "itnofake", "I'm feeling very tired...");
+						Clockwork.chatBox:Add(self, nil, "itnofake", "Je me sens très fatigué...");
 					end
 				elseif newAmount >= 50 and currentAmount < 50 then
 					if cwBeliefs and self:HasBelief("yellow_and_black") then
-						Clockwork.chatBox:Add(self, nil, "itnofake", "My battery is at 50%, I must be mindful of it.");
+						Clockwork.chatBox:Add(self, nil, "itnofake", "Ma batterie est à 50%, je dois y faire attention.");
 					else
-						Clockwork.chatBox:Add(self, nil, "itnofake", "I'm starting to get a bit drowsy.");
+						Clockwork.chatBox:Add(self, nil, "itnofake", "Je commence à avoir un peu sommeil.");
 					end
 				end;
 			elseif need == "corruption" then
@@ -233,8 +233,8 @@ function playerMeta:HandleNeed(need, amount)
 									local playerPos = self:GetPos();
 									
 									if lastZone ~= "tower" and lastZone ~= "theather" and lastZone ~= "manor" then 
-										Clockwork.chatBox:AddInTargetRadius(self, "me", "abruptly explodes into a shower of fire and gore as a fucking demon bursts from their very flesh!", playerPos, config.Get("talk_radius"):Get() * 2);
-										Schema:EasyText(Schema:GetAdmins(), "icon16/bomb.png", "tomato", self:Name().." exploded from high corruption and a demon has spawned in their stead!");
+										Clockwork.chatBox:AddInTargetRadius(self, "me", "explose soudainement en une pluie de feu et de viscères alors qu'un putain de démon jaillit de leur propre chair !", playerPos, config.Get("talk_radius"):Get() * 2);
+										Schema:EasyText(Schema:GetAdmins(), "icon16/bomb.png", "tomate", self:Name().." exploded from high corruption and a demon has spawned in their stead!");
 										
 										self:Kill();
 										
@@ -266,8 +266,8 @@ function playerMeta:HandleNeed(need, amount)
 											end;
 										end
 									
-										Clockwork.chatBox:AddInTargetRadius(self, "me", "abruptly explodes into a shower of gore!", playerPos, config.Get("talk_radius"):Get() * 2);
-										Schema:EasyText(Schema:GetAdmins(), "icon16/bomb.png", "tomato", self:Name().." exploded from high corruption!");
+										Clockwork.chatBox:AddInTargetRadius(self, "me", "explose soudainement en une pluie de sang et de viscères !", playerPos, config.Get("talk_radius"):Get() * 2);
+										Schema:EasyText(Schema:GetAdmins(), "icon16/bomb.png", "tomate", self:Name().." exploded from high corruption!");
 									end
 								end
 							end
@@ -280,8 +280,8 @@ function playerMeta:HandleNeed(need, amount)
 							local lastZone = self:GetCharacterData("LastZone");
 							local playerPos = self:GetPos();
 							
-							Clockwork.chatBox:AddInTargetRadius(self, "me", "explodes into a shower of fire and gore as a fucking demon bursts from their very flesh!", playerPos, config.Get("talk_radius"):Get() * 2);
-							Schema:EasyText(Schema:GetAdmins(), "icon16/bomb.png", "tomato", self:Name().." exploded from high corruption and a demon has spawned in their stead!");
+							Clockwork.chatBox:AddInTargetRadius(self, "me", "explose en une pluie de feu et de chair alors qu'un putain de démon jaillit de leur propre corps !", playerPos, config.Get("talk_radius"):Get() * 2);
+							Schema:EasyText(Schema:GetAdmins(), "icon16/bomb.png", "tomate", self:Name().." exploded from high corruption and a demon has spawned in their stead!");
 							
 							self:Kill();
 							
@@ -313,12 +313,12 @@ function playerMeta:HandleNeed(need, amount)
 								end;
 							end
 						
-							Clockwork.chatBox:AddInTargetRadius(self, "me", "abruptly explodes into a shower of gore!", playerPos, config.Get("talk_radius"):Get() * 2);
-							Schema:EasyText(Schema:GetAdmins(), "icon16/bomb.png", "tomato", self:Name().." exploded from high corruption!");
+							Clockwork.chatBox:AddInTargetRadius(self, "me", "explose soudainement en une pluie de viscères !", playerPos, config.Get("talk_radius"):Get() * 2);
+							Schema:EasyText(Schema:GetAdmins(), "icon16/bomb.png", "tomate", self:Name().." exploded from high corruption!");
 						end
 					end
 				elseif newAmount >= 90 and currentAmount < 90 then
-					Clockwork.chatBox:Add(self, nil, "itnofake", "You can feel claws DIGGING INTO YOUR MIND!!! You must pray for holy salvation as soon as possible!");
+					Clockwork.chatBox:Add(self, nil, "itnofake", "Vous sentez des griffes S'ENFONCER DANS VOTRE ESPRIT !!! Vous devez prier pour le salut divin au plus vite !");
 					
 					if not self:HasTrait("possessed") then
 						netstream.Start(self, "Stunned", 5);
@@ -326,7 +326,7 @@ function playerMeta:HandleNeed(need, amount)
 						self:GiveTrait("possessed");
 					end
 				elseif newAmount >= 66 and currentAmount < 66 then
-					Clockwork.chatBox:Add(self, nil, "itnofake", "You cannot help but feel as though the lands are corrupting your soul.");
+					Clockwork.chatBox:Add(self, nil, "itnofake", "Tu ne peux t'empêcher de sentir que ces terres corrompent ton âme.");
 				end;
 			end
 		end

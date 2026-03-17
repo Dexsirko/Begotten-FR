@@ -1,9 +1,9 @@
---[[
+﻿--[[
 	BEGOTTEN III: Developed by DETrooper, cash wednesday, gabs & alyousha35
 --]]
 
 local COMMAND = Clockwork.command:New("DoorSetParent")
-COMMAND.tip = "Set the active parent door to your target."
+COMMAND.tip = "Définissez la porte parent active sur votre cible."
 COMMAND.flags = CMD_DEFAULT
 COMMAND.access = "a"
 

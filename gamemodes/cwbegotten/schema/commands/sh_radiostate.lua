@@ -1,5 +1,5 @@
-local COMMAND = Clockwork.command:New();
-COMMAND.tip = "Turn your handheld radio on or off.";
+﻿local COMMAND = Clockwork.command:New();
+COMMAND.tip = "Active ou désactive ta radio portative.";
 COMMAND.text = "[bool TurnOn]"
 COMMAND.flags = bit.bor(CMD_DEFAULT, CMD_DEATHCODE, CMD_FALLENOVER);
 COMMAND.arguments = 1;
@@ -33,7 +33,7 @@ function COMMAND:OnRun(player, arguments)
 			netstream.Start(player, "RadioState", false);
 		end
 	else
-		Clockwork.player:Notify(player, "You must specify true or false!");
+		Clockwork.player:Notify(player, "Vous devez spécifier vrai ou faux !");
 	end
 end;
 

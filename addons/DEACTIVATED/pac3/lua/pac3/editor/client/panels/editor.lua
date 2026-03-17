@@ -1,4 +1,4 @@
-local L = pace.LanguageString
+﻿local L = pace.LanguageString
 
 local PANEL = {}
 
@@ -61,7 +61,7 @@ function PANEL:Init()
 
 		local SETTING_MARGIN_TOP = 6
 			self.persistcheckbox = vgui.Create("DCheckBoxLabel", self.zoomsettings)
-			self.persistcheckbox:SetText("Persistent camera FOV")
+			self.persistcheckbox:SetText("Champ de vision de la caméra persistant")
 			self.persistcheckbox:Dock(TOP)
 			self.persistcheckbox:SetDark(true)
 			self.persistcheckbox:DockMargin(0,SETTING_MARGIN_TOP,0,0)
@@ -70,12 +70,12 @@ function PANEL:Init()
 			self.persistlabel = vgui.Create("DLabel", self.zoomsettings)
 			self.persistlabel:Dock(TOP)
 			self.persistlabel:SetDark(true)
-			self.persistlabel:SetText("Keep the zoom when reopening the editor.")
+			self.persistlabel:SetText("Conserver le zoom à la réouverture de l'éditeur.")
 			self.persistlabel:SetWrap(true)
 			self.persistlabel:SetAutoStretchVertical(true)
 
 			self.mwheelcheckbox = vgui.Create("DCheckBoxLabel", self.zoomsettings)
-			self.mwheelcheckbox:SetText("Enable mouse wheel")
+			self.mwheelcheckbox:SetText("Activer la molette de la souris")
 			self.mwheelcheckbox:Dock(TOP)
 			self.mwheelcheckbox:SetDark(true)
 			self.mwheelcheckbox:DockMargin(0,SETTING_MARGIN_TOP,0,0)
@@ -84,12 +84,12 @@ function PANEL:Init()
 			self.mwheellabel = vgui.Create("DLabel", self.zoomsettings)
 			self.mwheellabel:Dock(TOP)
 			self.mwheellabel:SetDark(true)
-			self.mwheellabel:SetText("Enable zooming with mouse wheel.\n+CTRL: Precise\n+SHIFT: Fast")
+			self.mwheellabel:SetText("Activer le zoom avec la molette de la souris.\n+CTRL : Précision\n+MAJ : Rapide")
 			self.mwheellabel:SetWrap(true)
 			self.mwheellabel:SetAutoStretchVertical(true)
 
 			self.smoothcheckbox = vgui.Create("DCheckBoxLabel", self.zoomsettings)
-			self.smoothcheckbox:SetText("Smooth zooming")
+			self.smoothcheckbox:SetText("Zoom fluide")
 			self.smoothcheckbox:Dock(TOP)
 			self.smoothcheckbox:SetDark(true)
 			self.smoothcheckbox:DockMargin(0,SETTING_MARGIN_TOP,0,0)
@@ -98,7 +98,7 @@ function PANEL:Init()
 			self.smoothlabel = vgui.Create("DLabel", self.zoomsettings)
 			self.smoothlabel:Dock(TOP)
 			self.smoothlabel:SetDark(true)
-			self.smoothlabel:SetText("Enable smooth zooming.")
+			self.smoothlabel:SetText("Activer le zoom fluide.")
 			self.smoothlabel:SetWrap(true)
 			self.smoothlabel:SetAutoStretchVertical(true)
 
@@ -112,7 +112,7 @@ function PANEL:Init()
 			self.zoomslider:SetMin( 0 )
 			self.zoomslider:SetMax( 100 )
 			self.zoomslider:SetDecimals( 0 )
-			self.zoomslider:SetText("Camera FOV")
+			self.zoomslider:SetText("Champ de vision de la caméra")
 			self.zoomslider:SetDark(true)
 			self.zoomslider:SetDefaultValue( 75 )
 

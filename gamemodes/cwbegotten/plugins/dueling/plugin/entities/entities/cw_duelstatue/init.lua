@@ -1,4 +1,4 @@
---[[
+﻿--[[
 	Begotten III: Jesus Wept
 	By: DETrooper, cash wednesday, gabs, alyousha35
 
@@ -48,11 +48,11 @@ function ENT:Use(activator, caller)
 					
 					if weaponItemTable then
 						if weaponItemTable.category == "Firearms" then
-							Schema:EasyText(caller, "peru","You cannot enter a duel with a firearm equipped!");
+							Schema:EasyText(caller, "peru","Vous ne pouvez pas entrer en duel avec une arme à feu équipée !");
 							
 							return;
 						elseif weaponItemTable.category == "Crossbows" then
-							Schema:EasyText(caller, "peru","You cannot enter a duel with a crossbow equipped!");
+							Schema:EasyText(caller, "peru","Vous ne pouvez pas entrer en duel avec une arbalète équipée !");
 							
 							return;
 						end

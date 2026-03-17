@@ -1,4 +1,4 @@
---[[
+﻿--[[
 	Begotten III: Jesus Wept
 --]]
 
@@ -7,7 +7,7 @@ local ITEM = Clockwork.item:New("medical_base");
 	ITEM.useText = "Inject";
 	ITEM.model = "models/props_c17/TrapPropeller_Lever.mdl";
 	ITEM.weight = 0.15;
-	ITEM.description = "A glass vial filled with a mysterious clear liquid that can be injected into someone for a burst of energy...";
+	ITEM.description = "Un flacon en verre rempli d'un mystérieux liquide clair qui peut être injecté à quelqu'un pour un regain d'énergie...";
 	ITEM.iconoverride = "materials/begotten/ui/itemicons/syringe.png"
 	ITEM.useSound = "begotten/items/meat_inject.mp3";
 	ITEM.uniqueID = "ampoule"
@@ -44,7 +44,7 @@ local ITEM = Clockwork.item:New("medical_base");
 			
 			Clockwork.player:SetRagdollState(player, RAGDOLL_FALLENOVER);
 			
-			Clockwork.chatBox:AddInTargetRadius(player, "me", "jolts awake!", player:GetPos(), Clockwork.config:Get("talk_radius"):Get() * 2);
+			Clockwork.chatBox:AddInTargetRadius(player, "me", "se réveille en sursaut !", player:GetPos(), Clockwork.config:Get("talk_radius"):Get() * 2);
 		end
 	end;
 ITEM:Register();
@@ -54,7 +54,7 @@ local ITEM = Clockwork.item:New("medical_base");
 	ITEM.useText = "Inject";
 	ITEM.model = "models/props_c17/TrapPropeller_Lever.mdl";
 	ITEM.weight = 0.15;
-	ITEM.description = "A syringe that hosts something...";
+	ITEM.description = "Une seringue qui abrite quelque chose...";
 	ITEM.iconoverride = "materials/begotten/ui/itemicons/blacksyringe.png"
 	ITEM.useSound = "begotten/items/meat_inject.mp3";
 	ITEM.uniqueID = "blacksyringe"
@@ -69,7 +69,7 @@ local ITEM = Clockwork.item:New("medical_base");
 		player:GiveDisease("begotten_plague");
 		player:HandleStamina(40);
 		player:HandleSanity(25);
-		Schema:EasyText(player, "olivedrab","It's been done. The plight will take hold in due time.");
+		Schema:EasyText(player, "olivedrab","C'est fait. Le fléau s'emparera de tout en son temps.");
 		netstream.Start(player, "Stunned", 1);
 	end;
 ITEM:Register();
@@ -80,7 +80,7 @@ local ITEM = Clockwork.item:New("medical_base");
 	ITEM.weight = 0.3;
 	ITEM.useText = "Apply";
 	ITEM.useSound = "begotten/ui/sanity_gain.mp3";
-	ITEM.description = "An old tube of paste that can be used to stop infections.";
+	ITEM.description = "Un vieux tube de pâte qui peut être utilisé pour stopper les infections.";
 	ITEM.iconoverride = "materials/begotten/ui/itemicons/ampoule.png"
 	ITEM.uniqueID = "antibiotic_paste"
 	
@@ -92,7 +92,7 @@ local ITEM = Clockwork.item:New("medical_base");
 	ITEM.useXP = 25;
 	
 	function ITEM:OnUsed(player, itemEntity)
-		Schema:EasyText(player, "olivedrab","You apply the antibiotic paste to your wound.");
+		Schema:EasyText(player, "olivedrab","Tu appliques la pâte antibiotique sur ta blessure.");
 		netstream.Start(self, "Stunned", 2);
 	end;
 ITEM:Register();
@@ -103,7 +103,7 @@ local ITEM = Clockwork.item:New("medical_base");
 	ITEM.weight = 0.2;
 	ITEM.useText = "Drink";
 	ITEM.useSound = "npc/barnacle/barnacle_gulp1.wav";
-	ITEM.description = "A rarity indeed! These ancient capsules are renowned for their ability to stop most diseases or cure infections.";
+	ITEM.description = "Une vraie rareté ! Ces capsules ancestrales sont réputées pour leur capacité à stopper la plupart des maladies ou guérir les infections.";
 	ITEM.iconoverride = "materials/begotten/ui/itemicons/antibiotics.png"
 	ITEM.uniqueID = "antibiotics"
 
@@ -113,7 +113,7 @@ local ITEM = Clockwork.item:New("medical_base");
 	
 	function ITEM:OnUsed(player, itemEntity)
 		if player:Alive() and !player:IsRagdolled() then
-			Schema:EasyText(player, "olivedrab","You swallow what few pills remain in the bottle, hoping it will cure your ailments.");
+			Schema:EasyText(player, "olivedrab","Tu avales les quelques pilules restantes dans le flacon, espérant qu'elles guériront tes maux.");
 			
 			if player:HasDisease("common_cold") then
 				player:TakeDisease("common_cold", true);
@@ -146,7 +146,7 @@ local ITEM = Clockwork.item:New("medical_base");
 	ITEM.weight = 0.2;
 	ITEM.useText = "Drink";
 	ITEM.useSound = "npc/barnacle/barnacle_gulp1.wav";
-	ITEM.description = "A nasty soupy mix in a black jar. Could it be a cure to the Plague?";
+	ITEM.description = "Un mélange infect et boueux dans un pot noir. Serait-ce un remède contre la Peste ?";
 	ITEM.iconoverride = "materials/begotten/ui/itemicons/small_oil.png";
 	ITEM.uniqueID = "black_remedy"
 
@@ -156,7 +156,7 @@ local ITEM = Clockwork.item:New("medical_base");
 	
 	function ITEM:OnUsed(player, itemEntity)
 		if player:Alive() and !player:IsRagdolled() then
-			Schema:EasyText(player, "olivedrab","You slurp the disgusting drink, hoping that it will remove what plagues you. After a short time, you feel your mind clear and your skin lighten.");
+			Schema:EasyText(player, "olivedrab","Tu sirotes la boisson dégoûtante, espérant qu'elle te débarrassera de ce qui te ronge. Peu après, tu sens ton esprit s'éclaircir et ta peau s'éclaircir.");
 			
 			if player:HasDisease("begotten_plague") then
 				player:TakeDisease("begotten_plague", true);
@@ -181,7 +181,7 @@ local ITEM = Clockwork.item:New("medical_base");
 	ITEM.weight = 0.1;
 	ITEM.useText = "Apply";
 	ITEM.useSound = "ambient/voices/citizen_beaten4.wav";
-	ITEM.description = "This bandage roll is fucked. It's bloody, stained, and likely to give you an infection.";
+	ITEM.description = "Ce rouleau de bandage est fichu. Il est ensanglanté, taché et risque de te filer une infection.";
 	ITEM.iconoverride = "materials/begotten/ui/itemicons/bandage.png"
 	ITEM.uniqueID = "bandage"
 	
@@ -202,7 +202,7 @@ local ITEM = Clockwork.item:New("medical_base");
 	ITEM.weight = 0.2;
 	ITEM.useText = "Apply";
 	ITEM.useSound = "bandaging_1.wav";
-	ITEM.description = "A roll of heavy-duty gauze which can be wrapped around wounds, it can be used to treat gashes.";
+	ITEM.description = "Un rouleau de gaze épaisse pouvant être enroulé autour des blessures, il permet de traiter les entailles profondes.";
 	ITEM.iconoverride = "materials/begotten/ui/itemicons/gauze.png"
 	ITEM.uniqueID = "gauze"
 	
@@ -226,7 +226,7 @@ local ITEM = Clockwork.item:New("medical_base");
 	ITEM.weight = 0.4;
 	ITEM.useText = "Apply";
 	ITEM.useSound = "bandaging_1.wav";
-	ITEM.description = "A roll of thick skin wrapped around a human spine. It can be used to treat gashes, but at what cost?";
+	ITEM.description = "Un rouleau de peau épaisse enroulé autour d'une colonne vertébrale humaine. Il peut servir à soigner les plaies béantes, mais à quel prix ?";
 	ITEM.iconoverride = "begotten/ui/itemicons/skingauze.png"
 	ITEM.uniqueID = "skingauze"
 	
@@ -245,7 +245,7 @@ local ITEM = Clockwork.item:New("medical_base");
 
 	-- Called when a player uses the item.
 	function ITEM:OnUsed(player, itemEntity)
-		Schema:EasyText(player, "olive","The damp skin of another is wrapped around your wounds. There is something deeply disturbing about this act, which troubles your sanity.");
+		Schema:EasyText(player, "olive","La peau humide d'un autre enveloppe vos blessures. Il y a quelque chose de profondément troublant dans cet acte, qui ébranle votre raison.");
 		player:HandleSanity(-10);
 	end;
 ITEM:Register();
@@ -255,7 +255,7 @@ local ITEM = Clockwork.item:New("medical_base");
 	ITEM.model = "models/props_junk/glassjug01.mdl";
 	ITEM.weight = 0.3;
 	ITEM.useText = "Drink";
-	ITEM.description = "A bottle of laudanum. This will clear one's mind, giving them a better grasp of reality.";
+	ITEM.description = "Une bouteille de laudanum. Cela clarifie l'esprit, offrant une meilleure emprise sur la réalité.";
 	ITEM.iconoverride = "materials/begotten/ui/itemicons/laudanum.png"
 	ITEM.uniqueID = "laudanum";
 	ITEM.useSound = "begotten/ui/sanity_gain.mp3";
@@ -291,7 +291,7 @@ local ITEM = Clockwork.item:New("medical_base");
 	ITEM.weight = 0.1;
 	ITEM.useText = "Apply";
 	ITEM.useSound = "bandaging_1.wav";
-	ITEM.description = "A makeshift bandage created with stitched-together pieces of scavenged cloth. It isn't much but it can help stop bleeding and is less likely to infect wounds compared to many alternatives.";
+	ITEM.description = "Un bandage de fortune confectionné à partir de morceaux de tissu récupérés et cousus ensemble. Ce n'est pas grand-chose, mais il peut aider à stopper les saignements et présente moins de risques d'infecter les plaies que bien d'autres alternatives.";
 	ITEM.iconoverride = "materials/begotten/ui/itemicons/skintape.png"
 	ITEM.uniqueID = "crafted_bandage"
 	
@@ -312,7 +312,7 @@ local ITEM = Clockwork.item:New("medical_base");
 	ITEM.weight = 0.5;
 	ITEM.useText = "Apply";
 	ITEM.useSound = "begotten/ui/sanity_gain.mp3";
-	ITEM.description = "A bottle of old ointment for use in treating burn injuries.";
+	ITEM.description = "Un flacon d'ancienne pommade destinée au traitement des brûlures.";
 	ITEM.iconoverride = "materials/begotten/ui/itemicons/ointment.png"
 	ITEM.uniqueID = "ointment"
 	
@@ -328,7 +328,7 @@ local ITEM = Clockwork.item:New("medical_base");
 	ITEM.limbs = {HITGROUP_CHEST, HITGROUP_HEAD, HITGROUP_STOMACH, HITGROUP_LEFTARM, HITGROUP_RIGHTARM, HITGROUP_LEFTLEG, HITGROUP_RIGHTLEG};
 	
 	function ITEM:OnUsed(player, itemEntity)
-		Schema:EasyText(player, "olivedrab","The ointment is applied to your skin. It stings like hell, but hopefully it will work.");
+		Schema:EasyText(player, "olivedrab","La pommade est appliquée sur ta peau. Elle pique comme l'enfer, mais avec un peu de chance, elle fera effet.");
 		netstream.Start(self, "Stunned", 2);
 	end;
 ITEM:Register();
@@ -340,7 +340,7 @@ local ITEM = Clockwork.item:New("medical_base");
 	ITEM.access = "v";
 	ITEM.useText = "Mend";
 	ITEM.useSound = "begotten/items/skintape.ogg";
-	ITEM.description = "A packet of skin that can be used to replace dead flesh and patch up bleeding wounds.";
+	ITEM.description = "Un sachet de peau pouvant servir à remplacer les chairs mortes et colmater les plaies hémorragiques.";
 	ITEM.iconoverride = "materials/begotten/ui/itemicons/skintape2.png"
 	ITEM.uniqueID = "skintape";
 	
@@ -357,7 +357,7 @@ local ITEM = Clockwork.item:New("medical_base");
 
 	-- Called when a player uses the item.
 	function ITEM:OnUsed(player, itemEntity)
-		Schema:EasyText(player, "olive","The damp skin of another is applied to your wounds. There is something deeply disturbing about this act, which troubles your sanity.");
+		Schema:EasyText(player, "olive","La peau humide d'un autre est appliquée sur vos blessures. Il y a quelque chose de profondément troublant dans cet acte, qui ébranle votre raison.");
 		player:HandleSanity(-10);
 	end;
 ITEM:Register();
@@ -368,7 +368,7 @@ local ITEM = Clockwork.item:New("medical_base");
 	ITEM.weight = 0.5;
 	ITEM.useText = "Place";
 	ITEM.useSound = "begotten/items/first_aid.wav";
-	ITEM.description = "A makeshift splint made using a plank of wood and some lengths wire.";
+	ITEM.description = "Une attelle de fortune confectionnée avec une planche de bois et quelques longueurs de fil de fer.";
 	ITEM.iconoverride = "materials/begotten/ui/itemicons/splint.png"
 	ITEM.uniqueID = "splint"
 	
@@ -387,7 +387,7 @@ local ITEM = Clockwork.item:New("medical_base");
 	ITEM.access = "v";
 	ITEM.useText = "Heal";
 	ITEM.useSound = "bandaging_1.wav";
-	ITEM.description = "An unopened pack full of medical supplies. Is it too good to be true?!";
+	ITEM.description = "Un paquet scellé rempli de fournitures médicales. Est-ce trop beau pour être vrai ?!";
 	ITEM.iconoverride = "materials/begotten/ui/itemicons/survival_pack.png"
 	ITEM.uniqueID = "survivalpack"
 	
@@ -406,7 +406,7 @@ local ITEM = Clockwork.item:New("medical_base");
 	
 	-- Called when a player uses the item.
 	function ITEM:OnUsed(player, itemEntity)
-		Schema:EasyText(player, "olivedrab","The medical supplies in this pouch are bountiful, you are clearly divinely favored this day! You are able to heal all of your wounds.");
+		Schema:EasyText(player, "olivedrab","Les fournitures médicales de cette poche sont généreuses, vous êtes clairement béni des dieux aujourd'hui ! Vous pouvez soigner toutes vos blessures.");
 		player:HandleSanity(10);
 	end;
 ITEM:Register();
@@ -418,7 +418,7 @@ local ITEM = Clockwork.item:New("medical_base");
 	ITEM.access = "v";
 	ITEM.useText = "Cut";
 	ITEM.useSound = "bandaging_1.wav";
-	ITEM.description = "A rusty scalpel for surgical incisions.";
+	ITEM.description = "Un scalpel rouillé pour les incisions chirurgicales.";
 	ITEM.iconoverride = "materials/begotten/ui/itemicons/scalpel.png"
 	ITEM.uniqueID = "scalpel"
 	
@@ -437,7 +437,7 @@ local ITEM = Clockwork.item:New("medical_base");
 	ITEM.access = "v";
 	ITEM.useText = "Clamp";
 	ITEM.useSound = "bandaging_1.wav";
-	ITEM.description = "A rusty pair of forceps that can be used to remove objects from the site of an incision.";
+	ITEM.description = "Une paire de pinces rouillées pouvant servir à extraire des objets du site d'une incision.";
 	ITEM.iconoverride = "materials/begotten/ui/itemicons/forceps.png"
 	ITEM.uniqueID = "forceps"
 	
@@ -456,7 +456,7 @@ local ITEM = Clockwork.item:New("medical_base");
 	ITEM.access = "v";
 	ITEM.useText = "Stitch";
 	ITEM.useSound = "bandaging_1.wav";
-	ITEM.description = "A box containing thread and a needle for stiching up wounds.";
+	ITEM.description = "Une boîte contenant du fil et une aiguille pour suturer les blessures.";
 	ITEM.iconoverride = "materials/begotten/ui/itemicons/box.png"
 	ITEM.uniqueID = "suture"
 	
@@ -474,14 +474,14 @@ local ITEM = Clockwork.item:New();
 	ITEM.weight = 0.15;
 	ITEM.useText = "Knock Out";
 	ITEM.category = "Medical";
-	ITEM.description = "Using this on somebody will knock them out cold for a few minutes.";
+	ITEM.description = "Utiliser ceci sur quelqu'un le laissera inconscient pendant quelques minutes.";
 	ITEM.iconoverride = "materials/begotten/ui/itemicons/chloroform.png"
 	ITEM.stackable = true;
 
 	-- Called when a player uses the item.
 	function ITEM:OnUse(player, itemEntity)
 		if Clockwork.player:GetAction(player) == "chloroform" then
-			Schema:EasyText(player, "peru", "You are already tying a character!");
+			Schema:EasyText(player, "peru", "Vous êtes déjà en train d'attacher un personnage !");
 			
 			return false;
 		else
@@ -526,7 +526,7 @@ local ITEM = Clockwork.item:New();
 							end;
 						end);
 					else
-						Schema:EasyText(player, "firebrick", "You cannot use chloroform characters that are facing you!");
+						Schema:EasyText(player, "firebrick", "Vous ne pouvez pas chloroformer des personnages qui vous font face !");
 						
 						return false;
 					end;
@@ -535,12 +535,12 @@ local ITEM = Clockwork.item:New();
 					
 					return false;
 				else
-					Schema:EasyText(player, "firebrick", "This character is too far away!");
+					Schema:EasyText(player, "firebrick", "Ce personnage est trop éloigné !");
 					
 					return false;
 				end;
 			else
-				Schema:EasyText(player, "grey","That is not a valid character!");
+				Schema:EasyText(player, "grey","Ce n'est pas un personnage valide !");
 				
 				return false;
 			end;
@@ -559,7 +559,7 @@ local ITEM = Clockwork.item:New();
 	ITEM.model = "models/mosi/fallout4/props/junk/components/circuitry.mdl";
 	ITEM.weight = 0.2;
 	ITEM.uniqueID = "tech";
-	ITEM.description = "Ancient circuitry from machines which have long surpassed their purpose. This is of great value to Voltists.";
+	ITEM.description = "Circuits anciens provenant de machines ayant depuis longtemps dépassé leur fonction. Ceci a une grande valeur pour les Voltistes.";
 	ITEM.useSound = "physics/plastic/plastic_barrel_break1.wav";
 	ITEM.iconoverride = "materials/begotten/ui/itemicons/"..ITEM.uniqueID..".png";
 	ITEM.stackable = false;
@@ -589,15 +589,15 @@ local ITEM = Clockwork.item:New();
 					local action = Clockwork.player:GetAction(player);
 						
 					if (action == "heal") then
-						Schema:EasyText(player, "peru", "Your character is already healing!");
+						Schema:EasyText(player, "peru", "Votre personnage est déjà en train de guérir !");
 						
 						return false;
 					elseif (action == "healing") then
-						Schema:EasyText(player, "peru", "You are already healing somebody!");
+						Schema:EasyText(player, "peru", "Tu es déjà en train de soigner quelqu'un !");
 						
 						return false;
 					elseif (action == "performing_surgery") then
-						Schema:EasyText(player, "peru", "You are already performing surgery on someone!");
+						Schema:EasyText(player, "peru", "Vous êtes déjà en train d'opérer quelqu'un !");
 						
 						return false;
 					else
@@ -616,7 +616,7 @@ local ITEM = Clockwork.item:New();
 					
 					player:TakeItem(self, true);
 					
-					Schema:EasyText(player, "olive", "You stab yourself with the circuitry!");
+					Schema:EasyText(player, "olive", "Tu te poignardes avec le circuit imprimé !");
 				end
 			end;
 		end;
@@ -628,15 +628,15 @@ local ITEM = Clockwork.item:New();
 					local action = Clockwork.player:GetAction(player);
 						
 					if (action == "heal") then
-						Schema:EasyText(player, "peru", "Your character is already healing!");
+						Schema:EasyText(player, "peru", "Votre personnage est déjà en train de se soigner !");
 						
 						return false;
 					elseif (action == "healing") then
-						Schema:EasyText(player, "peru", "You are already healing somebody!");
+						Schema:EasyText(player, "peru", "Tu es déjà en train de soigner quelqu'un !");
 						
 						return false;
 					elseif (action == "performing_surgery") then
-						Schema:EasyText(player, "peru", "You are already performing surgery on someone!");
+						Schema:EasyText(player, "peru", "Vous êtes déjà en train d'opérer quelqu'un !");
 						
 						return false;
 					else
@@ -658,15 +658,15 @@ local ITEM = Clockwork.item:New();
 			local action = Clockwork.player:GetAction(player);
 				
 			if (action == "heal") then
-				Schema:EasyText(player, "firebrick", "You cannot drop this while healing!");
+				Schema:EasyText(player, "firebrick", "Vous ne pouvez pas lâcher cela pendant la guérison !");
 				
 				return false;
 			elseif (action == "healing") then
-				Schema:EasyText(player, "firebrick", "You cannot drop this while healing somebody!");
+				Schema:EasyText(player, "firebrick", "Vous ne pouvez pas lâcher cela pendant que vous soignez quelqu'un !");
 				
 				return false;
 			elseif (action == "performing_surgery") then
-				Schema:EasyText(player, "firebrick", "You cannot drop this while performing surgery on someone!");
+				Schema:EasyText(player, "firebrick", "Vous ne pouvez pas lâcher cela pendant une opération chirurgicale sur quelqu'un !");
 				
 				return false;
 			end;
@@ -700,7 +700,7 @@ local ITEM = Clockwork.item:New();
 					player:TakeDamageInfo(d);
 					player:TakeItem(self, true);
 					
-					Schema:EasyText(player, "olive", "You shove the circuitry in your mouth and fuck up your teeth!");
+					Schema:EasyText(player, "olive", "Tu enfonces le circuit dans ta bouche et tu bousilles tes dents !");
 				end
 			end;
 		end;
@@ -717,7 +717,7 @@ local ITEM = Clockwork.item:New();
 	ITEM.model = "models/props/cs_office/computer_caseb_p7a.mdl";
 	ITEM.weight = 0.8;
 	ITEM.uniqueID = "technocraft";
-	ITEM.description = "An amalgamation of ancient technology thrown together.";
+	ITEM.description = "Un amalgame de technologies anciennes assemblées à la hâte.";
 	ITEM.useSound = "physics/plastic/plastic_barrel_break1.wav";
 	ITEM.iconoverride = "materials/begotten/ui/itemicons/"..ITEM.uniqueID..".png";
 	ITEM.stackable = false;
@@ -747,15 +747,15 @@ local ITEM = Clockwork.item:New();
 					local action = Clockwork.player:GetAction(player);
 						
 					if (action == "heal") then
-						Schema:EasyText(player, "peru", "Your character is already healing!");
+						Schema:EasyText(player, "peru", "Votre personnage est déjà en train de se soigner !");
 						
 						return false;
 					elseif (action == "healing") then
-						Schema:EasyText(player, "peru", "You are already healing somebody!");
+						Schema:EasyText(player, "peru", "Tu es déjà en train de soigner quelqu'un !");
 						
 						return false;
 					elseif (action == "performing_surgery") then
-						Schema:EasyText(player, "peru", "You are already performing surgery on someone!");
+						Schema:EasyText(player, "peru", "Vous êtes déjà en train d'opérer quelqu'un !");
 						
 						return false;
 					else
@@ -772,7 +772,7 @@ local ITEM = Clockwork.item:New();
 					
 					player:TakeDamageInfo(d);
 					
-					Schema:EasyText(player, "olive", "You stab yourself with the circuitry!");
+					Schema:EasyText(player, "olive", "Tu te poignardes avec le circuit imprimé !");
 				end
 			end;
 		end;
@@ -784,15 +784,15 @@ local ITEM = Clockwork.item:New();
 					local action = Clockwork.player:GetAction(player);
 						
 					if (action == "heal") then
-						Schema:EasyText(player, "peru", "Your character is already healing!");
+						Schema:EasyText(player, "peru", "Votre personnage est déjà en train de se soigner !");
 						
 						return false;
 					elseif (action == "healing") then
-						Schema:EasyText(player, "peru", "You are already healing somebody!");
+						Schema:EasyText(player, "peru", "Tu es déjà en train de soigner quelqu'un !");
 						
 						return false;
 					elseif (action == "performing_surgery") then
-						Schema:EasyText(player, "peru", "You are already performing surgery on someone!");
+						Schema:EasyText(player, "peru", "Vous êtes déjà en train d'opérer quelqu'un !");
 						
 						return false;
 					else
@@ -814,15 +814,15 @@ local ITEM = Clockwork.item:New();
 			local action = Clockwork.player:GetAction(player);
 				
 			if (action == "heal") then
-				Schema:EasyText(player, "firebrick", "You cannot drop this while healing!");
+				Schema:EasyText(player, "firebrick", "Vous ne pouvez pas lâcher cet objet pendant la guérison !");
 				
 				return false;
 			elseif (action == "healing") then
-				Schema:EasyText(player, "firebrick", "You cannot drop this while healing somebody!");
+				Schema:EasyText(player, "firebrick", "Vous ne pouvez pas lâcher cela pendant que vous soignez quelqu'un !");
 				
 				return false;
 			elseif (action == "performing_surgery") then
-				Schema:EasyText(player, "firebrick", "You cannot drop this while performing surgery on someone!");
+				Schema:EasyText(player, "firebrick", "Vous ne pouvez pas lâcher cela pendant que vous effectuez une chirurgie sur quelqu'un !");
 				
 				return false;
 			end;
@@ -856,7 +856,7 @@ local ITEM = Clockwork.item:New();
 					player:TakeDamageInfo(d);
 					player:TakeItem(self, true);
 					
-					Schema:EasyText(player, "olive", "You shove the circuitry in your mouth and fuck up your teeth!");
+					Schema:EasyText(player, "olive", "Tu enfonces le circuit dans ta bouche et tu bousilles tes dents !");
 				end
 			end;
 		end;

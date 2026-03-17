@@ -1,10 +1,10 @@
-PLUGIN:SetGlobalAlias("cwMusic");
+﻿PLUGIN:SetGlobalAlias("cwMusic");
 
 Clockwork.kernel:IncludePrefixed("cl_hooks.lua");
 Clockwork.kernel:IncludePrefixed("sv_hooks.lua");
 
 local COMMAND = Clockwork.command:New("DisableMusic");
-	COMMAND.tip = "Disable all dynamic music. Optional argument for stopping all currently playing music for players.";
+	COMMAND.tip = "Désactive toute la musique dynamique. Argument optionnel pour arrêter toute la musique en cours de lecture pour les joueurs.";
 	COMMAND.text = "[bool Stop]";
 	COMMAND.access = "a";
 	COMMAND.optionalArguments = 1;
@@ -31,7 +31,7 @@ local COMMAND = Clockwork.command:New("DisableMusic");
 COMMAND:Register();
 
 local COMMAND = Clockwork.command:New("PlyDisableMusic");
-	COMMAND.tip = "Disable dynamic music for a player. Optional argument for stopping all currently playing music for players.";
+	COMMAND.tip = "Désactiver la musique dynamique pour un joueur. Argument optionnel pour arrêter toute musique en cours de lecture pour les joueurs.";
 	COMMAND.text = "<string Name> [bool Stop]";
 	COMMAND.access = "a";
 	COMMAND.arguments = 1;
@@ -59,7 +59,7 @@ local COMMAND = Clockwork.command:New("PlyDisableMusic");
 COMMAND:Register();
 
 local COMMAND = Clockwork.command:New("PlyEnableMusic");
-	COMMAND.tip = "Enable dynamic music for a player.";
+	COMMAND.tip = "Activer la musique dynamique pour un joueur.";
 	COMMAND.text = "<string Name>";
 	COMMAND.access = "a";
 	COMMAND.arguments = 1;
@@ -80,7 +80,7 @@ local COMMAND = Clockwork.command:New("PlyEnableMusic");
 COMMAND:Register();
 
 local COMMAND = Clockwork.command:New("EnableMusic");
-	COMMAND.tip = "Enable all dynamic music.";
+	COMMAND.tip = "Activer toute la musique dynamique.";
 	COMMAND.access = "a";
 	COMMAND.alias = {"MusicEnable"};
 
@@ -97,7 +97,7 @@ local COMMAND = Clockwork.command:New("EnableMusic");
 COMMAND:Register();
 
 local COMMAND = Clockwork.command:New("StopMusic");
-	COMMAND.tip = "Stop all dynamic music currently playing for players (does not disable the system, use /DisableMusic for that).";
+	COMMAND.tip = "Arrête toute musique dynamique en cours de lecture pour les joueurs (ne désactive pas le système, utilisez /DisableMusic pour cela).";
 	COMMAND.access = "a";
 	COMMAND.alias = {"MusicStop"};
 

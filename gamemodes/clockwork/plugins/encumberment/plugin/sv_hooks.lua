@@ -1,4 +1,4 @@
---[[
+﻿--[[
 	Begotten III: Jesus Wept
 	By: DETrooper, cash wednesday, gabs, alyousha35
 
@@ -36,7 +36,7 @@ function cwEncumberment:PlayerThink(player, curTime, infoTable, alive, initializ
 			if bOverEncumbered then
 				if (!plyTab.OverEncumbered) then
 					plyTab.OverEncumbered = true;
-					Schema:EasyText(player, "maroon", "You are now overencumbered and your movement speed has decreased!");
+					Schema:EasyText(player, "maroon", "Vous êtes maintenant surchargé et votre vitesse de déplacement a diminué !");
 				end;
 				
 				if (cwStamina) then
@@ -54,7 +54,7 @@ function cwEncumberment:PlayerThink(player, curTime, infoTable, alive, initializ
 				hook.Run("RunModifyPlayerSpeed", player, infoTable);
 			elseif (plyTab.OverEncumbered) then
 				plyTab.OverEncumbered = false;
-				Schema:EasyText(player, "lawngreen", "You are no longer overencumbered.");
+				Schema:EasyText(player, "lawngreen", "Vous n'êtes plus surchargé.");
 				
 				hook.Run("RunModifyPlayerSpeed", player, infoTable, true);
 			end;

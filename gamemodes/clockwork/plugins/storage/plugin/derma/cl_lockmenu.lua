@@ -1,4 +1,4 @@
---[[
+﻿--[[
 	Created by cash wednesday.
 --]]
 
@@ -134,7 +134,7 @@ function PANEL:Populate(lockType, bSettingPassword, entity)
 		
 		if (!IsValid(self.acceptButton)) then
 			self.acceptButton = vgui.Create("DButton", self);
-			self.acceptButton:SetText("Open");
+			self.acceptButton:SetText("Ouvrir");
 			self.acceptButton:SetPos(buttonX, 28);
 			self.acceptButton:SetSize(buttonWidth * 0.7, 40);
 			
@@ -154,7 +154,7 @@ function PANEL:Populate(lockType, bSettingPassword, entity)
 
 		if (!IsValid(self.acceptUnlockButton)) then
 			self.acceptUnlockButton = vgui.Create("DButton", self);
-			self.acceptUnlockButton:SetText(" Open\n Unlock");
+			self.acceptUnlockButton:SetText("Ouvrir");
 			self.acceptUnlockButton:SetPos(buttonX + buttonWidth * 0.7 + 2, 28);
 			self.acceptUnlockButton:SetSize(buttonWidth * 0.3 + 8, 40);
 			
@@ -223,7 +223,7 @@ function PANEL:Populate(lockType, bSettingPassword, entity)
 		
 		if (!IsValid(self.itemName)) then
 			self.itemName = vgui.Create("DLabel", self);
-			self.itemName:SetText("Keyring");
+			self.itemName:SetText("Porte-clés");
 			self.itemName:SetTextColor(Color(255, 255, 255));
 			self.itemName:SetPos(52, 32);
 			self.itemName:SizeToContents();
@@ -239,7 +239,7 @@ function PANEL:Populate(lockType, bSettingPassword, entity)
 
 		if (IsValid(self.unlockButton)) then
 			self.unlockButton = vgui.Create("DButton", self);
-			self.unlockButton:SetText("Unlock");
+			self.unlockButton:SetText("Débloquer");
 			self.unlockButton:SetPos(width - 44, 28);
 			self.unlockButton:SetSize(40, 40);
 			self.unlockButton:SetEnabled(true);
@@ -295,7 +295,7 @@ function PANEL:Populate(lockType, bSettingPassword, entity)
 		local scrH = ScrH();
 		
 		self.lockpickButton = vgui.Create("DButton");
-		self.lockpickButton:SetText("PICK LOCK");
+		self.lockpickButton:SetText("CROCHETER LA SERRURE");
 		self.lockpickButton:SetSize(width, 24); 
 		self.lockpickButton:SetPos(x, (scrH / 2) - (height / 2) + 80);
 		
@@ -370,7 +370,7 @@ function PANEL:ChangeItemTable(itemTable)
 	end;
 	
 	if (IsValid(self.panelTitle)) then
-		self.panelTitle:SetText("Click unlock to use this key.");
+		self.panelTitle:SetText("Cliquez sur déverrouiller pour utiliser cette clé.");
 	end;
 	
 	local inventory = Clockwork.inventory:GetClient();

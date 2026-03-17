@@ -1,4 +1,4 @@
---[[
+﻿--[[
 	Begotten III: Jesus Wept
 --]]
 
@@ -16,13 +16,13 @@ function cwForceFeeding:ForceFeedPlayer(player, target, itemTable)
 	end
 	
 	if target:GetNetVar("tied", 0) == 0 then
-		Schema:EasyText(player, "peru", "This character needs to be tied in order to be force fed!");
+		Schema:EasyText(player, "peru", "Ce personnage doit être attaché pour pouvoir être nourri de force !");
 	
 		return false;
 	end
 	
 	if target:GetRagdollState() == RAGDOLL_KNOCKEDOUT then
-		Schema:EasyText(player, "peru", "This character cannot be force fed while unconscious!");
+		Schema:EasyText(player, "peru", "Ce personnage ne peut pas être nourri de force lorsqu'il est inconscient !");
 	
 		return false;
 	end
@@ -41,7 +41,7 @@ function cwForceFeeding:ForceFeedPlayer(player, target, itemTable)
 		if !player.cwObserverMode then
 			for k, v in pairs(ents.FindInSphere(player:GetPos(), Clockwork.config:Get("talk_radius"):Get() * 2)) do
 				if v:IsPlayer() then
-					Clockwork.chatBox:Add(v, player, "me", "begins force feeding a "..itemTable.name.." to "..Clockwork.player:FormatRecognisedText(v, "%s", target)..".");
+					Clockwork.chatBox:Add(v, player, "me", "commence à nourrir de force un"..itemTable.name.." to "..Clockwork.player:FormatRecognisedText(v, "%s", target)..".");
 				end
 			end
 		end
@@ -82,7 +82,7 @@ function cwForceFeeding:ForceFeedPlayer(player, target, itemTable)
 			end;
 		end);
 	else
-		Schema:EasyText(player, "peru", "This character is already being force fed!");
+		Schema:EasyText(player, "peru", "Ce personnage est déjà en train d'être nourri de force !");
 	end;
 end;
 
@@ -96,7 +96,7 @@ function cwForceFeeding:PlayerUseUnknownItemFunction(player, itemTable, itemFunc
 			self:ForceFeedPlayer(player, target, itemTable);
 			return;
 		else
-			Schema:EasyText(player, "firebrick", "You must look at a character!");
+			Schema:EasyText(player, "firebrick", "Vous devez regarder un personnage !");
 		end;
 	end;
 end;

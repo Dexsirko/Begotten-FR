@@ -1,10 +1,10 @@
-local ITEM = Clockwork.item:New();
+﻿local ITEM = Clockwork.item:New();
 	ITEM.name = "Orbitoclast";
 	ITEM.category = "Medical";
 	ITEM.model = "models/begotten/orbitoclast.mdl";
 	ITEM.weight = 0.15;
 	ITEM.uniqueID = "orbitoclast";
-	ITEM.description = "A mallet and large needle, used to perform lobotomies.";
+	ITEM.description = "Un maillet et une grande aiguille, utilisés pour pratiquer des lobotomies.";
 	ITEM.iconoverride = "materials/begotten/ui/itemicons/orbitoclast.png";
 	ITEM.stackable = false;
 	ITEM.requiredBeliefs = {"surgeon"};
@@ -33,21 +33,21 @@ local ITEM = Clockwork.item:New();
 
 	    	if(name == "Lobotomize Target") then
 	    		local tr = DoTrace(player);
-	    		if(!IsValid(tr.Entity)) then Schema:EasyText(player, "firebrick", "You are not looking at anyone!"); return; end
+	    		if(!IsValid(tr.Entity)) then Schema:EasyText(player, "firebrick", "Tu ne regardes personne !"); return; end
 
 	    		target = Clockwork.entity:GetPlayer(tr.Entity);
-	    		if(!IsValid(target)) then Schema:EasyText(player, "firebrick", "You are not looking at anyone!"); return; end
+	    		if(!IsValid(target)) then Schema:EasyText(player, "firebrick", "Tu ne regardes personne !"); return; end
 
-	    		if(!target:IsRagdolled()) then Schema:EasyText(player, "chocolate", "To perform surgery on someone, they must be fallen over."); return; end
+	    		if(!target:IsRagdolled()) then Schema:EasyText(player, "chocolate", "Pour pratiquer une chirurgie sur quelqu'un, la personne doit être à terre."); return; end
 
-                if(target:HasTrait("lobotomite")) then Schema:EasyText(player, "chocolate", "They are already lobotomized!"); return; end
+                if(target:HasTrait("lobotomite")) then Schema:EasyText(player, "chocolate", "Ils sont déjà lobotomisés !"); return; end
 
-	    		Clockwork.chatBox:AddInTargetRadius(player, "me", "positions the needle towards their patient's brain, carefully hammering it into their skull.", player:GetPos(), Clockwork.config:Get("talk_radius"):Get() * 2);
+	    		Clockwork.chatBox:AddInTargetRadius(player, "me", "positionne l'aiguille vers le cerveau de son patient, l'enfonçant prudemment dans son crâne.", player:GetPos(), Clockwork.config:Get("talk_radius"):Get() * 2);
 
 	    	else
-                if(player:HasTrait("lobotomite")) then Schema:EasyText(player, "chocolate", "You are already lobotomized!"); return; end
+                if(player:HasTrait("lobotomite")) then Schema:EasyText(player, "chocolate", "Vous êtes déjà lobotomisé !"); return; end
 
-                Clockwork.chatBox:AddInTargetRadius(player, "me", "positions the needle towards their own brain, carefully hammering it into their skull.", player:GetPos(), Clockwork.config:Get("talk_radius"):Get() * 2);
+                Clockwork.chatBox:AddInTargetRadius(player, "me", "positionne l'aiguille vers son propre cerveau, l'enfonçant prudemment dans son crâne.", player:GetPos(), Clockwork.config:Get("talk_radius"):Get() * 2);
             
             end
 
@@ -73,11 +73,11 @@ local ITEM = Clockwork.item:New();
 	    	end);
 
 	    	Clockwork.player:SetAction(player, "lobotomy", consumeTime,  _, function()
-	    		if(!IsValid(target)) then Schema:EasyText(player, "firebrick", "You are not looking at anyone!"); return; end
-	    		if(!player:HasItemByID("orbitoclast")) then Schema:EasyText(player, "firebrick", "You don't have the item for this action!"); return; end
+	    		if(!IsValid(target)) then Schema:EasyText(player, "firebrick", "Tu ne regardes personne !"); return; end
+	    		if(!player:HasItemByID("orbitoclast")) then Schema:EasyText(player, "firebrick", "Vous ne possédez pas l'objet nécessaire pour cette action !"); return; end
 
 	    		if(target:GetRagdollState() != RAGDOLL_KNOCKEDOUT) then
-	    			Clockwork.chatBox:AddInTargetRadius(target, "me", "screams out in pain as part of their brain is brutally severed!", target:GetPos(), Clockwork.config:Get("talk_radius"):Get() * 2);
+	    			Clockwork.chatBox:AddInTargetRadius(target, "me", "hurle de douleur alors qu'une partie de son cerveau est brutalement sectionnée !", target:GetPos(), Clockwork.config:Get("talk_radius"):Get() * 2);
 	    			target:TakeDamage(25);
 	    			target:EmitSound("physics/body/body_medium_break3.wav");
 

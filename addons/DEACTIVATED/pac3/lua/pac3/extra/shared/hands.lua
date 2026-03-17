@@ -1,10 +1,10 @@
-local SWEP = {Primary = {}, Secondary = {}}
+﻿local SWEP = {Primary = {}, Secondary = {}}
 
 
 SWEP.Author     	= ""
 SWEP.Contact      	= ""
 SWEP.Purpose      	= ""
-SWEP.Instructions   = "Right-Click to toggle crosshair"
+SWEP.Instructions   = "Clic droit pour activer/désactiver le viseur"
 SWEP.PrintName      = "hands"
 SWEP.DrawAmmo       = false
 SWEP.DrawCrosshair	= true

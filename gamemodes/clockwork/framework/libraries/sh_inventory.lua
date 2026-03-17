@@ -1,4 +1,4 @@
---[[
+﻿--[[
 	Begotten III: Jesus Wept
 	By: DETrooper, cash wednesday, gabs, alyousha35
 
@@ -550,7 +550,7 @@ else
 		hook.Run("PrePlayerInvAction", player, itemAction, uniqueID, itemID, interactUniqueID, interactItemID);
 
 		if !player:Alive() or player:IsRagdolled() or player:GetNetVar("tied") != 0 then
-			Clockwork.player:Notify(player, "You cannot use items right now!");
+			Clockwork.player:Notify(player, "Vous ne pouvez pas utiliser d'objets pour le moment !");
 			
 			return false;
 		end
@@ -583,7 +583,7 @@ else
 				
 				if itemCondition <= 0 then
 					if !cwBeliefs or !player:HasBelief("artisan") then
-						Clockwork.player:Notify(player, "You cannot repair broken items!");
+						Clockwork.player:Notify(player, "Vous ne pouvez pas réparer les objets cassés !");
 						return false;
 					end
 				end
@@ -612,20 +612,20 @@ else
 									player:TakeItem(repairItemTable, true);
 									
 									player:EmitSound("generic_ui/randomize_0"..math.random(1, 2)..".wav")
-									Schema:EasyText(player, "olivedrab", "You have repaired your "..itemTable.name.." to "..tostring(math.Round(itemTable:GetCondition(), 2))..", using the last of the repair kit's parts in the process.");
+									Schema:EasyText(player, "olivedrab", "Vous avez réparé votre"..itemTable.name.." to "..tostring(math.Round(itemTable:GetCondition(), 2))..", using the last of the repair kit's parts in the process.");
 								else
 									player:EmitSound("generic_ui/randomize_0"..math.random(1, 2)..".wav")
-									Schema:EasyText(player, "green", "You have repaired your "..itemTable.name.." to "..tostring(math.Round(itemTable:GetCondition(), 2))..".");
+									Schema:EasyText(player, "green", "Vous avez réparé votre"..itemTable.name.." to "..tostring(math.Round(itemTable:GetCondition(), 2))..".");
 									Clockwork.inventory:Rebuild(player);
 								end
 							else
-								Schema:EasyText(player, "chocolate", "You do not have an item you can repair this item with!");
+								Schema:EasyText(player, "chocolate", "Vous ne possédez pas d'objet pouvant réparer cet objet !");
 								return false;
 							end
 						end
 					end
 				else
-					Clockwork.player:Notify(player, "This item is already in perfect condition and cannot be repaired.");
+					Clockwork.player:Notify(player, "Cet objet est déjà en parfait état et ne peut pas être réparé.");
 					return false;
 				end
 			elseif (itemAction == "breakdown") then
@@ -650,7 +650,7 @@ else
 											end
 										end
 										
-										Clockwork.player:Notify(player, "You have melted down your "..itemTable.name.." into its component pieces.");
+										Clockwork.player:Notify(player, "Vous avez fondu votre"..itemTable.name.." into its component pieces.");
 										player:EmitSound("generic_ui/smelt_success_02.wav");
 										
 										if cwBeliefs then
@@ -681,15 +681,15 @@ else
 								end
 								
 								if not smithy_found then
-									Clockwork.player:Notify(player, "You must be standing near a smithy to melt down this item!");
+									Clockwork.player:Notify(player, "Vous devez être près d'une forge pour fondre cet objet !");
 									return false;
 								end
 							else
-								Clockwork.player:Notify(player, "You must have the 'Smith' belief to melt down this item!");
+								Clockwork.player:Notify(player, "Vous devez avoir la croyance 'Smith' pour fondre cet objet !");
 								return false;
 							end
 						else
-							Clockwork.player:Notify(player, "You need charcoal to melt down this item!");
+							Clockwork.player:Notify(player, "Vous avez besoin de charbon pour fondre cet objet !");
 						end
 					elseif itemTable.components.breakdownType == "breakdown" then
 						local itemList = Clockwork.inventory:GetItemsAsList(player:GetInventory());
@@ -718,7 +718,7 @@ else
 									end
 								end
 							
-								Clockwork.player:Notify(player, "You have broken down your "..itemTable.name.." into its component pieces.");
+								Clockwork.player:Notify(player, "Vous avez démantelé votre"..itemTable.name.." into its component pieces.");
 								player:EmitSound("generic_ui/takeall_03.wav");
 								
 								if cwBeliefs then
@@ -733,10 +733,10 @@ else
 								
 								player:TakeItem(itemTable, true);
 							--else
-								--Clockwork.player:Notify(player, "You do not have enough workable tools left in your breakdown kit to break down this item!");
+								--Clockwork.player:Notify(player, "Vous n'avez plus assez d'outils utilisables dans votre kit de démontage pour décomposer cet objet !");
 							--end
 						else
-							Clockwork.player:Notify(player, "You do not have an item you can break down this item with!");
+							Clockwork.player:Notify(player, "Vous ne possédez pas l'objet nécessaire pour décomposer cet objet !");
 							return false;
 						end
 					end
@@ -753,11 +753,11 @@ else
 						item.Drop(player, itemTable, position);
 					end;
 				else
-					Clockwork.player:Notify(player, "You cannot drop the item that far away!");
+					Clockwork.player:Notify(player, "Vous ne pouvez pas lâcher l'objet aussi loin !");
 				end;
 			elseif (itemAction == "use") then
 				if (player:InVehicle() and itemTable.useInVehicle == false) then
-					Clockwork.player:Notify(player, "You cannot use this item in a vehicle!");
+					Clockwork.player:Notify(player, "Vous ne pouvez pas utiliser cet objet dans un véhicule !");
 					
 					return;
 				end;
@@ -864,7 +864,7 @@ else
 				hook.Run("PlayerUseUnknownItemFunction", player, itemTable, itemAction, interactUniqueID, interactItemID);
 			end;
 		else
-			Clockwork.player:Notify(player, "You do not own this item!");
+			Clockwork.player:Notify(player, "Vous ne possédez pas cet objet !");
 		end;
 	end
 	

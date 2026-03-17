@@ -1,9 +1,9 @@
---[[
+﻿--[[
 	BEGOTTEN III: Developed by DETrooper, cash wednesday, gabs & alyousha35
 --]]
 
 local COMMAND = Clockwork.command:New("ContSetMessage")
-COMMAND.tip = "Set a container's message."
+COMMAND.tip = "Définir le message d'un conteneur."
 COMMAND.text = "<string Message>"
 COMMAND.flags = CMD_DEFAULT
 COMMAND.arguments = 1

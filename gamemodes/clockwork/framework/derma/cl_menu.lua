@@ -1,4 +1,4 @@
---[[
+﻿--[[
 	Begotten III: Jesus Wept
 	By: DETrooper, cash wednesday, gabs, alyousha35
 
@@ -112,7 +112,7 @@ function PANEL:Rebuild(change)
 		
 		self.closeMenu = vgui.Create("cwLabelButton", self);
 		self.closeMenu:SetFont(smallTextFont);
-		self.closeMenu:SetText("Close");
+		self.closeMenu:SetText("Fermer");
 		self.closeMenu:SetCallback(function(button)
 			self:SetOpen(false);
 		end);
@@ -136,7 +136,7 @@ function PANEL:Rebuild(change)
 		
 		self.characterMenu = vgui.Create("cwLabelButton", self);
 		self.characterMenu:SetFont(Clockwork.option:GetFont("menu_text_tiny"));
-		self.characterMenu:SetText("Victims");
+		self.characterMenu:SetText("Victimes");
 		self.characterMenu:SetCallback(function(button)
 			self:SetOpen(false);
 			Clockwork.character:SetPanelOpen(true);
@@ -167,7 +167,7 @@ function PANEL:Rebuild(change)
 		
 		self.ritualsmenu = vgui.Create("cwLabelButton", self);
 		self.ritualsmenu:SetFont(Clockwork.option:GetFont("menu_text_tiny"));
-		self.ritualsmenu:SetText("Rituals");
+		self.ritualsmenu:SetText("Rituels");
 		self.ritualsmenu:SetCallback(function(button)
 			if cwRituals then
 				if !Clockwork.Client.cwRitualsMenu or !IsValid(Clockwork.Client.cwRitualsMenu) then
@@ -204,7 +204,7 @@ function PANEL:Rebuild(change)
 		
 		self.craftingmenu = vgui.Create("cwLabelButton", self);
 		self.craftingmenu:SetFont(Clockwork.option:GetFont("menu_text_tiny"));
-		self.craftingmenu:SetText("Crafting");
+		self.craftingmenu:SetText("Fabrication");
 		self.craftingmenu:SetCallback(function(button)
 			if cwRecipes then
 				if Clockwork.player:GetAction(Clockwork.Client) == "crafting" then
@@ -245,7 +245,7 @@ function PANEL:Rebuild(change)
 		
 		self.beliefsmenu = vgui.Create("cwLabelButton", self);
 		self.beliefsmenu:SetFont(Clockwork.option:GetFont("menu_text_tiny"));
-		self.beliefsmenu:SetText("Beliefs");
+		self.beliefsmenu:SetText("Croyances");
 		self.beliefsmenu:SetCallback(function(button)
 			if cwBeliefs then
 				cwBeliefs:OpenTree();
@@ -372,7 +372,7 @@ function PANEL:Rebuild(change)
 					local width, height = Clockwork.kernel:GetCachedTextSize(smallTextFont, "Sack");
 					button:SetPos((((scrW - width / 2) - 256) + width / 2), ((scrH - height / 2) + imageHeight * 0.125));
 					button:SetSize(width, height);
-					button:SetText("Sack");
+					button:SetText("Sac");
 					buttons[#buttons + 1] = button;
 					function button:Paint()
 						local width = self:GetWide();
@@ -395,13 +395,13 @@ function PANEL:Rebuild(change)
 					local width, height = Clockwork.kernel:GetCachedTextSize(smallTextFont, "Settings");
 					button:SetPos(ScrW() - width - 40, height);
 					button:SetSize(width, height);
-					button:SetText("Settings");
+					button:SetText("Paramètres");
 					buttons[#buttons + 1] = button;
 				elseif (string.find(string.upper(v.text), "MANIFESTO")) then
 					local width, height = Clockwork.kernel:GetCachedTextSize(smallTextFont, "Manifesto");
 					button:SetPos(ScrW() - width - 40, (height * 2) + 8);
 					button:SetSize(width, height);
-					button:SetText("Manifesto");
+					button:SetText("Manifeste");
 					buttons[#buttons + 1] = button;
 				end;
 			end;
@@ -587,7 +587,7 @@ function PANEL:Rebuild(change)
 		self.statusInfo.iconFrame.iconSanity:SetPos(36, 0);
 		self.statusInfo.iconFrame.iconSanity:SetImage("begotten/ui/othericons/sanity.png");
 		self.statusInfo.iconFrame.iconSanity.text = vgui.Create("DLabel", self.statusInfo.iconFrame);
-		self.statusInfo.iconFrame.iconSanity.text:SetText("100%");
+		self.statusInfo.iconFrame.iconSanity.text:SetText("100 %");
 		self.statusInfo.iconFrame.iconSanity.text:SetTextColor(Color(160, 145, 145));
 		self.statusInfo.iconFrame.iconSanity.text:SetFont("nov_IntroTextSmallDETrooper");
 		self.statusInfo.iconFrame.iconSanity.text:SetPos(100, 16);
@@ -604,7 +604,7 @@ function PANEL:Rebuild(change)
 		self.statusInfo.iconFrame.iconHunger:SetPos(36, 64);
 		self.statusInfo.iconFrame.iconHunger:SetImage("begotten/ui/othericons/hunger.png");
 		self.statusInfo.iconFrame.iconHunger.text = vgui.Create("DLabel", self.statusInfo.iconFrame);
-		self.statusInfo.iconFrame.iconHunger.text:SetText("100%");
+		self.statusInfo.iconFrame.iconHunger.text:SetText("100 %");
 		self.statusInfo.iconFrame.iconHunger.text:SetTextColor(Color(160, 145, 145));
 		self.statusInfo.iconFrame.iconHunger.text:SetFont("nov_IntroTextSmallDETrooper");
 		self.statusInfo.iconFrame.iconHunger.text:SetPos(100, 80);
@@ -621,7 +621,7 @@ function PANEL:Rebuild(change)
 		self.statusInfo.iconFrame.iconThirst:SetPos(36, 128);
 		self.statusInfo.iconFrame.iconThirst:SetImage("begotten/ui/othericons/thirst.png");
 		self.statusInfo.iconFrame.iconThirst.text = vgui.Create("DLabel", self.statusInfo.iconFrame);
-		self.statusInfo.iconFrame.iconThirst.text:SetText("100%");
+		self.statusInfo.iconFrame.iconThirst.text:SetText("100 %");
 		self.statusInfo.iconFrame.iconThirst.text:SetTextColor(Color(160, 145, 145));
 		self.statusInfo.iconFrame.iconThirst.text:SetFont("nov_IntroTextSmallDETrooper");
 		self.statusInfo.iconFrame.iconThirst.text:SetPos(100, 144);
@@ -638,7 +638,7 @@ function PANEL:Rebuild(change)
 		self.statusInfo.iconFrame.iconSleep:SetPos(36, 192);
 		self.statusInfo.iconFrame.iconSleep:SetImage("begotten/ui/othericons/sleep.png");
 		self.statusInfo.iconFrame.iconSleep.text = vgui.Create("DLabel", self.statusInfo.iconFrame);
-		self.statusInfo.iconFrame.iconSleep.text:SetText("100%");
+		self.statusInfo.iconFrame.iconSleep.text:SetText("100 %");
 		self.statusInfo.iconFrame.iconSleep.text:SetTextColor(Color(160, 145, 145));
 		self.statusInfo.iconFrame.iconSleep.text:SetFont("nov_IntroTextSmallDETrooper");
 		self.statusInfo.iconFrame.iconSleep.text:SetPos(100, 208);
@@ -655,7 +655,7 @@ function PANEL:Rebuild(change)
 		self.statusInfo.iconFrame.iconCorruption:SetPos(36, 256);
 		self.statusInfo.iconFrame.iconCorruption:SetImage("begotten/ui/othericons/corruption.png");
 		self.statusInfo.iconFrame.iconCorruption.text = vgui.Create("DLabel", self.statusInfo.iconFrame);
-		self.statusInfo.iconFrame.iconCorruption.text:SetText("100%");
+		self.statusInfo.iconFrame.iconCorruption.text:SetText("100 %");
 		self.statusInfo.iconFrame.iconCorruption.text:SetTextColor(Color(160, 145, 145));
 		self.statusInfo.iconFrame.iconCorruption.text:SetFont("nov_IntroTextSmallDETrooper");
 		self.statusInfo.iconFrame.iconCorruption.text:SetPos(100, 272);
@@ -678,7 +678,7 @@ function PANEL:Rebuild(change)
 		self.statusInfo.statusFrame.container:SetSize(200, 256);
 		
 		self.statusInfo.statusFrame.statusText = vgui.Create("DLabel", self.statusInfo.statusFrame);
-		self.statusInfo.statusFrame.statusText:SetText("Status Effects");
+		self.statusInfo.statusFrame.statusText:SetText("Effets de statut");
 		self.statusInfo.statusFrame.statusText:SetTextColor(Color(160, 145, 145));
 		self.statusInfo.statusFrame.statusText:SetFont("nov_IntroTextSmallDETrooper");
 		self.statusInfo.statusFrame.statusText:SizeToContents();

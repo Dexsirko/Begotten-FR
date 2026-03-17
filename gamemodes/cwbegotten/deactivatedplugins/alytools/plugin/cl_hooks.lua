@@ -1,4 +1,4 @@
---[[
+﻿--[[
 	Begotten III: Jesus Wept
 --]]
 
@@ -104,21 +104,21 @@ function cwAlyTools:HUDPaint()
 							
 							surface.SetDrawColor( 0, 0, 0, math.Clamp(alpha,0,50) )
 							surface.DrawRect( textply2.x+145, textply2.y-112, 155, 200 )
-							draw.DrawText("ENTITY INTERACTION POINT", "DermaDefault", textply2.x+150, textply2.y-112, Color(255,100,0,alpha), TEXT_ALIGN_LEFT)
+							draw.DrawText("POINT D'INTERACTION D'ENTITÉ", "DermaDefault", textply2.x+150, textply2.y-112, Color(255,100,0,alpha), TEXT_ALIGN_LEFT)
 							draw.DrawText(v:SteamName(), "DermaDefault", textply2.x+150, textply2.y-92, beamColor, TEXT_ALIGN_LEFT)
-							draw.DrawText("TRACKING ENTITY", "DermaDefault", textply2.x+150, textply2.y-65, Color(255,100,0,alpha), TEXT_ALIGN_LEFT)
+							draw.DrawText("ENTITÉ EN TRAÇAGE", "DermaDefault", textply2.x+150, textply2.y-65, Color(255,100,0,alpha), TEXT_ALIGN_LEFT)
 							draw.DrawText(ent:GetClass(), "DermaDefault", textply2.x+150, textply2.y-45, Color(255,100,0,alpha), TEXT_ALIGN_LEFT)
 							draw.DrawText(ent:Health().."/"..ent:GetMaxHealth().." HP", "DermaDefault", textply2.x+150, textply2.y-35, Color(255,100,0,alpha), TEXT_ALIGN_LEFT)
-							draw.DrawText("AREA INFO", "DermaDefault", textply2.x+150, textply2.y-15, Color(255,100,0,alpha), TEXT_ALIGN_LEFT)
+							draw.DrawText("INFORMATIONS SUR LA ZONE", "DermaDefault", textply2.x+150, textply2.y-15, Color(255,100,0,alpha), TEXT_ALIGN_LEFT)
 							draw.DrawText("ZONE", "DermaDefault", textply2.x+160, textply2.y-3, Color(255,255,0,alpha), TEXT_ALIGN_LEFT)
 							draw.DrawText(string.upper(zone), "DermaDefault", textply2.x+170, textply2.y+7, Color(0,255,0,alpha), TEXT_ALIGN_LEFT)
-							draw.DrawText("STATE", "DermaDefault", textply2.x+160, textply2.y+20, Color(255,255,0,alpha), TEXT_ALIGN_LEFT)
+							draw.DrawText("ÉTAT", "DermaDefault", textply2.x+160, textply2.y+20, Color(255,255,0,alpha), TEXT_ALIGN_LEFT)
 							draw.DrawText(state, "DermaDefault", textply2.x+170, textply2.y+29, stateColor, TEXT_ALIGN_LEFT)
-							draw.DrawText("COORDS", "DermaDefault", textply2.x+160, textply2.y+41, Color(255,255,0,alpha), TEXT_ALIGN_LEFT)
+							draw.DrawText("COORDONNÉES", "DermaDefault", textply2.x+160, textply2.y+41, Color(255,255,0,alpha), TEXT_ALIGN_LEFT)
 							local cx, cy, cz = markeddata.corepos:Unpack()
-							draw.DrawText("X: "..math.Round(cx,2), "DermaDefault", textply2.x+170, textply2.y+51, stateColor, TEXT_ALIGN_LEFT)
-							draw.DrawText("Y: "..math.Round(cy,2), "DermaDefault", textply2.x+170, textply2.y+61, stateColor, TEXT_ALIGN_LEFT)
-							draw.DrawText("Z: "..math.Round(cz,2), "DermaDefault", textply2.x+170, textply2.y+71, stateColor, TEXT_ALIGN_LEFT)
+							draw.DrawText("X :"..math.Round(cx,2), "DermaDefault", textply2.x+170, textply2.y+51, stateColor, TEXT_ALIGN_LEFT)
+							draw.DrawText("Y :"..math.Round(cy,2), "DermaDefault", textply2.x+170, textply2.y+61, stateColor, TEXT_ALIGN_LEFT)
+							draw.DrawText("Z :"..math.Round(cz,2), "DermaDefault", textply2.x+170, textply2.y+71, stateColor, TEXT_ALIGN_LEFT)
 						end
 						if (v == Clockwork.Client) and (alpha < 10) then
 							local hudMaterial = Material("vgui/cursors/crosshair");
@@ -158,19 +158,19 @@ function cwAlyTools:HUDPaint()
 							
 							surface.SetDrawColor( 0, 0, 0, math.Clamp(alpha,0,50) )
 							surface.DrawRect( textply2.x+145, textply2.y-112, 155, 200 )
-							draw.DrawText("ENTITY INTERACTION POINT", "DermaDefault", textply2.x+150, textply2.y-112, Color(255,100,0,alpha), TEXT_ALIGN_LEFT)
+							draw.DrawText("POINT D'INTERACTION D'ENTITÉ", "DermaDefault", textply2.x+150, textply2.y-112, Color(255,100,0,alpha), TEXT_ALIGN_LEFT)
 							draw.DrawText(v:SteamName(), "DermaDefault", textply2.x+150, textply2.y-92, beamColor, TEXT_ALIGN_LEFT)
-							draw.DrawText("MARKED POINT", "DermaDefault", textply2.x+150, textply2.y-65, Color(255,100,0,alpha), TEXT_ALIGN_LEFT)
-							draw.DrawText("AREA INFO", "DermaDefault", textply2.x+150, textply2.y-45, Color(255,100,0,alpha), TEXT_ALIGN_LEFT)
+							draw.DrawText("POINT MARQUÉ", "DermaDefault", textply2.x+150, textply2.y-65, Color(255,100,0,alpha), TEXT_ALIGN_LEFT)
+							draw.DrawText("INFORMATIONS SUR LA ZONE", "DermaDefault", textply2.x+150, textply2.y-45, Color(255,100,0,alpha), TEXT_ALIGN_LEFT)
 							draw.DrawText("ZONE", "DermaDefault", textply2.x+160, textply2.y-33, Color(255,255,0,alpha), TEXT_ALIGN_LEFT)
 							draw.DrawText(string.upper(zone), "DermaDefault", textply2.x+170, textply2.y-23, Color(0,255,0,alpha), TEXT_ALIGN_LEFT)
-							draw.DrawText("STATE", "DermaDefault", textply2.x+160, textply2.y-10, Color(255,255,0,alpha), TEXT_ALIGN_LEFT)
+							draw.DrawText("ÉTAT", "DermaDefault", textply2.x+160, textply2.y-10, Color(255,255,0,alpha), TEXT_ALIGN_LEFT)
 							draw.DrawText(state, "DermaDefault", textply2.x+170, textply2.y-1, stateColor, TEXT_ALIGN_LEFT)
-							draw.DrawText("COORDS", "DermaDefault", textply2.x+160, textply2.y+11, Color(255,255,0,alpha), TEXT_ALIGN_LEFT)
+							draw.DrawText("COORDONNÉES", "DermaDefault", textply2.x+160, textply2.y+11, Color(255,255,0,alpha), TEXT_ALIGN_LEFT)
 							local cx, cy, cz = markeddata.corepos:Unpack()
-							draw.DrawText("X: "..math.Round(cx,2), "DermaDefault", textply2.x+170, textply2.y+21, stateColor, TEXT_ALIGN_LEFT)
-							draw.DrawText("Y: "..math.Round(cy,2), "DermaDefault", textply2.x+170, textply2.y+31, stateColor, TEXT_ALIGN_LEFT)
-							draw.DrawText("Z: "..math.Round(cz,2), "DermaDefault", textply2.x+170, textply2.y+41, stateColor, TEXT_ALIGN_LEFT)
+							draw.DrawText("X :"..math.Round(cx,2), "DermaDefault", textply2.x+170, textply2.y+21, stateColor, TEXT_ALIGN_LEFT)
+							draw.DrawText("Y :"..math.Round(cy,2), "DermaDefault", textply2.x+170, textply2.y+31, stateColor, TEXT_ALIGN_LEFT)
+							draw.DrawText("Z :"..math.Round(cz,2), "DermaDefault", textply2.x+170, textply2.y+41, stateColor, TEXT_ALIGN_LEFT)
 						end
 						if (v == Clockwork.Client) and (alpha < 10) then
 							local hudMaterial = Material("vgui/cursors/crosshair");

@@ -1,4 +1,4 @@
---[[
+﻿--[[
 	Begotten III: Jesus Wept
 --]]
 
@@ -321,7 +321,7 @@ function cwMedicalSystem:PlayerUseMedical(player, itemTable, hitGroup)
 			return true;
 		end);
 	else
-		Schema:EasyText(player, "peru", "You are already healing!");
+		Schema:EasyText(player, "peru", "Vous êtes déjà en train de vous soigner !");
 		
 		return false;
 	end;
@@ -542,10 +542,10 @@ function cwMedicalSystem:HealPlayer(player, target, itemTable, hitGroup)
 				player:TakeItem(itemTable, true);
 			end);
 		else
-			Schema:EasyText(player, "peru", "This player is already healing!");
+			Schema:EasyText(player, "peru", "Ce joueur est déjà en train de se soigner !");
 		end;
 	else
-		Schema:EasyText(player, "peru", "You are already healing!");
+		Schema:EasyText(player, "peru", "Vous êtes déjà en train de vous soigner !");
 	end;
 end;
 
@@ -556,7 +556,7 @@ function cwMedicalSystem:PerformSurgeryOnPlayer(player, target, itemTable, hitGr
 	end;
 	
 	if !player:HasBelief("surgeon") then
-		Schema:EasyText(player, "chocolate","You need the 'Surgeon' belief in order to perform surgery on a player.");
+		Schema:EasyText(player, "chocolate","Vous devez posséder la croyance 'Chirurgien' pour pouvoir opérer un joueur.");
 	
 		return;
 	end
@@ -568,13 +568,13 @@ function cwMedicalSystem:PerformSurgeryOnPlayer(player, target, itemTable, hitGr
 	if (actionPlayer != "heal" and actionPlayer != "healing" and actionPlayer != "performing_surgery") then
 		if (actionTarget != "heal" and actionTarget != "healing" and actionTarget != "performing_surgery") then
 			if !target:IsRagdolled() then
-				Schema:EasyText(player, "chocolate","To perform surgery on someone, they must be fallen over.");
+				Schema:EasyText(player, "chocolate","Pour pratiquer une chirurgie sur quelqu'un, la personne doit être à terre.");
 			
 				return;
 			end
 			
 			--[[if target:GetRagdollState() ~= RAGDOLL_KNOCKEDOUT and target:GetNetVar("tied") == 0 then
-				Schema:EasyText(player, "chocolate","To perform surgery on someone, they must be unconscious or tied up.");
+				Schema:EasyText(player, "chocolate","Pour pratiquer une chirurgie sur quelqu'un, la personne doit être inconsciente ou ligotée.");
 			
 				return;
 			end]]--
@@ -604,13 +604,13 @@ function cwMedicalSystem:PerformSurgeryOnPlayer(player, target, itemTable, hitGr
 			end
 			
 			if not injury_surgery_table then
-				Schema:EasyText(player, "peru","This limb does not have an injury that can be operated on!");
+				Schema:EasyText(player, "peru","Ce membre ne présente pas de blessure nécessitant une opération !");
 
 				return;
 			end
 			
 			if target.limbUnderSurgery and target.limbUnderSurgery ~= hitGroup then
-				Schema:EasyText(player, "firebrick", "You must finish the surgery started on their "..self.cwHitGroupToString[target.limbUnderSurgery].." before starting a new operation!");
+				Schema:EasyText(player, "firebrick", "Vous devez terminer la chirurgie commencée sur leur"..self.cwHitGroupToString[target.limbUnderSurgery].." before starting a new operation!");
 
 				return;
 			end
@@ -620,7 +620,7 @@ function cwMedicalSystem:PerformSurgeryOnPlayer(player, target, itemTable, hitGr
 			end
 			
 			if target.surgeryStage > #injury_surgery_table.surgeryInfo then
-				Schema:EasyText(player, "peru","This limb does not have an injury that can be operated on!");
+				Schema:EasyText(player, "peru","Ce membre ne présente pas de blessure pouvant être opérée !");
 				
 				target.playerPerformingSurgery = nil;
 				target.limbUnderSurgery = nil;
@@ -630,7 +630,7 @@ function cwMedicalSystem:PerformSurgeryOnPlayer(player, target, itemTable, hitGr
 				return;
 			else
 				if injury_surgery_table.surgeryInfo[target.surgeryStage].tool ~= itemTable.uniqueID then
-					Schema:EasyText(player, "chocolate","This is the wrong tool for this stage of the operation!");
+					Schema:EasyText(player, "chocolate","Ce n'est pas le bon outil pour cette étape de l'opération !");
 					
 					return;
 				end
@@ -708,14 +708,14 @@ function cwMedicalSystem:PerformSurgeryOnPlayer(player, target, itemTable, hitGr
 
 					hook.Run("PlayerHealed", target, itemTable);
 				else
-					Schema:EasyText(player, "chocolate","To perform surgery on someone, they must be fallen over.");
+					Schema:EasyText(player, "chocolate","Pour pratiquer une chirurgie sur quelqu'un, la personne doit être à terre.");
 				end
 			end);
 		else
-			Schema:EasyText(player, "peru","This player is already healing or operating on someone!");
+			Schema:EasyText(player, "peru","Ce joueur est déjà en train de soigner ou d'opérer quelqu'un !");
 		end;
 	else
-		Schema:EasyText(player, "peru", "You are already healing or operating on someone!");
+		Schema:EasyText(player, "peru", "Vous êtes déjà en train de soigner ou d'opérer quelqu'un !");
 	end;
 end;
 
@@ -881,12 +881,12 @@ function cwMedicalSystem:PlayerUseUnknownItemFunction(player, itemTable, itemFun
 					if (distance <= (reqDistance * reqDistance)) then
 						itemTable:OnUseTarget(player, target, itemTable, hitGroupEnum);
 					else
-						Schema:EasyText(player, "firebrick", "This character is too far away!");
+						Schema:EasyText(player, "firebrick", "Ce personnage est trop éloigné !");
 					end;
 				end;
 			end
 		else
-			Schema:EasyText(player, "firebrick", "You must look at a character!");
+			Schema:EasyText(player, "firebrick", "Vous devez regarder un personnage !");
 		end;
 	end;
 end;
