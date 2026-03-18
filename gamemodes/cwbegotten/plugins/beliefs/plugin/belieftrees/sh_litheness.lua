@@ -1,6 +1,6 @@
 --[[
 	Begotten 3: Jesus Wept
-	written by: cash wednesday, DETrooper, gabs and alyousha35.
+	écrit par: cash wednesday, DETrooper, gabs et alyousha35.
 --]]
 
 local LITHENESS = cwBeliefs.beliefTrees:New("litheness")
@@ -11,9 +11,9 @@ local LITHENESS = cwBeliefs.beliefTrees:New("litheness")
 	LITHENESS.textures = {"litheness", "lithenessarrows"};
 	LITHENESS.tooltip = {
 		{"Litheness", LITHENESS.color, "Civ5ToolTip4"},
-		{"Litheness is a measurement of the indirection and deviousness of your character, as well as their flexibility and speed. Upgrading this belief tree will allow your character to become a master of stealth, thievery, and trickery, as well as increasing sprint speed and unlocking dodges.", Color(225, 200, 200)},
-		{"\n\"Flay the fool who falters in their step. Let them run naked, flesh unsheathed, while shadowy eyes cast judgement to their sluggish speed.\"", Color(128, 90, 90, 240)},
-		{"\nBelief Tree Completion Bonus: +5% sprint speed, +15 maximum stability points, and 20% increased stability regeneration rate.", Color(50, 255, 50)}
+		{"La souplesse mesure la discrétion et la fourberie de votre personnage, ainsi que sa flexibilité et sa vitesse. Améliorer cet arbre de croyances permettra à votre personnage de devenir un maître de la furtivité, du vol et de la tromperie, tout en augmentant la vitesse de sprint et en débloquant des esquives.", Color(225, 200, 200)},
+		{"\n\"Écorche l'imbécile qui trébuche dans sa foulée. Laisse-le courir nu, chair dégainée, tandis que des yeux ombreux jugent sa vitesse languissante.\"", Color(128, 90, 90, 240)},
+		{"\nBonus d'achèvement de l'arbre de croyances : +5% de vitesse de sprint, +15 points de stabilité maximum et 20% de taux de régénération de stabilité.", Color(50, 255, 50)}
 	};
 	LITHENESS.columnPositions = {
 		[1] = (LITHENESS.size.w - 4) * 0.3,
@@ -34,20 +34,20 @@ local LITHENESS = cwBeliefs.beliefTrees:New("litheness")
 		[1] = {
 			["sly_fidget"] = {
 				name = "Sly Fidget",
-				description = "Unlocks the 'Lockpicking' mechanic.",
+				description = "Débloque la mécanique de « Crochetage ».",
 				requirements = {"nimble"},
 				row = 2,
 			},
 			["safecracker"] = {
 				name = "Safecracker",
-				description = "You can now lockpick Tier III locks.",
+				description = "Vous pouvez désormais crocheter les serrures de niveau III.",
 				requirements = {"nimble", "sly_fidget"},
 				row = 3,
 			},
 			["thief"] = {
 				name = "Thief",
-				description = "Lockpicking is now easier.",
-				quote = "A serf toils, a thief collects.",
+				description = "Le crochetage est désormais plus facile.",
+				quote = "Un serf peine, un voleur récolte.",
 				requirements = {"nimble", "sly_fidget", "safecracker"},
 				row = 4,
 			},
@@ -55,26 +55,26 @@ local LITHENESS = cwBeliefs.beliefTrees:New("litheness")
 		[2] = {
 			["nimble"] = {
 				name = "Nimble",
-				description = "Movement while crouched is now silent and speedy. Reduces the range that thralls can see you when crouched.",
+				description = "Les déplacements accroupis sont désormais silencieux et rapides. Réduit la distance à laquelle les thralls peuvent vous voir lorsque vous êtes accroupi.",
 				row = 1,
 			},
 		},
 		[3] = {
 			["evasion"] = {
 				name = "Evasion",
-				description = "Unlocks the 'Combat Roll' ability. Combat rolling grants invincibility frames based on the weight of armor worn and can also put out fires.",
+				description = "Débloque la capacité « Roulade de combat ». La roulade de combat accorde des frames d'invincibilité basées sur le poids de l'armure portée et peut également éteindre les incendies.",
 				requirements = {"nimble"},
 				row = 2,
 			},
 			["dexterity"] = {
 				name = "Dexterity",
-				description = "All progress bar actions including raising weapons, reloading, standing up, and crafting among others now complete 33% faster. Doubles the speed at which you aim down sights with ranged weapons. Unlocks the abiility to run safely with a full bucket of liquid.",
+				description = "Toutes les actions avec barre de progression, y compris lever les armes, recharger, se lever et fabriquer, entre autres, s'achèvent désormais 33% plus rapidement. Double la vitesse à laquelle vous visez avec les armes à distance. Débloque la capacité de courir en toute sécurité avec un seau plein de liquide.",
 				requirements = {"nimble", "evasion"},
 				row = 3,
 			},
 			["swift"] = {
 				name = "Swift",
-				description = "Sprinting is now 10% faster.",
+				description = "Le sprint est désormais 10% plus rapide.",
 				requirements = {"nimble", "evasion", "dexterity"},
 				row = 4,
 			},

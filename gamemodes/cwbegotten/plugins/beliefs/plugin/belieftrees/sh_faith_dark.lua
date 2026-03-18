@@ -1,6 +1,6 @@
 --[[
 	Begotten 3: Jesus Wept
-	written by: cash wednesday, DETrooper, gabs and alyousha35.
+	écrit par: cash wednesday, DETrooper, gabs et alyousha35.
 --]]
 
 local DARK = cwBeliefs.beliefTrees:New("dark")
@@ -12,8 +12,8 @@ local DARK = cwBeliefs.beliefTrees:New("dark")
 	DARK.headerFontOverride = "nov_IntroTextSmallaaafaa";
 	DARK.tooltip = {
 		{"Faith of the Dark", DARK.color, "Civ5ToolTip4"},
-		{"Each faith has a unique skill set, unlocking character abilities, rituals, and generally improving stats overall. One may also branch into subfaiths, though openly practicing these subfaiths may see your character deemed a heretic by the relevant religious authorities.", Color(225, 200, 200)},
-		{"\n\"The holy city of Glaze in Hell's domain. These are my dual swords to be crossed, indeed over her chest in resolution to a final cause. In a beating heart of shields.\"", Color(128, 90, 90, 240)},
+		{"Chaque foi possède un ensemble de compétences unique, débloquant des capacités de personnage, des rituels, et améliorant généralement les statistiques globales. On peut également se diversifier dans des sous-fois, bien que la pratique ouverte de ces sous-fois puisse faire considérer votre personnage comme hérétique par les autorités religieuses concernées.", Color(225, 200, 200)},
+		{"\n\"La ville sainte de Glaze dans le domaine de l'Enfer. Ce sont mes deux épées à croiser, en effet sur sa poitrine en résolution d'une cause finale. Dans un cœur battant de boucliers.\"", Color(128, 90, 90, 240)},
 		{"", Color(50, 255, 50)}
 	};
 	DARK.columnPositions = {
@@ -44,8 +44,8 @@ local DARK = cwBeliefs.beliefTrees:New("dark")
 			["embrace_the_darkness"] = {
 				name = "Embrace the Darkness",
 				subfaith = "Primevalism",
-				description = "Enables the 'Cloaking' mechanic for use with Senses in the Wasteland at night, during bloodstorms, or while in the mines. Reduces sanity loss in the mines. Also unlocks Tier III 'Faith of the Dark' rituals if you are of the 'House Rekh-khet-sa' bloodline.",
-				quote = "\"Look into the blackness of the night and something will stare back into you.\"",
+				description = "Active la mécanique de « Camouflage » pour une utilisation avec les Sens dans les Terres Désolées la nuit, pendant les tempêtes de sang ou dans les mines. Réduit la perte de santé mentale dans les mines. Débloque également les rituels de niveau III de la « Foi des Ténèbres » si vous êtes de la lignée « Maison Rekh-khet-sa ».",
+				quote = "\"Regardez dans le noir de la nuit et quelque chose vous fixera en retour.\"",
 				requirements = {"primevalism", "creature_of_the_dark", "soothsayer"},
 				row = 3,
 			},
@@ -54,31 +54,31 @@ local DARK = cwBeliefs.beliefTrees:New("dark")
 			["primevalism"] = {
 				name = "Primevalism",
 				subfaith = "Primevalism",
-				description = "Selects 'Primevalism' as your subfaith. Unlocks the ability to pray. Gain double the residual faith gain when outside in the Wasteland at night.",
-				quote = "\"Since the dawn of time, men have looked into the darkness of the night and saw gods where there was not. From torturous jungles to ashen woods and vast deserts, these primitives have created tens of thousands of deities to explain away the unknowns of life. These lesser men were indeed focused merely on survival; they did not seek out full truths as the platitudes of their mythology and harsh, distant gods kept them content. In the times of the Begotten they continue still, creating effigies of bone and performing primeval sacrifices to their many gods. Unknown to them, these thousands of deities all share the same face - proxies to gather the power of the masses, as their blind faith keeps the demons of the night indeed satisfied.\"",
+				description = "Sélectionne « Primevalisme » comme votre sous-foi. Débloque la capacité de prier. Gagnez le double du gain de foi résiduel lorsque vous êtes à l'extérieur dans les Terres Désolées la nuit.",
+				quote = "\"Depuis l'aube des temps, les hommes ont regardé dans l'obscurité de la nuit et ont vu des dieux là où il n'y en avait pas. Des jungles torturées aux bois cendrés et aux vastes déserts, ces primitifs ont créé des dizaines de milliers de divinités pour expliquer les inconnues de la vie. Ces hommes inférieurs étaient en effet uniquement concentrés sur la survie ; ils ne cherchaient pas les vérités complètes, car les platitudes de leur mythologie et leurs dieux durs et lointains les maintenaient satisfaits. À l'époque des Begotten, ils continuent encore, créant des effigies d'os et accomplissant des sacrifices primitifs à leurs nombreux dieux. Ce qu'ils ignorent, c'est que ces milliers de divinités partagent toutes le même visage - des proxys pour rassembler le pouvoir des masses, car leur foi aveugle satisfait en effet les démons de la nuit.\"",
 				row = 1,
 			},
 			["creature_of_the_dark"] = {
 				name = "Creature of the Dark",
 				subfaith = "Primevalism",
-				description = "Increases the effective range of Senses significantly and allows it to be used when not equipped, also meaning they must manually be toggled.",
-				quote = "\"Those who seek warmth in the light and fire are not fit to live here. In the jungle, you will be our prey.\"",
+				description = "Augmente considérablement la portée effective des Sens et permet de les utiliser lorsqu'ils ne sont pas équipés, ce qui signifie également qu'ils doivent être activés manuellement.",
+				quote = "\"Ceux qui cherchent la chaleur de la lumière et du feu ne sont pas faits pour vivre ici. Dans la jungle, vous serez notre proie.\"",
 				requirements = {"primevalism"},
 				row = 2,
 			},
 			["soothsayer"] = {
 				name = "Soothsayer",
 				subfaith = "Primevalism",
-				description = "Unlocks Tier I and Tier II 'Faith of the Dark' Rituals. Also unlocks the ability to darkwhisper.",
-				quote = "\"Markings in the mud. A house of skulls in the jungle. A child's figure bound by bamboo sticks, face eaten out by carnivorous ants. The devil lives here - we need to leave this place!\"",
+				description = "Débloque les rituels de niveau I et II de la « Foi des Ténèbres ». Débloque également la capacité de murmurer dans l'obscurité.",
+				quote = "\"Des marques dans la boue. Une maison de crânes dans la jungle. Une figure d'enfant liée par des bâtons de bambou, le visage dévoré par des fourmis carnivores. Le diable vit ici - nous devons quitter cet endroit !\"",
 				requirements = {"primevalism", "creature_of_the_dark"},
 				row = 3,
 			},
 			["survivalist"] = {
 				name = "Survivalist",
 				subfaith = "Primevalism",
-				description = "All pierce melee weapons and throwables as well as crossbow bolts now apply poison which lowers the target's movement speed and slowly drains health.",
-				quote = "\"The tribals rub their spears in vile herbs and ivies. One jab and you'll be feeling it.\"",
+				description = "Toutes les armes de mêlée perforantes et les projectiles, ainsi que les carreaux d'arbalète, appliquent désormais un poison qui réduit la vitesse de déplacement de la cible et draine lentement sa santé.",
+				quote = "\"Les tribaux frottent leurs lances avec des herbes et des lierres vils. Une piqûre et vous le sentirez.\"",
 				requirements = {"primevalism", "creature_of_the_dark", "soothsayer"},
 				row = 4,
 			},
@@ -87,8 +87,8 @@ local DARK = cwBeliefs.beliefTrees:New("dark")
 			["thirst_blood_moon"] = {
 				name = "Thirst of the Blood Moon",
 				subfaith = "Primevalism",
-				description = "While outside in the Wasteland at night or during bloodstorms, or while in the mines, 50% of damage dealt will be returned as health. Also provides a small chance of healing injuries or stopping bleeding if the damage dealt is above 25. Halves residual nighttime/bloodstorm sanity loss. Unlocks unique 'Primevalism' Rituals.",
-				quote = "\"The guardsman heard howling and could not discern if it were a man or beast. In truth, it did not matter.\"",
+				description = "Lorsque vous êtes à l'extérieur dans les Terres Désolées la nuit ou pendant les tempêtes de sang, ou dans les mines, 50% des dégâts infligés vous sont rendus sous forme de santé. Offre également une petite chance de guérir des blessures ou d'arrêter les saignements si les dégâts infligés dépassent 25. Réduit de moitié la perte de santé mentale résiduelle nocturne/pendant les tempêtes de sang. Débloque des rituels uniques du « Primevalisme ».",
+				quote = "\"Le garde entendit des hurlements et ne put discerner s'il s'agissait d'un homme ou d'une bête. En vérité, cela n'avait pas d'importance.\"",
 				iconOverride = "begotten/ui/belieficons/lunar_repudiation.png",
 				requirements = {"primevalism", "creature_of_the_dark", "soothsayer"},
 				row = 3,
@@ -98,8 +98,8 @@ local DARK = cwBeliefs.beliefTrees:New("dark")
 			["unending_dance"] = {
 				name = "The Unending Dance",
 				subfaith = "Satanism",
-				description = "You will now deal more damage against characters the lower their sanity is. Starting at under 90% enemy Sanity you will deal 10% more damage which maxes at 70% damage at 10 enemy sanity.",
-				quote = "\"At first the crowd was aghast when the performing Darklander swordsman turned his twin blades against the audience. Many screamed and ran, scrambling to find an exit to the ampitheatre. Many more began to simply applaud at the art, boasting their standing ovations as dozens had their heads expertly hacked off in a dazzling display of skill and passion. The master swordsman was beset in a fit of laughter as he continued his work, the audience eagerly awaiting their fate as they cheered him on. Survivors of the tragedy recall the event with an almost nostalgic flare; emoting a sincere forlorn regret for not having joined the countless dead in the apocalyptic dance of death.\"",
+				description = "Vous infligez désormais plus de dégâts contre les personnages plus leur santé mentale est basse. À partir de moins de 90% de santé mentale ennemie, vous infligez 10% de dégâts supplémentaires, ce qui atteint un maximum de 70% de dégâts à 10 de santé mentale ennemie.",
+				quote = "\"Au début, la foule fut horrifiée lorsque le spadassin Darklander en représentation tourna ses deux lames contre l'audience. Beaucoup hurlèrent et coururent, cherchant désespérément une sortie de l'amphithéâtre. Beaucoup d'autres commencèrent simplement à applaudir l'art, se targuant d'ovations debout alors que des douzaines de personnes avaient la tête expertement tranchée dans un éblouissant étalage de compétence et de passion. Le maître spadassin fut pris d'un fou rire alors qu'il poursuivait son œuvre, l'audience attendant avec impatience son sort en l'encourageant. Les survivants de la tragédie se souviennent de l'événement avec une touche presque nostalgique ; exprimant un sincère et triste regret de ne pas avoir rejoint les innombrables morts dans la danse apocalyptique de la mort.\"",
 				requirements = {"satanism", "murder_artform", "flamboyance"},
 				row = 4,
 			},
@@ -108,8 +108,8 @@ local DARK = cwBeliefs.beliefTrees:New("dark")
 			["flamboyance"] = {
 				name = "Flamboyance",
 				subfaith = "Satanism",
-				description = "All melee weapons now have 10% less delay before the next attack.",
-				quote = "\"Gloriosity at its finest\"",
+				description = "Toutes les armes de mêlée ont désormais 10% de délai en moins avant l'attaque suivante.",
+				quote = "\"La gloriole à son apogée\"",
 				requirements = {"satanism", "murder_artform"},
 				row = 3,
 			},
@@ -118,15 +118,15 @@ local DARK = cwBeliefs.beliefTrees:New("dark")
 			["murder_artform"] = {
 				name = "Murder as an Artform",
 				subfaith = "Satanism",
-				description = "Unlocks the ability to equip Satanic sacrificial weapons. Also unlocks the ability to dual-wield one-handed weapons.",
+				description = "Débloque la capacité d'équiper des armes sacrificielles sataniques. Débloque également la capacité de manier à deux mains des armes à une main.",
 				requirements = {"satanism"},
 				row = 2,
 			},
 			["impossibly_skilled"] = {
 				name = "Impossibly Skilled",
 				subfaith = "Satanism",
-				description = "Dual Weapons now block bullets, crossbow bolts, and throwables. Unlocks the ability to parry or deflect bolts and throwables to redirect them at your foe. Moderately increases parry and deflection windows for all melee weapons. Requires 'Blademaster' to also be unlocked.",
-				quote = "\"The heretics claim that the immortals of Hell have spent centuries refining their reflexes and skill with blades to the point that they can effortlessly slice through bullets and projectiles in mid air. Perhaps this is a skill you could learn?\"",
+				description = "Les armes doubles bloquent désormais les balles, les carreaux d'arbalète et les projectiles. Débloque la capacité de parer ou de dévier les carreaux et projectiles pour les rediriger vers votre ennemi. Augmente modérément les fenêtres de parade et de déviation pour toutes les armes de mêlée. Nécessite également que « Blademaster » soit débloqué.",
+				quote = "\"Les hérétiques prétendent que les immortels de l'Enfer ont passé des siècles à perfectionner leurs réflexes et leur habileté avec les lames au point de pouvoir trancher sans effort les balles et les projectiles en plein vol. Peut-être est-ce une compétence que vous pourriez apprendre ?\"",
 				requirements = {"satanism", "murder_artform", "flamboyance", "blademaster"},
 				row = 4,
 			},
@@ -135,28 +135,28 @@ local DARK = cwBeliefs.beliefTrees:New("dark")
 			["satanism"] = {
 				name = "Satanism",
 				subfaith = "Satanism",
-				description = "Selects 'Satanism' as your subfaith. Unlocks the ability to pray. Gain double the faith gain from completing rituals.",
-				quote = "Satanism is the name given to the truest belief of all. Mankind made the choice to bar themselves of pleasure for the hope of something more, a sort of justification behind their misery. They made the mistake of following the Light, something that exists only to draw men astray from their true desires. Those men pray to a god that never listens, a god that is dead in more ways than one. They believe that they should suffer a life of misery and pain for an afterlife of bliss and ignorance. Satanism is the inverse of that belief. Those who seek out the forbidden pages open their eyes to the full truths of the human plight. They understand that they must take matters into their own hands, harness the energies from every passionate delight and tortured agony. For that reason Satanists are considered selfish, often unpredictable creatures who do not hide their true desires as the chastised do.",
+				description = "Sélectionne « Satanisme » comme votre sous-foi. Débloque la capacité de prier. Gagnez le double du gain de foi en accomplissant des rituels.",
+				quote = "Le satanisme est le nom donné à la croyance la plus vraie de toutes. L'humanité a fait le choix de se priver de plaisir pour l'espoir de quelque chose de plus, une sorte de justification derrière leur misère. Ils ont commis l'erreur de suivre la Lumière, quelque chose qui n'existe que pour éloigner les hommes de leurs véritables désirs. Ces hommes prient un dieu qui n'écoute jamais, un dieu qui est mort à plus d'un titre. Ils croient qu'ils doivent souffrir une vie de misère et de douleur pour un au-delà de félicité et d'ignorance. Le satanisme est l'inverse de cette croyance. Ceux qui recherchent les pages interdites ouvrent les yeux sur les vérités complètes de la condition humaine. Ils comprennent qu'ils doivent prendre les choses en main, exploiter les énergies de chaque délice passionné et de chaque agonie torturée. Pour cette raison, les satanistes sont considérés comme des créatures égoïstes, souvent imprévisibles, qui ne cachent pas leurs véritables désirs comme le font les châtiés.",
 				row = 1,
 			},
 			["witch"] = {
 				name = "Witch",
 				subfaith = "Satanism",
-				description = "Unlocks Tier I 'Faith of the Dark' Rituals. Also unlocks the ability to darkwhisper.",
+				description = "Débloque les rituels de niveau I de la « Foi des Ténèbres ». Débloque également la capacité de murmurer dans l'obscurité.",
 				requirements = {"satanism"},
 				row = 2,
 			},
 			["heretic"] = {
 				name = "Heretic",
 				subfaith = "Satanism",
-				description = "Unlocks Tier II 'Faith of the Dark' Rituals.",
+				description = "Débloque les rituels de niveau II de la « Foi des Ténèbres ».",
 				requirements = {"satanism", "witch"},
 				row = 3,
 			},
 			["sorcerer"] = {
 				name = "Sorcerer",
 				subfaith = "Satanism",
-				description = "Unlocks Tier III 'Faith of the Dark' Rituals and increases your sacrament level cap by 5. Also unlocks the ability to smelt Hellforged Steel (only if 'Master Blacksmith' is also unlocked).",
+				description = "Débloque les rituels de niveau III de la « Foi des Ténèbres » et augmente votre plafond de niveau de sacrement de 5. Débloque également la capacité de fondre de l'Acier Forgé par l'Enfer (seulement si « Maître Forgeron » est également débloqué).",
 				requirements = {"satanism", "witch", "heretic"},
 				row = 4,
 			},
@@ -165,15 +165,15 @@ local DARK = cwBeliefs.beliefTrees:New("dark")
 			["blank_stare"] = {
 				name = "A Blank Stare",
 				subfaith = "Satanism",
-				description = "Unlocks the ability to roughly determine the sanity level of inspected characters.",
+				description = "Débloque la capacité de déterminer approximativement le niveau de santé mentale des personnages inspectés.",
 				requirements = {"satanism"},
 				row = 2,
 			},
 			["assassin"] = {
 				name = "Assassin",
 				subfaith = "Satanism",
-				description = "Stabbing someone with a dagger who is below 25% of their max health or who is fallen over will instantly kill them. Throwing daggers will also trigger this effect. Characters affected by such damage bonuses will be highlighted in red. The backstab bonus for daggers is increased from +200% to +300%. Also extinguishes 'Soulscorch'. Requires 'Swift' to also be unlocked.",
-				quote = "\"Beware the black-fingered deceiver!\"",
+				description = "Poignarder quelqu'un avec une dague qui a moins de 25% de sa santé maximale ou qui est tombé le tuera instantanément. Les dagues de lancer déclenchent également cet effet. Les personnages affectés par de tels bonus de dégâts seront surlignés en rouge. Le bonus d'attaque dans le dos pour les dagues passe de +200% à +300%. Éteint également « Soulscorch ». Nécessite également que « Swift » soit débloqué.",
+				quote = "\"Méfiez-vous du trompeur aux doigts noirs !\"",
 				iconOverride = "begotten/ui/belieficons/wrestle_subdue.png",
 				requirements = {"satanism", "blank_stare", "encore", "swift"},
 				row = 4,
@@ -183,7 +183,7 @@ local DARK = cwBeliefs.beliefTrees:New("dark")
 			["encore"] = {
 				name = "Encore",
 				subfaith = "Satanism",
-				description = "The attack and block delay of being parried is now reduced by 50%, allowing you to recover far sooner. You also now have 50% less of a chance to be disarmed following a high stamina damage attack.",
+				description = "Le délai d'attaque et de blocage après avoir été paré est désormais réduit de 50%, vous permettant de récupérer bien plus tôt. Vous avez également 50% moins de chances d'être désarmé après une attaque à haut drain d'endurance.",
 				requirements = {"satanism", "blank_stare"},
 				row = 3,
 			},
@@ -192,8 +192,8 @@ local DARK = cwBeliefs.beliefTrees:New("dark")
 			["sadism"] = {
 				name = "Sadism",
 				subfaith = "Satanism",
-				description = "Unlocks the 'Twisted Warcry' ability, allowing you to mimic the tortured screams of your victims to severely reduce the sanity of all non-Faith of the Dark characters within yelling distance. Note that performing this will cost 5 Sanity.",
-				quote = "\"The torturesmith has a certain grace in his vocal abilities. He found his passion for delivering pain was amplified when he sang along to his victims, altering his pitch to match the agonized screams of the trembling accused... Quite a silly man!\"",
+				description = "Débloque la capacité « Cri de guerre tordu », vous permettant d'imiter les cris torturés de vos victimes pour réduire sévèrement la santé mentale de tous les personnages non-croyants de la Foi des Ténèbres à portée de voix. Notez que l'utilisation de cette capacité coûte 5 points de santé mentale.",
+				quote = "\"Le tortionnaire a une certaine grâce dans ses capacités vocales. Il a découvert que sa passion pour infliger la douleur était amplifiée lorsqu'il chantait avec ses victimes, modifiant sa tonalité pour correspondre aux cris agonisants de l'accusé tremblant... Un homme plutôt drôle !\"",
 				requirements = {"satanism", "blank_stare", "encore"},
 				row = 4,
 			},

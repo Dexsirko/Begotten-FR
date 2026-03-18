@@ -17,7 +17,7 @@ local animalModels = {
 };
 
 function cwBeliefs:ClockworkInitialized()
-	Clockwork.directory:AddCategory("Beliefs", "Beliefs are the primary means of progression in Begotten III. Faith (experience) can be earned from a variety of sources, such as dealing damage, consuming items, crafting and performing rituals, or residually over time in dangerous areas. Once enough faith has concentrated, your character will advance to their next Sacrament Level, granting the use of an Epiphany (skill point). Epiphanies can then be spent on unlocking beliefs.\n\nThere are several belief trees, each with different purposes and unique belief tree finishers. Belief trees or individual beliefs may be locked depending on several factors, such as the faith or subfaith of your character, their faction or subfaction, and traits or other beliefs taken.")
+	Clockwork.directory:AddCategory("Beliefs", "Les croyances sont le principal moyen de progression dans Begotten III. La foi (expérience) peut être gagnée à partir de diverses sources, comme infliger des dégâts, consommer des objets, fabriquer et accomplir des rituels, ou résiduellement au fil du temps dans des zones dangereuses. Une fois assez de foi accumulée, votre personnage avancera à son prochain Niveau de Sacrement, accordant l'utilisation d'une Épiphanie (point de compétence). Les Épiphanies peuvent ensuite être dépensées pour débloquer des croyances.\n\nIl y a plusieurs arbres de croyances, chacun avec des objectifs différents et des achèvements d'arbre uniques. Les arbres de croyances ou les croyances individuelles peuvent être verrouillés en fonction de plusieurs facteurs, tels que la foi ou la sous-foi de votre personnage, sa faction ou sous-faction, et les traits ou autres croyances choisies.")
 end
 
 function cwBeliefs:PlayerCharacterInitialized(data)
@@ -252,7 +252,7 @@ function cwBeliefs:DrawTargetPlayerMarked(target, alpha, x, y)
 					gender = "She";
 				end;
 			
-				y = Clockwork.kernel:DrawInfo(Clockwork.kernel:ParseData(gender.." is marked for death for transgressions against the Dark Lord!"), x, y, Color(200, 0, 0), alpha);
+				y = Clockwork.kernel:DrawInfo(Clockwork.kernel:ParseData(gender.." est marqué pour la mort pour ses transgressions contre le Seigneur Obscur !"), x, y, Color(200, 0, 0), alpha);
 				
 				return y;
 			end

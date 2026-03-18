@@ -133,31 +133,31 @@ netstream.Hook("OpenLevelTreeOtherPlayer", function(data)
 end);
 
 Clockwork.chatBox:RegisterClass("prayerreply", "ic", function(info)
-	Clockwork.chatBox:Add(info.filtered, nil, Color(255, 255, 153, 255), "A powerful voice reverberates through your mind "..info.text);
+	Clockwork.chatBox:Add(info.filtered, nil, Color(255, 255, 153, 255), "Une voix puissante résonne dans votre esprit "..info.text);
 end);
 
 Clockwork.chatBox:RegisterClass("darkwhisper", "ic", function(info)
-	Clockwork.chatBox:Add(info.filtered, nil, Color(150, 20, 20, 255), info.speaker:Name().." speaks to you with the voice of the dead, whispering "..info.text);
+	Clockwork.chatBox:Add(info.filtered, nil, Color(150, 20, 20, 255), info.speaker:Name().." vous parle avec la voix des morts, murmurant "..info.text);
 end);
 
 Clockwork.chatBox:RegisterClass("darkwhisperglobal", "ic", function(info)
-	Clockwork.chatBox:Add(info.filtered, nil, Color(150, 20, 20, 255), info.speaker:Name().." speaks to you and other Children with the voice of the dead, whispering "..info.text);
+	Clockwork.chatBox:Add(info.filtered, nil, Color(150, 20, 20, 255), info.speaker:Name().." vous parle, ainsi qu'aux autres Enfants, avec la voix des morts, murmurant "..info.text);
 end);
 
 Clockwork.chatBox:RegisterClass("darkwhisperglobalkinisger", "ic", function(info)
-	Clockwork.chatBox:Add(info.filtered, nil, Color(150, 20, 20, 255), "["..info.speaker:GetFaction().."] "..info.speaker:Name().." speaks to you and other Children with the voice of the dead, whispering "..info.text);
+	Clockwork.chatBox:Add(info.filtered, nil, Color(150, 20, 20, 255), "["..info.speaker:GetFaction().."] "..info.speaker:Name().." vous parle, ainsi qu'aux autres Enfants, avec la voix des morts, murmurant "..info.text);
 end);
 
 Clockwork.chatBox:RegisterClass("darkwhisperevent", "ic", function(info)
-	Clockwork.chatBox:Add(info.filtered, nil, Color(150, 20, 20, 255), "A whispering voice pierces your mind, accompanied by shrieking: "..info.text);
+	Clockwork.chatBox:Add(info.filtered, nil, Color(150, 20, 20, 255), "Une voix murmurante transperce votre esprit, accompagnée de hurlements : "..info.text);
 end);
 
 Clockwork.chatBox:RegisterClass("darkwhispernondark", "ic", function(info)
-	Clockwork.chatBox:Add(info.filtered, nil, Color(150, 20, 20, 255), "A terrifying unholy whisper can be heard, conferring "..info.text..". You may reply using /darkreply, but this will undoubtedly infer corruption.");
+	Clockwork.chatBox:Add(info.filtered, nil, Color(150, 20, 20, 255), "Un murmure impie terrifiant se fait entendre, conférant "..info.text..". Vous pouvez répondre en utilisant /darkreply, mais cela entraînera sans aucun doute la corruption.");
 end);
 
 Clockwork.chatBox:RegisterClass("darkwhisperreply", "ic", function(info)
-	Clockwork.chatBox:Add(info.filtered, nil, Color(150, 20, 20, 255), info.speaker:Name().." speaks back through the void, whispering "..info.text);
+	Clockwork.chatBox:Add(info.filtered, nil, Color(150, 20, 20, 255), info.speaker:Name().." répond à travers le vide, murmurant "..info.text);
 end);
 
 Clockwork.chatBox:RegisterClass("darkwhispernoprefix", "ic", function(info)
@@ -165,7 +165,7 @@ Clockwork.chatBox:RegisterClass("darkwhispernoprefix", "ic", function(info)
 end);
 
 Clockwork.chatBox:RegisterClass("relay", "ic", function(info)
-	Clockwork.chatBox:Add(info.filtered, nil, Color(125, 249, 255, 255), info.speaker:Name().." speaks to your mind through electrical signals, "..info.text, info.font);
+	Clockwork.chatBox:Add(info.filtered, nil, Color(125, 249, 255, 255), info.speaker:Name().." parle à votre esprit via des signaux électriques, "..info.text, info.font);
 end);
 
 config.AddToSystem("Maximum Sacrament Level", "max_sac_level", "The maximum level that a character can level up to via the Beliefs system.", 30, 80);

@@ -1,150 +1,125 @@
 -- BOOK DATA
 
---[[
-	Book data formatting looks fucking wierd. So this is the containment file for it.
-	No indents can be used or it looks fucked up in the book view.
---]]
+--[[La mise en forme des données du livre a l'air putain de bizarre. Donc voici le fichier de confinement pour ça.
+Aucune indentation ne peut être utilisée sinon ça a l'air foutu dans la vue du livre.]]
 
-Book_SaintRagnar_Page1 = [[
-<font color='#000' size='4'><b>Birth of the North</b></font>
-<i>"With conviction I shall say this to my last breath, we are a kind to hate. Anathema to your sordid lot, I shall carry the weight of a burden divine. Your deceit will be cast aside, as I vow to expose it with mine righteous hand! Sol as my resolve, the Iron Gate of the Glaze shall stand!"</i>
+Book_SaintRagnar_Page1 = [[<font color='#000' size='4'><b>Naissance du Nord</b></font>
+<i>"Avec conviction, je le dirai jusqu'à mon dernier souffle, nous sommes une race à haïr. Anathème à votre sordide bande, je porterai le poids d'un fardeau divin. Votre tromperie sera rejetée, car je jure de la dévoiler de ma main droite ! Sol comme ma résolution, la Porte de Fer du Glaçage tiendra bon !"</i>
 — Saint Ragnar Odwyn
 
-Hard-Glaze historians and literary geniuses of that sort have found it hard to place when exactly Ragnar Odwyn was born or where exactly he originated from, but it is widely accepted that he was a Gay-Gore of Northern stock, a warrior of a barbarous and savage ideal. When Lord Maximus came upon the Gores, mere barbarians in the Deadlands of Canada, and the fragmented tribes and villages that made its whole in the aftermath of the Holy Hierarchy Wars, it is believed that Ragnar was one of the chieftains who stood against him and knelt when his kind were shattered. It was then he, Ragnar, perceived Maximus as the highest ideal, a God in living flesh, and equated him to the nascent belief at the time - that he embodied the Father made flesh, a monster of war given skin and bone. He so decreed he would follow him into the jaws of death itself, and was planted Hard-Glaze forevermore.
-]]
+Les historiens du Glaçage-Dur et autres génies littéraires de cette trempe ont eu du mal à déterminer quand exactement Ragnar Odwyn est né ou d'où il venait précisément, mais il est largement admis qu'il était un Gay-Gore de souche nordique, un guerrier d'un idéal barbare et sauvage. Lorsque le Seigneur Maximus tomba sur les Gores, de simples barbares dans les Terres Mortes du Canada, et sur les tribus et villages épars qui en formaient l'ensemble au lendemain des Guerres de la Hiérarchie Sainte, on pense que Ragnar fut l'un des chefs qui lui résistèrent et s'agenouillèrent lorsque son peuple fut brisé. C'est alors qu'il, Ragnar, perçut Maximus comme l'idéal suprême, un Dieu en chair et en os, et l'assimila à la croyance naissante de l'époque – qu'il incarnait le Père fait chair, un monstre de guerre revêtu de peau et d'os. Il décréta ainsi qu'il le suivrait jusque dans les gueules de la mort elle-même, et fut à jamais implanté dans le Glaçage-Dur.]]
 
-Book_SaintRagnar_Page2 = [[
-<font color='#000' size='4'><b>Subsistence and Death</b></font>
-<i>"Know that the eternal glory of the Glaze, its beauty and its simplicity, its truth and its power, has come to this place forever. The Light has smothered out the puke of putrid belief we brothers and sisters once believed in, and it has laid the foundations of a greater whole. Do not kneel before delusion, kneel before this elite fucking power."</i>
+Book_SaintRagnar_Page2 = [[<font color='#000' size='4'><b>Subsistance et Mort</b></font>
+<i>"Sachez que la gloire éternelle du Vernis, sa beauté et sa simplicité, sa vérité et sa puissance, est venue en ce lieu pour toujours. La Lumière a étouffé le vomi des croyances putrides que nous, frères et sœurs, avons jadis crues, et elle a posé les fondations d'un tout plus grand. Ne vous agenouillez pas devant l'illusion, agenouillez-vous devant cette putain de puissance d'élite."</i>
 — Saint Ragnar Odwyn
 
-It is said that after Ragnar Odwyn had unified the tribes of spearfolk around his home underneath the greater banner of the Glaze he had knelt to, that he had changed them so fundamentally. They became zealous, rabid and loyal to Maximus and He alone. They fought entirely for righteousness now, no longer for love of slaughter and looting. His people, the bastard union, huddled in squalid hamlets and tiny villages in the frigid cold among the border. They eked out meager returns of grain and led packs of sheep and cattle in the hills. They were shepherds and farmers.
+On dit qu'après que Ragnar Odwyn eut unifié les tribus des hommes-lances autour de son foyer sous la grande bannière du Vernis devant laquelle il s'était agenouillé, il les avait changés si fondamentalement. Ils devinrent zélés, enragés et loyaux envers Maximus et Lui seul. Ils combattaient désormais entièrement pour la justice, non plus par amour du massacre et du pillage. Son peuple, l'union bâtarde, se blottissait dans des hameaux sordides et de petits villages dans le froid glacial le long de la frontière. Ils tiraient de maigres récoltes de grain et menaient des troupeaux de moutons et de bétail dans les collines. Ils étaient bergers et fermiers.
 
-Maximus had called upon the men of the North a handful of times and one of them was to deal with a great menace to the East that had cropped up. Ragnar dispatched fyrds of men, aided by local elders and ealdormen, to dispatch the Blackhat Menace. The Amish Wars lasted only a few months as the men of Gore-Glazic blood removed and burned the lands of the Blackhat, turning entire villages to little more than rubble and smoke. The black-hats were completely eradicated by the shepherds and peasants.
+Maximus avait fait appel aux hommes du Nord à quelques reprises, et l'une d'elles était pour faire face à une grande menace qui avait surgi à l'Est. Ragnar envoya des fyrd d'hommes, aidés par les anciens locaux et les ealdormen, pour éliminer la Menace des Chapeaux-Noirs. Les Guerres Amish ne durèrent que quelques mois, tandis que les hommes de sang Gore-Glazique dévastaient et brûlaient les terres des Chapeaux-Noirs, réduisant des villages entiers à peu plus que des décombres et de la fumée. Les chapeaux-noirs furent complètement éradiqués par les bergers et les paysans.
 
-<i>"The insidious will never triumph, for their strength is that of weakness. They deceive and gird their words in flowery prose and majestic enunciation. To the simple spearfolk, their words and banter mean little as we crack their skulls open like watermelons, and cast their ichor upon the soil. Their mewls mattered little."</i>
-— Saint Ragnar Odwyn
-]]
+<i>"L'insidieux ne triomphera jamais, car sa force est celle de la faiblesse. Ils trompent et parent leurs mots de prose fleurie et d'énonciation majestueuse. Pour les simples hommes-lances, leurs mots et leurs jacasseries importent peu tandis que nous leur fendons le crâne comme des pastèques et répandons leur ichor sur le sol. Leurs gémissements comptaient pour peu."</i>
+— Saint Ragnar Odwyn]]
 
-Book_SaintRagnar_Page3 = [[
-<font color='#000' size='4'><b>End of the Era</b></font>
-<i>"There is no love for them left in me, for they are not my people. They have my blood, but not my faith. They crack rocks on bone and stoke weak fires and claim to be masters. They are nothing."</i>
+Book_SaintRagnar_Page3 = [[<font color='#000' size='4'><b>Fin d'une Ère</b></font>
+<i>"Il ne reste en moi aucun amour pour eux, car ils ne sont pas mon peuple. Ils ont mon sang, mais pas ma foi. Ils brisent des pierres sur des os et attisent de faibles feux et se prétendent maîtres. Ils ne sont rien."</i>
 — Saint Ragnar Odwyn
 
-When war came once more the zealous and loyal Northlanders picked up their blades and spears, their bats and nooses and muskets. They marched at the bidding of the First Citizen, for he called for their action in slaughter. They racked the powder and gathered their arsenals, and set out on horseback and on foot. And when Maximus' set forth to lay holy waste to the Great Tree of the Gay menace, the Gore-Glazic rode out to reave the countryside. They brought war to the small places while Maximus brought the war to their heart. It is here where Ragnar would reave and set a terrible name for himself among the local Gores of what would one day be the Hill of Light. He broke their backs upon his knee, and shattered their meager warhosts with his great pressgang of shepherds and farmers. Peasants they were, they stood against the disgusting giants of the woods, and with sheer numbers they brought victory.
+Quand la guerre revint une fois de plus, les Nordiques zélés et loyaux saisirent leurs lames et leurs lances, leurs gourdins, leurs nœuds coulants et leurs mousquets. Ils marchèrent sur l'ordre du Premier Citoyen, car il appelait à leur action dans le massacre. Ils préparèrent la poudre et rassemblèrent leurs arsenaux, et partirent à cheval et à pied. Et quand Maximus partit pour dévaster saintement le Grand Arbre de la menace Gay, les Gore-Glaziques chevauchèrent pour piller la campagne. Ils apportèrent la guerre aux petits lieux tandis que Maximus portait la guerre à leur cœur. C'est ici que Ragnar allait piller et se forger un terrible nom parmi les Gores locaux de ce qui deviendrait un jour la Colline de Lumière. Il leur brisa le dos sur son genou, et anéantit leurs maigres armées avec sa grande presse de bergers et de fermiers. Paysans qu'ils étaient, ils tinrent tête aux géants répugnants des bois, et par le seul nombre, ils remportèrent la victoire.
 
-But not all was well. Ragnar found himself mortally wounded near the end of his campaign in the low places, and was set upon by a nameless Gay Chief. There, the Chief told him to beg for his life.
+Mais tout n'allait pas bien. Ragnar se retrouva mortellement blessé vers la fin de sa campagne dans les basses terres, et fut attaqué par un Chef Gay sans nom. Là, le Chef lui ordonna de supplier pour sa vie.
 
-<i>"You putrid oaf... I refuse to conform to what you think you may see in me. I shall not surrender who I truly am."</i>
+<i>"Espèce d'idiot putride... Je refuse de me conformer à ce que tu crois voir en moi. Je ne renoncerai pas à qui je suis vraiment."</i>
 
-With the swing of a wicked axe, Ragnar's belly was split wide and he died on the field of battle. His men carried the victory, and his funeral was a vigil held for seven days and seven nights. No such great native leader of the Gore-Glaze would arise until generations later, under the purview of Saint Matheus when the Gore-Glazic people would be put to their breaking point.
-]]
+D'un coup de hache vicieuse, le ventre de Ragnar fut largement ouvert et il mourut sur le champ de bataille. Ses hommes remportèrent la victoire, et ses funérailles furent une veillée qui dura sept jours et sept nuits. Aucun aussi grand chef natif du Gore-Glaze ne se lèverait avant des générations plus tard, sous l'égide de Saint Matheus, quand le peuple Gore-Glazique serait poussé à son point de rupture.]]
 
-Book_SaintMatheus_Page1 = [[
-<font color='#000' size='4'><b>Start of the Great Northern Architect</b></font>
-<i>"We stand in one of the last remaining gardens on Gaia, a veritable Eden of proportions not unlike those of the days of the Empire. Yet long ago here, in the North, has arisen a sinister creed - one of misbegotten hatred of our people, cast upon us by savages! When the darkness descends, they will be smothered and lost - oh, Lord and Father Maximus, the great dark will not be our end. When the world falls into the end of days, we will rise again like a bright star."</i>
-— Saint Matheus the Bald
+Book_SaintMatheus_Page1 = [[<font color='#000' size='4'><b>Début du Grand Architecte du Nord</b></font>
+<i>"Nous nous tenons dans l'un des derniers jardins subsistant sur Gaïa, un véritable Éden aux proportions semblables à celles des jours de l'Empire. Pourtant, il y a longtemps, ici, dans le Nord, s'est élevée une croyance sinistre - une haine mal née envers notre peuple, jetée sur nous par des sauvages ! Quand les ténèbres descendront, ils seront étouffés et perdus - oh, Seigneur et Père Maximus, le grand noir ne sera pas notre fin. Quand le monde sombrera dans la fin des temps, nous nous élèverons à nouveau comme une étoile brillante."</i>
+— Saint Matheus le Chauve
 
-In the frigid cold of the Hill of Light, there was the venerable Saint Matheus the Bald. Born Jeremiah Matheus, a man of pure Philimonjio blood amongst the North folk, he had risen through the ranks of the Low Ministry following his induction in his youth. He cleft through the heathens in the outlying villages, tidying the blemishes against the faith that had managed to find their way into the flock in the earlier years. They came during a time of collapse and sin, when pain was the commonmost, and there seemed no end and no hope.
+Dans le froid glacial de la Colline de Lumière, se trouvait le vénérable Saint Matheus le Chauve. Né Jeremiah Matheus, un homme de sang Philimonjio pur parmi les gens du Nord, il avait gravi les échelons du Bas Ministère après son admission dans sa jeunesse. Il tailla en pièces les païens dans les villages périphériques, nettoyant les souillures contre la foi qui avaient réussi à s'infiltrer dans le troupeau au cours des années précédentes. Ils étaient venus en un temps d'effondrement et de péché, où la douleur était la plus commune, et où il ne semblait y avoir ni fin ni espoir.
 
-By Matheus’ own holy hand he restored hope and prevented a great collapse, bringing strength to the Gay-Gores again. He bid them to build great walls and fortifications, and for his actions he was made High Priest.
+De sa propre main sainte, Matheus restaura l'espoir et empêcha un grand effondrement, redonnant force aux Gay-Gores. Il leur ordonna de construire de grandes murailles et fortifications, et pour ses actions, il fut fait Grand Prêtre.
 
-<i>"It is cold here among the sticks and reeds. The woods are dark and filled with wicked things; yet the Hill stands defiant in the face of the end."</i>
-— Saint Matheus The Bald
-]]
+<i>"Il fait froid ici parmi les bâtons et les roseaux. Les bois sont sombres et remplis de choses malfaisantes ; pourtant la Colline défie la fin."</i>
+— Saint Matheus le Chauve]]
 
-Book_SaintMatheus_Page2 = [[
-<font color='#000' size='4'><b>Bounty Before Them</b></font>
-<i>“Know sanctuary, for it is all you will find here. Know compassion, for it is all I will show you. Know peace, for it is what I promise to render unto you. Know the Light, for it is truth and glory.”</i>
-—  Saint Matheus the Bald 
+Book_SaintMatheus_Page2 = [[<font color='#000' size='4'><b>La Bonté Devant Eux</b></font>
+<i>« Connais le sanctuaire, car c'est tout ce que tu trouveras ici. Connais la compassion, car c'est tout ce que je te montrerai. Connais la paix, car c'est ce que je te promets de t'offrir. Connais la Lumière, car elle est vérité et gloire. »</i>
+—  Saint Mathieu le Chauve
 
-It is well known the hatred that Matheus had of the Gay Gore. That justified and well-harbored dislike, mistrust and disregarding nature he held against them. For they knew nothing but treachery and barbarism, pillaging the outlying villages for all they were worth. The hordes of Shagalaxian barbarians, their Chieftains unnamed and rightfully forgotten, had forced the many shepherds and hunters from their unwalled hamlets into the Hill of Light.
+Il est bien connu, la haine que Mathieu vouait aux Gay Gore. Cette aversion justifiée et bien ancrée, cette méfiance et cette nature méprisante qu'il nourrissait à leur égard. Car ils ne connaissaient que la traîtrise et la barbarie, pillant les villages périphériques pour tout ce qu'ils valaient. Les hordes de barbares Shagalaxiens, leurs chefs sans nom et à juste titre oubliés, avaient chassé les nombreux bergers et chasseurs de leurs hameaux sans murailles vers la Colline de la Lumière.
 
-A burgeoning population meant many more mouths to feed and with the granaries empty, Matheus spoke on behalf of the Cardinal: “Let the lands be for us all, and the Glaze’s bounty be made so that all may partake in its hallowed splendor.” And so the hunters reaved the forests and brought back bodies of elk and bear, and fed the many hungry that dwelt within.
+Une population croissante signifiait bien plus de bouches à nourrir et, les greniers étant vides, Mathieu parla au nom du Cardinal : « Que les terres soient pour nous tous, et que la bonté du Glacé soit telle que tous puissent participer à sa splendeur sacrée. » Ainsi, les chasseurs ravagèrent les forêts et rapportèrent les corps d'élans et d'ours, nourrissant les nombreux affamés qui y habitaient.
 
-What few outlying hamlets still supplied grain to the Hill, paying their tithe in hundredweights of flour and barley or in bodies upon bodies of fighting men. But, even with what seemed order and peace restored, came killers with fiery hatred.
+Les quelques hameaux périphériques qui fournissaient encore du grain à la Colline payaient leur dîme en quintaux de farine et d'orge, ou en corps après corps d'hommes de combat. Mais, même avec ce qui semblait être l'ordre et la paix restaurés, vinrent des tueurs animés d'une haine ardente.
 
-Led by a Shagalaxian King, the many native clans of Gores marched upon the few who stood.
-]]
+Menés par un roi Shagalaxien, les nombreux clans indigènes des Gores marchèrent sur le petit nombre qui résistait.]]
 
-Book_SaintMatheus_Page3 = [[
-<font color='#000' size='4'><b>Fire and Smoke</b></font>
-<i>“Oh, ye old and wicked sons of Heaven's lost! Stand in awe and raise your inverted cross! For you, kings of the earth, with your words of iron, you should have served his Holiness that you have so ruefully dismissed. Stand before your final day, and I rejoice in that I may watch you choke on every line you pray! Spit out your wretched words, but know they will be your last!”</i>
-—  Saint Matheus the Bald 
+Book_SaintMatheus_Page3 = [[<font color='#000' size='4'><b>Feu et Fumée</b></font>
+<i>« Oh, vous, vieux et méchants fils du Ciel perdu ! Tremblez et élevez votre croix inversée ! Car vous, rois de la terre, avec vos paroles de fer, vous auriez dû servir Sa Sainteté que vous avez si lamentablement reniée. Tenez-vous devant votre dernier jour, et je me réjouis de pouvoir vous voir vous étouffer sur chaque ligne que vous priez ! Crachez vos misérables paroles, mais sachez qu'elles seront vos dernières ! »</i>
+— Saint Matheus le Chauve
 
-And so Matheus’ hatred was brought to bear, for he had to draw his blade and rouse the fyrds. A horde of men wreathed in bleached iron and steel, with muskets full of powder and guns full of pop-a-shot, were followed by smoke-belching iron leviathans that crunched plants and man alike under their iron treads. They came for the Hill, and all that dwelt within.
+Ainsi la haine de Matheus fut déchaînée, car il dut tirer son épée et lever les fyrd. Une horde d'hommes enveloppés de fer et d'acier blanchis, avec des mousquets pleins de poudre et des fusils chargés de pop-a-shot, fut suivie par des léviathans de fer crachant de la fumée, qui broyaient plantes et hommes sous leurs chenilles de fer. Ils vinrent pour la Colline, et pour tous ceux qui y habitaient.
 
-They burnt through the hamlets and the villages, and in their wake a horde of refugees found sanctuary behind high walls. They huddled and cried when the Gay-Gores came, as the hird stood defiant in the face of great destruction. They roared with voice and with horn, banging shields with swords and casting out their defamation and damnation from the top of the Walls.
+Ils brûlèrent les hameaux et les villages, et dans leur sillage, une horde de réfugiés trouva refuge derrière de hauts murs. Ils se blottirent et pleurèrent lorsque les Gay-Gores arrivèrent, tandis que la hird faisait face, défiant, à la grande destruction. Ils rugirent de leur voix et de leurs cors, frappant les boucliers avec leurs épées et lançant leurs diffamations et damnations du haut des Remparts.
 
-All know that Matheus stood upon the ramparts, and he let loose a furious bellow.
-<i>“Let not a single of them live! Let not a single one draw another breath near our home! Defend your families, shake your spears and rattle your shields! Take to the hills, and rend them apart!”</i>
+Tous savaient que Matheus se tenait sur les remparts, et il lâcha un furieux beuglement.
+<i>« Ne laissez pas un seul d'entre eux en vie ! Qu'aucun ne puisse plus respirer près de notre foyer ! Défendez vos familles, brandissez vos lances et faites cliqueter vos boucliers ! Prenez les collines, et mettez-les en pièces ! »</i>
 
-And so they did, roaring out from the Hill with furious abandon. The iron treads were stalled by corpses and logs, the Shagalaxian armor was bent and broken by furious peasants, and their ammo soon fell empty as only yet more poured out from behind their great concrete walls.
-]]
+Et c'est ce qu'ils firent, dévalant de la Colline avec un abandon furieux. Les chenilles de fer furent bloquées par des cadavres et des troncs, l'armure shagalaxienne fut tordue et brisée par des paysans en furie, et leurs munitions furent bientôt épuisées tandis que toujours plus d'hommes sortaient de derrière leurs grands murs de béton.]]
 
-Book_SaintMatheus_Page4 = [[
-<font color='#000' size='4'><b>On His Glory We Reign</b></font>
-<i>“Oh, know me as I have died, not as I lived. I am but a man, simple man. My ichor drains just like any other, my blood spills and wets the soil. Know that even a holy man may die.”</i>
-—  Saint Matheus the Bald 
+Book_SaintMatheus_Page4 = [[<font color='#000' size='4'><b>En Sa Gloire Nous Règnons</b></font>
+<i>« Oh, connaissez-moi tel que je suis mort, non tel que j'ai vécu. Je ne suis qu'un homme, un simple homme. Mon ichor s'écoule comme celui de tout autre, mon sang se répand et imbibe le sol. Sachez que même un homme saint peut mourir. »</i>
+— Saint Matheus le Chauve
 
-While Goreic leviathans lay destroyed, their spearfolk army smashed and slain by furious peasants, there were many dead Gore-Glaze as payment. Strewn across the whole of a corpse field that would bloom into a tradition, to bury the newly dead among the original dead, to commemorate the battle that saw the Hill of Light saved.
+Alors que les léviathans Goréens gisaient détruits, leur armée de lanciers écrasée et massacrée par des paysans en furie, le prix à payer fut de nombreux morts Goré-Glaçés. Éparpillés à travers tout un champ de cadavres qui allait donner naissance à une tradition : enterrer les nouveaux morts parmi les morts originels, pour commémorer la bataille qui vit la Colline de la Lumière sauvée.
 
-Matheus, much like Ragnar before him, was felled in battle. Unlike Ragnar, Matheus still drew breath and the many local physicians tried their best to heal him back to health. And yet he bid them stop, and told them to bury him in the woods.
+Matheus, tout comme Ragnar avant lui, fut terrassé au combat. Contrairement à Ragnar, Matheus respirait encore et les nombreux médecins locaux firent de leur mieux pour le guérir et le ramener à la santé. Pourtant, il leur ordonna d'arrêter et leur dit de l'enterrer dans les bois.
 
+<font color='#000' size='4'><b>Consécration de la Poussière</b></font>
+<i>« Il n'y eut pas d'homme plus grand que Ragnar, qui nous a faits. Mais il eut son égal, Matheus, qui nous a rassemblés sous la Lumière. Il apporta l'espoir quand il n'y en avait plus. »</i>
+— Maître d'Armes Yeshua Torrention II, alors Haut Émissaire
 
-<font color='#000' size='4'><b>Consecration of Dust</b></font>
-<i>“There was no greater man than Ragnar, who made us. But there was his equal, Matheus, who bound us back together under the Light. He brought hope when there was none.”</i>
-—  Master-at-Arms Yeshua Torrention II, then High Emissary 
+Une autre veillée de sept jours et sept nuits, et Matheus fut mis au repos dans un tombeau à l'extérieur de l'Église qu'il avait consacrée, désormais détruite, son corps demeurant à proximité.
 
-Another seven day and seven night vigil, and Matheus was laid to rest in a tomb outside of the Church he had consecrated, which now lay destroyed, his body still dwelling near.
+Ses dernières paroles furent adressées aux hommes autour de lui peu avant sa mort.
 
-His last words were spoken to the men around him shortly before his death.
+<i>« Je sais que la Lumière en toi brûle faible, mon frère. La douleur qui réside en toi. Cela m'attriste de te voir aveuglé par ta souffrance. Moi aussi, je succombe aux ténèbres et au désespoir. J'ai l'impression que la misère est là où j'appartiens. Malgré cela, je me surprends à me demander pourquoi je continue à faire cet effort. Je ne comprends pas pourquoi tu refuses la vérité que nous mourrons tous, un jour. La différence, c'est ce qu'un homme fait avant de périr, le changement qu'il apporte à ce monde brisé. »</i>]]
 
-<i>“I know the Light within you is burning dim, brother. The pain that resides within you. It saddens me to see you blinded by your suffering. I too succumb to darkness and despair. It feels like misery is where I belong. Despite this, I find myself questioning why I continue to make this effort. I don't understand why you deny the truth that all of us will die, one day. The difference is what a man does before they perish, the change they bring upon this broken world.”</i>
-]]
+Book_NorthQuotes_Page1 = [[Aiguise non seulement ta lame, mais aussi ton esprit. Un homme pieux ne souffre pas le païen, et rejette avec aisance les horreurs de la guerre spirituelle.
 
-Book_NorthQuotes_Page1 = [[
-Sharpen not only thy blade, but also thy mind. A pious man suffers not the heathen, and shrugs off the horrors of spiritual warfare with ease.
+La foi réchauffera ton cœur et la piété apaisera tes os endoloris. Crois aux enseignements de notre Père Maximus, car une foi immortelle en sa Lumière est notre plus grande arme contre ce froid mordant.
 
-Faith will warm your heart and piety will soothe your aching bones. Believe in the teachings of our Father Maximus, as undying faith in his Light is our greatest weapon against this bitter cold.
+Ne souffre pas l'hérétique.]]
 
-Suffer not the heretic.
-]]
+Book_NorthQuotes_Page2 = [[Sur le lit de mort, je contemple avec étonnement cet événement terrible, et j'aperçus une brume blanche, et assis sur un trône de fer se tenait un être semblable à un fils d'homme, avec une couronne d'or sur la tête, et la colère de l'humanité dans sa main.
 
-Book_NorthQuotes_Page2 = [[
-Upon the bed of death I look in wonder at this terrible event, and beheld a white mist, and seated within an iron throne was one like a son of man, with a golden crown on his head, and the wrath of humanity in his hand.
+Ses yeux sont comme une flamme de feu, et sur sa tête était la couronne d'or de l'espoir, ses mains maniaient une lame d'une puissance redoutable, fendant hérétique et mal de la même manière !
 
-His eyes are like a flame of fire, and on his head was the golden crown of hope, his hands wielded a blade of awesome power, rifting apart heretic and evil alike!
+Béni soit l'homme qui porte quotidiennement nos fardeaux, notre délivrance. Maximus est pour nous un Seigneur des délivrances, et à notre Seigneur appartient l'échappatoire à la mort ! Le conquérant et l'analyste objectif, le triomphe ultime sur la dualité !]]
 
-Blessed is the man who daily bears our burdens, our deliverance. Maximus is to us a Lord of deliverances, and to our Lord belongs the escape from death! The conqueror and objective analyst, ultimate triumph over the duality!
-]]
+Book_NorthQuotes_Page3 = [[Les plus fidèles du Père Maximus ne fléchissent pas, que la foi soit votre guide et vos yeux.
 
-Book_NorthQuotes_Page3 = [[
-Father Maximus’ most faithful do not falter, let faith be your guide and be your eyes.
+Nous pouvons ne nous nourrir que de cendres et de brindilles, mais nos âmes sont nourries par la divinité.
 
-We may feast upon naught but ash and twigs, but our souls are nourished by divinity.
+Par la grâce de la Lumière, qu'elle guide vos mains et affermisse votre lame - qu'elle soit vous.
 
-By the grace of the Light, let it guide your hands and steady your blade - let it be you.
+Accordez-vous le droit de sourire, de sentir l'effervescence de la Lumière.
 
-Grant yourself the right to smile, to feel the effervescence of the Light.
+La Lumière vous protégera, elle vous enveloppera de sa chaleur et vous guidera vers de plus hauts sommets.
 
-The Light shall shield you, it shall bind you in its warmth and guide you to greater heights.
+Contemplez-la dans son intégralité, et baignez-vous dans sa gloire.
 
-See of the whole of It, and bask in Its glory.
+Que la Lumière bénisse votre chemin.
 
-Light bless your path.
+Maximus règne.]]
 
-Maximus Reigns.
-]]
+Book_Treachery1 = [[Mes Seigneurs, je griffonne ces mots dans le désespoir. Je vous implore d'être attentifs en ces temps de trahison. Je ne suis qu'un humble Émissaire de la Lumière, et je rapporte que mon Sanctuaire est tombé. Ce ne fut pas par les Gores, nul Peuple-Lance n'a franchi ces murs. En vérité, je rapporte un soulèvement des gens du commun.
 
-Book_Treachery1 = [[
-My Lords, I scribble these notes in desperation. I cry thee for heedance in these times of treachery. I am but a humble Emissary of the Light, and I report that mine Sanctuary has fallen. It was not from Gores, no Spearfolk breached these walls. Indeed I report uprising of lowborn making.
+Si cette note tombe entre les mains du credo de Philimonjios, je vous en conjure, copiez ces lettres et répandez-les à tous les hommes du Sud encore en vie. Méfiez-vous, méfiez-vous de la Grande Orthodoxie du Nord ! La folie les a saisis, ils n'entendent pas nos exigences d'allégeance. Car dans le Nord glacial, ils suppurent, sang de la lignée Gore. Depuis les bois, ils rôdent et psalmodient leurs hymnes et malédictions. Passez-les au fil de l'épée, je vous en supplie !
 
-If this note is to fall into hands of Philimonjios creed, I urge ye to copy these letters and spread them to all Southern men still breathing. Beware, beware the Great Northern Orthodoxy! Madness hath taken them, they hear not our demands of fealty. For in the frigid North they fester, blood of Gore Kin. From the woods they stalk and chant their hymns and curses. Put them to the sword, I beg ye!
+Cela a commencé lentement, comme une fougère qui pousse. De la famine qui a suivi la mauvaise récolte, leurs prêches ont pris racine. Leur maudite église, je le crois, était au fond d'un canal inondé près de la place de la ville. Je les ai entendus crier vers Sol pour qu'il empire leur condition, car ils imploraient de plus grandes souffrances. Nous ne les voyions pas comme une menace pour notre Ministère, ils étaient en effet plus enclins à tourner leurs lames contre eux-mêmes. Ce fut ainsi jusqu'à ce que l'homme au Visage d'Or fasse connaître sa présence.
 
-It started slow, like a growing fern. From the famine that hath ensued following bad harvest, their preachings took root. Their cursed church, I believe, was deep in a flooded canal close to the town square. I heard them cry out to Sol to worsen their condition, for they begged for further sufferings. We did not see them a threat to our Ministry, they were indeed more inclined to turn their blades against themselves. That was until the man with the Golden Face made his presence known.
+Le Prophète au Visage d'Or envoûta ses disciples d'un désir de meurtre et de vol. De sa propre bouche, il affirma que son Sol valorisait l'Or au-dessus du Sang. Il déclara qu'une Grande Dette d'Expiation devait être remboursée intégralement, par le Sang et l'Or, chaque denier et chaque cœur devant être arraché aux riches jusqu'à ce que Sol brille à nouveau. Puis il lança ses misérables sur le château, et par Glaze, je pleure encore au souvenir.
 
-The Golden Faced Prophet enchanted his followers with a desire for murder and thievery. With his own words he claimed his Sol valued Gold above Blood. He stated a Great Debt of Atonement must be repaid in full, through Blood and Gold each penny and heart shall be ripped from the wealthy until Sol shines again. Then he set his wretches upon the castle, and by Glaze I still yet weep at the memory.
-
-The Sanctuary I was sworn to protect is no more. The halls have been ransacked, the stores pillaged, and all that remains are the corpses of the fallen. The Gate has been breached, the walls brought low, and the Thralls are soon to roam the bloodied streets. I still live but only by mine own cowardice. That is why I pen these words, for as witness I at least spread truth of their deeds. This night I shall plunge a dagger deep into mine neck, for it is my duty as Emissary to execute deserters.
-]]
+Le Sanctuaire que j'avais juré de protéger n'est plus. Les salles ont été saccagées, les réserves pillées, et il ne reste que les cadavres des tombés. La Porte a été forcée, les murs abattus, et les Thralls ne tarderont pas à errer dans les rues ensanglantées. Je vis encore, mais seulement par ma propre lâcheté. C'est pourquoi je trace ces mots, car en tant que témoin, je répands au moins la vérité de leurs actes. Cette nuit, je plongerai un poignard au plus profond de mon cou, car il est de mon devoir d'Émissaire d'exécuter les déserteurs.]]

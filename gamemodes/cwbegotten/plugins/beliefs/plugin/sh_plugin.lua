@@ -92,12 +92,12 @@ function COMMAND:OnRun(player, arguments)
 		target:ResetBeliefs();
 		
 		if (player != target) then
-			Schema:EasyText(player, "cornflowerblue", "["..self.name.."] You have reset "..target:Name().."'s beliefs.");
+			Schema:EasyText(player, "cornflowerblue", "["..self.name.."] Vous avez réinitialisé "..target:Name().." croyances ");
 		else
-			Schema:EasyText(player, "cornflowerblue", "["..self.name.."] You have reset your own beliefs.");
+			Schema:EasyText(player, "cornflowerblue", "["..self.name.."] Vous avez réinitialisé vos propres croyances.");
 		end;
 	else
-		Schema:EasyText(player, "grey", "["..self.name.."] "..arguments[1].." is not a valid player!");
+		Schema:EasyText(player, "grey", "["..self.name.."] "..arguments[1].." n'est pas un joueur valide !");
 	end;
 end;
 

@@ -1,6 +1,6 @@
 --[[
 	Begotten 3: Jesus Wept
-	written by: cash wednesday, DETrooper, gabs and alyousha35.
+	écrit par: cash wednesday, DETrooper, gabs et alyousha35.
 --]]
 
 local BRUTALITY = cwBeliefs.beliefTrees:New("brutality")
@@ -11,9 +11,9 @@ local BRUTALITY = cwBeliefs.beliefTrees:New("brutality")
 	BRUTALITY.textures = {"brutality", "brutalityarrows"};
 	BRUTALITY.tooltip = {
 		{"Brutality", BRUTALITY.color, "Civ5ToolTip4"},
-		{"Brutality is a measure of your character's depravity and hatred of man, primarily affecting your character's survival ability and unlocking abilities such as cannibalism and bone harvesting. Fully upgrading Brutality will make your character far more survivable while increasing your combat ability while insane.", Color(225, 200, 200)},
-		{"\n\"There will be no exile for the laggards. They will feel my wrath. I will impale a pitchfork through their foul, satanic flesh and harvest it for the cow.\"", Color(128, 90, 90, 240)},
-		{"\nBelief Tree Completion Bonus: Killing another character instantly restores 2% of your currently missing Health and Stamina per sacrament level of the character.", Color(50, 255, 50)}
+		{"La brutalité mesure la dépravation de votre personnage et sa haine envers l'homme, affectant principalement sa capacité de survie et débloquant des capacités telles que le cannibalisme et la récolte d'os. Améliorer complètement la brutalité rendra votre personnage bien plus capable de survivre tout en augmentant ses capacités de combat lorsqu'il est fou.", Color(225, 200, 200)},
+		{"\n\"Il n'y aura pas d'exil pour les traînards. Ils ressentiront ma colère. Je transpercerai leur chair satanique et immonde avec une fourche et la récolterai pour la vache.\"", Color(128, 90, 90, 240)},
+		{"\nBonus d'achèvement de l'arbre de croyances : Tuer un autre personnage restaure instantanément 2% de votre santé et endurance actuellement manquantes par niveau de sacrement de la victime.", Color(50, 255, 50)}
 	};
 	BRUTALITY.columnPositions = {
 		[1] = (BRUTALITY.size.w - 4) * 0.3,
@@ -35,13 +35,13 @@ local BRUTALITY = cwBeliefs.beliefTrees:New("brutality")
 		[1] = {
 			["primeval"] = {
 				name = "Primeval",
-				description = "Unlocks the 'Harvesting' mechanic, allowing you to harvest bones from corpses for use in crafting. Unlocks the ability to craft skin-based healing items.",
+				description = "Débloque la mécanique de « Récolte », vous permettant de récolter des os sur les cadavres pour les utiliser en artisanat. Débloque la capacité de fabriquer des objets de soin à base de peau.",
 				requirements = {"savage"},
 				row = 2,
 			},
 			["headtaker"] = {
 				name = "Headtaker",
-				description = "Deal 25% more limb damage with all damage types. Unlocks the ability to decapitate characters via killing blows to the head with a slash weapon that exceed 30 damage. Decapitating characters will grant 20% increased melee damage for 30 seconds.",
+				description = "Inflige 25% de dégâts supplémentaires aux membres avec tous les types de dégâts. Débloque la capacité de décapiter des personnages via des coups fatals à la tête avec une arme tranchante qui dépassent 30 dégâts. Décapiter un personnage accorde 20% de dégâts de mêlée supplémentaires pendant 30 secondes.",
 				iconOverride = "begotten/ui/belieficons/brutality.png",
 				requirements = {"savage", "primeval"},
 				row = 3,
@@ -50,13 +50,13 @@ local BRUTALITY = cwBeliefs.beliefTrees:New("brutality")
 		[2] = {
 			["savage"] = {
 				name = "Savage",
-				description = "Unlocks the 'Cannibalism' mechanic. Meat from corpses can be harvested for sustenance. Gain sanity from consuming cooked human meat.",
+				description = "Débloque la mécanique de « Cannibalisme ». La viande des cadavres peut être récoltée pour se sustenter. Gagnez de la santé mentale en consommant de la chair humaine cuite.",
 				row = 1,
 			},
 			["savage_animal"] = {
 				name = "Savage Animal",
-				description = "Eating uncooked or spoiled food or drinking dirty water no longer has any negative effects. Also removes sanity loss for eating hearts.",
-				quote = "\"Fear the one who will rip out your heart, eat your flesh, and wear your bones. For they are the predator, and we the prey!\"",
+				description = "Manger de la nourriture non cuite ou avariée ou boire de l'eau sale n'a plus d'effets négatifs. Supprime également la perte de santé mentale en mangeant des cœurs.",
+				quote = "\"Craignez celui qui vous arrachera le cœur, dévorera votre chair et portera vos os. Car c'est lui le prédateur, et nous la proie !\"",
 				requirements = {"savage", "primeval", "headtaker", "heart_eater", "bestial"},
 				row = 4,
 			},
@@ -64,14 +64,14 @@ local BRUTALITY = cwBeliefs.beliefTrees:New("brutality")
 		[3] = {
 			["heart_eater"] = {
 				name = "Heart Eater",
-				description = "Unlocks the ability to rip out someone's heart and eat it to restore thirst.",
+				description = "Débloque la capacité d'arracher le cœur de quelqu'un et de le manger pour restaurer la soif.",
 				iconOverride = "begotten/ui/belieficons/persistent_urges.png",
 				requirements = {"savage"},
 				row = 2,
 			},
 			["bestial"] = {
 				name = "Bestial",
-				description = "While at or below 40% sanity, deal 10% more damage with all melee weapons.",
+				description = "Lorsque votre santé mentale est inférieure ou égale à 40%, infligez 10% de dégâts supplémentaires avec toutes les armes de mêlée.",
 				requirements = {"savage", "heart_eater"},
 				row = 3,
 			},

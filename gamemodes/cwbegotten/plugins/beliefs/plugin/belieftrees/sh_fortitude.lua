@@ -1,6 +1,6 @@
 --[[
 	Begotten 3: Jesus Wept
-	written by: cash wednesday, DETrooper, gabs and alyousha35.
+	écrit par: cash wednesday, DETrooper, gabs et alyousha35.
 --]]
 
 local FORTITUDE = cwBeliefs.beliefTrees:New("fortitude")
@@ -11,9 +11,9 @@ local FORTITUDE = cwBeliefs.beliefTrees:New("fortitude")
 	FORTITUDE.textures = {"fortitude", "fortitudearrows"};
 	FORTITUDE.tooltip = {
 		{"Fortitude", FORTITUDE.color, "Civ5ToolTip4"},
-		{"Fortitude is a measure of your character's mental and physical resilence, primarily affecting your character's resistance to insanity as well as improving your character's combat ability due to increased pain tolerance.", Color(225, 200, 200)},
-		{"\n\"I am the creator of all this light and now I fall to pieces without recognition. Dying without glorification is sinful nature, yet God does not reside in the light. The light resides in the dark. Souls begin through flesh. The mind ponders inside of shells that cannot withstand a lie which does nothing but misinterpret all that we have achieved.\"", Color(128, 90, 90, 240)},
-		{"\nBelief Tree Completion Bonus: +15 maximum HP, +25% Stamina Damage Resistance, +15% Stability Damage Resistance. Grants resistance to explosion knockdown. Otherwise lethal attacks will now always put you into critical condition.", Color(50, 255, 50)},
+		{"La fortitude mesure la résilience mentale et physique de votre personnage, affectant principalement sa résistance à la folie ainsi que l'amélioration de ses capacités de combat grâce à une tolérance à la douleur accrue.", Color(225, 200, 200)},
+		{"\n\"Je suis le créateur de toute cette lumière et maintenant je tombe en morceaux sans reconnaissance. Mourir sans glorification est une nature pécheresse, pourtant Dieu ne réside pas dans la lumière. La lumière réside dans les ténèbres. Les âmes commencent par la chair. L'esprit médite à l'intérieur de coquilles qui ne peuvent supporter un mensonge qui ne fait qu'interpréter tout ce que nous avons accompli.\"", Color(128, 90, 90, 240)},
+		{"\nBonus d'achèvement de l'arbre de croyances : +15 PV maximum, +25% de résistance aux dégâts d'endurance, +15% de résistance aux dégâts de stabilité. Octroie une résistance au renversement par explosion. Les attaques autrement létales vous mettront désormais toujours en état critique.", Color(50, 255, 50)},
 	};
 	FORTITUDE.columnPositions = {
 		[1] = (FORTITUDE.size.w - 4) * 0.1,
@@ -36,12 +36,12 @@ local FORTITUDE = cwBeliefs.beliefTrees:New("fortitude")
 		[1] = {
 			["asceticism"] = {
 				name = "Asceticism",
-				description = "Hunger and thirst now drain 35% slower. This will also affect fatigue (energy) if you are a Voltist with the 'Yellow and Black' belief.",
+				description = "La faim et la soif se drainent désormais 35% plus lentement. Cela affectera également la fatigue (énergie) si vous êtes un Voltiste avec la croyance « Yellow and Black ».",
 				row = 1,
 			},
 			["outlasting"] = {
 				name = "Outlasting",
-				description = "Reduces stamina drain when sprinting by 25%.",
+				description = "Réduit le drain d'endurance en sprintant de 25%.",
 				lockedTraits = {"winded"},
 				requirements = {"asceticism"},
 				row = 2,
@@ -50,19 +50,19 @@ local FORTITUDE = cwBeliefs.beliefTrees:New("fortitude")
 		[2] = {
 			["prudence"] = {
 				name = "Prudence",
-				description = "Sanity now drains 25% slower and certain events affect your sanity less. The sanity effect of enemy warcries is reduced by 50%.",
+				description = "La santé mentale se draine désormais 25% plus lentement et certains événements l'affectent moins. L'effet sur la santé mentale des cris de guerre ennemis est réduit de 50%.",
 				row = 1,
 			},
 			["saintly_composure"] = {
 				name = "Saintly Composure",
-				description = "The effects of low sanity are greatly reduced, and the effect of enemy warcries on your vision is also greatly reduced.",
-				quote = "\"By divine steed and noble stature, these begotten thoughts will tempt me not.\"",
+				description = "Les effets d'une faible santé mentale sont grandement réduits, et l'effet des cris de guerre ennemis sur votre vision est également grandement réduit.",
+				quote = "\"Par la monture divine et la noble stature, ces pensées engendrées ne me tenteront pas.\"",
 				requirements = {"prudence"},
 				row = 2,
 			},
 			["lunar_repudiation"] = {
 				name = "Lunar Repudiation",
-				description = "Grants immunity to all effects of the Blood Moon and halves residual nighttime sanity loss. Significantly reduces the effects of fear from thralls and enemy armors.",
+				description = "Confère l'immunité à tous les effets de la Lune de Sang et réduit de moitié la perte de santé mentale résiduelle nocturne. Réduit considérablement les effets de peur des thralls et des armures ennemies.",
 				requirements = {"prudence", "saintly_composure"},
 				row = 3,
 			},
@@ -70,25 +70,25 @@ local FORTITUDE = cwBeliefs.beliefTrees:New("fortitude")
 		[3] = {
 			["hauberk"] = {
 				name = "Hauberk",
-				description = "Unlocks the ability to wear heavy armor.",
+				description = "Débloque la capacité de porter une armure lourde.",
 				row = 1,
 			},
 			["defender"] = {
 				name = "Defender",
-				description = "Unlocks the ability to equip great shields.",
-				quote = "The savages trembled before the advancing wall of steel.",
+				description = "Débloque la capacité d'équiper des grands boucliers.",
+				quote = "Les sauvages tremblaient devant le mur d'acier qui avançait.",
 				requirements = {"hauberk"},
 				row = 2,
 			},
 			["warden"] = {
 				name = "Warden",
-				description = "All melee weapons and shields now have an additional 15% stamina damage resistance.",
+				description = "Toutes les armes de mêlée et boucliers ont désormais 15% de résistance supplémentaire aux dégâts d'endurance.",
 				requirements = {"hauberk", "defender"},
 				row = 3,
 			},
 			["unburdened"] = {
 				name = "Unburdened",
-				description = "Significantly reduces the movement penalty for medium and heavy armor, including rolling.",
+				description = "Réduit considérablement la pénalité de mouvement pour les armures moyennes et lourdes, y compris la roulade.",
 				requirements = {"hauberk", "defender", "warden"},
 				row = 4,
 			},
@@ -96,19 +96,19 @@ local FORTITUDE = cwBeliefs.beliefTrees:New("fortitude")
 		[4] = {
 			["believers_perseverance"] = {
 				name = "The Believer's Perseverance",
-				description = "Increases critical condition duration by 300%.",
-				quote = "\"Suffer in silence and do not step into the light; there are more foes yet to kill!\"",
+				description = "Augmente la durée de l'état critique de 300%.",
+				quote = "\"Souffre en silence et n'entre pas dans la lumière ; il reste encore des ennemis à tuer !\"",
 				row = 1,
 			},
 			["plenty_to_spill"] = {
 				name = "Plenty to Spill",
-				description = "Reduces the rate of blood loss while bleeding by 50%.",
+				description = "Réduit le taux de perte de sang en cas de saignement de 50%.",
 				requirements = {"believers_perseverance"},
 				row = 2,
 			},
 			["unyielding"] = {
 				name = "Unyielding",
-				description = "Increases your maximum HP by 25 points.",
+				description = "Augmente vos PV maximum de 25 points.",
 				requirements = {"believers_perseverance", "plenty_to_spill"},
 				row = 3,
 			},
@@ -116,12 +116,12 @@ local FORTITUDE = cwBeliefs.beliefTrees:New("fortitude")
 		[5] = {
 			["hide_of_steel"] = {
 				name = "Hide of Steel",
-				description = "Reduces the chance of receiving injuries by 50%.",
+				description = "Réduit les risques de subir des blessures de 50%.",
 				row = 1,
 			},
 			["iron_bones"] = {
 				name = "Iron Bones",
-				description = "Reduces damage taken to limbs by 33%.",
+				description = "Réduit les dégâts subis aux membres de 33%.",
 				requirements = {"hide_of_steel"},
 				row = 2,
 			},

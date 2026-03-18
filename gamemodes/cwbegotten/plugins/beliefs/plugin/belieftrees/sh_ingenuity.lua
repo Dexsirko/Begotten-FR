@@ -1,6 +1,6 @@
 --[[
 	Begotten 3: Jesus Wept
-	written by: cash wednesday, DETrooper, gabs and alyousha35.
+	écrit par: cash wednesday, DETrooper, gabs et alyousha35.
 --]]
 
 local INGENUITY = cwBeliefs.beliefTrees:New("ingenuity")
@@ -11,9 +11,9 @@ local INGENUITY = cwBeliefs.beliefTrees:New("ingenuity")
 	INGENUITY.textures = {"ingenuity", "ingenuityarrows"};
 	INGENUITY.tooltip = {
 		{"Ingenuity", INGENUITY.color, "Civ5ToolTip4"},
-		{"Ingenuity is a measure of your character's craftiness, primarily affecting your character's effectiveness at Crafting. Upgrading this belief set will progressively unlock more crafting options. More Crafting options may become available if this belief set is paired with aptitude. As your sacrament level increases, your crafted equipment will have increased condition.", Color(225, 200, 200)},
-		{"\n\"Bobby all proud 'an cool with that 'ol apparatus back in the truck that laid him out with sweet social status, far from junior status. It be the saddest machine but nice with molasses in the power gauge, as well as the mathematics and administrative tactics.\"", Color(128, 90, 90, 240)},
-		{"\nBelief Tree Completion Bonus: Reduces armor and weapon condition decay by a further 45%. Increases the protection value of all armor by 5 points.", Color(50, 255, 50)}
+		{"L'ingéniosité mesure la débrouillardise de votre personnage, affectant principalement son efficacité en Artisanat. Améliorer cet ensemble de croyances débloquera progressivement plus d'options d'artisanat. Davantage d'options d'artisanat peuvent devenir disponibles si cet ensemble est associé à l'aptitude. À mesure que votre niveau de sacrement augmente, l'état de votre équipement artisanal sera amélioré.", Color(225, 200, 200)},
+		{"\n\"Bobby tout fier et cool avec ce vieil appareil à l'arrière du camion qui l'a installé avec un statut social sympa, loin du statut junior. C'est la machine la plus triste mais agréable avec de la mélasse dans l'indicateur de puissance, ainsi que les mathématiques et les tactiques administratives.\"", Color(128, 90, 90, 240)},
+		{"\nBonus d'achèvement de l'arbre de croyances : Réduit la détérioration de l'état des armures et des armes de 45% supplémentaires. Augmente la valeur de protection de toutes les armures de 5 points.", Color(50, 255, 50)}
 	};
 	INGENUITY.columnPositions = {
 		[1] = (INGENUITY.size.w - 4) * 0.1,
@@ -36,13 +36,13 @@ local INGENUITY = cwBeliefs.beliefTrees:New("ingenuity")
 		[1] = {
 			["cookist"] = {
 				name = "Cookist",
-				description = "Unlocks the crafting of cookable items.",
+				description = "Débloque l'artisanat des objets cuisinables.",
 				requirements = {"ingenious"},
 				row = 2,
 			},
 			["culinarian"] = {
 				name = "Culinarian",
-				description = "Unlocks master cooking recipes.",
+				description = "Débloque les recettes de cuisine de maître.",
 				requirements = {"ingenious", "cookist"},
 				row = 3,
 			},
@@ -50,8 +50,8 @@ local INGENUITY = cwBeliefs.beliefTrees:New("ingenuity")
 		[2] = {
 			["powder_and_steel"] = {
 				name = "Powder and Steel",
-				description = "Unlocks the ability to load firearms.",
-				quote = "\"Almighty creator, deity, holiness, idol of mine. Give me power, spirit, allegiance with those who have disbanded from my ordnance of an army. Divine overseer, universal forces be with me. And for those demons, fight back in means to protect Hard-Glaze and society from its inevitable destruction. Dump the spiritual trophies for now, and unload the ammunitions to purify these unfaithful sinners of the land. Stockpile the explosives, magazine the rifles, warehouse the vehicles, but most of all, plant the inflorescence of Hard-Glaze society inside the dirt for future generations to come.\" - Lord Maximus XII",
+				description = "Débloque la capacité de charger les armes à feu.",
+				quote = "\"Créateur tout-puissant, divinité, sainteté, idole de moi. Donne-moi le pouvoir, l'esprit, l'allégeance avec ceux qui ont quitté mon arsenal d'une armée. Guide divin, forces universelles soyez avec moi. Et pour ces démons, ripostez pour protéger Hard-Glaze et la société de sa destruction inévitable. Laissez tomber les trophées spirituels pour l'instant, et déchargez les munitions pour purifier ces pécheurs infidèles de la terre. Stockez les explosifs, chargez les fusils, entreposez les véhicules, mais surtout, plantez l'inflorescence de la société Hard-Glaze dans la terre pour les générations à venir.\" - Lord Maximus XII",
 				iconOverride = "begotten/ui/belieficons/blessed_powder.png",
 				lockedSubfactions = {"Knights of Sol", "Clan Gore", "Clan Reaver", "Clan Harald", "Clan Grock"},
 				requirements = {"ingenious"},
@@ -59,14 +59,14 @@ local INGENUITY = cwBeliefs.beliefTrees:New("ingenuity")
 			},
 			["pistolier"] = {
 				name = "Pistolier",
-				description = "Massively reduces misfire chance for all firearms and prevents them from exploding.",
+				description = "Réduit considérablement les risques de raté pour toutes les armes à feu et les empêche d'exploser.",
 				lockedSubfactions = {"Knights of Sol", "Clan Gore","Clan Reaver", "Clan Harald", "Clan Grock"},
 				requirements = {"ingenious", "powder_and_steel"},
 				row = 3,
 			},
 			["marksman"] = {
 				name = "Marksman",
-				description = "Greatly increases accuracy while standing still for all crossbows and firearms.",
+				description = "Augmente considérablement la précision à l'arrêt pour toutes les arbalètes et armes à feu.",
 				lockedSubfactions = {"Knights of Sol", "Clan Gore", "Clan Reaver", "Clan Harald", "Clan Grock"},
 				requirements = {"ingenious", "powder_and_steel", "pistolier"},
 				row = 4,
@@ -75,24 +75,24 @@ local INGENUITY = cwBeliefs.beliefTrees:New("ingenuity")
 		[3] = {
 			["ingenious"] = {
 				name = "Ingenious",
-				description = "Unlocks the 'Crafting' mechanic and the ability to interact with traps. Unlocks the ability to utilize equipped lanterns as a light source on your hip.",
+				description = "Débloque la mécanique d'« Artisanat » et la capacité d'interagir avec les pièges. Débloque la capacité d'utiliser les lanternes équipées comme source de lumière à votre ceinture.",
 				row = 1,
 			},
 			["craftsman"] = {
 				name = "Craftsman",
-				description = "Unlocks Tier II of crafting.",
+				description = "Débloque le niveau II de l'artisanat.",
 				requirements = {"ingenious"},
 				row = 2,
 			},
 			["mechanic"] = {
 				name = "Mechanic",
-				description = "Unlocks Tier III of crafting. Unlocks the ability to repair non-broken items by merging them in the inventory menu.",
+				description = "Débloque le niveau III de l'artisanat. Débloque la capacité de réparer des objets non cassés en les fusionnant dans le menu d'inventaire.",
 				requirements = {"ingenious", "craftsman"},
 				row = 3,
 			},
 			["artisan"] = {
 				name = "Artisan",
-				description = "Unlocks the crafting of masterworks. Also unlocks the ability to repair broken items.",
+				description = "Débloque l'artisanat de chefs-d'œuvre. Débloque également la capacité de réparer des objets cassés.",
 				requirements = {"ingenious", "craftsman", "mechanic"},
 				row = 4,
 			},
@@ -100,19 +100,19 @@ local INGENUITY = cwBeliefs.beliefTrees:New("ingenuity")
 		[4] = {
 			["smith"] = {
 				name = "Smith",
-				description = "Unlocks the ability to smelt Iron via crafting. Also unlocks the ability to melt down metal items at forges.",
+				description = "Débloque la capacité de fondre du Fer via l'artisanat. Débloque également la capacité de faire fondre des objets en métal aux forges.",
 				requirements = {"ingenious"},
 				row = 2,
 			},
 			["blacksmith"] = {
 				name = "Blacksmith",
-				description = "Unlocks the ability to smelt Steel and Gold via crafting.",
+				description = "Débloque la capacité de fondre de l'Acier et de l'Or via l'artisanat.",
 				requirements = {"ingenious", "smith"},
 				row = 3,
 			},
 			["master_blacksmith"] = {
 				name = "Master Blacksmith",
-				description = "Unlocks the ability to smelt Fine Steel via crafting.",
+				description = "Débloque la capacité de fondre de l'Acier Fin via l'artisanat.",
 				requirements = {"ingenious", "smith", "blacksmith"},
 				row = 4,
 			},
@@ -120,14 +120,14 @@ local INGENUITY = cwBeliefs.beliefTrees:New("ingenuity")
 		[5] = {
 			["fortify_the_plate"] = {
 				name = "Fortify the Plate",
-				description = "Increases the protection value of all armor by 5 points.",
+				description = "Augmente la valeur de protection de toutes les armures de 5 points.",
 				iconOverride = "begotten/ui/belieficons/fortify_plate.png",
 				requirements = {"ingenious"},
 				row = 2,
 			},
 			["scour_the_rust"] = {
 				name = "Scour the Rust",
-				description = "Reduces armor and weapon condition decay by 35%.",
+				description = "Réduit la détérioration de l'état des armures et des armes de 35%.",
 				requirements = {"ingenious", "fortify_the_plate"},
 				row = 3,
 			},
