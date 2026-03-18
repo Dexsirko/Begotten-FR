@@ -29,9 +29,7 @@ end
 
 if (CLIENT) then
 	SWEP.PrintName			= "Hands"
-	SWEP.Instructions		= "Tir principal : Frapper.  
-Tir secondaire : Frapper à une porte.  
-R : Lâcher un objet."
+	SWEP.Instructions		= "Tir principal : Frapper.\nTir secondaire : Frapper à une porte.\nR : Lâcher un objet."
 	SWEP.Purpose			= "Harming characters and knocking on doors."
 	SWEP.Author 			= "Cloud Sixteen"
 	SWEP.Contact			= "Cloudsixteen.com"

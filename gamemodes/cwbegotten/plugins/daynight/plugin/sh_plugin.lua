@@ -10,7 +10,7 @@ Clockwork.kernel:IncludePrefixed("sv_plugin.lua");
 Clockwork.kernel:IncludePrefixed("sv_hooks.lua");
 
 local COMMAND = Clockwork.command:New("SetCycle");
-	COMMAND.tip = "Définit s'il doit faire jour ou nuit."Force\" argument skips the transitionary period. \"Notify\" argument determines if a /event is automatically made.";
+	COMMAND.tip = "Définit s'il doit faire jour ou nuit.'Force\' argument skips the transitionary period. \'Notify\' argument determines if a /event is automatically made.";
 	COMMAND.text = "<string Cycle> [bool Force] [bool Notify]";
 	COMMAND.access = "a";
 	COMMAND.arguments = 1;
@@ -37,7 +37,7 @@ local COMMAND = Clockwork.command:New("SetCycle");
 				end
 			end
 		else
-			Schema:EasyText(player, "darkgrey", "Ce n'est pas un cycle valide ! Les cycles valides sont \"day\" and \"night\".");
+			Schema:EasyText(player, "darkgrey", "Ce n'est pas un cycle valide ! Les cycles valides sont \'day\' and \'night\' .");
 		end;
 	end;
 COMMAND:Register();

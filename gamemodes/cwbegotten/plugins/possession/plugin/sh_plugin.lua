@@ -573,7 +573,7 @@ end;
 COMMAND:Register();
 
 local COMMAND = Clockwork.command:New("PlyMakeSay");
-COMMAND.tip = "Parle à travers un autre joueur. Place le texte entre guillemets. Tu peux utiliser /me, /y, etc. dans le texte. Exemple : /plymakesay aaron"/me begins convulsing.\"";
+COMMAND.tip = "Parle à travers un autre joueur. Place le texte entre guillemets. Tu peux utiliser /me, /y, etc. dans le texte. Exemple : /plymakesay aaron /me begins convulsing.\"";
 COMMAND.text = "<string Name> <string Text>";
 COMMAND.access = "s";
 COMMAND.arguments = 2;

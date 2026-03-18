@@ -15,7 +15,7 @@ Clockwork.kernel:IncludePrefixed("sh_ritual_items.lua");
 Clockwork.kernel:IncludePrefixed("sh_rituals.lua");
 
 local COMMAND = Clockwork.command:New("CharMark");
-	COMMAND.tip = "Marquer manuellement un personnage pour la mort, de la même manière que le rituel sataniste. PAS LA MÊME CHOSE QUE LE TRAIT "MARQUÉ".";
+	COMMAND.tip = "Marquer manuellement un personnage pour la mort, de la même manière que le rituel sataniste. PAS LA MÊME CHOSE QUE LE TRAIT 'MARQUÉ'.";
 	COMMAND.text = "<string Name>";
 	COMMAND.access = "s";
 	COMMAND.arguments = 1;
@@ -41,7 +41,7 @@ local COMMAND = Clockwork.command:New("CharMark");
 COMMAND:Register();
 
 local COMMAND = Clockwork.command:New("CharUnMark");
-	COMMAND.tip = "Désigner un personnage s'il a été marqué par les Satanistes. NE RETIRE PAS LE TRAIT "MARKED", UTILISEZ '/CharTakeTrait marked' POUR CELA !";
+	COMMAND.tip = "Désigner un personnage s'il a été marqué par les Satanistes. NE RETIRE PAS LE TRAIT 'MARKED', UTILISEZ '/CharTakeTrait marked' POUR CELA !";
 	COMMAND.text = "<string Name>";
 	COMMAND.access = "s";
 	COMMAND.arguments = 1;

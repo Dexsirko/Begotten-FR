@@ -2803,7 +2803,7 @@ end;
 COMMAND:Register()
 
 local COMMAND = Clockwork.command:New("ToggleHearMe")
-COMMAND.tip = "Activer ou désactiver la possibilité pour les Enfants de Satan d'utiliser le rituel "Entends-Ma-Voix", à l'exception du Baron de l'Enfer."
+COMMAND.tip = "Activer ou désactiver la possibilité pour les Enfants de Satan d'utiliser le rituel 'Entends-Ma-Voix', à l'exception du Baron de l'Enfer.";
 COMMAND.flags = CMD_DEFAULT
 COMMAND.faction = "Children of Satan"
 COMMAND.text = "[bool Include Hell Baron]"

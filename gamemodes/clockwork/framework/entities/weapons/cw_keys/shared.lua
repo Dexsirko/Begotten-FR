@@ -17,8 +17,7 @@ if (CLIENT) then
 	SWEP.PrintName = "Keys"
 end
 
-SWEP.Instructions 			= "Tir principal : Verrouiller.
-Tir secondaire : Déverrouiller."
+SWEP.Instructions 			= "Tir principal : Verrouiller.\n Tir secondaire : Déverrouiller."
 SWEP.Purpose 				= "Locking and unlocking entities that you have access to."
 SWEP.Contact 				= "Cloudsixteen.com"
 SWEP.Author					= "Cloudsixteen"
