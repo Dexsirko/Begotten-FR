@@ -104,7 +104,7 @@ function cwZombies:PlayerCanOpenContainer(player, container)
 			if IsValid(thrall) then
 				container:SetCollisionGroup(COLLISION_GROUP_WEAPON);
 
-				Clockwork.chatBox:AddInRadius(nil, "itnofake", "A thrall suddenly bursts out of the fucking closet!", container:GetPos(), config.Get("talk_radius"):Get() * 2);
+				Clockwork.chatBox:AddInRadius(nil, "itnofake", "Un thrall surgit soudainement de ce putain de placard !", container:GetPos(), config.Get("talk_radius"):Get() * 2);
 				
 				local entitiesInSphere = ents.FindInSphere(container:GetPos(), 512);
 				

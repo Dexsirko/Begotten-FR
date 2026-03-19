@@ -853,7 +853,7 @@ function Schema:EntityHandleMenuOption(player, entity, option, arguments)
 			if entity.hasunleashedwolf then
 				player:GiveItem(Clockwork.item:CreateInstance("empty_hound_cage"), true);
 				entity:Remove();
-				local text = "You pick up the empty cage.";
+				local text = "Vous ramassez la cage vide.";
 			
 				Schema:EasyText(player, "skyblue", text);
 			elseif !entity.hasunleashedwolf then
@@ -862,7 +862,7 @@ function Schema:EntityHandleMenuOption(player, entity, option, arguments)
 					item:SetData("wolfskin", entity:GetSkin())
 				end
 				entity:Remove();
-				local text = "You pick up the caged hound.";
+				local text = "Vous ramassez le chien en cage.";
 			
 				Schema:EasyText(player, "skyblue", text);
 			end
@@ -873,26 +873,26 @@ function Schema:EntityHandleMenuOption(player, entity, option, arguments)
 			Schema:EasyText(player, "skyblue", text);
 		elseif arguments == "cwHoundCageSpareWanderers" then
 			entity.houndattackall = false
-			local text = "The hound will now attack your enemies. Wanderers will be spared.";
+			local text = "Le chien attaquera désormais vos ennemis. Les Errants seront épargnés.";
 			
 			Schema:EasyText(player, "skyblue", text);
 		end
 	elseif (class == "cw_bear_trap") then
 		if arguments == "cwItemExamine" then
-			local examineText = "A deployed bear trap.";
+			local examineText = "Un piège à ours déployé.";
 			local itemCondition = entity.condition;
 			
 			if itemCondition then
 				if itemCondition >= 90 then
-					examineText = examineText.." It appears to be in immaculate condition.";
+					examineText = examineText.." Il semble être en parfait état.";
 				elseif itemCondition < 90 and itemCondition >= 60 then
-					examineText = examineText.." It appears to be in a somewhat battered condition.";
+					examineText = examineText.." Il semble être dans un état quelque peu abîmé.";
 				elseif itemCondition < 60 and itemCondition >= 30 then
-					examineText = examineText.." It appears to be in very poor condition.";
+					examineText = examineText.." Il semble être en très mauvais état.";
 				elseif itemCondition < 30 and itemCondition > 0 then
-					examineText = examineText.." It appears to be on the verge of breaking.";
+					examineText = examineText.." Il semble être sur le point de se briser.";
 				elseif itemCondition <= 0 then
-					examineText = examineText.." It is completely destroyed and only worth its weight in scrap now.";
+					examineText = examineText.." Il est complètement détruit et ne vaut plus que son poids en ferraille maintenant.";
 				end
 			end
 			
@@ -985,7 +985,7 @@ end;
 -- Called when a player's character screen info should be adjusted.
 function Schema:PlayerAdjustCharacterScreenInfo(player, character, info)
 	if (character.data["permakilled"]) then
-		info.details = "This character is permanently killed.";
+		info.details = "Ce personnage est définitivement mort.";
 	end;
 
 	--[[if (character.data["customclass"]) then
@@ -1396,34 +1396,34 @@ function Schema:PlayerCanSwitchCharacter(player, character)
 	end;
 	
 	if (player:GetNetVar("tied") != 0) then
-		return false, "You cannot switch to this character while tied!";
+		return false, "Vous ne pouvez pas passer à ce personnage quand vous êtes attaché!";
 	end;
 	
 	if player.beingSacrificed then
-		return false, "You cannot switch to this character while being sacrificed!";
+		return false, "Vous ne pouvez pas passer à ce personnage pendant que vous êtes sacrifié!";
 	end
 	
 	if player.sacrificing then
-		return false, "You cannot switch to this character while sacrificing someone!";
+		return false, "Vous ne pouvez pas passer à ce personnage pendant que vous sacrifiez quelqu'un!";
 	end
 	
 	if player.teleporting then
-		return false, "You cannot switch to this character while in the process of teleporting!";
+		return false, "Vous ne pouvez pas passer à ce personnage pendant que vous êtes en train de vous téléporter!";
 	end
 	
 	if player.scriptedDying then
-		return false, "You cannot switch to this character while your current character is dying!";
+		return false, "Vous ne pouvez pas passer à ce personnage pendant que votre personnage actuel est en train de mourir!";
 	end
 	
 	if !player:IsAdmin() then
 		if Clockwork.charSwappingDisabled and player.cwCharacter and player:Alive() then
-			Clockwork.player:NotifyAdmins("operator", player:Name().." has attempted to switch characters while charswapping is disabled!");
+			Clockwork.player:NotifyAdmins("operator", player:Name().." a tenté de changer de personnage alors que le changement de personnage est désactivé!");
 		
 			if Schema.fuckerJoeActive then
-				return false, "You cannot switch to this character while Fucker Joe is on the loose!";
+				return false, "Vous ne pouvez pas passer à ce personnage pendant que Joe l'Enculeur est en liberté!";
 			end
 			
-			return false, "You cannot switch to this character while charswapping is disabled!";
+			return false, "Vous ne pouvez pas passer à ce personnage quand le changement de personnage est désactivé!";
 		end
 	end
 end;
@@ -1445,7 +1445,7 @@ end;
 -- Called when a player attempts to use a character.
 function Schema:PlayerCanUseCharacter(player, character)
 	if (character.data["permakilled"]) then
-		return character.name.." is permanently killed and cannot be used!";
+		return character.name.." est définitivement mort et ne peut pas être utilisé!";
 	end;
 end;
 
@@ -1942,7 +1942,7 @@ function Schema:PlayerThink(player, curTime, infoTable, alive, initialized, plyT
 							if math.random(1, 10) == 1 then
 								if !player:HasDisease("common_cold") then
 									if player:GiveDisease("common_cold") then
-										Clockwork.player:NotifyAdmins("operator", ""..player:Name().." has contracted the common cold from the corpse field!");
+										Clockwork.player:NotifyAdmins("operator", ""..player:Name().." a attrapé un rhume à cause du champ de cadavres!");
 									end
 								end
 							end
@@ -1989,7 +1989,7 @@ function Schema:PlayerThink(player, curTime, infoTable, alive, initialized, plyT
 									thirdPerson = "her";
 								end
 							
-								Clockwork.chatBox:AddInTargetRadius(player, "me", "bungles"..thirdPerson.." attempt to reload, fumbling "..thirdPerson.." shot!", player:GetPos(), config.Get("talk_radius"):Get() * 2);
+								Clockwork.chatBox:AddInTargetRadius(player, "me", "rate"..thirdPerson.." tentative de rechargement, cafouillant "..thirdPerson.." tir!", player:GetPos(), config.Get("talk_radius"):Get() * 2);
 								Clockwork.player:SetAction(player, false);
 							end
 						elseif action == "heal" or action == "healing" then
@@ -2000,7 +2000,7 @@ function Schema:PlayerThink(player, curTime, infoTable, alive, initialized, plyT
 									thirdPerson = "her";
 								end
 							
-								Clockwork.chatBox:AddInTargetRadius(player, "me", "bungles"..thirdPerson.." attempt to heal and has to start over!", player:GetPos(), config.Get("talk_radius"):Get() * 2);
+								Clockwork.chatBox:AddInTargetRadius(player, "me", "rate"..thirdPerson.." tentative de soin et doit recommencer !", player:GetPos(), config.Get("talk_radius"):Get() * 2);
 								Clockwork.player:SetAction(player, false);
 							end
 						end
@@ -2362,7 +2362,7 @@ function Schema:PlayerCanUseCommand(player, commandTable, arguments)
 	end;
 end;
 
-local headbuttMes = {"headbutts the door like a fucking idiot!", "bashes their head into the door in an attempt to open it!", "hits their head on the door while attempting to open it!"};
+local headbuttMes = {"donne un coup de tête dans la porte comme un putain d'idiot !", "se cogne la tête contre la porte en essayant de l'ouvrir !", "se frappe la tête sur la porte en tentant de l'ouvrir !"};
 local headbuttSounds = {"physics/wood/wood_crate_impact_hard4.wav", "doors/vent_open3.wav", "physics/metal/metal_box_impact_hard1.wav"};
 
 -- Called when a player attempts to use a door.
@@ -2613,7 +2613,7 @@ function Schema:PlayerUseItem(player, itemTable, itemEntity)
 		if player:GetSubfaith() == "Voltism" then
 			if itemTable.category == "Armor" then
 				if !player:GetCharacterData("VoltistNameChanged") then
-					Clockwork.dermaRequest:RequestString(player, "Ascension Name Change", "What do you want to change your name to?", player:GetName(), function(result)
+					Clockwork.dermaRequest:RequestString(player, "Changement de Nom par Ascension", "Quel nom voulez-vous prendre?", player:GetName(), function(result)
 						if result:len() < 6 then
 							Schema:EasyText(player, "peru", "Ce nom est trop court !");
 							
@@ -2714,7 +2714,7 @@ function Schema:ChatBoxAdjustInfo(info)
 						local fillers = {"uh", "uhh", "uhhh", "erm", "ehh", "like"};
 						local suffixes = {".", ",", ";", "!", ":", "?"};
 						local splitText = string.Split(imbecileText, " ");
-						local tourettes = {"ASSHOLE", "FUCKING", "FUCK", "ASS", "BITCH", "CUNT", "PENIS"};
+						local tourettes = {"TROU DU CUL", "PUTAIN", "MERDE", "CUL", "SALOPE", "CHIENNE", "BITE"};
 						local vowels = {["upper"] = {"A", "E", "I", "O", "U"}, ["lower"] = {"a", "e", "i", "o", "u"}};
 						
 						for i = 1, #splitText do
@@ -2846,7 +2846,7 @@ function Schema:PlayerDeath(player, inflictor, attacker, damageInfo)
 						attacker:GiveItem(item.CreateInstance(catalysts[math.random(1, #catalysts)]));
 					end
 					
-					Clockwork.hint:Send(attacker, "Vous avez obtenu"..tostring(numCatalysts).." random catalysts.", 5, Color(100, 175, 100), true, true);
+					Clockwork.hint:Send(attacker, "Vous avez obtenu"..tostring(numCatalysts).." catalyseurs aléatoires.", 5, Color(100, 175, 100), true, true);
 				end
 				
 				killXP = killXP * math.Clamp(level, 1, 40);
@@ -2872,10 +2872,10 @@ function Schema:PlayerDeath(player, inflictor, attacker, damageInfo)
 						end
 					end
 					
-					Clockwork.chatBox:AddInTargetRadius(attacker, "me", "abat"..player:Name().." as a sacrifice. Their blood seeps into the ground beneath the Great Tree and roots envelop their corpse. The usage of Clan Crast ritual chanting increases the fertility of the offering, thus enhancing the outcome and spreading its power to all those nearby.", attacker:GetPos(), config.Get("talk_radius"):Get() * 4);
+					Clockwork.chatBox:AddInTargetRadius(attacker, "me", "abat"..player:Name().." en sacrifice. Leur sang s'infiltre dans le sol sous le Grand Arbre et des racines enveloppent leur cadavre. L'utilisation des chants rituels du Clan Crast augmente la fertilité de l'offrande, améliorant ainsi le résultat et diffusant son pouvoir à tous ceux qui se trouvent à proximité.", attacker:GetPos(), config.Get("talk_radius"):Get() * 4);
 				else
 					attacker:HandleXP(killXP);
-					Clockwork.chatBox:AddInTargetRadius(attacker, "me", "abat"..player:Name().." as a sacrifice. Their blood seeps into the ground beneath the Great Tree and roots envelop their corpse.", attacker:GetPos(), config.Get("talk_radius"):Get() * 4);
+					Clockwork.chatBox:AddInTargetRadius(attacker, "me", "abat"..player:Name().." en sacrifice. Leur sang s'infiltre dans le sol sous le Grand Arbre et des racines enveloppent leur cadavre.", attacker:GetPos(), config.Get("talk_radius"):Get() * 4);
 				end
 				
 				--[[[timer.Simple(1, function()

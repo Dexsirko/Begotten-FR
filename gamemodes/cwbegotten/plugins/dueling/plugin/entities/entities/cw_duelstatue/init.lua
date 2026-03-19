@@ -59,7 +59,7 @@ function ENT:Use(activator, caller)
 					end
 				end
 				
-				Clockwork.dermaRequest:RequestConfirmation(caller, "Duel", "Are you sure that you want to queue for a duel? Note that you will not lose progress or items upon death.", function()
+				Clockwork.dermaRequest:RequestConfirmation(caller, "Duel", "Êtes-vous sûr de vouloir faire la queue pour un duel ? Notez que vous ne perdrez pas votre progression ni vos objets en cas de mort.", function()
 					if caller:Alive() and IsValid(self) then
 						if caller:GetPos():DistToSqr(self:GetPos()) > (256 * 256) then
 							return;
@@ -75,7 +75,7 @@ function ENT:Use(activator, caller)
 					end
 				end);
 			else
-				Schema:EasyText(caller, "icon16/shield_go.png", "orange", "Exited Duel Matchmaking")
+				Schema:EasyText(caller, "icon16/shield_go.png", "orange", "Sorti du Matchmaking de Duel")
 				
 				cwDueling:PlayerExitsMatchmaking(caller);
 				

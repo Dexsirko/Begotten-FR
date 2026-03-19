@@ -224,9 +224,9 @@ function SWEP:AdjustFireBegotten()
 									if SERVER then
 										local position = self.Owner:GetPos();
 										
-										Clockwork.chatBox:AddInTargetRadius(self.Owner, "me", "appuie sur la détente de leur"..self.PrintName.." and it suddenly explodes!", position, config.Get("talk_radius"):Get() * 2);
+										Clockwork.chatBox:AddInTargetRadius(self.Owner, "me", "appuie sur la détente de leur"..self.PrintName.." et il explose soudainement !", position, config.Get("talk_radius"):Get() * 2);
 										
-										Schema:EasyText(Schema:GetAdmins(), "icon16/bomb.png", "tomate", self.Owner:Name().."'s "..self.PrintName.." exploded!");
+										Schema:EasyText(Schema:GetAdmins(), "icon16/bomb.png", "tomate", self.Owner:Name().."'s "..self.PrintName.." explose!");
 									
 										local effectData = EffectData();
 										effectData:SetStart(position);

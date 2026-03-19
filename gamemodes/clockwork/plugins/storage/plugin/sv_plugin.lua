@@ -327,14 +327,14 @@ function cwStorage:LockpickFail(player, timeout)
 		
 		if (timeout == true) then
 			if entity.cwLockTier >= 3 and (math.random(1, 10) == 1) then
-				message = "You fail to pick the lock, and in the process your lockpick breaks!";
+				message = "Vous échouez à crocheter la serrure, et dans le processus, votre crochet se casse!";
 				bDidBreak = true;
 			else
 				local itemTable = player:FindItemByID("lockpick");
 				local quality = itemTable:GetCondition();
 				
 				if (quality <= 10) then
-					message = "You fail to pick the lock, and in the process your lockpick breaks from overuse!";
+					message = "Vous échouez à crocheter la serrure, et dans le processus, votre crochet se casse à force d'être utilisé!";
 					bDidBreak = true;
 				else
 					itemTable:TakeCondition(10);
@@ -389,9 +389,9 @@ function cwStorage:FinishLockpick(player, entity)
 		cwStorage:OpenContainer(player, entity, containerWeight, true);
 		
 		if entity.cwPassword then
-			Clockwork.kernel:PrintLog(LOGTYPE_MAJOR, player:Name().." has opened the passworded container "..entity:GetNetworkedString("Name").." by lockpicking it!");
+			Clockwork.kernel:PrintLog(LOGTYPE_MAJOR, player:Name().." a ouvert le conteneur protégé par mot de passe "..entity:GetNetworkedString("Name").." en le crochetant!");
 		elseif entity.cwFactionLock then
-			Clockwork.kernel:PrintLog(LOGTYPE_MAJOR, player:Name().." has opened the faction locked container "..entity:GetNetworkedString("Name").." by lockpicking it!");
+			Clockwork.kernel:PrintLog(LOGTYPE_MAJOR, player:Name().." a ouvert le conteneur verrouillé par faction "..entity:GetNetworkedString("Name").." en le crochetant!");
 		end
 		
 		if entity.cwLockType == "none" then
@@ -453,7 +453,7 @@ function cwStorage:ApplyLock(player, itemTable, entity)
 		return;
 	end;
 	
-	Clockwork.dermaRequest:RequestConfirmation(player, "Lock Confirmation", "Are you sure you want to put a "..string.lower(itemTable.name).." on this "..string.lower(cwStorage.containerList[model][2]).."?", function()
+	Clockwork.dermaRequest:RequestConfirmation(player, "Lock Confirmation", "Êtes-vous sûr de vouloir mettre un"..string.lower(itemTable.name).." on this "..string.lower(cwStorage.containerList[model][2]).."?", function()
 		if (lockType == "key") then
 			local useSound = itemTable.useSound or "items/battery_pickup.wav";
 			local lockTier = itemTable.lockTier;
@@ -586,7 +586,7 @@ function cwStorage:HandleContainerLock(player, data)
 	else
 		if (lockType == "combo" or lockType == "turn") then
 			if (!data.one or !data.two or !data.three) then
-				Schema:EasyText(player, "peru", "Vous devez spécifier un"..(string.find(lockType, "combo") and "four" or "three").." digit combination!");
+				Schema:EasyText(player, "peru", "Vous devez spécifier un"..(string.find(lockType, "combo") and "four" or "three").." combinaison de chiffres!");
 				
 				return;
 			end;
@@ -703,7 +703,7 @@ netstream.Hook("ContainerPassword", function(player, data)
 			
 			if (entity.cwPassword == password) then
 				cwStorage:OpenContainer(player, entity, containerWeight);
-				Clockwork.kernel:PrintLog(LOGTYPE_MINOR, player:Name().." has opened the passworded container "..entity:GetNetworkedString("Name").." by using a password.");
+				Clockwork.kernel:PrintLog(LOGTYPE_MINOR, player:Name().."  ouvert le conteneur protégé par mot de passe "..entity:GetNetworkedString("Name").." en utilisant un mot de passe.");
 			else
 				Schema:EasyText(player, "peru", "Vous avez entré un mot de passe incorrect !");
 			end;

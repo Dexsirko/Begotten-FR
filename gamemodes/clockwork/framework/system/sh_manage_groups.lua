@@ -92,7 +92,7 @@ if (CLIENT) then
 							local commandTable = Clockwork.command:FindByID("PlyDemote")
 
 							if (commandTable and Clockwork.player:HasFlags(Clockwork.Client, commandTable.access)) then
-								Derma_Query("Are you sure that you want to demote "..v.steamName.."?", "Demote "..v.steamName..".", "Yes", function()
+								Derma_Query("Êtes-vous sûr de vouloir rétrograder "..v.steamName.."?", "Demote "..v.steamName..".", "Oui", function()
 									netstream.Start("SystemGroupDemote", {v.steamID, v.steamName, self.groupType})
 								end, "No", function() end)
 							end
@@ -213,7 +213,7 @@ else
 					end)
 				queryObj:Execute()
 
-				Schema:EasyText(Schema:GetAdmins(), "cornflowerblue", player:Name().." has demoted "..data[2].." from "..cwUserGroup.." to user.")
+				Schema:EasyText(Schema:GetAdmins(), "cornflowerblue", player:Name().." a rétrogradé "..data[2].." de "..cwUserGroup.." à utilisateur.")
 			end
 		end
 	end)

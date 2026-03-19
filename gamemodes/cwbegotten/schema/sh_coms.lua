@@ -3808,7 +3808,7 @@ local COMMAND = Clockwork.command:New("PoisonedWineSequence")
 							local playerPos = player:GetPos();
 							local boneIndex = player:LookupBone("ValveBiped.Bip01_Head1");
 							local headPos, boneAng = player:GetBonePosition(boneIndex);
-							local strings = {"suddenly throws blood up on the ground!", "vomits blood onto the ground!", "gags and then vomits blood all over the ground!"};
+							local strings = {"vomit soudainement du sang par terre !", "vomit du sang sur le sol !", "a des haut-le-cœur puis vomit du sang partout par terre !"};							
 							
 							player:ModifyBloodLevel(-25);
 							player:Freeze(true);
@@ -4100,7 +4100,7 @@ local COMMAND = Clockwork.command:New("CauldronDump");
 					Schema:ResetPoisonedServings();
 
 					Clockwork.chatBox:AddInTargetRadius(player, "me", "vide le contenu du chaudron sur le sol.", player:GetPos(), Clockwork.config:Get("talk_radius"):Get() * 2);
-					Clockwork.player:NotifyAdmins("operator", player:Name().." has dumped the cauldron.");
+					Clockwork.player:NotifyAdmins("operator", player:Name().." a vidé le chaudron.");
 				else
 					Schema:EasyText(player, "firebrick", "Il n'y a aucun contenu à vider !");
 				end;

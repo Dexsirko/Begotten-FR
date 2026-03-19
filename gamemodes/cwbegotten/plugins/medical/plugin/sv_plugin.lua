@@ -158,7 +158,7 @@ function cwMedicalSystem:PlayerUseMedical(player, itemTable, hitGroup)
 					if player:GetCharacterData("BleedingLimbs", {})[self:HitgroupToString(hitGroup)] and table.HasValue(itemTable.limbs, hitGroup) then
 						self:RollInfectionChance(itemTable, player, self.cwHitGroupToString[hitGroup])
 						player:MakeLimbStopBleeding(hitGroup);
-						Clockwork.hint:Send(player, "Votre"..self.cwHitGroupToString[hitGroup].." stops bleeding...", 5, Color(100, 175, 100), true, true);
+						Clockwork.hint:Send(player, "Votre"..self.cwHitGroupToString[hitGroup].." arrête de saigner...", 5, Color(100, 175, 100), true, true);
 					end
 				elseif hitGroup == "all" or !itemTable.limbs then
 					player:StopAllBleeding();
@@ -268,7 +268,7 @@ function cwMedicalSystem:PlayerUseMedical(player, itemTable, hitGroup)
 								Clockwork.limb:HealDamage(player, hitGroup, healAmount * (healRepetition - timesHealed));
 							end
 							
-							Clockwork.hint:Send(player, itemTable("name").." has worn off...", 5, Color(100, 175, 100), true, true);
+							Clockwork.hint:Send(player, itemTable("name").." s'est dissipé...", 5, Color(100, 175, 100), true, true);
 							hook.Run("PlayerHealed", player, itemTable);
 							
 							return;
@@ -299,7 +299,7 @@ function cwMedicalSystem:PlayerUseMedical(player, itemTable, hitGroup)
 						if (timesHealed >= healRepetition) or player:Health() == playerMaxHealth then
 							timer.Destroy(playerIndex.."_heal_"..itemTable.itemID);
 							
-							Clockwork.hint:Send(player, itemTable("name").." has worn off...", 5, Color(100, 175, 100), true, true);
+							Clockwork.hint:Send(player, itemTable("name").." s'est dissipé...", 5, Color(100, 175, 100), true, true);
 							hook.Run("PlayerHealed", player, itemTable);
 						end;
 					else
@@ -358,7 +358,7 @@ function cwMedicalSystem:HealPlayer(player, target, itemTable, hitGroup)
 					if itemTable.limbs and istable(itemTable.limbs) and #itemTable.limbs > 0 and hitGroup then
 						if target:GetCharacterData("BleedingLimbs", {})[self:HitgroupToString(hitGroup)] and table.HasValue(itemTable.limbs, hitGroup) then
 							target:MakeLimbStopBleeding(hitGroup);
-							Clockwork.hint:Send(target, "Votre"..self.cwHitGroupToString[hitGroup].." stops bleeding...", 5, Color(100, 175, 100), true, true);
+							Clockwork.hint:Send(target, "Votre"..self.cwHitGroupToString[hitGroup].." arrête de saigner...", 5, Color(100, 175, 100), true, true);
 						end
 					elseif hitGroup == "all" or !itemTable.limbs then
 						target:StopAllBleeding();
@@ -483,7 +483,7 @@ function cwMedicalSystem:HealPlayer(player, target, itemTable, hitGroup)
 									Clockwork.limb:HealDamage(target, hitGroup, healAmount * (healRepetition - timesHealed));
 								end
 									
-								Clockwork.hint:Send(target, itemTable("name").." has worn off...", 5, Color(100, 175, 100), true, true);
+								Clockwork.hint:Send(target, itemTable("name").." s'est dissipé...", 5, Color(100, 175, 100), true, true);
 								hook.Run("PlayerHealed", target, itemTable);
 								
 								return;
@@ -514,7 +514,7 @@ function cwMedicalSystem:HealPlayer(player, target, itemTable, hitGroup)
 							if (timesHealed >= healRepetition) or target:Health() == targetMaxHealth then
 								timer.Destroy(targetIndex.."_heal_"..itemTable.itemID);
 								
-								Clockwork.hint:Send(target, itemTable("name").." has worn off...", 5, Color(100, 175, 100), true, true);
+								Clockwork.hint:Send(target, itemTable("name").." s'est dissipé...", 5, Color(100, 175, 100), true, true);
 								hook.Run("PlayerHealed", target, itemTable);
 							end;
 						else
@@ -1062,14 +1062,14 @@ function cwMedicalSystem:AddInjury(player, limb, uniqueID)
 		local injury = self.cwInjuryTable[uniqueID];
 
 		if (injury.limbs and !table.HasValue(injury.limbs, limb)) then
-			printp(player:Name()..": limb ["..limbstr.."] not registered in injury limb table: "..uniqueID)
+			printp(player:Name()..": membre ["..limbstr.."] non enregistré dans la table des membres blessés: "..uniqueID)
 			return;
 		end;
 		
 		local injuries = self:GetInjuries(player);
 
 		if (injuries[limb][uniqueID]) then
-			printp(player:Name()..": injury ["..uniqueID.."] already exists on limb: "..limbstr);
+			printp(player:Name()..": blessure ["..uniqueID.."] existe déjà sur le membre: "..limbstr);
 			return;
 		else
 			injuries[limb][uniqueID] = true;
@@ -1331,11 +1331,11 @@ function playerMeta:InfectOtherPlayer(otherPlayer, diseases, chance)
 			local disease = diseases[math.random(1, #diseases)];
 			
 			if otherPlayer:GiveDisease(disease) then
-				Clockwork.kernel:PrintLog(LOGTYPE_MAJOR, otherPlayer:Name().." has been infected with "..disease.." by "..self:Name()..".");
+				Clockwork.kernel:PrintLog(LOGTYPE_MAJOR, otherPlayer:Name().." a été infecté par "..disease.." par "..self:Name()..".");
 			end
 		else
 			if otherPlayer:GiveDisease(diseases) then
-				Clockwork.kernel:PrintLog(LOGTYPE_MAJOR, otherPlayer:Name().." has been infected with "..diseases.." by "..self:Name()..".");
+				Clockwork.kernel:PrintLog(LOGTYPE_MAJOR, otherPlayer:Name().." a été infecté par "..diseases.." par "..self:Name()..".");
 			end
 		end
 	end
@@ -1598,8 +1598,7 @@ function playerMeta:Vomit(bVomitBlood, bFromFood)
 	local headPos, boneAng = self:GetBonePosition(boneIndex);
 	
 	if !bVomitBlood then
-		local strings = {"suddenly throws up on the ground, hurling vomit everywhere!", "vomits onto the ground!", "gags and then vomits all over the ground!"};
-		
+		local strings = {"vomit soudainement par terre, projetant de la gerbe partout !", "vomit sur le sol !", "a des haut-le-cœur puis vomit partout par terre !"};		
 		if cwCharacterNeeds and self.HandleNeed then
 			if bFromFood then
 				self:HandleNeed("hunger", math.random(20, 40));
@@ -1653,7 +1652,7 @@ function playerMeta:Vomit(bVomitBlood, bFromFood)
 				end
 				
 				if self:Alive() then
-					local curse_strings = {"Fuck...", "Cocksucker...", "Shit...", "Fuck's sake...", "Gah..."};
+					local curse_strings = {"Putain...", "Sale suceuse...", "Merde...", "Bordel de merde...", "Argh..."};
 					
 					Clockwork.chatBox:Add(self, nil, "itnofake", curse_strings[math.random(1, #curse_strings)]);
 				end
@@ -1670,7 +1669,7 @@ function playerMeta:Vomit(bVomitBlood, bFromFood)
 		
 		Clockwork.chatBox:AddInTargetRadius(self, "me", strings[math.random(1, #strings)], self:GetPos(), Clockwork.config:Get("talk_radius"):Get() * 2);
 	else
-		local strings = {"suddenly throws blood up on the ground!", "vomits blood onto the ground!", "gags and then vomits blood all over the ground!"};
+		local strings = {"vomit soudainement du sang par terre !", "vomit du sang sur le sol !", "a des haut-le-cœur puis vomit du sang partout par terre !"};		
 		
 		if cwCharacterNeeds and self.HandleNeed then
 			self:HandleNeed("hunger", 5);
@@ -1688,7 +1687,7 @@ function playerMeta:Vomit(bVomitBlood, bFromFood)
 				self:Freeze(false);
 				
 				if self:Alive() then
-					local curse_strings = {"Fuck...", "Cocksucker...", "Shit...", "Fuck's sake...", "Gah..."};
+					local curse_strings = {"Putain...", "Sale suceuse...", "Merde...", "Bordel de merde...", "Argh..."};
 					
 					Clockwork.chatBox:Add(self, nil, "itnofake", curse_strings[math.random(1, #curse_strings)]);
 				end

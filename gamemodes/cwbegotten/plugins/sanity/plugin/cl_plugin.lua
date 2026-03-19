@@ -23,27 +23,27 @@ cwSanity.slowDownSpeechSounds = {
 };
 
 cwSanity.backpackSayings = {
-	"Let us out of here!", "Hello? Can anyone hear me?", "Let me go!", "Hey! I know you can hear me! Let us out!", "We just want to go home, let us out!", "We want to leave! Let us go!", "Someone help us, we're being kidnapped!", "Get us out of here!",
+	"Laissez-nous sortir d'ici !", "Allô ? Est-ce que quelqu'un m'entend ?", "Lâchez-moi !", "Hé ! Je sais que tu m'entends ! Laisse-nous sortir !", "On veut juste rentrer chez nous, laissez-nous sortir !", "On veut partir ! Laissez-nous partir !", "Aidez-nous, on nous kidnappe !", "Faites-nous sortir d'ici !",
 };
 
 cwSanity.cannibalSayings = {
-	"Mmmmm, don't I just look delectable?", "You ever had our sausages?", "Fresh meat, right here!", "Come on and chow down!", "Why don't you come over here and take a bite of me?", "Yummy meats, right here!", "I'm the best cut of meat you'll ever have!", "Dig in!",
+	"Mmmmm, j'ai pas l'air délicieux ?", "Tu as déjà goûté nos saucisses ?", "De la viande fraîche, ici même !", "Allez, viens te régaler !", "Pourquoi tu ne viendrais pas ici pour me croquer ?", "Viandes savoureuses, ici même !", "Je suis le meilleur morceau de viande que tu n'auras jamais !", "Bon appétit !",
 };
 
 cwSanity.corpseSayings = {
-	"Help me up, would you!?", "I don't feel so good...", "What's happening to me...?", "Help me!", "I can't feel my legs!", "Hey you! Give me a hand!", "Won't you stay with me a while?", "Please...", "Hello, friend!", "Why... why me...?", "Say, you wouldn't happen to know who killed me, right?",
+	"Aide-moi à me relever, veux-tu !?", "Je ne me sens pas très bien...", "Qu'est-ce qui m'arrive... ?", "Aidez-moi !", "Je ne sens plus mes jambes !", "Hé toi ! Donne-moi un coup de main !", "Tu ne veux pas rester un moment avec moi ?", "S'il te plaît...", "Bonjour, ami !", "Pourquoi... pourquoi moi... ?", "Dis, tu ne saurais pas qui m'a tué, par hasard ?",
 };
 
 cwSanity.itemSayings = {
-	["Drinks"] = {"Slurp me up mister!", "Slurp my juicies!", "Want a drink?"},
-	["Firearms"] = {"Hey, you should use me to blow your brains out.", "I just wanna shoot and kill and blow fucklets away!", "Why don't you use me to kill those friends of yours?"},
-	["Food"] = {"Don't eat me, please! I have a family!", "I don't want to die! Please don't eat me!", "Stay away from me!"},
-	["Junk"] = {"Hahahahaha!", "Am I just junk to you? Why am I not good enough?", "Hey! You! Stop ignoring me and pick me up!", "I keep hearing voices in my head.", "WAKE UP!"},
-	["Melee"] = {"How's it going, friend?", "Pick me up already! What are you waiting for?!", "It's a fine day to stab some people, huh?"},
+	["Drinks"] = {"Slurpe-moi, m'sieur !", "Slurpe mon jus !", "Tu veux boire un coup ?"},
+	["Firearms"] = {"Hé, tu devrais t'en servir pour te faire sauter la cervelle.", "J'veux juste tirer, tuer et exploser des pauvres cons !", "Pourquoi tu t'en sers pas pour buter tes soi-disant amis ?"},
+	["Food"] = {"Ne me mange pas, je t'en supplie ! J'ai une famille !", "Je ne veux pas mourir ! S'il te plaît, ne me mange pas !", "Reste loin de moi !"},
+	["Junk"] = {"Hahahahaha !", "Je ne suis qu'un débris pour toi ? Pourquoi je ne suis pas assez bien ?", "Hé ! Toi ! Arrête de m'ignorer et ramasse-moi !", "J'entends des voix dans ma tête.", "RÉVEILLE-TOI !"},
+	["Melee"] = {"Comment ça va, l'ami ?", "Ramasse-moi, enfin ! Qu'est-ce que t'attends ?!", "C'est une belle journée pour poignarder des gens, hein ?"},
 };
 
 cwSanity.radioSayings = {
-	"DO YOU HEAR THEM?", "THE MOON SEES ME.", "AAAAAAAAAAAAAAAAAAAAAAAAAAAA!!!!!", "I DEMAND WHO IS THE MAN WITH NO EYES.", "STANDING IN THE DARK ROOM, THE BABY YELLS. MAKE THE BABY SLEEP ONCE MORE.", "THE SCREAMING, THE SCREAMING.", "WILL THEY KNOW?", "I SEE YOU.",
+	"TU LES ENTENDS ?", "LA LUNE ME VOIT.", "AAAAAAAAAAAAAAAAAAAAAAAAAAAAA !!!!!", "J'EXIGE QUI EST L'HOMME SANS YEUX.", "DEBOUT DANS LA PIÈCE OBSCURE, LE BÉBÉ CRIE. FAIS DORMIR LE BÉBÉ ENCORE UNE FOIS.", "LES CRIS, LES CRIS.", "SAURONT-ILS ?", "JE TE VOIS.",
 };
 
 -- A function to get the local player's sanity level.

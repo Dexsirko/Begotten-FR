@@ -60,7 +60,7 @@ if (CLIENT) then
 
 					-- Called when the button is clicked.
 					function label.DoClick(button)
-						Derma_Query("Are you sure that you want to unban "..v.steamName.."?", "Unban "..v.steamName..".", "Yes", function()
+						Derma_Query("Êtes-vous sûr de vouloir débannir "..v.steamName.."?", "Unban "..v.steamName..".", "Oui", function()
 							netstream.Start("SystemUnbanDo", v.identifier)
 						end, "No", function() end)
 					end

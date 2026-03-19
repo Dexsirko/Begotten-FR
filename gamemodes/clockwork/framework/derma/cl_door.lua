@@ -119,21 +119,21 @@ function PANEL:Init()
 			-- Called when the button is clicked.
 			function button.DoClick(button)
 				if (doorCost > 0) then
-					Derma_Query("Are you sure that you want to sell this door?", "Sell the door.", "Yes", function()
+					Derma_Query("Êtes-vous sûr de vouloir vendre cette porte ?", "Vendre la porte.", "Oui", function()
 						netstream.Start("DoorManagement", {Clockwork.door:GetEntity(), "Sell"});
 						
 						gui.EnableScreenClicker(false);
 						self:Close(); self:Remove();
-					end, "No", function()
+					end, "Non", function()
 						gui.EnableScreenClicker(false);
 					end);
 				else
-					Derma_Query("Are you sure that you want to unown this door?", "Unown the door.", "Yes", function()
+					Derma_Query("Êtes-vous sûr de vouloir rendre cette porte sans propriétaire ?", "Rendre la porte sans propriétaire.", "Oui", function()
 						netstream.Start("DoorManagement", {Clockwork.door:GetEntity(), "Sell"});
 						
 						gui.EnableScreenClicker(false);
 						self:Close(); self:Remove();
-					end, "No", function()
+					end, "Non", function()
 						gui.EnableScreenClicker(false);
 					end);
 				end;
@@ -306,7 +306,7 @@ netstream.Hook("PurchaseDoor", function(data)
 			gui.EnableScreenClicker(false);
 		end);
 	else
-		Derma_Query("Do you want to own this door?", "Own this door.", "Yes", function()
+		Derma_Query("Voulez-vous posséder cette porte ?", "Own this door.", "Yes", function()
 			netstream.Start("DoorManagement", {data, "Purchase"});
 			
 			gui.EnableScreenClicker(false);

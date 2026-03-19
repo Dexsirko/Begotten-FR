@@ -1,4 +1,4 @@
-﻿local warmthTexts = {"Freezing to Death", "Really Cold", "Getting Cold", "Warm", "Temperature is a measure of one's exposure to the cold and body temperature. Becoming too cold will result in a variety of maluses such as reduced movement speed and increased hunger and fatigue gain, eventually leading to death."};
+﻿local warmthTexts = {"Mort de Froid", "Très Froid", "Commencer à Avoir Froid", "Au Chaud", "La température mesure l'exposition d'une personne au froid et sa température corporelle. Devenir trop froid entraînera diverses pénalités telles qu'une vitesse de déplacement réduite et une augmentation de la faim et de la fatigue, menant éventuellement à la mort."};
 
 function cwWarmth:LerpColor(fraction, from, to)
     if(!IsColor(from) or !IsColor(to)) then return; end
@@ -51,11 +51,11 @@ function cwWarmth:ModifyStatusEffects(tab)
 	local warmth = Clockwork.Client:GetLocalVar("warmth", 100);
 	
 	if warmth <= 50 then
-		table.insert(tab, {text = "(-) Hypothermia", color = Color(200, 40, 40)});
+		table.insert(tab, {text = "(-) Hypothermie", color = Color(200, 40, 40)});
 	end
 
 	if(Clockwork.Client:GetLocalVar("hotSpringBuff", 0) >= CurTime() or Clockwork.Client:GetLocalVar("hotSpringTime", 0) >= 60) then
-		table.insert(tab, {text = "(+) Refreshed", color = Color(0, 225, 0)});
+		table.insert(tab, {text = "(+) Rafraîchi", color = Color(0, 225, 0)});
 	
 	end
 
@@ -99,7 +99,7 @@ end
 function cwWarmth:ModifyBeliefTree(tab)
 	if tab.uniqueID == "fortitude" then
 		if tab.beliefs[4]["unyielding"] then
-			tab.beliefs[4]["unyielding"].description = tab.beliefs[4]["unyielding"].description.." Increases your base insulation value by 20%.";
+			tab.beliefs[4]["unyielding"].description = tab.beliefs[4]["unyielding"].description.." Augmente votre valeur d'isolation de base de 20%.";
 		end
 	end
 end
