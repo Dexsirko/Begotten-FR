@@ -4,11 +4,11 @@
 
 -- 5th is description.
 local needTexts = {
-	["corruption"] = {"Untainted", "Tainted", "Corrupted", "No Hope Remains", "Corruption represents the effect of various demonic and unholy forces on your character. It is usually increased by partaking in unholy acts or through lack of prayer. Corruption negatively impacts faith gain, and high levels of corruption can lead to demonic possession or suspicion and execution by the clergy."},
-	["hunger"] = {"Sated", "Hungry", "Very Hungry", "Starved", "Hunger is a measure of your character's nourishment. To survive, you must acquire food on a regular basis. Hunger will also affect the rate of blood regeneration."},
-	["thirst"] = {"Sated", "Thirsty", "Very Thirsty", "Dehydrated", "Thirst is a measure of your character's hydration. To survive, you must acquire water on a regular basis. Thirst will also affect the rate of blood regeneration and will slow stamina regeneration when low."},
-	["sleep"] = {"Rested", "Drowsy", "Tired", "Exhausted", "Fatigue is a measure of your character's exhaustion, primarily accrued over time spent awake, although other factors can influence it. Fatigue can be reduced through sleeping or via certain consumables, and when low will adversely affect stamina regeneration."},
-	["sleepVoltist"] = {"Fully Operational", "Operational", "Low Battery", "Systems Shutting Down", "For Voltists with the 'Yellow and Black' belief, fatigue is instead a measure of one's energy. It is decreased over time or by using exoskeleton abilities, and can be replenished by consuming tech or self-electrocuting."},
+	["corruption"] = {"Non Corrompu", "Entaché", "Corrompu", "Plus Aucun Espoir", "La corruption représente l'effet de diverses forces démoniaques et impies sur votre personnage. Elle est généralement augmentée en participant à des actes impies ou par manque de prière. La corruption impacte négativement le gain de foi, et des niveaux élevés de corruption peuvent mener à la possession démoniaque ou à la suspicion et à l'exécution par le clergé."},
+	["hunger"] = {"Rassasié", "Affamé", "Très Affamé", "Mort de Faim", "La faim mesure la nutrition de votre personnage. Pour survivre, vous devez vous procurer de la nourriture régulièrement. La faim affectera également le taux de régénération du sang."},
+	["thirst"] = {"Rassasié", "Assoiffé", "Très Assoiffé", "Déshydraté", "La soif mesure l'hydratation de votre personnage. Pour survivre, vous devez vous procurer de l'eau régulièrement. La soif affectera également le taux de régénération du sang et ralentira la régénération d'endurance lorsqu'elle est basse."},
+	["sleep"] = {"Reposé", "Somnolent", "Fatigué", "Épuisé", "La fatigue mesure l'épuisement de votre personnage, principalement accumulée au fil du temps passé éveillé, bien que d'autres facteurs puissent l'influencer. La fatigue peut être réduite en dormant ou via certains consommables, et lorsqu'elle est basse, elle affectera négativement la régénération d'endurance."},
+	["sleepVoltist"] = {"Pleinement Opérationnel", "Opérationnel", "Batterie Faible", "Arrêt des Systèmes", "Pour les Voltistes avec la croyance 'Yellow and Black', la fatigue est plutôt une mesure de l'énergie de la personne. Elle diminue avec le temps ou en utilisant des capacités d'exosquelette, et peut être reconstituée en consommant de la technologie ou en s'auto-électrocutant."},
 };
 
 local needsInverted = {"hunger", "thirst"};
@@ -96,22 +96,22 @@ function cwCharacterNeeds:ModifyStatusEffects(tab)
 	local sleep = tonumber(Clockwork.Client:GetNetVar("sleep"));
 	
 	if hunger >= 75 then
-		table.insert(tab, {text = "(-) Starvation", color = Color(200, 40, 40)});
+		table.insert(tab, {text = "(-) Affamé", color = Color(200, 40, 40)});
 	end
 	
 	if thirst >= 75 then
-		table.insert(tab, {text = "(-) Dehydration", color = Color(200, 40, 40)});
+		table.insert(tab, {text = "(-) Déshydratation", color = Color(200, 40, 40)});
 	end
 	
 	if corruption >= 75 then
-		table.insert(tab, {text = "(-) Corrupted", color = Color(200, 40, 40)});
+		table.insert(tab, {text = "(-) Corrompu", color = Color(200, 40, 40)});
 	end
 	
 	if sleep >= 75 then
 		if cwBeliefs and cwBeliefs:HasBelief("yellow_and_black") then
-			table.insert(tab, {text = "(-) Low Battery", color = Color(200, 40, 40)});
+			table.insert(tab, {text = "(-) Batterie Faible", color = Color(200, 40, 40)});
 		else
-			table.insert(tab, {text = "(-) Exhausted", color = Color(200, 40, 40)});
+			table.insert(tab, {text = "(-) Épuisé", color = Color(200, 40, 40)});
 		end
 	end
 end

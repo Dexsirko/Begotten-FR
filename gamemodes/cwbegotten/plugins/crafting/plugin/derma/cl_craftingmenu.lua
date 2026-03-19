@@ -1071,7 +1071,7 @@ function PANEL:Rebuild()
 	self.weightForm = vgui.Create("DForm", self);
 	self.weightForm:SetPadding(4);
 	self.weightForm:SetSpacing(4);
-	self.weightForm:SetName("Weight");
+	self.weightForm:SetName("Poids");
 	self.weightForm:AddItem(vgui.Create("cwInventoryWeight", self));
 
 	if (Clockwork.inventory:UseSpaceSystem()) then

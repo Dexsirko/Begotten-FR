@@ -175,12 +175,12 @@ Schema.GibModels = {
 };
 
 Schema.cheapleMessages = {
-	"I can't fucking sleep... not when that thing is after me...",
-	"N-no... it's too close... I've gotta go...",
-	"If I don't keep moving I'm dead...",
-	"There's no time for this... gotta keep moving...",
-	"Come on... time to get up, before it catches me...",
-	"Where is it!? Fuck, I've gotta keep moving...",
+	"J'peux pas dormir, putain... pas quand cette chose est après moi...",
+	"N-non... c'est trop près... faut que j'y aille...",
+	"Si j'arrête pas de bouger, je suis mort...",
+	"Pas le temps pour ça... faut continuer à bouger...",
+	"Allez... faut se lever, avant qu'elle m'attrape...",
+	"Où est-ce qu'elle est !? Putain, faut que je continue à bouger...",
 };
 
 Schema.icClasses = {
@@ -420,7 +420,7 @@ function Schema:AddNPCSpawn(position, category, player)
 	netstream.Heavy(Schema:GetAdmins(), "NPCSpawnESPInfo", {self.npcSpawns});
 	
 	if (player and player:IsPlayer()) then
-		self:EasyText(player, "cornflowerblue", "You have added a "..category.." NPC spawn at your cursor position.");
+		self:EasyText(player, "cornflowerblue", "Vous avez ajouté un"..category.." point d'apparition de PNJ à la position de votre curseur.");
 	end;
 	
 	self:SaveNPCSpawns();
@@ -438,7 +438,7 @@ function Schema:RemoveNPCSpawn(position, distance, player)
 				end
 				
 				if (player and player:IsPlayer()) then
-					self:EasyText(player, "cornflowerblue", "You removed an NPC spawn at your cursor position.");
+					self:EasyText(player, "cornflowerblue", "Vous avez supprimé un point d'apparition de PNJ à la position de votre curseur.");
 				end;
 				
 				netstream.Heavy(Schema:GetAdmins(), "NPCSpawnESPInfo", {self.npcSpawns});

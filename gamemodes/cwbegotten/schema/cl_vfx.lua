@@ -21,10 +21,10 @@ Schema.npcTable = {
 };
 
 Schema.bibleQuotes = {
-	{spaghetti = "And I saw the beast, and the kings of the earth, and their armies, gathered together to make war against him that sat on the horse, and against his army.", pingas = "(Book of Revelation 19:19)"}, -- 
-	{spaghetti = "Immediately after the tribulation of those days shall the sun be darkened, and the moon shall not give her light, and the stars shall fall from heaven, and the powers of the heavens shall be shaken.", pingas = "(Gospel of Matthew 24:29)"}, -- 
-	{spaghetti = "And God saw that the wickedness of man was great in the earth, and that every imagination of the thoughts of his heart was only evil continually.", pingas = "(Book of Genesis 6:5)"}, --
-	{spaghetti = "For, behold, the Lord will come with fire, and with his chariots like a whirlwind, to render his anger with fury, and his rebuke with flames of fire. For by fire and by his sword will the Lord plead with all flesh: and the slain of the Lord shall be many.", pingas = "(Book of Isaiah 66:15-16)"},
+	{spaghetti = "Et je vis la bête, et les rois de la terre, et leurs armées, rassemblés pour faire la guerre à celui qui était assis sur le cheval et à son armée.", pingas = "(Livre de l'Apocalypse 19:19)"},
+	{spaghetti = "Aussitôt après ces jours de tribulation, le soleil s'obscurcira, la lune ne donnera plus sa lumière, les étoiles tomberont du ciel, et les puissances des cieux seront ébranlées.", pingas = "(Évangile selon Matthieu 24:29)"},
+	{spaghetti = "L'Éternel vit que la méchanceté des hommes était grande sur la terre, et que toutes les pensées de leur cœur se portaient uniquement vers le mal, tous les jours.", pingas = "(Livre de la Genèse 6:5)"},
+	{spaghetti = "Car voici, l'Éternel vient dans un feu, et ses chars sont comme un tourbillon, pour convertir sa colère en fureur, et sa menace en flammes de feu. C'est par le feu que l'Éternel exerce ses jugements, c'est par son glaive qu'il châtie toute chair; et ceux que tuera l'Éternel seront en grand nombre.", pingas = "(Livre d'Isaïe 66:15-16)"},
 }
 
 Schema.wakeupMusic = {

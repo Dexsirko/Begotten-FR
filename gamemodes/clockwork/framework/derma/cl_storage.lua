@@ -240,7 +240,7 @@ function PANEL:RebuildPanel(storagePanel, storageType, usedWeight, weight, usedS
 	if (storagePanel.usedWeight > 0) then
 		local informationForm = vgui.Create("DForm", storagePanel);
 			informationForm:SetPadding(4);
-			informationForm:SetName("Weight");
+			informationForm:SetName("Poids");
 			informationForm:AddItem(vgui.Create("cwStorageWeight", storagePanel));
 			informationForm.Header:SetEnabled(false);
 		storagePanel:AddItem(informationForm);

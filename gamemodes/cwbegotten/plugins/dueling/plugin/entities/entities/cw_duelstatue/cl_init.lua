@@ -9,7 +9,7 @@ Clockwork.kernel:IncludePrefixed("shared.lua")
 
 -- Called when the target ID HUD should be painted.
 function ENT:HUDPaintTargetID(x, y, alpha)
-	y = Clockwork.kernel:DrawInfo("A blindfolded statue with a mysterious aura of death and decay. You feel as though touching it will fill you with a nigh-insatiable bloodlust.", x, y, Clockwork.option:GetColor("white"), alpha);
+	y = Clockwork.kernel:DrawInfo("Une statue aux yeux bandés avec une aura mystérieuse de mort et de décomposition. Vous sentez que la toucher vous remplirait d'une soif de sang presque insatiable.", x, y, Clockwork.option:GetColor("white"), alpha);
 end;
 
 function ENT:Think()

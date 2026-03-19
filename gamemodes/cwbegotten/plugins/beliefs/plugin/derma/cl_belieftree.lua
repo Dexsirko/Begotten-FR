@@ -200,36 +200,36 @@ function PANEL:Paint()
 		draw.SimpleText("SACRAMENT LEVEL: "..self.levelNumeral, "Civ5Tooltip1", (256 - 8) + (self.barX) + 4 + 4, ((self.barY) + 4), Color(0, 0, 0, 255))
 	end]]--
 	
-	draw.SimpleText("SACRAMENT LEVEL: "..self.levelNumeral, "Civ5Tooltip1", self.barX + 8, self.barY + 4, Color(200, 0, 0))
-	draw.SimpleText("SACRAMENT LEVEL: "..self.levelNumeral, "Civ5Tooltip1", self.barX + 10, self.barY + 6, Color(0, 0, 0, 150))
+	draw.SimpleText("NIVEAU DE SACREMENT: "..self.levelNumeral, "Civ5Tooltip1", self.barX + 8, self.barY + 4, Color(200, 0, 0))
+	draw.SimpleText("NIVEAU DE SACREMENT: "..self.levelNumeral, "Civ5Tooltip1", self.barX + 10, self.barY + 6, Color(0, 0, 0, 150))
 	
 	if self.player == Clockwork.Client then
 		if (points <= 0) then
-			draw.SimpleText("YOU HAVE NO EPIPHANIES!", "Civ5Tooltip1", (self.barX) + 6, ((self.barY) + 4) + 1 + 32, Color(200, 0, 0))
-			draw.SimpleText("YOU HAVE NO EPIPHANIES!", "Civ5Tooltip1", (self.barX) + 4, ((self.barY) + 4) - 1 + 32, Color(0, 0, 0, 150))
+			draw.SimpleText("VOUS N'AVEZ AUCUNE ÉPIPHANIE!", "Civ5Tooltip1", (self.barX) + 6, ((self.barY) + 4) + 1 + 32, Color(200, 0, 0))
+			draw.SimpleText("VOUS N'AVEZ AUCUNE ÉPIPHANIE!", "Civ5Tooltip1", (self.barX) + 4, ((self.barY) + 4) - 1 + 32, Color(0, 0, 0, 150))
 		else
-			local epiphany = "EPIPHANY"
+			local epiphany = "ÉPIPHANIE"
 			
 			if (points > 1) then
-				epiphany = "EPIPHANIES"
+				epiphany = "ÉPIPHANIES"
 			end
 
-			draw.SimpleText("YOU HAVE "..points.." "..epiphany.." TO INVEST!", "Civ5ToolTi3", (self.barX) + 6, ((self.barY) + 4) + 1 + 32, Color(200, 0, 0))
-			draw.SimpleText("YOU HAVE "..points.." "..epiphany.." TO INVEST!", "Civ5ToolTi3", (self.barX) + 4, ((self.barY) + 4) - 1 + 32, Color(0, 0, 0, 150))
+			draw.SimpleText("VOUS AVEZ "..points.." "..epiphany.." À INVESTIR!", "Civ5ToolTi3", (self.barX) + 6, ((self.barY) + 4) + 1 + 32, Color(200, 0, 0))
+			draw.SimpleText("VOUS AVEZ "..points.." "..epiphany.." À INVESTIR!", "Civ5ToolTi3", (self.barX) + 4, ((self.barY) + 4) - 1 + 32, Color(0, 0, 0, 150))
 		end
 	else
 		if (points <= 0) then
-			draw.SimpleText("THEY HAVE NO EPIPHANIES!", "Civ5Tooltip1", (self.barX) + 6, ((self.barY) + 4) + 1 + 32, Color(200, 0, 0))
-			draw.SimpleText("THEY HAVE NO EPIPHANIES!", "Civ5Tooltip1", (self.barX) + 4, ((self.barY) + 4) - 1 + 32, Color(0, 0, 0, 150))
+			draw.SimpleText("ILS ONT AUCUNE ÉPIPHANIE!", "Civ5Tooltip1", (self.barX) + 6, ((self.barY) + 4) + 1 + 32, Color(200, 0, 0))
+			draw.SimpleText("ILS ONT AUCUNE ÉPIPHANIE!", "Civ5Tooltip1", (self.barX) + 4, ((self.barY) + 4) - 1 + 32, Color(0, 0, 0, 150))
 		else
-			local epiphany = "EPIPHANY"
+			local epiphany = "ÉPIPHANIE"
 			
 			if (points > 1) then
-				epiphany = "EPIPHANIES"
+				epiphany = "ÉPIPHANIES"
 			end
 
-			draw.SimpleText("THEY HAVE "..points.." "..epiphany.." TO INVEST!", "Civ5ToolTi3", (self.barX) + 6, ((self.barY) + 4) + 1 + 32, Color(200, 0, 0))
-			draw.SimpleText("THEY HAVE "..points.." "..epiphany.." TO INVEST!", "Civ5ToolTi3", (self.barX) + 4, ((self.barY) + 4) - 1 + 32, Color(0, 0, 0, 150))
+			draw.SimpleText("ILS ONT "..points.." "..epiphany.." À INVESTIR!", "Civ5ToolTi3", (self.barX) + 6, ((self.barY) + 4) + 1 + 32, Color(200, 0, 0))
+			draw.SimpleText("ILS ONT "..points.." "..epiphany.." À INVESTIR!", "Civ5ToolTi3", (self.barX) + 4, ((self.barY) + 4) - 1 + 32, Color(0, 0, 0, 150))
 		end
 	end
 	
@@ -239,15 +239,15 @@ function PANEL:Paint()
 	draw.SimpleText("Faith Concentrated: "..math.floor(experience), "Civ5Tooltip1", (self.barX) + 6 + 16 + 512, ((self.barY) + 5), Color(0, 0, 0, 127))
 	
 	if level < self.localLevelCap then
-		draw.SimpleText("Faith Required For Next Epiphany: "..self.sacramentCost, "Civ5Tooltip1", (self.barX) + 4 + 16 + 512, ((self.barY) + 4 + 32), Color(200, 0, 0, 255))
-		draw.SimpleText("Faith Required For Next Epiphany: "..self.sacramentCost, "Civ5Tooltip1", (self.barX) + 6 + 16 + 512, ((self.barY) + 6 + 32), Color(0, 0, 0, 127))
+		draw.SimpleText("Foi Requise Pour la Prochaine Épiphanie: "..self.sacramentCost, "Civ5Tooltip1", (self.barX) + 4 + 16 + 512, ((self.barY) + 4 + 32), Color(200, 0, 0, 255))
+		draw.SimpleText("Foi Requise Pour la Prochaine Épiphanie: "..self.sacramentCost, "Civ5Tooltip1", (self.barX) + 6 + 16 + 512, ((self.barY) + 6 + 32), Color(0, 0, 0, 127))
 	else
 		if self.player == Clockwork.Client then
-			draw.SimpleText("You Are At The Maximum Sacrament Level!", "Civ5Tooltip1", (self.barX) + 4 + 16 + 512, ((self.barY) + 4 + 32), Color(200, 0, 0, 255))
-			draw.SimpleText("You Are At The Maximum Sacrament Level!", "Civ5Tooltip1", (self.barX) + 6 + 16 + 512, ((self.barY) + 6 + 32), Color(0, 0, 0, 127))
+			draw.SimpleText("Vous Êtes Au Niveau de Sacrement Maximum!", "Civ5Tooltip1", (self.barX) + 4 + 16 + 512, ((self.barY) + 4 + 32), Color(200, 0, 0, 255))
+			draw.SimpleText("Vous Êtes Au Niveau de Sacrement Maximum!", "Civ5Tooltip1", (self.barX) + 6 + 16 + 512, ((self.barY) + 6 + 32), Color(0, 0, 0, 127))
 		else
-			draw.SimpleText("They Are At The Maximum Sacrament Level!", "Civ5Tooltip1", (self.barX) + 4 + 16 + 512, ((self.barY) + 4 + 32), Color(200, 0, 0, 255))
-			draw.SimpleText("They Are At The Maximum Sacrament Level!", "Civ5Tooltip1", (self.barX) + 6 + 16 + 512, ((self.barY) + 6 + 32), Color(0, 0, 0, 127))
+			draw.SimpleText("Ils Sont Au Niveau de Sacrement Maximum!", "Civ5Tooltip1", (self.barX) + 4 + 16 + 512, ((self.barY) + 4 + 32), Color(200, 0, 0, 255))
+			draw.SimpleText("Ils Sont Au Niveau de Sacrement Maximum!", "Civ5Tooltip1", (self.barX) + 6 + 16 + 512, ((self.barY) + 6 + 32), Color(0, 0, 0, 127))
 		end
 	end
 end
@@ -417,7 +417,7 @@ function PANEL:AddIcon(iconData)
 			local selectedGood = Color(50, 255, 50, 255);
 			local selectedNeutral = Color(200, 200, 200, 255);
 			
-			local canTake = "You can take this belief!"
+			local canTake = "Vous pouvez prendre cette croyance!"
 			local canTakeColor = selectedGood;
 			local canUnlock = true
 			
@@ -432,7 +432,7 @@ function PANEL:AddIcon(iconData)
 			end
 			
 			if (beliefs[icon.uniqueID]) then
-				canTake = "You already follow this belief!"
+				canTake = "Vous suivez déjà cette croyance!"
 				canTakeColor = selectedNeutral;
 				icon:SetColor(Unlocked)
 			else
@@ -442,7 +442,7 @@ function PANEL:AddIcon(iconData)
 					for i, v in ipairs(parent.lockedTraits) do
 						if table.HasValue(traits, v) then
 							icon:SetColor(HardLocked)
-							canTake = "This belief tree is locked due to a trait you took!"
+							canTake = "Cet arbre de croyances est verrouillé à cause d'un trait que vous avez pris!"
 							canTakeColor = selectedBad;
 							canUnlock = false;
 							
@@ -455,7 +455,7 @@ function PANEL:AddIcon(iconData)
 					for i, v in ipairs(icon.lockedTraits) do
 						if table.HasValue(traits, v) then
 							icon:SetColor(HardLocked)
-							canTake = "This belief is locked due to a trait you took!"
+							canTake = "Cette croyance est verrouillée à cause d'un trait que vous avez pris!"
 							canTakeColor = selectedBad;
 							canUnlock = false;
 							
@@ -468,7 +468,7 @@ function PANEL:AddIcon(iconData)
 					for i, v in ipairs(parent.lockedBeliefs) do
 						if beliefs[v] then
 							icon:SetColor(HardLocked)
-							canTake = "This belief tree is locked due to a belief you took!"
+							canTake = "Cet arbre de croyances est verrouillé à cause d'une croyance que vous avez prise!"
 							canTakeColor = selectedBad;
 							canUnlock = false;
 							
@@ -481,7 +481,7 @@ function PANEL:AddIcon(iconData)
 					for i, v in ipairs(icon.lockedBeliefs) do
 						if beliefs[v] then
 							icon:SetColor(HardLocked)
-							canTake = "This belief is locked due to a belief you took!"
+							canTake = "Cette croyance est verrouillée à cause d'une croyance que vous avez prise!"
 							canTakeColor = selectedBad;
 							canUnlock = false;
 							
@@ -493,35 +493,35 @@ function PANEL:AddIcon(iconData)
 				if canUnlock then
 					if parent.disabled then
 						icon:SetColor(HardLocked)
-						canTake = "This belief tree is temporarily disabled until it can be implemented!"
+						canTake = "Cet arbre de croyances est temporairement désactivé jusqu'à ce qu'il puisse être implémenté!"
 						canTakeColor = selectedBad;
 					elseif icon.disabled then
 						icon:SetColor(HardLocked)
-						canTake = "This belief is temporarily disabled until it can be implemented!"
+						canTake = "Cette croyance est temporairement désactivée jusqu'à ce qu'elle puisse être implémentée!"
 						canTakeColor = selectedBad;
 					elseif (cwBeliefs:HasBelief("jack_of_all_trades") and icon.row >= 4 and !icon.subfaith) then
 						icon:SetColor(HardLocked)
-						canTake = "This belief is locked due to a belief you took!"
+						canTake = "Cette croyance est verrouillée à cause d'une croyance que vous avez prise!"
 						canTakeColor = selectedBad;
 					elseif parent.lockedSubfactions and table.HasValue(parent.lockedSubfactions, beliefPanel.player:GetNetVar("subfaction")) then
 						icon:SetColor(HardLocked)
-						canTake = "This belief tree is locked due to the subfaction you took!"
+						canTake = "Cet arbre de croyances est verrouillé à cause de la sous-faction que vous avez prise!"
 						canTakeColor = selectedBad;
 					elseif icon.lockedSubfactions and table.HasValue(icon.lockedSubfactions, beliefPanel.player:GetNetVar("subfaction")) then
 						icon:SetColor(HardLocked)
-						canTake = "This belief is locked due to the subfaction you took!"
+						canTake = "Cette croyance est verrouillée à cause de la sous-faction que vous avez prise!"
 						canTakeColor = selectedBad;
 					elseif parent.lockedFactions and table.HasValue(parent.lockedFactions, beliefPanel.player:GetFaction()) then
 						icon:SetColor(HardLocked)
-						canTake = "This belief tree locked due to the faction you took!"
+						canTake = "Cet arbre de croyances est verrouillé à cause de la faction que vous avez prise!"
 						canTakeColor = selectedBad;
 					elseif icon.lockedFactions and table.HasValue(icon.lockedFactions, beliefPanel.player:GetFaction()) then
 						icon:SetColor(HardLocked)
-						canTake = "This belief is locked due to the faction you took!"
+						canTake = "Cette croyance est verrouillée à cause de la faction que vous avez prise!"
 						canTakeColor = selectedBad;
 					elseif icon.subfaith and beliefPanel.player:GetNetVar("subfaith") and beliefPanel.player:GetNetVar("subfaith") ~= "" and beliefPanel.player:GetNetVar("subfaith") ~= "N/A" and icon.subfaith ~= beliefPanel.player:GetNetVar("subfaith") then
 						icon:SetColor(HardLocked)
-						canTake = "You have already selected a subfaith!"
+						canTake = "Vous avez déjà sélectionné une sous-foi!"
 						canTakeColor = selectedBad;
 					elseif (table.Count(requirements) > 0) then
 						for k, v in pairs (requirements) do
@@ -533,7 +533,7 @@ function PANEL:AddIcon(iconData)
 						
 						if (canUnlock) then
 							if (points <= 0) then
-								canTake = "You do not have any epiphanies to spend on this belief!"
+								canTake = "Vous n'avez pas d'épiphanies à dépenser pour cette croyance!"
 								canTakeColor = selectedBad;
 								icon:SetColor(Locked)
 							else
@@ -541,9 +541,9 @@ function PANEL:AddIcon(iconData)
 							end
 						else
 							if (points <= 0) then
-								canTake = "You have no epiphanies and do not meet the requirements for this belief!"
+								canTake = "Vous n'avez pas d'épiphanies et ne remplissez pas les conditions pour cette croyance!"
 							else
-								canTake = "You do not meet the requirements for this belief!"
+								canTake = "Vous ne remplissez pas les conditions pour cette croyance!"
 							end
 							
 							canTakeColor = selectedBad;
@@ -551,7 +551,7 @@ function PANEL:AddIcon(iconData)
 						end
 					else
 						if (points <= 0) then
-							canTake = "You do not have any epiphanies to spend on this belief!"
+							canTake = "Vous n'avez pas d'épiphanies à dépenser pour cette croyance!"
 							canTakeColor = selectedBad;
 							icon:SetColor(Locked)
 						else
@@ -570,7 +570,7 @@ function PANEL:AddIcon(iconData)
 				end
 				
 				if requirementsNiceNames and #requirementsNiceNames > 0 then
-					local requirementString = "Requirements: "..table.concat(requirementsNiceNames, ", ");
+					local requirementString = "Conditions: "..table.concat(requirementsNiceNames, ", ");
 					
 					frame:AddText(requirementString, Color(225, 200, 200));
 				end

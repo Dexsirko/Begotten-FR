@@ -35,9 +35,9 @@ local function CreateMenu(state)
 
 	if state == "Hierarchy" then
 		menu:AddOption("Add Bounty", function()
-			Derma_StringRequest("Bounty Board", "Who do you want to add to the bounty board?", nil, function(target)
-				Derma_StringRequest(target, "How much coin will this bounty be worth?", nil, function(price)
-					Derma_StringRequest(target, "What should the reason for this bounty be?", nil, function(reason)
+			Derma_StringRequest("Bounty Board", "Qui voulez-vous ajouter au tableau des primes?", nil, function(target)
+				Derma_StringRequest(target, "Combien de pièces cette prime vaudra-t-elle?", nil, function(price)
+					Derma_StringRequest(target, "Quelle devrait être la raison de cette prime?", nil, function(reason)
 						Clockwork.kernel:RunCommand("AddBounty", target, price, reason);
 					end);
 				end);
@@ -71,9 +71,9 @@ local function CreateMenu(state)
 		end]]--
 	elseif Clockwork.Client:IsAdmin() then
 		menu:AddOption("(ADMIN) Add Bounty", function()
-			Derma_StringRequest("Bounty Board", "Who do you want to add to the bounty board?", nil, function(target)
-				Derma_StringRequest(target, "How much coin will this bounty be worth?", nil, function(price)
-					Derma_StringRequest(target, "What should the reason for this bounty be?", nil, function(reason)
+			Derma_StringRequest("Bounty Board", "Qui voulez-vous ajouter au tableau des primes?", nil, function(target)
+				Derma_StringRequest(target, "Combien de pièces cette prime vaudra-t-elle?", nil, function(price)
+					Derma_StringRequest(target, "Quelle devrait être la raison de cette prime?", nil, function(reason)
 						Clockwork.kernel:RunCommand("AddBounty", target, price, reason);
 					end);
 				end);

@@ -1081,13 +1081,13 @@ RITUAL = cwRituals.rituals:New("mark_of_the_devil");
 	RITUAL.takeCatalysts = false;
 	
 	function RITUAL:OnPerformed(player)
-		Clockwork.dermaRequest:RequestString(player, "Mark A Character", "Type the name of a character to be marked for death.", nil, function(result)
+		Clockwork.dermaRequest:RequestString(player, "Mark A Character", "Tapez le nom d'un personnage à marquer pour la mort.", nil, function(result)
 			local target = Clockwork.player:FindByID(result)
 			
 			if IsValid(target) then
 				if target:Alive() then
 					if target:GetFaction() ~= "Children of Satan" then
-						Clockwork.dermaRequest:RequestConfirmation(player, "Mark Confirmation", "Are you sure you want to mark "..target:Name().." for death?", function()
+						Clockwork.dermaRequest:RequestConfirmation(player, "Mark Confirmation", "Êtes-vous sûr de vouloir marquer "..target:Name().." pour la mort?", function()
 							
 							if IsValid(target) and target:Alive() and target:GetFaction() ~= "Children of Satan" then
 								local ritualTable = cwRituals.rituals.stored["mark_of_the_devil"];
@@ -1098,7 +1098,7 @@ RITUAL = cwRituals.rituals:New("mark_of_the_devil");
 								target:SetNetVar("markedBySatanist", true);
 								
 								Schema:EasyText(player, "maroon", target:Name().." has been marked for death.");
-								Schema:EasyText(Schema:GetAdmins(), "tomato", target:Name().." has been marked for death by "..player:Name().."!");
+								Schema:EasyText(Schema:GetAdmins(), "tomato", target:Name().." a été marqué pour la mort par "..player:Name().."!");
 								
 								for _, v in _player.Iterator() do
 									if v:HasInitialized() then
@@ -1118,7 +1118,7 @@ RITUAL = cwRituals.rituals:New("mark_of_the_devil");
 					Schema:EasyText(player, "darkgrey", "Le personnage ciblé est déjà mort !");
 				end
 			else
-				Schema:EasyText(player, "grey", tostring(result).." is not a valid character!");
+				Schema:EasyText(player, "grey", tostring(result).." n'est pas un personnage valide!");
 			end
 		end)
 
@@ -1160,7 +1160,7 @@ RITUAL = cwRituals.rituals:New("mark_of_the_devil_target");
 				--if target:GetFaith() ~= "Faith of the Dark" then
 				if target:GetFaction() ~= "Children of Satan" then
 					if (target:GetShootPos():Distance(player:GetShootPos()) <= 192) then
-						Clockwork.dermaRequest:RequestConfirmation(player, "Mark Confirmation", "Are you sure you want to mark "..target:Name().." for death?", function()
+						Clockwork.dermaRequest:RequestConfirmation(player, "Mark Confirmation", "Êtes-vous sûr de vouloir marquer "..target:Name().." pour la mort?", function()
 							if IsValid(target) and target:Alive() and target:GetFaction() ~= "Children of Satan" then
 								local ritualTable = cwRituals.rituals.stored["mark_of_the_devil_target"];
 								
@@ -1169,8 +1169,8 @@ RITUAL = cwRituals.rituals:New("mark_of_the_devil_target");
 								target:SetCharacterData("markedBySatanist", true);
 								target:SetNetVar("markedBySatanist", true);
 								
-								Schema:EasyText(player, "maroon", target:Name().." has been marked for death.");
-								Schema:EasyText(Schema:GetAdmins(), "tomato", target:Name().." has been marked for death by "..player:Name().."!");
+								Schema:EasyText(player, "maroon", target:Name().." a été marqué pour la mort.");
+								Schema:EasyText(Schema:GetAdmins(), "tomato", target:Name().." a été marqué pour la mort par "..player:Name().."!");
 							end
 						end);
 						

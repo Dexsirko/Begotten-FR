@@ -52,16 +52,16 @@ function PANEL:Init()
 		self:SetMouseInputEnabled(true);
 		
 		if game.GetMap() == "rp_district21" then
-			local newsizew, newsizeH = Clockwork.kernel:GetCachedTextSize("demiurgemenuTextDistrict21Menu", "New Victim");
+			local newsizew, newsizeH = Clockwork.kernel:GetCachedTextSize("demiurgemenuTextDistrict21Menu", "Nouvelle Victime");
 
 			self.createButton = vgui.Create("cwLabelButton", self);
 			self.createButton:SetFont("demiurgemenuTextDistrict21Menu");
 			self.createButton:SetText("Nouvelle victime");
-			self.createButton.aText = "New Victim";
+			self.createButton.aText = "Nouvelle Victime";
 			self.createButton:FadeIn(0.5);
 			self.createButton:SetCallback(function(panel)
 				if (table.Count(Clockwork.character:GetAll()) >= Clockwork.player:GetMaximumCharacters()) then
-					return Clockwork.character:SetFault("You cannot create any more characters!");
+					return Clockwork.character:SetFault("Vous ne pouvez pas créer plus de personnages!");
 				end;
 
 				Clockwork.character:ResetCreationInfo();
@@ -115,14 +115,14 @@ function PANEL:Init()
 					Clockwork.character:SetPanelMainMenu();
 					Clockwork.character:SetPanelOpen(false);
 				else
-					Derma_Query("Are you sure you want to disconnect?", "Disconnect", "Yes", function()
-						Derma_Query("Are you really sure?", "Disconnect", "No, I would like to stay for longer.", function() end, "Yes, disconnect now.", function()
-							Derma_Query("Are you sure you don't want to stay?", "Disconnect", "No, I would like to leave now.", function()
-								print("okay, bye then!!! bye bye!!!");
+					Derma_Query("Êtes-vous sûr de vouloir vous déconnecter?", "Disconnect", "Oui", function()
+						Derma_Query("Êtes-vous vraiment sûr ?", "Disconnect", "Non, je voudrais rester plus longtemps.", function() end, "Oui, déconnectez-moi maintenant.", function()
+							Derma_Query("Êtes-vous sûr de ne pas vouloir rester ?", "Disconnect", "Non, je voudrais partir maintenant.", function()
+								print("ok, salut alors !!! salut salut !!!");
 								RunConsoleCommand("disconnect");
-							end, "Yes, I will stay.", function() end);
+							end, "Oui, je vais rester.", function() end);
 						end);
-					end, "No", function() end);
+					end, "Non", function() end);
 				end;
 
 				surface.PlaySound("begotten/ui/buttonclick.wav");
@@ -246,7 +246,7 @@ function PANEL:Init()
 			self.createButton:FadeIn(0.5);
 			self.createButton:SetCallback(function(panel)
 				if (table.Count(Clockwork.character:GetAll()) >= Clockwork.player:GetMaximumCharacters()) then
-					return Clockwork.character:SetFault("You cannot create any more characters! Try clearing any characters in your Necropolis first!");
+					return Clockwork.character:SetFault("Vous ne pouvez pas créer plus de personnages ! Essayez d'abord de supprimer des personnages dans votre Nécropole!");
 				end;
 				
 				Clockwork.character:ResetCreationInfo();
@@ -2188,7 +2188,7 @@ end;
 -- Called when the next button is pressed.
 function PANEL:OnNext()
 	if (!self.info.class or !Clockwork.class:FindByID(self.info.class)) then
-		Clockwork.character:SetFault("You did not choose a class, or the class that you chose is not valid!");
+		Clockwork.character:SetFault("Vous n'avez pas choisi de classe, ou la classe que vous avez choisie n'est pas valide!");
 		return false;
 	end;
 end;
@@ -3108,17 +3108,17 @@ function PANEL:OnNext()
 			self.info.fullName = self.fullNameTextEntry:GetValue();
 			
 			if (self.info.fullName == "") then
-				Clockwork.character:SetFault("You did not choose a name, or the name that you chose is not valid!");
+				Clockwork.character:SetFault("Vous n'avez pas choisi de nom, ou le nom que vous avez choisi n'est pas valide!");
 				return false;
 			end;
 
 			if (string.len(self.info.fullName) < 4) then
-				Clockwork.character:SetFault("Your name must be at least 4 characters long!");
+				Clockwork.character:SetFault("Votre nom doit comporter au moins 4 caractères!");
 				return false;
 			end;
 
 			if (string.len(self.info.fullName) > 32) then
-				Clockwork.character:SetFault("Your name must not be greater than 32 characters long!");
+				Clockwork.character:SetFault("Votre nom ne doit pas dépasser 32 caractères!");
 				return false;
 			end;
 		else
@@ -3126,7 +3126,7 @@ function PANEL:OnNext()
 			self.info.surname = self.surnameTextEntry:GetValue();
 			
 			if (self.info.forename == "" or self.info.surname == "") then
-				Clockwork.character:SetFault("You did not choose a name, or the name that you chose is not valid!");
+				Clockwork.character:SetFault("Vous n'avez pas choisi de nom, ou le nom que vous avez choisi n'est pas valide!");
 				return false;
 			end;
 			
@@ -3142,19 +3142,19 @@ function PANEL:OnNext()
 			end;]]--
 			
 			if (string.len(self.info.forename) < 2 or string.len(self.info.surname) < 2) then
-				Clockwork.character:SetFault("Your forename and surname must both be at least 2 characters long!");
+				Clockwork.character:SetFault("Votre prénom et votre nom de famille doivent comporter au moins 2 caractères chacun!");
 				return false;
 			end;
 			
 			if (string.len(self.info.forename) > 16 or string.len(self.info.surname) > 16) then
-				Clockwork.character:SetFault("Your forename and surname must not be greater than 16 characters long!");
+				Clockwork.character:SetFault("Votre prénom et votre nom de famille ne doivent pas dépasser 16 caractères chacun!");
 				return false;
 			end;
 		end;
 	end;
 	
 	if (self.bSelectModel and !self.info.model) then
-		Clockwork.character:SetFault("You did not choose a model, or the model that you chose is not valid!");
+		Clockwork.character:SetFault("Vous n'avez pas choisi de modèle, ou le modèle que vous avez choisi n'est pas valide!");
 		return false;
 	end;
 	
@@ -3162,12 +3162,12 @@ function PANEL:OnNext()
 		local minimumPhysDesc = Clockwork.config:Get("minimum_physdesc"):Get();
 			self.info.physDesc = self.physDescTextEntry:GetValue();
 		if (string.len(self.info.physDesc) < minimumPhysDesc) then
-			Clockwork.character:SetFault("The physical description must be at least "..minimumPhysDesc.." characters long!");
+			Clockwork.character:SetFault("La description physique doit comporter au moins "..minimumPhysDesc.." caractères!");
 			return false;
 		end;
 
 		if (string.match(self.info.physDesc, "%s%s+")) then
-			Clockwork.character:SetFault("The description must not have consecutive spaces.");
+			Clockwork.character:SetFault("La description ne doit pas comporter d'espaces consécutifs.");
 			return false;
 		end;
 		
@@ -3175,7 +3175,7 @@ function PANEL:OnNext()
 			self.info.backstory = self.backstoryTextEntry:GetValue();
 			
 			if (string.len(self.info.backstory) >= 512) then
-				Clockwork.character:SetFault("Your backstory must be shorter than or equal to 512 characters!");
+				Clockwork.character:SetFault("Votre histoire doit être inférieure ou égale à 512 caractères!");
 				return false;
 			end;
 		end;
@@ -3183,7 +3183,7 @@ function PANEL:OnNext()
 	
 	if (self.bFaiths) then
 		if not self.info.faith then
-			Clockwork.character:SetFault("You did not choose a faith!");
+			Clockwork.character:SetFault("Vous n'avez pas choisi de foi!");
 			return false;
 		end
 	end
@@ -3192,7 +3192,7 @@ function PANEL:OnNext()
 		local points = self:GetPointsLeft();
 		
 		if points < 0 then
-			Clockwork.character:SetFault("You do not have enough points for the traits you have selected!");
+			Clockwork.character:SetFault("Vous n'avez pas assez de points pour les traits que vous avez sélectionnés!");
 			return false;
 		end
 		
@@ -3202,7 +3202,7 @@ function PANEL:OnNext()
 		if factionTable.mandatorytraits then
 			for i, v in ipairs(factionTable.mandatorytraits) do
 				if !table.HasValue(self.info.traits, v) then
-					Clockwork.character:SetFault("You do not have a mandatory trait required for your faction!");
+					Clockwork.character:SetFault("Vous n'avez pas de trait obligatoire requis pour votre faction!");
 					return false;
 				end
 			end

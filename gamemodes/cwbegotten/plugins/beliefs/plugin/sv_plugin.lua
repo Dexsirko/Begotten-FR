@@ -121,10 +121,10 @@ function cwBeliefs:TakeBelief(player, uniqueID, niceName, category)
 		player:SetCharacterData("beliefs", beliefs)
 		player:SetCharacterData("points", math.Clamp(points - 1, 0, 100))
 		player:SetLocalVar("points", player:GetCharacterData("points", 0));
-		player:Notify("You have taken the \""..niceName.."\" belief.")
+		player:Notify("Vous avez pris \""..niceName.."\" la croyance.")
 		player:SendLua([[Clockwork.Client:EmitSound("ambient/fire/ignite.wav", 40)]]);
 		
-		Clockwork.kernel:PrintLog(LOGTYPE_MINOR, player:Name().." has taken the \""..niceName.."\" belief.");
+		Clockwork.kernel:PrintLog(LOGTYPE_MINOR, player:Name().." a pris \""..niceName.."\" la croyance.");
 		
 		hook.Run("BeliefTaken", player, uniqueID, category);
 	end;

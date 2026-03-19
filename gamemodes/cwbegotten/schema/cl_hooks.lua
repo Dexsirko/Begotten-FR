@@ -28,8 +28,7 @@ Schema.requiredMounts = {
 	--["cstrike"] = "Counter-Strike: Source",
 };
 
-Schema.cheapleMessages = {"I've gotta get away from that fucking thing!", "It's getting closer!", "What does that thing want from me!?", "Why can't anyone else see it!?", "Shit, it's getting closer!", "Gotta keep moving... gotta keep moving..."};
-
+Schema.cheapleMessages = {"Je dois m'éloigner de cette putain de chose !", "Ça se rapproche !", "Qu'est-ce que cette chose veut de moi !?", "Pourquoi personne d'autre ne le voit !?", "Merde, ça se rapproche !", "Faut continuer à bouger... faut continuer à bouger..."};
 if !Schema.contentVerified then
 	Schema.contentVerified = "unverified";
 end
@@ -604,9 +603,9 @@ function Schema:GetEntityMenuOptions(entity, options)
 				
 				if !entity:IsStatic() or (entity:IsStatic() and Clockwork.Client:IsAdmin()) then
 					options["Set Frequency"] = function()
-						Derma_StringRequest("Frequency", "What would you like to set the frequency to?", frequency, function(text)
+						Derma_StringRequest("Frequency", "À quelle fréquence souhaitez-vous régler ?", frequency, function(text)
 							if ( IsValid(entity) ) then
-								Clockwork.entity:ForceMenuOption(entity, "Set Frequency", text);
+								Clockwork.entity:ForceMenuOption(entity, "Régler la Fréquence", text);
 							end;
 						end);
 					end;
@@ -668,29 +667,29 @@ end
 -- Called when the post progress bar info is needed.
 function Schema:GetProgressBarInfoAction(action, percentage)
 	if (action == "mutilating") then
-		return {text = "You are harvesting meat from a corpse. Click to cancel.", percentage = percentage, flash = percentage > 75};
+		return {text = "Vous récoltez de la viande d'un cadavre. Cliquez pour annuler.", percentage = percentage, flash = percentage > 75};
 	elseif (action == "skinning") then
-		return {text = "You are skinning an animal's corpse. Click to cancel.", percentage = percentage, flash = percentage > 75};
+		return {text = "Vous dépouillez la peau d'un cadavre d'animal. Cliquez pour annuler.", percentage = percentage, flash = percentage > 75};
 	elseif (action == "reloading") then
 		local weaponName = Clockwork.Client:GetNetVar("cwProgressBarVerb") or "shot";
 		local ammoName = Clockwork.Client:GetNetVar("cwProgressBarItem") or "weapon";
 		
-		return {text = "You are reloading your "..weaponName.." with "..ammoName..". Click to cancel.", percentage = percentage, flash = percentage < 0}
-		--return {text = "You are reloading your weapon. Click to cancel.", percentage = percentage, flash = percentage > 75};
+		return {text = "Vous rechargez votre "..weaponName.." avec "..ammoName..". Cliquez pour annuler.", percentage = percentage, flash = percentage < 0}
+		--return {text = "You are reloading your weapon. Cliquez pour annuler.", percentage = percentage, flash = percentage > 75};
 	elseif (action == "building") then
-		return {text = "You are erecting a siege ladder. Click to cancel.", percentage = percentage, flash = percentage > 75};
+		return {text = "You are erecting a siege ladder. Cliquez pour annuler.", percentage = percentage, flash = percentage > 75};
 	elseif (action == "bloodTest") then
-		return {text = "You are testing someone's blood for corruption. Click to cancel.", percentage = percentage, flash = percentage > 75};
+		return {text = "Vous testez le sang de quelqu'un pour détecter la corruption. Cliquez pour annuler.", percentage = percentage, flash = percentage > 75};
 	elseif (action == "hell_teleporting") then
-		return {text = "You are using dark magic to teleport to Hell. Click to cancel.", percentage = percentage, flash = percentage < 10};
+		return {text = "Vous utilisez la magie noire pour vous téléporter en Enfer. Cliquez pour annuler.", percentage = percentage, flash = percentage < 10};
 	elseif (action == "filling_bucket") then
-		return {text = "You are filling a bucket. Click to cancel.", percentage = percentage, flash = percentage < 10};
+		return {text = "Vous remplissez un seau. Cliquez pour annuler.", percentage = percentage, flash = percentage < 10};
 	elseif (action == "filling_bottle") then
-		return {text = "You are filling a bottle. Click to cancel.", percentage = percentage, flash = percentage < 10};
+		return {text = "Vous remplissez une bouteille. Cliquez pour annuler.", percentage = percentage, flash = percentage < 10};
 	elseif (action == "tie") then
-		return {text = "You are tying someone up.", percentage = percentage, flash = percentage < 10};
+		return {text = "Vous êtes en train d'attacher quelqu'un.", percentage = percentage, flash = percentage < 10};
 	elseif (action == "untie") then
-		return {text = "You are untying someone.", percentage = percentage, flash = percentage < 10};
+		return {text = "Vous détachez quelqu'un.", percentage = percentage, flash = percentage < 10};
 	end;
 end;
 
@@ -826,33 +825,33 @@ function Schema:DrawTargetPlayerStatus(target, alpha, x, y)
 	
 	if (target:Alive()) then
 		if (action == "die") then
-			mainStatus = gender.." is in critical condition and slowly dying.";
+			mainStatus = gender.." est dans un état critique et meurt lentement.";
 		elseif (action == "die_bleedout") then
-			mainStatus = gender.." is bleeding out and slowly dying.";
+			mainStatus = gender.." se vide de son sang et meurt lentement.";
 		elseif (target:GetRagdollState() == RAGDOLL_KNOCKEDOUT) then
-			mainStatus = gender.." is clearly unconscious.";
+			mainStatus = gender.." est clairement inconscient.";
 		end;
 		
 		if (target:GetNetVar("tied") != 0) then
 			if (Clockwork.player:GetAction(Clockwork.Client) == "untie") then
-				mainStatus = gender.. " is being untied.";
+				mainStatus = gender.. " est en train d'être détaché.";
 			else
 				local untieText;
 				
 				if (target:GetShootPos():Distance(Clockwork.Client:GetShootPos()) <= 192) then
 					if (Clockwork.Client:GetNetVar("tied") == 0) then
-						mainStatus = "Press :+gm_showspare1: to untie "..thirdPerson..".";
+						mainStatus = "Appuyez sur :+gm_showspare1: pour détacher "..thirdPerson..".";
 						
 						untieText = true;
 					end;
 				end;
 				
 				if (!untieText) then
-					mainStatus = gender.." has been tied up.";
+					mainStatus = gender.." a été attaché.";
 				end;
 			end;
 		elseif (Clockwork.player:GetAction(Clockwork.Client) == "tie") then
-			mainStatus = gender.." is being tied up.";
+			mainStatus = gender.." est en train d'être attaché.";
 		end;
 		
 		if (mainStatus) then
@@ -890,18 +889,18 @@ function Schema:DrawTargetPlayerSubfaction(target, alpha, x, y)
 			end
 			
 			if SUBFACTION and SUBFACTION.rivalry == targetSubfaction then
-				subfactionText = "A rival member of "..targetSubfaction..".";
+				subfactionText = "Un membre rival de "..targetSubfaction..".";
 				textColor = Color(255, 0, 0, 255);
 			elseif playerSubfaction == targetSubfaction then
-				subfactionText = "A fellow member of "..targetSubfaction..".";
+				subfactionText = "Un compagnon de "..targetSubfaction..".";
 				textColor = Color(0, 255, 0, 255);
 			else
-				subfactionText = "A member of "..targetSubfaction..".";
+				subfactionText = "Un membre de "..targetSubfaction..".";
 			end
 		-- GetFaction() checks incase they're disguised.
 		elseif Clockwork.Client:GetFaction() == "Children of Satan" and target:GetFaction() == "Children of Satan" then
 			if target:GetModel() == "models/begotten/satanists/lordvasso/male_56.mdl" then
-				subfactionText = "The chosen of Satan, the Dreadlord himself!";
+				subfactionText = "L'élu de Satan, le Seigneur de la Terreur lui-même!";
 				textColor = Color(0, 255, 0, 255);
 			elseif Clockwork.Client:GetNetVar("subfaction") == target:GetNetVar("subfaction") or Clockwork.Client:GetNetVar("subfaction") == "Kinisger" and target:GetNetVar("kinisgerOverrideSubfaction") then
 				local brother = "brother";
@@ -911,26 +910,26 @@ function Schema:DrawTargetPlayerSubfaction(target, alpha, x, y)
 				end
 				
 				if target:GetNetVar("kinisgerOverrideSubfaction") then
-					subfactionText = "A "..brother.." of the Kinisger bloodline, masquerading as a "..targetSubfaction..".";
+					subfactionText = "Un "..brother.." de la lignée Kinisger, se faisant passer pour un "..targetSubfaction..".";
 				else
-					subfactionText = "A "..brother.." of the "..targetSubfaction.." bloodline.";
+					subfactionText = "Un "..brother.." de "..targetSubfaction.." lignée.";
 				end
 				
 				textColor = Color(0, 255, 0, 255);
 			else
 				if target:GetNetVar("kinisgerOverrideSubfaction") then
-					subfactionText = "A member of the Kinisger bloodline, masquerading as a "..targetSubfaction..".";
+					subfactionText = "Un membre de la lignée Kinisger, se faisant passer pour un "..targetSubfaction..".";
 				else
-					subfactionText = "A member of the "..targetSubfaction.." bloodline.";
+					subfactionText = "Un membre de "..targetSubfaction.." lignée.";
 				end
 			end
 		elseif targetFaction ~= "Children of Satan" and targetFaction ~= "Goreic Warrior" then
 			if targetSubfaction == "Ministry" then
 				if playerSubfaction == targetSubfaction then
-					subfactionText = "A fellow minister of the Holy Hierarchy.";
+					subfactionText = "Un compagnon ministre de la Sainte Hiérarchie.";
 					textColor = Color(0, 255, 0, 255);
 				else
-					subfactionText = "A minister of the Holy Hierarchy.";
+					subfactionText = "Un ministre de la Sainte Hiérarchie.";
 				end
 			elseif targetSubfaction == "Low Ministry" then
 				local wordstouse = "Clergyman"
@@ -946,105 +945,105 @@ function Schema:DrawTargetPlayerSubfaction(target, alpha, x, y)
 				end
 
 				if playerSubfaction == targetSubfaction then
-					subfactionText = "A fellow " .. brother ..  " of the cloth.";
+					subfactionText = "Un compagnon " .. brother ..  " de l'église.";
 					textColor = Color(0, 255, 0, 255);
 
 					local nameshield = string.lower(target:GetName())
 					local ismaiden = string.find(nameshield, "shieldmaiden")
 
 					if ismaiden == 1 then
-						subfactionText = "The Shieldmaiden of the Holy Hierarchy. A fellow sister."
+						subfactionText = "La Vierge au Bouclier de la Sainte Hiérarchie. Une sœur."
 					end
 				else
-					subfactionText = "A lay " .. wordstouse .. " of the lesser Ministry.";
+					subfactionText = "Un laïc " .. wordstouse .. " du bas Ministère.";
 
 					local nameshield = string.lower(target:GetName())
 					local ismaiden = string.find(nameshield, "shieldmaiden")
 
 					if ismaiden == 1 then
-						subfactionText = "The Shieldmaiden of the Holy Hierarchy."
+						subfactionText = "La Vierge au Bouclier de la Sainte Hiérarchie."
 					end
 				end
 			elseif targetSubfaction == "Inquisition" then
 				if playerSubfaction == targetSubfaction then
-					subfactionText = "A fellow inquisitor of the Holy Hierarchy.";
+					subfactionText = "Un compagnon inquisiteur de la Sainte Hiérarchie.";
 					textColor = Color(0, 255, 0, 255);
 				else
-					subfactionText = "An inquisitor of the Holy Hierarchy.";
+					subfactionText = "Un inquisiteur de la Sainte Hiérarchie.";
 				end
 			elseif targetSubfaction == "Knights of Sol" then
 				if playerSubfaction == targetSubfaction then
-					subfactionText = "A fellow knight of the Holy Hierarchy.";
+					subfactionText = "Un compagnon chevalier de la Sainte Hiérarchie.";
 					textColor = Color(0, 255, 0, 255);
 				else
-					subfactionText = "A knight of the Holy Hierarchy.";
+					subfactionText = "Un chevalier de la Sainte Hiérarchie.";
 				end
 			elseif playerFaction == "Gatekeeper" or playerFaction == "Holy Hierarchy" or playerFaction == "Hillkeeper" then
 				if targetSubfaction == "Auxiliary" then
 					if playerSubfaction == targetSubfaction then
-						subfactionText = "A fellow auxiliary of the Holy Order of the Gatekeepers.";
+						subfactionText = "Un compagnon auxiliaire du Saint Ordre des Gardiens.";
 						textColor = Color(0, 255, 0, 255);
 					else
-						subfactionText = "An auxiliary of the Holy Order of the Gatekeepers.";
+						subfactionText = "Un auxiliaire du Saint Ordre des Gardiens.";
 					end
 				elseif targetSubfaction == "Legionary" then
 					if playerSubfaction == targetSubfaction then
-						subfactionText = "A fellow legionary of the Holy Order of the Gatekeepers.";
+						subfactionText = "Un compagnon légionnaire du Saint Ordre des Gardiens.";
 						textColor = Color(0, 255, 0, 255);
 					else
-						subfactionText = "A legionary of the Holy Order of the Gatekeepers.";
+						subfactionText = "Un légionnaire du Saint Ordre des Gardiens.";
 					end
 				elseif targetSubfaction == "Praeventor" then
 					if playerSubfaction == targetSubfaction then
-						subfactionText = "A fellow praeventor of the Holy Order of the Gatekeepers.";
+						subfactionText = "Un compagnon praeventor du Saint Ordre des Gardiens.";
 						textColor = Color(0, 255, 0, 255);
 					else
-						subfactionText = "A praeventor of the Holy Order of the Gatekeepers.";
+						subfactionText = "Un praeventor du Saint Ordre des Gardiens.";
 					end
 				elseif targetSubfaction == "Watchman" then
 					if playerSubfaction == targetSubfaction then
 						subfactionText = "A fellow watchman of the Hill of Light.";
 						textColor = Color(0, 255, 0, 255);
 					else
-						subfactionText = "A watchman of the northern Hill of Light.";
+						subfactionText = "Un garde de la Colline de Lumière du nord.";
 					end
 				elseif targetSubfaction == "Servus" then
 					if playerSubfaction == targetSubfaction then
-						subfactionText = "A fellow servant of the Hill of Light.";
+						subfactionText = "Un compagnon serviteur de la Colline de Lumière.";
 						textColor = Color(0, 255, 0, 255);
 					else
-						subfactionText = "A servant of the northern Hill of Light.";
+						subfactionText = "Un serviteur de la Colline de Lumière du nord.";
 					end
 				elseif targetSubfaction == "Outrider" then
 					if playerSubfaction == targetSubfaction then
-						subfactionText = "A fellow outrider of the Hill of Light.";
+						subfactionText = "Un compagnon éclaireur de la Colline de Lumière.";
 						textColor = Color(0, 255, 0, 255);
 					else
-						subfactionText = "An outrider of the northern Hill of Light.";
+						subfactionText = "Un éclaireur de la Colline de Lumière du nord.";
 					end
 				end
 			elseif playerFaction == "Smog City Pirate" then
 				if targetSubfaction == "Voltists" then
 					if playerSubfaction == targetSubfaction then
-						subfactionText = "A fellow Smog City Voltist.";
+						subfactionText = "Un compagnon Voltiste de Smog City.";
 						textColor = Color(0, 255, 0, 255);
 					else
-						subfactionText = "A member of the Smog City Voltists.";
+						subfactionText = "Un membre des Voltistes de Smog City.";
 					end
 				else
 					if playerSubfaction == targetSubfaction then
-						subfactionText = "A fellow Smog City pirate.";
+						subfactionText = "Un compagnon pirate de Smog City.";
 						textColor = Color(0, 255, 0, 255);
 					else
-						subfactionText = "A member of the Smog City pirates.";
+						subfactionText = "Un membre des pirates de Smog City.";
 					end
 				end
 			elseif playerFaction ~= "Wanderer" and playerFaction == targetFaction then
 				if playerSubfaction == targetSubfaction then
-					subfactionText = "A fellow member of the "..targetSubfaction..".";
+					subfactionText = "Un compagnon membre de "..targetSubfaction..".";
 					textColor = Color(0, 255, 0, 255);
 				else
-					subfactionText = "A member of the "..targetSubfaction..".";
+					subfactionText = "Un membre de "..targetSubfaction..".";
 				end
 			end
 		end
@@ -1074,7 +1073,7 @@ function Schema:DrawTargetPlayerLevel(target, alpha, x, y)
 				thirdPerson = "her"
 			end
 			
-			levelText = "A fresh little piggy, this one's soul has no power. Sacrificing "..thirdPerson.." would be an affront to the Dark Lord.";
+			levelText = "Un petit cochonnet tout frais, l'âme de celui-ci n'a aucun pouvoir. Sacrifier "..thirdPerson.." serait un affront au Seigneur Obscur.";
 		elseif level >= 10 and level < 20 then
 			local thirdPerson = "His"
 			
@@ -1083,10 +1082,10 @@ function Schema:DrawTargetPlayerLevel(target, alpha, x, y)
 			end
 
 			textColor = Color(200, 150, 150, 255);
-			levelText = "A small aura of power surrounds this one. "..thirdPerson.." soul would not be worth much to the Dark Lord.";
+			levelText = "Une petite aura de pouvoir entoure celui-ci. "..thirdPerson.." l'âme ne vaudrait pas grand-chose pour le Seigneur Obscur.";
 		elseif level >= 20 and level < 30 then
 			textColor = Color(150, 200, 150, 255);
-			levelText = "A ripe soul indeed, this one's soul would be worth much to the Dark Lord.";
+			levelText = "Une âme mûre en effet, l'âme de celui-ci vaudrait beaucoup pour le Seigneur Obscur.";
 		elseif level >= 30 then
 			local thirdPerson = "His"
 			
@@ -1095,7 +1094,7 @@ function Schema:DrawTargetPlayerLevel(target, alpha, x, y)
 			end
 		
 			textColor = Color(100, 255, 100, 255);
-			levelText = "A strong aura of power surrounds this one. "..thirdPerson.." soul would be a splendid treat indeed!";
+			levelText = "Une forte aura de pouvoir entoure celui-ci. "..thirdPerson.." l'âme serait un régal splendide en effet!";
 		end
 		
 		if levelText then
@@ -1113,7 +1112,7 @@ function Schema:DrawTargetPlayerLevel(target, alpha, x, y)
 				thirdPerson = "She"
 			end
 			
-			levelText = thirdPerson.." does not appear strong and would make for a pathetic slave.";
+			levelText = thirdPerson.." ne semble pas fort et ferait un esclave pathétique.";
 		elseif level >= 10 and level < 20 then
 			local thirdPerson = "His"
 			
@@ -1122,10 +1121,10 @@ function Schema:DrawTargetPlayerLevel(target, alpha, x, y)
 			end
 
 			textColor = Color(200, 150, 150, 255);
-			levelText = "This one is weak and would not sell for much at the slave markets.";
+			levelText = "Celui-ci est faible et ne se vendrait pas cher aux marchés aux esclaves.";
 		elseif level >= 20 and level < 30 then
 			textColor = Color(150, 200, 150, 255);
-			levelText = "Able-bodied, this one would sell for a fair price at the slave markets.";
+			levelText = "Valide, celui-ci se vendrait à un prix honnête aux marchés aux esclaves.";
 		elseif level >= 30 then
 			local thirdPerson = "He"
 			
@@ -1134,7 +1133,7 @@ function Schema:DrawTargetPlayerLevel(target, alpha, x, y)
 			end
 		
 			textColor = Color(100, 255, 100, 255);
-			levelText = thirdPerson.." looks very strong and would sell for a high price at the slave markets!";
+			levelText = thirdPerson.." a l'air très fort et se vendrait à un prix élevé aux marchés aux esclaves!";
 		end
 		
 		if levelText then
@@ -1154,34 +1153,34 @@ function Schema:DrawTargetSanityLevel(target, alpha, x, y)
 	local textColor
 
 	if targetSanity > 90 then
-		sanityText = "This one is perfectly sane."
+		sanityText = "Celui-ci est parfaitement sain d'esprit."
 		textColor = Color(255, 0, 0, 255);
 	elseif targetSanity <= 90 and targetSanity > 80 then
-		sanityText = "This one is slightly unnerved."
+		sanityText = "Celui-ci est légèrement troublé."
 		textColor = Color(225, 30, 0, 255);
 	elseif targetSanity <= 80 and targetSanity > 70 then
-		sanityText = "This one questions their thoughts."
+		sanityText = "Celui-ci remet en question ses pensées."
 		textColor = Color(195, 60, 0, 255);
 	elseif targetSanity <= 70 and targetSanity > 60 then
-		sanityText = "This one is quite disturbed."
+		sanityText = "Celui-ci est assez perturbé."
 		textColor = Color(165, 90, 0, 255);
 	elseif targetSanity <= 60 and targetSanity > 50 then
-		sanityText = "This one frolicks towards insanity."
+		sanityText = "Celui-ci gambade vers la folie."
 		textColor = Color(135, 120, 0, 255);
 	elseif targetSanity <= 50 and targetSanity > 40 then
-		sanityText = "This one is insane."
+		sanityText = "Celui-ci est fou."
 		textColor = Color(105, 150, 0, 255);
 	elseif targetSanity <= 40 and targetSanity > 30 then
-		sanityText = "This one is quite mad!"
+		sanityText = "Celui-ci est complètement dingue!"
 		textColor = Color(75, 180, 0, 255);
 	elseif targetSanity <= 30 and targetSanity > 20 then
-		sanityText = "This one is deliciously demented!"
+		sanityText = "Celui-ci est délicieusement dément!"
 		textColor = Color(45, 210, 0, 255);
 	elseif targetSanity <= 20 and targetSanity > 10 then
-		sanityText = "This one's mind has ascended!"
+		sanityText = "L'esprit de celui-ci a transcendé!"
 		textColor = Color(15, 240, 0, 255);
 	elseif targetSanity <= 10 then
-		sanityText = "This one dances in the moonlight!"
+		sanityText = "Celui-ci danse au clair de lune!"
 		textColor = Color(0, 255, 0, 255);
 	end
 		
@@ -1273,17 +1272,17 @@ function Schema:GetScreenTextInfo()
 	else]]if (Clockwork.Client:GetNetVar("beingChloro")) then
 		return {
 			alpha = 255 - blackFadeAlpha,
-			title = "SOMEBODY IS USING CHLOROFORM ON YOU"
+			title = "QUELQU'UN UTILISE DU CHLOROFORME SUR VOUS"
 		};
 	elseif (Clockwork.Client:GetNetVar("beingTied")) then
 		return {
 			alpha = 255 - blackFadeAlpha,
-			title = "YOU ARE BEING TIED UP"
+			title = "VOUS ÊTES EN TRAIN D'ÊTRE ATTACHÉ"
 		};
 	elseif (Clockwork.Client:GetNetVar("tied") != 0) then
 		return {
 			alpha = 255 - blackFadeAlpha,
-			title = "YOU HAVE BEEN TIED UP"
+			title = "VOUS AVEZ ÉTÉ ATTACHÉ"
 		};
 	end;
 end;
@@ -1306,51 +1305,51 @@ end;]]--
 
 function Schema:ModifyStatusEffects(tab)
 	if Clockwork.Client:HasTrait("clumsy") then
-		table.insert(tab, {text = "(-) Clumsy", color = Color(200, 40, 40)});
+		table.insert(tab, {text = "(-) Maladroit", color = Color(200, 40, 40)});
 	end
 
 	if Clockwork.Client:HasTrait("crosseyed") then
-		table.insert(tab, {text = "(-) Cross Eyed", color = Color(200, 40, 40)});
+		table.insert(tab, {text = "(-) Bigleux", color = Color(200, 40, 40)});
 	end
 	
 	if Clockwork.Client:GetNetVar("IsDrunk") then
 		if Clockwork.Client:GetNetVar("IsDrunk") < 3 then
-			table.insert(tab, {text = "(-) Slightly Drunk", color = Color(200, 40, 40)});
+			table.insert(tab, {text = "(-) Légèrement Ivre", color = Color(200, 40, 40)});
 		else
-			table.insert(tab, {text = "(-) Drunk", color = Color(200, 40, 40)});
+			table.insert(tab, {text = "(-) Ivre", color = Color(200, 40, 40)});
 		end
 	end
 	
 	if Clockwork.Client:HasTrait("followed") then
-		table.insert(tab, {text = "(-) Followed", color = Color(200, 40, 40)});
+		table.insert(tab, {text = "(-) Suivi", color = Color(200, 40, 40)});
 	end
 	
 	if Clockwork.Client:HasTrait("gluttony") then
-		table.insert(tab, {text = "(-) Gluttonous", color = Color(200, 40, 40)});
+		table.insert(tab, {text = "(-) Gourmand", color = Color(200, 40, 40)});
 	end
 
 	if Clockwork.Client:HasTrait("imbecile") then
-		table.insert(tab, {text = "(-) Imbecile", color = Color(200, 40, 40)});
+		table.insert(tab, {text = "(-) Imbécile", color = Color(200, 40, 40)});
 	end
 	
 	if Clockwork.Client:HasTrait("marked") then
-		table.insert(tab, {text = "(-) Marked", color = Color(200, 40, 40)});
+		table.insert(tab, {text = "(-) Marqué", color = Color(200, 40, 40)});
 	end
 	
 	if Clockwork.Client:HasTrait("pacifist") then
-		table.insert(tab, {text = "(-) Pacifist", color = Color(200, 40, 40)});
+		table.insert(tab, {text = "(-) Pacifiste", color = Color(200, 40, 40)});
 	end
 	
 	if Clockwork.Client:HasTrait("possessed") then
-		table.insert(tab, {text = "(-) Possessed", color = Color(200, 40, 40)});
+		table.insert(tab, {text = "(-) Possédé", color = Color(200, 40, 40)});
 	end
 	
 	if Clockwork.Client:HasTrait("scavenger") then
-		table.insert(tab, {text = "(+) Scavenger", color = Color(0, 225, 0)});
+		table.insert(tab, {text = "(+) Fouilleur", color = Color(0, 225, 0)});
 	end
 	
 	if Clockwork.Client:HasTrait("winded") then
-		table.insert(tab, {text = "(-) Winded", color = Color(200, 40, 40)});
+		table.insert(tab, {text = "(-) Essoufflé", color = Color(200, 40, 40)});
 	end
 end
 
@@ -2035,7 +2034,7 @@ function Schema:ModifyItemMarkupTooltip(category, maximumWeight, weight, conditi
 						frame:AddText("Le coût en endurance de chaque attaque au corps à corps. Peut être affecté par des modificateurs comme les blessures ou les convictions.", Color(225, 200, 200), nil, 0.8);
 					end
 		
-					frame:AddBar(12, {{text = tostring(weaponStats["attack"].takeammo).." Stamina", percentage = percentage * 100, color = Color(110, 30, 30), font = "DermaDefault", textless = false, noDisplay = true}}, "Attack Cost", Color(110, 30, 30), toolTip, true);
+					frame:AddBar(12, {{text = tostring(weaponStats["attack"].takeammo).." Stamina", percentage = percentage * 100, color = Color(110, 30, 30), font = "DermaDefault", textless = false, noDisplay = true}}, "Coût d'Attaque", Color(110, 30, 30), toolTip, true);
 				end
 				
 				if weaponStats["attack"].delay then
@@ -2047,7 +2046,7 @@ function Schema:ModifyItemMarkupTooltip(category, maximumWeight, weight, conditi
 						frame:AddText("Le délai avant de pouvoir lancer une autre attaque après un coup.", Color(225, 200, 200), nil, 0.8);
 					end
 				
-					frame:AddBar(12, {{text = tostring(weaponStats["attack"].delay).."s", percentage = percentage * 100, color = Color(110, 30, 30), font = "DermaDefault", textless = false, noDisplay = true}}, "Attack Delay", Color(110, 30, 30), toolTip, true);
+					frame:AddBar(12, {{text = tostring(weaponStats["attack"].delay).."s", percentage = percentage * 100, color = Color(110, 30, 30), font = "DermaDefault", textless = false, noDisplay = true}}, "Délai d'Attaque", Color(110, 30, 30), toolTip, true);
 				end
 				
 				if weaponStats["attack"].striketime then
@@ -2059,7 +2058,7 @@ function Schema:ModifyItemMarkupTooltip(category, maximumWeight, weight, conditi
 						frame:AddText("Le délai avant que votre coup ne touche un adversaire potentiel.", Color(225, 200, 200), nil, 0.8);
 					end
 				
-					frame:AddBar(12, {{text = tostring(weaponStats["attack"].striketime).."s", percentage = percentage * 100, color = Color(110, 30, 30), font = "DermaDefault", textless = false, noDisplay = true}}, "Swing Speed", Color(110, 30, 30), toolTip, true);
+					frame:AddBar(12, {{text = tostring(weaponStats["attack"].striketime).."s", percentage = percentage * 100, color = Color(110, 30, 30), font = "DermaDefault", textless = false, noDisplay = true}}, "Vitesse d'Impact", Color(110, 30, 30), toolTip, true);
 				end
 			
 				--[[if weaponStats["attack"].delay and weaponStats["attack"].striketime then
@@ -2092,9 +2091,9 @@ function Schema:ModifyItemMarkupTooltip(category, maximumWeight, weight, conditi
 						end
 			
 						if armorpiercing < originalAP then
-							frame:AddBar(12, {{text = tostring(armorpiercing).." / "..tostring(originalAP), percentage = percentage * 100, color = Color(110, 30, 30), font = "DermaDefault", textless = false, noDisplay = true}}, "Armor-Piercing Damage", Color(110, 30, 30), toolTip, true);
+							frame:AddBar(12, {{text = tostring(armorpiercing).." / "..tostring(originalAP), percentage = percentage * 100, color = Color(110, 30, 30), font = "DermaDefault", textless = false, noDisplay = true}}, "Dégâts de Pénétration d'Armure", Color(110, 30, 30), toolTip, true);
 						else
-							frame:AddBar(12, {{text = tostring(armorpiercing), percentage = percentage * 100, color = Color(110, 30, 30), font = "DermaDefault", textless = false, noDisplay = true}}, "Armor-Piercing Damage", Color(110, 30, 30), toolTip, true);
+							frame:AddBar(12, {{text = tostring(armorpiercing), percentage = percentage * 100, color = Color(110, 30, 30), font = "DermaDefault", textless = false, noDisplay = true}}, "Dégâts de Pénétration d'Armure", Color(110, 30, 30), toolTip, true);
 						end
 					end
 				end
@@ -2122,9 +2121,9 @@ function Schema:ModifyItemMarkupTooltip(category, maximumWeight, weight, conditi
 						end
 			
 						if damage < originalDamage then
-							frame:AddBar(12, {{text = tostring(damage).." / "..tostring(originalDamage), percentage = percentage * 100, color = Color(110, 30, 30), font = "DermaDefault", textless = false, noDisplay = true}}, "Primary Damage", Color(110, 30, 30), toolTip, true);
+							frame:AddBar(12, {{text = tostring(damage).." / "..tostring(originalDamage), percentage = percentage * 100, color = Color(110, 30, 30), font = "DermaDefault", textless = false, noDisplay = true}}, "Dégâts Principaux", Color(110, 30, 30), toolTip, true);
 						else
-							frame:AddBar(12, {{text = tostring(damage), percentage = percentage * 100, color = Color(110, 30, 30), font = "DermaDefault", textless = false, noDisplay = true}}, "Primary Damage", Color(110, 30, 30), toolTip, true);
+							frame:AddBar(12, {{text = tostring(damage), percentage = percentage * 100, color = Color(110, 30, 30), font = "DermaDefault", textless = false, noDisplay = true}}, "Dégâts Principaux", Color(110, 30, 30), toolTip, true);
 						end
 					end
 				end
@@ -2136,7 +2135,7 @@ function Schema:ModifyItemMarkupTooltip(category, maximumWeight, weight, conditi
 						frame:AddText("Les dégâts infligés à la stabilité de votre adversaire par votre arme. En infliger suffisamment fera temporairement tomber votre ennemi au sol. Peut être annulé par l'armure ennemie.", Color(225, 200, 200), nil, 0.8);
 					end
 		
-					frame:AddBar(12, {{text = tostring(weaponStats["attack"].stabilitydamage), percentage = percentage * 100, color = Color(110, 30, 30), font = "DermaDefault", textless = false, noDisplay = true}}, "Stability Damage", Color(110, 30, 30), toolTip, true);
+					frame:AddBar(12, {{text = tostring(weaponStats["attack"].stabilitydamage), percentage = percentage * 100, color = Color(110, 30, 30), font = "DermaDefault", textless = false, noDisplay = true}}, "Dégâts de Stabilité", Color(110, 30, 30), toolTip, true);
 				end
 				
 				if weaponStats["attack"].poisedamage then
@@ -2146,7 +2145,7 @@ function Schema:ModifyItemMarkupTooltip(category, maximumWeight, weight, conditi
 						frame:AddText("Les dégâts d'endurance infligés à votre adversaire par votre arme. Infliger des dégâts d'endurance réduit la résistance d'un ennemi au combat ou sa capacité à fuir. Peut être neutralisé par les boucliers ennemis, bien que les dégâts d'endurance se combinent avec les dégâts principaux pour infliger des dégâts de condition aux boucliers ou aux armes de parade.", Color(225, 200, 200), nil, 0.8);
 					end
 		
-					frame:AddBar(12, {{text = tostring(weaponStats["attack"].poisedamage), percentage = percentage * 100, color = Color(110, 30, 30), font = "DermaDefault", textless = false, noDisplay = true}}, "Stamina Damage", Color(110, 30, 30), toolTip, true);
+					frame:AddBar(12, {{text = tostring(weaponStats["attack"].poisedamage), percentage = percentage * 100, color = Color(110, 30, 30), font = "DermaDefault", textless = false, noDisplay = true}}, "Dégâts d'Endurance", Color(110, 30, 30), toolTip, true);
 				end
 				
 				if weaponStats["attack"].meleearc then
@@ -2156,7 +2155,7 @@ function Schema:ModifyItemMarkupTooltip(category, maximumWeight, weight, conditi
 						frame:AddText("L'arc de votre arme détermine l'amplitude de vos attaques. Soyez prudent avec les armes à grand arc, car vous pourriez involontairement toucher vos alliés.", Color(225, 200, 200), nil, 0.8);
 					end
 		
-					frame:AddBar(12, {{text = tostring(weaponStats["attack"].meleearc).."°", percentage = percentage * 100, color = Color(110, 30, 30), font = "DermaDefault", textless = false, noDisplay = true}}, "Weapon Arc", Color(110, 30, 30), toolTip, true);
+					frame:AddBar(12, {{text = tostring(weaponStats["attack"].meleearc).."°", percentage = percentage * 100, color = Color(110, 30, 30), font = "DermaDefault", textless = false, noDisplay = true}}, "Arc de l'Arme", Color(110, 30, 30), toolTip, true);
 				end
 
 				if weaponStats["attack"].meleerange then
@@ -2166,7 +2165,7 @@ function Schema:ModifyItemMarkupTooltip(category, maximumWeight, weight, conditi
 						frame:AddText("La portée de mêlée de votre arme détermine la distance à laquelle vous pouvez frapper. Certaines armes, comme les armes d'hast et les lances, infligent également des dégâts variables selon votre distance par rapport à l'ennemi touché.", Color(225, 200, 200), nil, 0.8);
 					end
 		
-					frame:AddBar(12, {{text = tostring(weaponStats["attack"].meleerange), percentage = percentage * 100, color = Color(110, 30, 30), font = "DermaDefault", textless = false, noDisplay = true}}, "Weapon Range", Color(110, 30, 30), toolTip, true);
+					frame:AddBar(12, {{text = tostring(weaponStats["attack"].meleerange), percentage = percentage * 100, color = Color(110, 30, 30), font = "DermaDefault", textless = false, noDisplay = true}}, "Portée de l'Arme", Color(110, 30, 30), toolTip, true);
 				end
 				
 				if weaponStats["attack"].canaltattack then
@@ -2179,7 +2178,7 @@ function Schema:ModifyItemMarkupTooltip(category, maximumWeight, weight, conditi
 							frame:AddText("Le coût en endurance de chaque attaque de mêlée de la posture alternative. Peut être affecté par des modificateurs tels que blessures ou convictions.", Color(225, 200, 200), nil, 0.8);
 						end
 			
-						frame:AddBar(12, {{text = tostring(weaponStats["attack"].alttakeammo).." Stamina", percentage = percentage * 100, color = Color(110, 30, 30), font = "DermaDefault", textless = false, noDisplay = true}}, "Alternate Attack Cost", Color(110, 30, 30), toolTip, true);
+						frame:AddBar(12, {{text = tostring(weaponStats["attack"].alttakeammo).." Stamina", percentage = percentage * 100, color = Color(110, 30, 30), font = "DermaDefault", textless = false, noDisplay = true}}, "Coût d'Attaque Alternative", Color(110, 30, 30), toolTip, true);
 					end
 					
 					if weaponStats["attack"].altarmorpiercing and weaponStats["attack"].altarmorpiercing != weaponStats["attack"].armorpiercing then
@@ -2209,9 +2208,9 @@ function Schema:ModifyItemMarkupTooltip(category, maximumWeight, weight, conditi
 							end
 				
 							if armorpiercing < originalAP then
-								frame:AddBar(12, {{text = tostring(armorpiercing).." / "..tostring(originalAP), percentage = percentage * 100, color = Color(110, 30, 30), font = "DermaDefault", textless = false, noDisplay = true}}, "Alternate Attack Armor-Piercing Damage", Color(110, 30, 30), toolTip, true);
+								frame:AddBar(12, {{text = tostring(armorpiercing).." / "..tostring(originalAP), percentage = percentage * 100, color = Color(110, 30, 30), font = "DermaDefault", textless = false, noDisplay = true}}, "Dégâts de Pénétration d'Armure de l'Attaque Alternative", Color(110, 30, 30), toolTip, true);
 							else
-								frame:AddBar(12, {{text = tostring(armorpiercing), percentage = percentage * 100, color = Color(110, 30, 30), font = "DermaDefault", textless = false, noDisplay = true}}, "Alternate Attack Armor-Piercing Damage", Color(110, 30, 30), toolTip, true);
+								frame:AddBar(12, {{text = tostring(armorpiercing), percentage = percentage * 100, color = Color(110, 30, 30), font = "DermaDefault", textless = false, noDisplay = true}}, "Dégâts de Pénétration d'Armure de l'Attaque Alternative", Color(110, 30, 30), toolTip, true);
 							end
 						end
 					end
@@ -2243,9 +2242,9 @@ function Schema:ModifyItemMarkupTooltip(category, maximumWeight, weight, conditi
 							end
 				
 							if damage < originalDamage then
-								frame:AddBar(12, {{text = tostring(math.Round(damage * weaponStats["attack"].altattackdamagemodifier)).." / "..tostring(math.Round(originalDamage * weaponStats["attack"].altattackdamagemodifier)), percentage = percentage * 100, color = Color(110, 30, 30), font = "DermaDefault", textless = false, noDisplay = true}}, "Alternate Attack Damage", Color(110, 30, 30), toolTip, true);
+								frame:AddBar(12, {{text = tostring(math.Round(damage * weaponStats["attack"].altattackdamagemodifier)).." / "..tostring(math.Round(originalDamage * weaponStats["attack"].altattackdamagemodifier)), percentage = percentage * 100, color = Color(110, 30, 30), font = "DermaDefault", textless = false, noDisplay = true}}, "Dégâts de l'Attaque Alternative", Color(110, 30, 30), toolTip, true);
 							else
-								frame:AddBar(12, {{text = tostring(math.Round(damage * weaponStats["attack"].altattackdamagemodifier)), percentage = percentage * 100, color = Color(110, 30, 30), font = "DermaDefault", textless = false, noDisplay = true}}, "Alternate Attack Damage", Color(110, 30, 30), toolTip, true);
+								frame:AddBar(12, {{text = tostring(math.Round(damage * weaponStats["attack"].altattackdamagemodifier)), percentage = percentage * 100, color = Color(110, 30, 30), font = "DermaDefault", textless = false, noDisplay = true}}, "Dégâts de l'Attaque Alternative", Color(110, 30, 30), toolTip, true);
 							end
 						end
 					end
@@ -2257,7 +2256,7 @@ function Schema:ModifyItemMarkupTooltip(category, maximumWeight, weight, conditi
 							frame:AddText("Les dégâts à la stabilité de votre adversaire infligés par l'attaque alternative de votre arme. En infliger suffisamment fera temporairement tomber votre ennemi au sol. Peut être annulé par l'armure ennemie.", Color(225, 200, 200), nil, 0.8);
 						end
 			
-						frame:AddBar(12, {{text = tostring(weaponStats["attack"].stabilitydamage * weaponStats["attack"].altattackstabilitydamagemodifier), percentage = percentage * 100, color = Color(110, 30, 30), font = "DermaDefault", textless = false, noDisplay = true}}, "Alternate Attack Stability Damage", Color(110, 30, 30), toolTip, true);
+						frame:AddBar(12, {{text = tostring(weaponStats["attack"].stabilitydamage * weaponStats["attack"].altattackstabilitydamagemodifier), percentage = percentage * 100, color = Color(110, 30, 30), font = "DermaDefault", textless = false, noDisplay = true}}, "Dégâts de Stabilité de l'Attaque Alternative", Color(110, 30, 30), toolTip, true);
 					end
 					
 					if weaponStats["attack"].poisedamage and weaponStats["attack"].altattackpoisedamagemodifier then
@@ -2267,7 +2266,7 @@ function Schema:ModifyItemMarkupTooltip(category, maximumWeight, weight, conditi
 							frame:AddText("Les dégâts d'endurance infligés par l'attaque alternative de votre arme à un adversaire. Infliger des dégâts d'endurance réduit la résistance d'un ennemi au combat ou sa capacité à fuir. Peut être neutralisé par les boucliers ennemis.", Color(225, 200, 200), nil, 0.8);
 						end
 			
-						frame:AddBar(12, {{text = tostring(weaponStats["attack"].poisedamage * weaponStats["attack"].altattackpoisedamagemodifier), percentage = percentage * 100, color = Color(110, 30, 30), font = "DermaDefault", textless = false, noDisplay = true}}, "Alternate Attack Stamina Damage", Color(110, 30, 30), toolTip, true);
+						frame:AddBar(12, {{text = tostring(weaponStats["attack"].poisedamage * weaponStats["attack"].altattackpoisedamagemodifier), percentage = percentage * 100, color = Color(110, 30, 30), font = "DermaDefault", textless = false, noDisplay = true}}, "Dégâts d'Endurance de l'Attaque Alternative", Color(110, 30, 30), toolTip, true);
 					end
 					
 					if weaponStats["attack"].altmeleearc then
@@ -2300,7 +2299,7 @@ function Schema:ModifyItemMarkupTooltip(category, maximumWeight, weight, conditi
 								frame:AddText("La portée de mêlée de l'attaque alternative de votre arme détermine la distance à laquelle vous pouvez frapper en posture alternative. Certaines armes comme les armes d'hast et les lances infligent également des dégâts variables selon votre distance par rapport à l'ennemi touché.", Color(225, 200, 200), nil, 0.8);
 							end
 			
-							frame:AddBar(12, {{text = tostring(newRange), percentage = percentage * 100, color = Color(110, 30, 30), font = "DermaDefault", textless = false, noDisplay = true}}, "Alternate Attack Weapon Range", Color(110, 30, 30), toolTip, true);
+							frame:AddBar(12, {{text = tostring(newRange), percentage = percentage * 100, color = Color(110, 30, 30), font = "DermaDefault", textless = false, noDisplay = true}}, "Portée de l'Arme pour l'Attaque Alternative", Color(110, 30, 30), toolTip, true);
 						end
 					end
 				end
@@ -2312,7 +2311,7 @@ function Schema:ModifyItemMarkupTooltip(category, maximumWeight, weight, conditi
 						frame:AddText("Le cône de blocage de votre arme ou bouclier détermine les angles auxquels la parade est efficace, lorsque vous faites face à un adversaire.", Color(225, 200, 200), nil, 0.8);
 					end
 
-					frame:AddBar(12, {{text = tostring(weaponStats["defense"].blockcone).."°", percentage = percentage * 100, color = Color(110, 30, 30), font = "DermaDefault", noDisplay = true}}, "Block Cone", Color(110, 30, 30), toolTip, true);
+					frame:AddBar(12, {{text = tostring(weaponStats["defense"].blockcone).."°", percentage = percentage * 100, color = Color(110, 30, 30), font = "DermaDefault", noDisplay = true}}, "Cône de Blocage", Color(110, 30, 30), toolTip, true);
 				end
 				
 				if weaponStats["defense"].guardblockamount then
@@ -2322,7 +2321,7 @@ function Schema:ModifyItemMarkupTooltip(category, maximumWeight, weight, conditi
 						frame:AddText("Le coût minimal en endurance pour bloquer avec votre arme ou bouclier, si une attaque ennemie inflige des dégâts d'endurance.", Color(225, 200, 200), nil, 0.8);
 					end
 
-					frame:AddBar(12, {{text = tostring(weaponStats["defense"].guardblockamount).." Stamina", percentage = percentage * 100, color = Color(110, 30, 30), font = "DermaDefault", textless = false, noDisplay = true}}, "Block Cost (Minimum)", Color(110, 30, 30), toolTip, true);
+					frame:AddBar(12, {{text = tostring(weaponStats["defense"].guardblockamount).." Stamina", percentage = percentage * 100, color = Color(110, 30, 30), font = "DermaDefault", textless = false, noDisplay = true}}, "Coût de Blocage (Minimum)", Color(110, 30, 30), toolTip, true);
 				end
 				
 				if weaponStats["defense"].poiseresistance then
@@ -2332,7 +2331,7 @@ function Schema:ModifyItemMarkupTooltip(category, maximumWeight, weight, conditi
 						frame:AddText("La résistance de votre arme ou bouclier aux dégâts d'endurance supplémentaires au-delà du coût minimum lors d'un blocage.", Color(225, 200, 200), nil, 0.8);
 					end
 
-					frame:AddBar(12, {{text = tostring(weaponStats["defense"].poiseresistance).." Stamina", percentage = percentage * 100, color = Color(110, 30, 30), font = "DermaDefault", textless = false, noDisplay = true}}, "Block Stamina Damage Resistance", Color(110, 30, 30), toolTip, true);
+					frame:AddBar(12, {{text = tostring(weaponStats["defense"].poiseresistance).." Stamina", percentage = percentage * 100, color = Color(110, 30, 30), font = "DermaDefault", textless = false, noDisplay = true}}, "Résistance aux Dégâts d'Endurance en Blocage", Color(110, 30, 30), toolTip, true);
 				end
 				
 				if weaponStats["defense"].canparry then
@@ -2343,7 +2342,7 @@ function Schema:ModifyItemMarkupTooltip(category, maximumWeight, weight, conditi
 							frame:AddText("Le coût en endurance pour tenter une parade. Parer un adversaire avec succès remboursera la moitié de ce coût.", Color(225, 200, 200), nil, 0.8);
 						end
 
-						frame:AddBar(12, {{text = tostring(weaponStats["defense"].parrytakestamina).." Stamina", percentage = percentage * 100, color = Color(110, 30, 30), font = "DermaDefault", textless = false, noDisplay = true}}, "Parry Cost", Color(110, 30, 30), toolTip, true);
+						frame:AddBar(12, {{text = tostring(weaponStats["defense"].parrytakestamina).." Stamina", percentage = percentage * 100, color = Color(110, 30, 30), font = "DermaDefault", textless = false, noDisplay = true}}, "Coût de Parade", Color(110, 30, 30), toolTip, true);
 					end
 					
 					if weaponStats["defense"].parrydifficulty then
@@ -2353,7 +2352,7 @@ function Schema:ModifyItemMarkupTooltip(category, maximumWeight, weight, conditi
 							frame:AddText("Le temps en secondes après une parade pendant lequel votre parade reste active. Des valeurs plus élevées facilitent la parade en élargissant la fenêtre de temps.", Color(225, 200, 200), nil, 0.8);
 						end
 
-						frame:AddBar(12, {{text = tostring(weaponStats["defense"].parrydifficulty).."s", percentage = percentage * 100, color = Color(110, 30, 30), font = "DermaDefault", textless = false, noDisplay = true}}, "Parry Window", Color(110, 30, 30), toolTip, true);
+						frame:AddBar(12, {{text = tostring(weaponStats["defense"].parrydifficulty).."s", percentage = percentage * 100, color = Color(110, 30, 30), font = "DermaDefault", textless = false, noDisplay = true}}, "Fenêtre de Parade", Color(110, 30, 30), toolTip, true);
 					end
 				end
 			end
@@ -2984,7 +2983,7 @@ function Schema:ModifyItemMarkupTooltip(category, maximumWeight, weight, conditi
 						frame:AddText("Plus cette statistique est élevée, plus votre bouclier peut encaisser de coups avant de se briser.", Color(225, 200, 200), nil, 0.8);
 					end
 
-					frame:AddBar(12, {{text = tostring(shieldDurability).." / 500", percentage = percentage * 100, color = Color(110, 30, 30), font = "DermaDefault", textless = false, noDisplay = true}}, "Shield Durability", Color(110, 30, 30), toolTip, true);
+					frame:AddBar(12, {{text = tostring(shieldDurability).." / 500", percentage = percentage * 100, color = Color(110, 30, 30), font = "DermaDefault", textless = false, noDisplay = true}}, "Durabilité du Bouclier", Color(110, 30, 30), toolTip, true);
 				end
 				
 				if shieldStats.blockcone then
@@ -2994,7 +2993,7 @@ function Schema:ModifyItemMarkupTooltip(category, maximumWeight, weight, conditi
 						frame:AddText("Le cône de blocage de votre arme ou bouclier détermine les angles auxquels la parade est efficace, lorsque vous faites face à un adversaire.", Color(225, 200, 200), nil, 0.8);
 					end
 
-					frame:AddBar(12, {{text = tostring(shieldStats.blockcone).."°", percentage = percentage * 100, color = Color(110, 30, 30), font = "DermaDefault", textless = false, noDisplay = true}}, "Block Cone", Color(110, 30, 30), toolTip, true);
+					frame:AddBar(12, {{text = tostring(shieldStats.blockcone).."°", percentage = percentage * 100, color = Color(110, 30, 30), font = "DermaDefault", textless = false, noDisplay = true}}, "Cône de Blocage", Color(110, 30, 30), toolTip, true);
 				end
 				
 				if shieldStats.guardblockamount then
@@ -3004,7 +3003,7 @@ function Schema:ModifyItemMarkupTooltip(category, maximumWeight, weight, conditi
 						frame:AddText("Le coût minimal en endurance pour bloquer avec votre arme ou bouclier, si une attaque ennemie inflige des dégâts d'endurance.", Color(225, 200, 200), nil, 0.8);
 					end
 
-					frame:AddBar(12, {{text = tostring(shieldStats.guardblockamount).." Stamina", percentage = percentage * 100, color = Color(110, 30, 30), font = "DermaDefault", textless = false, noDisplay = true}}, "Block Cost (Minimum)", Color(110, 30, 30), toolTip, true);
+					frame:AddBar(12, {{text = tostring(shieldStats.guardblockamount).." Stamina", percentage = percentage * 100, color = Color(110, 30, 30), font = "DermaDefault", textless = false, noDisplay = true}}, "Coût de Blocage (Minimum)", Color(110, 30, 30), toolTip, true);
 				end
 				
 				if shieldStats.poiseresistance then
@@ -3014,7 +3013,7 @@ function Schema:ModifyItemMarkupTooltip(category, maximumWeight, weight, conditi
 						frame:AddText("La résistance de votre arme ou bouclier aux dégâts d'endurance supplémentaires au-delà du coût minimum lors d'un blocage.", Color(225, 200, 200), nil, 0.8);
 					end
 
-					frame:AddBar(12, {{text = tostring(shieldStats.poiseresistance).." Stamina", percentage = percentage * 100, color = Color(110, 30, 30), font = "DermaDefault", textless = false, noDisplay = true}}, "Block Stamina Damage Resistance", Color(110, 30, 30), toolTip, true);
+					frame:AddBar(12, {{text = tostring(shieldStats.poiseresistance).." Stamina", percentage = percentage * 100, color = Color(110, 30, 30), font = "DermaDefault", textless = false, noDisplay = true}}, "Résistance aux Dégâts d'Endurance en Blocage", Color(110, 30, 30), toolTip, true);
 				end
 				
 				if shieldStats.canparry then
@@ -3025,7 +3024,7 @@ function Schema:ModifyItemMarkupTooltip(category, maximumWeight, weight, conditi
 							frame:AddText("Le coût en endurance pour tenter une parade. Une parade réussie contre un adversaire remboursera la moitié de ce coût.", Color(225, 200, 200), nil, 0.8);
 						end
 
-						frame:AddBar(12, {{text = tostring(shieldStats.parrytakestamina).." Stamina", percentage = percentage * 100, color = Color(110, 30, 30), font = "DermaDefault", textless = false, noDisplay = true}}, "Parry Cost", Color(110, 30, 30), toolTip, true);
+						frame:AddBar(12, {{text = tostring(shieldStats.parrytakestamina).." Stamina", percentage = percentage * 100, color = Color(110, 30, 30), font = "DermaDefault", textless = false, noDisplay = true}}, "Coût de Parade", Color(110, 30, 30), toolTip, true);
 					end
 					
 					if shieldStats.parrydifficulty then
@@ -3035,7 +3034,7 @@ function Schema:ModifyItemMarkupTooltip(category, maximumWeight, weight, conditi
 							frame:AddText("Le temps en secondes après une parade pendant lequel votre parade reste active. Des valeurs plus élevées facilitent la parade en élargissant la fenêtre de temps.", Color(225, 200, 200), nil, 0.8);
 						end
 
-						frame:AddBar(12, {{text = tostring(shieldStats.parrydifficulty).."s", percentage = percentage * 100, color = Color(110, 30, 30), font = "DermaDefault", textless = false, noDisplay = true}}, "Parry Window", Color(110, 30, 30), toolTip, true);
+						frame:AddBar(12, {{text = tostring(shieldStats.parrydifficulty).."s", percentage = percentage * 100, color = Color(110, 30, 30), font = "DermaDefault", textless = false, noDisplay = true}}, "Fenêtre de Parade", Color(110, 30, 30), toolTip, true);
 					end
 				end
 				
@@ -3046,7 +3045,7 @@ function Schema:ModifyItemMarkupTooltip(category, maximumWeight, weight, conditi
 						frame:AddText("Les boucliers équipés peuvent réduire les dégâts des armes équipées jusqu'à une valeur de 30% pour les boucliers les plus lourds.", Color(225, 200, 200), nil, 0.8);
 					end
 
-					frame:AddBar(12, {{text = tostring((1 - shieldStats.damagereduction) * 100).."%", percentage = percentage * 333.33, color = Color(110, 30, 30), font = "DermaDefault", textless = false, noDisplay = true}}, "Weapon Damage Reduction", Color(110, 30, 30), toolTip, true);
+					frame:AddBar(12, {{text = tostring((1 - shieldStats.damagereduction) * 100).."%", percentage = percentage * 333.33, color = Color(110, 30, 30), font = "DermaDefault", textless = false, noDisplay = true}}, "Réduction des Dégâts de l'Arme", Color(110, 30, 30), toolTip, true);
 				end
 			end
 		end
@@ -3316,9 +3315,9 @@ function Schema:ModifyItemMarkupTooltip(category, maximumWeight, weight, conditi
 			end
 
 			if protection < originalProtection then
-				frame:AddBar(12, {{text = tostring(protection).."% / "..originalProtection.."%", percentage = percentage, color = Color(110, 30, 30), font = "DermaDefault", textless = false, noDisplay = true}}, "Armor Effectiveness", Color(110, 30, 30), toolTip, true);
+				frame:AddBar(12, {{text = tostring(protection).."% / "..originalProtection.."%", percentage = percentage, color = Color(110, 30, 30), font = "DermaDefault", textless = false, noDisplay = true}}, "Efficacité de l'Armure", Color(110, 30, 30), toolTip, true);
 			else
-				frame:AddBar(12, {{text = tostring(protection).."%", percentage = percentage, color = Color(110, 30, 30), font = "DermaDefault", textless = false, noDisplay = true}}, "Armor Effectiveness", Color(110, 30, 30), toolTip, true);
+				frame:AddBar(12, {{text = tostring(protection).."%", percentage = percentage, color = Color(110, 30, 30), font = "DermaDefault", textless = false, noDisplay = true}}, "Efficacité de l'Armure", Color(110, 30, 30), toolTip, true);
 			end
 		end
 		
@@ -3335,7 +3334,7 @@ function Schema:ModifyItemMarkupTooltip(category, maximumWeight, weight, conditi
 				frame:AddText("Réduit les dégâts contondants d'un montant fixe, indépendamment de l'efficacité de l'armure.", Color(225, 200, 200), nil, 0.8);
 			end
 
-			frame:AddBar(12, {{text = tostring(percentage).."%", percentage = percentage, color = Color(110, 30, 30), font = "DermaDefault", textless = false, noDisplay = true}}, "Blunt Damage Resistance", Color(110, 30, 30), toolTip, true);
+			frame:AddBar(12, {{text = tostring(percentage).."%", percentage = percentage, color = Color(110, 30, 30), font = "DermaDefault", textless = false, noDisplay = true}}, "Résistance aux Dégâts Contondants", Color(110, 30, 30), toolTip, true);
 		end
 		
 		if itemTable.bulletScale then
@@ -3351,7 +3350,7 @@ function Schema:ModifyItemMarkupTooltip(category, maximumWeight, weight, conditi
 				frame:AddText("Réduit les dégâts des balles d'une valeur fixe, indépendamment de l'efficacité de l'armure.", Color(225, 200, 200), nil, 0.8);
 			end
 
-			frame:AddBar(12, {{text = tostring(percentage).."%", percentage = percentage, color = Color(110, 30, 30), font = "DermaDefault", textless = false, noDisplay = true}}, "Bullet Damage Resistance", Color(110, 30, 30), toolTip, true);
+			frame:AddBar(12, {{text = tostring(percentage).."%", percentage = percentage, color = Color(110, 30, 30), font = "DermaDefault", textless = false, noDisplay = true}}, "Résistance aux Dégâts de Balles", Color(110, 30, 30), toolTip, true);
 		end
 		
 		--[[if itemTable.damageTypeScales and itemTable.damageTypeScales[DMG_FALL] then
@@ -3373,7 +3372,7 @@ function Schema:ModifyItemMarkupTooltip(category, maximumWeight, weight, conditi
 				frame:AddText("Réduit les dégâts de perforation d'une valeur fixe, indépendamment de l'efficacité de l'armure.", Color(225, 200, 200), nil, 0.8);
 			end
 
-			frame:AddBar(12, {{text = tostring(percentage).."%", percentage = percentage, color = Color(110, 30, 30), font = "DermaDefault", textless = false, noDisplay = true}}, "Pierce Damage Resistance", Color(110, 30, 30), toolTip, true);
+			frame:AddBar(12, {{text = tostring(percentage).."%", percentage = percentage, color = Color(110, 30, 30), font = "DermaDefault", textless = false, noDisplay = true}}, "Résistance aux Dégâts Perforants", Color(110, 30, 30), toolTip, true);
 		end
 		
 		if itemTable.slashScale then
@@ -3389,7 +3388,7 @@ function Schema:ModifyItemMarkupTooltip(category, maximumWeight, weight, conditi
 				frame:AddText("Réduit les dégâts de taille d'une valeur fixe, indépendamment de l'efficacité de l'armure.", Color(225, 200, 200), nil, 0.8);
 			end
 
-			frame:AddBar(12, {{text = tostring(percentage).."%", percentage = percentage, color = Color(110, 30, 30), font = "DermaDefault", textless = false, noDisplay = true}}, "Slash Damage Resistance", Color(110, 30, 30), toolTip, true);
+			frame:AddBar(12, {{text = tostring(percentage).."%", percentage = percentage, color = Color(110, 30, 30), font = "DermaDefault", textless = false, noDisplay = true}}, "Résistance aux Dégâts Tranchants", Color(110, 30, 30), toolTip, true);
 		end
 		
 		if itemTable.stabilityScale then
@@ -3405,7 +3404,7 @@ function Schema:ModifyItemMarkupTooltip(category, maximumWeight, weight, conditi
 				frame:AddText("Réduit les dégâts de stabilité d'une valeur fixe, indépendamment de l'efficacité de l'armure.", Color(225, 200, 200), nil, 0.8);
 			end
 
-			frame:AddBar(12, {{text = tostring(percentage).."%", percentage = percentage, color = Color(110, 30, 30), font = "DermaDefault", textless = false, noDisplay = true}}, "Stability Damage Resistance", Color(110, 30, 30), toolTip, true);
+			frame:AddBar(12, {{text = tostring(percentage).."%", percentage = percentage, color = Color(110, 30, 30), font = "DermaDefault", textless = false, noDisplay = true}}, "Résistance aux Dégâts de Stabilité", Color(110, 30, 30), toolTip, true);
 		else
 			local armorClass = itemTable.weightclass;
 			
@@ -3433,7 +3432,7 @@ function Schema:ModifyItemMarkupTooltip(category, maximumWeight, weight, conditi
 					frame:AddText("Réduit les dégâts de stabilité d'une valeur fixe, indépendamment de l'efficacité de l'armure.", Color(225, 200, 200), nil, 0.8);
 				end
 				
-				frame:AddBar(12, {{text = tostring(percentage).."%", percentage = percentage, color = Color(110, 30, 30), font = "DermaDefault", textless = false, noDisplay = true}}, "Stability Damage Resistance", Color(110, 30, 30), toolTip, true);
+				frame:AddBar(12, {{text = tostring(percentage).."%", percentage = percentage, color = Color(110, 30, 30), font = "DermaDefault", textless = false, noDisplay = true}}, "Résistance aux Dégâts de Stabilité", Color(110, 30, 30), toolTip, true);
 			end
 		end
 		
@@ -3449,7 +3448,7 @@ function Schema:ModifyItemMarkupTooltip(category, maximumWeight, weight, conditi
 			if(category == "Helmet") then percentage = percentage * 0.20;
 			elseif(!itemTable.hasHelmet) then percentage = percentage * 0.80; end
 		
-			frame:AddBar(12, {{text = tostring(percentage).."%", percentage = percentage, color = Color(110, 30, 30), font = "DermaDefault", textless = false, noDisplay = true}}, "Insulation", Color(110, 30, 30), true);
+			frame:AddBar(12, {{text = tostring(percentage).."%", percentage = percentage, color = Color(110, 30, 30), font = "DermaDefault", textless = false, noDisplay = true}}, "Isolation", Color(110, 30, 30), true);
 		end
 		
 		return true;
@@ -3566,9 +3565,9 @@ function Schema:ModifyItemMarkupTooltip(category, maximumWeight, weight, conditi
 					end
 		
 					if accuracy > originalAccuracy then
-						frame:AddBar(12, {{text = tostring(accuracy).." / "..tostring(originalAccuracy), percentage = percentage * 100, color = Color(110, 30, 30), font = "DermaDefault", textless = false, noDisplay = true}}, "Accuracy (Aiming)", Color(110, 30, 30), toolTip, true);
+						frame:AddBar(12, {{text = tostring(accuracy).." / "..tostring(originalAccuracy), percentage = percentage * 100, color = Color(110, 30, 30), font = "DermaDefault", textless = false, noDisplay = true}}, "Précision (Visée)", Color(110, 30, 30), toolTip, true);
 					else
-						frame:AddBar(12, {{text = tostring(accuracy), percentage = percentage * 100, color = Color(110, 30, 30), font = "DermaDefault", textless = false, noDisplay = true}}, "Accuracy (Aiming)", Color(110, 30, 30), toolTip, true);
+						frame:AddBar(12, {{text = tostring(accuracy), percentage = percentage * 100, color = Color(110, 30, 30), font = "DermaDefault", textless = false, noDisplay = true}}, "Précision (Visée)", Color(110, 30, 30), toolTip, true);
 					end
 				end
 				
@@ -3587,9 +3586,9 @@ function Schema:ModifyItemMarkupTooltip(category, maximumWeight, weight, conditi
 					end
 		
 					if accuracy > originalAccuracy then
-						frame:AddBar(12, {{text = tostring(accuracy).." / "..tostring(originalAccuracy), percentage = percentage * 100, color = Color(110, 30, 30), font = "DermaDefault", textless = false, noDisplay = true}}, "Accuracy (Hip-Fire)", Color(110, 30, 30), toolTip, true);
+						frame:AddBar(12, {{text = tostring(accuracy).." / "..tostring(originalAccuracy), percentage = percentage * 100, color = Color(110, 30, 30), font = "DermaDefault", textless = false, noDisplay = true}}, "Précision (Tir à la Hanche)", Color(110, 30, 30), toolTip, true);
 					else
-						frame:AddBar(12, {{text = tostring(accuracy), percentage = percentage * 100, color = Color(110, 30, 30), font = "DermaDefault", textless = false, noDisplay = true}}, "Accuracy (Hip-Fire)", Color(110, 30, 30), toolTip, true);
+						frame:AddBar(12, {{text = tostring(accuracy), percentage = percentage * 100, color = Color(110, 30, 30), font = "DermaDefault", textless = false, noDisplay = true}}, "Précision (Tir à la Hanche))", Color(110, 30, 30), toolTip, true);
 					end
 				end
 				
@@ -3600,7 +3599,7 @@ function Schema:ModifyItemMarkupTooltip(category, maximumWeight, weight, conditi
 						frame:AddText("Le nombre de projectiles tirés par cette arme.", Color(225, 200, 200), nil, 0.8);
 					end
 		
-					frame:AddBar(12, {{text = tostring(weaponTable.Primary.NumShots), percentage = percentage * 100, color = Color(110, 30, 30), font = "DermaDefault", textless = false, noDisplay = true}}, "Pellet Amount", Color(110, 30, 30), toolTip, true);
+					frame:AddBar(12, {{text = tostring(weaponTable.Primary.NumShots), percentage = percentage * 100, color = Color(110, 30, 30), font = "DermaDefault", textless = false, noDisplay = true}}, "Quantité de Plombs", Color(110, 30, 30), toolTip, true);
 				end
 				
 				if weaponTable.Primary.RPM and weaponTable.Primary.ClipSize > 1 then
@@ -3610,7 +3609,7 @@ function Schema:ModifyItemMarkupTooltip(category, maximumWeight, weight, conditi
 						frame:AddText("La cadence de tir de cette arme en coups par minute.", Color(225, 200, 200), nil, 0.8);
 					end
 		
-					frame:AddBar(12, {{text = tostring(weaponTable.Primary.RPM), percentage = percentage * 100, color = Color(110, 30, 30), font = "DermaDefault", textless = false, noDisplay = true}}, "Rate of Fire", Color(110, 30, 30), toolTip, true);
+					frame:AddBar(12, {{text = tostring(weaponTable.Primary.RPM), percentage = percentage * 100, color = Color(110, 30, 30), font = "DermaDefault", textless = false, noDisplay = true}}, "Cadence de Tir", Color(110, 30, 30), toolTip, true);
 				end
 				
 				if itemTable.reloadTime then
@@ -3620,7 +3619,7 @@ function Schema:ModifyItemMarkupTooltip(category, maximumWeight, weight, conditi
 						frame:AddText("Le temps en secondes nécessaire pour recharger cette arme.", Color(225, 200, 200), nil, 0.8);
 					end
 		
-					frame:AddBar(12, {{text = tostring(itemTable.reloadTime).."s", percentage = percentage * 10, color = Color(110, 30, 30), font = "DermaDefault", textless = false, noDisplay = true}}, "Reload Time", Color(110, 30, 30), toolTip, true);
+					frame:AddBar(12, {{text = tostring(itemTable.reloadTime).."s", percentage = percentage * 10, color = Color(110, 30, 30), font = "DermaDefault", textless = false, noDisplay = true}}, "Temps de Rechargement", Color(110, 30, 30), toolTip, true);
 				end
 				
 				if weaponTable.Primary.MaximumDistanceDamage then
@@ -3639,9 +3638,9 @@ function Schema:ModifyItemMarkupTooltip(category, maximumWeight, weight, conditi
 						end
 			
 						if maximumdistancedamage < originalDamage then
-							frame:AddBar(12, {{text = tostring(maximumdistancedamage).." / "..tostring(originalDamage).." (At 40 Feet)", percentage = percentage * 100, color = Color(110, 30, 30), font = "DermaDefault", textless = false, noDisplay = true}}, "Maximum Projectile Damage", Color(110, 30, 30), toolTip, true);
+							frame:AddBar(12, {{text = tostring(maximumdistancedamage).." / "..tostring(originalDamage).." (At 40 Feet)", percentage = percentage * 100, color = Color(110, 30, 30), font = "DermaDefault", textless = false, noDisplay = true}}, "Dégâts Maximum du Projectile", Color(110, 30, 30), toolTip, true);
 						else
-							frame:AddBar(12, {{text = tostring(maximumdistancedamage).." (At 40 Feet)", percentage = percentage * 100, color = Color(110, 30, 30), font = "DermaDefault", textless = false, noDisplay = true}}, "Maximum Projectile Damage", Color(110, 30, 30), toolTip, true);
+							frame:AddBar(12, {{text = tostring(maximumdistancedamage).." (At 40 Feet)", percentage = percentage * 100, color = Color(110, 30, 30), font = "DermaDefault", textless = false, noDisplay = true}}, "Dégâts Maximum du Projectile", Color(110, 30, 30), toolTip, true);
 						end
 					end
 				end
@@ -3662,9 +3661,9 @@ function Schema:ModifyItemMarkupTooltip(category, maximumWeight, weight, conditi
 						end
 			
 						if minimumdistancedamage < originalDamage then
-							frame:AddBar(12, {{text = tostring(minimumdistancedamage).." / "..tostring(originalDamage).." (Point-Blank)", percentage = percentage * 100, color = Color(110, 30, 30), font = "DermaDefault", textless = false, noDisplay = true}}, "Minimum Projectile Damage", Color(110, 30, 30), toolTip, true);
+							frame:AddBar(12, {{text = tostring(minimumdistancedamage).." / "..tostring(originalDamage).." (Point-Blank)", percentage = percentage * 100, color = Color(110, 30, 30), font = "DermaDefault", textless = false, noDisplay = true}}, "Dégâts Minimum du Projectile", Color(110, 30, 30), toolTip, true);
 						else
-							frame:AddBar(12, {{text = tostring(minimumdistancedamage).." (Point-Blank)", percentage = percentage * 100, color = Color(110, 30, 30), font = "DermaDefault", textless = false, noDisplay = true}}, "Minimum Projectile Damage", Color(110, 30, 30), toolTip, true);
+							frame:AddBar(12, {{text = tostring(minimumdistancedamage).." (Point-Blank)", percentage = percentage * 100, color = Color(110, 30, 30), font = "DermaDefault", textless = false, noDisplay = true}}, "Dégâts Minimum du Projectile", Color(110, 30, 30), toolTip, true);
 						end
 					end
 				end
@@ -3676,7 +3675,7 @@ function Schema:ModifyItemMarkupTooltip(category, maximumWeight, weight, conditi
 						frame:AddText("Les dégâts de stabilité infligés à votre adversaire par vos projectiles tirés. En infliger suffisamment fera temporairement tomber votre ennemi au sol. Peut être annulé par l'armure ennemie. Pour les carreaux, cela varie selon la distance : les cibles éloignées subiront nettement plus de dégâts de stabilité, tandis que les cibles proches en subiront nettement moins. À portée maximale, le projectile infligera le double de ces dégâts de stabilité.", Color(225, 200, 200), nil, 0.8);
 					end
 		
-					frame:AddBar(12, {{text = tostring(weaponTable.Primary.StabilityDamage), percentage = percentage * 100, color = Color(110, 30, 30), font = "DermaDefault", textless = false, noDisplay = true}}, "Stability Damage", Color(110, 30, 30), toolTip, true);
+					frame:AddBar(12, {{text = tostring(weaponTable.Primary.StabilityDamage), percentage = percentage * 100, color = Color(110, 30, 30), font = "DermaDefault", textless = false, noDisplay = true}}, "Dégâts de Stabilité", Color(110, 30, 30), toolTip, true);
 				end
 				
 				if weaponTable.Primary.BoltRange then
@@ -3695,9 +3694,9 @@ function Schema:ModifyItemMarkupTooltip(category, maximumWeight, weight, conditi
 						end
 			
 						if boltRange < originalBoltRange then
-							frame:AddBar(12, {{text = tostring(boltRange).." / "..tostring(originalBoltRange), percentage = percentage * 100, color = Color(110, 30, 30), font = "DermaDefault", textless = false, noDisplay = true}}, "Bolt Range", Color(110, 30, 30), toolTip, true);
+							frame:AddBar(12, {{text = tostring(boltRange).." / "..tostring(originalBoltRange), percentage = percentage * 100, color = Color(110, 30, 30), font = "DermaDefault", textless = false, noDisplay = true}}, "Portée du Carreau", Color(110, 30, 30), toolTip, true);
 						else
-							frame:AddBar(12, {{text = tostring(boltRange), percentage = percentage * 100, color = Color(110, 30, 30), font = "DermaDefault", textless = false, noDisplay = true}}, "Bolt Range", Color(110, 30, 30), toolTip, true);
+							frame:AddBar(12, {{text = tostring(boltRange), percentage = percentage * 100, color = Color(110, 30, 30), font = "DermaDefault", textless = false, noDisplay = true}}, "Portée du Carreau", Color(110, 30, 30), toolTip, true);
 						end
 					end
 				end
@@ -3709,7 +3708,7 @@ function Schema:ModifyItemMarkupTooltip(category, maximumWeight, weight, conditi
 						frame:AddText("Les dégâts du tir de cette arme. Notez que les armes à feu percent 100% de l'armure.", Color(225, 200, 200), nil, 0.8);
 					end
 		
-					frame:AddBar(12, {{text = tostring(weaponTable.Primary.Damage), percentage = percentage * 100, color = Color(110, 30, 30), font = "DermaDefault", textless = false, noDisplay = true}}, "Shot Damage", Color(110, 30, 30), toolTip, true);
+					frame:AddBar(12, {{text = tostring(weaponTable.Primary.Damage), percentage = percentage * 100, color = Color(110, 30, 30), font = "DermaDefault", textless = false, noDisplay = true}}, "Dégâts par Tir", Color(110, 30, 30), toolTip, true);
 				end
 				
 				if weaponAmmo then
@@ -3848,9 +3847,9 @@ function Schema:ModifyItemMarkupTooltip(category, maximumWeight, weight, conditi
 							end
 				
 							if accuracy > originalAccuracy then
-								frame:AddBar(12, {{text = tostring(accuracy).." / "..tostring(originalAccuracy), percentage = percentage * 100, color = Color(110, 30, 30), font = "DermaDefault", textless = false, noDisplay = true}}, "Accuracy (Aiming)", Color(110, 30, 30), toolTip, true);
+								frame:AddBar(12, {{text = tostring(accuracy).." / "..tostring(originalAccuracy), percentage = percentage * 100, color = Color(110, 30, 30), font = "DermaDefault", textless = false, noDisplay = true}}, "Précision (Visée)", Color(110, 30, 30), toolTip, true);
 							else
-								frame:AddBar(12, {{text = tostring(accuracy), percentage = percentage * 100, color = Color(110, 30, 30), font = "DermaDefault", textless = false, noDisplay = true}}, "Accuracy (Aiming)", Color(110, 30, 30), toolTip, true);
+								frame:AddBar(12, {{text = tostring(accuracy), percentage = percentage * 100, color = Color(110, 30, 30), font = "DermaDefault", textless = false, noDisplay = true}}, "Précision (Visée)", Color(110, 30, 30), toolTip, true);
 							end
 						end
 						
@@ -3869,9 +3868,9 @@ function Schema:ModifyItemMarkupTooltip(category, maximumWeight, weight, conditi
 							end
 				
 							if accuracy > originalAccuracy then
-								frame:AddBar(12, {{text = tostring(accuracy).." / "..tostring(originalAccuracy), percentage = percentage * 100, color = Color(110, 30, 30), font = "DermaDefault", textless = false, noDisplay = true}}, "Accuracy (Hip-Fire)", Color(110, 30, 30), toolTip, true);
+								frame:AddBar(12, {{text = tostring(accuracy).." / "..tostring(originalAccuracy), percentage = percentage * 100, color = Color(110, 30, 30), font = "DermaDefault", textless = false, noDisplay = true}}, "Précision (Tir à la Hanche)", Color(110, 30, 30), toolTip, true);
 							else
-								frame:AddBar(12, {{text = tostring(accuracy), percentage = percentage * 100, color = Color(110, 30, 30), font = "DermaDefault", textless = false, noDisplay = true}}, "Accuracy (Hip-Fire)", Color(110, 30, 30), toolTip, true);
+								frame:AddBar(12, {{text = tostring(accuracy), percentage = percentage * 100, color = Color(110, 30, 30), font = "DermaDefault", textless = false, noDisplay = true}}, "Précision (Tir à la Hanche)", Color(110, 30, 30), toolTip, true);
 							end
 						end
 						
@@ -3882,7 +3881,7 @@ function Schema:ModifyItemMarkupTooltip(category, maximumWeight, weight, conditi
 								frame:AddText("Le nombre de projectiles tirés par cette arme.", Color(225, 200, 200), nil, 0.8);
 							end
 				
-							frame:AddBar(12, {{text = tostring(weaponTable.Primary.NumShots), percentage = percentage * 100, color = Color(110, 30, 30), font = "DermaDefault", textless = false, noDisplay = true}}, "Pellet Amount", Color(110, 30, 30), toolTip, true);
+							frame:AddBar(12, {{text = tostring(weaponTable.Primary.NumShots), percentage = percentage * 100, color = Color(110, 30, 30), font = "DermaDefault", textless = false, noDisplay = true}}, "Quantité de Plombs", Color(110, 30, 30), toolTip, true);
 						end
 						
 						if weaponTable.Primary.RPM and weaponTable.Primary.ClipSize > 1 then
@@ -3892,7 +3891,7 @@ function Schema:ModifyItemMarkupTooltip(category, maximumWeight, weight, conditi
 								frame:AddText("La cadence de tir de cette arme en coups par minute.", Color(225, 200, 200), nil, 0.8);
 							end
 				
-							frame:AddBar(12, {{text = tostring(weaponTable.Primary.RPM), percentage = percentage * 100, color = Color(110, 30, 30), font = "DermaDefault", textless = false, noDisplay = true}}, "Rate of Fire", Color(110, 30, 30), toolTip, true);
+							frame:AddBar(12, {{text = tostring(weaponTable.Primary.RPM), percentage = percentage * 100, color = Color(110, 30, 30), font = "DermaDefault", textless = false, noDisplay = true}}, "Cadence de Tir", Color(110, 30, 30), toolTip, true);
 						end
 						
 						if weaponTable.Primary.MaximumDistanceDamage then
@@ -3911,9 +3910,9 @@ function Schema:ModifyItemMarkupTooltip(category, maximumWeight, weight, conditi
 								end
 					
 								if maximumdistancedamage < originalDamage then
-									frame:AddBar(12, {{text = tostring(maximumdistancedamage).." / "..tostring(originalDamage).." (At 40 Feet)", percentage = percentage * 100, color = Color(110, 30, 30), font = "DermaDefault", textless = false, noDisplay = true}}, "Maximum Projectile Damage", Color(110, 30, 30), toolTip, true);
+									frame:AddBar(12, {{text = tostring(maximumdistancedamage).." / "..tostring(originalDamage).." (At 40 Feet)", percentage = percentage * 100, color = Color(110, 30, 30), font = "DermaDefault", textless = false, noDisplay = true}}, "Dégâts Maximum du Projectile", Color(110, 30, 30), toolTip, true);
 								else
-									frame:AddBar(12, {{text = tostring(maximumdistancedamage).." (At 40 Feet)", percentage = percentage * 100, color = Color(110, 30, 30), font = "DermaDefault", textless = false, noDisplay = true}}, "Maximum Projectile Damage", Color(110, 30, 30), toolTip, true);
+									frame:AddBar(12, {{text = tostring(maximumdistancedamage).." (At 40 Feet)", percentage = percentage * 100, color = Color(110, 30, 30), font = "DermaDefault", textless = false, noDisplay = true}}, "Dégâts Maximum du Projectile", Color(110, 30, 30), toolTip, true);
 								end
 							end
 						end
@@ -3934,9 +3933,9 @@ function Schema:ModifyItemMarkupTooltip(category, maximumWeight, weight, conditi
 								end
 					
 								if minimumdistancedamage < originalDamage then
-									frame:AddBar(12, {{text = tostring(minimumdistancedamage).." / "..tostring(originalDamage).." (Point-Blank)", percentage = percentage * 100, color = Color(110, 30, 30), font = "DermaDefault", textless = false, noDisplay = true}}, "Minimum Projectile Damage", Color(110, 30, 30), toolTip, true);
+									frame:AddBar(12, {{text = tostring(minimumdistancedamage).." / "..tostring(originalDamage).." (Point-Blank)", percentage = percentage * 100, color = Color(110, 30, 30), font = "DermaDefault", textless = false, noDisplay = true}}, "Dégâts Maximum du Projectile", Color(110, 30, 30), toolTip, true);
 								else
-									frame:AddBar(12, {{text = tostring(minimumdistancedamage).." (Point-Blank)", percentage = percentage * 100, color = Color(110, 30, 30), font = "DermaDefault", textless = false, noDisplay = true}}, "Minimum Projectile Damage", Color(110, 30, 30), toolTip, true);
+									frame:AddBar(12, {{text = tostring(minimumdistancedamage).." (Point-Blank)", percentage = percentage * 100, color = Color(110, 30, 30), font = "DermaDefault", textless = false, noDisplay = true}}, "Dégâts Maximum du Projectile", Color(110, 30, 30), toolTip, true);
 								end
 							end
 						end
@@ -3948,7 +3947,7 @@ function Schema:ModifyItemMarkupTooltip(category, maximumWeight, weight, conditi
 								frame:AddText("Les dégâts de stabilité infligés à votre adversaire par vos projectiles tirés. En infliger suffisamment fera temporairement tomber votre ennemi au sol. Peut être annulé par l'armure ennemie. Pour les carreaux, cela varie selon la distance ; les cibles éloignées subiront considérablement plus de dégâts de stabilité, et les cibles proches en subiront considérablement moins. À portée maximale, le projectile infligera le double de ces dégâts de stabilité.", Color(225, 200, 200), nil, 0.8);
 							end
 				
-							frame:AddBar(12, {{text = tostring(weaponTable.Primary.StabilityDamage), percentage = percentage * 100, color = Color(110, 30, 30), font = "DermaDefault", textless = false, noDisplay = true}}, "Stability Damage", Color(110, 30, 30), toolTip, true);
+							frame:AddBar(12, {{text = tostring(weaponTable.Primary.StabilityDamage), percentage = percentage * 100, color = Color(110, 30, 30), font = "DermaDefault", textless = false, noDisplay = true}}, "Dégâts de Stabilité", Color(110, 30, 30), toolTip, true);
 						end
 						
 						if weaponTable.Primary.BoltRange then
@@ -3967,9 +3966,9 @@ function Schema:ModifyItemMarkupTooltip(category, maximumWeight, weight, conditi
 								end
 					
 								if boltRange < originalBoltRange then
-									frame:AddBar(12, {{text = tostring(boltRange).." / "..tostring(originalBoltRange), percentage = percentage * 100, color = Color(110, 30, 30), font = "DermaDefault", textless = false, noDisplay = true}}, "Bolt Range", Color(110, 30, 30), toolTip, true);
+									frame:AddBar(12, {{text = tostring(boltRange).." / "..tostring(originalBoltRange), percentage = percentage * 100, color = Color(110, 30, 30), font = "DermaDefault", textless = false, noDisplay = true}}, "Portée du Carreau", Color(110, 30, 30), toolTip, true);
 								else
-									frame:AddBar(12, {{text = tostring(boltRange), percentage = percentage * 100, color = Color(110, 30, 30), font = "DermaDefault", textless = false, noDisplay = true}}, "Bolt Range", Color(110, 30, 30), toolTip, true);
+									frame:AddBar(12, {{text = tostring(boltRange), percentage = percentage * 100, color = Color(110, 30, 30), font = "DermaDefault", textless = false, noDisplay = true}}, "Portée du Carreau", Color(110, 30, 30), toolTip, true);
 								end
 							end
 						end
@@ -3981,7 +3980,7 @@ function Schema:ModifyItemMarkupTooltip(category, maximumWeight, weight, conditi
 								frame:AddText("Les dégâts d'un tir de cette arme. Notez que les armes à feu ont 100% de pénétration d'armure.", Color(225, 200, 200), nil, 0.8);
 							end
 				
-							frame:AddBar(12, {{text = tostring(weaponTable.Primary.Damage), percentage = percentage * 100, color = Color(110, 30, 30), font = "DermaDefault", textless = false, noDisplay = true}}, "Shot Damage", Color(110, 30, 30), toolTip, true);
+							frame:AddBar(12, {{text = tostring(weaponTable.Primary.Damage), percentage = percentage * 100, color = Color(110, 30, 30), font = "DermaDefault", textless = false, noDisplay = true}}, "Dégâts par Tir", Color(110, 30, 30), toolTip, true);
 						end
 					end
 				end
@@ -4073,7 +4072,7 @@ function Schema:ModifyItemMarkupTooltip(category, maximumWeight, weight, conditi
 					frame:AddText("La quantité de santé que cet objet restaurera à chaque répétition.", Color(225, 200, 200), nil, 0.8);
 				end
 
-				frame:AddBar(12, {{text = healAmount.." Health", percentage = percentage * 100, color = Color(110, 30, 30), font = "DermaDefault", textless = false, noDisplay = true}}, "Heal Amount", Color(110, 30, 30), toolTip, true);
+				frame:AddBar(12, {{text = healAmount.." Health", percentage = percentage * 100, color = Color(110, 30, 30), font = "DermaDefault", textless = false, noDisplay = true}}, "Quantité de Soin", Color(110, 30, 30), toolTip, true);
 				
 				percentage = math.min(healRepetition / 8, 8);
 				toolTip = function(frame)
@@ -4081,7 +4080,7 @@ function Schema:ModifyItemMarkupTooltip(category, maximumWeight, weight, conditi
 					frame:AddText("Le nombre de fois que cet objet restaurera la santé.", Color(225, 200, 200), nil, 0.8);
 				end
 
-				frame:AddBar(12, {{text = healRepetition, percentage = percentage * 100, color = Color(110, 30, 30), font = "DermaDefault", textless = false, noDisplay = true}}, "Heal Repetitions", Color(110, 30, 30), toolTip, true);
+				frame:AddBar(12, {{text = healRepetition, percentage = percentage * 100, color = Color(110, 30, 30), font = "DermaDefault", textless = false, noDisplay = true}}, "Répétitions de Soin", Color(110, 30, 30), toolTip, true);
 				
 				if itemTable.healDelay then
 					percentage = math.min(healDelay / 8, 8);
@@ -4090,7 +4089,7 @@ function Schema:ModifyItemMarkupTooltip(category, maximumWeight, weight, conditi
 						frame:AddText("Le délai entre chaque répétition de soin de cet objet.", Color(225, 200, 200), nil, 0.8);
 					end
 
-					frame:AddBar(12, {{text = healDelay.."s", percentage = percentage * 100, color = Color(110, 30, 30), font = "DermaDefault", textless = false, noDisplay = true}}, "Heal Delay", Color(110, 30, 30), toolTip, true);
+					frame:AddBar(12, {{text = healDelay.."s", percentage = percentage * 100, color = Color(110, 30, 30), font = "DermaDefault", textless = false, noDisplay = true}}, "Délai de Soin", Color(110, 30, 30), toolTip, true);
 				end
 			end
 			
@@ -4102,7 +4101,7 @@ function Schema:ModifyItemMarkupTooltip(category, maximumWeight, weight, conditi
 					frame:AddText("La quantité totale de sang que cet objet médical va restaurer.", Color(225, 200, 200), nil, 0.8);
 				end
 
-				frame:AddBar(12, {{text = healAmount.." Blood", percentage = percentage * 100, color = Color(110, 30, 30), font = "DermaDefault", textless = false, noDisplay = true}}, "Restores Blood", Color(110, 30, 30), toolTip, true);
+				frame:AddBar(12, {{text = healAmount.." Blood", percentage = percentage * 100, color = Color(110, 30, 30), font = "DermaDefault", textless = false, noDisplay = true}}, "Restaure le Sang", Color(110, 30, 30), toolTip, true);
 			end
 		end
 		
@@ -4122,7 +4121,7 @@ function Schema:ModifyItemMarkupTooltip(category, maximumWeight, weight, conditi
 		if cwWarmth and cwWarmth.systemEnabled and itemTable.insulation then
 			local percentage = itemTable.insulation * 0.20;
 		
-			frame:AddBar(12, {{text = tostring(percentage).."%", percentage = percentage, color = Color(110, 30, 30), font = "DermaDefault", textless = false, noDisplay = true}}, "Insulation", Color(110, 30, 30), true);
+			frame:AddBar(12, {{text = tostring(percentage).."%", percentage = percentage, color = Color(110, 30, 30), font = "DermaDefault", textless = false, noDisplay = true}}, "Isolation", Color(110, 30, 30), true);
 		end
 		
 		return true;
@@ -4269,8 +4268,8 @@ function Schema:ModifyItemMarkupTooltip(category, maximumWeight, weight, conditi
 end
 
 function Schema:ClockworkInitialized()
-	Clockwork.directory:AddCategory("Faiths", "Faith is an integral part of Begotten III, as nearly all of Begotten's gameplay elements and story revolve around it. God has committed suicide, and no one left alive is pure, but that has not stopped what little that remains of humanity from looking to their gods in hope of salvation. After all, those without it have been targeted by the Undergod, and subsequently the Begotten. Each faith has its own rituals and major faction(s) associated with it.")
-	Clockwork.directory:AddCategory("Mechanics", "Distinguishing Begotten III from its other text-based roleplay peers is its myriad gameplay mechanics. Character needs such as hunger and thirst form the backbone of your character's goal to stay alive. The beliefs system rewards those who survive longest with a means to increase their power and abilities. Crafting and resource gathering form the engine of every faction's economy. The medical system simulates disease and injuries to characters.\n\nBegotten III also features a comprehensive melee combat system.\n\nUltimately, while you are free to play Begotten in almost any way you see fit, mastering all of its mechanics is essential to survival in the Wasteland.")
+	Clockwork.directory:AddCategory("Faiths", "La foi est une partie intégrante de Begotten III, car presque tous les éléments de gameplay et l'histoire de Begotten tournent autour d'elle. Dieu s'est suicidé, et aucun survivant n'est pur, mais cela n'a pas empêché ce qu'il reste de l'humanité de se tourner vers ses dieux dans l'espoir du salut. Après tout, ceux qui en sont dépourvus ont été ciblés par le Dieu-Dessous, et ensuite par les Begotten. Chaque foi a ses propres rituels et sa ou ses factions majeures associées.")
+	Clockwork.directory:AddCategory("Mechanics", "Ce qui distingue Begotten III de ses pairs basés sur le texte est sa myriade de mécaniques de jeu. Les besoins du personnage tels que la faim et la soif constituent l'épine dorsale de l'objectif de votre personnage pour rester en vie. Le système de croyances récompense ceux qui survivent le plus longtemps avec un moyen d'augmenter leur puissance et leurs capacités. L'artisanat et la collecte de ressources forment le moteur de l'économie de chaque faction. Le système médical simule les maladies et les blessures des personnages.\n\nBegotten III propose également un système de combat de mêlée complet.\n\nEn fin de compte, bien que vous soyez libre de jouer à Begotten de presque toutes les manières que vous jugez appropriées, maîtriser toutes ses mécaniques est essentiel pour survivre dans les Terres Désolées.")
 end
 
 function Schema:DirectoryOpenHomePage(panel)

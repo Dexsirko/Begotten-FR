@@ -24,11 +24,11 @@ netstream.Hook("ConfirmCustomSoundCheck", function(player, data)
 	if (player.HasCustomSoundRequested) then
 		player.HasCustomSoundRequested = nil;
 	else
-		player:Kick("Abusing datastreams. Your activity has been sent to admins for review.");
+		player:Kick("Abus des flux de données. Votre activité a été envoyée aux administrateurs pour examen.");
 		
 		for _, v in _player.Iterator() do
 			if (v:IsAdmin()) then
-				Clockwork.player:Notify(v, player:Name().." ("..player:SteamID()..") has been kicked for initiating an unauthorized datastream. This is evidence of lua cache decryption and clientside lua execution!");
+				Clockwork.player:Notify(v, player:Name().." ("..player:SteamID()..") a été expulsé pour avoir initié un flux de données non autorisé. C'est la preuve d'un décryptage du cache lua et d'une exécution lua côté client !");
 			end;
 		end;
 		

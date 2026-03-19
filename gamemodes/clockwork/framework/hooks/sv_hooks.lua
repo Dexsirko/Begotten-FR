@@ -1229,7 +1229,7 @@ end
 
 function GM:PlayerCanInteractCharacter(player, action, character)
 	if (Clockwork.quiz:GetEnabled() and !Clockwork.quiz:GetCompleted(player)) then
-		return false, "You got too many questions wrong!"
+		return false, "Vous avez eu trop de mauvaises réponses!"
 	else
 		return true
 	end
@@ -1401,7 +1401,7 @@ end
 -- Called when a player attempts to create a character.
 function GM:PlayerCanCreateCharacter(player, character, characterID)
 	if (Clockwork.quiz:GetEnabled() and !Clockwork.quiz:GetCompleted(player)) then
-		return "You did not pass the test!"
+		return "Vous n'avez pas réussi le test!"
 	else
 		return true
 	end
