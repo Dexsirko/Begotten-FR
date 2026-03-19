@@ -85,9 +85,9 @@ function PANEL:Rebuild()
 		
 		if (#Clockwork.Client.combinations < 3) then
 			if #Clockwork.Client.combinations == 0 then
-				Clockwork.chatBox:Add(nil, "icon16/error.png", Color(200, 175, 200, 255), "You have no items selected to perform a ritual with!");
+				Clockwork.chatBox:Add(nil, "icon16/error.png", Color(200, 175, 200, 255), "Vous n'avez aucun objet sélectionné pour effectuer un rituel!");
 			else
-				Clockwork.chatBox:Add(nil, "icon16/error.png", Color(200, 175, 200, 255), "You need three items selected to perform a ritual!");
+				Clockwork.chatBox:Add(nil, "icon16/error.png", Color(200, 175, 200, 255), "Vous devez sélectionner trois objets pour effectuer un rituel!");
 			end
 			
 			return

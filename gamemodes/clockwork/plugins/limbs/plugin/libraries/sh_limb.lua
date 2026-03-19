@@ -1,4 +1,4 @@
---[[
+﻿--[[
 	BEGOTTEN III: Developed by DETrooper, cash wednesday, gabs & alyousha35
 --]]
 
@@ -248,21 +248,21 @@ else
 		frame:AddText(name.." - "..statusNiceText, color, "nov_IntroTextSmallDETrooper", 1);
 		
 		if bleeding then
-			frame:AddText("Bleeding", Color(200, 40, 40), "nov_IntroTextSmallDETrooper", 1);
+			frame:AddText("Saignement", Color(200, 40, 40), "nov_IntroTextSmallDETrooper", 1);
 		end
 		
 		if infected then
 			if infected == 1 then
-				frame:AddText("Minor Infection", Color(200, 40, 40), "nov_IntroTextSmallDETrooper", 1);
+				frame:AddText("Infection mineure", Color(200, 40, 40), "nov_IntroTextSmallDETrooper", 1);
 			elseif infected == 2 then
 				frame:AddText("Infection", Color(200, 40, 40), "nov_IntroTextSmallDETrooper", 1);
 			elseif infected == 3 then
-				frame:AddText("Major Infection", Color(200, 40, 40), "nov_IntroTextSmallDETrooper", 1);
+				frame:AddText("Infection majeure", Color(200, 40, 40), "nov_IntroTextSmallDETrooper", 1);
 			end
 		end
 		
 		if injuries and #injuries > 0 then
-			frame:AddText("Injuries:", Color(180, 170, 170), "nov_IntroTextSmallDETrooper", 1);
+			frame:AddText("Blessures :", Color(180, 170, 170), "nov_IntroTextSmallDETrooper", 1);
 			
 			for i = 1, #injuries do
 				local injury = cwMedicalSystem.cwInjuryTable[injuries[i]];
@@ -271,7 +271,7 @@ else
 			end
 		end
 		
-		frame:AddText("Effects:", Color(180, 170, 170), "nov_IntroTextSmallDETrooper", 1);
+		frame:AddText("Effets :", Color(180, 170, 170), "nov_IntroTextSmallDETrooper", 1);
 		frame:AddText(effects, Color(200, 170, 170), "nov_IntroTextSmallDETrooper", 0.8);
 	end
 

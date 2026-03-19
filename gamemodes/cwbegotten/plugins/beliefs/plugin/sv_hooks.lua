@@ -1936,7 +1936,7 @@ function cwBeliefs:DoPlayerDeathPreDeathSound(player, attacker, damageInfo)
 							if attacker.decapitationBuff then
 								attacker.decapitationBuff = false;
 								
-								Clockwork.hint:Send(attacker, "The decapitation melee damage buff has worn off...", 10, Color(175, 100, 100), true, true);
+								Clockwork.hint:Send(attacker, "Le bonus de dégâts de mêlée pour la décapitation s'est dissipé...", 10, Color(175, 100, 100), true, true);
 							end
 						end
 					end);

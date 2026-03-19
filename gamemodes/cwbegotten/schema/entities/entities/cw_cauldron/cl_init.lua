@@ -4,7 +4,7 @@ include("shared.lua");
 function ENT:HUDPaintTargetID(x, y, alpha)
 	local colorTargetID = Clockwork.option:GetColor("target_id")
 	local colorWhite = Clockwork.option:GetColor("white")
-	y = Clockwork.kernel:DrawInfo("A bubbling and warm black iron cauldron. It holds treasure of the gut variety.", x, y, colorWhite, alpha);
+	y = Clockwork.kernel:DrawInfo("Un chaudron en fer noir bouillonnant et chaud. Il contient un trésor du genre viscéral.", x, y, colorWhite, alpha);
 end;
 
 local function CreateMenu(state)

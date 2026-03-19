@@ -63,10 +63,10 @@ function cwRituals:AttemptRitual(uniqueID, itemIDs)
 					end
 				--end
 			else
-				Clockwork.chatBox:Add(nil, "icon16/error.png", Color(200, 175, 200, 255), "No valid ritual for this combination of items could be found!");
+				Clockwork.chatBox:Add(nil, "icon16/error.png", Color(200, 175, 200, 255), "Aucun rituel valide pour cette combinaison d'objets n'a été trouvé!");
 			end
 		else
-			Clockwork.chatBox:Add(nil, "icon16/error.png", Color(200, 175, 200, 255), "No valid ritual for this combination of items could be found!");
+			Clockwork.chatBox:Add(nil, "icon16/error.png", Color(200, 175, 200, 255), "Aucun rituel valide pour cette combinaison d'objets n'a été trouvé!");
 		end
 		
 		self.nextRitualAttempt = curTime + 2;

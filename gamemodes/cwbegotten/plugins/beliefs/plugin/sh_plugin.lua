@@ -1194,7 +1194,7 @@ local COMMAND = Clockwork.command:New("Warcry");
 								timer.Create("RavenTimer_"..v:EntIndex(), 15, 1, function()
 									if IsValid(v) then
 										v.ravenBuff = false;
-										Clockwork.hint:Send(v, "'Watchful is the Raven' has worn off...", 10, Color(175, 100, 100), true, true);
+										Clockwork.hint:Send(v, "Watchful is the Raven' s'est dissipé...", 10, Color(175, 100, 100), true, true);
 									end
 								end);
 							end
@@ -1216,7 +1216,7 @@ local COMMAND = Clockwork.command:New("Warcry");
 										if IsValid(v) then
 											v.iconoclastBuff = false;
 											hook.Run("RunModifyPlayerSpeed", v, v.cwInfoTable, true);
-											Clockwork.hint:Send(v, "'Iconoclast' has worn off...", 10, Color(175, 100, 100), true, true);
+											Clockwork.hint:Send(v, "L'effet 'Iconoclaste' s'est dissipé...", 10, Color(175, 100, 100), true, true);
 										end
 									end);
 								end
@@ -1454,7 +1454,7 @@ local COMMAND = Clockwork.command:New("Warcry");
 						if IsValid(player) then
 							if player.daringTroutActive then
 								player.daringTroutActive = nil;
-								Clockwork.hint:Send(player, "'Daring is the Trout' has worn off...", 10, Color(175, 100, 100), true, true);
+								Clockwork.hint:Send(player, "L'effet de 'Daring is the Trout' s'est dissipé...", 10, Color(175, 100, 100), true, true);
 							end
 						end
 					end);
@@ -1473,7 +1473,7 @@ local COMMAND = Clockwork.command:New("Warcry");
 							player.warCryVictims = nil;
 							
 							hook.Run("RunModifyPlayerSpeed", player, player.cwInfoTable, true);
-							Clockwork.hint:Send(player, "'Fearsome is the Wolf' has worn off...", 10, Color(175, 100, 100), true, true);
+							Clockwork.hint:Send(player, "Fearsome is the Wolf' s'est dissipé...", 10, Color(175, 100, 100), true, true);
 						end
 					end);
 				end

@@ -12,7 +12,7 @@ function ENT:HUDPaintTargetID(x, y, alpha)
 	local colorTargetID = Clockwork.option:GetColor("target_id")
 	local colorWhite = Clockwork.option:GetColor("white")
 	
-	y = Clockwork.kernel:DrawInfo("Sacrificial Altar", x, y, colorTargetID, alpha)
+	y = Clockwork.kernel:DrawInfo("Autel Sacrificiel", x, y, colorTargetID, alpha)
 end;
 
 local function CreateMenu(state)

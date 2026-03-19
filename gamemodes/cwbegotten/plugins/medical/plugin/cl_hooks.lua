@@ -182,7 +182,7 @@ function cwMedicalSystem:HUDPaintForeground()
 			local y = (srcH / 2) - 128;
 
 			Clockwork.kernel:OverrideMainFont(Clockwork.option:GetFont("menu_text_small"));
-			y = Clockwork.kernel:DrawInfo("YOU ARE DYING OF YOUR WOUNDS...", x, y, colorRed, alpha);
+			y = Clockwork.kernel:DrawInfo("VOUS ÊTES EN TRAIN DE MOURIR DE VOS BLESSURES...", x, y, colorRed, alpha);
 			Clockwork.kernel:OverrideMainFont(false);
 		elseif (action == "die_bleedout") then
 			local scrW = ScrW();
@@ -192,7 +192,7 @@ function cwMedicalSystem:HUDPaintForeground()
 			local y = (srcH / 2) - 128;
 
 			Clockwork.kernel:OverrideMainFont(Clockwork.option:GetFont("menu_text_small"));
-			y = Clockwork.kernel:DrawInfo("YOU ARE BLEEDING OUT...", x, y, colorRed, alpha);
+			y = Clockwork.kernel:DrawInfo("VOUS ÊTES EN TRAIN DE VIDER DE VOTRE SANG...", x, y, colorRed, alpha);
 			Clockwork.kernel:OverrideMainFont(false);
 		end;	
 	end;
@@ -201,17 +201,17 @@ end;
 -- Called when the post progress bar info is needed.
 function cwMedicalSystem:GetProgressBarInfoAction(action, percentage)
 	if (action == "heal") then
-		return {text = "You are healing yourself. Click to cancel.", percentage = percentage, flash = percentage > 75};
+		return {text = "Vous vous soignez. Cliquez pour annuler.", percentage = percentage, flash = percentage > 75};
 	elseif (action == "healing") then
-		return {text = "You are healing somebody. Click to cancel.", percentage = percentage, flash = percentage > 75};
+		return {text = "Vous soignez quelqu'un. Cliquez pour annuler.", percentage = percentage, flash = percentage > 75};
 	elseif (action == "performing_surgery") then
-		return {text = "You are performing an operation on somebody. Click to cancel.", percentage = percentage, flash = percentage > 75};
+		return {text = "Vous effectuez une opération sur quelqu'un. Cliquez pour annuler.", percentage = percentage, flash = percentage > 75};
 	elseif (action == "chloroform") then
-		return {text = "You are using chloroform on somebody. Click to cancel.", percentage = percentage, flash = percentage > 75};
+		return {text = "Vous utilisez du chloroforme sur quelqu'un. Cliquez pour annuler.", percentage = percentage, flash = percentage > 75};
 	elseif (action == "die") then
 		return {text = "You are slowly dying.", percentage = percentage, flash = percentage > 75};
 	elseif (action == "die_bleedout") then
-		return {text = "You are slowly bleeding out.", percentage = percentage, flash = percentage > 75};
+		return {text = "Vous videz lentement de votre sang.", percentage = percentage, flash = percentage > 75};
 	end;
 end;
 

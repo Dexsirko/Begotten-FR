@@ -506,21 +506,21 @@ function PANEL:RebuildPanel(storagePanel, storageType, usedWeight, weight, usedS
 				local ply = Clockwork.entity:GetPlayer(ent);
 				local recognise = Clockwork.player:DoesRecognise(ply)
 				if (recognise) then
-					storagename = string.Split(Clockwork.player:GetName(ply), " ")[1].."'s pockets are"
+					storagename = string.Split(Clockwork.player:GetName(ply), " ")[1].."ses poches sont"
 				else
 					local gender = ply:GetGender();
 					local n = "His"
 					if (gender == GENDER_FEMALE) then
 						n = "Her"
 					end;
-					storagename = n.." pockets are";
+					storagename = n.." les poches sont";
 				end;
 			end;
 		elseif (storagename == "Inventory") then
-			storagename = "Your sack is"
+			storagename = "Votre sac est"
 		end;
 		
-		local tata = storagename.." empty...";
+		local tata = storagename.." vide...";
 		
 		draw.SimpleText(tata, fo, (w / 2), (h / 2), Color(170, 0, 0, self.ALPG2), 1, 1);
 	end;

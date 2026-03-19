@@ -68,7 +68,7 @@ function cwWarmth:BuildTemperatureTooltip(x, y, width, height, frame)
 	local temperatureColor = self:LerpColor(warmth/100, self.warmthColors.min, self.warmthColors.max);
 	local selectedText = math.Clamp(math.Round(warmth / 25), 1, 4);
 	
-	frame:AddText("Temperature", Color(180, 20, 20), "nov_IntroTextSmallDETrooper", 1.15);
+	frame:AddText("Température", Color(180, 20, 20), "nov_IntroTextSmallDETrooper", 1.15);
 	frame:AddText(warmthTexts[5], Color(180, 170, 170), "nov_IntroTextSmallDETrooper", 0.8);
 	frame:AddBar(20, {{text = tostring(warmth).."%", percentage = warmth, color = temperatureColor, font = "DermaDefault", textless = true, noDisplay = true}}, warmthTexts[selectedText], temperatureColor);
 end;

@@ -13,7 +13,7 @@ function ENT:HUDPaintTargetID(x, y, alpha)
 	local colorWhite = Clockwork.option:GetColor("white")
 	
 	y = Clockwork.kernel:DrawInfo("Gramophone", x, y, colorTargetID, alpha)
-	y = Clockwork.kernel:DrawInfo("An old gramophone capable of playing records.", x, y, colorWhite, alpha);
+	y = Clockwork.kernel:DrawInfo("Un vieux gramophone capable de jouer des disques.", x, y, colorWhite, alpha);
 end;
 
 function ENT:Think()

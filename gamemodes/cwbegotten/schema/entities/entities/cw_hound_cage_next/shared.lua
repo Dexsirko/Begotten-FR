@@ -14,6 +14,6 @@ ENT.AdminSpawnable = true;
 ENT.Category = "Begotten";
 if CLIENT then
 	function ENT:HUDPaintTargetID(x, y, alpha)
-		y = Clockwork.kernel:DrawInfo("A cage used to transport war hounds.", x, y, Clockwork.option:GetColor("white"), alpha);
+		y = Clockwork.kernel:DrawInfo("Une cage utilisée pour transporter les chiens de guerre.", x, y, Clockwork.option:GetColor("white"), alpha);
 	end;
 end

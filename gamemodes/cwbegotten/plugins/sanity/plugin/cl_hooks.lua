@@ -1,12 +1,11 @@
---[[
+﻿--[[
 	Begotten III: Jesus Wept
 --]]
 
 local hallucinationModels = {"models/undead/charple01.mdl", "models/skeleton/skeleton_whole.mdl"};
 local medSanitySounds = {"begotten/ambient/atmosphere/apocalypse/hits/hit_1.wav", "begotten/ambient/atmosphere/apocalypse/hits/hit_2.wav", "begotten/ambient/atmosphere/apocalypse/hits/hit_3.wav", "begotten/ambient/atmosphere/apocalypse/hits/hit_4.wav", "damnation/apocalypt/metal4.mp3", "damnation/apocalypt/metal10.mp3", "damnation/apocalypt/metal11.mp3", "damnation/apocalypt/metal12.mp3", "damnation/apocalypt/metal17.mp3", "damnation/apocalypt/metal18.mp3", "damnation/apocalypt/metal19.mp3", "damnation/apocalypt/strange3.mp3", "damnation/apocalypt/woosh2.mp3", "begotten/ui/spine_tingeling.mp3"};
 local lowSanitySounds = {"damnation/apocalypt/ambience_echos.mp3", "begotten2/doom_moan.wav", "damnation/apocalypt/ambience_horn.mp3", "damnation/apocalypt/ambience_lonely.mp3", "damnation/apocalypt/ambience_ladder1.mp3", "damnation/apocalypt/ambience_metal4.mp3", "damnation/apocalypt/ambience_open.mp3", "damnation/apocalypt/ambience_door.mp3", "damnation/apocalypt/ambience_exhale.mp3", "damnation/apocalypt/ambience_silence.mp3", "damnation/apocalypt/whisper2.mp3", "damnation/apocalypt/whisper3.mp3"};
-local sanityTexts = {"...", "Insane", "Losing Sanity", "Sane", "Sanity is a measure of your character's mental condition: the lower it gets the more detached from reality they will become. Witnessing or partaking in disturbing acts is detrimental to one's sanity."};
-
+local sanityTexts = {"...", "Fou", "Perd la Raison", "Sain d'Esprit", "La santé mentale mesure l'état mental de votre personnage : plus elle est basse, plus il se détache de la réalité. Être témoin ou participer à des actes troublants est néfaste pour la santé mentale."};
 -- Called when the bars are needed.
 --[[function cwSanity:GetBars(bars)
 	local sanity = Clockwork.Client:GetNetVar("sanity", 100)
@@ -209,9 +208,9 @@ function cwSanity:Think()
 								name = "["..unrecognisedName.."]";
 							end
 							
-							Clockwork.chatBox:Add(nil, nil, Color(255, 255, 150, 255), name.." says \""..cannibalSaying.."\"");
+							Clockwork.chatBox:Add(nil, nil, Color(255, 255, 150, 255), name.." dit \""..cannibalSaying.."\"");
 						else
-							Clockwork.chatBox:Add(nil, nil, Color(255, 255, 150, 255), "The corpse says \""..cannibalSaying.."\"");
+							Clockwork.chatBox:Add(nil, nil, Color(255, 255, 150, 255), "Le cadavre dit \""..cannibalSaying.."\"");
 						end
 					else
 						local corpseSaying = self.corpseSayings[math.random(1, #self.corpseSayings)];
@@ -231,9 +230,9 @@ function cwSanity:Think()
 								name = "["..unrecognisedName.."]";
 							end
 						
-							Clockwork.chatBox:Add(nil, nil, Color(255, 255, 150, 255), name.." says \""..corpseSaying.."\"");
+							Clockwork.chatBox:Add(nil, nil, Color(255, 255, 150, 255), name.." dit \""..corpseSaying.."\"");
 						else
-							Clockwork.chatBox:Add(nil, nil, Color(255, 255, 150, 255), "The corpse says \""..corpseSaying.."\"");
+							Clockwork.chatBox:Add(nil, nil, Color(255, 255, 150, 255), "Le cadavre dit \""..corpseSaying.."\"");
 						end
 					end
 				elseif itemFound then
@@ -242,21 +241,21 @@ function cwSanity:Think()
 					if itemTable and self.itemSayings[itemTable.category] then
 						local itemSaying = self.itemSayings[itemTable.category][math.random(1, #self.itemSayings[itemTable.category])];
 						
-						Clockwork.chatBox:Add(nil, nil, Color(255, 255, 150, 255), "The "..itemTable.name.." says \""..itemSaying.."\"");
+						Clockwork.chatBox:Add(nil, nil, Color(255, 255, 150, 255), "Le "..itemTable.name.." dit \""..itemSaying.."\"");
 					end
 				elseif radioFound then
-					Clockwork.chatBox:Add(nil, nil, Color(75, 150, 50, 255), "The radio emits: \""..self.radioSayings[math.random(1, #self.radioSayings)].."\"");
+					Clockwork.chatBox:Add(nil, nil, Color(75, 150, 50, 255), "La radio émet: \""..self.radioSayings[math.random(1, #self.radioSayings)].."\"");
 					
 					sound.Play("radio/radio_out"..tostring(math.random(2, 3))..".wav", radioFound:GetPos(), 80, 100, 1);
 				else
 					local inventory = Clockwork.inventory:GetClient();
 					
 					if math.random(1, 2) == 1 and Clockwork.inventory:HasItemInstance(inventory, "handheld_radio") and Clockwork.Client.radioState then
-						Clockwork.chatBox:Add(nil, nil, Color(75, 150, 50, 255), "Your handheld radio emits: \""..self.radioSayings[math.random(1, #self.radioSayings)].."\"");
+						Clockwork.chatBox:Add(nil, nil, Color(75, 150, 50, 255), "Votre radio portable émet: \""..self.radioSayings[math.random(1, #self.radioSayings)].."\"");
 						
 						Clockwork.Client:EmitSound("radio/radio_out"..tostring(math.random(2, 3))..".wav");
 					elseif table.Count(inventory) > 3 then
-						Clockwork.chatBox:Add(nil, nil, Color(255, 255, 150, 255), "***' You hear a muffled voice coming from your backpack \""..self.backpackSayings[math.random(1, #self.backpackSayings)].."\"");
+						Clockwork.chatBox:Add(nil, nil, Color(255, 255, 150, 255), "***' Vous entendez une voix étouffée venant de votre sac à dos \""..self.backpackSayings[math.random(1, #self.backpackSayings)].."\"");
 					end
 				end
 			end
@@ -718,7 +717,7 @@ function cwSanity:BuildSanityTooltip(x, y, width, height, frame)
 		local sanityColor = Color(100 - sanity, sanity, 0, 225);
 		local selectedText = math.Clamp(math.Round(sanity / 25), 1, 4);
 		
-		frame:AddText("Sanity", Color(180, 20, 20), "nov_IntroTextSmallDETrooper", 1.15);
+		frame:AddText("Santé mentale", Color(180, 20, 20), "nov_IntroTextSmallDETrooper", 1.15);
 		frame:AddText(sanityTexts[5], Color(180, 170, 170), "nov_IntroTextSmallDETrooper", 0.8);
 		frame:AddBar(20, {{text = tostring(sanity).."%", percentage = sanity, color = sanityColor, font = "DermaDefault", textless = true, noDisplay = true}}, sanityTexts[selectedText], sanityColor);
 	end

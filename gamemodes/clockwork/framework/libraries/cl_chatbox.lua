@@ -1163,12 +1163,12 @@ Clockwork.chatBox:RegisterDefaultClass("yell", "ic", function(info)
 
 	if info.font then
 		if info.font == "Voltism" then
-			Clockwork.chatBox:Add(info.filtered, nil, color, info.name.." shrieks \""..info.text.."\"", info.font, "noTime");
+			Clockwork.chatBox:Add(info.filtered, nil, color, info.name.." hurle \""..info.text.."\"", info.font, "noTime");
 		else
-			Clockwork.chatBox:Add(info.filtered, nil, color, info.name.." yells \""..info.text.."\"", info.font, "noTime");
+			Clockwork.chatBox:Add(info.filtered, nil, color, info.name.." crie \""..info.text.."\"", info.font, "noTime");
 		end
 	else
-		Clockwork.chatBox:Add(info.filtered, nil, color, info.name.." yells \""..info.text.."\"", "noTime");
+		Clockwork.chatBox:Add(info.filtered, nil, color, info.name.." crie \""..info.text.."\"", "noTime");
 	end
 end);
 
@@ -1181,9 +1181,9 @@ Clockwork.chatBox:RegisterDefaultClass("whisper", "ic", function(info)
 		end;
 
 		if info.font then
-			Clockwork.chatBox:Add(info.filtered, nil, color, info.name.." whispers \""..info.text.."\"", info.font, "noTime");
+			Clockwork.chatBox:Add(info.filtered, nil, color, info.name.." murmure \""..info.text.."\"", info.font, "noTime");
 		else
-			Clockwork.chatBox:Add(info.filtered, nil, color, info.name.." whispers \""..info.text.."\"", "noTime");
+			Clockwork.chatBox:Add(info.filtered, nil, color, info.name.." murmure \""..info.text.."\"", "noTime");
 		end;
 	end;
 end);
@@ -1191,7 +1191,7 @@ end);
 Clockwork.chatBox:RegisterDefaultClass("radio", "ic", function(info)
 	if info.text == "<STATIC>" then
 		surface.PlaySound( "ambient/levels/prison/radio_random"..math.random(1,15)..".wav" )
-		Clockwork.chatBox:Add(info.filtered, nil, Color(75, 150, 50, 255), "The radio lets out an electric squeal, what sounds like garbled words, and static.", info.font);
+		Clockwork.chatBox:Add(info.filtered, nil, Color(75, 150, 50, 255), "La radio émet un couinement électrique, ce qui ressemble à des mots indistincts, et des parasites.", info.font);
 	else
 		Clockwork.chatBox:Add(info.filtered, nil, Color(75, 150, 50, 255), info.name.." radios in \""..info.text.."\"", info.font);
 	end
@@ -1200,7 +1200,7 @@ end);
 Clockwork.chatBox:RegisterDefaultClass("radiospy", "ic", function(info)
 	if info.text == "<STATIC>" then
 		surface.PlaySound( "ambient/levels/prison/radio_random"..math.random(1,15)..".wav" )
-		Clockwork.chatBox:Add(info.filtered, nil, Color(75, 150, 50, 255), "The radio lets out an electric squeal, what sounds like garbled words, and static.", info.font);
+		Clockwork.chatBox:Add(info.filtered, nil, Color(75, 150, 50, 255), "La radio émet un couinement électrique, ce qui ressemble à des mots indistincts, et des parasites.", info.font);
 	else
 		Clockwork.chatBox:Add(info.filtered, nil, Color(75, 150, 50, 255), info.name..info.text, info.font);
 	end
@@ -1214,24 +1214,24 @@ Clockwork.chatBox:RegisterDefaultClass("radio_eavesdrop", "ic", function(info)
 			color = Color(175, 255, 175, 255);
 		end;
 						
-		Clockwork.chatBox:Add(info.filtered, nil, color, info.name.." radios in \""..info.text.."\"", info.font);
+		Clockwork.chatBox:Add(info.filtered, nil, color, info.name.." radios dans \""..info.text.."\"", info.font);
 	end;
 end);
 
 Clockwork.chatBox:RegisterDefaultClass("goreevent", "ic", function(info)
-	Clockwork.chatBox:Add(info.filtered, nil, Color(200, 100, 50, 255), "(GORE FOREST) "..info.text);
+	Clockwork.chatBox:Add(info.filtered, nil, Color(200, 100, 50, 255), "(FORÊT GORE) "..info.text);
 end);
 
 Clockwork.chatBox:RegisterDefaultClass("hellevent", "ic", function(info)
-	Clockwork.chatBox:Add(info.filtered, nil, Color(200, 100, 50, 255), "(HELL) "..info.text);
+	Clockwork.chatBox:Add(info.filtered, nil, Color(200, 100, 50, 255), "(ENFER) "..info.text);
 end);
 
 Clockwork.chatBox:RegisterDefaultClass("towerevent", "ic", function(info)
-	Clockwork.chatBox:Add(info.filtered, nil, Color(200, 100, 50, 255), "(TOWER) "..info.text);
+	Clockwork.chatBox:Add(info.filtered, nil, Color(200, 100, 50, 255), "(TOUR) "..info.text);
 end);
 
 Clockwork.chatBox:RegisterDefaultClass("wastelandevent", "ic", function(info)
-	Clockwork.chatBox:Add(info.filtered, nil, Color(200, 100, 50, 255), "(WASTELAND) "..info.text);
+	Clockwork.chatBox:Add(info.filtered, nil, Color(200, 100, 50, 255), "(TERRES DÉSOLÉES) "..info.text);
 end);
 
 Clockwork.chatBox:RegisterDefaultClass("cavesevent", "ic", function(info)
@@ -1247,7 +1247,7 @@ Clockwork.chatBox:RegisterDefaultClass("event", "ic", function(info)
 end);
 
 Clockwork.chatBox:RegisterDefaultClass("proclaim", "ic", function(info)		
-	Clockwork.chatBox:Add(info.filtered, nil, Color(255, 255, 102, 255), info.name.." proclaims \""..info.text.."\"", info.font);
+	Clockwork.chatBox:Add(info.filtered, nil, Color(255, 255, 102, 255), info.name.." proclame \""..info.text.."\"", info.font);
 end);
 
 Clockwork.chatBox:RegisterDefaultClass("meproclaim", "ic", function(info)				

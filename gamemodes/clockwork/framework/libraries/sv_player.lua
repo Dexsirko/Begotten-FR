@@ -1,4 +1,4 @@
---[[
+﻿--[[
 	Begotten III: Jesus Wept
 	By: DETrooper, cash wednesday, gabs, alyousha35
 
@@ -123,11 +123,11 @@ function Clockwork.player:CreateCharacterFromData(player, data)
 			if subfaction.name == data.subfaction then
 				if subfaction.locked then
 					return self:SetCreateFault(
-						player, "This subfaction is locked and cannot be selected!"
+						player, "Cette sous-faction est verrouillée et ne peut pas être sélectionnée!"
 					);
 				elseif subfaction.whitelist and !Clockwork.player:IsWhitelistedSubfaction(player, subfaction.name) then
 					return self:SetCreateFault(
-						player, "You are not whitelisted for this subfaction!"
+						player, "Vous n'êtes pas sur la liste blanche pour cette sous-faction!"
 					);
 				end
 			end
@@ -167,7 +167,7 @@ function Clockwork.player:CreateCharacterFromData(player, data)
 
 		if (!classTable) then
 			return self:SetCreateFault(
-				player, "This is not a valid class."
+				player, "Ce n'est pas une classe valide."
 			)
 		else
 			info.data["class"] = classTable.name
@@ -193,19 +193,19 @@ function Clockwork.player:CreateCharacterFromData(player, data)
 				if traitTable.disables then
 					for i, v in ipairs(traitTable.disables) do
 						if table.HasValue(data.traits, v) then
-							return self:SetCreateFault(player, "You have selected traits that are incompatible with eachother!");
+							return self:SetCreateFault(player, "Vous avez sélectionné des traits incompatibles entre eux!");
 						end
 					end
 				end
 				
 				if traitTable.eventlocked then
-					return self:SetCreateFault(player, "This trait is locked for this event!");
+					return self:SetCreateFault(player, "Ce trait est verrouillé pour cet événement!");
 				elseif traitTable.excludedfactions and data.faction and table.HasValue(traitTable.excludedfactions, data.faction) then
-					return self:SetCreateFault(player, "This trait is locked for your selected faction!");
+					return self:SetCreateFault(player, "Ce trait est verrouillé pour la faction que vous avez sélectionnée!");
 				elseif traitTable.excludedsubfactions and data.subfaction and table.HasValue(traitTable.excludedsubfactions, data.subfaction) then
-					return self:SetCreateFault(player, "This trait is locked for your selected subfaction!");
+					return self:SetCreateFault(player, "Ce trait est verrouillé pour la sous-faction que vous avez sélectionnée!");
 				elseif traitTable.requiredfactions and data.faction and !table.HasValue(traitTable.requiredfactions, data.faction) then
-					return self:SetCreateFault(player, "This trait is locked for your selected faction!");
+					return self:SetCreateFault(player, "Ce trait est verrouillé pour la faction que vous avez sélectionnée!");
 				end
 				
 				table.insert(info.data["Traits"], traitTable.uniqueID);
@@ -226,10 +226,10 @@ function Clockwork.player:CreateCharacterFromData(player, data)
 		end
 		
 		if (pointsSpent > maximumPoints) then
-			return self:SetCreateFault(player, "Your trait point balance must be equal to or above 0!");
+			return self:SetCreateFault(player, "Votre solde de points de trait doit être supérieur ou égal à 0!");
 		end;
 	elseif (hasTraits) then
-		return self:SetCreateFault(player, "You did not choose any of the available traits!");
+		return self:SetCreateFault(player, "Vous n'avez choisi aucun des traits disponibles!");
 	end;
 
 	-- Failsafe, should not be removable by the client.
@@ -237,11 +237,11 @@ function Clockwork.player:CreateCharacterFromData(player, data)
 		if type(data.traits) == "table" and !table.IsEmpty(data.traits) then
 			for i, v in ipairs(factionTable.mandatorytraits) do
 				if !table.HasValue(data.traits, v) then
-					return self:SetCreateFault(player, "You do not have a mandatory trait required for your faction!");
+					return self:SetCreateFault(player, "Vous n'avez pas de trait obligatoire requis pour votre faction!");
 				end
 			end
 		else
-			return self:SetCreateFault(player, "You do not have a mandatory trait required for your faction!");
+			return self:SetCreateFault(player, "Vous n'avez pas de trait obligatoire requis pour votre faction!");
 		end
 	end
 
@@ -333,23 +333,23 @@ function Clockwork.player:CreateCharacterFromData(player, data)
 
 				if (string.utf8len(data.forename) < 2 or string.utf8len(data.surname) < 2) then
 					return self:SetCreateFault(
-						player, "Your name must more than two characters long."
+						player, "Votre nom doit comporter plus de deux caractères."
 					)
 				end
 
 				if (string.utf8len(data.forename) > 16 or string.utf8len(data.surname) > 16) then
 					return self:SetCreateFault(
-						player, "Your name must be less than 16 characters long."
+						player, "Votre nom doit comporter moins de 16 caractères."
 					)
 				end
 			else
 				return self:SetCreateFault(
-					player, "You did not choose a name or the name you chose is invalid."
+					player, "Vous n'avez pas choisi de nom ou le nom que vous avez choisi est invalide."
 				)
 			end
 		elseif (!data.fullName or data.fullName == "") then
 			return self:SetCreateFault(
-				player, "You did not choose a name or the name you chose is invalid."
+				player, "Vous n'avez pas choisi de nom ou le nom que vous avez choisi est invalide."
 			)
 		end
 	end
@@ -357,15 +357,15 @@ function Clockwork.player:CreateCharacterFromData(player, data)
 	if (Clockwork.command:FindByID("CharPhysDesc") != nil) then
 		if (type(data.physDesc) != "string") then
 			return self:SetCreateFault(
-				player, "You did not specify any text."
+				player, "Vous n'avez spécifié aucun texte."
 			)
 		elseif (string.utf8len(data.physDesc) < minimumPhysDesc) then
 			return self:SetCreateFault(
-				player, "The description must be at least "..minimumPhysDesc.." letters long."
+				player, "La description doit comporter au moins "..minimumPhysDesc.." caractères."
 			)
 		elseif (string.match(data.physDesc, "%s%s+")) then
 			return self:SetCreateFault(
-				player, "The description must not have consecutive spaces."
+				player, "La description ne doit pas comporter d'espaces consécutifs."
 			)
 		end
 
@@ -374,13 +374,13 @@ function Clockwork.player:CreateCharacterFromData(player, data)
 
 	if (!factionTable.GetModel and !info.model) then
 		return self:SetCreateFault(
-			player, "You did not choose a model, or the model that you chose is not valid!"
+			player, "Vous n'avez pas choisi de modèle, ou le modèle que vous avez choisi n'est pas valide!"
 		)
 	end
 	
 	if (!Clockwork.faction:IsGenderValid(info.faction, info.gender)) then
 		return self:SetCreateFault(
-			player, "You did not choose a gender, or the gender that you chose is not valid!"
+			player, "Vous n'avez pas choisi de genre, ou le genre que vous avez choisi n'est pas valide!"
 		)
 	end
 	
@@ -395,12 +395,12 @@ function Clockwork.player:CreateCharacterFromData(player, data)
 			if data.subfaction and factionTable.subfactionsToAvailableFaiths then
 				if !factionTable.subfactionsToAvailableFaiths[data.subfaction] or !table.HasValue(factionTable.subfactionsToAvailableFaiths[data.subfaction], data.faith) then
 					return self:SetCreateFault(
-						player, "This subfaction cannot take the "..data.faith.." faith!"
+						player, "Cette sousfaction ne peut pas prendre la "..data.faith.." foi!"
 					)
 				end
 			else
 				return self:SetCreateFault(
-					player, "This faction cannot take the "..data.faith.." faith!"
+					player, "Cette faction ne peut pas prendre la "..data.faith.." foi!"
 				)
 			end
 		end
@@ -408,7 +408,7 @@ function Clockwork.player:CreateCharacterFromData(player, data)
 
 	if (factionTable.whitelist and !self:IsWhitelisted(player, info.faction)) then
 		return self:SetCreateFault(
-			player, "You are not on the "..info.faction.." whitelist!"
+			player, "Vous n'êtes pas sur le "..info.faction.." liste blanche!"
 		)
 	elseif (Clockwork.faction:IsModelValid(factionTable.name, info.gender, info.model)
 	or (factionTable.GetModel and !info.model)) then
@@ -419,7 +419,7 @@ function Clockwork.player:CreateCharacterFromData(player, data)
 
 		if (Clockwork.faction:HasReachedMaximum(player, factionTable.name)) then
 			return self:SetCreateFault(
-				player, "You cannot create any more characters in this faction."
+				player, "Vous ne pouvez pas créer plus de personnages dans cette faction."
 			)
 		end
 
@@ -450,7 +450,7 @@ function Clockwork.player:CreateCharacterFromData(player, data)
 
 				if (fault == false or type(fault) == "string") then
 					return self:SetCreateFault(
-						player, fault or "There was an error creating this character!"
+						player, fault or "Une erreur s'est produite lors de la création de ce personnage!"
 					)
 				end
 			end
@@ -458,7 +458,7 @@ function Clockwork.player:CreateCharacterFromData(player, data)
 			for k, v in pairs(characters) do
 				if (v.name == info.name) then
 					return self:SetCreateFault(
-						player, "You already have a character with the name '"..info.name.."'!"
+						player, "Vous avez déjà un personnage avec le nom de '"..info.name.."'!"
 					)
 				end
 			end
@@ -467,7 +467,7 @@ function Clockwork.player:CreateCharacterFromData(player, data)
 
 			if (fault == false or type(fault) == "string") then
 				return self:SetCreateFault(
-					player, fault or "There was an error creating this character!"
+					player, fault or "Une erreur s'est produite lors de la création de ce personnage!"
 				)
 			end
 
@@ -479,7 +479,7 @@ function Clockwork.player:CreateCharacterFromData(player, data)
 
 					if (Clockwork.database:IsResult(result)) then
 						self:SetCreateFault(
-							player, "A character with the name '"..info.name.."' already exists!"
+							player, "Un personnage avec le nom '"..info.name.."' existe déjà!"
 						)
 						player.cwIsCreatingChar = nil
 					else
@@ -501,7 +501,7 @@ function Clockwork.player:CreateCharacterFromData(player, data)
 							},
 							function()
 								Clockwork.kernel:PrintLog(LOGTYPE_MINOR,
-									player:SteamName().." has created a "..info.faction.." character called '"..info.name.."'."
+									player:SteamName().." a créé un "..info.faction.." personnage appelé '"..info.name.."'."
 								)
 
 								netstream.Start(player, "CharacterFinish", {bSuccess = true})
@@ -519,11 +519,11 @@ function Clockwork.player:CreateCharacterFromData(player, data)
 				end)
 			queryObj:Execute()
 		else
-			return self:SetCreateFault(player, "You cannot create any more characters!")
+			return self:SetCreateFault(player, "Vous ne pouvez pas créer plus de personnages!")
 		end
 	else
 		return self:SetCreateFault(
-			player, "You did not choose a model, or the model that you chose is not valid!"
+			player, "Vous n'avez pas choisi de modèle, ou le modèle que vous avez choisi n'est pas valide!"
 		)
 	end
 end
@@ -1726,7 +1726,7 @@ end
 -- A function to send a player a creation fault.
 function Clockwork.player:SetCreateFault(player, fault)
 	if (!fault) then
-		fault = "There has been an unknown error, please contact the administrator!"
+		fault = "Une erreur inconnue s'est produite, veuillez contacter l'administrateur!"
 	end
 
 	netstream.Start(player, "CharacterFinish", {bSuccess = false, fault = fault})
@@ -1746,7 +1746,7 @@ function Clockwork.player:ForceDeleteCharacter(player, characterID)
 		queryObj:Execute()
 
 		if (!hook.Run("PlayerDeleteCharacter", player, character)) then
-			Clockwork.kernel:PrintLog(LOGTYPE_GENERIC, player:SteamName().." has deleted the character '"..character.name.."'.")
+			Clockwork.kernel:PrintLog(LOGTYPE_GENERIC, player:SteamName().." a supprimé le personnage '"..character.name.."'.")
 		end
 
 		player.cwCharacterList[characterID] = nil
@@ -1770,15 +1770,15 @@ function Clockwork.player:DeleteCharacter(player, characterID)
 				
 				return true
 			elseif (type(fault) != "string") then
-				return false, "You cannot delete this character!"
+				return false, "Vous ne pouvez pas supprimer ce personnage!"
 			else
 				return false, fault
 			end
 		else
-			return false, "You cannot delete the character you are using!"
+			return false, "Vous ne pouvez pas supprimer le personnage que vous utilisez!"
 		end
 	else
-		return false, "This character does not exist!"
+		return false, "Ce personnage n'existe pas!"
 	end
 end
 
@@ -1788,7 +1788,7 @@ function Clockwork.player:UseCharacter(player, characterID)
 	local character = player.cwCharacterList[characterID]
 
 	if (!character) then
-		return false, "This character does not exist!"
+		return false, "Ce personnage n'existe pas!"
 	end
 
 	if (currentCharacter != character) then
@@ -1825,36 +1825,36 @@ function Clockwork.player:UseCharacter(player, characterID)
 				end
 				
 				if chars >= factionTable.characterLimit then
-					return false, "You cannot switch to this character as you have exceeded the character limit for this faction!";
+					return false, "Vous ne pouvez pas passer à ce personnage car vous avez dépassé la limite de personnages pour cette faction!";
 				end
 			end
 
 			if (limit and limit ~= 0 and players == limit) then
-				return false, "The "..character.faction.." faction is full ("..limit.."/"..limit..")!"
+				return false, "La "..character.faction.." la faction est pleine ("..limit.."/"..limit..")!"
 			elseif Clockwork.config:Get("faction_ratio_enabled"):Get() and (ratio and players > math.max(1, math.floor(ratio * _player.GetCount()))) then
-				return false, "The "..character.faction.." faction is full!"
+				return false, "La "..character.faction.." la faction est pleine!"
 			else
 				if (currentCharacter) then
 					local fault = hook.Run("PlayerCanSwitchCharacter", player, character)
 
 					if (fault != nil and fault != true) then
-						return false, fault or "You cannot switch to this character!"
+						return false, fault or "Vous ne pouvez pas passer à ce personnage!"
 					end
 					
-					Clockwork.kernel:PrintLog(LOGTYPE_GENERIC, player:SteamName().." has unloaded the character '"..currentCharacter.name.."'.")
+					Clockwork.kernel:PrintLog(LOGTYPE_GENERIC, player:SteamName().." a déchargé le personnage '"..currentCharacter.name.."'.")
 				end
 
-				Clockwork.kernel:PrintLog(LOGTYPE_GENERIC, player:SteamName().." has loaded the character '"..character.name.."'.")
+				Clockwork.kernel:PrintLog(LOGTYPE_GENERIC, player:SteamName().." a chargé le personnage '"..character.name.."'.")
 
 				self:LoadCharacter(player, characterID)
 
 				return true
 			end
 		else
-			return false, fault or "You cannot use this character!"
+			return false, fault or "Vous ne pouvez pas utiliser ce personnage!"
 		end
 	else
-		return false, "You are already using this character!"
+		return false, "Vous utilisez déjà ce personnage!"
 	end
 end
 
@@ -1979,7 +1979,7 @@ function Clockwork.player:GetPhysDesc(player)
 	end
 
 	if (!physDesc or physDesc == "") then
-		physDesc = "This character has no physical description set."
+		physDesc = "Ce personnage n'a pas de description physique définie."
 	else
 		physDesc = Clockwork.kernel:ModifyPhysDesc(physDesc)
 	end
@@ -2187,11 +2187,11 @@ function Clockwork.player:GiveCash(player, amount, reason, bNoMsg)
 			if (!bNoMsg) then
 				if (reason) then
 					Clockwork.hint:Send(
-						player, "Your character has lost the sum of "..Clockwork.kernel:FormatCash(roundedAmount).." ("..reason..").", 4, negativeHintColor
+						player, "Votre personnage a perdu la somme de"..Clockwork.kernel:FormatCash(roundedAmount).." ("..reason..").", 4, negativeHintColor
 					)
 				else
 					Clockwork.hint:Send(
-						player, "Your character has lost the sum of "..Clockwork.kernel:FormatCash(roundedAmount)..".", 4, negativeHintColor
+						player, "Votre personnage a perdu la somme de"..Clockwork.kernel:FormatCash(roundedAmount)..".", 4, negativeHintColor
 					)
 				end
 			end
@@ -2199,11 +2199,11 @@ function Clockwork.player:GiveCash(player, amount, reason, bNoMsg)
 			if (!bNoMsg) then
 				if (reason) then
 					Clockwork.hint:Send(
-						player, "Your character has gained the sum of "..Clockwork.kernel:FormatCash(roundedAmount).." ("..reason..").", 4, positiveHintColor
+						player, "Votre personnage a obtenu la somme de"..Clockwork.kernel:FormatCash(roundedAmount).." ("..reason..").", 4, positiveHintColor
 					)
 				else
 					Clockwork.hint:Send(
-						player, "Your character has gained the sum of "..Clockwork.kernel:FormatCash(roundedAmount)..".", 4, positiveHintColor
+						player, "Votre personnage a obtenu la somme de"..Clockwork.kernel:FormatCash(roundedAmount)..".", 4, positiveHintColor
 					)
 				end
 			end

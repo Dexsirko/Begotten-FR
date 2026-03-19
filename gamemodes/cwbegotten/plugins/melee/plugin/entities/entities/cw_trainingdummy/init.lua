@@ -53,7 +53,7 @@ function ENT:OnTakeDamage(damageInfo)
 			hitGroup = cwMedicalSystem.cwHitGroupToString[hitGroup];
 		end
 	
-		Clockwork.chatBox:Add(player, nil, "itnofake", "Tu as touché le mannequin d'entraînement dans le"..hitGroup.." for "..tostring(damageInfo:GetDamage() or 0).." damage!");
+		Clockwork.chatBox:Add(player, nil, "itnofake", "Tu as touché le mannequin d'entraînement dans le"..hitGroup.." pour "..tostring(damageInfo:GetDamage() or 0).." domages!");
 	end
 end
 

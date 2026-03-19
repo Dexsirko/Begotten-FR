@@ -12,8 +12,8 @@ function ENT:HUDPaintTargetID(x, y, alpha)
 	local colorTargetID = Clockwork.option:GetColor("target_id")
 	local colorWhite = Clockwork.option:GetColor("white")
 	
-	y = Clockwork.kernel:DrawInfo("Scrapper King Power Armor", x, y, colorTargetID, alpha)
-	y = Clockwork.kernel:DrawInfo("An intimidating set of power armor made from the finest scrap the Wasteland has to offer.", x, y, colorWhite, alpha);
+	y = Clockwork.kernel:DrawInfo("Armure Assistée du Roi Ferrailleur", x, y, colorTargetID, alpha)
+	y = Clockwork.kernel:DrawInfo("Un ensemble intimidant d'armure assistée fabriqué à partir des meilleurs débris que les Terres Désolées ont à offrir.", x, y, colorWhite, alpha);
 end;
 
 local function CreateMenu(state)

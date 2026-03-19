@@ -871,9 +871,9 @@ local ITEM = Clockwork.item:New();
 								local vFaction = v:GetFaction();
 								
 								if vFaction == "Gatekeeper" or vFaction == "Hillkeeper" or vFaction == "Holy Hierarchy" then
-									Clockwork.chatBox:Add(v, nil, "localevent", player:Name().." blows their warhorn, signalling an attack!");
+									Clockwork.chatBox:Add(v, nil, "localevent", player:Name().." souffle dans son cor de guerre, signalant une attaque!");
 								else
-									Clockwork.chatBox:Add(v, nil, "localevent", player:Name().." blows their warhorn, but its signal is unknown to you!");
+									Clockwork.chatBox:Add(v, nil, "localevent", player:Name().." souffle dans son cor de guerre, mais son signal vous est inconnu!");
 								end
 							end
 						end
@@ -885,9 +885,9 @@ local ITEM = Clockwork.item:New();
 								local vFaction = v:GetFaction();
 								
 								if vFaction == "Gatekeeper" or vFaction == "Hillkeeper" or vFaction == "Holy Hierarchy" then
-									Clockwork.chatBox:Add(v, nil, "localevent", player:Name().." blows their warhorn, signalling a rally!");
+									Clockwork.chatBox:Add(v, nil, "localevent", player:Name().." souffle dans son cor de guerre, signalant un ralliement!");
 								else
-									Clockwork.chatBox:Add(v, nil, "localevent", player:Name().." blows their warhorn, but its signal is unknown to you!");
+									Clockwork.chatBox:Add(v, nil, "localevent", player:Name().." souffle dans son cor de guerre, mais son signal vous est inconnu!");
 								end
 							end
 						end
@@ -899,9 +899,9 @@ local ITEM = Clockwork.item:New();
 								local vFaction = v:GetFaction();
 								
 								if vFaction == "Gatekeeper" or vFaction == "Hillkeeper" or vFaction == "Holy Hierarchy" then
-									Clockwork.chatBox:Add(v, nil, "localevent", player:Name().." blows their warhorn, signalling a rally in a marching formation!");
+									Clockwork.chatBox:Add(v, nil, "localevent", player:Name().." souffle dans son cor de guerre, signalant un ralliement en formation de marche!");
 								else
-									Clockwork.chatBox:Add(v, nil, "localevent", player:Name().." blows their warhorn, but its signal is unknown to you!");
+									Clockwork.chatBox:Add(v, nil, "localevent", player:Name().." souffle dans son cor de guerre, mais son signal vous est inconnu!");
 								end
 							end
 						end
@@ -913,9 +913,9 @@ local ITEM = Clockwork.item:New();
 								local vFaction = v:GetFaction();
 								
 								if vFaction == "Gatekeeper" or vFaction == "Hillkeeper" or vFaction == "Holy Hierarchy" then
-									Clockwork.chatBox:Add(v, nil, "localevent", player:Name().." blows their warhorn, signalling a rally in a shieldwall formation!");
+									Clockwork.chatBox:Add(v, nil, "localevent", player:Name().." souffle dans son cor de guerre, signalant un ralliement en formation de mur de boucliers!");
 								else
-									Clockwork.chatBox:Add(v, nil, "localevent", player:Name().." blows their warhorn, but its signal is unknown to you!");
+									Clockwork.chatBox:Add(v, nil, "localevent", player:Name().." souffle dans son cor de guerre, mais son signal vous est inconnu!");
 								end
 							end
 						end
@@ -927,9 +927,9 @@ local ITEM = Clockwork.item:New();
 								local vFaction = v:GetFaction();
 								
 								if vFaction == "Gatekeeper" or vFaction == "Hillkeeper" or vFaction == "Holy Hierarchy" then
-									Clockwork.chatBox:Add(v, nil, "localevent", player:Name().." blows their warhorn, signalling a retreat!");
+									Clockwork.chatBox:Add(v, nil, "localevent", player:Name().." souffle dans son cor de guerre, signalant une retraite!");
 								else
-									Clockwork.chatBox:Add(v, nil, "localevent", player:Name().." blows their warhorn, but its signal is unknown to you!");
+									Clockwork.chatBox:Add(v, nil, "localevent", player:Name().." souffle dans son cor de guerre, mais son signal vous est inconnu!");
 								end
 							end
 						end
@@ -943,9 +943,9 @@ local ITEM = Clockwork.item:New();
 								local vFaction = v:GetFaction();
 								
 								if vFaction == faction then
-									Clockwork.chatBox:Add(v, nil, "localevent", player:Name().." blows their warhorn, signalling an attack!");
+									Clockwork.chatBox:Add(v, nil, "localevent", player:Name().." souffle dans son cor de guerre, signalant une attaque!");
 								else
-									Clockwork.chatBox:Add(v, nil, "localevent", player:Name().." blows their warhorn, but its signal is unknown to you!");
+									Clockwork.chatBox:Add(v, nil, "localevent", player:Name().." souffle dans son cor de guerre, mais son signal vous est inconnu!");
 								end
 							end
 						end
@@ -957,9 +957,9 @@ local ITEM = Clockwork.item:New();
 								local vFaction = v:GetFaction();
 								
 								if vFaction == faction then
-									Clockwork.chatBox:Add(v, nil, "localevent", player:Name().." blows their warhorn, signalling a rally!");
+									Clockwork.chatBox:Add(v, nil, "localevent", player:Name().." souffle dans son cor de guerre, signalant un ralliement!");
 								else
-									Clockwork.chatBox:Add(v, nil, "localevent", player:Name().." blows their warhorn, but its signal is unknown to you!");
+									Clockwork.chatBox:Add(v, nil, "localevent", player:Name().." souffle dans son cor de guerre, mais son signal vous est inconnu!");
 								end
 							end
 						end
@@ -971,9 +971,9 @@ local ITEM = Clockwork.item:New();
 								local vFaction = v:GetFaction();
 								
 								if vFaction == faction then
-									Clockwork.chatBox:Add(v, nil, "localevent", player:Name().." blows their warhorn, signalling a rally in a marching formation!");
+									Clockwork.chatBox:Add(v, nil, "localevent", player:Name().." souffle dans son cor de guerre, signalant un ralliement en formation de marche!");
 								else
-									Clockwork.chatBox:Add(v, nil, "localevent", player:Name().." blows their warhorn, but its signal is unknown to you!");
+									Clockwork.chatBox:Add(v, nil, "localevent", player:Name().." souffle dans son cor de guerre, mais son signal vous est inconnu!");
 								end
 							end
 						end
@@ -985,9 +985,9 @@ local ITEM = Clockwork.item:New();
 								local vFaction = v:GetFaction();
 								
 								if vFaction == faction then
-									Clockwork.chatBox:Add(v, nil, "localevent", player:Name().." blows their warhorn, signalling a rally in a shieldwall formation!");
+									Clockwork.chatBox:Add(v, nil, "localevent", player:Name().." souffle dans son cor de guerre, signalant un ralliement en formation de mur de boucliers!");
 								else
-									Clockwork.chatBox:Add(v, nil, "localevent", player:Name().." blows their warhorn, but its signal is unknown to you!");
+									Clockwork.chatBox:Add(v, nil, "localevent", player:Name().." souffle dans son cor de guerre, mais son signal vous est inconnu!");
 								end
 							end
 						end
@@ -999,9 +999,9 @@ local ITEM = Clockwork.item:New();
 								local vFaction = v:GetFaction();
 								
 								if vFaction == faction then
-									Clockwork.chatBox:Add(v, nil, "localevent", player:Name().." blows their warhorn, signalling a retreat!");
+									Clockwork.chatBox:Add(v, nil, "localevent", player:Name().." souffle dans son cor de guerre, signalant une retraite!");
 								else
-									Clockwork.chatBox:Add(v, nil, "localevent", player:Name().." blows their warhorn, but its signal is unknown to you!");
+									Clockwork.chatBox:Add(v, nil, "localevent", player:Name().." souffle dans son cor de guerre, mais son signal vous est inconnu!");
 								end
 							end
 						end
@@ -1058,9 +1058,9 @@ local ITEM = Clockwork.item:New();
 							if v:IsPlayer() then
 								local vFaction = v:GetFaction();
 								if vFaction == "Children of Satan" then
-									Clockwork.chatBox:Add(v, nil, "localevent", player:Name().." sounds their death whistle, signalling an attack!");
+									Clockwork.chatBox:Add(v, nil, "localevent", player:Name().." fait sonner son sifflet de la mort, signalant une attaque!");
 								else
-									Clockwork.chatBox:Add(v, nil, "localevent", player:Name().." sounds a terrifying death whistle!");
+									Clockwork.chatBox:Add(v, nil, "localevent", player:Name().." fait sonner un sifflet de la mort terrifiant!");
 								end
 							end
 						end
@@ -1071,9 +1071,9 @@ local ITEM = Clockwork.item:New();
 								local vFaction = v:GetFaction();
 								
 								if vFaction == "Children of Satan" then
-									Clockwork.chatBox:Add(v, nil, "localevent", player:Name().." sounds their death whistle, signalling a rally!");
+									Clockwork.chatBox:Add(v, nil, "localevent", player:Name().." fait sonner son sifflet de la mort, signalant un ralliement!");
 								else
-									Clockwork.chatBox:Add(v, nil, "localevent", player:Name().." sounds a terrifying death whistle!");
+									Clockwork.chatBox:Add(v, nil, "localevent", player:Name().." fait sonner un sifflet de la mort terrifiant!");
 								end
 							end
 						end
@@ -1084,9 +1084,9 @@ local ITEM = Clockwork.item:New();
 								local vFaction = v:GetFaction();
 								
 								if vFaction == "Children of Satan" then
-									Clockwork.chatBox:Add(v, nil, "localevent", player:Name().." sounds their death whistle, signalling a rally in a marching formation!");
+									Clockwork.chatBox:Add(v, nil, "localevent", player:Name().." fait sonner son sifflet de la mort, signalant un ralliement en formation de marche!");
 								else
-									Clockwork.chatBox:Add(v, nil, "localevent", player:Name().." sounds a terrifying death whistle!");
+									Clockwork.chatBox:Add(v, nil, "localevent", player:Name().." fait sonner un sifflet de la mort terrifiant!");
 								end
 							end
 						end
@@ -1097,9 +1097,9 @@ local ITEM = Clockwork.item:New();
 								local vFaction = v:GetFaction();
 								
 								if vFaction == "Children of Satan" then
-									Clockwork.chatBox:Add(v, nil, "localevent", player:Name().." sounds their death whistle, signalling a rally in a shieldwall formation!");
+									Clockwork.chatBox:Add(v, nil, "localevent", player:Name().." fait sonner son sifflet de la mort, signalant un ralliement en formation de mur de boucliers!");
 								else
-									Clockwork.chatBox:Add(v, nil, "localevent", player:Name().." sounds a terrifying death whistle!");
+									Clockwork.chatBox:Add(v, nil, "localevent", player:Name().." fait sonner un sifflet de la mort terrifiant!");
 								end
 							end
 						end
@@ -1109,9 +1109,9 @@ local ITEM = Clockwork.item:New();
 							if v:IsPlayer() then
 								local vFaction = v:GetFaction();
 								if vFaction == "Children of Satan" then
-									Clockwork.chatBox:Add(v, nil, "localevent", player:Name().." sounds their death whistle, signalling a retreat!");
+									Clockwork.chatBox:Add(v, nil, "localevent", player:Name().." fait sonner son sifflet de la mort, signalant une retraite!");
 								else
-									Clockwork.chatBox:Add(v, nil, "localevent", player:Name().." sounds a terrifying death whistle!");
+									Clockwork.chatBox:Add(v, nil, "localevent", player:Name().." fait sonner un sifflet de la mort terrifiant!");
 								end
 							end
 						end

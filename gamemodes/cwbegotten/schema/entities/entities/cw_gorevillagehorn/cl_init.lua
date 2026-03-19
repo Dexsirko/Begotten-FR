@@ -5,8 +5,8 @@ function ENT:HUDPaintTargetID(x, y, alpha)
 	local colorTargetID = Clockwork.option:GetColor("target_id")
 	local colorWhite = Clockwork.option:GetColor("white")
 	
-	y = Clockwork.kernel:DrawInfo("Goreic Gathering Horn", x, y, colorTargetID, alpha)
-	y = Clockwork.kernel:DrawInfo("A Goreic warhorn handcrafted to produce a sound that will echo throughout the Forest when blown.", x, y, colorWhite, alpha);
+	y = Clockwork.kernel:DrawInfo("Cor de Rassemblement Goreic", x, y, colorTargetID, alpha)
+	y = Clockwork.kernel:DrawInfo("Un cor de guerre Goreic fabriqué à la main pour produire un son qui résonnera à travers la Forêt lorsqu'il sera soufflé.", x, y, colorWhite, alpha);
 end;
 
 local function CreateMenu(state)

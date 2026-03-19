@@ -2864,15 +2864,15 @@ function PANEL:Init()
 					
 					if (v.points < 0) then
 						if v.points == -1 then
-							frame:AddText("Gives "..string.gsub(v.points, "-", "").." point", selectedGood);
+							frame:AddText("Confère"..string.gsub(v.points, "-", "").." point", selectedGood);
 						else
-							frame:AddText("Gives "..string.gsub(v.points, "-", "").." points", selectedGood);
+							frame:AddText("Confère"..string.gsub(v.points, "-", "").." points", selectedGood);
 						end
 					else
 						if v.points == 1 then
-							frame:AddText("Costs "..v.points.." point", selectedBad);
+							frame:AddText("Coûte"..v.points.." point", selectedBad);
 						else
-							frame:AddText("Costs "..v.points.." points", selectedBad);
+							frame:AddText("Coûte"..v.points.." points", selectedBad);
 						end
 					end;
 					
@@ -2899,13 +2899,13 @@ function PANEL:Init()
 					end
 					
 					if traitButton.eventlocked then
-						frame:AddText("This trait is locked for this event!", selectedBad);
+						frame:AddText("Ce trait est verrouillé pour cet événement !", selectedBad);
 					elseif traitButton.excludedfactions and Clockwork.Client.SelectedFaction and table.HasValue(traitButton.excludedfactions, Clockwork.Client.SelectedFaction) then
-						frame:AddText("This trait is locked for your selected faction!", selectedBad);
+						frame:AddText("Ce trait est verrouillé pour la faction que vous avez sélectionnée !", selectedBad);
 					elseif traitButton.excludedsubfactions and Clockwork.Client.SelectedSubfaction and table.HasValue(traitButton.excludedsubfactions, Clockwork.Client.SelectedSubfaction) then
-						frame:AddText("This trait is locked for your selected subfaction!", selectedBad);
+						frame:AddText("Cette caractéristique est verrouillée pour votre sous-faction sélectionnée !", selectedBad);
 					elseif traitButton.requiredfactions and Clockwork.Client.SelectedFaction and !table.HasValue(traitButton.requiredfactions, Clockwork.Client.SelectedFaction) then
-						frame:AddText("This trait is locked for your selected faction!", selectedBad);
+						frame:AddText("Ce trait est verrouillé pour la faction que vous avez sélectionnée !", selectedBad);
 					end
 				end
 			end);

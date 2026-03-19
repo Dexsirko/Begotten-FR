@@ -158,11 +158,11 @@ function cwMedicalSystem:PlayerUseMedical(player, itemTable, hitGroup)
 					if player:GetCharacterData("BleedingLimbs", {})[self:HitgroupToString(hitGroup)] and table.HasValue(itemTable.limbs, hitGroup) then
 						self:RollInfectionChance(itemTable, player, self.cwHitGroupToString[hitGroup])
 						player:MakeLimbStopBleeding(hitGroup);
-						Clockwork.hint:Send(player, "Your "..self.cwHitGroupToString[hitGroup].." stops bleeding...", 5, Color(100, 175, 100), true, true);
+						Clockwork.hint:Send(player, "Votre"..self.cwHitGroupToString[hitGroup].." stops bleeding...", 5, Color(100, 175, 100), true, true);
 					end
 				elseif hitGroup == "all" or !itemTable.limbs then
 					player:StopAllBleeding();
-					Clockwork.hint:Send(player, "All of your bleeding has stopped...", 5, Color(100, 175, 100), true, true);
+					Clockwork.hint:Send(player, "Toutes vos hémorragies se sont arrêtées...", 5, Color(100, 175, 100), true, true);
 				end
 			end;
 			
@@ -358,11 +358,11 @@ function cwMedicalSystem:HealPlayer(player, target, itemTable, hitGroup)
 					if itemTable.limbs and istable(itemTable.limbs) and #itemTable.limbs > 0 and hitGroup then
 						if target:GetCharacterData("BleedingLimbs", {})[self:HitgroupToString(hitGroup)] and table.HasValue(itemTable.limbs, hitGroup) then
 							target:MakeLimbStopBleeding(hitGroup);
-							Clockwork.hint:Send(target, "Your "..self.cwHitGroupToString[hitGroup].." stops bleeding...", 5, Color(100, 175, 100), true, true);
+							Clockwork.hint:Send(target, "Votre"..self.cwHitGroupToString[hitGroup].." stops bleeding...", 5, Color(100, 175, 100), true, true);
 						end
 					elseif hitGroup == "all" or !itemTable.limbs then
 						target:StopAllBleeding();
-						Clockwork.hint:Send(target, "All of your bleeding has stopped...", 5, Color(100, 175, 100), true, true);
+						Clockwork.hint:Send(target, "Toutes vos hémorragies se sont arrêtées...", 5, Color(100, 175, 100), true, true);
 					end
 				end;
 				

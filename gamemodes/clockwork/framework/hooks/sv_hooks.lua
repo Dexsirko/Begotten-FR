@@ -311,7 +311,7 @@ function GM:PlayerDisconnected(player)
 		
 		for _, v in _player.Iterator() do
 			if v:IsAdmin() then
-				Clockwork.chatBox:Add(v, nil, "disconnect", player:SteamName().." has disconnected from the server.");
+				Clockwork.chatBox:Add(v, nil, "disconnect", player:SteamName().." s'est déconnecté du serveur.");
 			end
 		end
 	end
@@ -1324,7 +1324,7 @@ function GM:PlayerCountryAuthed(player, countryCode)
 		
 		for _, v in _player.Iterator() do
 			if v:IsAdmin() then
-				Clockwork.chatBox:Add(v, nil, "connect_country", steamName.." has connected to the server from "..countryName..".", {countryIcon = string.upper(countryCode)});
+				Clockwork.chatBox:Add(v, nil, "connect_country", steamName.." s'est connecté au serveur depuis "..countryName..".", {countryIcon = string.upper(countryCode)});
 			end
 		end
 		
@@ -1340,11 +1340,11 @@ concommand.Add("sexfunny", function(player)
 		local countrycode = player:GetData("CountryCode");
 		local countryName = Clockwork.kernel:GetCountryName(player) or "Palestine";
 		
-		Clockwork.kernel:PrintLog(LOGTYPE_MINOR, steamName.." ("..steamID.." / "..ipAddress..") has connected from "..countryName..".")
+		Clockwork.kernel:PrintLog(LOGTYPE_MINOR, steamName.." ("..steamID.." / "..ipAddress..") s'est connecté depuis "..countryName..".")
 		
 		for _, v in _player.Iterator() do
 			if v:IsAdmin() then
-				Clockwork.chatBox:Add(v, nil, "connect_country", steamName.." has connected to the server from "..countryName..".", {countryIcon = string.upper(countryCode)});
+				Clockwork.chatBox:Add(v, nil, "connect_country", steamName.." s'est connecté au serveur depuis "..countryName..".", {countryIcon = string.upper(countryCode)});
 			end
 		end
 	end

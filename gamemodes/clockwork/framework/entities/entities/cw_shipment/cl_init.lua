@@ -14,7 +14,7 @@ function ENT:HUDPaintTargetID(x, y, alpha)
 	local itemTable = self:GetItemTable()
 
 	if (itemTable) then
-		y = Clockwork.kernel:DrawInfo("Shipment w/ rations", x, y, colorTargetID, alpha)
+		y = Clockwork.kernel:DrawInfo("Livraison w/ Rations", x, y, colorTargetID, alpha)
 		y = Clockwork.kernel:DrawInfo(itemTable.name, x, y, colorWhite, alpha)
 	end
 end

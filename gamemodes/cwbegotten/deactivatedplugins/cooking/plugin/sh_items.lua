@@ -167,7 +167,7 @@ local ITEM = Clockwork.item:New(nil)
 					end;
 				end;
 
-				frame:AddText("This item is sealed, and must be opened with one of the following...", Color(200, 200, 255), "Subtitle_Whisper", 0.8)
+				frame:AddText("Cet objet est scellé et doit être ouvert avec l'un des éléments suivants...", Color(200, 200, 255), "Subtitle_Whisper", 0.8)
 				frame:AddInfoBox(infoBox)
 			elseif (!self.bNoGrade) then
 				local quantity = self:GetData("quantity");
@@ -196,7 +196,7 @@ local ITEM = Clockwork.item:New(nil)
 					local quantityColor = quantityTable.color or Color(150, 150, 150);
 					
 					if (quantityText and quantityColor) then
-						frame:AddText("It is "..quantityText..".", quantityColor:Darken(25), "DermaDefault");
+						frame:AddText("Il est"..quantityText..".", quantityColor:Darken(25), "DermaDefault");
 					end;
 				end;
 			end;

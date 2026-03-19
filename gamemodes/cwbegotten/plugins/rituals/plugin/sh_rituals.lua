@@ -26,8 +26,8 @@ local function IsAreaClear(position, radius, player)
 end
 
 local RITUAL = cwRituals.rituals:New("purifying_stone_rite");
-	RITUAL.name = "(T2) Purifying Stone Rite";
-	RITUAL.description = "Imbueing something with not only purity, but the ability to spread its purified nature to its surroundings is an act of faith practiced by few. Performing this ritual summons a Purifying Stone item. Removes 10 corruption.";
+	RITUAL.name = "(T2) Rituel de la Pierre Purificatrice";
+	RITUAL.description = "Imprégner quelque chose non seulement de pureté, mais aussi de la capacité à répandre sa nature purifiée à son environnement est un acte de foi pratiqué par peu. L'exécution de ce rituel invoque un objet Pierre de Purification. Supprime 10 points de corruption.";
 	RITUAL.onerequiredbelief = {"man_become_beast", "one_with_the_druids", "daring_trout", "shieldwall", "shedskin", "flagellant", "acolyte", "soothsayer", "heretic"}; -- Tier II Shared Ritual
 	
 	RITUAL.requirements = {"light_catalyst", "up_catalyst", "trinity_catalyst"};
@@ -52,8 +52,8 @@ local RITUAL = cwRituals.rituals:New("purifying_stone_rite");
 RITUAL:Register()
 
 RITUAL = cwRituals.rituals:New("yellow_banner_of_quelling");
-	RITUAL.name = "(T2) Yellow Banner of Quelling";
-	RITUAL.description = "The children flee when they spot the invisible banner. Let the Satanic filth cower when they realize they are now chained to these mortal lands that they have blighted for so long. Performing this ritual prevents helljaunting in a large radius and cloaking in a smaller radius around you for 30 minutes. Be warned that the Children of Satan will be made aware of your presence! Incurs 5 corruption.";
+	RITUAL.name = "(T2) Bannière Jaune de l'Apaisement";
+	RITUAL.description = "Les enfants fuient lorsqu'ils aperçoivent la bannière invisible. Que cette ordure satanique tremble en réalisant qu'elle est désormais enchaînée à ces terres mortelles qu'elle a souillées si longtemps. L'exécution de ce rituel empêche les voyages infernaux dans un large rayon et le camouflage dans un rayon plus restreint autour de vous pendant 30 minutes. Attention : les Enfants de Satan seront informés de votre présence ! Inflige 5 points de corruption.";
 	RITUAL.onerequiredbelief = {"man_become_beast", "one_with_the_druids", "daring_trout", "shieldwall", "shedskin", "flagellant", "acolyte"}; -- Tier II Light/Family Ritual
 	
 	RITUAL.requirements = {"purifying_stone", "xolotl_catalyst", "down_catalyst"};
@@ -71,7 +71,7 @@ RITUAL = cwRituals.rituals:New("yellow_banner_of_quelling");
 				if player:GetNetVar("yellowBanner", false) then
 					player:SetNetVar("yellowBanner", false)
 					UpdateActiveRituals(player, "Yellow Banner of Quelling", nil)
-					Clockwork.hint:Send(player, "The 'Yellow Banner of Quelling' ritual has worn off...", 10, Color(175, 100, 100), true, true)
+					Clockwork.hint:Send(player, "Le rituel de la 'Bannière Jaune de l'Apaisement' s'est dissipé...", 10, Color(175, 100, 100), true, true)
 				end
 			end
 		end)
@@ -91,8 +91,8 @@ RITUAL = cwRituals.rituals:New("yellow_banner_of_quelling");
 RITUAL:Register()
 
 RITUAL = cwRituals.rituals:New("xolotl_catalyst");
-	RITUAL.name = "(T2) Xolotl Catalyst Rite";
-	RITUAL.description = "Energy harnessed into stone. It could be used for something greater. Performing this ritual summons a Xolotl Catalyst item. Incurs 5 corruption.";
+	RITUAL.name = "(T2) Rituel du Catalyseur Xolotl";
+	RITUAL.description = "L'énergie est canalisée dans la pierre. Elle pourrait servir à quelque chose de plus grand. L'exécution de ce rituel invoque un objet Xolotl Catalyst. Inflige 5 points de corruption.";
 	RITUAL.onerequiredbelief = {"man_become_beast", "one_with_the_druids", "daring_trout", "shieldwall", "shedskin", "flagellant", "acolyte", "soothsayer", "heretic"}; -- Tier II Shared Ritual
 	
 	RITUAL.requirements = {"down_catalyst", "up_catalyst", "ice_catalyst"};
@@ -114,8 +114,8 @@ RITUAL = cwRituals.rituals:New("xolotl_catalyst");
 RITUAL:Register()
 
 RITUAL = cwRituals.rituals:New("holy_spirit_rite");
-	RITUAL.name = "(T2) Holy Spirit Rite";
-	RITUAL.description = "Since the death of God, the spirits wander the lands of men. Capture one into stone before it is corrupted with impurity! Performing this ritual summons a Holy Spirit item. Incurs 5 corruption.";
+	RITUAL.name = "(T2) Rite de l'Esprit Saint";
+	RITUAL.description = "Depuis la mort de Dieu, les esprits errent sur les terres des hommes. Capturez-en un dans la pierre avant qu'il ne soit corrompu par l'impureté ! L'exécution de ce rituel invoque un objet Esprit Saint. Inflige 5 points de corruption.";
 	RITUAL.onerequiredbelief = {"flagellant", "acolyte"}; -- Tier II Faith of the Light Ritual
 	
 	RITUAL.requirements = {"light_catalyst", "trinity_catalyst", "light_catalyst"};
@@ -137,8 +137,8 @@ RITUAL = cwRituals.rituals:New("holy_spirit_rite");
 RITUAL:Register()
 
 RITUAL = cwRituals.rituals:New("tortured_spirit_rite");
-	RITUAL.name = "(T2) Tortured Spirit Rite";
-	RITUAL.description = "Trap a bright spirit suffering its eternity of agony and utilize it as a source of forbidden power. Performing this ritual summons a Tortured Spirit item. Incurs 5 corruption.";
+	RITUAL.name = "(T2) Rite de l'Esprit Torturé";
+	RITUAL.description = "Piège un esprit lumineux condamné à une éternité de tourments et utilise-le comme source de pouvoir interdit. L'exécution de ce rituel invoque un objet Esprit Torturé. Inflige 5 points de corruption.";
 	RITUAL.onerequiredbelief = {"soothsayer", "heretic", "shedskin"}; -- Tier II Faith of the Dark Ritual
 	
 	RITUAL.requirements = {"down_catalyst", "belphegor_catalyst", "belphegor_catalyst"};
@@ -160,8 +160,8 @@ RITUAL = cwRituals.rituals:New("tortured_spirit_rite");
 RITUAL:Register()
 
 RITUAL = cwRituals.rituals:New("pentagram_catalyst_rite");
-	RITUAL.name = "(T2) Pentagram Catalyst Rite";
-	RITUAL.description = "Fear, pain, and the screams of the unhappy crystalized in your palm. Performing this ritual summons a Pentagram Catalyst item. Incurs 5 corruption.";
+	RITUAL.name = "(T2) Rituel du Pentagramme Catalyseur";
+	RITUAL.description = "Peur, souffrance et cris du malheur cristallisés dans ta paume. L'exécution de ce rituel invoque un objet Pentagram Catalyst. Inflige 5 points de corruption.";
 	RITUAL.onerequiredbelief = {"soothsayer", "heretic", "shedskin"}; -- Tier II Faith of the Dark Ritual
 	
 	RITUAL.requirements = {"down_catalyst", "belphegor_catalyst", "down_catalyst"};
@@ -183,8 +183,8 @@ RITUAL = cwRituals.rituals:New("pentagram_catalyst_rite");
 RITUAL:Register()
 
 RITUAL = cwRituals.rituals:New("judgement_sigil_rite");
-	RITUAL.name = "(Unique) Judgemental Sigil Stone Rite";
-	RITUAL.description = "Manifest your hatred and shame into a sigil stone. Performing this ritual summons a Judgemental Sigil Stone. Incurs 5 corruption.";
+	RITUAL.name = "(Rituel Unique) Rite de la Pierre Sigillaire du Jugement";
+	RITUAL.description = "Manifestez votre haine et votre honte en une pierre sigillaire. L'exécution de ce rituel invoque une Pierre Sigillaire du Jugement. Inflige 5 points de corruption.";
 	RITUAL.onerequiredbelief = {"extinctionist"}; -- Unique Sol Orthodoxy Ritual
 	
 	RITUAL.requirements = {"down_catalyst", "light_catalyst", "purifying_stone"};
@@ -206,8 +206,8 @@ RITUAL = cwRituals.rituals:New("judgement_sigil_rite");
 RITUAL:Register()
 
 RITUAL = cwRituals.rituals:New("judgement_sigil_vengeful");
-	RITUAL.name = "(T3) Vengeful Sigil Stone Rite";
-	RITUAL.description = "Manifest your wrath into a sigil stone. Performing this ritual summons a Vengeful Sigil Stone. Incurs 5 corruption.";
+	RITUAL.name = "(T3) Rituel de la Pierre Sigillaire Vengeresse";
+	RITUAL.description = "Manifestez votre courroux dans une pierre sigillaire. L'exécution de ce rituel invoque une Pierre Sigillaire Vengeresse. Inflige 5 points de corruption.";
 	RITUAL.onerequiredbelief = {"watchful_raven"}; -- Tier III Faith of the Family Ritual
 	
 	RITUAL.requirements = {"familial_catalyst", "xolotl_catalyst", "purifying_stone"};
@@ -229,8 +229,8 @@ RITUAL = cwRituals.rituals:New("judgement_sigil_vengeful");
 RITUAL:Register()
 
 RITUAL = cwRituals.rituals:New("unholy_sigil_stone_rite");
-	RITUAL.name = "(T2) Unholy Sigil Stone Rite";
-	RITUAL.description = "You laugh in the face of all that is good and righteous. Performing this ritual summons an Unholy Sigil Stone item. Incurs 5 corruption.";
+	RITUAL.name = "(T2) Rituel de la Pierre Sigillaire Impie";
+	RITUAL.description = "Tu ris au nez de tout ce qui est bon et vertueux. L'exécution de ce rituel invoque un objet Pierre de Sigil Impie. Inflige 5 points de corruption.";
 	RITUAL.onerequiredbelief = {"soothsayer", "heretic", "shedskin"}; -- Tier II Faith of the Dark Ritual
 
 	RITUAL.requirements = {"down_catalyst", "belphegor_catalyst", "pentagram_catalyst"};
@@ -252,8 +252,8 @@ RITUAL = cwRituals.rituals:New("unholy_sigil_stone_rite");
 RITUAL:Register()
 
 RITUAL = cwRituals.rituals:New("fire_sigil_stone_rite");
-	RITUAL.name = "(T3) Fire Sigil Stone Rite";
-	RITUAL.description = "Create a sigil of flame. Performing this ritual summons a Fire Sigil Stone item. Incurs 5 corruption.";
+	RITUAL.name = "(T3) Rituel de la Pierre Sigillaire de Feu";
+	RITUAL.description = "Crée un sceau de flammes. L'exécution de ce rituel invoque un objet Pierre de Sceau de Feu. Inflige 5 points de corruption.";
 	RITUAL.onerequiredbelief = {"sorcerer", "watchful_raven", "emissary", "extinctionist"}; -- Tier III Shared Ritual
 	
 	RITUAL.requirements = {"light_catalyst", "belphegor_catalyst", "xolotl_catalyst"};
@@ -275,8 +275,8 @@ RITUAL = cwRituals.rituals:New("fire_sigil_stone_rite");
 RITUAL:Register()
 
 RITUAL = cwRituals.rituals:New("ice_sigil_stone_rite");
-	RITUAL.name = "(T3) Ice Sigil Stone Rite";
-	RITUAL.description = "Create a sigil of ice. Performing this ritual summons an Ice Sigil Stone item. Incurs 5 corruption.";
+	RITUAL.name = "(T3) Rituel de la Pierre Sigillaire de Glace";
+	RITUAL.description = "Crée un sceau de glace. L'exécution de ce rituel invoque un objet Pierre de Sceau de Glace. Inflige 5 points de corruption.";
 	RITUAL.onerequiredbelief = {"sorcerer", "watchful_raven", "emissary", "extinctionist"}; -- Tier III Shared Ritual
 	
 	RITUAL.requirements = {"ice_catalyst", "ice_catalyst", "xolotl_catalyst"};
@@ -298,8 +298,8 @@ RITUAL = cwRituals.rituals:New("ice_sigil_stone_rite");
 RITUAL:Register()
 
 RITUAL = cwRituals.rituals:New("glazic_sigil_stone_rite");
-	RITUAL.name = "(T3) Glazic Sigil Stone Rite";
-	RITUAL.description = "Create a sigil of majesty. Performing this ritual summons a Glazic Sigil Stone item. Incurs 5 corruption.";
+	RITUAL.name = "(T3) Rituel de la Pierre Sigillaire Glazic";
+	RITUAL.description = "Crée un sceau de majesté. L'exécution de ce rituel invoque un objet Pierre de Sceau Glazique. Inflige 5 points de corruption.";
 	RITUAL.onerequiredbelief = {"emissary"}; -- Hard-Glazed Unique Ritual
 	
 	RITUAL.requirements = {"holy_spirit", "xolotl_catalyst", "xolotl_catalyst"};
@@ -321,8 +321,8 @@ RITUAL = cwRituals.rituals:New("glazic_sigil_stone_rite");
 RITUAL:Register()
 
 RITUAL = cwRituals.rituals:New("a_feast_of_ash_and_twig");
-	RITUAL.name = "(T1) A Feast of Ash and Twig";
-	RITUAL.description = "A popular rite befitting the peasant's plight. When the offering is made, one's appetite is expanded to include scraps of trash, dirt, or whatever may be found that was previously ill-nutritious indeed. Performing this ritual returns 80% hunger and thirst, as well as 80% blood level. Removes 5 corruption.";
+	RITUAL.name = "Un Festin de Cendres et de Branches";
+	RITUAL.description = "Un rituel populaire à la mesure de la condition paysanne. Lorsque l'offrande est faite, l'appétit s'élargit pour inclure des déchets, de la terre, ou tout ce qui peut être trouvé et qui était auparavant franchement peu nourrissant. L'exécution de ce rituel restaure 80% de la faim et de la soif, ainsi que 80% du niveau de sang. Supprime 5 points de corruption.";
 	RITUAL.onerequiredbelief = {"repentant", "disciple"}; -- Tier I Faith of the Light Ritual
 	
 	RITUAL.requirements = {"up_catalyst", "up_catalyst", "trinity_catalyst"};
@@ -344,8 +344,8 @@ RITUAL = cwRituals.rituals:New("a_feast_of_ash_and_twig");
 RITUAL:Register()
 
 RITUAL = cwRituals.rituals:New("aura_of_the_mother");
-	RITUAL.name = "(T3) Aura of the Mother";
-	RITUAL.description = "The Druids can harness their healing powers and extend them to those around them. With each warrior reinvigorated, the war against the root-gnawers rages on. Performing this ritual will passively heal any Faith of the Family characters within talking distance for the next 10 minutes. Incurs 20 corruption.";
+	RITUAL.name = "(T3) Aura de la Mère";
+	RITUAL.description = "Les Druides peuvent canaliser leurs pouvoirs de guérison et les étendre à leur entourage. Chaque guerrier revigoré, la guerre contre les ronge-racines fait rage. L'exécution de ce rituel soignera passivement tout personnage de la Foi de la Famille à portée de conversation pendant les 10 prochaines minutes. Inflige 20 points de corruption.";
 	RITUAL.onerequiredbelief = {"watchful_raven"}; -- Tier III Faith of the Family Ritual
 	
 	RITUAL.requirements = {"familial_catalyst", "pantheistic_catalyst", "purifying_stone"};
@@ -392,8 +392,8 @@ RITUAL = cwRituals.rituals:New("aura_of_the_mother");
 RITUAL:Register()
 
 RITUAL = cwRituals.rituals:New("blessing_of_coin");
-	RITUAL.name = "(T1) Blessing of Coin";
-	RITUAL.description = "Is it truly a favor from the Glaze, or a statistical illusion? It surely won't stop you from offering alms for a bountiful harvest. Performing this ritual increases the amount of coin found in containers for 40 minutes. Incurs 10 corruption.";
+	RITUAL.name = "Bénédiction de la Pièce";
+	RITUAL.description = "Est-ce vraiment une faveur du Glazé, ou une illusion statistique ? Rien ne vous empêchera d'offrir des aumônes pour une récolte abondante. L'exécution de ce rituel augmente la quantité de pièces trouvées dans les contenants pendant 40 minutes. Inflige 10 points de corruption.";
 	RITUAL.onerequiredbelief = {"repentant", "disciple"}; -- Tier I Faith of the Light Ritual
 	
 	RITUAL.requirements = {"trinity_catalyst", "up_catalyst", "light_catalyst"};
@@ -410,7 +410,7 @@ RITUAL = cwRituals.rituals:New("blessing_of_coin");
 				if player:GetNetVar("blessingOfCoin", false) then
 					player:SetNetVar("blessingOfCoin", false);
 					UpdateActiveRituals(player, "Blessing of Coin", nil);
-					Clockwork.hint:Send(player, "The 'Blessing of Coin' ritual has worn off...", 10, Color(175, 100, 100), true, true);
+					Clockwork.hint:Send(player, "Le rituel de la 'Bénédiction de la Pièce' s'est dissipé...", 10, Color(175, 100, 100), true, true);
 				end
 			end
 		end);
@@ -424,8 +424,8 @@ RITUAL = cwRituals.rituals:New("blessing_of_coin");
 RITUAL:Register()
 
 RITUAL = cwRituals.rituals:New("bloodhowl");
-	RITUAL.name = "(T2) Bloodhowl";
-	RITUAL.description = "The thrill of battle empowers you! Performing this ritual will make your war cries restore 50 points of stamina and drain 150 points of blood for 40 minutes. Incurs 10 corruption.";
+	RITUAL.name = "(T2) Hurlement de Sang";
+	RITUAL.description = "La frénésie du combat vous galvanise ! Ce rituel fera en sorte que vos cris de guerre restaurent 50 points d'endurance et drainent 150 points de sang pendant 40 minutes. Inflige 10 points de corruption.";
 	RITUAL.onerequiredbelief = {"man_become_beast", "one_with_the_druids", "daring_trout", "shedskin"}; -- Tier II Faith of the Family Ritual
 	
 	RITUAL.requirements = {"down_catalyst", "familial_catalyst", "pantheistic_catalyst"};
@@ -442,7 +442,7 @@ RITUAL = cwRituals.rituals:New("bloodhowl");
 				if player.bloodHowlActive then
 					player.bloodHowlActive = nil;
 					UpdateActiveRituals(player, "Bloodhowl", nil);
-					Clockwork.hint:Send(player, "The 'Bloodhowl' ritual has worn off...", 10, Color(175, 100, 100), true, true);
+					Clockwork.hint:Send(player, "Le rituel 'Bloodhowl' s'est dissipé...", 10, Color(175, 100, 100), true, true);
 				end
 			end
 		end);
@@ -456,8 +456,8 @@ RITUAL = cwRituals.rituals:New("bloodhowl");
 RITUAL:Register()
 
 RITUAL = cwRituals.rituals:New("bloodwings");
-	RITUAL.name = "(T3) Bloodwings";
-	RITUAL.description = "The skies bleed when the angels flap their wings. Performing this ritual grants the ability to double-jump at the cost of 15 blood for the next 30 minutes. Incurs 10 corruption.";
+	RITUAL.name = "(T3) Ailes de Sang";
+	RITUAL.description = "Les cieux saignent quand les anges battent des ailes. L'exécution de ce rituel accorde la capacité de double saut au prix de 15 points de sang pour les 30 prochaines minutes. Inflige 10 points de corruption.";
 	RITUAL.onerequiredbelief = {"sorcerer"}; -- Tier III Faith of the Dark Ritual
 	RITUAL.requiredBeliefsSubfactionOverride = {["Rekh-khet-sa"] = {"embrace_the_darkness"}}; -- Tier III Faith of the Dark Ritual
 	
@@ -475,7 +475,7 @@ RITUAL = cwRituals.rituals:New("bloodwings");
 				if player.bloodWingsActive then
 					player.bloodWingsActive = nil;
 					UpdateActiveRituals(player, "Bloodwings", nil);
-					Clockwork.hint:Send(player, "The 'Bloodwings' ritual has worn off...", 10, Color(175, 100, 100), true, true);
+					Clockwork.hint:Send(player, "Le rituel des 'Ailes de Sang' s'est dissipé...", 10, Color(175, 100, 100), true, true);
 				end
 			end
 		end);
@@ -489,8 +489,8 @@ RITUAL = cwRituals.rituals:New("bloodwings");
 RITUAL:Register()
 
 RITUAL = cwRituals.rituals:New("call_of_the_blood_moon");
-	RITUAL.name = "(Unique) Call of the Blood Moon";
-	RITUAL.description = "As any primevalist knows, the Blood Moon requires regular sacrifice so that it may be appeased. For those willing to kill for it, the Blood Moon's power over the wasteland can be extended by some time. Performing this ritual will extend the night cycle by fifteen minutes. Incurs 75 corruption.";
+	RITUAL.name = "(Appel de la Lune de Sang)";
+	RITUAL.description = "Comme tout primitiviste le sait, la Lune de Sang exige des sacrifices réguliers pour être apaisée. Pour ceux prêts à tuer en son nom, son emprise sur les terres désolées peut être prolongée quelque temps. Accomplir ce rituel allongera le cycle nocturne de quinze minutes. Inflige 75 points de corruption.";
 	RITUAL.onerequiredbelief = {"thirst_blood_moon"}; -- Primevalist Unique Ritual
 	
 	RITUAL.requirements = {"tortured_spirit", "down_catalyst", "pentagram_catalyst"};
@@ -560,8 +560,8 @@ RITUAL = cwRituals.rituals:New("call_of_the_blood_moon");
 RITUAL:Register()
 
 RITUAL = cwRituals.rituals:New("call_of_the_blood_storm");
-	RITUAL.name = "(Unique) Call of the Blood Storm";
-	RITUAL.description = "For thousands of years the moon tribals and jungle jujus have danced around their fetish altars soaked in blood, singing for rains to cleanse them, which never came. Only those who kept dancing after their fires burnt out may feel the warm crimson droplet upon their cheek. Performing this ritual will summon a bloodstorm within a minute of being performed. Incurs 75 corruption.";
+	RITUAL.name = "(Appel unique) Appel de la Tempête de Sang";
+	RITUAL.description = "Depuis des millénaires, les tribus lunaires et les fétiches de la jungle ont dansé autour de leurs autels imprégnés de sang, implorant des pluies purificatrices qui ne sont jamais venues. Seuls ceux qui ont continué à danser après l'extinction de leurs feux ont pu sentir la goutte écarlate et tiède sur leur joue. L'exécution de ce rituel invoquera une tempête de sang dans la minute qui suit. Inflige 75 points de corruption.";
 	RITUAL.onerequiredbelief = {"thirst_blood_moon"}; -- Primevalist Unique Ritual
 	
 	RITUAL.requirements = {"tortured_spirit", "down_catalyst", "tortured_spirit"};
@@ -609,8 +609,8 @@ RITUAL = cwRituals.rituals:New("call_of_the_blood_storm");
 RITUAL:Register()
 
 RITUAL = cwRituals.rituals:New("call_to_darkness");
-	RITUAL.name = "(T2) Call to Darkness";
-	RITUAL.description = "To open oneself whole to a dark host is the ultimate sign of dedication to one's masters. Dark powers commonly use mortals as temporary vessels to more directly carry out their will. Performing this ritual will invite one to use your body as a vessel, and force it to heed your commands. Incurs 40 corruption.";
+	RITUAL.name = "(T2) Appel des Ténèbres";
+	RITUAL.description = "S'ouvrir entièrement à une hôte obscure est l'ultime preuve de dévotion envers ses maîtres. Les puissances ténébreuses utilisent souvent les mortels comme réceptacles temporaires pour accomplir plus directement leur volonté. Accomplir ce rituel invitera l'une d'elles à utiliser votre corps comme réceptacle, tout en la forçant à obéir à vos ordres. Inflige 40 points de corruption.";
 	RITUAL.onerequiredbelief = {"soothsayer", "heretic", "shedskin"}; -- Tier II Faith of the Dark Ritual
 	
 	RITUAL.requirements = {"down_catalyst", "down_catalyst", "pentagram_catalyst"};
@@ -630,8 +630,8 @@ RITUAL = cwRituals.rituals:New("call_to_darkness");
 RITUAL:Register()
 
 RITUAL = cwRituals.rituals:New("cherished_by_evil");
-	RITUAL.name = "(T2) Cherished By Evil";
-	RITUAL.description = "Insanity is for the weak, and your soul surely won't be taken without a reasonable sum. Performing this ritual instantly restores your sanity to full, replenishes 50% of your maximum blood level and cleanses all corruption.";
+	RITUAL.name = "(T2) Chéri par le Mal";
+	RITUAL.description = "La folie est pour les faibles, et votre âme ne sera certainement pas prise sans une somme raisonnable. L'exécution de ce rituel restaure instantanément votre santé mentale au maximum, reconstitue 50% de votre niveau de sang et purifie toute corruption.";
 	RITUAL.onerequiredbelief = {"soothsayer", "heretic", "shedskin"}; -- Tier II Faith of the Dark Ritual
 	
 	RITUAL.requirements = {"ice_catalyst", "purifying_stone", "elysian_catalyst"};
@@ -652,8 +652,8 @@ RITUAL = cwRituals.rituals:New("cherished_by_evil");
 RITUAL:Register()
 
 RITUAL = cwRituals.rituals:New("cloak_of_always_burning");
-	RITUAL.name = "(T2) Cloak of Always Burning";
-	RITUAL.description = "With an offering of catalysts, runestones and wicker branches you will be infused with a resistance to the natural and unnatural forces of life. Performing this ritual will grant you 100% resistance to fire and ice damage for 40 minutes. Incurs 10 corruption.";
+	RITUAL.name = "(T2) Cape de la Brûlure Éternelle";
+	RITUAL.description = "Avec une offrande de catalyseurs, de pierres runiques et de branches d'osier, vous serez imprégné d'une résistance aux forces naturelles et surnaturelles de la vie. L'accomplissement de ce rituel vous conférera une résistance de 100% aux dégâts de feu et de glace pendant 40 minutes. Inflige 10 points de corruption.";
 	RITUAL.onerequiredbelief = {"man_become_beast", "one_with_the_druids", "daring_trout", "shedskin"}; -- Tier II Faith of the Family Ritual
 	
 	RITUAL.requirements = {"belphegor_catalyst", "ice_catalyst", "familial_catalyst"};
@@ -670,7 +670,7 @@ RITUAL = cwRituals.rituals:New("cloak_of_always_burning");
 				if player.cloakBurningActive then
 					player.cloakBurningActive = nil;
 					UpdateActiveRituals(player, "Cloak of Always Burning", nil);
-					Clockwork.hint:Send(player, "The 'Cloak of Always Burning' ritual has worn off...", 10, Color(175, 100, 100), true, true);
+					Clockwork.hint:Send(player, "Le rituel de la 'Cape de la Combustion Éternelle' s'est dissipé...", 10, Color(175, 100, 100), true, true);
 				end
 			end
 		end);
@@ -684,8 +684,8 @@ RITUAL = cwRituals.rituals:New("cloak_of_always_burning");
 RITUAL:Register()
 
 RITUAL = cwRituals.rituals:New("cries_of_the_drowned_king");
-	RITUAL.name = "(T1) Cries of the Drowned King";
-	RITUAL.description = "After a long time at sea, you may hear the gurglings and wails of a drowned legend. Make an offering to the Gods and you may heed his wisdom. Performing this ritual will make you unable to lose oxygen while underwater or stamina while swimming for 1 hour. During this time you will be able to drink from bodies of water without consequence.";
+	RITUAL.name = "(T1) Les Cris du Roi Noyé";
+	RITUAL.description = "Après un long moment en mer, vous pourriez entendre les gargouillis et les lamentations d'une légende engloutie. Faites une offrande aux Dieux et vous pourrez bénéficier de sa sagesse. L'exécution de ce rituel vous rendra incapable de perdre de l'oxygène sous l'eau ou de l'endurance en nageant pendant 1 heure. Durant ce temps, vous pourrez boire aux plans d'eau sans conséquence.";
 	RITUAL.onerequiredbelief = {"honor_the_gods", "one_with_the_druids", "the_black_sea", "witch_druid", "taste_of_iron"}; -- Tier I Faith of the Family Ritual
 	
 	RITUAL.requirements = {"down_catalyst", "down_catalyst", "down_catalyst"};
@@ -702,7 +702,7 @@ RITUAL = cwRituals.rituals:New("cries_of_the_drowned_king");
 				if player.drownedKingActive then
 					player.drownedKingActive = nil;
 					UpdateActiveRituals(player, "Cries of the Drowned King", nil);
-					Clockwork.hint:Send(player, "The 'Cries of the Drowned King' ritual has worn off...", 10, Color(175, 100, 100), true, true);
+					Clockwork.hint:Send(player, "Le rituel des 'Cris du Roi Noyé' s'est dissipé...", 10, Color(175, 100, 100), true, true);
 				end
 			end
 		end);
@@ -716,8 +716,8 @@ RITUAL = cwRituals.rituals:New("cries_of_the_drowned_king");
 RITUAL:Register()
 
 RITUAL = cwRituals.rituals:New("demon_hunter");
-	RITUAL.name = "(T1) Demon Hunter";
-	RITUAL.description = "Show your hubris, ask for a challenge worthy of your martial prowess! Performing this ritual will give you 25 minutes to slay a random number of thralls, which will then reward you with 1000 faith (experience).";
+	RITUAL.name = "(T1) Chasseur de Démons";
+	RITUAL.description = "Montre ton orgueil, demande un défi à la hauteur de ta prouesse martiale ! Exécuter ce rituel te donnera 25 minutes pour vaincre un nombre aléatoire de thralls, ce qui te récompensera ensuite avec 1000 points de foi (expérience).";
 	RITUAL.onerequiredbelief = {"honor_the_gods", "one_with_the_druids", "the_black_sea", "witch_druid", "taste_of_iron"}; -- Tier I Faith of the Family Ritual
 	
 	RITUAL.requirements = {"light_catalyst", "elysian_catalyst", "pantheistic_catalyst"};
@@ -740,7 +740,7 @@ RITUAL = cwRituals.rituals:New("demon_hunter");
 				if player.demonHunterActive then
 					player.demonHunterActive = nil;
 					UpdateActiveRituals(player, "Demon Hunter", nil);
-					Clockwork.hint:Send(player, "The 'Demon Hunter' ritual has worn off...", 10, Color(175, 100, 100), true, true);
+					Clockwork.hint:Send(player, "Le rituel du 'Chasseur de Démons' s'est dissipé...", 10, Color(175, 100, 100), true, true);
 				end
 			end
 		end);
@@ -755,8 +755,8 @@ RITUAL:Register()
 
 -- This is apparently quite unbalanced, so gabs has asked me to remove it.
 --[[RITUAL = cwRituals.rituals:New("infernal_incursion");
-	RITUAL.name = "(T1) Infernal Incursion";
-    RITUAL.description = "Loosen the veil between realms and agitate a few demons while you're at it. Preforming this ritual will give you twenty five minutes to slay a random number of thralls, which will then reward you with 1000 faith (experience).";
+	RITUAL.name = "(T1) Incursion Infernal";
+    RITUAL.description = "Affaiblis le voile entre les mondes et agite quelques démons au passage. Exécuter ce rituel te donnera vingt-cinq minutes pour éliminer un nombre aléatoire de thralls, ce qui te récompensera ensuite avec 1000 points de foi (expérience).";
 	RITUAL.onerequiredbelief = {"soothsayer", "witch", "witch_druid"}; -- Tier I Faith of the Dark Ritual
 	RITUAL.requirements = {"belphegor_catalyst", "pentagram_catalyst", "up_catalyst"};
 	RITUAL.corruptionCost = 5;
@@ -779,8 +779,8 @@ RITUAL:Register()
 RITUAL:Register()]]--
 
 RITUAL = cwRituals.rituals:New("empowered_blood");
-	RITUAL.name = "(T2) Empowered Blood";
-	RITUAL.description = "Bloodlines mean all to the Children of Satan, especially those which have descent from ancient kings and sorcerers. Those with the purest bloodlines can draw on the strength of their ancestors to temporarily increase their maximum health by 50 for 20 minutes. Incurs 10 corruption.";
+	RITUAL.name = "(T2) Sang Renforcé";
+	RITUAL.description = "Les lignées sanguines sont tout pour les Enfants de Satan, en particulier celles qui descendent d'anciens rois et sorciers. Ceux dont le sang est le plus pur peuvent puiser dans la force de leurs ancêtres pour augmenter temporairement leur santé maximale de 50 pendant 20 minutes. Inflige 10 points de corruption.";
 	RITUAL.onerequiredbelief = {"soothsayer", "heretic", "shedskin"}; -- Tier II Faith of the Dark Ritual
 	
 	RITUAL.requirements = {"pentagram_catalyst", "belphegor_catalyst", "elysian_catalyst"};
@@ -806,7 +806,7 @@ RITUAL = cwRituals.rituals:New("empowered_blood");
 					player:SetHealth(maxHealth);
 				end
 				UpdateActiveRituals(player, "Empowered Blood", nil);
-				Clockwork.hint:Send(player, "The 'Empowered Blood' ritual has worn off...", 10, Color(175, 100, 100), true, true);
+				Clockwork.hint:Send(player, "Le rituel du 'Sang Renforcé' s'est dissipé...", 10, Color(175, 100, 100), true, true);
 			end
 		end);
 	end;
@@ -819,8 +819,8 @@ RITUAL = cwRituals.rituals:New("empowered_blood");
 RITUAL:Register()
 
 RITUAL = cwRituals.rituals:New("familial_seed");
-	RITUAL.name = "(T1) Familial Seed";
-	RITUAL.description = "The Gore Forest is lush and teeming with life when compared to the realms that followers of the Glaze inhabit. Goreic shamans can call upon the magic of the Goreic Forest to help mend their wounds. Performing this ritual will restore 150 health, 60% blood, and heal the specified limb of injuries. Removes 25 corruption.";
+	RITUAL.name = "(T1) Graine Familiale";
+	RITUAL.description = "La Forêt de Gore est luxuriante et grouillante de vie comparée aux royaumes qu'habitent les adeptes du Glaze. Les chamans goreiques peuvent invoquer la magie de la Forêt Goreique pour soigner leurs blessures. L'exécution de ce rituel restaure 150 points de santé, 60% de sang, et guérit les blessures du membre spécifié. Supprime 25 points de corruption.";
 	RITUAL.onerequiredbelief = {"honor_the_gods", "one_with_the_druids", "the_black_sea", "witch_druid", "taste_of_iron"}; -- Tier I Faith of the Family Ritual
 	
 	RITUAL.requirements = {"familial_catalyst", "familial_catalyst", "familial_catalyst"};
@@ -842,8 +842,8 @@ RITUAL = cwRituals.rituals:New("familial_seed");
 RITUAL:Register()
 
 RITUAL = cwRituals.rituals:New("hail_prince_thieves");
-	RITUAL.name = "(T1) Hail Be to the Prince of Thieves";
-	RITUAL.description = "From the slums of the Darklands to the chaste fields of the County Districts, thieves all pray to the same prince. Performing this ritual makes lockpicking significantly easier and increases the chance of finding loot from locked containers by 10% for the next 30 minutes. Incurs 5 corruption.";
+	RITUAL.name = "Gloire au Prince des Voleurs";
+	RITUAL.description = "Des bas-fonds des Ténèbres aux champs immaculés des Comtés, tous les voleurs prient le même prince. Exécuter ce rituel facilite considérablement le crochetage et augmente de 10% les chances de trouver du butin dans les conteneurs verrouillés pendant les 30 minutes suivantes. Inflige 5 points de corruption.";
 	RITUAL.onerequiredbelief = {"soothsayer", "witch", "witch_druid"}; -- Tier I Faith of the Dark Ritual
 	
 	RITUAL.requirements = {"down_catalyst", "ice_catalyst", "ice_catalyst"};
@@ -860,7 +860,7 @@ RITUAL = cwRituals.rituals:New("hail_prince_thieves");
 				if player:GetNetVar("princeOfThieves", false) then
 					player:SetNetVar("princeOfThieves", false);
 					UpdateActiveRituals(player, "Hail Be to the Prince of Thieves", nil);
-					Clockwork.hint:Send(player, "The 'Hail Be to the Prince of Thieves' ritual has worn off...", 10, Color(175, 100, 100), true, true);
+					Clockwork.hint:Send(player, "Le rituel 'Gloire au Prince des Voleurs' s'est dissipé...", 10, Color(175, 100, 100), true, true);
 				end
 			end
 		end);
@@ -874,8 +874,8 @@ RITUAL = cwRituals.rituals:New("hail_prince_thieves");
 RITUAL:Register()
 
 RITUAL = cwRituals.rituals:New("hear_me");
-	RITUAL.name = "(T1) Hear Me";
-	RITUAL.description = "You aren't anything at all until you've made yourself known. Performing this ritual grants you 300 faith (experience). Incurs 10 corruption.";
+	RITUAL.name = "(T1) Écoutez-Moi";
+	RITUAL.description = "Tu n'es rien du tout tant que tu ne t'es pas fait connaître. L'exécution de ce rituel t'accorde 300 points de foi (expérience). Inflige 10 points de corruption.";
 	RITUAL.onerequiredbelief = {"soothsayer", "witch", "witch_druid"}; -- Tier I Faith of the Dark Ritual
 	
 	RITUAL.requirements = {"belphegor_catalyst", "belphegor_catalyst", "belphegor_catalyst"};
@@ -901,8 +901,8 @@ RITUAL = cwRituals.rituals:New("hear_me");
 RITUAL:Register()
 
 RITUAL = cwRituals.rituals:New("hellgorge");
-	RITUAL.name = "(T1) Hellgorge";
-	RITUAL.description = "With just a simple offering, you will be given the smallest of bites from the horn of plenty. It may be enough to sate you, but it will surely leave you with a desire for more. Performing this ritual will instantly reduce your hunger, thirst, and fatigue to zero. It will also reduce your corruption by 15 points.";
+	RITUAL.name = "(T1) Gouffre infernal";
+	RITUAL.description = "Avec une simple offrande, tu recevras la plus petite bouchée de la corne d'abondance. Cela pourrait suffire à te rassasier, mais cela te laissera certainement l'envie d'obtenir davantage. Exécuter ce rituel réduira instantanément ta faim, ta soif et ta fatigue à zéro. Il réduira également ta corruption de 15 points.";
 	RITUAL.onerequiredbelief = {"soothsayer", "witch", "witch_druid"}; -- Tier I Faith of the Dark Ritual
 	
 	RITUAL.requirements = {"up_catalyst", "down_catalyst", "belphegor_catalyst"};
@@ -926,8 +926,8 @@ RITUAL = cwRituals.rituals:New("hellgorge");
 RITUAL:Register()
 
 RITUAL = cwRituals.rituals:New("holy_powderkeg");
-	RITUAL.name = "(Unique) Holy Powderkeg";
-	RITUAL.description = "Hand me your rifles, lend me your spent pepper-poppers and snapdragons! I will cock, load, pump and magazine every gun of every faithful Philimonjio in our Lord’s army as I was born and bred to do so! Performing this ritual significantly increases reload speed for the next 30 minutes. Incurs 5 corruption.";
+	RITUAL.name = "(Poudre sainte unique)";
+	RITUAL.description = "Passez-moi vos fusils, confiez-moi vos poivrières épuisées et vos gueules-de-loup ! Je vais armer, charger, pomper et approvisionner chaque arme de chaque fidèle Philimonjio dans l'armée de notre Seigneur, comme j'ai été conçu et élevé pour le faire ! L'exécution de ce rituel augmente considérablement la vitesse de rechargement pendant les 30 prochaines minutes. Inflige 5 points de corruption.";
 	RITUAL.onerequiredbelief = {"emissary"}; -- Hard-Glazed Unique Ritual
 	
 	RITUAL.requirements = {"holy_spirit", "light_catalyst", "trinity_catalyst"};
@@ -944,7 +944,7 @@ RITUAL = cwRituals.rituals:New("holy_powderkeg");
 				if player.holyPowderkegActive then
 					player.holyPowderkegActive = nil;
 					UpdateActiveRituals(player, "Holy Powderkeg", nil);
-					Clockwork.hint:Send(player, "The 'Holy Powderkeg' ritual has worn off...", 10, Color(175, 100, 100), true, true);
+					Clockwork.hint:Send(player, "Le rituel de la 'Poudre Sainte' s'est dissipé...", 10, Color(175, 100, 100), true, true);
 				end
 			end
 		end);
@@ -958,8 +958,8 @@ RITUAL = cwRituals.rituals:New("holy_powderkeg");
 RITUAL:Register()
 
 RITUAL = cwRituals.rituals:New("cloak_of_the_black_hat");
-	RITUAL.name = "(Unique) Cloak of the Black Hat";
-	RITUAL.description = "Any child knows how to hide in the darkness. The Black Hat brings the darkness with them, stalking the halls of the nobility who falsely believe themselves to be safe and sound. They'll never be alone again. Performing this ritual will cause you to go invisible while crouched for the next 30 minutes, but you will be unable to attack while cloaked. Incurs 25 corruption.";
+	RITUAL.name = "(Unique) Cape du Chapeau Noir";
+	RITUAL.description = "Tout enfant sait se cacher dans l'obscurité. Le Chapeau Noir apporte les ténèbres avec lui, rôdant dans les couloirs de la noblesse qui se croit à tort en sécurité. Ils ne seront plus jamais seuls. Exécuter ce rituel vous rendra invisible en position accroupie pendant les 30 prochaines minutes, mais vous serez incapable d'attaquer sous cet état. Inflige 25 points de corruption.";
 	RITUAL.requiredSubfaction = {"Kinisger"}; -- Subfaction Ritual
 	
 	RITUAL.requirements = {"pentagram_catalyst", "ice_catalyst", "ice_catalyst"};
@@ -979,7 +979,7 @@ RITUAL = cwRituals.rituals:New("cloak_of_the_black_hat");
 						player:Uncloak();
 					end
 					UpdateActiveRituals(player, "Cloak of the Black Hat", nil);
-					Clockwork.hint:Send(player, "The 'Cloak of the Black Hat' ritual has worn off...", 10, Color(175, 100, 100), true, true);
+					Clockwork.hint:Send(player, "Le rituel de la 'Cape du Chapeau Noir' s'est dissipé...", 10, Color(175, 100, 100), true, true);
 				end
 			end
 		end);
@@ -993,8 +993,8 @@ RITUAL = cwRituals.rituals:New("cloak_of_the_black_hat");
 RITUAL:Register()
 
 RITUAL = cwRituals.rituals:New("kinisger_appearance_alteration");
-	RITUAL.name = "(Unique) Kinisger Appearance Alteration";
-	RITUAL.description = "Members of House Kinisger are masters of infiltration, owing to their use of dark magic and their mutant blood in order to change apperances. Incurs 50 corruption.";
+	RITUAL.name = "(Apparence Unique) Altération de l'Apparence Kinisger";
+	RITUAL.description = "Les membres de la Maison Kinisger sont des maîtres de l'infiltration, grâce à leur utilisation de magie noire et de leur sang mutant pour modifier leur apparence. Inflige 50 points de corruption.";
 	RITUAL.requiredSubfaction = {"Kinisger"}; -- Subfaction Ritual
 	
 	RITUAL.requirements = {"down_catalyst", "down_catalyst", "ice_catalyst"};
@@ -1016,8 +1016,8 @@ RITUAL = cwRituals.rituals:New("kinisger_appearance_alteration");
 RITUAL:Register()
 
 RITUAL = cwRituals.rituals:New("apostle_of_many_faces");
-	RITUAL.name = "(Unique) Apostle of Many Faces";
-	RITUAL.description = "A true blackhat's test of faith; to bear the effigies of pagan and pious faiths that oppose your own. To play the role of a foreign acolyte so well that you fool even the Gods is a mark of a master blackhat! Performing this ritual permanently allows you to equip or use all non-Voltist faith-locked equipment. Incurs 50 corruption.";
+	RITUAL.name = "(Apostat) Apôtre aux Mille Visages";
+	RITUAL.description = "L'épreuve ultime de foi pour un véritable blackhat : porter les effigies de cultes païens et dévots qui s'opposent au tien. Jouer le rôle d'un acolyte étranger avec une telle maîtrise que tu trompes les Dieux eux-mêmes, voilà la marque d'un maître blackhat ! L'accomplissement de ce rituel te permet définitivement d'équiper ou d'utiliser tout équipement lié à une foi non-Voltiste. Inflige 50 points de corruption.";
 	RITUAL.requiredSubfaction = {"Kinisger"}; -- Subfaction Ritual
 	
 	RITUAL.requirements = {"xolotl_catalyst", "xolotl_catalyst", "xolotl_catalyst"};
@@ -1041,8 +1041,8 @@ RITUAL = cwRituals.rituals:New("apostle_of_many_faces");
 RITUAL:Register()
 
 RITUAL = cwRituals.rituals:New("ritual_of_shadow");
-	RITUAL.name = "(Unique) Ritual of Shadow";
-	RITUAL.description = "Although members of House Rekh-khet-sa cannot normally traverse the surface during daytime, there exists a ritual that can temporarily cloak them in darkness and shield them from light. Performing this ritual will prevent you from taking damage during daytime in the Wasteland for the next 40 minutes.";
+	RITUAL.name = "(Rare) Rituel de l'Ombre";
+	RITUAL.description = "Bien que les membres de la Maison Rekh-khet-sa ne puissent normalement parcourir la surface en plein jour, il existe un rituel capable de les envelopper temporairement d'obscurité et de les protéger de la lumière. L'accomplissement de ce rituel vous évitera de subir des dégâts durant la journée dans le Désolation pour les 40 prochaines minutes.";
 	RITUAL.requiredSubfaction = {"Rekh-khet-sa"}; -- Subfaction Ritual
 	
 	RITUAL.requirements = {"light_catalyst", "down_catalyst", "ice_catalyst"};
@@ -1057,7 +1057,7 @@ RITUAL = cwRituals.rituals:New("ritual_of_shadow");
 				if player.ritualOfShadow then
 					player.ritualOfShadow = nil;
 					UpdateActiveRituals(player, "Ritual of Shadow", nil);
-					Clockwork.hint:Send(player, "The 'Ritual of Shadow' ritual has worn off...", 10, Color(175, 100, 100), true, true);
+					Clockwork.hint:Send(player, "Le rituel 'Ritual of Shadow' s'est dissipé...", 10, Color(175, 100, 100), true, true);
 				end
 			end
 		end);
@@ -1071,8 +1071,8 @@ RITUAL = cwRituals.rituals:New("ritual_of_shadow");
 RITUAL:Register()
 
 RITUAL = cwRituals.rituals:New("mark_of_the_devil");
-	RITUAL.name = "(T2) Mark of the Devil";
-	RITUAL.description = "The fate of those who offend the Dark Lord or His servants is a gruesome and horrific death, for they shall be marked for death by the hands of the Children of Satan. Performing this ritual will mark a character for death, highlighting them to all followers of the Faith of the Dark when nearby. Killing marked characters will give great rewards, especially if they are sacrificed.";
+	RITUAL.name = "(T2) Marque du Diable";
+	RITUAL.description = "Le destin de ceux qui offensent le Seigneur des Ténèbres ou Ses serviteurs est une mort atroce et terrifiante, car ils seront désignés pour mourir par la main des Enfants de Satan. L'exécution de ce rituel marquera un personnage pour la mort, le rendant visible à tous les fidèles de la Foi des Ténèbres à proximité. Tuer les personnages marqués apportera de grandes récompenses, particulièrement s'ils sont sacrifiés.";
 	RITUAL.onerequiredbelief = {"soothsayer", "heretic", "shedskin"}; -- Tier II Faith of the Dark Ritual
 	
 	RITUAL.requirements = {"down_catalyst", "pentagram_catalyst", "down_catalyst"};
@@ -1103,7 +1103,7 @@ RITUAL = cwRituals.rituals:New("mark_of_the_devil");
 								for _, v in _player.Iterator() do
 									if v:HasInitialized() then
 										if v == player or v:GetFaith() == "Faith of the Dark" then
-											Clockwork.chatBox:Add(v, nil, "darkwhispernoprefix", player:Name().." calls forth the minions of the Dark Lord, marking the one by the name of "..target:Name().." to be killed for their transgressions.");
+											Clockwork.chatBox:Add(v, nil, "darkwhispernoprefix", player:Name().." convoque les serviteurs du Seigneur Obscur, marquant celui du nom de "..target:Name().." pour être tué pour ses transgressions.");
 										end
 									end
 								end
@@ -1133,8 +1133,8 @@ RITUAL = cwRituals.rituals:New("mark_of_the_devil");
 RITUAL:Register()
 
 RITUAL = cwRituals.rituals:New("mark_of_the_devil_target");
-	RITUAL.name = "(T2) Mark of the Devil (Target)";
-	RITUAL.description = "The fate of those who offend the Dark Lord or His servants is a gruesome and horrific death, for they shall be marked for death by the hands of the Children of Satan. Performing this ritual will mark a character for death, highlighting them to all followers of the Faith of the Dark when nearby. Killing marked characters will give great rewards, especially if they are sacrificed. This ritual is silent.";
+	RITUAL.name = "(T2) Marque du Démon (Cible)";
+	RITUAL.description = "Le destin de ceux qui offensent le Seigneur des Ténèbres ou Ses serviteurs est une mort atroce et terrifiante, car ils seront désignés pour mourir par la main des Enfants de Satan. L'exécution de ce rituel marquera un personnage pour la mort, le rendant visible à tous les fidèles de la Foi des Ténèbres à proximité. Tuer les personnages marqués conférera de grandes récompenses, particulièrement s'ils sont sacrifiés. Ce rituel est silencieux.";
 	RITUAL.onerequiredbelief = {"soothsayer", "heretic", "shedskin"}; -- Tier II Faith of the Dark Ritual
 	
 	RITUAL.requirements = {"pentagram_catalyst", "down_catalyst", "down_catalyst"};
@@ -1233,7 +1233,7 @@ RITUAL:Register()
 
 RITUAL = cwRituals.rituals:New("noble_stature");
 	RITUAL.name = "(T2) Noble Stature";
-	RITUAL.description = "To show fright to a beast's snarl only invites its fangs. You will stand firm and tall, resolute in the face of savagery. Performing this ritual causes you to take 50% less damage and stability damage while standing completely still. This ritual lasts for 15 minutes. Incurs 10 corruption.";
+	RITUAL.description = "Montrer de la peur face au grognement d'une bête ne fait qu'attirer ses crocs. Tu te tiendras ferme et droit, inébranlable face à la sauvagerie. L'exécution de ce rituel réduit de 50 % les dégâts et les dégâts de stabilité subis lorsque tu restes parfaitement immobile. Ce rituel dure 15 minutes. Inflige 10 points de corruption.";
 	RITUAL.onerequiredbelief = {"flagellant", "acolyte"}; -- Tier II Faith of the Light Ritual
 	
 	RITUAL.requirements = {"ice_catalyst", "down_catalyst", "light_catalyst"};
@@ -1250,7 +1250,7 @@ RITUAL = cwRituals.rituals:New("noble_stature");
 				if player.nobleStatureActive then
 					player.nobleStatureActive = nil;
 					UpdateActiveRituals(player, "Noble Stature", nil);
-					Clockwork.hint:Send(player, "The 'Noble Stature' ritual has worn off...", 10, Color(175, 100, 100), true, true);
+					Clockwork.hint:Send(player, "Le rituel de 'Noble Stature' s'est dissipé...", 10, Color(175, 100, 100), true, true);
 				end
 			end
 		end);
@@ -1264,8 +1264,8 @@ RITUAL = cwRituals.rituals:New("noble_stature");
 RITUAL:Register()
 
 RITUAL = cwRituals.rituals:New("payment_of_light");
-	RITUAL.name = "(T1) Payment of Light";
-	RITUAL.description = "Pick up the shattered remains of God and offer them back to the Glaze of Sol. Performing this ritual grants you 300 faith (experience). Incurs 10 corruption.";
+	RITUAL.name = "Paiement de la Lumière";
+	RITUAL.description = "Ramasse les restes brisés de Dieu et offre-les au Glacis du Sol. Accomplir ce rituel t'accorde 300 points de foi (expérience). Inflige 10 points de corruption.";
 	RITUAL.onerequiredbelief = {"repentant", "disciple"}; -- Tier I Faith of the Light Ritual
 	
 	RITUAL.requirements = {"light_catalyst", "light_catalyst", "light_catalyst"};
@@ -1284,8 +1284,8 @@ RITUAL = cwRituals.rituals:New("payment_of_light");
 RITUAL:Register()
 
 RITUAL = cwRituals.rituals:New("perseverance");
-	RITUAL.name = "(T3) Perseverance";
-	RITUAL.description = "In the Districts, work is unending, back-breaking, and purifying. Performing this ritual doubles the rate of your Stamina regeneration for 30 minutes. Incurs 10 corruption.";
+	RITUAL.name = "(T3) Persévérance";
+	RITUAL.description = "Dans les Districts, le labeur est incessant, éreintant et purificateur. L'exécution de ce rituel double le taux de régénération de votre Endurance pendant 30 minutes. Inflige 10 points de corruption.";
 	RITUAL.onerequiredbelief = {"emissary", "extinctionist"}; -- Tier III Faith of the Light Ritual
 	
 	RITUAL.requirements = {"light_catalyst", "elysian_catalyst", "holy_spirit"};
@@ -1302,7 +1302,7 @@ RITUAL = cwRituals.rituals:New("perseverance");
 				if player.perseveranceActive then
 					player.perseveranceActive = nil;
 					UpdateActiveRituals(player, "Perseverance", nil);
-					Clockwork.hint:Send(player, "The 'Perseverance' ritual has worn off...", 10, Color(175, 100, 100), true, true);
+					Clockwork.hint:Send(player, "Le rituel de 'Persévérance' s'est dissipé...", 10, Color(175, 100, 100), true, true);
 				end
 			end
 		end);
@@ -1316,8 +1316,8 @@ RITUAL = cwRituals.rituals:New("perseverance");
 RITUAL:Register()
 
 RITUAL = cwRituals.rituals:New("regrowth");
-	RITUAL.name = "(T3) Regrowth";
-	RITUAL.description = "The Gore Forest is lush and teeming with life when compared to the realms that the followers of the Glaze inhabit. Goreic shamans can call upon the magic of the Goreic Forest to help mend their wounds. Performing this ritual will completely heal you of all injuries, afflictions, and corruption.";
+	RITUAL.name = "(T3) Repousse";
+	RITUAL.description = "La Forêt de Gore est luxuriante et grouillante de vie comparée aux royaumes qu'habitent les adeptes du Glaze. Les chamans goreïques peuvent invoquer la magie de la Forêt Goreïque pour soigner leurs blessures. L'exécution de ce rituel vous guérira complètement de toutes blessures, afflictions et corruption.";
 	RITUAL.onerequiredbelief = {"watchful_raven"}; -- Tier III Faith of the Family Ritual
 	
 	RITUAL.requirements = {"purifying_stone", "familial_catalyst", "up_catalyst"};
@@ -1364,8 +1364,8 @@ RITUAL = cwRituals.rituals:New("regrowth");
 RITUAL:Register()
 
 RITUAL = cwRituals.rituals:New("regrowth_target");
-	RITUAL.name = "(T3) Regrowth (Target)";
-	RITUAL.description = "The Gore Forest is lush and teeming with life when compared to the realms that the followers of the Glaze inhabit. Goreic shamans can call upon the magic of the Goreic Forest to help mend their wounds. Performing this ritual will completely heal another character of all injuries, afflictions, and corruption.";
+	RITUAL.name = "(T3) Repousse (Cible)";
+	RITUAL.description = "La Forêt de Gore est luxuriante et grouillante de vie comparée aux royaumes qu'habitent les adeptes du Glaze. Les chamans goreiques peuvent invoquer la magie de la Forêt Goreique pour soigner leurs blessures. L'exécution de ce rituel guérira complètement un autre personnage de toutes blessures, afflictions et corruption.";
 	RITUAL.onerequiredbelief = {"watchful_raven"}; -- Tier III Faith of the Family Ritual
 	
 	RITUAL.requirements = {"familial_catalyst", "up_catalyst", "purifying_stone"};
@@ -1465,8 +1465,8 @@ RITUAL = cwRituals.rituals:New("regrowth_target");
 RITUAL:Register()
 
 RITUAL = cwRituals.rituals:New("aura_of_powderheel");
-	RITUAL.name = "(T3) Aura of Powderheel";
-	RITUAL.description = "Call upon the power of the Great Tree in times of battle against its enemies to protect you from their non-traditional weaponry. Performing this ritual generates a spherical forcefield for 30 minutes, which reduces bullet damage to everyone around you within talking distance by 25%. Incurs 30 corruption.";
+	RITUAL.name = "(T3) Aura de Powderheel";
+	RITUAL.description = "Invoque la puissance du Grand Arbre en temps de bataille contre ses ennemis pour te protéger de leurs armes non conventionnelles. L'exécution de ce rituel génère un champ de force sphérique pendant 30 minutes, réduisant de 25 % les dégâts des projectiles pour tous ceux autour de toi à portée de voix. Inflige 30 points de corruption.";
 	RITUAL.onerequiredbelief = {"watchful_raven"}; -- Tier III Faith of the Family Ritual
 	
 	RITUAL.requirements = {"pantheistic_catalyst", "xolotl_catalyst", "trinity_catalyst"};
@@ -1483,7 +1483,7 @@ RITUAL = cwRituals.rituals:New("aura_of_powderheel");
 				if player:GetNetVar("powderheelActive") then
 					player:SetNetVar("powderheelActive", false);
 					UpdateActiveRituals(player, "Aura of Powderheel", nil);
-					Clockwork.hint:Send(player, "The 'Aura of Powderheel' ritual has worn off...", 10, Color(175, 100, 100), true, true);
+					Clockwork.hint:Send(player, "Le rituel de l'« Aura de Powderheel » s'est dissipé...", 10, Color(175, 100, 100), true, true);
 				end
 			end
 		end);
@@ -1497,8 +1497,8 @@ RITUAL = cwRituals.rituals:New("aura_of_powderheel");
 RITUAL:Register()
 
 RITUAL = cwRituals.rituals:New("druids_staff");
-	RITUAL.name = "(T3) Druid's Staff";
-	RITUAL.description = "Imbue your staff with the enduring strength of the mightiest oak. Increases damage of your Quarterstaff by 25 points, increases its armor piercing by 100%, and removes its stability damage for 15 minutes. Incurs 20 corruption.";
+	RITUAL.name = "(T3) Bâton du Druide";
+	RITUAL.description = "Imprégnez votre bâton de la force durable du chêne le plus puissant. Augmente les dégâts de votre bâton de combat de 25 points, accroît sa pénétration d'armure de 100%, et supprime ses dégâts de stabilité pendant 15 minutes. Inflige 20 points de corruption.";
 	RITUAL.onerequiredbelief = {"watchful_raven"}; -- Tier III Faith of the Family Ritual
 	
 	RITUAL.requirements = {"pantheistic_catalyst", "familial_catalyst", "trinity_catalyst"};
@@ -1515,7 +1515,7 @@ RITUAL = cwRituals.rituals:New("druids_staff");
 				if player:GetNetVar("druidStaffActive") then
 					player:SetNetVar("druidStaffActive", false);
 					UpdateActiveRituals(player, "Druid's Staff", nil);
-					Clockwork.hint:Send(player, "The 'Druid's Staff' ritual has worn off...", 10, Color(175, 100, 100), true, true);
+					Clockwork.hint:Send(player, "Le rituel du 'Bâton du Druide' s'est dissipé...", 10, Color(175, 100, 100), true, true);
 				end
 			end
 		end);
@@ -1530,8 +1530,8 @@ RITUAL:Register()
 
 if game.GetMap() == "rp_district21" then
 	RITUAL = cwRituals.rituals:New("eye_of_the_storm");
-		RITUAL.name = "(Unique) Eye of the Storm";
-		RITUAL.description = "The Haraldrs claim that each strike of thunder comes from the Old Son's War Axe as He chops down sky-beasts that bleed rain upon the lands. The Crasters claim the storm clouds are from The Mother, who weeps to bring forth new life. Performing this ritual will summon a longer-lasting blizzard within mere moments of it being performed. Incurs 50 corruption.";
+		RITUAL.name = "(Unique) Œil de la Tempête";
+		RITUAL.description = "Les Haraldrs affirment que chaque coup de tonnerre provient de la Hache de Guerre du Vieux Fils lorsqu'Il abat des bêtes célestes dont le sang se répand en pluie sur les terres. Les Crasters soutiennent que les nuages d'orage émanent de la Mère, qui pleure pour donner naissance à une vie nouvelle. L'exécution de ce rituel invoquera un blizzard de plus longue durée en quelques instants seulement. Inflige 50 points de corruption.";
 		RITUAL.onerequiredbelief = {"daring_trout", "watchful_raven"}; -- Unique Mother/Old Son Ritual
 		
 		RITUAL.requirements = {"purifying_stone", "up_catalyst", "elysian_catalyst"};
@@ -1579,8 +1579,8 @@ if game.GetMap() == "rp_district21" then
 	RITUAL:Register()
 else
 	RITUAL = cwRituals.rituals:New("eye_of_the_storm");
-		RITUAL.name = "(Unique) Eye of the Storm";
-		RITUAL.description = "The Haraldrs claim that each strike of thunder comes from the Old Son's War Axe as He chops down sky-beasts that bleed rain upon the lands. The Crasters claim the storm clouds are from The Mother, who weeps to bring forth new life. Performing this ritual will summon a thunderstorm within a minute of being performed. Incurs 50 corruption.";
+		RITUAL.name = "(Unique) Œil de la Tempête";
+		RITUAL.description = "Les Haraldrs affirment que chaque coup de tonnerre provient de la hache de guerre du Vieux Fils lorsqu'Il abat des bêtes célestes dont le sang se répand en pluie sur les terres. Les Crasters prétendent que les nuages d'orage émanent de la Mère, qui pleure pour donner naissance à une vie nouvelle. L'exécution de ce rituel invoquera un orage dans la minute qui suit. Inflige 50 points de corruption.";
 		RITUAL.onerequiredbelief = {"daring_trout", "watchful_raven"}; -- Unique Mother/Old Son Ritual
 		
 		RITUAL.requirements = {"purifying_stone", "up_catalyst", "elysian_catalyst"};
@@ -1629,8 +1629,8 @@ else
 end
 
 RITUAL = cwRituals.rituals:New("glazic_rite_of_clear_skies");
-	RITUAL.name = "(Unique) Glazic Rite of Clear Skies";
-	RITUAL.description = "With broken pieces of God, the Glazic Astronomers League proudly state No to the savage shamans who covet power over the skies. Performing this ritual will clear the weather to normal after a delay of 1 minute. Incurs 50 corruption.";
+	RITUAL.name = "(Rituel Unique) Rite Glazic des Ciels Dégagés";
+	RITUAL.description = "Avec les fragments brisés de Dieu, la Ligue des Astronomes Glazic oppose fièrement un Non aux shamans sauvages qui convoitent le pouvoir sur les cieux. L'exécution de ce rituel rétablira la météo à la normale après un délai d'une minute. Inflige 50 points de corruption.";
 	RITUAL.onerequiredbelief = {"emissary"}; -- Hard-Glazed Unique Ritual
 	
 	RITUAL.requirements = {"purifying_stone", "up_catalyst", "purifying_stone"};
@@ -1699,8 +1699,8 @@ RITUAL = cwRituals.rituals:New("glazic_rite_of_clear_skies");
 RITUAL:Register()
 
 RITUAL = cwRituals.rituals:New("Sister's Blessing");
-	RITUAL.name = "(Unique) Sister's Blessing";
-	RITUAL.description = "The River Styx is said to be a boiling body of lava that is home to the dead and damned. With the correct blood magic ritual, the Reavers have been able to bargain with the demons that their crossing will be paid in the souls of their harvest. Incurs 75 corruption.";
+	RITUAL.name = "(Bénédiction de la Sœur)";
+	RITUAL.description = "Le fleuve Styx est décrit comme un torrent de lave bouillonnante, refuge des morts et des damnés. Grâce à un rituel de magie sanguine approprié, les Saccageurs ont pu négocier avec les démons, leur promettant que leur passage serait payé par les âmes de leur moisson. Inflige 75 points de corruption.";
 	RITUAL.onerequiredbelief = {"shedskin", "watchful_raven"}; -- Unique Mother/Sister Ritual
 
 	RITUAL.requirements = {"xolotl_catalyst", "down_catalyst", "familial_catalyst"};
@@ -1771,8 +1771,8 @@ RITUAL = cwRituals.rituals:New("Sister's Blessing");
 RITUAL:Register()
 
 RITUAL = cwRituals.rituals:New("rooting");
-	RITUAL.name = "(T1) Rooting";
-	RITUAL.description = "When the incessant demonic chanting drives you angry, consider banishing them back to the hells that birthed them. Performing this ritual will remove 65 points of corruption.";
+	RITUAL.name = "(T1) Enracinement";
+	RITUAL.description = "Quand les incessants chants démoniaques vous exaspèrent, songez à les renvoyer dans les enfers qui les ont engendrés. Exécuter ce rituel éliminera 65 points de corruption.";
 	RITUAL.onerequiredbelief = {"honor_the_gods", "one_with_the_druids", "the_black_sea", "witch_druid", "taste_of_iron"}; -- Tier I Faith of the Family Ritual
 	
 	RITUAL.requirements = {"pantheistic_catalyst", "familial_catalyst", "familial_catalyst"};
@@ -1791,8 +1791,8 @@ RITUAL = cwRituals.rituals:New("rooting");
 RITUAL:Register()
 
 RITUAL = cwRituals.rituals:New("scornificationism");
-	RITUAL.name = "(Unique) Scornificationism";
-	RITUAL.description = "You are so utterly hateful of man's sinful nature that you refuse to die without taking sinners with you! Performing this ritual will prevent player or NPC damage from killing you or putting you into critical condition for the next 120 seconds, but you may still be killed or subdued through other means. Incurs 15 corruption.";
+	RITUAL.name = "(Unique) Méprisificationnisme";
+	RITUAL.description = "Tu hais à ce point la nature pécheresse de l'homme que tu refuses de mourir sans entraîner des pécheurs avec toi ! L'exécution de ce rituel te protège des dégâts infligés par les joueurs ou les PNJ qui pourraient te tuer ou te mettre en état critique pendant les 120 prochaines secondes, mais tu peux toujours être éliminé ou maîtrisé par d'autres moyens. Inflige 15 points de corruption.";
 	RITUAL.onerequiredbelief = {"extinctionist"}; -- Unique Sol Orthodoxy Ritual
 	
 	RITUAL.requirements = {"purifying_stone", "light_catalyst", "elysian_catalyst"};
@@ -1809,7 +1809,7 @@ RITUAL = cwRituals.rituals:New("scornificationism");
 				if player.scornificationismActive then
 					player.scornificationismActive = nil;
 					UpdateActiveRituals(player,"Scornificationism", nil);
-					Clockwork.hint:Send(player, "The 'Scornificationism' ritual has worn off...", 10, Color(175, 100, 100), true, true);
+					Clockwork.hint:Send(player, "Le rituel de 'Scornificationism' s'est dissipé...", 10, Color(175, 100, 100), true, true);
 				end
 			end
 		end);
@@ -1823,8 +1823,8 @@ RITUAL = cwRituals.rituals:New("scornificationism");
 RITUAL:Register()
 
 RITUAL = cwRituals.rituals:New("sprouting");
-	RITUAL.name = "(T2) Sprouting";
-	RITUAL.description = "There is something to be learned from leaves, dirt, and bone. Performing this ritual will restore 200 health and 100% of blood, as well as healing all injuries. Incurs 5 corruption.";
+	RITUAL.name = "(T2) Germination";
+	RITUAL.description = "Il y a quelque chose à apprendre des feuilles, de la terre et des os. Exécuter ce rituel restaurera 200 points de vie et 100% du sang, tout en soignant toutes les blessures. Inflige 5 points de corruption.";
 	RITUAL.onerequiredbelief = {"man_become_beast", "one_with_the_druids", "daring_trout", "shedskin"}; -- Tier II Faith of the Family Ritual
 	
 	RITUAL.requirements = {"pantheistic_catalyst", "pantheistic_catalyst", "pantheistic_catalyst"};
@@ -1849,8 +1849,8 @@ RITUAL = cwRituals.rituals:New("sprouting");
 RITUAL:Register()
 
 RITUAL = cwRituals.rituals:New("soulscorch");
-	RITUAL.name = "(Unique) Soulscorch";
-	RITUAL.description = "Become a catalyst of mankind's extinction. When you are struck down, the Light will smite them thusly! Performing this ritual will cause you to radiate for 5 minutes, and upon your death you will deal an amount of damage corresponding to your sacrament level to anyone not of the Faith of the Light excluding Voltists (or half if they are) within talking distance. Incurs 15 corruption.";
+	RITUAL.name = "(Unique) Brûlure d'âme";
+	RITUAL.description = "Deviens un catalyseur de l'extinction de l'humanité. Lorsque tu seras terrassé, la Lumière les frappera ainsi ! L'exécution de ce rituel te fera irradier pendant 5 minutes, et à ta mort, tu infligeras des dégâts correspondant à ton niveau de sacrement à toute personne n'appartenant pas à la Foi de la Lumière, à l'exception des Voltistes (ou la moitié s'ils le sont), dans un rayon de conversation. Inflige 15 points de corruption.";
 	RITUAL.onerequiredbelief = {"extinctionist"}; -- Unique Sol Orthodoxy Ritual
 	
 	RITUAL.requirements = {"light_catalyst", "holy_spirit", "light_catalyst"};
@@ -1869,7 +1869,7 @@ RITUAL = cwRituals.rituals:New("soulscorch");
 					player.soulscorchActive = nil;
 					player:SetNetVar("soulscorchActive", false);
 					UpdateActiveRituals(player, "Soulscorch", nil);
-					Clockwork.hint:Send(player, "The 'Soulscorch' ritual has worn off...", 10, Color(175, 100, 100), true, true);
+					Clockwork.hint:Send(player, "Le rituel 'Soulscorch' s'est dissipé...", 10, Color(175, 100, 100), true, true);
 				end
 			end
 		end);
@@ -1893,8 +1893,8 @@ RITUAL = cwRituals.rituals:New("soulscorch");
 RITUAL:Register()
 
 RITUAL = cwRituals.rituals:New("steel_will");
-	RITUAL.name = "(T2) Steel Will";
-	RITUAL.description = "Unbroken, undisturbed - the Glaze is with you! Performing this ritual restores your sanity to full, reduces sanity loss by 90%, and makes you immune to the effects of fear for 40 minutes. Incurs 10 corruption.";
+	RITUAL.name = "(T2) Volonté d'Acier";
+	RITUAL.description = "Intact, inaltéré - le Vernis est avec vous ! Exécuter ce rituel restaure entièrement votre santé mentale, réduit la perte de raison de 90%, et vous immunise contre les effets de la peur pendant 40 minutes. Inflige 10 points de corruption.";
 	RITUAL.onerequiredbelief = {"flagellant", "acolyte"}; -- Tier II Faith of the Light Ritual
 	
 	RITUAL.requirements = {"light_catalyst", "elysian_catalyst", "light_catalyst"};
@@ -1912,7 +1912,7 @@ RITUAL = cwRituals.rituals:New("steel_will");
 				if player:GetNetVar("steelWill", false) then
 					player:SetNetVar("steelWill", false);
 					UpdateActiveRituals(player, "Steel Will", nil);
-					Clockwork.hint:Send(player, "The 'Steel Will' ritual has worn off...", 10, Color(175, 100, 100), true, true);
+					Clockwork.hint:Send(player, "Le rituel 'Volonté d'Acier' s'est dissipé...", 10, Color(175, 100, 100), true, true);
 				end
 			end
 		end);
@@ -1929,8 +1929,8 @@ RITUAL:Register()
 
 --[[
 RITUAL = cwRituals.rituals:New("enlightenment");
-	RITUAL.name = "(T3) Enlightenment";
-	RITUAL.description = "You have reached the pinnacle of Glazic understanding. Performing this ritual illuminates a large area around you for 15 minutes with holy light. It will raise the sanity of all Hard-Glazed characters in its light and also burn any Rekh-khet-sa heretics that approach. Incurs 10 corruption.";
+	RITUAL.name = "(T3) Illumination";
+	RITUAL.description = "Vous avez atteint le sommet de la compréhension Glazique. L'exécution de ce rituel illumine une vaste zone autour de vous pendant 15 minutes d'une lumière sacrée. Il augmentera la santé mentale de tous les personnages à Glaçure Dure se trouvant dans sa lumière et brûlera également tout hérétique Rekh-khet-sa qui s'approcherait. Inflige 10 points de corruption.";
 	RITUAL.onerequiredbelief = {"emissary", "extinctionist"}; -- Tier III Faith of the Light Ritual
 	
 	RITUAL.requirements = {"holy_spirit", "light_catalyst", "light_catalyst"};
@@ -1946,7 +1946,7 @@ RITUAL = cwRituals.rituals:New("enlightenment");
 				if player:GetNetVar("enlightenmentActive", false) then
 					player:SetNetVar("enlightenmentActive", false);
 					
-					Clockwork.hint:Send(player, "The 'Enlightenment' ritual has worn off...", 10, Color(175, 100, 100), true, true);
+					Clockwork.hint:Send(player, "Le rituel de l'« Éveil » s'est dissipé...", 10, Color(175, 100, 100), true, true);
 				end
 			end
 		end);
@@ -1963,8 +1963,8 @@ RITUAL:Register()
 --]]
 
 RITUAL = cwRituals.rituals:New("summon_champion");
-	RITUAL.name = "(Unique) Summon Champion";
-	RITUAL.description = "Rise up an eternally damned mercenary to do your bidding. It wields a shield and steel weapon. It will be hostile towards anyone not of the Faith of the Dark. 10 second cast time. Adds an 8 minute cooldown to all summons. Incurs 15 corruption.";
+	RITUAL.name = "(Unique) Invocation du Champion";
+	RITUAL.description = "Fais surgir un mercenaire éternellement damné pour qu'il exécute tes ordres. Il manie un bouclier et une arme d'acier. Il sera hostile envers quiconque n'appartient pas à la Foi des Ténèbres. Temps d'incantation : 10 secondes. Ajoute un délai de récupération de 8 minutes à toutes les invocations. Inflige 15 points de corruption.";
 	RITUAL.requiredSubfaction = {"Rekh-khet-sa"}; -- Tier III Subfaction Ritual
 	
 	RITUAL.requirements = {"tortured_spirit", "down_catalyst", "down_catalyst"};
@@ -2083,8 +2083,8 @@ RITUAL = cwRituals.rituals:New("summon_champion");
 RITUAL:Register()
 
 RITUAL = cwRituals.rituals:New("summon_soldier");
-	RITUAL.name = "(T3) Summon Soldier";
-	RITUAL.description = "Rise up a damned soldier from Hell to do your bidding. It wields an iron weapon. It will be hostile towards anyone not of the Faith of the Dark. 3 second cast time. Adds a 2 minute cooldown to all summons. Incurs 5 corruption.";
+	RITUAL.name = "(T3) Invocation de Soldat";
+	RITUAL.description = "Fais surgir un soldat damné des Enfers pour qu'il accomplisse tes ordres. Il manie une arme de fer. Il sera hostile envers quiconque ne professe pas la Foi des Ténèbres. Temps d'incantation : 3 secondes. Ajoute un délai de 2 minutes à toutes les invocations. Inflige 5 points de corruption.";
 	RITUAL.onerequiredbelief = {"sorcerer"}; -- Tier III Faith of the Dark Ritual
 	RITUAL.requiredBeliefsSubfactionOverride = {["Rekh-khet-sa"] = {"embrace_the_darkness"}}; -- Tier III Faith of the Dark Ritual
 	
@@ -2204,8 +2204,8 @@ RITUAL = cwRituals.rituals:New("summon_soldier");
 RITUAL:Register()
 
 RITUAL = cwRituals.rituals:New("abyssalhowl");
-	RITUAL.name = "(Unique) Abyssal Howl";
-	RITUAL.description = "Whisper words in an ancient tongue never uttered by man and something from the deep may take interest. Performing this ritual will increase the effectiveness of your Upgraded Warcry, allowing you to heal 100% of all damage taken within 2 seconds for 20 minutes. Incurs 30 corruption.";
+	RITUAL.name = "(Hors du commun) Hurlement abyssal";
+	RITUAL.description = "Murmure des mots dans une langue antique jamais prononcée par l'homme, et quelque chose des profondeurs pourrait s'y intéresser. L'exécution de ce rituel augmentera l'efficacité de ton Cri de guerre amélioré, te permettant de soigner 100 % de tous les dégâts subis dans les 2 secondes, et ce pendant 20 minutes. Inflige 30 points de corruption.";
 	RITUAL.onerequiredbelief = {"shedskin"}; -- Unique Sister ritual
 	
 	RITUAL.requirements = {"down_catalyst", "belphegor_catalyst", "pantheistic_catalyst"};
@@ -2222,7 +2222,7 @@ RITUAL = cwRituals.rituals:New("abyssalhowl");
 				if player.abyssalHowlActive then
 					player.abyssalHowlActive = nil;
 					UpdateActiveRituals(player, "Abyssalhowl", nil);
-					Clockwork.hint:Send(player, "The 'Abyssal Howl' ritual has worn off...", 10, Color(175, 100, 100), true, true);
+					Clockwork.hint:Send(player, "Le rituel du 'Hurlement Abyssal' s'est dissipé...", 10, Color(175, 100, 100), true, true);
 				end
 			end
 		end);
@@ -2237,8 +2237,8 @@ RITUAL:Register()
 
 --[[
 RITUAL = cwRituals.rituals:New("summon_otis");
-	RITUAL.name = "(T3) Summon Demon (Otis)";
-	RITUAL.description = "Summon a strong chainsaw-wielding Begotten Thrall that has become the host of a hell demon. It will be hostile towards anyone not of the Faith of the Dark. 15 second cast time. Adds a 3 minute cooldown to all summons. Incurs 25 corruption.";
+	RITUAL.name = "(T3) Invocation Démoniaque (Otis)";
+	RITUAL.description = "Invoque un puissant Thrall du Néant maniant une tronçonneuse, devenu l'hôte d'un démon des enfers. Il sera hostile envers quiconque n'appartient pas à la Foi des Ténèbres. Temps d'incantation de 15 secondes. Ajoute un délai de récupération de 3 minutes pour toutes les invocations. Inflige 25 points de corruption.";
 	RITUAL.onerequiredbelief = {"sorcerer"}; -- Tier III Faith of the Dark Ritual
 	RITUAL.requiredBeliefsSubfactionOverride = {["Rekh-khet-sa"] = {"embrace_the_darkness"}}; -- Tier III Faith of the Dark Ritual
 	
@@ -2359,8 +2359,8 @@ RITUAL = cwRituals.rituals:New("summon_otis");
 RITUAL:Register()
 
 RITUAL = cwRituals.rituals:New("summon_sprinter");
-	RITUAL.name = "(T3) Summon Demon (Sprinters)";
-	RITUAL.description = "Summon two Begotten Sprinters that have been possessed by loyal demons. They will be hostile towards anyone not of the Faith of the Dark. May their patron deity save your enemies. 15 second cast time. Adds a 3 minute cooldown to all summons. Incurs 25 corruption.";
+	RITUAL.name = "(T3) Invocation de Démon (Coureurs)";
+	RITUAL.description = "Invoque deux Coureurs Engendrés possédés par des démons loyaux. Ils seront hostiles envers quiconque ne professe pas la Foi des Ténèbres. Que leur divinité protectrice sauve vos ennemis. Temps d'incantation : 15 secondes. Ajoute un délai de récupération de 3 minutes à toutes les invocations. Inflige 25 points de corruption.";
 	RITUAL.onerequiredbelief = {"sorcerer"}; -- Tier III Faith of the Dark Ritual
 	RITUAL.requiredBeliefsSubfactionOverride = {["Rekh-khet-sa"] = {"embrace_the_darkness"}}; -- Tier III Faith of the Dark Ritual
 	
@@ -2491,8 +2491,8 @@ RITUAL = cwRituals.rituals:New("summon_sprinter");
 RITUAL:Register()
 
 RITUAL = cwRituals.rituals:New("summon_familiar_bear");
-	RITUAL.name = "(T3) Summon Familiar (Bear)";
-	RITUAL.description = "Summon a spirit bear from the Gore Forest so that it may do your bidding. It will be hostile towards anyone not of the Faith of the Family. 15 second cast time. Adds a 3 minute cooldown to all summons. Incurs 25 corruption.";
+	RITUAL.name = "(T3) Invocation de Familier (Ours)";
+	RITUAL.description = "Invoque un ours spirituel de la Forêt de Gore pour qu'il accomplisse tes ordres. Il sera hostile envers quiconque ne professe pas la Foi de la Famille. Temps d'incantation de 15 secondes. Ajoute un délai de récupération de 3 minutes à toutes les invocations. Inflige 25 points de corruption.";
 	RITUAL.onerequiredbelief = {"watchful_raven"}; -- Tier III Faith of the Family Ritual
 	
 	RITUAL.requirements = {"xolotl_catalyst", "familial_catalyst", "xolotl_catalyst"};
@@ -2607,8 +2607,8 @@ RITUAL:Register()
 
 --[[
 RITUAL = cwRituals.rituals:New("summon_familiar_leopard");
-	RITUAL.name = "(T3) Summon Familiar (Leopard)";
-	RITUAL.description = "Summon a spirit leopard from the Gore Forest so that it may do your bidding. It will be hostile towards anyone not of the Faith of the Family. 15 second cast time. Adds a 10 minute cooldown to all summons. Incurs 25 corruption.";
+	RITUAL.name = "(T3) Invocation de Familier (Léopard)";
+	RITUAL.description = "Invoque un léopard spirituel de la Forêt de Gore pour qu'il accomplisse tes ordres. Il sera hostile envers quiconque ne suit pas la Foi de la Famille. Temps d'incantation de 15 secondes. Ajoute un temps de recharge de 10 minutes à toutes les invocations. Inflige 25 points de corruption.";
 	RITUAL.onerequiredbelief = {"watchful_raven"}; -- Tier III Faith of the Family Ritual
 	
 	RITUAL.requirements = {"xolotl_catalyst", "xolotl_catalyst", "pantheistic_catalyst"};
@@ -2723,8 +2723,8 @@ RITUAL:Register()
 --]]
 
 RITUAL = cwRituals.rituals:New("summon_familiar_elk");
-	RITUAL.name = "(T3) Summon Familiar (Elk)";
-	RITUAL.description = "Summon a spirit elk from the Gore Forest so that it may do your bidding. It will be hostile towards anyone not of the Faith of the Family. 7 second cast time. Adds a 2 minute cooldown to all summons. Incurs 10 corruption.";
+	RITUAL.name = "(T3) Invocation de Familier (Élan)";
+	RITUAL.description = "Invoque un esprit-cerf de la Forêt de Gore pour qu'il accomplisse tes ordres. Il sera hostile envers quiconque ne suit pas la Foi de la Famille. Temps d'incantation de 7 secondes. Ajoute un temps de recharge de 2 minutes à toutes les invocations. Inflige 10 points de corruption.";
 	RITUAL.onerequiredbelief = {"watchful_raven"}; -- Tier III Faith of the Family Ritual
 	
 	RITUAL.requirements = {"elysian_catalyst", "trinity_catalyst", "elysian_catalyst"};
@@ -2837,8 +2837,8 @@ RITUAL = cwRituals.rituals:New("summon_familiar_elk");
 RITUAL:Register()
 
 RITUAL = cwRituals.rituals:New("triumph_of_the_bark");
-	RITUAL.name = "(T2) Triumph of Bark";
-	RITUAL.description = "The Mother may be the creator of affliction, but she may cure those seen as strong. Performing this ritual will cure you of all diseases. Incurs 20 corruption.";
+	RITUAL.name = "(T2) Triomphe de l'Écorce";
+	RITUAL.description = "La Mère est peut-être la créatrice des afflictions, mais elle peut guérir ceux jugés dignes. Accomplir ce rituel vous délivrera de toutes les maladies. Inflige 20 points de corruption.";
 	RITUAL.onerequiredbelief = {"man_become_beast", "one_with_the_druids", "daring_trout", "shedskin"}; -- Tier II Faith of the Family Ritual
 	
 	RITUAL.requirements = {"up_catalyst", "pantheistic_catalyst", "pantheistic_catalyst"};
@@ -2869,8 +2869,8 @@ RITUAL = cwRituals.rituals:New("triumph_of_the_bark");
 RITUAL:Register()
 
 RITUAL = cwRituals.rituals:New("upstaged");
-	RITUAL.name = "(T2) Upstaged";
-	RITUAL.description = "Don't dare try to match a jester's dance. One misstep and you'll be banished to hell. Performing this ritual causes riposte attacks to disarm your opponent. This lasts 40 minutes. Incurs 5 corruption.";
+	RITUAL.name = "(T2) Éclipsé";
+	RITUAL.description = "N'osez pas rivaliser avec la danse d'un bouffon. Un faux pas et vous serez banni en enfer. L'exécution de ce rituel fait que les attaques de riposte désarment votre adversaire. Cet effet dure 40 minutes. Inflige 5 points de corruption.";
 	RITUAL.onerequiredbelief = {"soothsayer", "heretic", "shedskin"}; -- Tier II Faith of the Dark Ritual
 	
 	RITUAL.requirements = {"up_catalyst", "belphegor_catalyst", "belphegor_catalyst"};
@@ -2887,7 +2887,7 @@ RITUAL = cwRituals.rituals:New("upstaged");
 				if player.upstagedActive then
 					player.upstagedActive = nil;
 					UpdateActiveRituals(player, "Upstaged", nil);
-					Clockwork.hint:Send(player, "The 'Upstaged' ritual has worn off...", 10, Color(175, 100, 100), true, true);
+					Clockwork.hint:Send(player, "Le rituel 'Upstaged' s'est dissipé...", 10, Color(175, 100, 100), true, true);
 				end
 			end
 		end);
@@ -2901,8 +2901,8 @@ RITUAL = cwRituals.rituals:New("upstaged");
 RITUAL:Register()
 
 RITUAL = cwRituals.rituals:New("waste_not_want_not");
-	RITUAL.name = "(Unique) Waste Not, Want Not";
-	RITUAL.description = "The blacksmiths of the North know better than to squander their goods - every last bit, from the littlest twine to the rustiest nail, will have a use found. Upon performing this ritual, any and all items disassembled or smelted down will provide greater returns closer to the original crafting price. This ritual lasts for a period of thirty minutes. Incurs 5 corruption.";
+	RITUAL.name = "(Unique) Rien ne se perd, rien ne se crée";
+	RITUAL.description = "Les forgerons du Nord savent trop bien ne pas gaspiller leurs biens - chaque dernier morceau, du plus petit bout de ficelle au clou le plus rouillé, trouvera son utilité. En accomplissant ce rituel, tout objet démonté ou fondu fournira des rendements plus élevés, se rapprochant du prix de fabrication d'origine. Ce rituel dure trente minutes. Inflige 5 points de corruption.";
 	RITUAL.onerequiredbelief = {"acolyte"}; -- Unique Servus ritual
 	RITUAL.requiredSubfaction = {"Servus"}; -- Subfaction Ritual
 	
@@ -2927,8 +2927,8 @@ RITUAL:Register()
 
 -- CoS ascension rituals
 RITUAL = cwRituals.rituals:New("ascension_house_varazdat");
-	RITUAL.name = "(Unique) Ascension to House Varazdat";
-	RITUAL.description = "Reject your insignificant peasant heritage and be reborn a Child of Satan. With the bloodline of the King of Kings, your bloodlust and murderous prowess shall be unmatched!";
+	RITUAL.name = "(Ascension Unique) Vers la Maison Varazdat";
+	RITUAL.description = "Rejette ton héritage paysan insignifiant et renais en tant qu'Enfant de Satan. Avec la lignée du Roi des Rois, ta soif de sang et ta prouesse meurtrière seront sans égales !";
 	RITUAL.requiredFaction = {"Children of Satan"}; -- Faction Ritual
 	RITUAL.requiredSubfaction = {""}; -- Subfaction Ritual
 	
@@ -2961,8 +2961,8 @@ RITUAL:Register()
 
 -- CoS ascension rituals
 RITUAL = cwRituals.rituals:New("ascension_house_philimaxio");
-	RITUAL.name = "(Unique) Ascension to House Philimaxio";
-	RITUAL.description = "Reject your insignificant peasant heritage and be reborn a Child of Satan. With the bloodline of the White Sentinels, you will conquer the souls of the unworthy!";
+	RITUAL.name = "(Ascension Unique) Vers la Maison Philimaxio";
+	RITUAL.description = "Rejette ton héritage paysan insignifiant et renais en tant qu'Enfant de Satan. Avec la lignée des Sentinelles Blanches, tu conquerras les âmes des indignes !";
 	RITUAL.requiredFaction = {"Children of Satan"}; -- Faction Ritual
 	RITUAL.requiredSubfaction = {""}; -- Subfaction Ritual
 	
@@ -2995,8 +2995,8 @@ RITUAL:Register()
 
 -- CoS ascension rituals
 RITUAL = cwRituals.rituals:New("ascension_house_rekh-khet-sa");
-	RITUAL.name = "(Unique) Ascension to House Rekh-khet-sa";
-	RITUAL.description = "Reject your insignificant peasant heritage and be reborn a Child of Satan. With the ancient bloodline of sorcerers, you will become all-knowing and life will be everlasting!";
+	RITUAL.name = "(Ascension Unique) Vers la Maison Rekh-khet-sa";
+	RITUAL.description = "Rejette ton héritage paysan insignifiant et renais en tant qu'Enfant de Satan. Avec l'antique lignée des sorciers, tu deviendras omniscient et la vie sera éternelle !";
 	RITUAL.requiredFaction = {"Children of Satan"}; -- Faction Ritual
 	RITUAL.requiredSubfaction = {""}; -- Subfaction Ritual
 	RITUAL.onerequiredbelief = {"primevalism"};
@@ -3030,8 +3030,8 @@ RITUAL:Register()
 
 -- CoS ascension rituals
 RITUAL = cwRituals.rituals:New("ascension_house_kinisger");
-	RITUAL.name = "(Unique) Ascension to House Kinisger";
-	RITUAL.description = "Reject your insignificant peasant heritage and be reborn a Child of Satan. With the cursed mutant bloodline of the Black Hats, you will be a master of shadows and trickery!";
+	RITUAL.name = "(Ascension Unique) Élévation à la Maison Kinisger";
+	RITUAL.description = "Rejette ton héritage paysan insignifiant et renais en tant qu'Enfant de Satan. Avec la lignée maudite des mutants des Black Hats, tu deviendras un maître des ombres et de la tromperie !";
 	RITUAL.requiredFaction = {"Children of Satan"}; -- Faction Ritual
 	RITUAL.requiredSubfaction = {""}; -- Subfaction Ritual
 	

@@ -2425,12 +2425,12 @@ function Schema:SacrificePlayer(player, sacrificer, method, bShared)
 				Clockwork.player:GiveCash(sacrificer, 666, "Marked Sacrifice");
 				sacrificer:HandleNeed("corruption", -50);
 				
-				Clockwork.chatBox:Add(sacrificer, nil, "itnofake", "En sacrifiant"..playerName.." and fulfill the blood contract fully, you feel your pockets suddenly become much heavier.");
+				Clockwork.chatBox:Add(sacrificer, nil, "itnofake", "En sacrifiant"..playerName.." et exécutez le contrat de sang pleinement, vous sentez soudainement vos poches devenir beaucoup plus lourdes.");
 				
 				for _, v in _player.Iterator() do
 					if v:HasInitialized() then
 						if v == player or v:GetFaith() == "Faith of the Dark" then
-							Clockwork.chatBox:Add(v, nil, "darkwhispernoprefix", "La mort a été délivrée à un marqué."..playerName.." has been sacrificed and his soul now belongs to the Dark Lord.");
+							Clockwork.chatBox:Add(v, nil, "darkwhispernoprefix", "La mort a été délivrée à un marqué."..playerName.." a été sacrifié et son âme appartient maintenant au Seigneur Obscur.");
 						end
 					end
 				end

@@ -1748,7 +1748,7 @@ function Schema:ModifyItemMarkupTooltip(category, maximumWeight, weight, conditi
 		frame:AddText(itemTable("description"), Color(180, 170, 170), "nov_IntroTextSmallDETrooper", 0.8);
 		
 		if (bShowWeight) then
-			frame:AddBar(20, {{text = weight.."kg", percentage = percentage * 100, color = Color(96, 96, 128), font = "DermaDefault", leftTextAlign = false, noDisplay = true}}, "Weight", Color(170, 170, 180));
+			frame:AddBar(20, {{text = weight.."kg", percentage = percentage * 100, color = Color(96, 96, 128), font = "DermaDefault", leftTextAlign = false, noDisplay = true}}, "Poids", Color(170, 170, 180));
 			frame:AddSpacer(2, Color(0, 0, 0, 0));
 		end
 		
@@ -1778,7 +1778,7 @@ function Schema:ModifyItemMarkupTooltip(category, maximumWeight, weight, conditi
 				end
 			end
 			
-			frame:AddText("Required Beliefs: ", Color(225, 225, 225), "nov_IntroTextSmallDETrooper", 1.15);
+			frame:AddText("Croyances requises :", Color(225, 225, 225), "nov_IntroTextSmallDETrooper", 1.15);
 			frame:AddIconRow(beliefIcons, 40);
 		end
 		
@@ -1808,7 +1808,7 @@ function Schema:ModifyItemMarkupTooltip(category, maximumWeight, weight, conditi
 				end
 			end
 			
-			frame:AddText("Required Beliefs (One Of The Following): ", Color(225, 225, 225), "nov_IntroTextSmallDETrooper", 1.15);
+			frame:AddText("Croyances Requises (Une des Suivantes) :", Color(225, 225, 225), "nov_IntroTextSmallDETrooper", 1.15);
 			frame:AddIconRow(beliefIcons, 40);
 		end
 
@@ -1822,17 +1822,17 @@ function Schema:ModifyItemMarkupTooltip(category, maximumWeight, weight, conditi
 			end
 			
 			if weaponStats["attack"] and weaponStats["defense"] then
-				frame:AddText("Weapon Attributes: ", Color(225, 225, 225), "nov_IntroTextSmallDETrooper", 1.15);
+				frame:AddText("Attributs de l'arme :", Color(225, 225, 225), "nov_IntroTextSmallDETrooper", 1.15);
 
 				if weaponStats["attack"].canaltattack then
 					if weaponTable.CanSwipeAttack then
-						frame:AddText("Alternate Attack: Swipe", Color(110, 30, 30), nil, 0.9);
+						frame:AddText("Attaque alternative : Balayage", Color(110, 30, 30), nil, 0.9);
 					elseif weaponTable.ChoppingAltAttack then
-						frame:AddText("Alternate Attack: Chop", Color(110, 30, 30), nil, 0.9);
+						frame:AddText("Attaque alternative : Tranchant", Color(110, 30, 30), nil, 0.9);
 					elseif weaponTable.PummelingAltAttack then
-						frame:AddText("Alternate Attack: Pummel", Color(110, 30, 30), nil, 0.9);
+						frame:AddText("Attaque alternative : Frappe", Color(110, 30, 30), nil, 0.9);
 					else
-						frame:AddText("Alternate Attack: Thrust", Color(110, 30, 30), nil, 0.9);
+						frame:AddText("Attaque alternative : Percer", Color(110, 30, 30), nil, 0.9);
 					end
 				end
 				
@@ -1850,189 +1850,189 @@ function Schema:ModifyItemMarkupTooltip(category, maximumWeight, weight, conditi
 					end
 					
 					if blockDamageTypes ~= "" then
-						frame:AddText("Blocks Damage Types: "..blockDamageTypes, Color(110, 30, 30), nil, 0.9);
+						frame:AddText("Types de dégâts bloqués :"..blockDamageTypes, Color(110, 30, 30), nil, 0.9);
 					end
 				end]]--
 			
 				--[[if weaponStats["defense"].canparry then
-					frame:AddText("Can Parry", Color(110, 30, 30), nil, 0.9);
+					frame:AddText("Peut Parer", Color(110, 30, 30), nil, 0.9);
 				end]]--
 				
 				if itemTable.canUseShields then
-					frame:AddText("Can Use Shields", Color(110, 30, 30), nil, 0.9);
+					frame:AddText("Peut utiliser des boucliers", Color(110, 30, 30), nil, 0.9);
 				end
 				
 				if itemTable.isSacrifical then
-					frame:AddText("Causes Corruption To Wielder", Color(110, 30, 30), nil, 0.9);
+					frame:AddText("Corrompt le Porteur", Color(110, 30, 30), nil, 0.9);
 				end
 				
 				if itemTable.isPolearm then
-					frame:AddText("Polearm: Up to +60% increased damage the further away the target is.", Color(110, 30, 30), nil, 0.9);
+					frame:AddText("Arme d'hast : Jusqu'à +60% de dégâts supplémentaires selon la distance à la cible.", Color(110, 30, 30), nil, 0.9);
 				end
 				
 				if weaponTable.hasSwordplay then
-					frame:AddText("Swordplay: After deflecting or parrying an opponent, your next attack within 0.5s will have a faster striketime. This trait only works if you have 'Blademaster' unlocked.", Color(110, 30, 30), nil, 0.9);
+					frame:AddText("Escrime : Après avoir dévié ou paré un adversaire, votre prochaine attaque dans les 0,5s suivantes aura un temps de frappe plus rapide. Ce trait ne fonctionne que si vous avez débloqué 'Maître Lame'.", Color(110, 30, 30), nil, 0.9);
 				end
 				
 				if weaponTable.hasPuncture then
-					frame:AddText("Puncture: Doubles condition damage against armor. This trait only works if you have 'Might' unlocked.", Color(110, 30, 30), nil, 0.9);
+					frame:AddText("Ponction : Double les dégâts de condition contre l'armure. Ce trait ne fonctionne que si vous avez débloqué la compétence 'Might'.", Color(110, 30, 30), nil, 0.9);
 				end
 				
 				if weaponTable.MultiHit then
-					frame:AddText("Multi-Hit: Can hit up to "..tostring(weaponTable.MultiHit).." targets in a single swing.", Color(110, 30, 30), nil, 0.9);
+					frame:AddText("Multi-Frappe : Peut toucher jusqu'à"..tostring(weaponTable.MultiHit).." targets in a single swing.", Color(110, 30, 30), nil, 0.9);
 				end
 				
 				if itemTable.hasMinimumRange then
-					frame:AddText("Minimum Effective Range: Targets under 60% of your max range will receive ineffective non-lethal damage.", Color(110, 30, 30), nil, 0.9);
+					frame:AddText("Portée minimale efficace : Les cibles situées à moins de 60% de votre portée maximale subiront des dégâts non-létaux inefficaces.", Color(110, 30, 30), nil, 0.9);
 				end
 				
 				if itemTable.hasIncreasedDeflectionWindow then
-					frame:AddText("Increased deflection window (0.25s)", Color(110, 30, 30), nil, 0.9);
+					frame:AddText("Fenêtre de déviation augmentée (0,25s)", Color(110, 30, 30), nil, 0.9);
 				end
 				
 				if itemTable.huntingValue == 3 then
-					frame:AddText("Hunting Dagger: Skinning and mutilating corpses gives higher quality yields and is much faster.", Color(110, 30, 30), nil, 0.9);
+					frame:AddText("Dague de chasse : Dépouiller et mutiler les cadavres offre des récoltes de meilleure qualité et est bien plus rapide.", Color(110, 30, 30), nil, 0.9);
 				end
 
 				if weaponStats["defense"].parrydifficulty and weaponStats["defense"].parrydifficulty > 0.2 then
-					frame:AddText("Has Increased Parry Window", Color(110, 30, 30), nil, 0.9);
+					frame:AddText("A augmenté la fenêtre de parade", Color(110, 30, 30), nil, 0.9);
 				end
 				
 				if itemTable.unrepairable then
-					frame:AddText("Unrepairable: This weapon cannot be repaired and will always take condition damage, irrespective of beliefs.", Color(110, 30, 30), nil, 0.9);
+					frame:AddText("Irréparable : Cette arme ne peut pas être réparée et subira toujours des dégâts de condition, quelles que soient les croyances.", Color(110, 30, 30), nil, 0.9);
 				end
 				
 				if itemTable.attributes then
 					if table.HasValue(itemTable.attributes, "barbed") then
-						frame:AddText("Barbed: Deals poison damage and extra blood damage to victims who are not Faith of the Dark.", Color(110, 30, 30), nil, 0.9);
+						frame:AddText("Barbelé : Inflige des dégâts de poison et des dégâts de sang supplémentaires aux victimes qui ne sont pas de la Foi des Ténèbres.", Color(110, 30, 30), nil, 0.9);
 					end
 
 					if table.HasValue(itemTable.attributes, "mark_of_perdition") then
-						frame:AddText("Mark of Perdition: Causes existential terror to victims who are not Faith of the Dark.", Color(110, 30, 30), nil, 0.9);
+						frame:AddText("Marque de la Perdition : Inflige une terreur existentielle aux victimes qui ne sont pas de la Foi des Ténèbres.", Color(110, 30, 30), nil, 0.9);
 					end
 
 					if table.HasValue(itemTable.attributes, "disciplined") then
-						frame:AddText("Disciplined: Grants a 15% speed boost to yourself and victims who are Faith of the Dark.", Color(110, 30, 30), nil, 0.9);
+						frame:AddText("Discipliné : Accorde un bonus de vitesse de 15% à vous-même et aux victimes qui sont de la Foi des Ténèbres.", Color(110, 30, 30), nil, 0.9);
 					end
 
 					if table.HasValue(itemTable.attributes, "blood_of_kings") then
-						frame:AddText("Blood of Kings: Equippable by the Varazdat subfaction without the required beliefs.", Color(110, 30, 30), nil, 0.9);
+						frame:AddText("Sang des Rois : Équipable par la sous-faction Varazdat sans les croyances requises.", Color(110, 30, 30), nil, 0.9);
 					end
 
 					if table.HasValue(itemTable.attributes, "last_stand") then
-						frame:AddText("Unholy Blessing: Upon reaching 60% of your maximum health, this weapon will become imbued with either fire or ice, and will deal elemental damage.", Color(110, 30, 30), nil, 0.9);
+						frame:AddText("Bénédiction Impie : Lorsque votre santé atteint 60% de son maximum, cette arme s'imprègne de feu ou de glace, et inflige des dégâts élémentaires.", Color(110, 30, 30), nil, 0.9);
 					end
 
 					if table.HasValue(itemTable.attributes, "cursed") then
-						frame:AddText("Cursed: Causes corruption to wielder on swing if you are not Faith of the Dark.", Color(110, 30, 30), nil, 0.9);
+						frame:AddText("Maudit : Inflige de la corruption au porteur à chaque coup si vous n'êtes pas un Fidèle des Ténèbres.", Color(110, 30, 30), nil, 0.9);
 					end
 
 					if table.HasValue(itemTable.attributes, "aoebuff") then
-						frame:AddText("Area of Effect Buff: +15% Attack Damage except for Firearms, -25% Received Damage, 1.25x Stamina Regen Rate, +2 Residual Sanity Gain, Immunity to Warcry Sanity & Disorientation Debuffs", Color(110, 30, 30), nil, 0.9);
+						frame:AddText("Zone d'effet bénéfique : +15% de Dégâts d'Attaque (sauf armes à feu), -25% de Dégâts Reçus, Régénération d'Endurance ×1.25, +2 de Récupération de Santé Mentale Résiduelle, Immunité aux Affaiblissements de Cri de Guerre sur la Santé Mentale et la Désorientation", Color(110, 30, 30), nil, 0.9);
 					end
 				
 					if table.HasValue(itemTable.attributes, "concealable") then
-						frame:AddText("Concealable (Does Not Show On Person)", Color(110, 30, 30), nil, 0.9);
+						frame:AddText("Dissimulable (Ne se voit pas sur la personne)", Color(110, 30, 30), nil, 0.9);
 					end
 					
 					if table.HasValue(itemTable.attributes, "conditionless") then
-						frame:AddText("Conditionless: This item will not take condition damage.", Color(110, 30, 30), nil, 0.9);
+						frame:AddText("Sans usure : Cet objet ne subira pas de dégâts d'usure.", Color(110, 30, 30), nil, 0.9);
 					end
 					
 					if table.HasValue(itemTable.attributes, "fear") then
-						frame:AddText("Fear: Characters of opposing factions will be disoriented and lose sanity when near you.", Color(110, 30, 30), nil, 0.9);
+						frame:AddText("Peur : Les personnages des factions adverses seront désorientés et perdront leur santé mentale à votre proximité.", Color(110, 30, 30), nil, 0.9);
 					end
 					
 					if table.HasValue(itemTable.attributes, "ice") then
-						frame:AddText("Frigid: Freezes enemies in a block of ice upon contact.", Color(110, 30, 30), nil, 0.9);
+						frame:AddText("Frigid : Gèle les ennemis dans un bloc de glace au contact.", Color(110, 30, 30), nil, 0.9);
 					end
 					
 					if table.HasValue(itemTable.attributes, "grounded") then
-						frame:AddText("Grounded: Cannot attack while sprinting, but hitting enemies in effective range will discombobulate them, stopping them from sprinting for the next 3 seconds.", Color(110, 30, 30), nil, 0.9);
+						frame:AddText("À terre : Impossible d'attaquer en courant, mais toucher des ennemis à portée efficace les désoriente, les empêchant de courir pendant les 3 prochaines secondes.", Color(110, 30, 30), nil, 0.9);
 					end
 					
 					if table.HasValue(itemTable.attributes, "fire") then
-						frame:AddText("Incendiary: Sets enemies alight upon contact.", Color(110, 30, 30), nil, 0.9);
+						frame:AddText("Incendiaire : Enflamme les ennemis au contact.", Color(110, 30, 30), nil, 0.9);
 					end
 
 					if table.HasValue(itemTable.attributes, "flail") then
-						frame:AddText("Cannot Be Dual Wielded", Color(110, 30, 30), nil, 0.9);
-						frame:AddText("Trust in God: With each strike, there is a 10% chance you will deal an overhead attack that deals +70% raw, stability and stamina damage. The 'Favored' belief raises this chance to 20%.", Color(110, 30, 30), nil, 0.9);
-						frame:AddText("Foolhardy: With each miss, there is a 25% chance that you will strike yourself for half damage. The 'Favored' belief lowers this chance to 10%.", Color(100, 9, 0), nil, 0.9);
+						frame:AddText("Ne peut pas être utilisé à deux mains", Color(110, 30, 30), nil, 0.9);
+						frame:AddText("Confiance en Dieu : À chaque coup, il y a 10% de chance d'effectuer une attaque plongeante infligeant +70% de dégâts bruts, de stabilité et d'endurance. La croyance 'Favorisé' augmente cette chance à 20%.", Color(110, 30, 30), nil, 0.9);
+						frame:AddText("Téméraire : À chaque coup manqué, il y a 25 % de chances que vous vous frappiez vous-même pour la moitié des dégâts. La croyance 'Favorisé' réduit cette probabilité à 10 %.", Color(100, 9, 0), nil, 0.9);
 					end
 					
 					if table.HasValue(itemTable.attributes, "punisher") then
-						frame:AddText("Punisher: Doubles the stamina gained from flagellation.", Color(110, 30, 30), nil, 0.9);
+						frame:AddText("Punisher : Double l'endurance obtenue par la flagellation.", Color(110, 30, 30), nil, 0.9);
 					end
 
 					if table.HasValue(itemTable.attributes, "versatile") then
-						frame:AddText("Versatile: Efficient in both mining and woodcutting, and suffers no condition loss from harvesting these nodes.", Color(110, 30, 30), nil, 0.9);
+						frame:AddText("Polyvalent : Efficace aussi bien en minage qu'en abattage, et ne subit aucune perte de condition lors de la récolte de ces nœuds.", Color(110, 30, 30), nil, 0.9);
 					end
 				
 					if table.HasValue(itemTable.attributes, "rage") then
-						frame:AddText("Rage (Shieldless): Movement speed is increased by 7%.", Color(110, 30, 30), nil, 0.9);
+						frame:AddText("Rage (Sans bouclier) : La vitesse de déplacement est augmentée de 7 %.", Color(110, 30, 30), nil, 0.9);
 					end
 					
 					if table.HasValue(itemTable.attributes, "shieldbreaker") then
-						frame:AddText("Shieldbreaker: Deals 6x more condition damage to shields.", Color(110, 30, 30), nil, 0.9);
+						frame:AddText("Brise-bouclier : Inflige 6 fois plus de dégâts de condition aux boucliers.", Color(110, 30, 30), nil, 0.9);
 					end
 					
 					if table.HasValue(itemTable.attributes, "splinter") then
-						frame:AddText("Splinter: Deals 3.5x more condition damage to shields.", Color(110, 30, 30), nil, 0.9);
+						frame:AddText("Splinter : Inflige 3,5 fois plus de dégâts de condition aux boucliers.", Color(110, 30, 30), nil, 0.9);
 					end
 					
 					if table.HasValue(itemTable.attributes, "bell") then
-						frame:AddText("For Whom the Bell Tolls: Disorients any characters nearby with each holy strike.", Color(110, 30, 30), nil, 0.9);
+						frame:AddText("Pour Qui Sonne le Glas : Désoriente tout personnage à proximité à chaque frappe sacrée.", Color(110, 30, 30), nil, 0.9);
 					end
 				end
 			
 				if weaponStats["attack"].dmgtype then
-					frame:AddText("Damage Type: "..damageTypes[weaponStats["attack"].dmgtype] or "Unknown", Color(110, 30, 30), nil, 0.9);
+					frame:AddText("Type de dégâts :"..damageTypes[weaponStats["attack"].dmgtype] or "Unknown", Color(110, 30, 30), nil, 0.9);
 				end
 				
 				if weaponStats["defense"].partialbulletblock then
-					frame:AddText("Has Bullet Resistance", Color(110, 30, 30), nil, 0.9);
+					frame:AddText("Possède une résistance aux balles", Color(110, 30, 30), nil, 0.9);
 				end
 				
 				if string.find(weaponClass, "begotten_spear") or string.find(weaponClass, "begotten_polearm") or string.find(weaponClass, "begotten_scythe") then
-					frame:AddText("Counter Damage: +70% Damage Bonus against running enemies when attacked from the front.", Color(110, 30, 30), nil, 0.9);
+					frame:AddText("Dégâts de Contre : +70% de Bonus de Dégâts contre les ennemis en course lorsqu'ils sont attaqués de face.", Color(110, 30, 30), nil, 0.9);
 				elseif weaponTable.isDagger then
-					frame:AddText("Backstab: Deal double damage and 100% AP damage to enemies' backs.", Color(110, 30, 30), nil, 0.9);
-					frame:AddText("Coup de Grace: Deal double damage and 100% AP damage to knocked over enemies. Each hit will slightly increase the time it takes for knocked over enemies to get up.", Color(110, 30, 30), nil, 0.9);
-					frame:AddText("Can only deal 1 stamina damage, no matter the enemies' minimum block cost.", Color(100, 9, 0), nil, 0.9);
+					frame:AddText("Coup dans le dos : Inflige des dégâts doublés et 100% de dégâts de PA dans le dos des ennemis.", Color(110, 30, 30), nil, 0.9);
+					frame:AddText("Coup de Grâce : Inflige des dégâts doublés et 100% de dégâts de pénétration d'armure aux ennemis à terre. Chaque coup augmente légèrement le temps nécessaire aux ennemis à terre pour se relever.", Color(110, 30, 30), nil, 0.9);
+					frame:AddText("Ne peut infliger qu'un seul point de dégâts d'endurance, quel que soit le coût de blocage minimum des ennemis.", Color(100, 9, 0), nil, 0.9);
 				end
 				
 				if itemTable.requiredFactions and not table.IsEmpty(itemTable.requiredFactions) and itemTable.requiredFactions[1] ~= "Wanderer" then
-					frame:AddText("Required Faction: "..table.concat(itemTable.requiredFactions, ", "), Color(110, 30, 30), nil, 0.9);
+					frame:AddText("Faction requise :"..table.concat(itemTable.requiredFactions, ", "), Color(110, 30, 30), nil, 0.9);
 				end
 				
 				if itemTable.requiredFaiths and not table.IsEmpty(itemTable.requiredFaiths) then
-					frame:AddText("Required Faith: "..table.concat(itemTable.requiredFaiths, " or "), Color(110, 30, 30), nil, 0.9);
+					frame:AddText("Foi requise :"..table.concat(itemTable.requiredFaiths, " or "), Color(110, 30, 30), nil, 0.9);
 				end
 				
 				if itemTable.requiredSubfactions and not table.IsEmpty(itemTable.requiredSubfactions) then
-					frame:AddText("Required Subfaction: "..table.concat(itemTable.requiredSubfactions, ", "), Color(110, 30, 30), nil, 0.9);
+					frame:AddText("Sous-faction requise :"..table.concat(itemTable.requiredSubfactions, ", "), Color(110, 30, 30), nil, 0.9);
 				end
 				
 				if itemTable.excludedFactions and not table.IsEmpty(itemTable.excludedFactions) then
-					frame:AddText("Excluded Factions: "..table.concat(itemTable.excludedFactions, ", "), Color(110, 30, 30), nil, 0.9);
+					frame:AddText("Factions exclues :"..table.concat(itemTable.excludedFactions, ", "), Color(110, 30, 30), nil, 0.9);
 					
 					if table.HasValue(itemTable.excludedFactions, Clockwork.Client:GetFaction()) and itemTable.excludedSubfactions and not table.IsEmpty(itemTable.excludedSubfactions) then
-						frame:AddText("Excluded Subfactions: "..table.concat(itemTable.excludedSubfactions, ", "), Color(110, 30, 30), nil, 0.9);
+						frame:AddText("Sous-factions exclues :"..table.concat(itemTable.excludedSubfactions, ", "), Color(110, 30, 30), nil, 0.9);
 					end
 				end
 				
 				if itemTable.excludedSubfactions and not table.IsEmpty(itemTable.excludedSubfactions) then
-					frame:AddText("Excluded Subfactions: "..table.concat(itemTable.excludedSubfactions, ", "), Color(110, 30, 30), nil, 0.9);
+					frame:AddText("Sous-factions exclues :"..table.concat(itemTable.excludedSubfactions, ", "), Color(110, 30, 30), nil, 0.9);
 				end
 				
-				frame:AddText("Weapon Stats: ", Color(225, 225, 225), "nov_IntroTextSmallDETrooper", 1.15);
+				frame:AddText("Statistiques de l'arme :", Color(225, 225, 225), "nov_IntroTextSmallDETrooper", 1.15);
 				
 				if weaponStats["attack"].takeammo then
 					local percentage = math.min(weaponStats["attack"].takeammo / 100, 100);
 					local toolTip = function(frame)
-						frame:AddText("Attack Cost", Color(110, 30, 30), nil, 1);
-						frame:AddText("The cost of each melee attack in stamina consumed. Can be affected by modifiers such as injuries or beliefs.", Color(225, 200, 200), nil, 0.8);
+						frame:AddText("Coût de l'Attaque", Color(110, 30, 30), nil, 1);
+						frame:AddText("Le coût en endurance de chaque attaque au corps à corps. Peut être affecté par des modificateurs comme les blessures ou les convictions.", Color(225, 200, 200), nil, 0.8);
 					end
 		
 					frame:AddBar(12, {{text = tostring(weaponStats["attack"].takeammo).." Stamina", percentage = percentage * 100, color = Color(110, 30, 30), font = "DermaDefault", textless = false, noDisplay = true}}, "Attack Cost", Color(110, 30, 30), toolTip, true);
@@ -2043,8 +2043,8 @@ function Schema:ModifyItemMarkupTooltip(category, maximumWeight, weight, conditi
 					local min_value = meleeMin.delay;
 					local percentage = 1 - ((weaponStats["attack"].delay - min_value) / (max_value - min_value));
 					local toolTip = function(frame)
-						frame:AddText("Attack Delay", Color(110, 30, 30), nil, 1);
-						frame:AddText("The delay before starting another attack after swinging.", Color(225, 200, 200), nil, 0.8);
+						frame:AddText("Délai d'attaque", Color(110, 30, 30), nil, 1);
+						frame:AddText("Le délai avant de pouvoir lancer une autre attaque après un coup.", Color(225, 200, 200), nil, 0.8);
 					end
 				
 					frame:AddBar(12, {{text = tostring(weaponStats["attack"].delay).."s", percentage = percentage * 100, color = Color(110, 30, 30), font = "DermaDefault", textless = false, noDisplay = true}}, "Attack Delay", Color(110, 30, 30), toolTip, true);
@@ -2055,8 +2055,8 @@ function Schema:ModifyItemMarkupTooltip(category, maximumWeight, weight, conditi
 					local min_value = meleeMin.striketime;
 					local percentage = 1 - ((weaponStats["attack"].striketime - min_value) / (max_value - min_value));
 					local toolTip = function(frame)
-						frame:AddText("Swing Speed", Color(110, 30, 30), nil, 1);
-						frame:AddText("The delay before your swing connects with any potential foes.", Color(225, 200, 200), nil, 0.8);
+						frame:AddText("Vitesse de Frappe", Color(110, 30, 30), nil, 1);
+						frame:AddText("Le délai avant que votre coup ne touche un adversaire potentiel.", Color(225, 200, 200), nil, 0.8);
 					end
 				
 					frame:AddBar(12, {{text = tostring(weaponStats["attack"].striketime).."s", percentage = percentage * 100, color = Color(110, 30, 30), font = "DermaDefault", textless = false, noDisplay = true}}, "Swing Speed", Color(110, 30, 30), toolTip, true);
@@ -2087,8 +2087,8 @@ function Schema:ModifyItemMarkupTooltip(category, maximumWeight, weight, conditi
 					
 						local percentage = math.min(armorpiercing / 100, 100);
 						local toolTip = function(frame)
-							frame:AddText("Armor-Piercing Damage", Color(110, 30, 30), nil, 1);
-							frame:AddText("Armor piercing damage reflects your weapon's ability to pierce the armor of your foes. Higher values mean that less of your weapon's primary damage will be negated by their armor.", Color(225, 200, 200), nil, 0.8);
+							frame:AddText("Dégâts perforants", Color(110, 30, 30), nil, 1);
+							frame:AddText("Les dégâts perforants reflètent la capacité de votre arme à percer l'armure de vos ennemis. Des valeurs plus élevées signifient qu'une plus faible partie de vos dégâts principaux sera absorbée par leur armure.", Color(225, 200, 200), nil, 0.8);
 						end
 			
 						if armorpiercing < originalAP then
@@ -2117,8 +2117,8 @@ function Schema:ModifyItemMarkupTooltip(category, maximumWeight, weight, conditi
 
 						local percentage = math.min(damage / 100, 100);
 						local toolTip = function(frame)
-							frame:AddText("Primary Damage", Color(110, 30, 30), nil, 1);
-							frame:AddText("The damage to your foe's health that your weapon does. Can be negated by armor proportional to your weapon's armor-piercing damage value.", Color(225, 200, 200), nil, 0.8);
+							frame:AddText("Dégâts principaux", Color(110, 30, 30), nil, 1);
+							frame:AddText("Les dégâts infligés par votre arme à la santé de votre adversaire. Peuvent être réduits par une armure proportionnellement à la valeur de pénétration d'armure de votre arme.", Color(225, 200, 200), nil, 0.8);
 						end
 			
 						if damage < originalDamage then
@@ -2132,8 +2132,8 @@ function Schema:ModifyItemMarkupTooltip(category, maximumWeight, weight, conditi
 				if weaponStats["attack"].stabilitydamage then
 					local percentage = math.min(weaponStats["attack"].stabilitydamage / 100, 100);
 					local toolTip = function(frame)
-						frame:AddText("Stability Damage", Color(110, 30, 30), nil, 1);
-						frame:AddText("The damage to your foe's stability that your weapon does. Dealing enough will temporarily knock your foe to the ground. Can be negated by enemy armor.", Color(225, 200, 200), nil, 0.8);
+						frame:AddText("Dégâts de stabilité", Color(110, 30, 30), nil, 1);
+						frame:AddText("Les dégâts infligés à la stabilité de votre adversaire par votre arme. En infliger suffisamment fera temporairement tomber votre ennemi au sol. Peut être annulé par l'armure ennemie.", Color(225, 200, 200), nil, 0.8);
 					end
 		
 					frame:AddBar(12, {{text = tostring(weaponStats["attack"].stabilitydamage), percentage = percentage * 100, color = Color(110, 30, 30), font = "DermaDefault", textless = false, noDisplay = true}}, "Stability Damage", Color(110, 30, 30), toolTip, true);
@@ -2142,8 +2142,8 @@ function Schema:ModifyItemMarkupTooltip(category, maximumWeight, weight, conditi
 				if weaponStats["attack"].poisedamage then
 					local percentage = math.min(weaponStats["attack"].poisedamage / 100, 100);
 					local toolTip = function(frame)
-						frame:AddText("Stamina Damage", Color(110, 30, 30), nil, 1);
-						frame:AddText("The damage to your foe's stamina that your weapon does. Dealing stamina damage will reduce an enemy's staying power in a fight or their ability to flee. Can be negated by enemy shields, though stamina damage is combined with primary damage to deal condition damage to shields or blocking weapons.", Color(225, 200, 200), nil, 0.8);
+						frame:AddText("Dégâts d'endurance", Color(110, 30, 30), nil, 1);
+						frame:AddText("Les dégâts d'endurance infligés à votre adversaire par votre arme. Infliger des dégâts d'endurance réduit la résistance d'un ennemi au combat ou sa capacité à fuir. Peut être neutralisé par les boucliers ennemis, bien que les dégâts d'endurance se combinent avec les dégâts principaux pour infliger des dégâts de condition aux boucliers ou aux armes de parade.", Color(225, 200, 200), nil, 0.8);
 					end
 		
 					frame:AddBar(12, {{text = tostring(weaponStats["attack"].poisedamage), percentage = percentage * 100, color = Color(110, 30, 30), font = "DermaDefault", textless = false, noDisplay = true}}, "Stamina Damage", Color(110, 30, 30), toolTip, true);
@@ -2152,8 +2152,8 @@ function Schema:ModifyItemMarkupTooltip(category, maximumWeight, weight, conditi
 				if weaponStats["attack"].meleearc then
 					local percentage = math.min(weaponStats["attack"].meleearc / 60, 60);
 					local toolTip = function(frame)
-						frame:AddText("Weapon Arc", Color(110, 30, 30), nil, 1);
-						frame:AddText("Your weapon arc determines how wide of a swing your attacks have. Caution should be exercised with weapons that have a large arc, as friendlies may unintentionally be hit.", Color(225, 200, 200), nil, 0.8);
+						frame:AddText("Arc de l'arme", Color(110, 30, 30), nil, 1);
+						frame:AddText("L'arc de votre arme détermine l'amplitude de vos attaques. Soyez prudent avec les armes à grand arc, car vous pourriez involontairement toucher vos alliés.", Color(225, 200, 200), nil, 0.8);
 					end
 		
 					frame:AddBar(12, {{text = tostring(weaponStats["attack"].meleearc).."°", percentage = percentage * 100, color = Color(110, 30, 30), font = "DermaDefault", textless = false, noDisplay = true}}, "Weapon Arc", Color(110, 30, 30), toolTip, true);
@@ -2162,8 +2162,8 @@ function Schema:ModifyItemMarkupTooltip(category, maximumWeight, weight, conditi
 				if weaponStats["attack"].meleerange then
 					local percentage = math.min((weaponStats["attack"].meleerange - 425) / (1500 - 425), (1500 - 425));
 					local toolTip = function(frame)
-						frame:AddText("Melee Range", Color(110, 30, 30), nil, 1);
-						frame:AddText("The melee range of your weapon determines how far you can strike. Some weapons such as polearms and spears have varied damage based on how far you are from a struck enemy as well.", Color(225, 200, 200), nil, 0.8);
+						frame:AddText("Portée de Mêlée", Color(110, 30, 30), nil, 1);
+						frame:AddText("La portée de mêlée de votre arme détermine la distance à laquelle vous pouvez frapper. Certaines armes, comme les armes d'hast et les lances, infligent également des dégâts variables selon votre distance par rapport à l'ennemi touché.", Color(225, 200, 200), nil, 0.8);
 					end
 		
 					frame:AddBar(12, {{text = tostring(weaponStats["attack"].meleerange), percentage = percentage * 100, color = Color(110, 30, 30), font = "DermaDefault", textless = false, noDisplay = true}}, "Weapon Range", Color(110, 30, 30), toolTip, true);
@@ -2175,8 +2175,8 @@ function Schema:ModifyItemMarkupTooltip(category, maximumWeight, weight, conditi
 					if weaponStats["attack"].alttakeammo then
 						local percentage = math.min(weaponStats["attack"].alttakeammo / 100, 100);
 						local toolTip = function(frame)
-							frame:AddText("Alternate Attack Cost", Color(110, 30, 30), nil, 1);
-							frame:AddText("The cost of each of the alternate stance's melee attack in stamina consumed. Can be affected by modifiers such as injuries or beliefs.", Color(225, 200, 200), nil, 0.8);
+							frame:AddText("Coût de l'Attaque Alternative", Color(110, 30, 30), nil, 1);
+							frame:AddText("Le coût en endurance de chaque attaque de mêlée de la posture alternative. Peut être affecté par des modificateurs tels que blessures ou convictions.", Color(225, 200, 200), nil, 0.8);
 						end
 			
 						frame:AddBar(12, {{text = tostring(weaponStats["attack"].alttakeammo).." Stamina", percentage = percentage * 100, color = Color(110, 30, 30), font = "DermaDefault", textless = false, noDisplay = true}}, "Alternate Attack Cost", Color(110, 30, 30), toolTip, true);
@@ -2204,8 +2204,8 @@ function Schema:ModifyItemMarkupTooltip(category, maximumWeight, weight, conditi
 					
 							local percentage = math.min(armorpiercing / 100, 100);
 							local toolTip = function(frame)
-								frame:AddText("Alternate Armor-Piercing Damage", Color(110, 30, 30), nil, 1);
-								frame:AddText("Armor piercing damage reflects your weapon's alternate attack's ability to pierce the armor of your foes. Higher values mean that less of your weapon's primary damage will be negated by their armor.", Color(225, 200, 200), nil, 0.8);
+								frame:AddText("Dégâts perforants alternatifs", Color(110, 30, 30), nil, 1);
+								frame:AddText("Les dégâts perforants reflètent la capacité de l'attaque secondaire de votre arme à percer l'armure de vos ennemis. Des valeurs plus élevées signifient qu'une plus faible partie des dégâts principaux de votre arme sera absorbée par leur armure.", Color(225, 200, 200), nil, 0.8);
 							end
 				
 							if armorpiercing < originalAP then
@@ -2238,8 +2238,8 @@ function Schema:ModifyItemMarkupTooltip(category, maximumWeight, weight, conditi
 					
 							local percentage = math.min((damage / 100) * weaponStats["attack"].altattackdamagemodifier, 100);
 							local toolTip = function(frame)
-								frame:AddText("Alternate Attack Damage", Color(110, 30, 30), nil, 1);
-								frame:AddText("The damage to your foe's health that your weapon's alternate attack does. Can be negated by armor proportional to your weapon's armor-piercing damage value.", Color(225, 200, 200), nil, 0.8);
+								frame:AddText("Dégâts de l'attaque alternative", Color(110, 30, 30), nil, 1);
+								frame:AddText("Les dégâts infligés à la santé de votre adversaire par l'attaque secondaire de votre arme. Peuvent être réduits par l'armure proportionnellement à la valeur de pénétration d'armure de votre arme.", Color(225, 200, 200), nil, 0.8);
 							end
 				
 							if damage < originalDamage then
@@ -2253,8 +2253,8 @@ function Schema:ModifyItemMarkupTooltip(category, maximumWeight, weight, conditi
 					if weaponStats["attack"].stabilitydamage and weaponStats["attack"].altattackstabilitydamagemodifier then
 						local percentage = math.min((weaponStats["attack"].stabilitydamage / 100) * weaponStats["attack"].altattackstabilitydamagemodifier, 100);
 						local toolTip = function(frame)
-							frame:AddText("Alternate Attack Stability Damage", Color(110, 30, 30), nil, 1);
-							frame:AddText("The damage to your foe's stability that your weapon's alternate attack does. Dealing enough will temporarily knock your foe to the ground. Can be negated by enemy armor.", Color(225, 200, 200), nil, 0.8);
+							frame:AddText("Stabilité de l'attaque secondaire Dégâts", Color(110, 30, 30), nil, 1);
+							frame:AddText("Les dégâts à la stabilité de votre adversaire infligés par l'attaque alternative de votre arme. En infliger suffisamment fera temporairement tomber votre ennemi au sol. Peut être annulé par l'armure ennemie.", Color(225, 200, 200), nil, 0.8);
 						end
 			
 						frame:AddBar(12, {{text = tostring(weaponStats["attack"].stabilitydamage * weaponStats["attack"].altattackstabilitydamagemodifier), percentage = percentage * 100, color = Color(110, 30, 30), font = "DermaDefault", textless = false, noDisplay = true}}, "Alternate Attack Stability Damage", Color(110, 30, 30), toolTip, true);
@@ -2263,8 +2263,8 @@ function Schema:ModifyItemMarkupTooltip(category, maximumWeight, weight, conditi
 					if weaponStats["attack"].poisedamage and weaponStats["attack"].altattackpoisedamagemodifier then
 						local percentage = math.min((weaponStats["attack"].poisedamage / 100) * weaponStats["attack"].altattackpoisedamagemodifier, 100);
 						local toolTip = function(frame)
-							frame:AddText("Alternate Attack Stamina Damage", Color(110, 30, 30), nil, 1);
-							frame:AddText("The damage to your foe's stamina that your weapon's alternate attack does. Dealing stamina damage will reduce an enemy's staying power in a fight or their ability to flee. Can be negated by enemy shields.", Color(225, 200, 200), nil, 0.8);
+							frame:AddText("Dégâts d'endurance de l'attaque alternative", Color(110, 30, 30), nil, 1);
+							frame:AddText("Les dégâts d'endurance infligés par l'attaque alternative de votre arme à un adversaire. Infliger des dégâts d'endurance réduit la résistance d'un ennemi au combat ou sa capacité à fuir. Peut être neutralisé par les boucliers ennemis.", Color(225, 200, 200), nil, 0.8);
 						end
 			
 						frame:AddBar(12, {{text = tostring(weaponStats["attack"].poisedamage * weaponStats["attack"].altattackpoisedamagemodifier), percentage = percentage * 100, color = Color(110, 30, 30), font = "DermaDefault", textless = false, noDisplay = true}}, "Alternate Attack Stamina Damage", Color(110, 30, 30), toolTip, true);
@@ -2273,8 +2273,8 @@ function Schema:ModifyItemMarkupTooltip(category, maximumWeight, weight, conditi
 					if weaponStats["attack"].altmeleearc then
 						local percentage = math.min(weaponStats["attack"].altmeleearc / 60, 60);
 						local toolTip = function(frame)
-							frame:AddText("Alternate Attack Weapon Arc", Color(110, 30, 30), nil, 1);
-							frame:AddText("Your alternate attack weapon arc determines how wide of a swing your alternate attacks have. Caution should be exercised with weapons that have a large arc, as friendlies may unintentionally be hit.", Color(225, 200, 200), nil, 0.8);
+							frame:AddText("Arc d'arme d'attaque alternative", Color(110, 30, 30), nil, 1);
+							frame:AddText("L'arc de votre arme d'attaque secondaire détermine l'amplitude de son mouvement circulaire. Soyez prudent avec les armes à large arc, car elles peuvent toucher vos alliés par inadvertance.", Color(225, 200, 200), nil, 0.8);
 						end
 			
 						frame:AddBar(12, {{text = tostring(weaponStats["attack"].altmeleearc).."°", percentage = percentage * 100, color = Color(110, 30, 30), font = "DermaDefault", textless = false, noDisplay = true}}, "Alternate Attack Weapon Arc", Color(110, 30, 30), toolTip, true);
@@ -2296,8 +2296,8 @@ function Schema:ModifyItemMarkupTooltip(category, maximumWeight, weight, conditi
 						if newRange ~= weaponStats["attack"].meleerange then
 							local percentage = math.min((newRange - 425) / (1500 - 425), (1500 - 425));
 							local toolTip = function(frame)
-								frame:AddText("Alternate Attack Melee Range", Color(110, 30, 30), nil, 1);
-								frame:AddText("The melee range of your weapon's alternate attack determines how far you can strike when in an alternate stance. Some weapons such as polearms and spears have varied damage based on how far you are from a struck enemy as well.", Color(225, 200, 200), nil, 0.8);
+								frame:AddText("Portée de Mêlée d'Attaque Alternative", Color(110, 30, 30), nil, 1);
+								frame:AddText("La portée de mêlée de l'attaque alternative de votre arme détermine la distance à laquelle vous pouvez frapper en posture alternative. Certaines armes comme les armes d'hast et les lances infligent également des dégâts variables selon votre distance par rapport à l'ennemi touché.", Color(225, 200, 200), nil, 0.8);
 							end
 			
 							frame:AddBar(12, {{text = tostring(newRange), percentage = percentage * 100, color = Color(110, 30, 30), font = "DermaDefault", textless = false, noDisplay = true}}, "Alternate Attack Weapon Range", Color(110, 30, 30), toolTip, true);
@@ -2308,8 +2308,8 @@ function Schema:ModifyItemMarkupTooltip(category, maximumWeight, weight, conditi
 				if weaponStats["defense"].blockcone then
 					local percentage = math.min(weaponStats["defense"].blockcone / 270, 270);
 					local toolTip = function(frame)
-						frame:AddText("Block Cone", Color(110, 30, 30), nil, 1);
-						frame:AddText("The block cone of your weapon or shield determines at what angles blocking is effective, when facing toward a foe.", Color(225, 200, 200), nil, 0.8);
+						frame:AddText("Cône de Blocage", Color(110, 30, 30), nil, 1);
+						frame:AddText("Le cône de blocage de votre arme ou bouclier détermine les angles auxquels la parade est efficace, lorsque vous faites face à un adversaire.", Color(225, 200, 200), nil, 0.8);
 					end
 
 					frame:AddBar(12, {{text = tostring(weaponStats["defense"].blockcone).."°", percentage = percentage * 100, color = Color(110, 30, 30), font = "DermaDefault", noDisplay = true}}, "Block Cone", Color(110, 30, 30), toolTip, true);
@@ -2318,8 +2318,8 @@ function Schema:ModifyItemMarkupTooltip(category, maximumWeight, weight, conditi
 				if weaponStats["defense"].guardblockamount then
 					local percentage = math.min(weaponStats["defense"].guardblockamount / 100, 100);
 					local toolTip = function(frame)
-						frame:AddText("Block Cost (Minimum)", Color(110, 30, 30), nil, 1);
-						frame:AddText("The minimum block cost of your weapon or shield in stamina if an attack by an enemy foe causes any stamina damage at all.", Color(225, 200, 200), nil, 0.8);
+						frame:AddText("Coût de Bloc (Minimum)", Color(110, 30, 30), nil, 1);
+						frame:AddText("Le coût minimal en endurance pour bloquer avec votre arme ou bouclier, si une attaque ennemie inflige des dégâts d'endurance.", Color(225, 200, 200), nil, 0.8);
 					end
 
 					frame:AddBar(12, {{text = tostring(weaponStats["defense"].guardblockamount).." Stamina", percentage = percentage * 100, color = Color(110, 30, 30), font = "DermaDefault", textless = false, noDisplay = true}}, "Block Cost (Minimum)", Color(110, 30, 30), toolTip, true);
@@ -2328,8 +2328,8 @@ function Schema:ModifyItemMarkupTooltip(category, maximumWeight, weight, conditi
 				if weaponStats["defense"].poiseresistance then
 					local percentage = math.min(weaponStats["defense"].poiseresistance / 50, 50);
 					local toolTip = function(frame)
-						frame:AddText("Block Stamina Damage Resistance", Color(110, 30, 30), nil, 1);
-						frame:AddText("The resistance of your weapon or shield to additional stamina damage beyond the minimum cost while blocking.", Color(225, 200, 200), nil, 0.8);
+						frame:AddText("Résistance aux dégâts d'endurance de blocage", Color(110, 30, 30), nil, 1);
+						frame:AddText("La résistance de votre arme ou bouclier aux dégâts d'endurance supplémentaires au-delà du coût minimum lors d'un blocage.", Color(225, 200, 200), nil, 0.8);
 					end
 
 					frame:AddBar(12, {{text = tostring(weaponStats["defense"].poiseresistance).." Stamina", percentage = percentage * 100, color = Color(110, 30, 30), font = "DermaDefault", textless = false, noDisplay = true}}, "Block Stamina Damage Resistance", Color(110, 30, 30), toolTip, true);
@@ -2339,8 +2339,8 @@ function Schema:ModifyItemMarkupTooltip(category, maximumWeight, weight, conditi
 					if weaponStats["defense"].parrytakestamina then
 						local percentage = math.min(weaponStats["defense"].parrytakestamina / 40, 40);
 						local toolTip = function(frame)
-							frame:AddText("Parry Cost", Color(110, 30, 30), nil, 1);
-							frame:AddText("The stamina cost of attempting a parry. Successfully parrying a foe will refund half of this cost.", Color(225, 200, 200), nil, 0.8);
+							frame:AddText("Coût de Parade", Color(110, 30, 30), nil, 1);
+							frame:AddText("Le coût en endurance pour tenter une parade. Parer un adversaire avec succès remboursera la moitié de ce coût.", Color(225, 200, 200), nil, 0.8);
 						end
 
 						frame:AddBar(12, {{text = tostring(weaponStats["defense"].parrytakestamina).." Stamina", percentage = percentage * 100, color = Color(110, 30, 30), font = "DermaDefault", textless = false, noDisplay = true}}, "Parry Cost", Color(110, 30, 30), toolTip, true);
@@ -2349,8 +2349,8 @@ function Schema:ModifyItemMarkupTooltip(category, maximumWeight, weight, conditi
 					if weaponStats["defense"].parrydifficulty then
 						local percentage = math.Clamp(weaponStats["defense"].parrydifficulty / 0.3, 0, 1);
 						local toolTip = function(frame)
-							frame:AddText("Parry Window", Color(110, 30, 30), nil, 1);
-							frame:AddText("The time in seconds after parrying that your parry will be active. Higher values mean that parrying will be easier as the window will be larger.", Color(225, 200, 200), nil, 0.8);
+							frame:AddText("Fenêtre de Parade", Color(110, 30, 30), nil, 1);
+							frame:AddText("Le temps en secondes après une parade pendant lequel votre parade reste active. Des valeurs plus élevées facilitent la parade en élargissant la fenêtre de temps.", Color(225, 200, 200), nil, 0.8);
 						end
 
 						frame:AddBar(12, {{text = tostring(weaponStats["defense"].parrydifficulty).."s", percentage = percentage * 100, color = Color(110, 30, 30), font = "DermaDefault", textless = false, noDisplay = true}}, "Parry Window", Color(110, 30, 30), toolTip, true);
@@ -2383,7 +2383,7 @@ function Schema:ModifyItemMarkupTooltip(category, maximumWeight, weight, conditi
 		frame:AddText(itemTable("description"), Color(180, 170, 170), "nov_IntroTextSmallDETrooper", 0.8);
 		
 		if (bShowWeight) then
-			frame:AddBar(20, {{text = weight.."kg", percentage = percentage * 100, color = Color(96, 96, 128), font = "DermaDefault", leftTextAlign = false, noDisplay = true}}, "Weight", Color(170, 170, 180));
+			frame:AddBar(20, {{text = weight.."kg", percentage = percentage * 100, color = Color(96, 96, 128), font = "DermaDefault", leftTextAlign = false, noDisplay = true}}, "Poids", Color(170, 170, 180));
 			frame:AddSpacer(2, Color(0, 0, 0, 0));
 		end
 		
@@ -2413,7 +2413,7 @@ function Schema:ModifyItemMarkupTooltip(category, maximumWeight, weight, conditi
 				end
 			end
 			
-			frame:AddText("Required Beliefs: ", Color(225, 225, 225), "nov_IntroTextSmallDETrooper", 1.15);
+			frame:AddText("Croyances requises :", Color(225, 225, 225), "nov_IntroTextSmallDETrooper", 1.15);
 			frame:AddIconRow(beliefIcons, 40);
 		end
 		
@@ -2443,7 +2443,7 @@ function Schema:ModifyItemMarkupTooltip(category, maximumWeight, weight, conditi
 				end
 			end
 			
-			frame:AddText("Required Beliefs (One Of The Following): ", Color(225, 225, 225), "nov_IntroTextSmallDETrooper", 1.15);
+			frame:AddText("Croyances Requises (L'une des suivantes) :", Color(225, 225, 225), "nov_IntroTextSmallDETrooper", 1.15);
 			frame:AddIconRow(beliefIcons, 40);
 		end
 
@@ -2457,57 +2457,57 @@ function Schema:ModifyItemMarkupTooltip(category, maximumWeight, weight, conditi
 			end
 			
 			if weaponStats["attack"] and weaponStats["defense"] then
-				frame:AddText("Weapon Attributes: ", Color(225, 225, 225), "nov_IntroTextSmallDETrooper", 1.15);
+				frame:AddText("Attributs de l'arme :", Color(225, 225, 225), "nov_IntroTextSmallDETrooper", 1.15);
 				
-				frame:AddText("Easily Repairable: Costs less melee repair kit condition to repair.", Color(110, 30, 30), nil, 0.9);
-				frame:AddText("Ranged Weapon: You will be disarmed upon taking damage with this weapon.", Color(110, 30, 30), nil, 0.9);
-				frame:AddText("Variable Damage: Damage will be increased or decreased depending on the distance of the target. Targets further away will receive more damage.", Color(110, 30, 30), nil, 0.9);
+				frame:AddText("Facilement Réparable : Nécessite moins de condition de kit de réparation de mêlée pour être réparé.", Color(110, 30, 30), nil, 0.9);
+				frame:AddText("Arme à distance : Vous serez désarmé en subissant des dégâts avec cette arme.", Color(110, 30, 30), nil, 0.9);
+				frame:AddText("Dégâts variables : Les dégâts augmentent ou diminuent en fonction de la distance de la cible. Les cibles plus éloignées subiront davantage de dégâts.", Color(110, 30, 30), nil, 0.9);
 				
 				if !weaponStats["defense"].candeflect then
-					frame:AddText("Cannot Deflect", Color(110, 30, 30), nil, 0.9);
+					frame:AddText("Impossible de Dévier", Color(110, 30, 30), nil, 0.9);
 				end
 				
 				if itemTable.isSacrifical then
-					frame:AddText("Causes Corruption To Wielder", Color(110, 30, 30), nil, 0.9);
+					frame:AddText("Corrompt le Porteur", Color(110, 30, 30), nil, 0.9);
 				end
 				
 				if itemTable.attributes then
 					if table.HasValue(itemTable.attributes, "concealable") then
-						frame:AddText("Concealable (Does Not Show On Person)", Color(110, 30, 30), nil, 0.9);
+						frame:AddText("Dissimulable (Ne se voit pas sur la personne)", Color(110, 30, 30), nil, 0.9);
 					end
 				
 					if table.HasValue(itemTable.attributes, "ice") then
-						frame:AddText("Frigid: Freezes enemies in a block of ice upon contact.", Color(110, 30, 30), nil, 0.9);
+						frame:AddText("Frigide : Gèle les ennemis dans un bloc de glace au contact.", Color(110, 30, 30), nil, 0.9);
 					end
 					
 					if table.HasValue(itemTable.attributes, "fire") then
-						frame:AddText("Incendiary: Sets enemies alight upon contact.", Color(110, 30, 30), nil, 0.9);
+						frame:AddText("Incendiaire : Enflamme les ennemis au contact.", Color(110, 30, 30), nil, 0.9);
 					end
 				
 					if table.HasValue(itemTable.attributes, "rage") then
-						frame:AddText("Rage (Shieldless): Movement speed is increased by 7%.", Color(110, 30, 30), nil, 0.9);
+						frame:AddText("Rage (Sans bouclier) : La vitesse de déplacement est augmentée de 7 %.", Color(110, 30, 30), nil, 0.9);
 					end
 					
 					if table.HasValue(itemTable.attributes, "malleable") then
-						frame:AddText("Malleable: Breaks on contact irrespective of any beliefs to prevent it from being picked up and thrown back.", Color(110, 30, 30), nil, 0.9);
+						frame:AddText("Malléable : Se brise au contact, indépendamment de toute croyance, pour empêcher qu'il ne soit ramassé et renvoyé.", Color(110, 30, 30), nil, 0.9);
 					end
 					
 					if table.HasValue(itemTable.attributes, "shieldbreaker") then
-						frame:AddText("Shieldbreaker: Deals extra condition damage to shields.", Color(110, 30, 30), nil, 0.9);
+						frame:AddText("Brise-bouclier : Inflige des dégâts de condition supplémentaires aux boucliers.", Color(110, 30, 30), nil, 0.9);
 					end
 				end
 			
 				if weaponStats["attack"].dmgtype then
-					frame:AddText("Damage Type: "..damageTypes[weaponStats["attack"].dmgtype] or "Unknown", Color(110, 30, 30), nil, 0.9);
+					frame:AddText("Type de dégâts :"..damageTypes[weaponStats["attack"].dmgtype] or "Unknown", Color(110, 30, 30), nil, 0.9);
 				end
 				
-				frame:AddText("Weapon Stats: ", Color(225, 225, 225), "nov_IntroTextSmallDETrooper", 1.15);
+				frame:AddText("Statistiques de l'arme :", Color(225, 225, 225), "nov_IntroTextSmallDETrooper", 1.15);
 				
 				if weaponStats["attack"].takeammo then
 					local percentage = math.min(weaponStats["attack"].takeammo / 100, 100);
 					local toolTip = function(frame)
-						frame:AddText("Attack Cost", Color(110, 30, 30), nil, 1);
-						frame:AddText("The cost of each javelin toss in stamina consumed. Can be affected by modifiers such as injuries or beliefs.", Color(225, 200, 200), nil, 0.8);
+						frame:AddText("Coût de l'Attaque", Color(110, 30, 30), nil, 1);
+						frame:AddText("Le coût en endurance de chaque lancer de javelot. Peut être affecté par des modificateurs comme les blessures ou les convictions.", Color(225, 200, 200), nil, 0.8);
 					end
 		
 					frame:AddBar(12, {{text = tostring(weaponStats["attack"].takeammo).." Stamina", percentage = percentage * 100, color = Color(110, 30, 30), font = "DermaDefault", textless = false, noDisplay = true}}, "Attack Cost", Color(110, 30, 30), toolTip, true);
@@ -2529,8 +2529,8 @@ function Schema:ModifyItemMarkupTooltip(category, maximumWeight, weight, conditi
 					
 						local percentage = math.min(armorpiercing / 100, 100);
 						local toolTip = function(frame)
-							frame:AddText("Armor-Piercing Damage", Color(110, 30, 30), nil, 1);
-							frame:AddText("Armor piercing damage reflects your weapon's ability to pierce the armor of your foes. Higher values mean that less of your weapon's primary damage will be negated by their armor. For javelins, this applies to both the projectile and melee stance damage. However, condition loss will only affect melee damage.", Color(225, 200, 200), nil, 0.8);
+							frame:AddText("Dégâts perforants", Color(110, 30, 30), nil, 1);
+							frame:AddText("Les dégâts perforants reflètent la capacité de votre arme à percer l'armure de vos ennemis. Des valeurs plus élevées signifient qu'une moindre partie de vos dégâts principaux sera absorbée par leur armure. Pour les javelots, cela s'applique à la fois aux dégâts du projectile et en combat rapproché. Cependant, la perte de condition n'affectera que les dégâts en mêlée.", Color(225, 200, 200), nil, 0.8);
 						end
 			
 						if armorpiercing < originalAP then
@@ -2559,8 +2559,8 @@ function Schema:ModifyItemMarkupTooltip(category, maximumWeight, weight, conditi
 
 						local percentage = math.min(mimimumdistancedamage / 200, 200);
 						local toolTip = function(frame)
-							frame:AddText("Minimum Projectile Damage", Color(110, 30, 30), nil, 1);
-							frame:AddText("The minimum amount of damage your projectile can deal. This would be dealt with a point-blank hit, and would gradually increase the further away the target is.", Color(225, 200, 200), nil, 0.8);
+							frame:AddText("Dégâts minimum des projectiles", Color(110, 30, 30), nil, 1);
+							frame:AddText("Le montant minimal de dégâts que votre projectile peut infliger. Ce montant est appliqué lors d'un impact à bout portant, et augmente progressivement avec la distance de la cible.", Color(225, 200, 200), nil, 0.8);
 						end
 			
 						if mimimumdistancedamage < originalDamage then
@@ -2589,8 +2589,8 @@ function Schema:ModifyItemMarkupTooltip(category, maximumWeight, weight, conditi
 
 						local percentage = math.min(maximumdistancedamage / 200, 200);
 						local toolTip = function(frame)
-							frame:AddText("Maximum Projectile Damage", Color(110, 30, 30), nil, 1);
-							frame:AddText("The maximum amount of damage your projectile can deal. The maximum distance can be reached at about 40 feet from your target, and any distance beyond that will grant no additional damage.", Color(225, 200, 200), nil, 0.8);
+							frame:AddText("Dégâts Maximum des Projectiles", Color(110, 30, 30), nil, 1);
+							frame:AddText("La quantité maximale de dégâts que votre projectile peut infliger. La distance maximale est atteinte à environ 12 mètres de votre cible, et toute distance supplémentaire n'augmentera pas les dégâts.", Color(225, 200, 200), nil, 0.8);
 						end
 			
 						if maximumdistancedamage < originalDamage then
@@ -2612,8 +2612,8 @@ function Schema:ModifyItemMarkupTooltip(category, maximumWeight, weight, conditi
 				if weaponStats["attack"].stabilitydamage then
 					local percentage = math.min(weaponStats["attack"].stabilitydamage / 100, 100);
 					local toolTip = function(frame)
-						frame:AddText("Stability Damage", Color(110, 30, 30), nil, 1);
-						frame:AddText("The damage to your foe's stability that your weapon does. Dealing enough will temporarily knock your foe to the ground. Can be negated by enemy armor. For javelins, this scales by distance; targets further away will take considerably more stability damage, and targets up close will take considerably less stability damage. At maximum range, the projectile will deal double this stability damage.", Color(225, 200, 200), nil, 0.8);
+						frame:AddText("Dégâts de stabilité", Color(110, 30, 30), nil, 1);
+						frame:AddText("Les dégâts de stabilité infligés à votre adversaire par votre arme. En infliger suffisamment fera temporairement tomber votre ennemi au sol. Peut être annulé par l'armure ennemie. Pour les javelots, cela varie selon la distance : les cibles éloignées subiront considérablement plus de dégâts de stabilité, tandis que les cibles proches en subiront considérablement moins. À portée maximale, le projectile infligera le double de ces dégâts de stabilité.", Color(225, 200, 200), nil, 0.8);
 					end
 		
 					frame:AddBar(12, {{text = tostring(weaponStats["attack"].stabilitydamage), percentage = percentage * 100, color = Color(110, 30, 30), font = "DermaDefault", textless = false, noDisplay = true}}, "Stability Damage", Color(110, 30, 30), toolTip, true);
@@ -2622,8 +2622,8 @@ function Schema:ModifyItemMarkupTooltip(category, maximumWeight, weight, conditi
 				if weaponStats["attack"].poisedamage then
 					local percentage = math.min(weaponStats["attack"].poisedamage / 100, 100);
 					local toolTip = function(frame)
-						frame:AddText("Stamina Damage", Color(110, 30, 30), nil, 1);
-						frame:AddText("The damage to your foe's stamina that your weapon does. Dealing stamina damage will reduce an enemy's staying power in a fight or their ability to flee. Can be negated by enemy shields.", Color(225, 200, 200), nil, 0.8);
+						frame:AddText("Dégâts d'endurance", Color(110, 30, 30), nil, 1);
+						frame:AddText("Les dégâts infligés à l'endurance de votre adversaire par votre arme. Infliger des dégâts d'endurance réduit la résistance d'un ennemi au combat ou sa capacité à fuir. Peut être neutralisé par les boucliers ennemis.", Color(225, 200, 200), nil, 0.8);
 					end
 		
 					frame:AddBar(12, {{text = tostring(weaponStats["attack"].poisedamage), percentage = percentage * 100, color = Color(110, 30, 30), font = "DermaDefault", textless = false, noDisplay = true}}, "Stamina Damage", Color(110, 30, 30), toolTip, true);
@@ -2635,8 +2635,8 @@ function Schema:ModifyItemMarkupTooltip(category, maximumWeight, weight, conditi
 					if weaponStats["attack"].alttakeammo then
 						local percentage = math.min(weaponStats["attack"].alttakeammo / 100, 100);
 						local toolTip = function(frame)
-							frame:AddText("Alternate Attack Cost", Color(110, 30, 30), nil, 1);
-							frame:AddText("The cost of each of the alternate stance's melee attack in stamina consumed. Can be affected by modifiers such as injuries or beliefs.", Color(225, 200, 200), nil, 0.8);
+							frame:AddText("Coût de l'Attaque Alternative", Color(110, 30, 30), nil, 1);
+							frame:AddText("Le coût en endurance de chaque attaque de mêlée de la posture alternative. Peut être affecté par des modificateurs tels que les blessures ou les convictions.", Color(225, 200, 200), nil, 0.8);
 						end
 			
 						frame:AddBar(12, {{text = tostring(weaponStats["attack"].alttakeammo).." Stamina", percentage = percentage * 100, color = Color(110, 30, 30), font = "DermaDefault", textless = false, noDisplay = true}}, "Alternate Attack Cost", Color(110, 30, 30), toolTip, true);
@@ -2660,8 +2660,8 @@ function Schema:ModifyItemMarkupTooltip(category, maximumWeight, weight, conditi
 
 						local percentage = math.min(damage / 100, 100);
 						local toolTip = function(frame)
-							frame:AddText("Alternate Attack Damage", Color(110, 30, 30), nil, 1);
-							frame:AddText("The damage to your foe's health that your melee attack does. Can be negated by armor proportional to your weapon's armor-piercing damage value.", Color(225, 200, 200), nil, 0.8);
+							frame:AddText("Dégâts de l'attaque alternative", Color(110, 30, 30), nil, 1);
+							frame:AddText("Les dégâts infligés à la santé de votre adversaire par votre attaque de mêlée. Peuvent être réduits par l'armure proportionnellement à la valeur de pénétration d'armure de votre arme.", Color(225, 200, 200), nil, 0.8);
 						end
 			
 						if damage < originalDamage then
@@ -2694,8 +2694,8 @@ function Schema:ModifyItemMarkupTooltip(category, maximumWeight, weight, conditi
 					
 							local percentage = math.min(armorpiercing / 100, 100);
 							local toolTip = function(frame)
-								frame:AddText("Alternate Armor-Piercing Damage", Color(110, 30, 30), nil, 1);
-								frame:AddText("Armor piercing damage reflects your weapon's alternate attack's ability to pierce the armor of your foes. Higher values mean that less of your weapon's primary damage will be negated by their armor.", Color(225, 200, 200), nil, 0.8);
+								frame:AddText("Dégâts perforants alternatifs", Color(110, 30, 30), nil, 1);
+								frame:AddText("Les dégâts perforants reflètent la capacité de l'attaque secondaire de votre arme à percer l'armure de vos ennemis. Des valeurs plus élevées signifient qu'une plus faible partie des dégâts principaux de votre arme sera absorbée par leur armure.", Color(225, 200, 200), nil, 0.8);
 							end
 				
 							if armorpiercing < originalAP then
@@ -2728,8 +2728,8 @@ function Schema:ModifyItemMarkupTooltip(category, maximumWeight, weight, conditi
 						
 							local percentage = math.min((damage / 100) * weaponStats["attack"].altattackdamagemodifier, 100);
 							local toolTip = function(frame)
-								frame:AddText("Alternate Attack Damage", Color(110, 30, 30), nil, 1);
-								frame:AddText("The damage to your foe's health that your weapon's alternate attack does. Can be negated by armor proportional to your weapon's armor-piercing damage value.", Color(225, 200, 200), nil, 0.8);
+								frame:AddText("Dégâts de l'attaque alternative", Color(110, 30, 30), nil, 1);
+								frame:AddText("Les dégâts infligés à la santé de votre adversaire par l'attaque secondaire de votre arme. Peuvent être réduits par l'armure proportionnellement à la valeur de pénétration d'armure de votre arme.", Color(225, 200, 200), nil, 0.8);
 							end
 				
 							if damage < originalDamage then
@@ -2743,8 +2743,8 @@ function Schema:ModifyItemMarkupTooltip(category, maximumWeight, weight, conditi
 					if weaponStats["attack"].stabilitydamage and weaponStats["attack"].altattackstabilitydamagemodifier and weaponStats["attack"].altattackstabilitydamagemodifier != 0 then
 						local percentage = math.min((weaponStats["attack"].stabilitydamage / 100) * weaponStats["attack"].altattackstabilitydamagemodifier, 100);
 						local toolTip = function(frame)
-							frame:AddText("Alternate Attack Stability Damage", Color(110, 30, 30), nil, 1);
-							frame:AddText("The damage to your foe's stability that your weapon's alternate attack does. Dealing enough will temporarily knock your foe to the ground. Can be negated by enemy armor.", Color(225, 200, 200), nil, 0.8);
+							frame:AddText("Stabilité de l'attaque alternative Dégâts", Color(110, 30, 30), nil, 1);
+							frame:AddText("Les dégâts à la stabilité de votre adversaire infligés par l'attaque alternative de votre arme. En infliger suffisamment fera temporairement tomber votre ennemi au sol. Peut être annulé par l'armure ennemie.", Color(225, 200, 200), nil, 0.8);
 						end
 			
 						frame:AddBar(12, {{text = tostring(weaponStats["attack"].stabilitydamage * weaponStats["attack"].altattackstabilitydamagemodifier), percentage = percentage * 100, color = Color(110, 30, 30), font = "DermaDefault", textless = false, noDisplay = true}}, "Alternate Attack Stability Damage", Color(110, 30, 30), toolTip, true);
@@ -2753,8 +2753,8 @@ function Schema:ModifyItemMarkupTooltip(category, maximumWeight, weight, conditi
 					if weaponStats["attack"].poisedamage and weaponStats["attack"].altattackpoisedamagemodifier then
 						local percentage = math.min((weaponStats["attack"].poisedamage / 100) * weaponStats["attack"].altattackpoisedamagemodifier, 100);
 						local toolTip = function(frame)
-							frame:AddText("Alternate Attack Stamina Damage", Color(110, 30, 30), nil, 1);
-							frame:AddText("The damage to your foe's stamina that your weapon's alternate attack does. Dealing stamina damage will reduce an enemy's staying power in a fight or their ability to flee. Can be negated by enemy shields.", Color(225, 200, 200), nil, 0.8);
+							frame:AddText("Dégâts d'endurance de l'attaque alternative", Color(110, 30, 30), nil, 1);
+							frame:AddText("Les dégâts d'endurance infligés par l'attaque alternative de votre arme à un adversaire. Infliger des dégâts d'endurance réduit la résistance d'un ennemi au combat ou sa capacité à fuir. Peut être neutralisé par les boucliers ennemis.", Color(225, 200, 200), nil, 0.8);
 						end
 			
 						frame:AddBar(12, {{text = tostring(weaponStats["attack"].poisedamage * weaponStats["attack"].altattackpoisedamagemodifier), percentage = percentage * 100, color = Color(110, 30, 30), font = "DermaDefault", textless = false, noDisplay = true}}, "Alternate Attack Stamina Damage", Color(110, 30, 30), toolTip, true);
@@ -2763,8 +2763,8 @@ function Schema:ModifyItemMarkupTooltip(category, maximumWeight, weight, conditi
 					if weaponStats["attack"].altmeleearc then
 						local percentage = math.min(weaponStats["attack"].altmeleearc / 60, 60);
 						local toolTip = function(frame)
-							frame:AddText("Alternate Attack Weapon Arc", Color(110, 30, 30), nil, 1);
-							frame:AddText("Your alternate attack weapon arc determines how wide of a swing your alternate attacks have. Caution should be exercised with weapons that have a large arc, as friendlies may unintentionally be hit.", Color(225, 200, 200), nil, 0.8);
+							frame:AddText("Arc d'arme d'attaque alternative", Color(110, 30, 30), nil, 1);
+							frame:AddText("L'arc de votre arme d'attaque secondaire détermine l'amplitude de son mouvement. Soyez prudent avec les armes à grand arc, car elles peuvent toucher vos alliés par inadvertance.", Color(225, 200, 200), nil, 0.8);
 						end
 			
 						frame:AddBar(12, {{text = tostring(weaponStats["attack"].altmeleearc).."°", percentage = percentage * 100, color = Color(110, 30, 30), font = "DermaDefault", textless = false, noDisplay = true}}, "Alternate Attack Weapon Arc", Color(110, 30, 30), toolTip, true);
@@ -2785,8 +2785,8 @@ function Schema:ModifyItemMarkupTooltip(category, maximumWeight, weight, conditi
 						
 						local percentage = math.min((newRange - 425) / (1500 - 425), (1500 - 425));
 						local toolTip = function(frame)
-							frame:AddText("Alternate Attack Melee Range", Color(110, 30, 30), nil, 1);
-							frame:AddText("The melee range of your weapon's alternate attack determines how far you can strike when in an alternate stance. Some weapons such as polearms and spears have varied damage based on how far you are from a struck enemy as well.", Color(225, 200, 200), nil, 0.8);
+							frame:AddText("Portée de Mêlée d'Attaque Alternative", Color(110, 30, 30), nil, 1);
+							frame:AddText("La portée de mêlée de l'attaque alternative de votre arme détermine la distance à laquelle vous pouvez frapper en posture alternative. Certaines armes comme les armes d'hast et les lances infligent également des dégâts variables selon votre distance par rapport à l'ennemi touché.", Color(225, 200, 200), nil, 0.8);
 						end
 			
 						frame:AddBar(12, {{text = tostring(newRange), percentage = percentage * 100, color = Color(110, 30, 30), font = "DermaDefault", textless = false, noDisplay = true}}, "Alternate Attack Weapon Range", Color(110, 30, 30), toolTip, true);
@@ -2813,7 +2813,7 @@ function Schema:ModifyItemMarkupTooltip(category, maximumWeight, weight, conditi
 		frame:AddText(itemTable("description"), Color(180, 170, 170), "nov_IntroTextSmallDETrooper", 0.8);
 		
 		if (bShowWeight) then
-			frame:AddBar(20, {{text = weight.."kg", percentage = percentage * 100, color = Color(96, 96, 128), font = "DermaDefault", leftTextAlign = false, noDisplay = true}}, "Weight", Color(170, 170, 180));
+			frame:AddBar(20, {{text = weight.."kg", percentage = percentage * 100, color = Color(96, 96, 128), font = "DermaDefault", leftTextAlign = false, noDisplay = true}}, "Poids", Color(170, 170, 180));
 			frame:AddSpacer(2, Color(0, 0, 0, 0));
 		end;
 		
@@ -2843,7 +2843,7 @@ function Schema:ModifyItemMarkupTooltip(category, maximumWeight, weight, conditi
 				end
 			end
 			
-			frame:AddText("Required Beliefs: ", Color(225, 225, 225), "nov_IntroTextSmallDETrooper", 1.15);
+			frame:AddText("Croyances requises :", Color(225, 225, 225), "nov_IntroTextSmallDETrooper", 1.15);
 			frame:AddIconRow(beliefIcons, 40);
 		end
 		
@@ -2873,7 +2873,7 @@ function Schema:ModifyItemMarkupTooltip(category, maximumWeight, weight, conditi
 				end
 			end
 			
-			frame:AddText("Required Beliefs (One Of The Following): ", Color(225, 225, 225), "nov_IntroTextSmallDETrooper", 1.15);
+			frame:AddText("Croyances Requises (Une des suivantes) :", Color(225, 225, 225), "nov_IntroTextSmallDETrooper", 1.15);
 			frame:AddIconRow(beliefIcons, 40);
 		end
 		
@@ -2881,7 +2881,7 @@ function Schema:ModifyItemMarkupTooltip(category, maximumWeight, weight, conditi
 			shieldStats = GetTable(shieldClass);
 	
 			if shieldStats then
-				frame:AddText("Shield Attributes: ", Color(225, 225, 225), "nov_IntroTextSmallDETrooper", 1.15);
+				frame:AddText("Attributs du Bouclier :", Color(225, 225, 225), "nov_IntroTextSmallDETrooper", 1.15);
 
 				if shieldStats.blockdamagetypes then
 					local blockDamageTypes = "";
@@ -2899,89 +2899,89 @@ function Schema:ModifyItemMarkupTooltip(category, maximumWeight, weight, conditi
 					end
 					
 					if blockDamageTypes ~= "" then
-						frame:AddText("Blocks Damage Types: "..blockDamageTypes, Color(110, 30, 30), nil, 0.9);
+						frame:AddText("Types de dégâts bloqués :"..blockDamageTypes, Color(110, 30, 30), nil, 0.9);
 					end
 				end
 			
 				if shieldStats.canparry then
-					frame:AddText("Can Parry", Color(110, 30, 30), nil, 0.9);
+					frame:AddText("Peut Parer", Color(110, 30, 30), nil, 0.9);
 				end
 				
 				if !shieldStats.candeflect then
-					frame:AddText("Cannot Deflect", Color(110, 30, 30), nil, 0.9);
+					frame:AddText("Impossible de Dévier", Color(110, 30, 30), nil, 0.9);
 				end
 				
 				if shieldStats.partialbulletblock then
-					frame:AddText("Has Bullet Resistance", Color(110, 30, 30), nil, 0.9);
+					frame:AddText("Possède une résistance aux balles", Color(110, 30, 30), nil, 0.9);
 				end
 				
 				if shieldStats.parrydifficulty and shieldStats.parrydifficulty > 0.2 then
-					frame:AddText("Has Increased Parry Window", Color(110, 30, 30), nil, 0.9);
+					frame:AddText("A augmenté la fenêtre de parade", Color(110, 30, 30), nil, 0.9);
 				end
 				
 				if itemTable.hasIncreasedDeflectionWindow then
-					frame:AddText("Increased deflection window (0.25s)", Color(110, 30, 30), nil, 0.9);
+					frame:AddText("Fenêtre de déviation augmentée (0,25s)", Color(110, 30, 30), nil, 0.9);
 				end
 				
 				if category == "Great Shield" then
-					frame:AddText("Great Shield: Reduces sprint speed by 10% when held.", Color(110, 30, 30), nil, 0.9);
+					frame:AddText("Grand Bouclier : Réduit la vitesse de course de 10 % lorsqu'il est tenu.", Color(110, 30, 30), nil, 0.9);
 				end
 				
 				if itemTable.unrepairable then
-					frame:AddText("Unrepairable: This shield cannot be repaired and will always take condition damage, irrespective of beliefs.", Color(110, 30, 30), nil, 0.9);
+					frame:AddText("Irréparable : Ce bouclier ne peut être réparé et subira toujours des dégâts de condition, quelles que soient les croyances.", Color(110, 30, 30), nil, 0.9);
 				end
 				
 				if itemTable.attributes then
 					if table.HasValue(itemTable.attributes, "conditionless") then
-						frame:AddText("Conditionless: This item will not take condition damage.", Color(110, 30, 30), nil, 0.9);
+						frame:AddText("Sans usure : Cet objet ne subira pas de dégâts de condition.", Color(110, 30, 30), nil, 0.9);
 					end
 					
 					if table.HasValue(itemTable.attributes, "electrified") then
-						frame:AddText("Electrified: Deals shock damage to characters who hit your shield with metal weapons or their fists if wearing metallic armor.", Color(110, 30, 30), nil, 0.9);
+						frame:AddText("Électrifié : Inflige des dégâts de choc aux personnages qui frappent votre bouclier avec des armes en métal ou à mains nues s'ils portent une armure métallique.", Color(110, 30, 30), nil, 0.9);
 					end
 					
 					if table.HasValue(itemTable.attributes, "spiked") then
-						frame:AddText("Spiked: Taking damage from most fisted weapons will deal a small amount of damage back to the attacker.", Color(110, 30, 30), nil, 0.9);
+						frame:AddText("Piquant : Subir des dégâts avec la plupart des armes de poing inflige une faible quantité de dégâts en retour à l'attaquant.", Color(110, 30, 30), nil, 0.9);
 					end
 
 					if table.HasValue(itemTable.attributes, "unbreakable") then
-						frame:AddText("Perfect Stamina Damage Resistance: You are immune to stamina damage while blocking, and will only suffer minimum block cost.", Color(110, 30, 30), nil, 0.9);
+						frame:AddText("Résistance parfaite aux dégâts d'endurance : Vous êtes immunisé aux dégâts d'endurance pendant les blocages, et ne subirez que le coût de blocage minimum.", Color(110, 30, 30), nil, 0.9);
 					end
 				end
 				
 				if itemTable.requiredFactions and not table.IsEmpty(itemTable.requiredFactions) and itemTable.requiredFactions[1] ~= "Wanderer" then
-					frame:AddText("Required Faction: "..table.concat(itemTable.requiredFactions, ", "), Color(110, 30, 30), nil, 0.9);
+					frame:AddText("Faction requise :"..table.concat(itemTable.requiredFactions, ", "), Color(110, 30, 30), nil, 0.9);
 				end
 				
 				if itemTable.requiredFaiths and not table.IsEmpty(itemTable.requiredFaiths) then
-					frame:AddText("Required Faith: "..table.concat(itemTable.requiredFaiths, " or "), Color(110, 30, 30), nil, 0.9);
+					frame:AddText("Foi requise :"..table.concat(itemTable.requiredFaiths, " or "), Color(110, 30, 30), nil, 0.9);
 				end
 				
 				if itemTable.requiredSubfactions and not table.IsEmpty(itemTable.requiredSubfactions) then
-					frame:AddText("Required Subfaction: "..table.concat(itemTable.requiredSubfactions, ", "), Color(110, 30, 30), nil, 0.9);
+					frame:AddText("Sous-faction requise :"..table.concat(itemTable.requiredSubfactions, ", "), Color(110, 30, 30), nil, 0.9);
 				end
 				
 				if itemTable.excludedFactions and not table.IsEmpty(itemTable.excludedFactions) then
-					frame:AddText("Excluded Factions: "..table.concat(itemTable.excludedFactions, ", "), Color(110, 30, 30), nil, 0.9);
+					frame:AddText("Factions exclues :"..table.concat(itemTable.excludedFactions, ", "), Color(110, 30, 30), nil, 0.9);
 					
 					if table.HasValue(itemTable.excludedFactions, Clockwork.Client:GetFaction()) and itemTable.excludedSubfactions and not table.IsEmpty(itemTable.excludedSubfactions) then
-						frame:AddText("Excluded Subfactions: "..table.concat(itemTable.excludedSubfactions, ", "), Color(110, 30, 30), nil, 0.9);
+						frame:AddText("Sous-factions exclues :"..table.concat(itemTable.excludedSubfactions, ", "), Color(110, 30, 30), nil, 0.9);
 					end
 				end
 				
 				if itemTable.excludedSubfactions and not table.IsEmpty(itemTable.excludedSubfactions) then
-					frame:AddText("Excluded Subfactions: "..table.concat(itemTable.excludedSubfactions, ", "), Color(110, 30, 30), nil, 0.9);
+					frame:AddText("Sous-factions exclues :"..table.concat(itemTable.excludedSubfactions, ", "), Color(110, 30, 30), nil, 0.9);
 				end
 				
-				frame:AddText("Shield Stats: ", Color(225, 225, 225), "nov_IntroTextSmallDETrooper", 1.15);
+				frame:AddText("Statistiques du Bouclier :", Color(225, 225, 225), "nov_IntroTextSmallDETrooper", 1.15);
 				
 				if itemTable.conditionScale then
 					local shieldDurabilityRawValue = math.Round(500 + (50 - 500) * ((itemTable.conditionScale - 0.25) / (1.3 - 0.25)))
 					local shieldDurability = math.min(500, math.max(25, shieldDurabilityRawValue))
 					local percentage = shieldDurability / 500
 					local toolTip = function(frame)
-						frame:AddText("Shield Durability", Color(110, 30, 30), nil, 1);
-						frame:AddText("The higher this stat is, the more blows your shield can take before it is broken.", Color(225, 200, 200), nil, 0.8);
+						frame:AddText("Durabilité du Bouclier", Color(110, 30, 30), nil, 1);
+						frame:AddText("Plus cette statistique est élevée, plus votre bouclier peut encaisser de coups avant de se briser.", Color(225, 200, 200), nil, 0.8);
 					end
 
 					frame:AddBar(12, {{text = tostring(shieldDurability).." / 500", percentage = percentage * 100, color = Color(110, 30, 30), font = "DermaDefault", textless = false, noDisplay = true}}, "Shield Durability", Color(110, 30, 30), toolTip, true);
@@ -2990,8 +2990,8 @@ function Schema:ModifyItemMarkupTooltip(category, maximumWeight, weight, conditi
 				if shieldStats.blockcone then
 					local percentage = math.min(shieldStats.blockcone / 270, 270);
 					local toolTip = function(frame)
-						frame:AddText("Block Cone", Color(110, 30, 30), nil, 1);
-						frame:AddText("The block cone of your weapon or shield determines at what angles blocking is effective, when facing toward a foe.", Color(225, 200, 200), nil, 0.8);
+						frame:AddText("Cône de Blocage", Color(110, 30, 30), nil, 1);
+						frame:AddText("Le cône de blocage de votre arme ou bouclier détermine les angles auxquels la parade est efficace, lorsque vous faites face à un adversaire.", Color(225, 200, 200), nil, 0.8);
 					end
 
 					frame:AddBar(12, {{text = tostring(shieldStats.blockcone).."°", percentage = percentage * 100, color = Color(110, 30, 30), font = "DermaDefault", textless = false, noDisplay = true}}, "Block Cone", Color(110, 30, 30), toolTip, true);
@@ -3000,8 +3000,8 @@ function Schema:ModifyItemMarkupTooltip(category, maximumWeight, weight, conditi
 				if shieldStats.guardblockamount then
 					local percentage = math.min(shieldStats.guardblockamount / 100, 100);
 					local toolTip = function(frame)
-						frame:AddText("Block Cost (Minimum)", Color(110, 30, 30), nil, 1);
-						frame:AddText("The minimum block cost of your weapon or shield in stamina if an attack by an enemy foe causes any stamina damage at all.", Color(225, 200, 200), nil, 0.8);
+						frame:AddText("Coût de Bloc (Minimum)", Color(110, 30, 30), nil, 1);
+						frame:AddText("Le coût minimal en endurance pour bloquer avec votre arme ou bouclier, si une attaque ennemie inflige des dégâts d'endurance.", Color(225, 200, 200), nil, 0.8);
 					end
 
 					frame:AddBar(12, {{text = tostring(shieldStats.guardblockamount).." Stamina", percentage = percentage * 100, color = Color(110, 30, 30), font = "DermaDefault", textless = false, noDisplay = true}}, "Block Cost (Minimum)", Color(110, 30, 30), toolTip, true);
@@ -3010,8 +3010,8 @@ function Schema:ModifyItemMarkupTooltip(category, maximumWeight, weight, conditi
 				if shieldStats.poiseresistance then
 					local percentage = math.min(shieldStats.poiseresistance / 100, 100);
 					local toolTip = function(frame)
-						frame:AddText("Block Stamina Damage Resistance", Color(110, 30, 30), nil, 1);
-						frame:AddText("The resistance of your weapon or shield to additional stamina damage beyond the minimum cost while blocking.", Color(225, 200, 200), nil, 0.8);
+						frame:AddText("Résistance aux dégâts d'endurance de blocage", Color(110, 30, 30), nil, 1);
+						frame:AddText("La résistance de votre arme ou bouclier aux dégâts d'endurance supplémentaires au-delà du coût minimum lors d'un blocage.", Color(225, 200, 200), nil, 0.8);
 					end
 
 					frame:AddBar(12, {{text = tostring(shieldStats.poiseresistance).." Stamina", percentage = percentage * 100, color = Color(110, 30, 30), font = "DermaDefault", textless = false, noDisplay = true}}, "Block Stamina Damage Resistance", Color(110, 30, 30), toolTip, true);
@@ -3021,8 +3021,8 @@ function Schema:ModifyItemMarkupTooltip(category, maximumWeight, weight, conditi
 					if shieldStats.parrytakestamina then
 						local percentage = math.min(shieldStats.parrytakestamina / 40, 40);
 						local toolTip = function(frame)
-							frame:AddText("Parry Cost", Color(110, 30, 30), nil, 1);
-							frame:AddText("The stamina cost of attempting a parry. Successfully parrying a foe will refund half of this cost.", Color(225, 200, 200), nil, 0.8);
+							frame:AddText("Coût de Parade", Color(110, 30, 30), nil, 1);
+							frame:AddText("Le coût en endurance pour tenter une parade. Une parade réussie contre un adversaire remboursera la moitié de ce coût.", Color(225, 200, 200), nil, 0.8);
 						end
 
 						frame:AddBar(12, {{text = tostring(shieldStats.parrytakestamina).." Stamina", percentage = percentage * 100, color = Color(110, 30, 30), font = "DermaDefault", textless = false, noDisplay = true}}, "Parry Cost", Color(110, 30, 30), toolTip, true);
@@ -3031,8 +3031,8 @@ function Schema:ModifyItemMarkupTooltip(category, maximumWeight, weight, conditi
 					if shieldStats.parrydifficulty then
 						local percentage = 1 - math.min(shieldStats.parrydifficulty / 0.3, 0.3);
 						local toolTip = function(frame)
-							frame:AddText("Parry Window", Color(110, 30, 30), nil, 1);
-							frame:AddText("The time in seconds after parrying that your parry will be active. Higher values mean that parrying will be easier as the window will be larger.", Color(225, 200, 200), nil, 0.8);
+							frame:AddText("Fenêtre de Parade", Color(110, 30, 30), nil, 1);
+							frame:AddText("Le temps en secondes après une parade pendant lequel votre parade reste active. Des valeurs plus élevées facilitent la parade en élargissant la fenêtre de temps.", Color(225, 200, 200), nil, 0.8);
 						end
 
 						frame:AddBar(12, {{text = tostring(shieldStats.parrydifficulty).."s", percentage = percentage * 100, color = Color(110, 30, 30), font = "DermaDefault", textless = false, noDisplay = true}}, "Parry Window", Color(110, 30, 30), toolTip, true);
@@ -3042,8 +3042,8 @@ function Schema:ModifyItemMarkupTooltip(category, maximumWeight, weight, conditi
 				if shieldStats.damagereduction then
 					local percentage = math.min(1 - shieldStats.damagereduction, 0.3);
 					local toolTip = function(frame)
-						frame:AddText("Weapon Damage Reduction", Color(110, 30, 30), nil, 1);
-						frame:AddText("Equipped shields can lower the damage of equipped weapons up to a value of 30% for the heaviest shields.", Color(225, 200, 200), nil, 0.8);
+						frame:AddText("Réduction des dégâts des armes", Color(110, 30, 30), nil, 1);
+						frame:AddText("Les boucliers équipés peuvent réduire les dégâts des armes équipées jusqu'à une valeur de 30% pour les boucliers les plus lourds.", Color(225, 200, 200), nil, 0.8);
 					end
 
 					frame:AddBar(12, {{text = tostring((1 - shieldStats.damagereduction) * 100).."%", percentage = percentage * 333.33, color = Color(110, 30, 30), font = "DermaDefault", textless = false, noDisplay = true}}, "Weapon Damage Reduction", Color(110, 30, 30), toolTip, true);
@@ -3076,7 +3076,7 @@ function Schema:ModifyItemMarkupTooltip(category, maximumWeight, weight, conditi
 		frame:AddText(itemTable("description"), Color(180, 170, 170), "nov_IntroTextSmallDETrooper", 0.8);
 		
 		if (bShowWeight) then
-			frame:AddBar(20, {{text = weight.."kg", percentage = percentage * 100, color = Color(96, 96, 128), font = "DermaDefault", leftTextAlign = false, noDisplay = true}}, "Weight", Color(170, 170, 180));
+			frame:AddBar(20, {{text = weight.."kg", percentage = percentage * 100, color = Color(96, 96, 128), font = "DermaDefault", leftTextAlign = false, noDisplay = true}}, "Poids", Color(170, 170, 180));
 			frame:AddSpacer(2, Color(0, 0, 0, 0));
 		end;
 		
@@ -3106,7 +3106,7 @@ function Schema:ModifyItemMarkupTooltip(category, maximumWeight, weight, conditi
 				end
 			end
 			
-			frame:AddText("Required Beliefs: ", Color(225, 225, 225), "nov_IntroTextSmallDETrooper", 1.15);
+			frame:AddText("Croyances requises :", Color(225, 225, 225), "nov_IntroTextSmallDETrooper", 1.15);
 			frame:AddIconRow(beliefIcons, 40);
 		end
 		
@@ -3136,11 +3136,11 @@ function Schema:ModifyItemMarkupTooltip(category, maximumWeight, weight, conditi
 				end
 			end
 			
-			frame:AddText("Required Beliefs (One Of The Following): ", Color(225, 225, 225), "nov_IntroTextSmallDETrooper", 1.15);
+			frame:AddText("Croyances Requises (Une des Suivantes) :", Color(225, 225, 225), "nov_IntroTextSmallDETrooper", 1.15);
 			frame:AddIconRow(beliefIcons, 40);
 		end
 		
-		frame:AddText("Armor Attributes: ", Color(225, 225, 225), "nov_IntroTextSmallDETrooper", 1.15);
+		frame:AddText("Attributs de l'armure :", Color(225, 225, 225), "nov_IntroTextSmallDETrooper", 1.15);
 
 		if itemTable.effectiveLimbs then
 			local effectiveLimbsText = "Effective Limbs: ";
@@ -3159,145 +3159,145 @@ function Schema:ModifyItemMarkupTooltip(category, maximumWeight, weight, conditi
 		end
 		
 		if itemTable.unrepairable then
-			frame:AddText("Unrepairable: This armor cannot be repaired and will always take condition damage, irrespective of beliefs.", Color(110, 30, 30), nil, 0.9);
+			frame:AddText("Irréparable : Cette armure ne peut pas être réparée et subira toujours des dégâts de condition, quelles que soient les croyances.", Color(110, 30, 30), nil, 0.9);
 		end
 		
 		if itemTable.attributes then
 			if table.HasValue(itemTable.attributes, "conditionless") then
-				frame:AddText("Conditionless: This item will not take condition damage.", Color(110, 30, 30), nil, 0.9);
+				frame:AddText("Sans usure : Cet objet ne subira pas de dégâts d'usure.", Color(110, 30, 30), nil, 0.9);
 			end
 			
 			if table.HasValue(itemTable.attributes, "disease_resistance") then
-				frame:AddText("Disease Resistance: This item prevents airborne diseases from infecting you.", Color(110, 30, 30), nil, 0.9);
+				frame:AddText("Résistance aux maladies : Cet objet vous protège des maladies transmises par voie aérienne.", Color(110, 30, 30), nil, 0.9);
 			end
 			
 			if table.HasValue(itemTable.attributes, "double_jump") then
-				frame:AddText("Double Jump: This item allows you to double jump by pressing your jump key while mid-air.", Color(110, 30, 30), nil, 0.9);
+				frame:AddText("Double Saut : Cet objet vous permet d'effectuer un double saut en appuyant sur votre touche de saut en plein élan.", Color(110, 30, 30), nil, 0.9);
 			end
 			
 			if table.HasValue(itemTable.attributes, "electrified") then
-				frame:AddText("Electrified: Deals shock damage to characters who hit you with metal weapons or their fists if wearing metallic armor.", Color(110, 30, 30), nil, 0.9);
+				frame:AddText("Électrifié : Inflige des dégâts de choc aux personnages qui vous frappent avec des armes en métal ou à mains nues s'ils portent une armure métallique.", Color(110, 30, 30), nil, 0.9);
 			end
 		
 			if table.HasValue(itemTable.attributes, "fear") then
-				frame:AddText("Fear: Characters of opposing factions will be disoriented and lose sanity when near you.", Color(110, 30, 30), nil, 0.9);
+				frame:AddText("Peur : Les personnages des factions adverses seront désorientés et perdront de la santé mentale à votre proximité.", Color(110, 30, 30), nil, 0.9);
 			end
 			
 			if table.HasValue(itemTable.attributes, "increased_regeneration") then
-				frame:AddText("Increased Regeneration: Triples the health regeneration from 'Gift of the Great Tree'.", Color(110, 30, 30), nil, 0.9);
+				frame:AddText("Régénération Accrue : Triple la régénération de santé conférée par le 'Don du Grand Arbre'.", Color(110, 30, 30), nil, 0.9);
 			end
 
 			if table.HasValue(itemTable.attributes, "lifeleech") then
-				frame:AddText("Lifeleech (Shieldless): 100% of damage dealt is returned as health", Color(110, 30, 30), nil, 0.9);
+				frame:AddText("Lifeleech (Sans bouclier) : 100 % des dégâts infligés sont convertis en points de vie", Color(110, 30, 30), nil, 0.9);
 			end
 
 			if(table.HasValue(itemTable.attributes, "banner_blessing")) then
-				frame:AddText("Blessing of the Banner (Shieldless): While a support banner is equipped, it does not need to be held to receive its effects.", Color(110, 30, 30), nil, 0.9)
+				frame:AddText("Bénédiction de la Bannière (Sans Bouclier) : Lorsqu'une bannière de soutien est équipée, il n'est pas nécessaire de la tenir pour bénéficier de ses effets.", Color(110, 30, 30), nil, 0.9)
 			end
 			
 			if table.HasValue(itemTable.attributes, "mothers_blessing") then
-				frame:AddText("Mother's Blessing: Reduces corruption gain by 50%.", Color(110, 30, 30), nil, 0.9);
+				frame:AddText("Bénédiction de la Mère : Réduit de 50% l'acquisition de corruption.", Color(110, 30, 30), nil, 0.9);
 			end
 			
 			if table.HasValue(itemTable.attributes, "night_vision") then
-				frame:AddText("Night Vision: Night vision can be activated by right-clicking with Senses while this armor is equipped.", Color(110, 30, 30), nil, 0.9);
+				frame:AddText("Vision Nocturne : La vision nocturne peut être activée en faisant un clic droit avec les Sens lorsque cette armure est équipée.", Color(110, 30, 30), nil, 0.9);
 			end
 
 			if table.HasValue(itemTable.attributes, "not_unequippable") then
-				frame:AddText("Not Unequippable: This item cannot be unequipped once worn and will remain equipped until your death.", Color(110, 30, 30), nil, 0.9);
+				frame:AddText("Non déséquipable : Cet objet ne peut être retiré une fois porté et restera équipé jusqu'à votre mort.", Color(110, 30, 30), nil, 0.9);
 			end
 
 			if table.HasValue(itemTable.attributes, "rage") then
-				frame:AddText("Rage (Shieldless): Movement speed is increased by 7%. Warcries return +15 stamina.", Color(110, 30, 30), nil, 0.9);
+				frame:AddText("Rage (Sans bouclier) : La vitesse de déplacement est augmentée de 7 %. Les cris de guerre restaurent +15 points d'endurance.", Color(110, 30, 30), nil, 0.9);
 			end
 			
 			if table.HasValue(itemTable.attributes, "godless") then
-				frame:AddText("Godless (Shieldless): Increases melee, stamina, and stability damage by 25% while at or below 40% sanity. Increases stability damage of throwing stones by 25%.", Color(110, 30, 30), nil, 0.9);
+				frame:AddText("Sans Dieu (Sans Bouclier) : Augmente les dégâts de mêlée, d'endurance et de stabilité de 25% lorsque la santé mentale est à 40% ou moins. Augmente les dégâts de stabilité des pierres de jet de 25%.", Color(110, 30, 30), nil, 0.9);
 			end
 			
 			if table.HasValue(itemTable.attributes, "iconoclast") then
-				frame:AddText("Iconoclast (Shieldless): Your warcry bless all members of Clan Grock in talking distance with +25 stamina, 25% damage resistance and +15% movement speed for 15 seconds. Targets affected by this buff are highlighted in grey, and you will lose 5 points of sanity per warcry.", Color(110, 30, 30), nil, 0.9);
+				frame:AddText("Iconoclaste (Sans Bouclier) : Votre cri de guerre bénit tous les membres du Clan Grock à portée de voix, leur conférant +25 d'endurance, 25% de résistance aux dégâts et +15% de vitesse de déplacement pendant 15 secondes. Les cibles affectées par ce bonus sont surlignées en gris, et vous perdez 5 points de santé mentale par cri de guerre.", Color(110, 30, 30), nil, 0.9);
 			end
 			
 			if table.HasValue(itemTable.attributes, "lesserlifeleech") then
-				frame:AddText("Lesser Lifeleech (Shieldless): 70% of damage in Light Armor, 50% in Medium Armor, 30% in Heavy Armor is returned as health.", Color(110, 30, 30), nil, 0.9);
+				frame:AddText("Lesser Lifeleech (Sans Bouclier) : 70 % des dégâts en Armure Légère, 50 % en Armure Moyenne, 30 % en Armure Lourde sont convertis en points de vie.", Color(110, 30, 30), nil, 0.9);
 			end
 			
 			if table.HasValue(itemTable.attributes, "wastelord") then
-				frame:AddText("Lord of the Wastes: This armor is befitting only those without emblem, and cannot be worn by factions.", Color(110, 30, 30), nil, 0.9);
+				frame:AddText("Seigneur des Déchets : Cette armure ne convient qu'à ceux sans emblème, et ne peut être portée par les factions.", Color(110, 30, 30), nil, 0.9);
 			end
 			
 			if table.HasValue(itemTable.attributes, "seafarer") then
-				frame:AddText("Seafarer: Movement speed is increased by 3%, and throwables have 10% increased damage.", Color(110, 30, 30), nil, 0.9);
+				frame:AddText("Marin : La vitesse de déplacement est augmentée de 3%, et les projectiles infligent 10% de dégâts supplémentaires.", Color(110, 30, 30), nil, 0.9);
 			end
 			
 			if table.HasValue(itemTable.attributes, "thermal_vision") then
-				frame:AddText("Thermal Vision: Thermal vision replaces Senses while this armor is equipped.", Color(110, 30, 30), nil, 0.9);
+				frame:AddText("Vision thermique : La vision thermique remplace les sens tant que cette armure est équipée.", Color(110, 30, 30), nil, 0.9);
 			end
 
 			if table.HasValue(itemTable.attributes, "solblessed") then
-				--frame:AddText("Blessed in Hatred: Equipping will grant the 'Hatred' bar, which will fill upon inflicting or taking damage. 100% 'Hatred' will prevent death from damage but will reduce 'Hatred' to 0%.", Color(110, 30, 30), nil, 0.9);
-				frame:AddText("Blessed in Hatred: Equipping will grant the 'Hatred' bar, which will fill upon taking damage. 100% 'Hatred' will prevent death from damage but will reduce 'Hatred' to 0%.", Color(110, 30, 30), nil, 0.9);
+				--frame:AddText("Béni par la Haine : L'équiper octroie la barre de 'Haine', qui se remplit en infligeant ou en subissant des dégâts. À 100%, la 'Haine' empêche la mort par dégâts mais retombe à 0%.", Color(110, 30, 30), nil, 0.9);
+				frame:AddText("Béni par la Haine : L'équiper octroie la barre de 'Haine', qui se remplit en subissant des dégâts. À 100%, la 'Haine' empêche la mort par dégâts mais retombe à 0%.", Color(110, 30, 30), nil, 0.9);
 			end
 
 			if table.HasValue(itemTable.attributes, "deathknell") then
-				frame:AddText("Deathknell: Taking damage to the head will disorient both you and the attacker.", Color(110, 30, 30), nil, 0.9);
+				frame:AddText("Deathknell : Subir des dégâts à la tête désoriente à la fois vous et votre agresseur.", Color(110, 30, 30), nil, 0.9);
 			end
 
 			if table.HasValue(itemTable.attributes, "bloodtoll") then
-				frame:AddText("Blood Toll: Taking any damage to the head will always result in a bleed injury.", Color(100, 9, 0), nil, 0.9);
+				frame:AddText("Tollé Sanguin : Tout dommage à la tête provoquera systématiquement une blessure hémorragique.", Color(100, 9, 0), nil, 0.9);
 			end
 
 			if table.HasValue(itemTable.attributes, "spiked") then
-				frame:AddText("Spiked: Taking damage from most fisted weapons will deal a small amount of damage back to the attacker.", Color(110, 30, 30), nil, 0.9);
+				frame:AddText("Épineux : Subir des dégâts de la plupart des armes de poing infligera une faible quantité de dégâts en retour à l'attaquant.", Color(110, 30, 30), nil, 0.9);
 			end
 			
 			if table.HasValue(itemTable.attributes, "practitioner") then
-				frame:AddText("Practitioner: Increases the effectiveness of healing items used on yourself and others by 25%.", Color(110, 30, 30), nil, 0.9);
+				frame:AddText("Pratiquant : Augmente l'efficacité des objets de soin utilisés sur vous-même et sur les autres de 25%.", Color(110, 30, 30), nil, 0.9);
 			end
 
 			if table.HasValue(itemTable.attributes, "miracle_doctor") then
-				frame:AddText("Miracle Doctor: Any healing items that would normally cure only bleeding will now also cure gashes.", Color(110, 30, 30), nil, 0.9);
+				frame:AddText("Miracle Doctor : Tout objet de soin qui soignerait normalement uniquement les saignements guérira désormais également les entailles.", Color(110, 30, 30), nil, 0.9);
 			end
 		end
 		
 		--if itemTable.weight then
 			if itemTable.weightclass == "Medium" then
-				frame:AddText("Sprint Speed Reduction: 15%", Color(110, 30, 30), nil, 0.9);
+				frame:AddText("Réduction de vitesse de sprint : 15%", Color(110, 30, 30), nil, 0.9);
 			elseif itemTable.weightclass == "Heavy" then
-				frame:AddText("Sprint Speed Reduction: 35%", Color(110, 30, 30), nil, 0.9);
+				frame:AddText("Réduction de vitesse de sprint : 35%", Color(110, 30, 30), nil, 0.9);
 			end
 		--end
 		
 		if itemTable.requiredFactions and not table.IsEmpty(itemTable.requiredFactions) and itemTable.requiredFactions[1] ~= "Wanderer" then
-			frame:AddText("Required Faction: "..table.concat(itemTable.requiredFactions, ", "), Color(110, 30, 30), nil, 0.9);
+			frame:AddText("Faction requise :"..table.concat(itemTable.requiredFactions, ", "), Color(110, 30, 30), nil, 0.9);
 		end
 		
 		if itemTable.requiredFaiths and not table.IsEmpty(itemTable.requiredFaiths) then
-			frame:AddText("Required Faith: "..table.concat(itemTable.requiredFaiths, " or "), Color(110, 30, 30), nil, 0.9);
+			frame:AddText("Foi requise :"..table.concat(itemTable.requiredFaiths, " or "), Color(110, 30, 30), nil, 0.9);
 		end
 		
 		if itemTable.requiredSubfactions and not table.IsEmpty(itemTable.requiredSubfactions) then
-			frame:AddText("Required Subfaction: "..table.concat(itemTable.requiredSubfactions, ", "), Color(110, 30, 30), nil, 0.9);
+			frame:AddText("Sous-faction requise :"..table.concat(itemTable.requiredSubfactions, ", "), Color(110, 30, 30), nil, 0.9);
 		end
 		
 		if itemTable.excludedFactions and not table.IsEmpty(itemTable.excludedFactions) then
-			frame:AddText("Excluded Factions: "..table.concat(itemTable.excludedFactions, ", "), Color(110, 30, 30), nil, 0.9);
+			frame:AddText("Factions exclues :"..table.concat(itemTable.excludedFactions, ", "), Color(110, 30, 30), nil, 0.9);
 			
 			if table.HasValue(itemTable.excludedFactions, Clockwork.Client:GetFaction()) and itemTable.excludedSubfactions and not table.IsEmpty(itemTable.excludedSubfactions) then
-				frame:AddText("Excluded Subfactions: "..table.concat(itemTable.excludedSubfactions, ", "), Color(110, 30, 30), nil, 0.9);
+				frame:AddText("Sous-factions exclues :"..table.concat(itemTable.excludedSubfactions, ", "), Color(110, 30, 30), nil, 0.9);
 			end
 		end
 		
 		if itemTable.excludedSubfactions and not table.IsEmpty(itemTable.excludedSubfactions) then
-			frame:AddText("Excluded Subfactions: "..table.concat(itemTable.excludedSubfactions, ", "), Color(110, 30, 30), nil, 0.9);
+			frame:AddText("Sous-factions exclues :"..table.concat(itemTable.excludedSubfactions, ", "), Color(110, 30, 30), nil, 0.9);
 		end
 		
 		local addedStats = false;
 		
 		if itemTable.protection then
 			if !addedStats then
-				frame:AddText("Armor Stats: ", Color(225, 225, 225), "nov_IntroTextSmallDETrooper", 1.15);
+				frame:AddText("Statistiques de l'armure :", Color(225, 225, 225), "nov_IntroTextSmallDETrooper", 1.15);
 				
 				addedStats = true;
 			end	
@@ -3311,8 +3311,8 @@ function Schema:ModifyItemMarkupTooltip(category, maximumWeight, weight, conditi
 			
 			local percentage = math.min(protection, 100);
 			local toolTip = function(frame)
-				frame:AddText("Armor Effectiveness", Color(110, 30, 30), nil, 1);
-				frame:AddText("Armor effectiveness, as the name implies, affects how effective your armor is against enemy attacks. Higher armor effectiveness values reduce the damage of enemy attacks, but can in turn be reduced by an enemy's armor-percing damage. Note that the lower your armor condition, the lower your protection will be.", Color(225, 200, 200), nil, 0.8);
+				frame:AddText("Efficacité de l'armure", Color(110, 30, 30), nil, 1);
+				frame:AddText("Efficacité de l'armure, comme son nom l'indique, affecte la performance de votre armure contre les attaques ennemies. Des valeurs d'efficacité plus élevées réduisent les dégâts des attaques adverses, mais peuvent à leur tour être diminuées par les dégâts perforants de l'ennemi. Notez que plus l'état de votre armure est bas, plus votre protection sera faible.", Color(225, 200, 200), nil, 0.8);
 			end
 
 			if protection < originalProtection then
@@ -3324,15 +3324,15 @@ function Schema:ModifyItemMarkupTooltip(category, maximumWeight, weight, conditi
 		
 		if itemTable.bluntScale then
 			if !addedStats then
-				frame:AddText("Armor Stats: ", Color(225, 225, 225), "nov_IntroTextSmallDETrooper", 1.15);
+				frame:AddText("Statistiques de l'armure :", Color(225, 225, 225), "nov_IntroTextSmallDETrooper", 1.15);
 				
 				addedStats = true;
 			end	
 		
 			local percentage = (1 - itemTable.bluntScale) * 100;
 			local toolTip = function(frame)
-				frame:AddText("Blunt Damage Resistance", Color(110, 30, 30), nil, 1);
-				frame:AddText("Reduces blunt damage by a flat amount irrespective of armor effectiveness.", Color(225, 200, 200), nil, 0.8);
+				frame:AddText("Résistance aux Dégâts Contondants", Color(110, 30, 30), nil, 1);
+				frame:AddText("Réduit les dégâts contondants d'un montant fixe, indépendamment de l'efficacité de l'armure.", Color(225, 200, 200), nil, 0.8);
 			end
 
 			frame:AddBar(12, {{text = tostring(percentage).."%", percentage = percentage, color = Color(110, 30, 30), font = "DermaDefault", textless = false, noDisplay = true}}, "Blunt Damage Resistance", Color(110, 30, 30), toolTip, true);
@@ -3340,15 +3340,15 @@ function Schema:ModifyItemMarkupTooltip(category, maximumWeight, weight, conditi
 		
 		if itemTable.bulletScale then
 			if !addedStats then
-				frame:AddText("Armor Stats: ", Color(225, 225, 225), "nov_IntroTextSmallDETrooper", 1.15);
+				frame:AddText("Statistiques de l'armure :", Color(225, 225, 225), "nov_IntroTextSmallDETrooper", 1.15);
 				
 				addedStats = true;
 			end	
 		
 			local percentage = (1 - itemTable.bulletScale) * 100;
 			local toolTip = function(frame)
-				frame:AddText("Bullet Damage Resistance", Color(110, 30, 30), nil, 1);
-				frame:AddText("Reduces bullet damage by a flat amount irrespective of armor effectiveness.", Color(225, 200, 200), nil, 0.8);
+				frame:AddText("Résistance aux dégâts de balle", Color(110, 30, 30), nil, 1);
+				frame:AddText("Réduit les dégâts des balles d'une valeur fixe, indépendamment de l'efficacité de l'armure.", Color(225, 200, 200), nil, 0.8);
 			end
 
 			frame:AddBar(12, {{text = tostring(percentage).."%", percentage = percentage, color = Color(110, 30, 30), font = "DermaDefault", textless = false, noDisplay = true}}, "Bullet Damage Resistance", Color(110, 30, 30), toolTip, true);
@@ -3362,15 +3362,15 @@ function Schema:ModifyItemMarkupTooltip(category, maximumWeight, weight, conditi
 		
 		if itemTable.pierceScale then
 			if !addedStats then
-				frame:AddText("Armor Stats: ", Color(225, 225, 225), "nov_IntroTextSmallDETrooper", 1.15);
+				frame:AddText("Statistiques de l'armure :", Color(225, 225, 225), "nov_IntroTextSmallDETrooper", 1.15);
 				
 				addedStats = true;
 			end	
 			
 			local percentage = (1 - itemTable.pierceScale) * 100;
 			local toolTip = function(frame)
-				frame:AddText("Pierce Damage Resistance", Color(110, 30, 30), nil, 1);
-				frame:AddText("Reduces pierce damage by a flat amount irrespective of armor effectiveness.", Color(225, 200, 200), nil, 0.8);
+				frame:AddText("Résistance aux dégâts perforants", Color(110, 30, 30), nil, 1);
+				frame:AddText("Réduit les dégâts de perforation d'une valeur fixe, indépendamment de l'efficacité de l'armure.", Color(225, 200, 200), nil, 0.8);
 			end
 
 			frame:AddBar(12, {{text = tostring(percentage).."%", percentage = percentage, color = Color(110, 30, 30), font = "DermaDefault", textless = false, noDisplay = true}}, "Pierce Damage Resistance", Color(110, 30, 30), toolTip, true);
@@ -3378,15 +3378,15 @@ function Schema:ModifyItemMarkupTooltip(category, maximumWeight, weight, conditi
 		
 		if itemTable.slashScale then
 			if !addedStats then
-				frame:AddText("Armor Stats: ", Color(225, 225, 225), "nov_IntroTextSmallDETrooper", 1.15);
+				frame:AddText("Statistiques de l'armure :", Color(225, 225, 225), "nov_IntroTextSmallDETrooper", 1.15);
 				
 				addedStats = true;
 			end	
 			
 			local percentage = (1 - itemTable.slashScale) * 100;
 			local toolTip = function(frame)
-				frame:AddText("Slash Damage Resistance", Color(110, 30, 30), nil, 1);
-				frame:AddText("Reduces slash damage by a flat amount irrespective of armor effectiveness.", Color(225, 200, 200), nil, 0.8);
+				frame:AddText("Résistance aux dégâts de taille", Color(110, 30, 30), nil, 1);
+				frame:AddText("Réduit les dégâts de taille d'une valeur fixe, indépendamment de l'efficacité de l'armure.", Color(225, 200, 200), nil, 0.8);
 			end
 
 			frame:AddBar(12, {{text = tostring(percentage).."%", percentage = percentage, color = Color(110, 30, 30), font = "DermaDefault", textless = false, noDisplay = true}}, "Slash Damage Resistance", Color(110, 30, 30), toolTip, true);
@@ -3394,15 +3394,15 @@ function Schema:ModifyItemMarkupTooltip(category, maximumWeight, weight, conditi
 		
 		if itemTable.stabilityScale then
 			if !addedStats then
-				frame:AddText("Armor Stats: ", Color(225, 225, 225), "nov_IntroTextSmallDETrooper", 1.15);
+				frame:AddText("Statistiques de l'armure :", Color(225, 225, 225), "nov_IntroTextSmallDETrooper", 1.15);
 				
 				addedStats = true;
 			end	
 			
 			local percentage = (1 - itemTable.stabilityScale) * 100;
 			local toolTip = function(frame)
-				frame:AddText("Stability Damage Resistance", Color(110, 30, 30), nil, 1);
-				frame:AddText("Reduces stability damage by a flat amount irrespective of armor effectiveness.", Color(225, 200, 200), nil, 0.8);
+				frame:AddText("Résistance aux dégâts de stabilité", Color(110, 30, 30), nil, 1);
+				frame:AddText("Réduit les dégâts de stabilité d'une valeur fixe, indépendamment de l'efficacité de l'armure.", Color(225, 200, 200), nil, 0.8);
 			end
 
 			frame:AddBar(12, {{text = tostring(percentage).."%", percentage = percentage, color = Color(110, 30, 30), font = "DermaDefault", textless = false, noDisplay = true}}, "Stability Damage Resistance", Color(110, 30, 30), toolTip, true);
@@ -3411,7 +3411,7 @@ function Schema:ModifyItemMarkupTooltip(category, maximumWeight, weight, conditi
 			
 			if armorClass then
 				if !addedStats then
-					frame:AddText("Armor Stats: ", Color(225, 225, 225), "nov_IntroTextSmallDETrooper", 1.15);
+					frame:AddText("Statistiques de l'armure :", Color(225, 225, 225), "nov_IntroTextSmallDETrooper", 1.15);
 					
 					addedStats = true;
 				end	
@@ -3429,8 +3429,8 @@ function Schema:ModifyItemMarkupTooltip(category, maximumWeight, weight, conditi
 				percentage = percentage * 100;
 				
 				local toolTip = function(frame)
-					frame:AddText("Stability Damage Resistance", Color(110, 30, 30), nil, 1);
-					frame:AddText("Reduces stability damage by a flat amount irrespective of armor effectiveness.", Color(225, 200, 200), nil, 0.8);
+					frame:AddText("Résistance aux dégâts de stabilité", Color(110, 30, 30), nil, 1);
+					frame:AddText("Réduit les dégâts de stabilité d'une valeur fixe, indépendamment de l'efficacité de l'armure.", Color(225, 200, 200), nil, 0.8);
 				end
 				
 				frame:AddBar(12, {{text = tostring(percentage).."%", percentage = percentage, color = Color(110, 30, 30), font = "DermaDefault", textless = false, noDisplay = true}}, "Stability Damage Resistance", Color(110, 30, 30), toolTip, true);
@@ -3439,7 +3439,7 @@ function Schema:ModifyItemMarkupTooltip(category, maximumWeight, weight, conditi
 		
 		if cwWarmth and cwWarmth.systemEnabled and itemTable.insulation then
 			if !addedStats then
-				frame:AddText("Armor Stats: ", Color(225, 225, 225), "nov_IntroTextSmallDETrooper", 1.15);
+				frame:AddText("Statistiques de l'armure :", Color(225, 225, 225), "nov_IntroTextSmallDETrooper", 1.15);
 				
 				addedStats = true;
 			end
@@ -3470,56 +3470,56 @@ function Schema:ModifyItemMarkupTooltip(category, maximumWeight, weight, conditi
 		frame:AddText(itemTable("description"), Color(180, 170, 170), "nov_IntroTextSmallDETrooper", 0.8);
 		
 		if (bShowWeight) then
-			frame:AddBar(20, {{text = weight.."kg", percentage = percentage * 100, color = Color(96, 96, 128), font = "DermaDefault", leftTextAlign = false, noDisplay = true}}, "Weight", Color(170, 170, 180));
+			frame:AddBar(20, {{text = weight.."kg", percentage = percentage * 100, color = Color(96, 96, 128), font = "DermaDefault", leftTextAlign = false, noDisplay = true}}, "Poids", Color(170, 170, 180));
 			frame:AddSpacer(2, Color(0, 0, 0, 0));
 		end
 		
 		if itemTable.requiredFaiths and not table.IsEmpty(itemTable.requiredFaiths) then
-			frame:AddText("Required Faith: "..table.concat(itemTable.requiredFaiths, " or "), Color(110, 30, 30), nil, 0.9);
+			frame:AddText("Foi requise :"..table.concat(itemTable.requiredFaiths, " or "), Color(110, 30, 30), nil, 0.9);
 		end
 
 		if weaponClass then
 			weaponTable = _G.weapons.Get(weaponClass);
 			
 			if weaponTable then
-				frame:AddText("Weapon Attributes: ", Color(225, 225, 225), "nov_IntroTextSmallDETrooper", 1.15);
+				frame:AddText("Attributs de l'arme :", Color(225, 225, 225), "nov_IntroTextSmallDETrooper", 1.15);
 
 				if !weaponTable.MisfireChance or weaponTable.MisfireChance == 0 then
-					frame:AddText("Cannot Misfire", Color(110, 30, 30), nil, 0.9);
+					frame:AddText("Ne peut pas rater", Color(110, 30, 30), nil, 0.9);
 				end
 				
-				frame:AddText("Ranged Weapon: You will be disarmed upon taking damage with this weapon.", Color(110, 30, 30), nil, 0.9);
+				frame:AddText("Arme à distance : Vous serez désarmé en subissant des dégâts avec cette arme.", Color(110, 30, 30), nil, 0.9);
 				
 				if itemTable.unrepairable then
-					frame:AddText("Unrepairable: This weapon cannot be repaired and will always take condition damage, irrespective of beliefs.", Color(110, 30, 30), nil, 0.9);
+					frame:AddText("Irréparable : Cette arme ne peut pas être réparée et subira toujours des dégâts de condition, indépendamment des croyances.", Color(110, 30, 30), nil, 0.9);
 				end
 				
 				if itemTable.attributes then
 					if table.HasValue(itemTable.attributes, "melee") then
-						frame:AddText("Melee Stance: Can be used as a melee weapon by switching stances.", Color(110, 30, 30), nil, 0.9);
+						frame:AddText("Posture de Mêlée : Peut être utilisée comme arme de corps à corps en changeant de posture.", Color(110, 30, 30), nil, 0.9);
 					elseif table.HasValue(itemTable.attributes, "sundering_shot") then
-						frame:AddText("Sundering Shot: Travelling at supersonic speeds, Old World Longshot ignores armor and shields entirely.", Color(110, 30, 30), nil, 0.9);
+						frame:AddText("Tir Fracassant : Se déplaçant à des vitesses supersoniques, le Longshot de l'Ancien Monde ignore complètement les armures et les boucliers.", Color(110, 30, 30), nil, 0.9);
 					elseif table.HasValue(itemTable.attributes, "sundering_shot_grapeshot") then
-						frame:AddText("Sundering Shot: Travelling at supersonic speeds, Old World Grapeshot ignores armor and shields entirely.", Color(110, 30, 30), nil, 0.9);
+						frame:AddText("Tir Fracassant : Se déplaçant à des vitesses supersoniques, la mitraille de l'Ancien Monde ignore complètement les armures et les boucliers.", Color(110, 30, 30), nil, 0.9);
 					elseif table.HasValue(itemTable.attributes, "variable_damage") then
-						frame:AddText("Variable Damage: Damage will be increased or decreased depending on the distance of the target. Targets further away will receive more damage.", Color(110, 30, 30), nil, 0.9);
+						frame:AddText("Dégâts variables : Les dégâts augmentent ou diminuent en fonction de la distance de la cible. Les cibles plus éloignées subiront davantage de dégâts.", Color(110, 30, 30), nil, 0.9);
 					elseif table.HasValue(itemTable.attributes, "suppressed") then
-						frame:AddText("Suppressed: While using Pop-a-Shot, this firearm will be quieter than most and cannot be heard at long ranges.", Color(110, 30, 30), nil, 0.9);
+						frame:AddText("Supprimé : Lors de l'utilisation de Pop-a-Shot, cette arme à feu sera plus silencieuse que la plupart et ne peut être entendue à longue distance.", Color(110, 30, 30), nil, 0.9);
 					end
 				end
 
 				if itemTable.usesMagazine then
-					frame:AddText("Uses Detachable Magazines", Color(110, 30, 30), nil, 0.9);
+					frame:AddText("Utilise des chargeurs amovibles", Color(110, 30, 30), nil, 0.9);
 				elseif itemTable.isRevolver then
-					frame:AddText("Has Revolving Barrels", Color(110, 30, 30), nil, 0.9);
+					frame:AddText("Dispose de Barils Tournants", Color(110, 30, 30), nil, 0.9);
 				elseif itemTable.ammoCapacity and itemTable.ammoCapacity > 1 then
-					frame:AddText("Has Fixed Magazine", Color(110, 30, 30), nil, 0.9);
+					frame:AddText("Magazine fixe", Color(110, 30, 30), nil, 0.9);
 				else
-					frame:AddText("Has Single Shot", Color(110, 30, 30), nil, 0.9);
+					frame:AddText("Tir unique", Color(110, 30, 30), nil, 0.9);
 				end
 				
 				if weaponTable.IgnoresBulletResistance then
-					frame:AddText("Ignores Bullet Resistance", Color(110, 30, 30), nil, 0.9);
+					frame:AddText("Ignore la Résistance aux Balles", Color(110, 30, 30), nil, 0.9);
 				end
 				
 				if itemTable.ammoTypes then
@@ -3534,22 +3534,22 @@ function Schema:ModifyItemMarkupTooltip(category, maximumWeight, weight, conditi
 							end
 						end
 						
-						frame:AddText("Shot Versatility: ", Color(225, 225, 225), "nov_IntroTextSmallDETrooper", 1.15);
+						frame:AddText("Polyvalence de tir :", Color(225, 225, 225), "nov_IntroTextSmallDETrooper", 1.15);
 						frame:AddIconRow(ammoIcons, 48);
 					end
 					
 					--[[if itemTable.ammoTypesNice then
 						for i = 1, #itemTable.ammoTypesNice do
-							frame:AddText("   "..itemTable.ammoTypesNice[i], Color(110, 30, 30), nil, 0.9);
+							frame:AddText("Contexte : Texte de cadre"..itemTable.ammoTypesNice[i], Color(110, 30, 30), nil, 0.9);
 						end
 					else
 						for i = 1, #itemTable.ammoTypes do
-							frame:AddText("   "..itemTable.ammoTypes[i], Color(110, 30, 30), nil, 0.9);
+							frame:AddText("Contexte : Texte de cadre"..itemTable.ammoTypes[i], Color(110, 30, 30), nil, 0.9);
 						end
 					end]]--
 				end
 				
-				frame:AddText("Weapon Stats: ", Color(225, 225, 225), "nov_IntroTextSmallDETrooper", 1.15);
+				frame:AddText("Statistiques de l'arme :", Color(225, 225, 225), "nov_IntroTextSmallDETrooper", 1.15);
 				
 				if weaponTable.Primary.IronAccuracy and !weaponTable.Primary.MaximumDistanceDamage then
 					local accuracy = weaponTable.Primary.IronAccuracy;
@@ -3561,8 +3561,8 @@ function Schema:ModifyItemMarkupTooltip(category, maximumWeight, weight, conditi
 				
 					local percentage = 1 - math.min(accuracy * 2, 1);
 					local toolTip = function(frame)
-						frame:AddText("Accuracy (Aiming)", Color(110, 30, 30), nil, 1);
-						frame:AddText("The accuracy of your weapon while aiming down sights. Can be further increased by crouching and through the 'Marksman' belief.", Color(225, 200, 200), nil, 0.8);
+						frame:AddText("Précision (Visée)", Color(110, 30, 30), nil, 1);
+						frame:AddText("La précision de votre arme en visée. Peut être améliorée en s'accroupissant et par la croyance 'Marksman'.", Color(225, 200, 200), nil, 0.8);
 					end
 		
 					if accuracy > originalAccuracy then
@@ -3582,8 +3582,8 @@ function Schema:ModifyItemMarkupTooltip(category, maximumWeight, weight, conditi
 				
 					local percentage = 1 - math.min(accuracy * 2, 1);
 					local toolTip = function(frame)
-						frame:AddText("Accuracy (Hip-Fire)", Color(110, 30, 30), nil, 1);
-						frame:AddText("The accuracy of your weapon while hip-firing. Can be further increased by crouching.", Color(225, 200, 200), nil, 0.8);
+						frame:AddText("Précision (Tir à la hanche)", Color(110, 30, 30), nil, 1);
+						frame:AddText("La précision de votre arme en tir à la hanche. Peut être améliorée en s'accroupissant.", Color(225, 200, 200), nil, 0.8);
 					end
 		
 					if accuracy > originalAccuracy then
@@ -3596,8 +3596,8 @@ function Schema:ModifyItemMarkupTooltip(category, maximumWeight, weight, conditi
 				if weaponTable.Primary.NumShots > 1 then
 					local percentage = math.min(weaponTable.Primary.NumShots, 32) / 32;
 					local toolTip = function(frame)
-						frame:AddText("Pellet Amount", Color(110, 30, 30), nil, 1);
-						frame:AddText("The amount of projectiles fired from this weapon.", Color(225, 200, 200), nil, 0.8);
+						frame:AddText("Quantité de Pellets", Color(110, 30, 30), nil, 1);
+						frame:AddText("Le nombre de projectiles tirés par cette arme.", Color(225, 200, 200), nil, 0.8);
 					end
 		
 					frame:AddBar(12, {{text = tostring(weaponTable.Primary.NumShots), percentage = percentage * 100, color = Color(110, 30, 30), font = "DermaDefault", textless = false, noDisplay = true}}, "Pellet Amount", Color(110, 30, 30), toolTip, true);
@@ -3606,8 +3606,8 @@ function Schema:ModifyItemMarkupTooltip(category, maximumWeight, weight, conditi
 				if weaponTable.Primary.RPM and weaponTable.Primary.ClipSize > 1 then
 					local percentage = math.min(weaponTable.Primary.RPM, 650) / 650;
 					local toolTip = function(frame)
-						frame:AddText("Rate of Fire", Color(110, 30, 30), nil, 1);
-						frame:AddText("The rate of fire of this weapon in rounds per minute.", Color(225, 200, 200), nil, 0.8);
+						frame:AddText("Cadence de tir", Color(110, 30, 30), nil, 1);
+						frame:AddText("La cadence de tir de cette arme en coups par minute.", Color(225, 200, 200), nil, 0.8);
 					end
 		
 					frame:AddBar(12, {{text = tostring(weaponTable.Primary.RPM), percentage = percentage * 100, color = Color(110, 30, 30), font = "DermaDefault", textless = false, noDisplay = true}}, "Rate of Fire", Color(110, 30, 30), toolTip, true);
@@ -3616,8 +3616,8 @@ function Schema:ModifyItemMarkupTooltip(category, maximumWeight, weight, conditi
 				if itemTable.reloadTime then
 					local percentage = math.min(itemTable.reloadTime, 10);
 					local toolTip = function(frame)
-						frame:AddText("Reload Time", Color(110, 30, 30), nil, 1);
-						frame:AddText("The amount of time in seconds it takes to reload this weapon.", Color(225, 200, 200), nil, 0.8);
+						frame:AddText("Temps de rechargement", Color(110, 30, 30), nil, 1);
+						frame:AddText("Le temps en secondes nécessaire pour recharger cette arme.", Color(225, 200, 200), nil, 0.8);
 					end
 		
 					frame:AddBar(12, {{text = tostring(itemTable.reloadTime).."s", percentage = percentage * 10, color = Color(110, 30, 30), font = "DermaDefault", textless = false, noDisplay = true}}, "Reload Time", Color(110, 30, 30), toolTip, true);
@@ -3634,8 +3634,8 @@ function Schema:ModifyItemMarkupTooltip(category, maximumWeight, weight, conditi
 
 						local percentage = math.min(maximumdistancedamage / 150, 150);
 						local toolTip = function(frame)
-							frame:AddText("Maximum Projectile Damage", Color(110, 30, 30), nil, 1);
-							frame:AddText("The maximum amount of damage your projectile can deal. The maximum distance can be reached at about 40 feet from your target, and any distance beyond that will grant no additional damage.", Color(225, 200, 200), nil, 0.8);
+							frame:AddText("Dégâts Maximum des Projectiles", Color(110, 30, 30), nil, 1);
+							frame:AddText("La quantité maximale de dégâts que votre projectile peut infliger. La distance maximale est atteinte à environ 12 mètres de votre cible, et toute distance supplémentaire n'augmentera pas les dégâts.", Color(225, 200, 200), nil, 0.8);
 						end
 			
 						if maximumdistancedamage < originalDamage then
@@ -3657,8 +3657,8 @@ function Schema:ModifyItemMarkupTooltip(category, maximumWeight, weight, conditi
 
 						local percentage = math.min(minimumdistancedamage / 150, 150);
 						local toolTip = function(frame)
-							frame:AddText("Minimum Projectile Damage", Color(110, 30, 30), nil, 1);
-							frame:AddText("The minimum amount of damage your projectile can deal. This would be dealt with a point-blank hit, and would gradually increase the further away the target is.", Color(225, 200, 200), nil, 0.8);
+							frame:AddText("Dégâts Minimum des Projectiles", Color(110, 30, 30), nil, 1);
+							frame:AddText("Le montant minimal de dégâts que votre projectile peut infliger. Ce montant est appliqué lors d'un impact à bout portant, et augmente progressivement avec la distance de la cible.", Color(225, 200, 200), nil, 0.8);
 						end
 			
 						if minimumdistancedamage < originalDamage then
@@ -3672,8 +3672,8 @@ function Schema:ModifyItemMarkupTooltip(category, maximumWeight, weight, conditi
 				if weaponTable.Primary.StabilityDamage then
 					local percentage = math.min(weaponTable.Primary.StabilityDamage / 100, 100);
 					local toolTip = function(frame)
-						frame:AddText("Stability Damage", Color(110, 30, 30), nil, 1);
-						frame:AddText("The damage to your foe's stability that your fired projectiles deal. Dealing enough will temporarily knock your foe to the ground. Can be negated by enemy armor. For bolts, this scales by distance; targets further away will take considerably more stability damage, and targets up close will take considerably less stability damage. At maximum range, the projectile will deal double this stability damage.", Color(225, 200, 200), nil, 0.8);
+						frame:AddText("Dégâts de stabilité", Color(110, 30, 30), nil, 1);
+						frame:AddText("Les dégâts de stabilité infligés à votre adversaire par vos projectiles tirés. En infliger suffisamment fera temporairement tomber votre ennemi au sol. Peut être annulé par l'armure ennemie. Pour les carreaux, cela varie selon la distance : les cibles éloignées subiront nettement plus de dégâts de stabilité, tandis que les cibles proches en subiront nettement moins. À portée maximale, le projectile infligera le double de ces dégâts de stabilité.", Color(225, 200, 200), nil, 0.8);
 					end
 		
 					frame:AddBar(12, {{text = tostring(weaponTable.Primary.StabilityDamage), percentage = percentage * 100, color = Color(110, 30, 30), font = "DermaDefault", textless = false, noDisplay = true}}, "Stability Damage", Color(110, 30, 30), toolTip, true);
@@ -3690,8 +3690,8 @@ function Schema:ModifyItemMarkupTooltip(category, maximumWeight, weight, conditi
 
 						local percentage = math.min(boltRange / 200, 200);
 						local toolTip = function(frame)
-							frame:AddText("Bolt Range", Color(110, 30, 30), nil, 1);
-							frame:AddText("The speed and maximum distance of your loosed bolt. If you wish to hit a target further away, aim higher!", Color(225, 200, 200), nil, 0.8);
+							frame:AddText("Portée des boulons", Color(110, 30, 30), nil, 1);
+							frame:AddText("La vitesse et la distance maximale de votre carreau tiré. Si vous souhaitez toucher une cible plus éloignée, visez plus haut !", Color(225, 200, 200), nil, 0.8);
 						end
 			
 						if boltRange < originalBoltRange then
@@ -3705,8 +3705,8 @@ function Schema:ModifyItemMarkupTooltip(category, maximumWeight, weight, conditi
 				if weaponTable.Primary.Damage and !weaponTable.Primary.MaximumDistanceDamage then
 					local percentage = math.min(weaponTable.Primary.Damage / 80, 80);
 					local toolTip = function(frame)
-						frame:AddText("Shot Damage", Color(110, 30, 30), nil, 1);
-						frame:AddText("The damage of this weapon's shot. Note that firearms have 100% armor-piercing.", Color(225, 200, 200), nil, 0.8);
+						frame:AddText("Dégâts par tir", Color(110, 30, 30), nil, 1);
+						frame:AddText("Les dégâts du tir de cette arme. Notez que les armes à feu percent 100% de l'armure.", Color(225, 200, 200), nil, 0.8);
 					end
 		
 					frame:AddBar(12, {{text = tostring(weaponTable.Primary.Damage), percentage = percentage * 100, color = Color(110, 30, 30), font = "DermaDefault", textless = false, noDisplay = true}}, "Shot Damage", Color(110, 30, 30), toolTip, true);
@@ -3716,7 +3716,7 @@ function Schema:ModifyItemMarkupTooltip(category, maximumWeight, weight, conditi
 					if #weaponAmmo > 0 then
 						if itemTable.ammoCapacity > 1 then
 							if itemTable.usesMagazine then
-								frame:AddText("Loaded Shot: ", Color(225, 225, 225), "nov_IntroTextSmallDETrooper", 1.15);
+								frame:AddText("Tir chargé :", Color(225, 225, 225), "nov_IntroTextSmallDETrooper", 1.15);
 								
 								local clipItem = Clockwork.item:FindByID(string.gsub(string.lower(weaponAmmo[1]), " ", "_"));
 								
@@ -3727,7 +3727,7 @@ function Schema:ModifyItemMarkupTooltip(category, maximumWeight, weight, conditi
 								end
 							else
 								-- Likely is multi-barreled gun.
-								frame:AddText("Loaded Shot: ", Color(225, 225, 225), "nov_IntroTextSmallDETrooper", 1.15);
+								frame:AddText("Tir chargé :", Color(225, 225, 225), "nov_IntroTextSmallDETrooper", 1.15);
 								
 								for i = 1, weaponTable.Primary.ClipSize do
 									if i <= #weaponAmmo then
@@ -3738,11 +3738,11 @@ function Schema:ModifyItemMarkupTooltip(category, maximumWeight, weight, conditi
 								end
 							end
 						else
-							frame:AddText("Loaded Shot: ", Color(225, 225, 225), "nov_IntroTextSmallDETrooper", 1.15);
+							frame:AddText("Tir chargé :", Color(225, 225, 225), "nov_IntroTextSmallDETrooper", 1.15);
 							frame:AddText(weaponAmmo[1], Color(180, 170, 170), "nov_IntroTextSmallDETrooper", 0.8);
 						end
 					else
-						frame:AddText("This weapon is empty.", Color(225, 225, 225), "nov_IntroTextSmallDETrooper", 1.15);
+						frame:AddText("Cette arme est vide.", Color(225, 225, 225), "nov_IntroTextSmallDETrooper", 1.15);
 					end
 				end
 			end
@@ -3754,35 +3754,35 @@ function Schema:ModifyItemMarkupTooltip(category, maximumWeight, weight, conditi
 		frame:AddText(itemTable("description"), Color(180, 170, 170), "nov_IntroTextSmallDETrooper", 0.8);
 		
 		if (bShowWeight) then
-			frame:AddBar(20, {{text = weight.."kg", percentage = percentage * 100, color = Color(96, 96, 128), font = "DermaDefault", leftTextAlign = false, noDisplay = true}}, "Weight", Color(170, 170, 180));
+			frame:AddBar(20, {{text = weight.."kg", percentage = percentage * 100, color = Color(96, 96, 128), font = "DermaDefault", leftTextAlign = false, noDisplay = true}}, "Poids", Color(170, 170, 180));
 			frame:AddSpacer(2, Color(0, 0, 0, 0));
 		end;
 		
 		if itemTable.requiredFactions and not table.IsEmpty(itemTable.requiredFactions) and itemTable.requiredFactions[1] ~= "Wanderer" then
-			frame:AddText("Required Faction: "..table.concat(itemTable.requiredFactions, ", "), Color(110, 30, 30), nil, 0.9);
+			frame:AddText("Faction requise :"..table.concat(itemTable.requiredFactions, ", "), Color(110, 30, 30), nil, 0.9);
 		end
 		
 		if itemTable.requiredFaiths and not table.IsEmpty(itemTable.requiredFaiths) then
-			frame:AddText("Required Faith: "..table.concat(itemTable.requiredFaiths, " or "), Color(110, 30, 30), nil, 0.9);
+			frame:AddText("Foi requise :"..table.concat(itemTable.requiredFaiths, " or "), Color(110, 30, 30), nil, 0.9);
 		end
 		
 		if itemTable.requiredSubfactions and not table.IsEmpty(itemTable.requiredSubfactions) then
-			frame:AddText("Required Subfaction: "..table.concat(itemTable.requiredSubfactions, ", "), Color(110, 30, 30), nil, 0.9);
+			frame:AddText("Sous-faction requise :"..table.concat(itemTable.requiredSubfactions, ", "), Color(110, 30, 30), nil, 0.9);
 		end
 		
 		if itemTable.excludedFactions and not table.IsEmpty(itemTable.excludedFactions) then
-			frame:AddText("Excluded Factions: "..table.concat(itemTable.excludedFactions, ", "), Color(110, 30, 30), nil, 0.9);
+			frame:AddText("Factions exclues :"..table.concat(itemTable.excludedFactions, ", "), Color(110, 30, 30), nil, 0.9);
 			
 			if table.HasValue(itemTable.excludedFactions, Clockwork.Client:GetFaction()) and itemTable.excludedSubfactions and not table.IsEmpty(itemTable.excludedSubfactions) then
-				frame:AddText("Excluded Subfactions: "..table.concat(itemTable.excludedSubfactions, ", "), Color(110, 30, 30), nil, 0.9);
+				frame:AddText("Sous-factions exclues :"..table.concat(itemTable.excludedSubfactions, ", "), Color(110, 30, 30), nil, 0.9);
 			end
 		end
 		
 		if itemTable.excludedSubfactions and not table.IsEmpty(itemTable.excludedSubfactions) then
-			frame:AddText("Excluded Subfactions: "..table.concat(itemTable.excludedSubfactions, ", "), Color(110, 30, 30), nil, 0.9);
+			frame:AddText("Sous-factions exclues :"..table.concat(itemTable.excludedSubfactions, ", "), Color(110, 30, 30), nil, 0.9);
 		end
 		
-		frame:AddText("Effects: ", Color(225, 225, 225), "nov_IntroTextSmallDETrooper", 1.15);
+		frame:AddText("Effets :", Color(225, 225, 225), "nov_IntroTextSmallDETrooper", 1.15);
 		frame:AddText(itemTable.charmEffects, Color(110, 30, 30), nil, 0.9);
 		
 		return true;
@@ -3791,7 +3791,7 @@ function Schema:ModifyItemMarkupTooltip(category, maximumWeight, weight, conditi
 			local magazineAmmo = itemTable:GetAmmoMagazine();
 			
 			if magazineAmmo and magazineAmmo <= 0 then
-				frame:AddText("Empty "..itemTable.name.." - Magazine", Color(180, 20, 20), "nov_IntroTextSmallDETrooper", 1.15);
+				frame:AddText("Vide"..itemTable.name.." - Magazine", Color(180, 20, 20), "nov_IntroTextSmallDETrooper", 1.15);
 			else
 				frame:AddText(itemTable.name.." - Magazine", Color(180, 20, 20), "nov_IntroTextSmallDETrooper", 1.15);
 			end
@@ -3802,14 +3802,14 @@ function Schema:ModifyItemMarkupTooltip(category, maximumWeight, weight, conditi
 		frame:AddText(itemTable("description"), Color(180, 170, 170), "nov_IntroTextSmallDETrooper", 0.8);
 		
 		if (bShowWeight) then
-			frame:AddBar(20, {{text = weight.."kg", percentage = percentage * 100, color = Color(96, 96, 128), font = "DermaDefault", leftTextAlign = false, noDisplay = true}}, "Weight", Color(170, 170, 180));
+			frame:AddBar(20, {{text = weight.."kg", percentage = percentage * 100, color = Color(96, 96, 128), font = "DermaDefault", leftTextAlign = false, noDisplay = true}}, "Poids", Color(170, 170, 180));
 		end;
 		
 		if itemTable.attributes then
-			frame:AddText("Shot Attributes: ", Color(225, 225, 225), "nov_IntroTextSmallDETrooper", 1.15);
+			frame:AddText("Attributs du tir :", Color(225, 225, 225), "nov_IntroTextSmallDETrooper", 1.15);
 		
 			if table.HasValue(itemTable.attributes, "fire") then
-				frame:AddText("Incendiary: Sets enemies alight upon contact.", Color(110, 30, 30), nil, 0.9);
+				frame:AddText("Incendiaire : Enflamme les ennemis au contact.", Color(110, 30, 30), nil, 0.9);
 			end
 		end
 		
@@ -3831,7 +3831,7 @@ function Schema:ModifyItemMarkupTooltip(category, maximumWeight, weight, conditi
 					if ammoStats then
 						ammoStats(weaponTable);
 					
-						frame:AddText("Shot Stats: ", Color(225, 225, 225), "nov_IntroTextSmallDETrooper", 1.15);
+						frame:AddText("Statistiques de tir :", Color(225, 225, 225), "nov_IntroTextSmallDETrooper", 1.15);
 						
 						if weaponTable.Primary.IronAccuracy and !weaponTable.Primary.MaximumDistanceDamage then
 							local accuracy = weaponTable.Primary.IronAccuracy;
@@ -3843,8 +3843,8 @@ function Schema:ModifyItemMarkupTooltip(category, maximumWeight, weight, conditi
 						
 							local percentage = 1 - math.min(accuracy * 2, 1);
 							local toolTip = function(frame)
-								frame:AddText("Accuracy (Aiming)", Color(110, 30, 30), nil, 1);
-								frame:AddText("The accuracy of your weapon while aiming down sights. Can be further increased by crouching and through the 'Marksman' belief.", Color(225, 200, 200), nil, 0.8);
+								frame:AddText("Précision (Visée)", Color(110, 30, 30), nil, 1);
+								frame:AddText("La précision de votre arme lorsque vous visez avec la lunette. Peut être améliorée en s'accroupissant et grâce à la croyance 'Marksman'.", Color(225, 200, 200), nil, 0.8);
 							end
 				
 							if accuracy > originalAccuracy then
@@ -3864,8 +3864,8 @@ function Schema:ModifyItemMarkupTooltip(category, maximumWeight, weight, conditi
 						
 							local percentage = 1 - math.min(accuracy * 2, 1);
 							local toolTip = function(frame)
-								frame:AddText("Accuracy (Hip-Fire)", Color(110, 30, 30), nil, 1);
-								frame:AddText("The accuracy of your weapon while hip-firing. Can be further increased by crouching.", Color(225, 200, 200), nil, 0.8);
+								frame:AddText("Précision (Tir à la hanche)", Color(110, 30, 30), nil, 1);
+								frame:AddText("La précision de votre arme en tir à la hanche. Peut être améliorée en s'accroupissant.", Color(225, 200, 200), nil, 0.8);
 							end
 				
 							if accuracy > originalAccuracy then
@@ -3878,8 +3878,8 @@ function Schema:ModifyItemMarkupTooltip(category, maximumWeight, weight, conditi
 						if weaponTable.Primary.NumShots > 1 then
 							local percentage = math.min(weaponTable.Primary.NumShots, 32) / 32;
 							local toolTip = function(frame)
-								frame:AddText("Pellet Amount", Color(110, 30, 30), nil, 1);
-								frame:AddText("The amount of projectiles fired from this weapon.", Color(225, 200, 200), nil, 0.8);
+								frame:AddText("Quantité de Pellets", Color(110, 30, 30), nil, 1);
+								frame:AddText("Le nombre de projectiles tirés par cette arme.", Color(225, 200, 200), nil, 0.8);
 							end
 				
 							frame:AddBar(12, {{text = tostring(weaponTable.Primary.NumShots), percentage = percentage * 100, color = Color(110, 30, 30), font = "DermaDefault", textless = false, noDisplay = true}}, "Pellet Amount", Color(110, 30, 30), toolTip, true);
@@ -3888,8 +3888,8 @@ function Schema:ModifyItemMarkupTooltip(category, maximumWeight, weight, conditi
 						if weaponTable.Primary.RPM and weaponTable.Primary.ClipSize > 1 then
 							local percentage = math.min(weaponTable.Primary.RPM, 650) / 650;
 							local toolTip = function(frame)
-								frame:AddText("Rate of Fire", Color(110, 30, 30), nil, 1);
-								frame:AddText("The rate of fire of this weapon in rounds per minute.", Color(225, 200, 200), nil, 0.8);
+								frame:AddText("Cadence de tir", Color(110, 30, 30), nil, 1);
+								frame:AddText("La cadence de tir de cette arme en coups par minute.", Color(225, 200, 200), nil, 0.8);
 							end
 				
 							frame:AddBar(12, {{text = tostring(weaponTable.Primary.RPM), percentage = percentage * 100, color = Color(110, 30, 30), font = "DermaDefault", textless = false, noDisplay = true}}, "Rate of Fire", Color(110, 30, 30), toolTip, true);
@@ -3906,8 +3906,8 @@ function Schema:ModifyItemMarkupTooltip(category, maximumWeight, weight, conditi
 
 								local percentage = math.min(maximumdistancedamage / 150, 150);
 								local toolTip = function(frame)
-									frame:AddText("Maximum Projectile Damage", Color(110, 30, 30), nil, 1);
-									frame:AddText("The maximum amount of damage your projectile can deal. The maximum distance can be reached at about 40 feet from your target, and any distance beyond that will grant no additional damage.", Color(225, 200, 200), nil, 0.8);
+									frame:AddText("Dégâts Maximum des Projectiles", Color(110, 30, 30), nil, 1);
+									frame:AddText("La quantité maximale de dégâts que votre projectile peut infliger. La distance maximale est atteinte à environ 12 mètres de votre cible, et toute distance supplémentaire n'augmentera pas les dégâts.", Color(225, 200, 200), nil, 0.8);
 								end
 					
 								if maximumdistancedamage < originalDamage then
@@ -3929,8 +3929,8 @@ function Schema:ModifyItemMarkupTooltip(category, maximumWeight, weight, conditi
 
 								local percentage = math.min(minimumdistancedamage / 150, 150);
 								local toolTip = function(frame)
-									frame:AddText("Minimum Projectile Damage", Color(110, 30, 30), nil, 1);
-									frame:AddText("The minimum amount of damage your projectile can deal. This would be dealt with a point-blank hit, and would gradually increase the further away the target is.", Color(225, 200, 200), nil, 0.8);
+									frame:AddText("Dégâts Minimum des Projectiles", Color(110, 30, 30), nil, 1);
+									frame:AddText("Le montant minimal de dégâts que votre projectile peut infliger. Ce montant est appliqué lors d'un impact à bout portant, et augmente progressivement avec la distance de la cible.", Color(225, 200, 200), nil, 0.8);
 								end
 					
 								if minimumdistancedamage < originalDamage then
@@ -3944,8 +3944,8 @@ function Schema:ModifyItemMarkupTooltip(category, maximumWeight, weight, conditi
 						if weaponTable.Primary.StabilityDamage then
 							local percentage = math.min(weaponTable.Primary.StabilityDamage / 100, 100);
 							local toolTip = function(frame)
-								frame:AddText("Stability Damage", Color(110, 30, 30), nil, 1);
-								frame:AddText("The damage to your foe's stability that your fired projectiles deal. Dealing enough will temporarily knock your foe to the ground. Can be negated by enemy armor. For bolts, this scales by distance; targets further away will take considerably more stability damage, and targets up close will take considerably less stability damage. At maximum range, the projectile will deal double this stability damage.", Color(225, 200, 200), nil, 0.8);
+								frame:AddText("Dégâts de stabilité", Color(110, 30, 30), nil, 1);
+								frame:AddText("Les dégâts de stabilité infligés à votre adversaire par vos projectiles tirés. En infliger suffisamment fera temporairement tomber votre ennemi au sol. Peut être annulé par l'armure ennemie. Pour les carreaux, cela varie selon la distance ; les cibles éloignées subiront considérablement plus de dégâts de stabilité, et les cibles proches en subiront considérablement moins. À portée maximale, le projectile infligera le double de ces dégâts de stabilité.", Color(225, 200, 200), nil, 0.8);
 							end
 				
 							frame:AddBar(12, {{text = tostring(weaponTable.Primary.StabilityDamage), percentage = percentage * 100, color = Color(110, 30, 30), font = "DermaDefault", textless = false, noDisplay = true}}, "Stability Damage", Color(110, 30, 30), toolTip, true);
@@ -3962,8 +3962,8 @@ function Schema:ModifyItemMarkupTooltip(category, maximumWeight, weight, conditi
 
 								local percentage = math.min(boltRange / 200, 200);
 								local toolTip = function(frame)
-									frame:AddText("Bolt Range", Color(110, 30, 30), nil, 1);
-									frame:AddText("The speed and maximum distance of your loosed bolt. If you wish to hit a target further away, aim higher!", Color(225, 200, 200), nil, 0.8);
+									frame:AddText("Portée des boulons", Color(110, 30, 30), nil, 1);
+									frame:AddText("La vitesse et la distance maximale de votre carreau tiré. Si vous souhaitez toucher une cible plus éloignée, visez plus haut !", Color(225, 200, 200), nil, 0.8);
 								end
 					
 								if boltRange < originalBoltRange then
@@ -3977,8 +3977,8 @@ function Schema:ModifyItemMarkupTooltip(category, maximumWeight, weight, conditi
 						if weaponTable.Primary.Damage and !weaponTable.Primary.MaximumDistanceDamage then
 							local percentage = math.min(weaponTable.Primary.Damage / 80, 80);
 							local toolTip = function(frame)
-								frame:AddText("Shot Damage", Color(110, 30, 30), nil, 1);
-								frame:AddText("The damage of this weapon's shot. Note that firearms have 100% armor-piercing.", Color(225, 200, 200), nil, 0.8);
+								frame:AddText("Dégâts par tir", Color(110, 30, 30), nil, 1);
+								frame:AddText("Les dégâts d'un tir de cette arme. Notez que les armes à feu ont 100% de pénétration d'armure.", Color(225, 200, 200), nil, 0.8);
 							end
 				
 							frame:AddBar(12, {{text = tostring(weaponTable.Primary.Damage), percentage = percentage * 100, color = Color(110, 30, 30), font = "DermaDefault", textless = false, noDisplay = true}}, "Shot Damage", Color(110, 30, 30), toolTip, true);
@@ -3992,10 +3992,10 @@ function Schema:ModifyItemMarkupTooltip(category, maximumWeight, weight, conditi
 			local magazineAmmo = itemTable:GetAmmoMagazine();
 			
 			if magazineAmmo and magazineAmmo > 0 then
-				frame:AddText("Loaded Shot: ", Color(225, 225, 225), "nov_IntroTextSmallDETrooper", 1.15);
+				frame:AddText("Tir chargé :", Color(225, 225, 225), "nov_IntroTextSmallDETrooper", 1.15);
 				frame:AddText(itemTable.ammoName.." ("..tostring(magazineAmmo).."/"..tostring(itemTable.ammoMagazineSize)..")", Color(180, 170, 170), "nov_IntroTextSmallDETrooper", 0.8);
 			else
-				frame:AddText("This magazine is empty.", Color(225, 225, 225), "nov_IntroTextSmallDETrooper", 1.15);
+				frame:AddText("Ce chargeur est vide.", Color(225, 225, 225), "nov_IntroTextSmallDETrooper", 1.15);
 			end
 		end
 		
@@ -4016,52 +4016,52 @@ function Schema:ModifyItemMarkupTooltip(category, maximumWeight, weight, conditi
 		frame:AddText(itemTable("description"), Color(180, 170, 170), "nov_IntroTextSmallDETrooper", 0.8);
 		
 		if (bShowWeight) then
-			frame:AddBar(20, {{text = weight.."kg", percentage = percentage * 100, color = Color(96, 96, 128), font = "DermaDefault", leftTextAlign = false, noDisplay = true}}, "Weight", Color(170, 170, 180));
+			frame:AddBar(20, {{text = weight.."kg", percentage = percentage * 100, color = Color(96, 96, 128), font = "DermaDefault", leftTextAlign = false, noDisplay = true}}, "Poids", Color(170, 170, 180));
 			frame:AddSpacer(2, Color(0, 0, 0, 0));
 		end
 		
-		frame:AddText("Medical Attributes: ", Color(225, 225, 225), "nov_IntroTextSmallDETrooper", 1.15);
+		frame:AddText("Attributs médicaux :", Color(225, 225, 225), "nov_IntroTextSmallDETrooper", 1.15);
 
 		if itemTable.applicable then
 			frame:AddText("Applicable", Color(110, 30, 30), nil, 0.9);
 		elseif itemTable.ingestible then
-			frame:AddText("Ingestible", Color(110, 30, 30), nil, 0.9);
+			frame:AddText("Ingérable", Color(110, 30, 30), nil, 0.9);
 		end
 		
 		if itemTable.canSave then
-			frame:AddText("Can Revive From Critical Condition", Color(110, 30, 30), nil, 0.9);
+			frame:AddText("Peut Ressusciter en État Critique", Color(110, 30, 30), nil, 0.9);
 		end
 		
 		if itemTable.curesInjuries then
-			frame:AddText("Cures Injuries: ", Color(110, 30, 30), nil, 0.9);
+			frame:AddText("Soigne les blessures :", Color(110, 30, 30), nil, 0.9);
 			
 			for i = 1, #itemTable.curesInjuries do
 				local injury = cwMedicalSystem.cwInjuryTable[itemTable.curesInjuries[i]];
 				
 				if injury then
-					frame:AddText("    "..injury.name, Color(110, 30, 30), nil, 0.9);
+					frame:AddText("Contexte : Texte de cadre"..injury.name, Color(110, 30, 30), nil, 0.9);
 				end
 			end
 		end
 		
 		if itemTable.stopsBleeding then
-			frame:AddText("Stops Bleeding", Color(110, 30, 30), nil, 0.9);
+			frame:AddText("Arrête l'hémorragie", Color(110, 30, 30), nil, 0.9);
 		end
 		
 		if itemTable.limbs then
 			if itemTable.limbs == "all" then
-				frame:AddText("Supported Limbs: Heals All", Color(110, 30, 30), nil, 0.9);
+				frame:AddText("Membres pris en charge : Soigne tous", Color(110, 30, 30), nil, 0.9);
 			elseif #itemTable.limbs > 0 then
-				frame:AddText("Supported Limbs: ", Color(110, 30, 30), nil, 0.9);
+				frame:AddText("Membres pris en charge :", Color(110, 30, 30), nil, 0.9);
 				
 				for i = 1, #itemTable.limbs do
-					frame:AddText("    "..hitGroupToString[itemTable.limbs[i]], Color(110, 30, 30), nil, 0.9);
+					frame:AddText("Contexte : Texte de cadre"..hitGroupToString[itemTable.limbs[i]], Color(110, 30, 30), nil, 0.9);
 				end
 			end
 		end
 
 		if itemTable.healAmount or itemTable.restoresBlood then
-			frame:AddText("Medical Stats: ", Color(225, 225, 225), "nov_IntroTextSmallDETrooper", 1.15);
+			frame:AddText("Statistiques médicales :", Color(225, 225, 225), "nov_IntroTextSmallDETrooper", 1.15);
 		
 			if itemTable.healAmount and itemTable.healRepetition then	
 				local healAmount = itemTable.healAmount;
@@ -4069,16 +4069,16 @@ function Schema:ModifyItemMarkupTooltip(category, maximumWeight, weight, conditi
 				local healDelay = itemTable.healDelay;
 				local percentage = math.min(healAmount / 100, 100);
 				local toolTip = function(frame)
-					frame:AddText("Heal Amount", Color(110, 30, 30), nil, 1);
-					frame:AddText("The amount of health this item will restore every repetition.", Color(225, 200, 200), nil, 0.8);
+					frame:AddText("Quantité de soins", Color(110, 30, 30), nil, 1);
+					frame:AddText("La quantité de santé que cet objet restaurera à chaque répétition.", Color(225, 200, 200), nil, 0.8);
 				end
 
 				frame:AddBar(12, {{text = healAmount.." Health", percentage = percentage * 100, color = Color(110, 30, 30), font = "DermaDefault", textless = false, noDisplay = true}}, "Heal Amount", Color(110, 30, 30), toolTip, true);
 				
 				percentage = math.min(healRepetition / 8, 8);
 				toolTip = function(frame)
-					frame:AddText("Heal Repetitions", Color(110, 30, 30), nil, 1);
-					frame:AddText("The amount of times that this item will restore health.", Color(225, 200, 200), nil, 0.8);
+					frame:AddText("Répétitions de Soin", Color(110, 30, 30), nil, 1);
+					frame:AddText("Le nombre de fois que cet objet restaurera la santé.", Color(225, 200, 200), nil, 0.8);
 				end
 
 				frame:AddBar(12, {{text = healRepetition, percentage = percentage * 100, color = Color(110, 30, 30), font = "DermaDefault", textless = false, noDisplay = true}}, "Heal Repetitions", Color(110, 30, 30), toolTip, true);
@@ -4086,8 +4086,8 @@ function Schema:ModifyItemMarkupTooltip(category, maximumWeight, weight, conditi
 				if itemTable.healDelay then
 					percentage = math.min(healDelay / 8, 8);
 					toolTip = function(frame)
-						frame:AddText("Heal Delay", Color(110, 30, 30), nil, 1);
-						frame:AddText("The delay between each of this item's heal repetitions.", Color(225, 200, 200), nil, 0.8);
+						frame:AddText("Délai de soin", Color(110, 30, 30), nil, 1);
+						frame:AddText("Le délai entre chaque répétition de soin de cet objet.", Color(225, 200, 200), nil, 0.8);
 					end
 
 					frame:AddBar(12, {{text = healDelay.."s", percentage = percentage * 100, color = Color(110, 30, 30), font = "DermaDefault", textless = false, noDisplay = true}}, "Heal Delay", Color(110, 30, 30), toolTip, true);
@@ -4098,8 +4098,8 @@ function Schema:ModifyItemMarkupTooltip(category, maximumWeight, weight, conditi
 				local healAmount = itemTable.restoresBlood;
 				local percentage = math.min(healAmount / 2500, 2500);
 				local toolTip = function(frame)
-					frame:AddText("Restores Blood", Color(110, 30, 30), nil, 1);
-					frame:AddText("The total amount of blood that this medical item will restore.", Color(225, 200, 200), nil, 0.8);
+					frame:AddText("Restaure le Sang", Color(110, 30, 30), nil, 1);
+					frame:AddText("La quantité totale de sang que cet objet médical va restaurer.", Color(225, 200, 200), nil, 0.8);
 				end
 
 				frame:AddBar(12, {{text = healAmount.." Blood", percentage = percentage * 100, color = Color(110, 30, 30), font = "DermaDefault", textless = false, noDisplay = true}}, "Restores Blood", Color(110, 30, 30), toolTip, true);
@@ -4116,7 +4116,7 @@ function Schema:ModifyItemMarkupTooltip(category, maximumWeight, weight, conditi
 		frame:AddText(itemTable("description"), Color(180, 170, 170), "nov_IntroTextSmallDETrooper", 0.8);
 		
 		if (bShowWeight) then
-			frame:AddBar(20, {{text = weight.."kg", percentage = percentage * 100, color = Color(96, 96, 128), font = "DermaDefault", leftTextAlign = false, noDisplay = true}}, "Weight", Color(170, 170, 180));
+			frame:AddBar(20, {{text = weight.."kg", percentage = percentage * 100, color = Color(96, 96, 128), font = "DermaDefault", leftTextAlign = false, noDisplay = true}}, "Poids", Color(170, 170, 180));
 		end;
 		
 		if cwWarmth and cwWarmth.systemEnabled and itemTable.insulation then
@@ -4133,7 +4133,7 @@ function Schema:ModifyItemMarkupTooltip(category, maximumWeight, weight, conditi
 		frame:AddText(itemTable("description"), Color(180, 170, 170), "nov_IntroTextSmallDETrooper", 0.8);
 		
 		if (bShowWeight) then
-			frame:AddBar(20, {{text = weight.."kg", percentage = percentage * 100, color = Color(96, 96, 128), font = "DermaDefault", leftTextAlign = false, noDisplay = true}}, "Weight", Color(170, 170, 180));
+			frame:AddBar(20, {{text = weight.."kg", percentage = percentage * 100, color = Color(96, 96, 128), font = "DermaDefault", leftTextAlign = false, noDisplay = true}}, "Poids", Color(170, 170, 180));
 		end;
 		
 		return true;
@@ -4144,12 +4144,12 @@ function Schema:ModifyItemMarkupTooltip(category, maximumWeight, weight, conditi
 		frame:AddText(itemTable("description"), Color(180, 170, 170), "nov_IntroTextSmallDETrooper", 0.8);
 		
 		if (bShowWeight) then
-			frame:AddBar(20, {{text = weight.."kg", percentage = percentage * 100, color = Color(96, 96, 128), font = "DermaDefault", leftTextAlign = false, noDisplay = true}}, "Weight", Color(170, 170, 180));
+			frame:AddBar(20, {{text = weight.."kg", percentage = percentage * 100, color = Color(96, 96, 128), font = "DermaDefault", leftTextAlign = false, noDisplay = true}}, "Poids", Color(170, 170, 180));
 		end;
 		
 		if itemTable.invSpace then
-			frame:AddText("Item Attributes: ", Color(225, 225, 225), "nov_IntroTextSmallDETrooper", 1.15);
-			frame:AddText("Increases Maximum Carry Weight: +"..tostring(itemTable.invSpace).."kg", Color(110, 30, 30), nil, 0.9);
+			frame:AddText("Attributs de l'objet :", Color(225, 225, 225), "nov_IntroTextSmallDETrooper", 1.15);
+			frame:AddText("Augmente le Poids Maximum Transportable : +"..tostring(itemTable.invSpace).."kg", Color(110, 30, 30), nil, 0.9);
 		end
 		
 		return true;
@@ -4158,18 +4158,18 @@ function Schema:ModifyItemMarkupTooltip(category, maximumWeight, weight, conditi
 		frame:AddText(itemTable("description"), Color(180, 170, 170), "nov_IntroTextSmallDETrooper", 0.8);
 		
 		if (bShowWeight) then
-			frame:AddBar(20, {{text = weight.."kg", percentage = percentage * 100, color = Color(96, 96, 128), font = "DermaDefault", leftTextAlign = false, noDisplay = true}}, "Weight", Color(170, 170, 180));
+			frame:AddBar(20, {{text = weight.."kg", percentage = percentage * 100, color = Color(96, 96, 128), font = "DermaDefault", leftTextAlign = false, noDisplay = true}}, "Poids", Color(170, 170, 180));
 		end;
 		
 		if cwScriptures.booksRead then
 			if table.HasValue(cwScriptures.booksRead, itemTable.uniqueID) then
-				frame:AddText("Already read!", Color(225, 225, 225), "nov_IntroTextSmallDETrooper", 1);
+				frame:AddText("Déjà lu !", Color(225, 225, 225), "nov_IntroTextSmallDETrooper", 1);
 			end
 		end
 		
 		if cwScriptures.booksCopied then
 			if table.HasValue(cwScriptures.booksCopied, itemTable.uniqueID) then
-				frame:AddText("Already copied!", Color(225, 225, 225), "nov_IntroTextSmallDETrooper", 1);
+				frame:AddText("Déjà copié !", Color(225, 225, 225), "nov_IntroTextSmallDETrooper", 1);
 			end
 		end
 		
@@ -4179,14 +4179,14 @@ function Schema:ModifyItemMarkupTooltip(category, maximumWeight, weight, conditi
 		frame:AddText(name.." - "..category, Color(180, 20, 20), "nov_IntroTextSmallDETrooper", 1.15);
 		frame:AddText(itemTable("description"), Color(180, 170, 170), "nov_IntroTextSmallDETrooper", 0.8);
 		
-		if itemTable.needs.hunger then frame:AddText("Hunger: "..itemTable.needs.hunger, Color(110, 30, 30), "nov_IntroTextSmallDETrooper", 0.8); end
-		if itemTable.needs.thirst then frame:AddText("Thirst: "..itemTable.needs.thirst, Color(110, 30, 30), "nov_IntroTextSmallDETrooper", 0.8); end
-		if itemTable.needs.sleep then frame:AddText("Sleep: "..itemTable.needs.sleep, Color(110, 30, 30), "nov_IntroTextSmallDETrooper", 0.8); end
-		if itemTable.needs.stamina then frame:AddText("Stamina: "..itemTable.needs.stamina, Color(110, 30, 30), "nov_IntroTextSmallDETrooper", 0.8); end
-		if itemTable.needs.health then frame:AddText("Health: "..itemTable.needs.health, Color(110, 30, 30), "nov_IntroTextSmallDETrooper", 0.8); end
+		if itemTable.needs.hunger then frame:AddText("Faim :"..itemTable.needs.hunger, Color(110, 30, 30), "nov_IntroTextSmallDETrooper", 0.8); end
+		if itemTable.needs.thirst then frame:AddText("Soif :"..itemTable.needs.thirst, Color(110, 30, 30), "nov_IntroTextSmallDETrooper", 0.8); end
+		if itemTable.needs.sleep then frame:AddText("Sommeil :"..itemTable.needs.sleep, Color(110, 30, 30), "nov_IntroTextSmallDETrooper", 0.8); end
+		if itemTable.needs.stamina then frame:AddText("Endurance :"..itemTable.needs.stamina, Color(110, 30, 30), "nov_IntroTextSmallDETrooper", 0.8); end
+		if itemTable.needs.health then frame:AddText("Santé :"..itemTable.needs.health, Color(110, 30, 30), "nov_IntroTextSmallDETrooper", 0.8); end
 		
 		if (bShowWeight) then
-			frame:AddBar(20, {{text = weight.."kg", percentage = percentage * 100, color = Color(96, 96, 128), font = "DermaDefault", leftTextAlign = false, noDisplay = true}}, "Weight", Color(170, 170, 180));
+			frame:AddBar(20, {{text = weight.."kg", percentage = percentage * 100, color = Color(96, 96, 128), font = "DermaDefault", leftTextAlign = false, noDisplay = true}}, "Poids", Color(170, 170, 180));
 		end;
 		
 		return true;
@@ -4199,7 +4199,7 @@ function Schema:ModifyItemMarkupTooltip(category, maximumWeight, weight, conditi
 		frame:AddText(itemTable("description"), Color(180, 170, 170), "nov_IntroTextSmallDETrooper", 0.8);
 		
 		if (bShowWeight) then
-			frame:AddBar(20, {{text = weight.."kg", percentage = percentage * 100, color = Color(96, 96, 128), font = "DermaDefault", leftTextAlign = false, noDisplay = true}}, "Weight", Color(170, 170, 180));
+			frame:AddBar(20, {{text = weight.."kg", percentage = percentage * 100, color = Color(96, 96, 128), font = "DermaDefault", leftTextAlign = false, noDisplay = true}}, "Poids", Color(170, 170, 180));
 		end;
 	
 		if itemTable.requiredbeliefs and #itemTable.requiredbeliefs > 0 then
@@ -4228,7 +4228,7 @@ function Schema:ModifyItemMarkupTooltip(category, maximumWeight, weight, conditi
 				end
 			end
 			
-			frame:AddText("Required Beliefs: ", Color(225, 225, 225), "nov_IntroTextSmallDETrooper", 1.15);
+			frame:AddText("Croyances requises :", Color(225, 225, 225), "nov_IntroTextSmallDETrooper", 1.15);
 			frame:AddIconRow(beliefIcons, 40);
 		end
 		
@@ -4258,7 +4258,7 @@ function Schema:ModifyItemMarkupTooltip(category, maximumWeight, weight, conditi
 				end
 			end
 			
-			frame:AddText("Required Beliefs (One Of The Following): ", Color(225, 225, 225), "nov_IntroTextSmallDETrooper", 1.15);
+			frame:AddText("Croyances Requises (Une des Suivantes) :", Color(225, 225, 225), "nov_IntroTextSmallDETrooper", 1.15);
 			frame:AddIconRow(beliefIcons, 40);
 		end
 		

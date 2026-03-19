@@ -99,7 +99,7 @@ local COMMAND = Clockwork.command:New("Expel");
 						if v:IsAdmin() or (v:Alive() and v:GetFaction() == "Children of Satan") then
 							v:SendLua([[Clockwork.Client:EmitSound("darkwhisper/darkwhisper_long"..math.random(1, 5)..".mp3", 80, 100)]]);
 							Clockwork.chatBox:SetMultiplier(1.35);
-							Clockwork.chatBox:Add(v, nil, "darkwhisperevent", player:Name().." has expelled "..target:Name().."'s soul to damnation for their insolence! Let "..pronoun.." sentence instill fear to all those found wanting.");
+							Clockwork.chatBox:Add(v, nil, "darkwhisperevent", player:Name().." a expulsé l'âme de "..target:Name().." en damnation pour son insolence ! Que sa peine inspire la crainte à tous ceux qui sont jugés indignes.");
 						end
 					end
 				end;

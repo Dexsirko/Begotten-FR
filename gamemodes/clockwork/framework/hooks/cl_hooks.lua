@@ -2732,7 +2732,7 @@ function GM:HUDDrawTargetID()
 									
 									local key = input.GetKeyName(Clockwork.ConVars.Binds["PHYSDESCINSPECT"]:GetInt()) or "NOT BOUND";
 									
-									y = Clockwork.kernel:DrawInfo("Press <"..key:upper().."> to inspect this character.", x, y, colorWhite, alpha)
+									y = Clockwork.kernel:DrawInfo("Appuyez sur <"..key:upper().."> pour inspecter ce personnage.", x, y, colorWhite, alpha)
 								end
 								
 								--[[if (!Clockwork.nextCheckRecognises or curTime >= Clockwork.nextCheckRecognises[1] or Clockwork.nextCheckRecognises[2] != player) then
@@ -2804,7 +2804,7 @@ function GM:DrawTargetPlayerStatus(target, alpha, x, y)
 	if(target:GetSharedVar("isThrall")) then return; end
 
 	if (!target:Alive()) then
-		return Clockwork.kernel:DrawInfo(gender.." is clearly deceased.", x, y, informationColor, alpha)
+		return Clockwork.kernel:DrawInfo(gender.." st clairement décédé.", x, y, informationColor, alpha)
 	else
 		return y
 	end
@@ -3551,7 +3551,7 @@ function GM:ShouldPlayerScreenFadeBlack()
 			draw.RoundedBox(0, 0, 0, scrW, scrH, Color(0, 0, 0, 255));
 			
 			if !Clockwork.Client:Alive() then
-				draw.SimpleText("You have been corpsed.", introTextSmallFont, scrW / 2, scrH / 2, Color(170, 0, 0, 255), 1, 1);
+				draw.SimpleText("Vous avez été réduit à l'état de cadavre.", introTextSmallFont, scrW / 2, scrH / 2, Color(170, 0, 0, 255), 1, 1);
 			end
 		
 			return true;

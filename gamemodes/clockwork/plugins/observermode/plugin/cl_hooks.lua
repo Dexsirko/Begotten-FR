@@ -127,7 +127,7 @@ end
 
 function cwObserverMode:CanOpenEntityMenu()
 	if (Clockwork.player:IsNoClipping(Clockwork.Client) and !Clockwork.Client:IsAdmin()) then
-		Clockwork.chatBox:Add(nil, "icon16/error.png", Color(200, 175, 200, 255), "You cannot interact with entities while in spectator mode!");
+		Clockwork.chatBox:Add(nil, "icon16/error.png", Color(200, 175, 200, 255), "Vous ne pouvez pas interagir avec des entités en mode spectateur!");
 		return false;
 	end
 end

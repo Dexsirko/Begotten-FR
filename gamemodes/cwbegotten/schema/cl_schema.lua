@@ -303,19 +303,19 @@ netstream.Hook("TriggerCrows", function()
 end);
 
 Clockwork.chatBox:RegisterClass("ravenspeak", "ic", function(info)
-	Clockwork.chatBox:Add(info.filtered, nil, Color(159, 129, 112, 255), "A raven flies onto your shoulder, speaking into your ear with the voice of "..info.speaker:Name().." "..info.text);
+	Clockwork.chatBox:Add(info.filtered, nil, Color(159, 129, 112, 255), "Un corbeau se pose sur votre épaule, vous parlant à l'oreille avec la voix de"..info.speaker:Name().." "..info.text);
 end);
 
 Clockwork.chatBox:RegisterClass("ravenspeakclan", "ic", function(info)
-	Clockwork.chatBox:Add(info.filtered, nil, Color(159, 129, 112, 255), "A flock of ravens fly far above your head and those of other Clan Crast Gores, speaking with the voice of "..info.speaker:Name().." "..info.text);
+	Clockwork.chatBox:Add(info.filtered, nil, Color(159, 129, 112, 255), "Une volée de corbeaux vole bien au-dessus de votre tête et de celle des autres Gores du Clan Crast, parlant avec la voix de "..info.speaker:Name().." "..info.text);
 end);
 
 Clockwork.chatBox:RegisterClass("ravenspeakfaction", "ic", function(info)
-	Clockwork.chatBox:Add(info.filtered, nil, Color(159, 129, 112, 255), "A flock of ravens fly far above your head and those of other Gores, speaking with the voice of "..info.speaker:Name().." "..info.text);
+	Clockwork.chatBox:Add(info.filtered, nil, Color(159, 129, 112, 255), "Une volée de corbeaux vole bien au-dessus de votre tête et de celle des autres Gores, parlant avec la voix de "..info.speaker:Name().." "..info.text);
 end);
 
 Clockwork.chatBox:RegisterClass("ravenspeakreply", "ic", function(info)
-	Clockwork.chatBox:Add(info.filtered, nil, Color(159, 129, 112, 255), info.speaker:Name().." speaks back to the raven "..info.text);
+	Clockwork.chatBox:Add(info.filtered, nil, Color(159, 129, 112, 255), info.speaker:Name().." répond au corbeau "..info.text);
 end);
 
 Clockwork.chatBox:RegisterDefaultClass("rptext", "ic", function(info)
@@ -330,7 +330,7 @@ Clockwork.chatBox:RegisterDefaultClass("speaker", "ic", function(info)
 	if (string.find(string.lower(name), "dreadpope")) then
 		name = "the Mighty Pope";
 	end;
-	Clockwork.chatBox:Add(info.filtered, nil, Color(123, 104, 238), "The voice of "..info.name.." rings out over the public address system \""..info.text.."\"");
+	Clockwork.chatBox:Add(info.filtered, nil, Color(123, 104, 238), "La voix de "..info.name.." résonne sur le système de sonorisation public \""..info.text.."\"");
 end);
 
 Clockwork.chatBox:RegisterDefaultClass("speakerit", "ic", function(info)				

@@ -33,10 +33,10 @@ function cwStorage:HUDPaintEntityTargetID(entity, info)
 				info.y = Clockwork.kernel:DrawInfo(entity:GetNetworkedString("Name"), info.x, info.y, colorTargetID, info.alpha)
 				
 				if customName == "Supercrate" then
-					info.y = Clockwork.kernel:DrawInfo("A collection of ancient military crates, a holy grail...", info.x, info.y, colorWhite, info.alpha)
+					info.y = Clockwork.kernel:DrawInfo("Une collection d'anciennes caisses militaires, un saint graal...", info.x, info.y, colorWhite, info.alpha)
 					
 					if (entity:GetNWBool("unlocked", true) == false) then
-						info.y = Clockwork.kernel:DrawInfo("[LOCKED]", info.x, info.y, Color(175, 100, 100), info.alpha);
+						info.y = Clockwork.kernel:DrawInfo("[VERROUILLÉ]", info.x, info.y, Color(175, 100, 100), info.alpha);
 					end;
 					
 					return;
@@ -45,10 +45,10 @@ function cwStorage:HUDPaintEntityTargetID(entity, info)
 				info.y = Clockwork.kernel:DrawInfo(self.containerList[model][2], info.x, info.y, colorTargetID, info.alpha)
 			end
 			
-			info.y = Clockwork.kernel:DrawInfo("You can put items in there.", info.x, info.y, colorWhite, info.alpha)
+			info.y = Clockwork.kernel:DrawInfo("Vous pouvez mettre des objets là-dedans.", info.x, info.y, colorWhite, info.alpha)
 			
 			if (entity:GetNWBool("unlocked", true) == false) then
-				info.y = Clockwork.kernel:DrawInfo("[LOCKED]", info.x, info.y, Color(175, 100, 100), info.alpha);
+				info.y = Clockwork.kernel:DrawInfo("[VERROUILLÉ]", info.x, info.y, Color(175, 100, 100), info.alpha);
 			end;
 		end
 	end

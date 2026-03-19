@@ -12,9 +12,9 @@ function ENT:HUDPaintTargetID(x, y, alpha)
 	local name = self:GetNWString("name");
 	
 	if !name or name:len() == 0 then
-		y = Clockwork.kernel:DrawInfo("A large and formidable Goreic warship.", x, y, Clockwork.option:GetColor("white"), alpha);
+		y = Clockwork.kernel:DrawInfo("Un grand et imposant navire de guerre Goreic.", x, y, Clockwork.option:GetColor("white"), alpha);
 	else
-		y = Clockwork.kernel:DrawInfo("A large and formidable Goreic warship. The name '"..name.."' is chiselled onto its side in Goreic script.", x, y, Clockwork.option:GetColor("white"), alpha);
+		y = Clockwork.kernel:DrawInfo("Un grand et imposant navire de guerre Goreic. Le nom '"..name.."' est gravé sur son flanc en écriture Goreic.", x, y, Clockwork.option:GetColor("white"), alpha);
 	end
 end;
 

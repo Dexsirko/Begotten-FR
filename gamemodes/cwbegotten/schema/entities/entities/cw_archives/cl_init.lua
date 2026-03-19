@@ -12,8 +12,8 @@ function ENT:HUDPaintTargetID(x, y, alpha)
 	local colorTargetID = Clockwork.option:GetColor("target_id")
 	local colorWhite = Clockwork.option:GetColor("white")
 	
-	y = Clockwork.kernel:DrawInfo("The Archives", x, y, colorTargetID, alpha)
-	y = Clockwork.kernel:DrawInfo("A gloriously tall library shelf full of knowledge.", x, y, colorWhite, alpha);
+	y = Clockwork.kernel:DrawInfo("Les Archives", x, y, colorTargetID, alpha)
+	y = Clockwork.kernel:DrawInfo("Une bibliothèque magnifiquement haute, pleine de connaissances.", x, y, colorWhite, alpha);
 end;
 
 local function CreateMenu(state)

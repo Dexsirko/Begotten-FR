@@ -313,9 +313,9 @@ function COMMAND:OnRun(player, arguments)
 		Clockwork.chatBox:SetMultiplier(1.25);
 		Clockwork.chatBox:Add(player, nil, "demontalk", message);
 		
-		Schema:EasyText(player, "cornflowerblue", "["..self.name.."] You have demontalked "..message.." to "..target:Name()..".");
+		Schema:EasyText(player, "cornflowerblue", "["..self.name.."] Vous avez parlé au démon "..message.." to "..target:Name()..".");
 	else
-		Schema:EasyText(player, "grey", "["..self.name.."] "..arguments[1].." is not a valid player!");
+		Schema:EasyText(player, "grey", "["..self.name.."] "..arguments[1].." n'est pas un joueur valide!");
 	end;
 end;
 
@@ -343,9 +343,9 @@ function COMMAND:OnRun(player, arguments)
 		Clockwork.chatBox:SetMultiplier(1.25);
 		Clockwork.chatBox:Add(player, nil, "demonnicetalk", message);
 		
-		Schema:EasyText(player, "cornflowerblue", "["..self.name.."] You have demonnicetalked "..message.." to "..target:Name()..".");
+		Schema:EasyText(player, "cornflowerblue", "["..self.name.."] Vous avez parlé gentiment au démon "..message.." to "..target:Name()..".");
 	else
-		Schema:EasyText(player, "grey", "["..self.name.."] "..arguments[1].." is not a valid player!");
+		Schema:EasyText(player, "grey", "["..self.name.."] "..arguments[1].." n'est pas un joueur valide!");
 	end;
 end;
 
@@ -370,9 +370,9 @@ function COMMAND:OnRun(player, arguments)
 		--end
 		
 		--Clockwork.chatBox:Add(player, nil, "whispersomeone", "[À"..string.upper(target:Name())..":"..message);
-		Schema:EasyText(player, "cornflowerblue", "["..self.name.."] You have demonwhispered \""..message.."\" to "..target:Name()..".");
+		Schema:EasyText(player, "cornflowerblue", "["..self.name.."] Vous avez murmuré au démon \""..message.."\" to "..target:Name()..".");
 	else
-		Schema:EasyText(player, "grey", "["..self.name.."] "..arguments[1].." is not a valid player!");
+		Schema:EasyText(player, "grey", "["..self.name.."] "..arguments[1].." n'est pas un joueur valide!");
 	end;
 end;
 
@@ -397,13 +397,13 @@ function COMMAND:OnRun(player, arguments)
 				Clockwork.chatBox:Add(target, speaker, "ic", message);
 				Clockwork.chatBox:Add(player, speaker, "ic", "[À"..string.upper(target:Name()).." FROM "..string.upper(speaker:Name())..": "..message);
 			else
-				Schema:EasyText(player, "darkgrey", "["..self.name.."] ".."This is not a valid message!");
+				Schema:EasyText(player, "darkgrey", "["..self.name.."] ".."Ce n'est pas un message valide!");
 			end
 		else
-			Schema:EasyText(player, "grey", "["..self.name.."] "..arguments[2].." is not a valid player!");
+			Schema:EasyText(player, "grey", "["..self.name.."] "..arguments[2].." n'est pas un joueur valide!");
 		end
 	else
-		Schema:EasyText(player, "grey", "["..self.name.."] "..arguments[1].." is not a valid player!");
+		Schema:EasyText(player, "grey", "["..self.name.."] "..arguments[1].." n'est pas un joueur valide!");
 	end;
 end;
 

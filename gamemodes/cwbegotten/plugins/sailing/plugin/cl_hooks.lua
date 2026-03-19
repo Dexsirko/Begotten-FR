@@ -1,4 +1,4 @@
---[[
+﻿--[[
 	Begotten III: Jesus Wept
 --]]
 
@@ -49,7 +49,7 @@ function cwSailing:SubModifyItemMarkupTooltip(category, maximumWeight, weight, c
 		
 		if health then
 			if health > 0 then
-				frame:AddText("Longship Health: "..tostring(health), Color(110, 30, 30), nil, 0.9);
+				frame:AddText("Santé du Longship :"..tostring(health), Color(110, 30, 30), nil, 0.9);
 			end
 		end
 	end

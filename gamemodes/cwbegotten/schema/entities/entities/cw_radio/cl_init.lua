@@ -41,7 +41,7 @@ function ENT:HUDPaintTargetID(x, y, alpha)
 	if (self:IsCrazy()) then
 		y = Clockwork.kernel:DrawInfo(tostring(crazyNumber), x, y, colorWhite, alpha);
 	elseif (frequency == 0) then
-		y = Clockwork.kernel:DrawInfo("This radio has no frequency.", x, y, colorWhite, alpha);
+		y = Clockwork.kernel:DrawInfo("Cette radio n'a pas de fréquence.", x, y, colorWhite, alpha);
 	else
 		local faction = Clockwork.Client:GetNetVar("kinisgerOverride") or Clockwork.Client:GetFaction();
 		

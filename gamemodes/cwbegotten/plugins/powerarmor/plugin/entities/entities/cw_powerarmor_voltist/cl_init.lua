@@ -12,8 +12,8 @@ function ENT:HUDPaintTargetID(x, y, alpha)
 	local colorTargetID = Clockwork.option:GetColor("target_id")
 	local colorWhite = Clockwork.option:GetColor("white")
 	
-	y = Clockwork.kernel:DrawInfo("Voltist Power Armor", x, y, colorTargetID, alpha)
-	y = Clockwork.kernel:DrawInfo("A makeshift set of power armor used by advanced scrapper Voltist groups. It consists of metal plates, kevlar, and advanced technological components.", x, y, colorWhite, alpha);
+	y = Clockwork.kernel:DrawInfo("Armure Assistée Voltiste", x, y, colorTargetID, alpha)
+	y = Clockwork.kernel:DrawInfo("Un ensemble d'armure assistée de fortune utilisé par les groupes avancés de ferrailleurs Voltistes. Il se compose de plaques de métal, de kevlar et de composants technologiques avancés.", x, y, colorWhite, alpha);
 end;
 
 local function CreateMenu(state)

@@ -12,6 +12,6 @@ function ENT:HUDPaintTargetID(x, y, alpha)
 	local colorTargetID = Clockwork.option:GetColor("target_id")
 	local colorWhite = Clockwork.option:GetColor("white")
 	
-	y = Clockwork.kernel:DrawInfo("Cinderblock Pile", x, y, colorTargetID, alpha)
-	y = Clockwork.kernel:DrawInfo("A pile of cinderblocks to be used for the express purpose of drowning fucklets.", x, y, colorWhite, alpha);
+	y = Clockwork.kernel:DrawInfo("Tas de Parpaings", x, y, colorTargetID, alpha)
+	y = Clockwork.kernel:DrawInfo("Un tas de parpaings à utiliser dans le but exprès de noyer des pauvres cons.", x, y, colorWhite, alpha);
 end;

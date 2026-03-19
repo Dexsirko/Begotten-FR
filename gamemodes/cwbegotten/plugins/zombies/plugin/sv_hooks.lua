@@ -226,7 +226,7 @@ function cwZombies:OnNPCKilled(npc, attacker, inflictor, attackers)
 									iAttacker.demonHunterActive = nil;
 									iAttacker.thrallsToKill = nil;
 									
-									Clockwork.hint:Send(iAttacker, "The 'Demon Hunter' ritual task has been successfully completed...", 10, Color(100, 175, 100), true, true);
+									Clockwork.hint:Send(iAttacker, "La tâche rituelle du 'Chasseur de Démons' a été accomplie avec succès...", 10, Color(100, 175, 100), true, true);
 								else
 									Schema:EasyText(iAttacker, "goldenrod", "Tu dois abattre"..iAttacker.thrallsToKill.." more Begotten thralls for your reward...");
 								end

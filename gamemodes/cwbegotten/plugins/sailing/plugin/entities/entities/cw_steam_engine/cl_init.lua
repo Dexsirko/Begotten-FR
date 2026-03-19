@@ -13,10 +13,10 @@ function ENT:HUDPaintTargetID(x, y, alpha)
 	local turnedOn = self:GetNWBool("turnedOn");
 	
 	if broken then
-		y = Clockwork.kernel:DrawInfo("A colossal steam engine salvaged by Clan Shagalax. It appears to be broken.", x, y, Clockwork.option:GetColor("white"), alpha);
+		y = Clockwork.kernel:DrawInfo("Un moteur à vapeur colossal récupéré par le Clan Shagalax. Il semble être cassé.", x, y, Clockwork.option:GetColor("white"), alpha);
 	elseif turnedOn then
-		y = Clockwork.kernel:DrawInfo("A colossal steam engine salvaged by Clan Shagalax, belching steam with an apparent rage.", x, y, Clockwork.option:GetColor("white"), alpha);
+		y = Clockwork.kernel:DrawInfo("Un moteur à vapeur colossal récupéré par le Clan Shagalax, crachant de la vapeur avec une rage apparente.", x, y, Clockwork.option:GetColor("white"), alpha);
 	else
-		y = Clockwork.kernel:DrawInfo("A colossal steam engine salvaged by Clan Shagalax. It does not appear to be running.", x, y, Clockwork.option:GetColor("white"), alpha);
+		y = Clockwork.kernel:DrawInfo("Un moteur à vapeur colossal récupéré par le Clan Shagalax. Il ne semble pas être en marche.", x, y, Clockwork.option:GetColor("white"), alpha);
 	end
 end;

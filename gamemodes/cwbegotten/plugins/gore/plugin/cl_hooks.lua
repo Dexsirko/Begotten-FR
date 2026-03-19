@@ -11,23 +11,23 @@ function cwGore:HUDPaintEntityTargetID(entity, info)
 	
 	if (class == "prop_physics") then
 		if (entity:GetModel() == "models/gibs/hgibs.mdl") then
-			info.y = Clockwork.kernel:DrawInfo("A human skull.", info.x, info.y, Clockwork.option:GetColor("target_id"), info.alpha);
+			info.y = Clockwork.kernel:DrawInfo("Un crâne humain.", info.x, info.y, Clockwork.option:GetColor("target_id"), info.alpha);
 		end;
 	elseif (class == "prop_ragdoll") then
 		local model = entity:GetModel();
 		
 		if (model == "models/undead/charple01.mdl") then
-			info.y = Clockwork.kernel:DrawInfo("A rotting body.", info.x, info.y, Clockwork.option:GetColor("target_id"), info.alpha);
+			info.y = Clockwork.kernel:DrawInfo("Un corps en décomposition.", info.x, info.y, Clockwork.option:GetColor("target_id"), info.alpha);
 		elseif (model == "models/skeleton/skeleton_torso2.mdl") then
-			info.y = Clockwork.kernel:DrawInfo("A human ribcage.", info.x, info.y, Clockwork.option:GetColor("target_id"), info.alpha);
+			info.y = Clockwork.kernel:DrawInfo("Une cage thoracique humaine.", info.x, info.y, Clockwork.option:GetColor("target_id"), info.alpha);
 		elseif (model == "models/skeleton/skeleton_leg_l.mdl" or entity:GetModel() == "models/skeleton/skeleton_leg.mdl") then
-			info.y = Clockwork.kernel:DrawInfo("A human leg bone.", info.x, info.y, Clockwork.option:GetColor("target_id"), info.alpha);
+			info.y = Clockwork.kernel:DrawInfo("Un os de jambe humain.", info.x, info.y, Clockwork.option:GetColor("target_id"), info.alpha);
 		elseif (model == "models/skeleton/skeleton_arm.mdl" or entity:GetModel() == "models/skeleton/skeleton_arm_l.mdl") then
-			info.y = Clockwork.kernel:DrawInfo("A human arm bone.", info.x, info.y, Clockwork.option:GetColor("target_id"), info.alpha);
+			info.y = Clockwork.kernel:DrawInfo("Un os de bras humain.", info.x, info.y, Clockwork.option:GetColor("target_id"), info.alpha);
 		end;
 		
 		if (entity:GetSkin() == 2) then
-			info.y = Clockwork.kernel:DrawInfo("It is still fresh with blood.", info.x, info.y, Clockwork.option:GetColor("white"), info.alpha);
+			info.y = Clockwork.kernel:DrawInfo("Il est encore frais et ensanglanté.", info.x, info.y, Clockwork.option:GetColor("white"), info.alpha);
 		end;
 	end;
 end;

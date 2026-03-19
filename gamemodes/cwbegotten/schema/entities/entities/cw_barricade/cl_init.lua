@@ -11,5 +11,5 @@ include("shared.lua");
 function ENT:HUDPaintTargetID(x, y, alpha)
 	local colorWhite = Clockwork.option:GetColor("white")
 	
-	y = Clockwork.kernel:DrawInfo("A wooden barricade that can withstand some hits.", x, y, colorWhite, alpha);
+	y = Clockwork.kernel:DrawInfo("Une barricade en bois qui peut encaisser quelques coups.", x, y, colorWhite, alpha);
 end;

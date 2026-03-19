@@ -9,5 +9,5 @@ Clockwork.kernel:IncludePrefixed("shared.lua")
 
 -- Called when the target ID HUD should be painted.
 function ENT:HUDPaintTargetID(x, y, alpha)
-	y = Clockwork.kernel:DrawInfo("A wrecked and burned out husk of a Goreic warship.", x, y, Clockwork.option:GetColor("white"), alpha);
+	y = Clockwork.kernel:DrawInfo("Une coque épave brûlée et détruite d'un navire de guerre Goreic.", x, y, Clockwork.option:GetColor("white"), alpha);
 end;

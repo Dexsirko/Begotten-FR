@@ -75,7 +75,7 @@ function cwMedicalSystem:PlayerThink(player, curTime, infoTable, alive, initiali
 							player:RemoveInjury(k, "minor_infection");
 							player:AddInjury(k, "infection");
 						
-							Clockwork.hint:Send(player, "The infection of your "..self.cwHitGroupToString[k].." has worsened.", 10, Color(175, 100, 100), true, true)
+							Clockwork.hint:Send(player, "L'infection de votre"..self.cwHitGroupToString[k].." has worsened.", 10, Color(175, 100, 100), true, true)
 						
 							break;
 						end
@@ -202,15 +202,15 @@ function cwMedicalSystem:PlayerThink(player, curTime, infoTable, alive, initiali
 							end
 
 							if bloodLevel <= self.maxBloodLevel - 250 and bloodLevel > self.maxBloodLevel - 750 then
-								Clockwork.hint:Send(player, "You are suffering minor blood loss...", 5, Color(175, 100, 100));
+								Clockwork.hint:Send(player, "Vous souffrez d'une légère perte de sang...", 5, Color(175, 100, 100));
 							elseif bloodLevel <= self.maxBloodLevel - 750 and bloodLevel > self.maxBloodLevel - 1500 then
-								Clockwork.hint:Send(player, "You are suffering blood loss...", 5, Color(175, 100, 100));
+								Clockwork.hint:Send(player, "Vous souffrez d'une hémorragie...", 5, Color(175, 100, 100));
 							elseif bloodLevel <= self.maxBloodLevel - 1500 and bloodLevel > self.lethalBloodLoss then
-								Clockwork.hint:Send(player, "You are suffering severe blood loss...", 5, Color(175, 100, 100));
+								Clockwork.hint:Send(player, "Vous souffrez d'une hémorragie sévère...", 5, Color(175, 100, 100));
 							elseif bloodLevel <= self.lethalBloodLoss then
-								Clockwork.hint:Send(player, "You are suffering critical blood loss...", 5, Color(175, 100, 100));
+								Clockwork.hint:Send(player, "Vous souffrez d'une perte de sang critique...", 5, Color(175, 100, 100));
 							else
-								Clockwork.hint:Send(player, "You are bleeding...", 5, Color(175, 100, 100));
+								Clockwork.hint:Send(player, "Vous saignez...", 5, Color(175, 100, 100));
 							end
 
 							player:ModifyBloodLevel(-bloodLoss);
@@ -253,7 +253,7 @@ function cwMedicalSystem:PlayerThink(player, curTime, infoTable, alive, initiali
 							local action = Clockwork.player:GetAction(player);
 							
 							plyTab.nextBleedOut = curTime + 60;
-							--Clockwork.hint:Send(player, "You are bleeding to death...", 10, Color(175, 100, 100));
+							--Clockwork.hint:Send(player, "Vous êtes en train de saigner à mort...", 10, Color(175, 100, 100));
 							
 							if (action != "die") and (action != "die_bleedout") then
 								--[[player:ConCommand("+duck");
@@ -668,9 +668,9 @@ function cwMedicalSystem:PostCalculatePlayerDamage(player, hitGroup, damageInfo)
 		
 		if (!plyTab.nextHealWarn or plyTab.nextHealWarn < curTime) then
 			if (player:Health() <= 50) then
-				Clockwork.hint:Send(player, "You are seriously injured...", 10, Color(175, 100, 100));
+				Clockwork.hint:Send(player, "Vous êtes gravement blessé...", 10, Color(175, 100, 100));
 			elseif (player:Health() <= 15) then
-				Clockwork.hint:Send(player, "You are near death...", 10, Color(175, 100, 100));
+				Clockwork.hint:Send(player, "Vous êtes à deux doigts de la mort...", 10, Color(175, 100, 100));
 			end;
 			
 			plyTab.nextHealWarn = curTime + 45;

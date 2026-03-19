@@ -61,7 +61,7 @@ function cwRecipes:AttemptCraft(uniqueID, amount)
 	if !self.nextCraftAttempt or self.nextCraftAttempt < curTime then
 		if self.slottedItems then
 			if table.IsEmpty(self.slottedItems) then
-				Clockwork.chatBox:Add(nil, "icon16/error.png", Color(200, 175, 200, 255), "You have no items selected to craft!");
+				Clockwork.chatBox:Add(nil, "icon16/error.png", Color(200, 175, 200, 255), "Vous n'avez aucun objet sélectionné à fabriquer!");
 				return;
 			end
 			
@@ -79,10 +79,10 @@ function cwRecipes:AttemptCraft(uniqueID, amount)
 					end
 				end
 			else
-				Clockwork.chatBox:Add(nil, "icon16/error.png", Color(200, 175, 200, 255), "You must select a recipe to craft!");
+				Clockwork.chatBox:Add(nil, "icon16/error.png", Color(200, 175, 200, 255), "Vous devez sélectionner une recette à fabriquer!");
 			end
 		else
-			Clockwork.chatBox:Add(nil, "icon16/error.png", Color(200, 175, 200, 255), "You have no items selected to craft!");
+			Clockwork.chatBox:Add(nil, "icon16/error.png", Color(200, 175, 200, 255), "Vous n'avez aucun objet sélectionné à fabriquer!");
 			self.slottedItems = {};
 		end
 		
@@ -104,7 +104,7 @@ function cwRecipes:PlayerCanCraft(uniqueID)
 	local subfaith = Clockwork.Client:GetNetVar("subfaith");
 	
 	if Clockwork.Client:IsRagdolled() or !Clockwork.Client:Alive() then
-		Clockwork.chatBox:Add(nil, "icon16/error.png", Color(200, 175, 200, 255), "Your character cannot craft at this moment!");
+		Clockwork.chatBox:Add(nil, "icon16/error.png", Color(200, 175, 200, 255), "Votre personnage ne peut pas fabriquer pour le moment!");
 		return false;
 	end
 	
@@ -168,7 +168,7 @@ function cwRecipes:PlayerCanCraft(uniqueID)
 							end
 						end
 					
-						Clockwork.chatBox:Add(nil, "icon16/error.png", Color(200, 175, 200, 255), "You require the '"..cwBeliefs:GetBeliefName(recipeTable.requiredBeliefs[i]).."' belief to craft this recipe!");
+						Clockwork.chatBox:Add(nil, "icon16/error.png", Color(200, 175, 200, 255), "Vous avez besoin de '"..cwBeliefs:GetBeliefName(recipeTable.requiredBeliefs[i]).."' de la croyance pour fabriquer cette recette!");
 						return false;
 					end
 				end
@@ -187,7 +187,7 @@ function cwRecipes:PlayerCanCraft(uniqueID)
 		end;
 		
 		if not fire_found then
-			Clockwork.chatBox:Add(nil, "icon16/error.png", Color(200, 175, 200, 255), "You must be standing next to a heat source to craft this recipe!");
+			Clockwork.chatBox:Add(nil, "icon16/error.png", Color(200, 175, 200, 255), "Vous devez vous tenir à côté d'une source de chaleur pour fabriquer cette recette!");
 			return false;
 		end
 	end
@@ -203,7 +203,7 @@ function cwRecipes:PlayerCanCraft(uniqueID)
 		end
 		
 		if valid_smithy_found == false then
-			Clockwork.chatBox:Add(nil, "icon16/error.png", Color(200, 175, 200, 255), "You must be standing next to a smithy to craft this recipe!");
+			Clockwork.chatBox:Add(nil, "icon16/error.png", Color(200, 175, 200, 255), "Vous devez vous tenir à côté d'une forge pour fabriquer cette recette!");
 			return false;
 		end
 	end
@@ -213,7 +213,7 @@ end;
 
 function cwRecipes:PlayerMeetsCraftingItemRequirements(recipeTable, craftAmount)
 	if !cwRecipes.slottedItems or table.IsEmpty(cwRecipes.slottedItems) then
-		Clockwork.chatBox:Add(nil, "icon16/error.png", Color(200, 175, 200, 255), "You have no items selected to craft!");
+		Clockwork.chatBox:Add(nil, "icon16/error.png", Color(200, 175, 200, 255), "Vous n'avez aucun objet sélectionné à fabriquer!");
 		return false;
 	end
 
@@ -221,7 +221,7 @@ function cwRecipes:PlayerMeetsCraftingItemRequirements(recipeTable, craftAmount)
 		recipeTable = self.recipes.stored[recipeTable];
 		
 		if !recipeTable or isstring(recipeTable) then
-			Clockwork.chatBox:Add(nil, "icon16/error.png", Color(200, 175, 200, 255), "No valid recipe for this combination of items could be found!");
+			Clockwork.chatBox:Add(nil, "icon16/error.png", Color(200, 175, 200, 255), "Aucune recette valide pour cette combinaison d'objets n'a été trouvée!");
 			return false;
 		end
 	end
@@ -261,7 +261,7 @@ function cwRecipes:PlayerMeetsCraftingItemRequirements(recipeTable, craftAmount)
 				end
 
 				if not goods_found then
-					Clockwork.chatBox:Add(nil, "icon16/error.png", Color(200, 175, 200, 255), "The items inputted for crafting do not match the selected recipe's requirements!");
+					Clockwork.chatBox:Add(nil, "icon16/error.png", Color(200, 175, 200, 255), "Les objets entrés pour la fabrication ne correspondent pas aux exigences de la recette sélectionnée!");
 					return false;
 				end
 			end
@@ -270,7 +270,7 @@ function cwRecipes:PlayerMeetsCraftingItemRequirements(recipeTable, craftAmount)
 	end
 	
 	if #temptab > 0 then
-		Clockwork.chatBox:Add(nil, "icon16/error.png", Color(200, 175, 200, 255), "The items inputted for crafting do not match the selected recipe's requirements!");
+		Clockwork.chatBox:Add(nil, "icon16/error.png", Color(200, 175, 200, 255), "Les objets entrés pour la fabrication ne correspondent pas aux exigences de la recette sélectionnée!");
 		return false;
 	end
 	

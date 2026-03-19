@@ -126,7 +126,7 @@ function cwWeaponSelect:HUDPaintImportant()
 						end;
 						
 						if (#weapons == 1) then
-							y = Clockwork.kernel:DrawInfo("There are no other weapons.", x, y, colorWhite, self.displayAlpha, true);
+							y = Clockwork.kernel:DrawInfo("Il n'y a pas d'autres armes.", x, y, colorWhite, self.displayAlpha, true);
 						end;
 					Clockwork.kernel:OverrideMainFont(Clockwork.option:GetFont("menu_text_tiny"));
 				end;

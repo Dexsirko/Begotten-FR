@@ -2846,7 +2846,7 @@ function Schema:PlayerDeath(player, inflictor, attacker, damageInfo)
 						attacker:GiveItem(item.CreateInstance(catalysts[math.random(1, #catalysts)]));
 					end
 					
-					Clockwork.hint:Send(attacker, "You have gained "..tostring(numCatalysts).." random catalysts.", 5, Color(100, 175, 100), true, true);
+					Clockwork.hint:Send(attacker, "Vous avez obtenu"..tostring(numCatalysts).." random catalysts.", 5, Color(100, 175, 100), true, true);
 				end
 				
 				killXP = killXP * math.Clamp(level, 1, 40);

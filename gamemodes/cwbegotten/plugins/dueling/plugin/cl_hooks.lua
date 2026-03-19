@@ -13,7 +13,7 @@ function cwDueling:CanOpenEntityMenu()
 		if !cwDueling.nextInteractMessage or cwDueling.nextInteractMessage < curTime then
 			cwDueling.nextInteractMessage = curTime + 5;
 			
-			Clockwork.chatBox:Add(nil, "icon16/error.png", Color(200, 175, 200, 255), "You cannot interact with entities while in a duel!");
+			Clockwork.chatBox:Add(nil, "icon16/error.png", Color(200, 175, 200, 255), "Vous ne pouvez pas interagir avec des entités pendant un duel!");
 		end
 		
 		return false;

@@ -1185,7 +1185,7 @@ function SexyBar(self, parent, font)
 	local maxWeightX, maxWeightY = 6, (height / 2) - (maxWeightHeight / 2);
 	
 	if (inventoryWeight <= 0) then
-		local emptyText = "Your sack is empty...";
+		local emptyText = "Votre sac est vide...";
 		local emptyWidth = GetFontWidth(font, emptyText);
 			draw.SimpleText(emptyText, font, (width / 2) - (emptyWidth / 2), (height / 2) - (maxWeightHeight / 2), Color(240, 240, 240), 0, 0)
 		return;

@@ -12,8 +12,8 @@ function ENT:HUDPaintTargetID(x, y, alpha)
 	local colorTargetID = Clockwork.option:GetColor("target_id")
 	local colorWhite = Clockwork.option:GetColor("white")
 	
-	y = Clockwork.kernel:DrawInfo("Coinslot", x, y, colorTargetID, alpha)
-	y = Clockwork.kernel:DrawInfo("An ancient machine with a multitude of cranks and gears. It has a prominent coinslot.", x, y, colorWhite, alpha);
+	y = Clockwork.kernel:DrawInfo("Distributeur", x, y, colorTargetID, alpha)
+	y = Clockwork.kernel:DrawInfo("Une machine ancienne avec une multitude de manivelles et d'engrenages. Elle a une fente à pièces bien visible.", x, y, colorWhite, alpha);
 end;
 
 local function CreateMenu(state)

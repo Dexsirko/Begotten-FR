@@ -11,7 +11,7 @@ Clockwork.kernel:IncludePrefixed("shared.lua")
 function ENT:HUDPaintTargetID(x, y, alpha)
 	local colorWhite = Clockwork.option:GetColor("white");
 
-	y = Clockwork.kernel:DrawInfo("Customer Service", x, y, colorWhite, alpha);
+	y = Clockwork.kernel:DrawInfo("Service Client", x, y, colorWhite, alpha);
 end;
 
 -- Called when the entity should draw.

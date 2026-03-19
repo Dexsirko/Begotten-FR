@@ -683,12 +683,12 @@ function cwRituals:DoPlayerDeath(player, attacker, damageInfo)
 				attacker:HandleNeed("corruption", -50);
 				Clockwork.player:GiveCash(attacker, 300);
 				
-				Clockwork.chatBox:Add(attacker, nil, "itnofake", "En frappant"..player:Name().." and fulfill the blood contract, you feel your pockets suddenly become heavier.");
+				Clockwork.chatBox:Add(attacker, nil, "itnofake", "En frappant"..player:Name().." et exécutez le contrat de sang, vous sentez soudainement vos poches devenir plus lourdes.");
 				
 				for _, v in _player.Iterator() do
 					if v:HasInitialized() then
 						if v == player or v:GetFaith() == "Faith of the Dark" then
-							Clockwork.chatBox:Add(v, nil, "darkwhispernoprefix", "La mort a été délivrée à un marqué."..player:Name().." has been dispatched and his soul now belongs to the Dark Lord.");
+							Clockwork.chatBox:Add(v, nil, "darkwhispernoprefix", "La mort a été délivrée à un marqué."..player:Name().." a été éliminé et son âme appartient maintenant au Seigneur Obscur.");
 						end
 					end
 				end
@@ -1219,7 +1219,7 @@ netstream.Hook("RegrowthMenu", function(player, data)
 			
 			if player:GetCharacterData("BleedingLimbs", {})[data] then
 				player:MakeLimbStopBleeding(data);
-				Clockwork.hint:Send(player, "Your "..cwMedicalSystem.cwHitGroupToString[data].." stops bleeding...", 5, Color(100, 175, 100), true, true);
+				Clockwork.hint:Send(player, "Votre"..cwMedicalSystem.cwHitGroupToString[data].." stops bleeding...", 5, Color(100, 175, 100), true, true);
 			end
 			
 			player:HandleNeed("corruption", 5);

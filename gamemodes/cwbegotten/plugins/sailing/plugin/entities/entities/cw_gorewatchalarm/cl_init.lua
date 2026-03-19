@@ -12,8 +12,8 @@ function ENT:HUDPaintTargetID(x, y, alpha)
 	local broken = self:GetNWBool("broken");
 	
 	if broken then
-		y = Clockwork.kernel:DrawInfo("The Gorewatch alarm system seems to be broken.", x, y, Clockwork.option:GetColor("white"), alpha);
+		y = Clockwork.kernel:DrawInfo("Le système d'alarme de la Garde Gore semble être cassé.", x, y, Clockwork.option:GetColor("white"), alpha);
 	else
-		y = Clockwork.kernel:DrawInfo("The Gorewatch alarm system seems to be in working order.", x, y, Clockwork.option:GetColor("white"), alpha);
+		y = Clockwork.kernel:DrawInfo("Le système d'alarme de la Garde Gore semble être en état de marche.", x, y, Clockwork.option:GetColor("white"), alpha);
 	end
 end;
