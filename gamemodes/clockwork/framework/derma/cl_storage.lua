@@ -840,15 +840,15 @@ function PANEL:Init()
 				menu:SetMinimumWidth(60);
 				
 				if (self.storageType == "Inventory") then
-					menu:AddOption("Give All", function()
+					menu:AddOption("Tout donner", function()
 						if self.itemTable then
 							Clockwork.kernel:RunCommand("StorageGiveItems", self.itemTable("uniqueID"), tostring(amount));
 						end
 					end);
 				
-					local amountMenu = menu:AddSubMenu("Give Amount...", function()
+					local amountMenu = menu:AddSubMenu("Donner une quantitée...", function()
 						if self.itemTable then
-							Derma_StringRequest(self.itemTable("name"), "How many items of this type do you want to give?", nil, function(amount)
+							Derma_StringRequest(self.itemTable("name"), "Combien d’objets de ce type souhaitez-vous donner?", nil, function(amount)
 								if self.itemTable then
 									Clockwork.kernel:RunCommand("StorageGiveItems", self.itemTable("uniqueID"), amount);
 								end
@@ -856,9 +856,9 @@ function PANEL:Init()
 						end
 					end);
 					
-					local customMenu = amountMenu:AddSubMenu("Custom Amount", function()
+					local customMenu = amountMenu:AddSubMenu("Quantité personnalisée", function()
 						if self.itemTable then
-							Derma_StringRequest(self.itemTable("name"), "How many items of this type do you want to give?", nil, function(amount)
+							Derma_StringRequest(self.itemTable("name"), "Combien d’objets de ce type souhaitez-vous donner?", nil, function(amount)
 								if self.itemTable then
 									Clockwork.kernel:RunCommand("StorageGiveItems", self.itemTable("uniqueID"), amount);
 								end
@@ -914,9 +914,9 @@ function PANEL:Init()
 						end);
 					end
 					
-					customMenu:AddOption("By Best Condition", function()
+					customMenu:AddOption("Par Meilleur état", function()
 						if self.itemTable then
-							Derma_StringRequest(self.itemTable("name").." (Best Condition)", "How many items of this type do you want to give?", nil, function(amount)
+							Derma_StringRequest(self.itemTable("name").." (Meilleur état)", "Combien d’objets de ce type souhaitez-vous donner?", nil, function(amount)
 								if self.itemTable then
 									Clockwork.kernel:RunCommand("StorageGiveItems", self.itemTable("uniqueID"), amount, "bestCondition");
 								end
@@ -924,9 +924,9 @@ function PANEL:Init()
 						end
 					end);
 					
-					customMenu:AddOption("By Worst Condition", function()
+					customMenu:AddOption("Par pire état", function()
 						if self.itemTable then
-							Derma_StringRequest(self.itemTable("name").." (Worst Condition)", "How many items of this type do you want to give?", nil, function(amount)
+							Derma_StringRequest(self.itemTable("name").." (Pire état)", "Combien d’objets de ce type souhaitez-vous donner?", nil, function(amount)
 								if self.itemTable then
 									Clockwork.kernel:RunCommand("StorageGiveItems", self.itemTable("uniqueID"), amount, "worstCondition");
 								end
@@ -934,15 +934,15 @@ function PANEL:Init()
 						end
 					end);
 				else
-					menu:AddOption("Take All", function()
+					menu:AddOption("Tout prendre", function()
 						if self.itemTable then
 							Clockwork.kernel:RunCommand("StorageTakeItems", self.itemTable("uniqueID"), tostring(amount));
 						end
 					end);
 				
-					local amountMenu = menu:AddSubMenu("Take Amount...", function()
+					local amountMenu = menu:AddSubMenu("Prendre la quantité...", function()
 						if self.itemTable then
-							Derma_StringRequest(self.itemTable("name"), "How many items of this type do you want to take?", nil, function(amount)
+							Derma_StringRequest(self.itemTable("name"), "Combien d’objets de ce type souhaitez-vous prendre ?", nil, function(amount)
 								if self.itemTable then
 									Clockwork.kernel:RunCommand("StorageTakeItems", self.itemTable("uniqueID"), amount);
 								end
@@ -950,9 +950,9 @@ function PANEL:Init()
 						end
 					end);
 					
-					local customMenu = amountMenu:AddSubMenu("Custom Amount", function()
+					local customMenu = amountMenu:AddSubMenu("Quantité personnalisée", function()
 						if self.itemTable then
-							Derma_StringRequest(self.itemTable("name"), "How many items of this type do you want to take?", nil, function(amount)
+							Derma_StringRequest(self.itemTable("name"), "Combien d’objets de ce type souhaitez-vous prendre  ?", nil, function(amount)
 								if self.itemTable then
 									Clockwork.kernel:RunCommand("StorageTakeItems", self.itemTable("uniqueID"), amount);
 								end
@@ -1008,9 +1008,9 @@ function PANEL:Init()
 						end);
 					end
 					
-					customMenu:AddOption("By Best Condition", function()
+					customMenu:AddOption("Par meilleur état", function()
 						if self.itemTable then
-							Derma_StringRequest(self.itemTable("name").." (Best Condition)", "How many items of this type do you want to take?", nil, function(amount)
+							Derma_StringRequest(self.itemTable("name").." (Par meilleur état)", "Combien d’objets de ce type souhaitez-vous prendre?", nil, function(amount)
 								if self.itemTable then
 									Clockwork.kernel:RunCommand("StorageTakeItems", self.itemTable("uniqueID"), amount, "bestCondition");
 								end
@@ -1018,9 +1018,9 @@ function PANEL:Init()
 						end
 					end);
 					
-					customMenu:AddOption("By Worst Condition", function()
+					customMenu:AddOption("Par pire état", function()
 						if self.itemTable then
-							Derma_StringRequest(self.itemTable("name").." (Worst Condition)", "How many items of this type do you want to take?", nil, function(amount)
+							Derma_StringRequest(self.itemTable("name").." (Par pire état)", "Combien d’objets de ce type souhaitez-vous prendre?", nil, function(amount)
 								if self.itemTable then
 									Clockwork.kernel:RunCommand("StorageTakeItems", self.itemTable("uniqueID"), amount, "worstCondition");
 								end

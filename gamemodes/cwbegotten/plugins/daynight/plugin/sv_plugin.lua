@@ -14,20 +14,20 @@ if game.GetMap() == "rp_district21" then
 		["daytonight"] = {
 			length = 300, -- 5 minutes in seconds.
 			nextCycle = "night",
-			eventText = "Alarm horns shudder to life and fill the world with noise. The signal that the night approaches, and so do its terrors - a warning to seek shelter.",
+			eventText = "Les cornes d’alarme s’animent dans un frisson et emplissent le monde de leur vacarme. Le signal que la nuit approche, et avec elle ses terreurs — un avertissement pour trouver refuge.",
 			sound = {farSound = "hillsounds/distantsiren.mp3", closeSound = "hillsounds/silenthillalarm.mp3"},
 			fadeMusic = true
 		},
 		["night"] = {
 			length = 1800, -- 30 minutes in seconds.
 			nextCycle = "nighttoday",
-			eventText = "The Blood Moon has risen to claim those who still wander the wasteland.",
+			eventText = "La Lune de Sang s’est levée pour réclamer ceux qui errent encore dans le désert.",
 			fadeMusic = true
 		},
 		["nighttoday"] = {
 			length = 300, -- 5 minutes in seconds.
 			nextCycle = "day",
-			eventText = "The Blood Moon finally subsides and the sky begins to lighten. You have survived another night.",
+			eventText = "La Lune de Sang se retire enfin et le ciel commence à s’éclaircir. Vous avez survécu à une nuit de plus.",
 			sound = {farSound = "nighttoday.mp3", closeSound = "nighttoday.mp3"},
 			fadeMusic = true
 		},
@@ -42,20 +42,20 @@ else
 		["daytonight"] = {
 			length = 300, -- 5 minutes in seconds.
 			nextCycle = "night",
-			eventText = "The sky begins to darken and bells ring aloud throughout the wasteland, signalling the immediate need for shelter. Night is coming.",
+			eventText = "Le ciel commence à s’obscurcir et des cloches retentissent dans tout le désert, signalant le besoin immédiat de se mettre à l’abri. La nuit arrive.",
 			sound = {farSound = "cosmicrupture/bellsdistant.wav", closeSound = "cosmicrupture/bellsclose.wav"},
 			fadeMusic = true
 		},
 		["night"] = {
 			length = 1800, -- 30 minutes in seconds.
 			nextCycle = "nighttoday",
-			eventText = "The Blood Moon has risen to claim those who still wander the wasteland.",
+			eventText = "La Lune de Sang s’est levée pour réclamer ceux qui errent encore dans le désert.",
 			fadeMusic = true
 		},
 		["nighttoday"] = {
 			length = 300, -- 5 minutes in seconds.
 			nextCycle = "day",
-			eventText = "The Blood Moon finally subsides and the sky begins to lighten. You have survived another night.",
+			eventText = "La Lune de Sang se retire enfin et le ciel commence à s’éclaircir. Vous avez survécu à une nuit de plus.",
 			fadeMusic = true
 		},
 	};
@@ -64,7 +64,7 @@ end
 if game.GetMap() == "rp_scraptown" then
 	local tab = cwDayNight.cycles["daytonight"];
 	
-	tab.eventText = "The sky begins to darken and the klaxons ring aloud throughout the wasteland, signalling the immediate need for shelter. Night is coming.";
+	tab.eventText = "Le ciel commence à s’obscurcir et les sirènes retentissent dans tout le désert, signalant le besoin immédiat de se mettre à l’abri. La nuit arrive.";
 	tab.sound = "warhorns/scrapperklaxon.mp3";
 end
 

@@ -194,7 +194,7 @@ concommand.Add("cwLua", function(player, command, arguments)
 		return
 	end
 
-	print("You do not have access to this command, "..player:Name()..".");
+	print("Vous n'avez pas accès à cette commande, "..player:Name()..".");
 end)
 
 Clockwork.BackgroundBlurs = Clockwork.BackgroundBlurs or {}
@@ -2015,13 +2015,13 @@ function Clockwork.kernel:HandleItemSpawnIconClick(itemTable, spawnIcon, Callbac
 		elseif ((!destroyText and v == "Destroy") or (destroyText and v == destroyText)) then
 			local subMenu = itemMenu:AddSubMenu(v)
 
-			subMenu:AddOption("Yes", function()
+			subMenu:AddOption("Oui", function()
 				if (itemTable) then
 					Clockwork.inventory:InventoryAction("destroy", itemTable.uniqueID, itemTable.itemID);
 				end
 			end)
 
-			subMenu:AddOption("No", function() end)
+			subMenu:AddOption("Non", function() end)
 		elseif (type(v) == "table") then
 			itemMenu:AddOption(v.title, function()
 				local defaultAction = true

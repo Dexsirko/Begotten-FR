@@ -91,28 +91,28 @@ function cwBeliefs:GetEntityMenuOptions(entity, options)
 		if (!player or !player:Alive()) then
 			if entity:GetNWEntity("Player"):IsPlayer() or entity:GetNWEntity("Player") == game.GetWorld() or table.HasValue(animalModels, entity:GetModel()) then
 				if (self:HasBelief("savage")) then
-					options["Mutilate"] = "cwCorpseMutilate";
+					options["Mutiler"] = "cwCorpseMutilate";
 				end;
 				
 				if (self:HasBelief("heart_eater")) then
-					options["Eat Heart"] = "cwEatHeart";
+					options["Manger le cœur"] = "cwEatHeart";
 				end;
 				
 				if (self:HasBelief("primeval")) then
-					options["Harvest Bones"] = "cwHarvestBones";
+					options["Récolter les os"] = "cwHarvestBones";
 				end;
 			end
 		elseif player and player:Alive() then
 			if self:HasBelief("doctor") then
 				if !Clockwork.Client:IsWeaponRaised() then
-					options["Diagnose"] = "cwDiagnose";
+					options["Diagnostiquer"] = "cwDiagnose";
 				end
 			end
 		end;
 	elseif entity:IsPlayer() and entity:Alive() then
 		if self:HasBelief("doctor") then
 			if !Clockwork.Client:IsWeaponRaised() then
-				options["Diagnose"] = "cwDiagnose";
+				options["Diagnostiquer"] = "cwDiagnose";
 			end
 		end
 	end;

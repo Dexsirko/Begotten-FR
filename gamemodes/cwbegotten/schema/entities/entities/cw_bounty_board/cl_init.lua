@@ -28,13 +28,13 @@ local function CreateMenu(state)
 	menu:SetMinimumWidth(150);
 	
 	if state ~= "Gore" then
-		menu:AddOption("View Bounties", function()
+		menu:AddOption("Voir les primes", function()
 			netstream.Start("QueryBountyBoard", state);
 		end);
 	end
 
 	if state == "Hierarchy" then
-		menu:AddOption("Add Bounty", function()
+		menu:AddOption("Ajouter une prime", function()
 			Derma_StringRequest("Bounty Board", "Qui voulez-vous ajouter au tableau des primes?", nil, function(target)
 				Derma_StringRequest(target, "Combien de pièces cette prime vaudra-t-elle?", nil, function(price)
 					Derma_StringRequest(target, "Quelle devrait être la raison de cette prime?", nil, function(reason)
@@ -70,7 +70,7 @@ local function CreateMenu(state)
 			end);
 		end]]--
 	elseif Clockwork.Client:IsAdmin() then
-		menu:AddOption("(ADMIN) Add Bounty", function()
+		menu:AddOption("(ADMIN) Ajouter une prime", function()
 			Derma_StringRequest("Bounty Board", "Qui voulez-vous ajouter au tableau des primes?", nil, function(target)
 				Derma_StringRequest(target, "Combien de pièces cette prime vaudra-t-elle?", nil, function(price)
 					Derma_StringRequest(target, "Quelle devrait être la raison de cette prime?", nil, function(reason)

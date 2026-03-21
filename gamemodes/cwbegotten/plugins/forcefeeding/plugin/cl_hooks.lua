@@ -38,7 +38,7 @@ end;]]--
 -- Called when the post progress bar info is needed.
 function cwForceFeeding:GetProgressBarInfoAction(action, percentage)
 	if (action == "force_feeding") then
-		return {text = "You are force feeding somebody. Click to cancel.", percentage = percentage, flash = percentage > 75};
+		return {text = "Vous gavez quelqu’un de force. Cliquez pour annuler.", percentage = percentage, flash = percentage > 75};
 	end;
 end;
 
@@ -49,7 +49,7 @@ function cwForceFeeding:GetScreenTextInfo()
 	if (Clockwork.Client:GetNetVar("beingForceFed")) then
 		return {
 			alpha = 255 - blackFadeAlpha,
-			title = "SOMEBODY IS FORCE FEEDING YOU"
+			title = "QUELQU’UN VOUS GAVE DE FORCE"
 		};
 	end;
 end;

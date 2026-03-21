@@ -107,7 +107,7 @@ function Schema:PlayerCanCreateCharacter(player, character, characterID)
 	end;]]--
 	
 	if factionTable.disabled then
-		Clockwork.player:SetCreateFault(player, "This character's faction is disabled and thus cannot be created!");
+		Clockwork.player:SetCreateFault(player, "La faction de ce personnage est désactivée et ne peut donc pas être créée!");
 	
 		return false;
 	end
@@ -340,7 +340,7 @@ function Schema:EntityHandleMenuOption(player, entity, option, arguments)
 						end
 						
 						if cwDeathCauses then
-							cwDeathCauses:DeathCauseOverride(entity, "Sold into slavery by "..playerName..".");
+							cwDeathCauses:DeathCauseOverride(entity, "Vendu en esclavage par "..playerName..".");
 						end
 						
 						Schema:EasyText(entity, "firebrick", "Tu as été vendu en esclavage par"..playerName.."!");
@@ -398,7 +398,7 @@ function Schema:EntityHandleMenuOption(player, entity, option, arguments)
 						end
 						
 						if cwDeathCauses then
-							cwDeathCauses:DeathCauseOverride(entity, "Sold into slavery by "..playerName..".");
+							cwDeathCauses:DeathCauseOverride(entity, "Vendu en esclavage par "..playerName..".");
 						end
 						
 						Schema:EasyText(entity, "firebrick", "Vous avez été vendu en esclavage par"..playerName.."!");
@@ -468,7 +468,7 @@ function Schema:EntityHandleMenuOption(player, entity, option, arguments)
 					end
 					
 					if cwDeathCauses then
-						cwDeathCauses:DeathCauseOverride(entity, "Turned in by "..playerName..".");
+						cwDeathCauses:DeathCauseOverride(entity, "Dénoncé par "..playerName..".");
 					end
 					
 					Schema:EasyText(entity, "firebrick", "Vous avez été dénoncé par"..playerName.."!");
@@ -560,7 +560,7 @@ function Schema:EntityHandleMenuOption(player, entity, option, arguments)
 							end
 							
 							if cwDeathCauses then
-								cwDeathCauses:DeathCauseOverride(entityPlayer, "Sold into slavery by "..playerName..".");
+								cwDeathCauses:DeathCauseOverride(entityPlayer, "Vendu en esclavage par "..playerName..".");
 							end
 							
 							Schema:EasyText(entityPlayer, "firebrick", "Vous avez été vendu en esclavage par"..playerName.."!");
@@ -617,7 +617,7 @@ function Schema:EntityHandleMenuOption(player, entity, option, arguments)
 							end
 							
 							if cwDeathCauses then
-								cwDeathCauses:DeathCauseOverride(entityPlayer, "Sold into slavery by "..playerName..".");
+								cwDeathCauses:DeathCauseOverride(entityPlayer, "Vendu en esclavage par "..playerName..".");
 							end
 							
 							Schema:EasyText(entityPlayer, "firebrick", "Tu as été vendu en esclavage par"..playerName.."!");
@@ -707,7 +707,7 @@ function Schema:EntityHandleMenuOption(player, entity, option, arguments)
 							entity:Remove();
 						end
 						
-						Schema:EasyText(Schema:GetAdmins(), "green", player:Name().." has claimed the bounty on "..entityPlayer:Name().." for "..tostring(entityPlayer:GetBounty()).." coin!");
+						Schema:EasyText(Schema:GetAdmins(), "green", player:Name().." A réclamé la prime sur "..entityPlayer:Name().." pour "..tostring(entityPlayer:GetBounty()).." pièce!");
 						
 						entityPlayer:RemoveBounty();
 						
@@ -724,7 +724,7 @@ function Schema:EntityHandleMenuOption(player, entity, option, arguments)
 					Schema:RemoveBounty(entity:GetNWInt("bountyKey"));
 					entity:Remove();
 					
-					Schema:EasyText(Schema:GetAdmins(), "green", player:Name().." has claimed the bounty on "..bountyData.name.." for "..tostring(bountyData.bounty).." coin!");
+					Schema:EasyText(Schema:GetAdmins(), "green", player:Name().." A réclamé la prime sur "..bountyData.name.." pour "..tostring(bountyData.bounty).." pièce!");
 				end
 			end
 		end
@@ -868,7 +868,7 @@ function Schema:EntityHandleMenuOption(player, entity, option, arguments)
 			end
 		elseif arguments == "cwHoundCageAttackAll" then
 			entity.houndattackall = true
-			local text = "The hound will now attack your enemies.";
+			local text = "Le limier attaquera désormais vos ennemis.";
 			
 			Schema:EasyText(player, "skyblue", text);
 		elseif arguments == "cwHoundCageSpareWanderers" then
@@ -1294,11 +1294,11 @@ function Schema:PlayerCanRadio(player, text, listeners, eavesdroppers)
 	
 	if (player:HasItemByID("handheld_radio")) or (player:HasItemByID("ecw_radio")) then
 		if !player:GetCharacterData("radioState", false) then
-			fault = "Your radio is turned off!";
+			fault = "Votre radio est éteinte!";
 		end
 	
 		if !fault and (!player:GetCharacterData("frequency")) then
-			fault = "You need to set the radio frequency first!";
+			fault = "Vous devez d'abord régler la fréquence radio!";
 		end;
 		
 		local lastZone = player:GetCharacterData("LastZone");
@@ -1307,11 +1307,11 @@ function Schema:PlayerCanRadio(player, text, listeners, eavesdroppers)
 			if (player:HasItemByID("ecw_radio")) then
 				return;
 			elseif lastZone ~= "wasteland" and lastZone ~= "tower" then
-				fault = "Your radio cannot get a signal here!";
+				fault = "Votre radio ne capte aucun signal ici!";
 			end
 		end
 	else
-		fault = "You do not own a radio!";
+		fault = "Vous ne possédez pas de radio!";
 	end;
 	
 	return fault;

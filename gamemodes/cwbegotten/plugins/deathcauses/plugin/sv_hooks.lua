@@ -339,18 +339,18 @@ function cwDeathCauses:PlayerDeath(player, inflictor, attacker, damageInfo)
 
 						if IsValid(weapon) then
 							if itemTable then
-								player:SetCharacterData("deathcause", damageType.." with a "..itemTable.name.." by "..attackerName..".");
+								player:SetCharacterData("deathcause", damageType.." avec un "..itemTable.name.." par "..attackerName..".");
 								--printp(damageType.." with a "..itemTable.name.." by "..attackerName..".");
 							else
-								player:SetCharacterData("deathcause", damageType.." with a "..weapon:GetPrintName().." by "..attackerName..".");
+								player:SetCharacterData("deathcause", damageType.." avec un "..weapon:GetPrintName().." par "..attackerName..".");
 								--printp(damageType.." with a "..weapon:GetPrintName().." by "..attackerName..".");
 							end
 						else
-							player:SetCharacterData("deathcause", damageType.." with a "..Clockwork.player:GetWeaponClass(attacker).." by "..attackerName..".");
+							player:SetCharacterData("deathcause", damageType.." avec un "..Clockwork.player:GetWeaponClass(attacker).." par "..attackerName..".");
 							--printp(damageType.." with a "..Clockwork.player:GetWeaponClass(attacker).." by "..attackerName..".");
 						end
 					else
-						player:SetCharacterData("deathcause", damageType.." indirectly by "..attackerName..".");
+						player:SetCharacterData("deathcause", damageType.." indirectement par "..attackerName..".");
 						--printp(damageType.." indirectly by "..attackerName..".");
 					end
 				else
@@ -366,22 +366,22 @@ function cwDeathCauses:PlayerDeath(player, inflictor, attacker, damageInfo)
 
 						if IsValid(weapon) then
 							if itemTable then
-								player:SetCharacterData("deathcause", "Killed with a "..itemTable.name.." by "..attackerName..".");
+								player:SetCharacterData("deathcause", "Tué avec un(e) "..itemTable.name.." par "..attackerName..".");
 								--printp("Killed with a "..itemTable.name.." by "..attackerName..".");
 							else
-								player:SetCharacterData("deathcause", "Killed with a "..weapon:GetPrintName().." by "..attackerName..".");
+								player:SetCharacterData("deathcause", "Tué avec un(e) "..weapon:GetPrintName().." par "..attackerName..".");
 								--printp("Killed with a "..weapon:GetPrintName().." by "..attackerName..".");
 							end
 						else
-							player:SetCharacterData("deathcause", "Killed with a "..Clockwork.player:GetWeaponClass(attacker).." by "..attackerName..".");
+							player:SetCharacterData("deathcause", "Tué avec un(e) "..Clockwork.player:GetWeaponClass(attacker).." par "..attackerName..".");
 							--printp("Killed with a "..Clockwork.player:GetWeaponClass(attacker).." by "..attackerName..".");
 						end
 					else
-						player:SetCharacterData("deathcause", "Killed indirectly by "..attackerName..".");
+						player:SetCharacterData("deathcause", "Tué indirectement par "..attackerName..".");
 						--printp("Killed indirectly by "..attackerName);
 					end
 				else
-					player:SetCharacterData("deathcause", "Died under mysterious circumstances.");
+					player:SetCharacterData("deathcause", "Mort dans des circonstances mystérieuses.");
 					--printp("Died under mysterious circumstances.");
 				end
 			end

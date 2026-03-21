@@ -124,7 +124,7 @@ function PANEL:Rebuild()
 		end;
 
 		if(#cwRituals.hotkeyRituals >= 8) then
-			Schema:EasyText("firebrick", "You can only have a maximum of 8 bound rituals at one time!");
+			Schema:EasyText("firebrick", "Vous ne pouvez avoir qu'un maximum de 8 rituels liés à la fois!");
 			
 			return;
 
@@ -282,7 +282,7 @@ function PANEL:Rebuild()
 	
 	if (#items > 0 and itemcount >= 3) then
 		local backpanew, backpaneh = self.ritualbackpane:GetSize()
-		local textw, texth = Clockwork.kernel:GetCachedTextSize("Ritual_Text", "SELECT THREE ITEMS TO PERFORM A RITUAL...")
+		local textw, texth = Clockwork.kernel:GetCachedTextSize("Ritual_Text", "SÉLECTIONNEZ TROIS OBJETS POUR EFFECTUER UN RITUEL...")
 		local warning = vgui.Create("DLabel", self.ritualbackpane)
 		warning:SetText("SÉLECTIONNEZ TROIS OBJETS POUR ACCOMPLIR UN RITUEL...")
 		warning:SetFont("Ritual_Text")
@@ -333,7 +333,7 @@ function PANEL:Rebuild()
 		end
 	else
 		local backpanew, backpaneh = self.ritualbackpane:GetSize()
-		local textw, texth = Clockwork.kernel:GetCachedTextSize("Ritual_Text", "YOU DO NOT HAVE ENOUGH RITUAL ITEMS...")
+		local textw, texth = Clockwork.kernel:GetCachedTextSize("Ritual_Text", "VOUS N'AVEZ PAS ASSEZ D'OBJETS RITUELS...")
 		local warning = vgui.Create("DLabel", self.ritualbackpane)
 		warning:SetText("VOUS N'AVEZ PAS ASSEZ D'OBJETS RITUELS...")
 		warning:SetFont("Ritual_Text")
@@ -357,7 +357,7 @@ function PANEL:Rebuild()
 	
 	if table.IsEmpty(availableRituals) then
 		local ritualListW, ritualListH = self.ritualList:GetSize()
-		local textw, texth = Clockwork.kernel:GetCachedTextSize("Ritual_Text", "YOU HAVE NOT DISCOVERED ANY RITUALS...")
+		local textw, texth = Clockwork.kernel:GetCachedTextSize("Ritual_Text", "VOUS N'AVEZ PAS DÉCOUVERT DE RITUEL...")
 		local warning = vgui.Create("DLabel", self.ritualList)
 		
 		warning:SetText("VOUS N'AVEZ DÉCOUVERT AUCUN RITUEL...")
@@ -543,7 +543,7 @@ function PANEL:Rebuild()
 
 		for _, v in pairs(cwRituals.hotkeyRituals) do
 			if(v.uniqueID == ritualData.uniqueID) then
-				Schema:EasyText("firebrick", "You have already bound this ritual to your F1 menu!");
+				Schema:EasyText("firebrick", "Vous avez déjà lié ce rituel à votre menu F1!");
 				return;
 
 			end
@@ -563,7 +563,7 @@ function PANEL:Rebuild()
 		parent.ritualList:SetVisible(false);
 
 		Clockwork.Client:EmitSound("begotten/ui/buttonclick.wav");
-		Schema:EasyText("cornflowerblue", "You have bound the "..RitualFriendlyName(ritualData.name).." ritual to your F1 menu.");
+		Schema:EasyText("cornflowerblue", "Vous avez lié "..RitualFriendlyName(ritualData.name).." le rituel à votre menu F1.");
 
 		table.insert(cwRituals.hotkeyRituals, {
 			name = ritualData.name,
@@ -789,7 +789,7 @@ function PANEL:Init()
 	self.appearanceForm = vgui.Create("DForm");
 	self.appearanceForm:SetPadding(4);
 	self.appearanceForm:SetName("Appearance");
-	self.appearanceForm:Help("Write a physical description for your character in full English, and select an appropriate model.");
+	self.appearanceForm:Help("Rédigez une description physique complète pour votre personnage en français, et sélectionnez un modèle approprié.");
 	self.physDescTextEntry = self.appearanceForm:TextEntry("Description");
 	self.physDescTextEntry:SetAllowNonAsciiCharacters(true);
 	
@@ -856,17 +856,17 @@ function PANEL:Init()
 			self.fullName = self.fullNameTextEntry:GetValue();
 			
 			if (self.fullName == "") then
-				Clockwork.character:SetFault("You did not choose a name, or the name that you chose is not valid!");
+				Clockwork.character:SetFault("Vous n'avez pas choisi de nom, ou le nom que vous avez choisi n'est pas valide!");
 				return false;
 			end;
 
 			if (string.len(self.fullName) < 4) then
-				Clockwork.character:SetFault("Your name must be at least 4 characters long!");
+				Clockwork.character:SetFault("Votre nom doit comporter au moins 4 caractères!");
 				return false;
 			end;
 
 			if (string.len(self.fullName) > 32) then
-				Clockwork.character:SetFault("Your name must not be greater than 32 characters long!");
+				Clockwork.character:SetFault("Votre nom ne doit pas dépasser 32 caractères!");
 				return false;
 			end;
 		
@@ -886,19 +886,19 @@ function PANEL:Init()
 				local blacklistedName = blacklistedNames[i];
 			
 				if string.find(string.lower(self.fullName), blacklistedName) then
-					Clockwork.character:SetFault("Character's name must not contain any blacklisted phrases.");
+					Clockwork.character:SetFault("Le nom du personnage ne doit contenir aucune phrase interdite.");
 					return false;
 				end
 			end
 		end;
 		
 		if (!self.selectedModel) then
-			Clockwork.character:SetFault("You did not choose a model, or the model that you chose is not valid!");
+			Clockwork.character:SetFault("Vous n'avez pas choisi de modèle, ou le modèle que vous avez choisi n'est pas valide!");
 			return false;
 		end;
 		
 		if (!Clockwork.faction:IsGenderValid(self.selectedFaction, self.selectedGender)) then
-			Clockwork.character:SetFault(self.selectedGender.." is not the correct gender for the "..self.selectedFaction.." faction!");
+			Clockwork.character:SetFault(self.selectedGender.." n'est pas du bon genre pour "..self.selectedFaction.." faction!");
 			return false;
 		end;
 		
@@ -907,12 +907,12 @@ function PANEL:Init()
 		self.physDesc = self.physDescTextEntry:GetValue();
 		
 		if (string.len(self.physDesc) < minimumPhysDesc) then
-			Clockwork.character:SetFault("The physical description must be at least "..minimumPhysDesc.." characters long!");
+			Clockwork.character:SetFault("La description physique doit comporter au moins "..minimumPhysDesc.." caractères!");
 			return false;
 		end;
 
 		if (string.match(self.physDesc, "%s%s+")) then
-			Clockwork.character:SetFault("The physical description must not have consecutive spaces.");
+			Clockwork.character:SetFault("La description physique ne doit pas comporter d'espaces consécutifs.");
 			return;
 		end;
 		

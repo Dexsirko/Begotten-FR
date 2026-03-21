@@ -378,14 +378,15 @@ end);
 
 netstream.Hook("OpenRegrowthMenu", function(data)
 	local hitgroupToString = {
-		[HITGROUP_CHEST] = "Chest",
-		[HITGROUP_HEAD] = "Head",
-		[HITGROUP_STOMACH] = "Stomach",
-		[HITGROUP_LEFTARM] = "Left Arm",
-		[HITGROUP_RIGHTARM] = "Right Arm",
-		[HITGROUP_LEFTLEG] = "Left Leg",
-		[HITGROUP_RIGHTLEG] = "Right Leg",
+		[HITGROUP_CHEST] = "Poitrine",
+		[HITGROUP_HEAD] = "Tête",
+		[HITGROUP_STOMACH] = "Ventre",
+		[HITGROUP_LEFTARM] = "Bras gauche",
+		[HITGROUP_RIGHTARM] = "Bras droit",
+		[HITGROUP_LEFTLEG] = "Jambe gauche",
+		[HITGROUP_RIGHTLEG] = "Jambe droite",
 	};
+	
 	local options = {};
 	
 	for k, v in SortedPairs(hitgroupToString) do

@@ -19,11 +19,11 @@
 				if (target:GetRagdollEntity()) then
 					cwGore:SplatCorpse(target:GetRagdollEntity(), 60);
 					
-					Schema:EasyText(player, "cornflowerblue","["..self.name.."] You gored "..target:Name().."!");
+					Schema:EasyText(player, "cornflowerblue","["..self.name.."] Vous avez gore "..target:Name().."!");
 				end;
 			end;
 		else
-			Schema:EasyText(player, "grey",target.." is not a valid player!");
+			Schema:EasyText(player, "grey",target.." n’est pas un joueur valide!");
 		end;
 	end;
 COMMAND:Register();
@@ -45,7 +45,7 @@ local COMMAND = Clockwork.command:New("Expel");
 			local curTime = CurTime();
 			
 			if player.nextExpel and player.nextExpel > curTime then
-				Schema:EasyText(player, "chocolate", "Vous devez attendre encore"..-math.ceil(curTime - player.nextExpel).." seconds before expelling someone again!");
+				Schema:EasyText(player, "chocolate", "Vous devez attendre encore"..-math.ceil(curTime - player.nextExpel).." secondes avant d’expulser quelqu’un à nouveau!");
 			
 				return false;
 			end
@@ -54,19 +54,19 @@ local COMMAND = Clockwork.command:New("Expel");
 			
 			if IsValid(target) and target:IsPlayer() and !target.cwObserverMode then
 				if (!target:Alive()) then
-					Schema:EasyText(player, "cornflowerblue", target:Name().." is already dead!");
+					Schema:EasyText(player, "cornflowerblue", target:Name().." est déjà mort!");
 				
 					return;
 				elseif target:GetFaction() ~= "Children of Satan" then
-					Schema:EasyText(player, "cornflowerblue", target:Name().." is not a Child of Satan!");
+					Schema:EasyText(player, "cornflowerblue", target:Name().." n’est pas un Enfant de Satan!");
 				
 					return;
 				elseif zones and zones:GetPlayerSupraZone(target) ~= "suprahell" then
-					Schema:EasyText(player, "cornflowerblue", target:Name().." must be in Hell to be expelled!");
+					Schema:EasyText(player, "cornflowerblue", target:Name().." doit être en Enfer pour être expulsé!");
 				
 					return;
 				elseif Schema:GetRankTier("Children of Satan", target:GetCharacterData("rank", 1)) >= Schema:GetRankTier("Children of Satan", player:GetCharacterData("rank", 1)) then
-					Schema:EasyText(player, "cornflowerblue", target:Name().." is too high of a rank to be expelled by you!");
+					Schema:EasyText(player, "cornflowerblue", target:Name().." a un rang trop élevé pour être expulsé par vous!");
 				
 					return;
 				else
@@ -78,7 +78,7 @@ local COMMAND = Clockwork.command:New("Expel");
 						thirdPerson = "her";
 					end
 				
-					Clockwork.chatBox:AddInTargetRadius(player, "me", "claque"..thirdPerson.." fingers.", player:GetPos(), config.Get("talk_radius"):Get() * 2);
+					Clockwork.chatBox:AddInTargetRadius(player, "me", "claque"..thirdPerson.." doigts.", player:GetPos(), config.Get("talk_radius"):Get() * 2);
 					Clockwork.chatBox:AddInTargetRadius(target, "me", "explose soudainement en une pluie de feu et de chair !", target:GetPos(), config.Get("talk_radius"):Get() * 2);
 				
 					target:Kill();

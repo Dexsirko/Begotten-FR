@@ -15,10 +15,10 @@ function COMMAND:OnRun(player, arguments)
 		player.cwParentDoor = nil
 		cwDoorCmds.infoTable = {}
 
-		Schema:EasyText(player, "cornflowerblue", "["..self.name.."] You have cleared your active parent door.")
+		Schema:EasyText(player, "cornflowerblue", "["..self.name.."] Vous avez effacé votre porte parente active.")
 		netstream.Start(player, "doorParentESP", cwDoorCmds.infoTable)
 	else
-		Schema:EasyText(player, "grey", "["..self.name.."] You do not have an active parent door.")
+		Schema:EasyText(player, "grey", "["..self.name.."] Vous n'avez pas de porte parente active.")
 	end
 end
 

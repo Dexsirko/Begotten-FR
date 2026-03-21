@@ -72,14 +72,14 @@ function cwStorage:GetEntityMenuOptions(entity, options)
 			
 			if (entity:GetNWBool("unlocked", true) == false) then
 				if Clockwork.inventory:HasItemByID(Clockwork.inventory:GetClient(), "lockpick") then
-					options["Lockpick"] = "cwContainerLockpick";
+					options["Crocheter"] = "cwContainerLockpick";
 				end
 				
 				if entity:GetNWBool("hasPassword", false) then
-					options["Open"] = "cwContainerOpen";
+					options["Ouvrir"] = "cwContainerOpen";
 				end
 			else
-				options["Open"] = "cwContainerOpen";
+				options["Ouvrir"] = "cwContainerOpen";
 			end;
 		end;
 	end;

@@ -6,7 +6,7 @@ local cwScrapFactory = cwScrapFactory;
 
 function cwScrapFactory:GetProgressBarInfoAction(action, percentage)
 	if (action == "turn_scrapfactory_valve") then
-		return {text = "You are turning the valve.", percentage = percentage, flash = percentage < 10};
+		return {text = "Vous tournez la vanne.", percentage = percentage, flash = percentage < 10};
 	end
 end
 
@@ -21,7 +21,7 @@ function cwScrapFactory:CreateMenu()
 		
 	menu:SetMinimumWidth(150);
 	
-	menu:AddOption("Turn Valve", function() Clockwork.Client:ConCommand("cw_TurnScrapFactoryValve") end);
+	menu:AddOption("Tourner la vanne", function() Clockwork.Client:ConCommand("cw_TurnScrapFactoryValve") end);
 	
 	menu:Open();
 	

@@ -28,12 +28,12 @@ local function CreateMenu(state)
 
 	local subMenu = menu:AddSubMenu("Sacrifice");
 	
-	subMenu:AddOption("Disembowel (Solo)", function() Clockwork.Client:ConCommand("cw_AltarDisembowel") end);
-	subMenu:AddOption("Disembowel (Shared)", function() Clockwork.Client:ConCommand("cw_AltarDisembowelShared") end);
-	subMenu:AddOption("Dismember (Solo)", function() Clockwork.Client:ConCommand("cw_AltarDismember") end);
-	subMenu:AddOption("Dismember (Shared)", function() Clockwork.Client:ConCommand("cw_AltarDismemberShared") end);
-	subMenu:AddOption("Flay (Solo)", function() Clockwork.Client:ConCommand("cw_AltarFlay") end);
-	subMenu:AddOption("Flay (Shared)", function() Clockwork.Client:ConCommand("cw_AltarFlayShared") end);
+	subMenu:AddOption("Éventrer  (Solo)", function() Clockwork.Client:ConCommand("cw_AltarDisembowel") end);
+	subMenu:AddOption("Éventrer  (Partagé)", function() Clockwork.Client:ConCommand("cw_AltarDisembowelShared") end);
+	subMenu:AddOption("Démembrer (Solo)", function() Clockwork.Client:ConCommand("cw_AltarDismember") end);
+	subMenu:AddOption("Démembrer (Partagé)", function() Clockwork.Client:ConCommand("cw_AltarDismemberShared") end);
+	subMenu:AddOption("Dépouiller (Solo)", function() Clockwork.Client:ConCommand("cw_AltarFlay") end);
+	subMenu:AddOption("Dépouiller (Partagé)", function() Clockwork.Client:ConCommand("cw_AltarFlayShared") end);
 	
 	menu:Open();
 	menu:SetPos(scrW / 2 - (menu:GetWide() / 2), scrH / 2 - (menu:GetTall() / 2));

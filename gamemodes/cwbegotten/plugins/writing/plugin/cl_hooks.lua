@@ -13,10 +13,10 @@ function PLUGIN:GetEntityMenuOptions(entity, options)
 	
 	if (class == "cw_paper") then
 		if (entity:GetDTBool(0)) then
-			options["Read"] = "cw_paperOption";
+			options["Lire"] = "cw_paperOption";
 		else
-			options["Write"] = "cw_paperOption";
-			options["Take"] = "cw_itemTake";
+			options["Écrire"] = "cw_paperOption";
+			options["Prendre"] = "cw_itemTake";
 		end;
 	end;
 end;

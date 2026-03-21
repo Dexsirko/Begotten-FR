@@ -47,26 +47,26 @@ function ITEM:GetEntityMenuOptions(entity, options)
 	if ammo and #ammo > 0 then
 		if self.ammoCapacity == 1 or (#ammo == 1 and !string.find(ammo[1], "Magazine")) then
 			if self.usesMagazine then
-				options["Unload Chamber"] = {
+				options["Décharger la chambre"] = {
 					isArgTable = true,
 					arguments = "cwItemAmmo",
 					toolTip = toolTip
 				};
 			else
-				options["Unload Shot"] = {
+				options["Décharger le coup"] = {
 					isArgTable = true,
 					arguments = "cwItemAmmo",
 					toolTip = toolTip
 				};
 			end
 		elseif self.isRevolver then
-			options["Unload All Shot"] = {
+			options["Tout décharger"] = {
 				isArgTable = true,
 				arguments = "cwItemAmmo",
 				toolTip = toolTip
 			};
 		elseif self.usesMagazine then
-			options["Unload Magazine"] = {
+			options["Décharger le chargeur"] = {
 				isArgTable = true,
 				arguments = "cwItemAmmo",
 				toolTip = toolTip

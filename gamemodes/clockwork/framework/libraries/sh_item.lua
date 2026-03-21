@@ -327,7 +327,7 @@ end;
 -- Called when a player has unequipped the item.
 function CLASS_TABLE:OnTakeFromPlayer(player)
 	if (self.baseItem == "weapon_base" or self.baseItem == "firearm_base") then
-		local slots = {"Primary", "Secondary", "Tertiary"};
+		local slots = {"Principal", "Secondaire", "Tertiaire"};
 		local weaponID = self.uniqueID;
 		local weapon = player:GetWeapon(weaponID);
 		
@@ -414,7 +414,7 @@ function CLASS_TABLE:OnHandleUnequip(Callback)
 					end]]--
 					
 					if offhandSlot then
-						unequipMenu:AddOption(offhandSlot.name.." (Offhand)", function()
+						unequipMenu:AddOption(offhandSlot.name.." (Seconde main)", function()
 							if offhandSlot then
 								netstream.Start("UnequipItem", {offhandSlot("uniqueID"), offhandSlot("itemID")});
 							end
@@ -426,7 +426,7 @@ function CLASS_TABLE:OnHandleUnequip(Callback)
 			end
 			
 			if !unequipMenu then
-				unequipMenu = menu:AddOption("Unequip", function()
+				unequipMenu = menu:AddOption("Déséquiper", function()
 					Callback("holster")
 				end)
 			end
@@ -435,16 +435,16 @@ function CLASS_TABLE:OnHandleUnequip(Callback)
 				local ammo = self:GetData("Ammo");
 				
 				if ammo and #ammo > 0 then
-					local unloadText = "Unload Shot";
+					local unloadText = "Décharger le coup";
 									
 					if self.ammoCapacity == 1 or (#ammo == 1 and !string.find(ammo[1], "Magazine")) then
 						if self.usesMagazine then
-							unloadText = "Unload Chamber";
+							unloadText = "Décharger la chambre";
 						end
 					elseif self.isRevolver then
-						unloadText = "Unload All Shot";
+						unloadText = "Tout décharger";
 					elseif self.usesMagazine then
-						unloadText = "Unload Magazine";
+						unloadText = "Décharger le chargeur";
 					end
 					
 					menu:AddOption(unloadText, function()
@@ -453,7 +453,7 @@ function CLASS_TABLE:OnHandleUnequip(Callback)
 				end
 			end
 			
-			menu:AddOption("Drop", function()
+			menu:AddOption("Jetter", function()
 				Callback("drop")
 			end)
 		menu:Open()
@@ -752,10 +752,10 @@ if (SERVER) then
 		
 		if (self("batch") > 1) then
 			Clockwork.player:GiveCash(player, -(self("cost") * self("batch")), self("batch").." "..Clockwork.kernel:Pluralize(self("name")));
-			Clockwork.kernel:PrintLog(LOGTYPE_MINOR, player:Name().." has ordered "..self("batch").." "..Clockwork.kernel:Pluralize(self("name"))..".");
+			Clockwork.kernel:PrintLog(LOGTYPE_MINOR, player:Name().." a ordonné "..self("batch").." "..Clockwork.kernel:Pluralize(self("name"))..".");
 		else
 			Clockwork.player:GiveCash(player, -(self("cost") * self("batch")), self("batch").." "..self("name"));
-			Clockwork.kernel:PrintLog(LOGTYPE_MINOR, player:Name().." has ordered "..self("batch").." "..self("name")..".");
+			Clockwork.kernel:PrintLog(LOGTYPE_MINOR, player:Name().." a ordonné "..self("batch").." "..self("name")..".");
 		end;
 	end;
 	

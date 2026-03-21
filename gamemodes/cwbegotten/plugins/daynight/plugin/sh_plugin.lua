@@ -54,7 +54,7 @@ local COMMAND = Clockwork.command:New("ChangeCycleLength");
 		
 		if seconds then
 			cwDayNight:ModifyCycleTimeLeft(seconds);
-			Schema:EasyText(player, "cornflowerblue", "["..self.name.."] ".."The time left for "..cwDayNight:GetCurrentCycle().." is now "..tostring(cwDayNight:GetCycleTimeLeft()).." seconds!");
+			Schema:EasyText(player, "cornflowerblue", "["..self.name.."] ".."Le temps restant pour "..cwDayNight:GetCurrentCycle().." est maintenant "..tostring(cwDayNight:GetCycleTimeLeft()).." secondes!");
 		else
 			Schema:EasyText(player, "darkgrey", "Ce n'est pas un montant valide !");
 		end
@@ -67,6 +67,6 @@ local COMMAND = Clockwork.command:New("GetCycle");
 
 	-- Called when the command has been run.
 	function COMMAND:OnRun(player, arguments)
-		Schema:EasyText(player, "cornflowerblue", "["..self.name.."] ".."The current time of day is: "..cwDayNight:GetCurrentCycle().." with "..tostring(cwDayNight:GetCycleTimeLeft()).." seconds left!");
+		Schema:EasyText(player, "cornflowerblue", "["..self.name.."] ".."L’heure actuelle est: "..cwDayNight:GetCurrentCycle().." avec "..tostring(cwDayNight:GetCycleTimeLeft()).." secondes restantes!");
 	end;
 COMMAND:Register();

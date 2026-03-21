@@ -27,7 +27,7 @@ local function CreateMenu(state)
 		
 	menu:SetMinimumWidth(150);
 
-	local subMenu = menu:AddSubMenu("Add to Archives...");
+	local subMenu = menu:AddSubMenu("Ajouter aux archives...");
 	local itemList = Clockwork.inventory:GetItemsAsList(Clockwork.inventory:GetClient());
 	
 	for k, v in pairs (itemList) do
@@ -40,7 +40,7 @@ local function CreateMenu(state)
 	
 	if Schema.archivesBookList and !table.IsEmpty(Schema.archivesBookList) then
 		if Clockwork.Client:GetFaction() == "Holy Hierarchy" then
-			subMenu = menu:AddSubMenu("Take from Archives...");
+			subMenu = menu:AddSubMenu("Prendre des archives...");
 			
 			for k, v in pairs (Schema.archivesBookList) do
 				if v and v > 0 then

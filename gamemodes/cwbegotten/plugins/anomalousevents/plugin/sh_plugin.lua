@@ -56,7 +56,7 @@ local COMMAND = Clockwork.command:New("tvhallucination");
 		if (target) then
 			netstream.Start(target, "StartNearestTVHallucination");
 		else
-			Schema:EasyText(player, "grey", "["..self.name.."] "..arguments[1].." is not a valid player!");
+			Schema:EasyText(player, "grey", "["..self.name.."] "..arguments[1].." n’est pas un joueur valide !");
 		end
 		
 		if arguments[2] then

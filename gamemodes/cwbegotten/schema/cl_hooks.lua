@@ -483,7 +483,7 @@ function Schema:GetEntityMenuOptions(entity, options)
 			if entity:Alive() and (clientFaction == "Hillkeeper" or clientFaction == "Holy Hierarchy") and (entFaction ~= "Hillkeeper" and entFaction ~= "Holy Hierarchy") and entity:GetNetVar("tied") != 0 then
 				for k, v in pairs(ents.FindInSphere(Clockwork.Client:GetPos(), 512)) do
 					if v:GetClass() == "cw_salesman" and v:GetNetworkedString("Name") == "The Headsman" then
-						options["Sell Into Slavery"] = "cw_sellSlave";
+						options["Vendre en esclavage"] = "cw_sellSlave";
 						
 						break;
 					end
@@ -491,7 +491,7 @@ function Schema:GetEntityMenuOptions(entity, options)
 			elseif entity:Alive() and clientFaction == "Goreic Warrior" and entFaction ~= "Goreic Warrior" and entity:GetNetVar("tied") != 0 then
 				for k, v in pairs(ents.FindInSphere(Clockwork.Client:GetPos(), 512)) do
 					if v:GetClass() == "cw_salesman" and v:GetNetworkedString("Name") == "Reaver Despoiler" then
-						options["Sell Into Slavery"] = "cw_sellSlave";
+						options["Vendre en esclavage"] = "cw_sellSlave";
 						
 						break;
 					end
@@ -499,7 +499,7 @@ function Schema:GetEntityMenuOptions(entity, options)
 			elseif entity:IsWanted() and entity:GetNetVar("tied") != 0 then
 				for k, v in pairs(ents.FindInSphere(Clockwork.Client:GetPos(), 512)) do
 					if v:GetClass() == "cw_bounty_board" then
-						options["Turn In"] = "cw_turnInBounty";
+						options["Dénoncer"] = "cw_turnInBounty";
 						
 						break;
 					end
@@ -514,7 +514,7 @@ function Schema:GetEntityMenuOptions(entity, options)
 				if player:Alive() and (clientFaction == "Hillkeeper" or clientFaction == "Holy Hierarchy") and (entFaction ~= "Hillkeeper" and entFaction ~= "Holy Hierarchy") and player:GetNetVar("tied") != 0 then
 					for k, v in pairs(ents.FindInSphere(Clockwork.Client:GetPos(), 512)) do
 						if v:GetClass() == "cw_salesman" and v:GetNetworkedString("Name") == "The Headsman" then
-							options["Sell Into Slavery"] = "cw_sellSlave";
+							options["Vendre en esclavage"] = "cw_sellSlave";
 							
 							break;
 						end
@@ -522,7 +522,7 @@ function Schema:GetEntityMenuOptions(entity, options)
 				elseif player:Alive() and clientFaction == "Goreic Warrior" and playerFaction ~= "Goreic Warrior" and player:GetNetVar("tied") != 0 then
 					for k, v in pairs(ents.FindInSphere(Clockwork.Client:GetPos(), 512)) do
 						if v:GetClass() == "cw_salesman" and v:GetNetworkedString("Name") == "Reaver Despoiler" then
-							options["Sell Into Slavery"] = "cw_sellSlave";
+							options["Vendre en esclavage"] = "cw_sellSlave";
 							
 							break;
 						end
@@ -530,7 +530,7 @@ function Schema:GetEntityMenuOptions(entity, options)
 				elseif player:IsWanted() and player:GetNetVar("tied") != 0 then
 					for k, v in pairs(ents.FindInSphere(Clockwork.Client:GetPos(), 512)) do
 						if v:GetClass() == "cw_bounty_board" then
-							options["Turn In"] = "cw_turnInBounty";
+							options["Dénoncer"] = "cw_turnInBounty";
 							
 							break;
 						end
@@ -545,8 +545,8 @@ function Schema:GetEntityMenuOptions(entity, options)
 					--local activeWeapon = Clockwork.Client:GetActiveWeapon();
 					
 					--if activeWeapon:IsValid() and activeWeapon.isDagger then
-						options["Mutilate"] = "cwCorpseMutilate";
-						options["Skin"] = "cwCorpseSkin";
+						options["Mutiler"] = "cwCorpseMutilate";
+						options["Dépouiller"] = "cwCorpseSkin";
 					--else
 						--if !self.skinNotificationTimer or self.skinNotificationTimer < curTime then
 							--Clockwork.chatBox:Add(nil, "icon16/error.png", Color(200, 175, 200, 255), "You must have a dagger equipped in order to skin or mutilate this animal!");
@@ -555,12 +555,12 @@ function Schema:GetEntityMenuOptions(entity, options)
 						--end
 					--end
 				elseif entity:GetNWEntity("Player"):IsPlayer() or entity:GetNWEntity("Player") == game.GetWorld() then
-					options["Pillage"] = "cw_corpseLoot";
+					options["Piller"] = "cw_corpseLoot";
 					
 					if entity:GetNWInt("bountyKey") then
 						for k, v in pairs(ents.FindInSphere(Clockwork.Client:GetPos(), 512)) do
 							if v:GetClass() == "cw_bounty_board" then
-								options["Turn In"] = "cw_turnInBounty";
+								options["Dénoncer"] = "cw_turnInBounty";
 								
 								break;
 							end
@@ -570,21 +570,21 @@ function Schema:GetEntityMenuOptions(entity, options)
 			end;
 			
 			if IsValid(entity:GetNWEntity("CinderBlock")) then
-				options["Untie Rope"] = "cwUntieCinderBlock"
+				options["Détacher la corde"] = "cwUntieCinderBlock"
 			end
 		elseif (entity:GetClass() == "cw_belongings") then
-			options["Open"] = "cw_belongingsOpen";
+			options["Ouvrir"] = "cw_belongingsOpen";
 		elseif (entity:GetClass() == "prop_physics") then
 			local model = entity:GetModel();
 			
 			if entity:GetNWBool("BIsCinderBlock") == true then
-				options["Untie Rope"] = "cwUntieCinderBlock"
+				options["Détacher la corde"] = "cwUntieCinderBlock"
 			elseif model == "models/animals/bear.mdl" then
 				--local activeWeapon = Clockwork.Client:GetActiveWeapon();
 				
 				--if activeWeapon:IsValid() and activeWeapon.isDagger then
-					options["Mutilate"] = "cwCorpseMutilate";
-					options["Skin"] = "cwCorpseSkin";
+					options["Mutiler"] = "cwCorpseMutilate";
+					options["Dépouiller"] = "cwCorpseSkin";
 				--[[else
 					if !self.skinNotificationTimer or self.skinNotificationTimer < curTime then
 						Clockwork.chatBox:Add(nil, "icon16/error.png", Color(200, 175, 200, 255), "You must have a dagger equipped in order to skin or mutilate this animal!");
@@ -596,13 +596,13 @@ function Schema:GetEntityMenuOptions(entity, options)
 		elseif (entity:GetClass() == "cw_radio") then
 			if (!entity:IsCrazy()) then
 				if (!entity:IsOff()) then
-					options["Turn Off"] = "cw_radioToggle";
+					options["Éteindre"] = "cw_radioToggle";
 				else
-					options["Turn On"] = "cw_radioToggle";
+					options["Allumer"] = "cw_radioToggle";
 				end;
 				
 				if !entity:IsStatic() or (entity:IsStatic() and Clockwork.Client:IsAdmin()) then
-					options["Set Frequency"] = function()
+					options["Régler la fréquence"] = function()
 						Derma_StringRequest("Frequency", "À quelle fréquence souhaitez-vous régler ?", frequency, function(text)
 							if ( IsValid(entity) ) then
 								Clockwork.entity:ForceMenuOption(entity, "Régler la Fréquence", text);
@@ -610,40 +610,40 @@ function Schema:GetEntityMenuOptions(entity, options)
 						end);
 					end;
 					
-					options["Take"] = "cw_radioTake";
+					options["Prendre"] = "cw_radioTake";
 				end
 			end;
 		elseif (entity.tracks and entity.IsOff) then
 			if (!entity:IsOff()) then
-				options["Turn Off"] = "cwToggleGramophone";
+				options["Éteindre"] = "cwToggleGramophone";
 			else
-				options["Turn On"] = "cwToggleGramophone";
+				options["Allumer"] = "cwToggleGramophone";
 			end;
 		elseif (entity:GetClass() == "cw_hound_cage_next") then
-			options["Examine"] = "cwItemExamine";
+			options["Examiner"] = "cwItemExamine";
 			options["Pick Up"] = "cwItemHoundPickup";
 		
 			if entity:GetNWBool("houndunleashed",0) == 0 then
-				options["Attack All"] = "cwHoundCageAttackAll";
-				options["Spare Wanderers"] = "cwHoundCageSpareWanderers";
+				options["Attaquer tout"] = "cwHoundCageAttackAll";
+				options["Épargner les vagabonds"] = "cwHoundCageSpareWanderers";
 			end
 		elseif (entity:GetClass() == "cw_siege_ladder") then
 			if entity:GetNWEntity("owner") == Clockwork.Client then
-				options["Tear Down"] = "cwTearDownSiegeLadder";
+				options["Démolir"] = "cwTearDownSiegeLadder";
 			end
 		elseif (entity:GetClass() == "cw_bear_trap") then
-			options["Examine"] = "cwItemExamine";
+			options["Examiner"] = "cwItemExamine";
 		
 			if entity:GetNWString("state") == "trap" then
 				if !cwBeliefs or Clockwork.Client:HasBelief("ingenious") then
-					options["Reset"] = "cwResetBearTrap";
+					options["Réinitialiser"] = "cwResetBearTrap";
 				end
 			else
 				if !cwBeliefs or Clockwork.Client:HasBelief("ingenious") then
-					options["Set"] = "cwSetBearTrap";
+					options["Définir"] = "cwSetBearTrap";
 				end
 				
-				options["Take"] = "cwTakeBearTrap";
+				options["Prendre"] = "cwTakeBearTrap";
 			end
 		end;
 	end;
@@ -3053,8 +3053,7 @@ function Schema:ModifyItemMarkupTooltip(category, maximumWeight, weight, conditi
 		return true;
 	elseif (category == "Armor" or category == "Helms") then
 		local damageTypes = {[2] = "Bullet", [4] = "Slash", [16] = "Pierce", [128] = "Blunt"};
-		local limbs = {[1] = "Head", [2] = "Chest", [3] = "Stomach", [4] = "Left Arm", [5] = "Right Arm", [6] = "Left Leg", [7] = "Right Leg"};
-		local name = itemTable:GetName();
+		local limbs = {[1] = "Tête", [2] = "Poitrine", [3] = "Ventre", [4] = "Bras gauche", [5] = "Bras droit", [6] = "Jambe gauche", [7] = "Jambe droite"};		local name = itemTable:GetName();
 		
 		if category == "Helms" then
 			category = "Helmet";
@@ -4000,15 +3999,14 @@ function Schema:ModifyItemMarkupTooltip(category, maximumWeight, weight, conditi
 		
 		return true;
 	elseif (category == "Medical") then
-		local hitGroupToString = {
-			[HITGROUP_CHEST] = "Chest",
-			[HITGROUP_HEAD] = "Head",
-			[HITGROUP_STOMACH] = "Stomach",
-			[HITGROUP_LEFTARM] = "Left Arm",
-			[HITGROUP_RIGHTARM] = "Right Arm",
-			[HITGROUP_LEFTLEG] = "Left Leg",
-			[HITGROUP_RIGHTLEG] = "Right Leg",
-			[HITGROUP_GENERIC] = "Generic",
+		local hitgroupToString = {
+			[HITGROUP_CHEST] = "Poitrine",
+			[HITGROUP_HEAD] = "Tête",
+			[HITGROUP_STOMACH] = "Ventre",
+			[HITGROUP_LEFTARM] = "Bras gauche",
+			[HITGROUP_RIGHTARM] = "Bras droit",
+			[HITGROUP_LEFTLEG] = "Jambe gauche",
+			[HITGROUP_RIGHTLEG] = "Jambe droite",
 		};
 
 		frame:AddText(name.." - "..category, Color(180, 20, 20), "nov_IntroTextSmallDETrooper", 1.15);

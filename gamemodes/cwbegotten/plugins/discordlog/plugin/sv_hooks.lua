@@ -182,21 +182,21 @@ end
 function cwDiscordLog:PlayerCountryAuthed(player, countryCode)
 	if Clockwork.config:Get(self.webhooks["miscellaneous"]):GetString() == "" then return end
 
-	self:Add(self:FormatMessage("Player Join", player:Nick().." ["..player:IPAddress().."] ".." has connected from "..(Clockwork.kernel:GetCountryName(player) or "an unknown location"), self:GetSteamCommunityLink(player), self.colors.green, player), player, "miscellaneous");
+	self:Add(self:FormatMessage("Player Join", player:Nick().." ["..player:IPAddress().."] ".." s’est connecté depuis "..(Clockwork.kernel:GetCountryName(player) or "an unknown location"), self:GetSteamCommunityLink(player), self.colors.green, player), player, "miscellaneous");
 
 end
 
 function cwDiscordLog:PlayerDisconnected(player)
 	if Clockwork.config:Get(self.webhooks["miscellaneous"]):GetString() == "" then return end
 
-	self:Add(self:FormatMessage("Player Join", player:Nick().." ["..player:IPAddress().."] ".." has left the server", self:GetSteamCommunityLink(player), self.colors.red, player), player, "miscellaneous");
+	self:Add(self:FormatMessage("Player Join", player:Nick().." ["..player:IPAddress().."] ".." a quitté le serveur", self:GetSteamCommunityLink(player), self.colors.red, player), player, "miscellaneous");
 
 end
 
 function cwDiscordLog:PrePlayerInvAction(player, itemAction, uniqueID, itemID, interactUniqueID, interactItemID)
 	if Clockwork.config:Get(self.webhooks["invaction"]):GetString() == "" then return end
 
-	self:Add(self:FormatMessage("Inventory Action", player:Nick().." ran ".."["..itemAction.."] on ".." ["..uniqueID.."] ".." #"..itemID, self:GetSteamCommunityLink(player), self.colors.blue, player), player, "invaction");
+	self:Add(self:FormatMessage("Inventory Action", player:Nick().." a fui ".."["..itemAction.."] sur ".." ["..uniqueID.."] ".." #"..itemID, self:GetSteamCommunityLink(player), self.colors.blue, player), player, "invaction");
 
 end
 
@@ -229,9 +229,9 @@ end
 function cwDiscordLog:DamageLog(player, attacker, damage, inflictor, health, armor)
 	if Clockwork.config:Get(self.webhooks["damage"]):GetString() == "" then return end
 
-    local attackerName = (attacker == false and "" or " from "..(attacker:IsPlayer() and attacker:Name() or attacker:GetClass()));
+    local attackerName = (attacker == false and "" or " de "..(attacker:IsPlayer() and attacker:Name() or attacker:GetClass()));
 
-	self:Add(self:FormatMessage("Damage Log", (player:Name().." has taken "..tostring(math.ceil(damage)).." damage"..attackerName..(inflictor or "")..", leaving them at "..health.." health"..armor), self:GetSteamCommunityLink(player), self.colors.black, player), player, "damage");
+	self:Add(self:FormatMessage("Damage Log", (player:Name().." a subi "..tostring(math.ceil(damage)).." dégâts"..attackerName..(inflictor or "")..", les laissant à "..health.." health"..armor), self:GetSteamCommunityLink(player), self.colors.black, player), player, "damage");
 
 end
 
@@ -240,8 +240,8 @@ function cwDiscordLog:KillLog(player, attacker, damage, inflictor)
 	
     local attackerName = (attacker == false and "" or (attacker:IsPlayer() and attacker:Name() or attacker:GetClass()));
 
-	self:Add(self:FormatMessage("Damage Log", (attackerName.." has dealt "..tostring(math.ceil(damage)).." damage to "..player:Name()..(inflictor or "")..", killing them!"), self:GetSteamCommunityLink(player), self.colors.black, player), player, "damage");
+	self:Add(self:FormatMessage("Damage Log", (attackerName.." a infligé "..tostring(math.ceil(damage)).." dégâts à "..player:Name()..(inflictor or "")..", les tuant!"), self:GetSteamCommunityLink(player), self.colors.black, player), player, "damage");
 
 end
 
-cwDiscordLog:Add(cwDiscordLog:FormatMessage("Server Log", "Server has autorefreshed or started."), nil, "miscellaneous");
+cwDiscordLog:Add(cwDiscordLog:FormatMessage("Server Log", "Le serveur s’est automatiquement actualisé ou a démarré."), nil, "miscellaneous");

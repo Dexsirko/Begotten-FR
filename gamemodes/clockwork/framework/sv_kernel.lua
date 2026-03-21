@@ -2428,7 +2428,7 @@ concommand.Add("cwStatus", function(player, command, arguments)
 				end
 			end
 		else
-			player:PrintMessage(2, "You do not have access to this command, "..player:Name()..".")
+			player:PrintMessage(2, "Vous n'avez pas accès à cette commande, "..player:Name()..".")
 		end
 	else
 		print("# User ID | Name | Steam Name | Steam ID | IP Address")

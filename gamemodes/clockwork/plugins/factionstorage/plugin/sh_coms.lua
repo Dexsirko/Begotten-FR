@@ -35,13 +35,13 @@ function COMMAND:OnRun(player, arguments)
 					subfaiths = data.subfaiths or {},
 				});
 			else
-				Schema:EasyText(player, "grey", "["..self.name.."] This is not a valid container!")
+				Schema:EasyText(player, "grey", "["..self.name.."] Ce n'est pas un conteneur valide!")
 			end
 		else
-			Schema:EasyText(player, "grey", "["..self.name.."] This is not a valid container!")
+			Schema:EasyText(player, "grey", "["..self.name.."] Ce n'est pas un conteneur valide!")
 		end
 	else
-		Schema:EasyText(player, "grey", "["..self.name.."] This is not a valid container!")
+		Schema:EasyText(player, "grey", "["..self.name.."] Ce n'est pas un conteneur valide!")
 	end
 end
 
@@ -62,7 +62,7 @@ function COMMAND:OnRun(player, arguments)
 
 			if (cwStorage.containerList[model]) then
 				if !trace.Entity.cwFactionLock then
-					Schema:EasyText(player, "grey", "["..self.name.."] This container does not have a faction lock!")
+					Schema:EasyText(player, "grey", "["..self.name.."] Ce conteneur n'a pas de verrouillage par faction!")
 				
 					return;
 				end
@@ -81,15 +81,15 @@ function COMMAND:OnRun(player, arguments)
 				
 				cwStorage:SaveStorage();
 
-				Schema:EasyText(player, "cornflowerblue", "["..self.name.."] This container's faction lock has been removed.")
+				Schema:EasyText(player, "cornflowerblue", "["..self.name.."] Le verrouillage par faction de ce conteneur a été retiré.")
 			else
-				Schema:EasyText(player, "grey", "["..self.name.."] This is not a valid container!")
+				Schema:EasyText(player, "grey", "["..self.name.."] Ce n'est pas un conteneur valide!")
 			end	
 		else
-			Schema:EasyText(player, "grey", "["..self.name.."] This is not a valid container!")
+			Schema:EasyText(player, "grey", "["..self.name.."] Ce n'est pas un conteneur valide!")
 		end
 	else
-		Schema:EasyText(player, "grey", "["..self.name.."] This is not a valid container!")
+		Schema:EasyText(player, "grey", "["..self.name.."] Ce n'est pas un conteneur valide!")
 	end
 end
 
@@ -111,7 +111,7 @@ function COMMAND:OnRun(player, arguments)
 
 			if (cwStorage.containerList[model]) then
 				if !trace.Entity.cwFactionLock then
-					Schema:EasyText(player, "grey", "["..self.name.."] This container does not have a faction lock!")
+					Schema:EasyText(player, "grey", "["..self.name.."] Ce conteneur n'a pas de verrouillage par faction!")
 				
 					return;
 				end
@@ -123,15 +123,15 @@ function COMMAND:OnRun(player, arguments)
 				
 				player.cwFactionLockCopy = table.Copy(trace.Entity.cwFactionLock);
 
-				Schema:EasyText(player, "cornflowerblue", "["..self.name.."] This container's faction lock has been copied!")
+				Schema:EasyText(player, "cornflowerblue", "["..self.name.."] Le verrouillage par faction de ce conteneur a été copié!")
 			else
-				Schema:EasyText(player, "grey", "["..self.name.."] This is not a valid container!")
+				Schema:EasyText(player, "grey", "["..self.name.."] Ce n'est pas un conteneur valide!")
 			end	
 		else
-			Schema:EasyText(player, "grey", "["..self.name.."] This is not a valid container!")
+			Schema:EasyText(player, "grey", "["..self.name.."] Ce n'est pas un conteneur valide!")
 		end
 	else
-		Schema:EasyText(player, "grey", "["..self.name.."] This is not a valid container!")
+		Schema:EasyText(player, "grey", "["..self.name.."] Ce n'est pas un conteneur valide!")
 	end
 end
 
@@ -160,7 +160,7 @@ function COMMAND:OnRun(player, arguments)
 				local data = player.cwFactionLockCopy;
 				
 				if !data then
-					Schema:EasyText(player, "cornflowerblue", "["..self.name.."] You do not have a faction lock copied!")
+					Schema:EasyText(player, "cornflowerblue", "["..self.name.."] Vous n'avez pas de verrouillage par faction copié!")
 				
 					return false;
 				end
@@ -182,15 +182,15 @@ function COMMAND:OnRun(player, arguments)
 				
 				cwStorage:SaveStorage();
 
-				Schema:EasyText(player, "cornflowerblue", "["..self.name.."] This container's faction lock has been pasted!")
+				Schema:EasyText(player, "cornflowerblue", "["..self.name.."] Le verrouillage par faction de ce conteneur a été collé!")
 			else
-				Schema:EasyText(player, "grey", "["..self.name.."] This is not a valid container!")
+				Schema:EasyText(player, "grey", "["..self.name.."] Ce n'est pas un conteneur valide!")
 			end	
 		else
-			Schema:EasyText(player, "grey", "["..self.name.."] This is not a valid container!")
+			Schema:EasyText(player, "grey", "["..self.name.."] Ce n'est pas un conteneur valide!")
 		end
 	else
-		Schema:EasyText(player, "grey", "["..self.name.."] This is not a valid container!")
+		Schema:EasyText(player, "grey", "["..self.name.."] Ce n'est pas un conteneur valide!")
 	end
 end
 

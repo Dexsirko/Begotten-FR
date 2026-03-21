@@ -25,10 +25,10 @@ local function CreateMenu(state)
 		["dirty_water_bucket"] = true,
 	}
 
-	menu:AddOption("Inspect Contents", function() Clockwork.kernel:RunCommand("CauldronInspect") end);
+	menu:AddOption("Inspecter le contenu", function() Clockwork.kernel:RunCommand("CauldronInspect") end);
 
-	local submenu = menu:AddSubMenu("Add Water");
-	local submenu2 = menu:AddSubMenu("Add Ingredient");
+	local submenu = menu:AddSubMenu("Ajouter de l’eau");
+	local submenu2 = menu:AddSubMenu("Ajouter un ingrédient");
 
 	for k, v in pairs(inventory) do
 		local itemTable = Clockwork.item:FindByID(k)
@@ -45,11 +45,11 @@ local function CreateMenu(state)
 		end
 	end
 
-	local dumpMenu = menu:AddSubMenu("Dump Stew");
+	local dumpMenu = menu:AddSubMenu("Jeter le ragoût");
 
-	dumpMenu:AddOption("Confirm", function() Clockwork.kernel:RunCommand("CauldronDump") end);
+	dumpMenu:AddOption("Confirmer", function() Clockwork.kernel:RunCommand("CauldronDump") end);
 		
-	menu:AddOption("Dispense Stew", function() Clockwork.kernel:RunCommand("CauldronDispense") end);
+	menu:AddOption("Distribuer le ragoût", function() Clockwork.kernel:RunCommand("CauldronDispense") end);
 
     menu:Open();
 	menu:SetPos(scrW / 2 - (menu:GetWide() / 2), scrH / 2 - (menu:GetTall() / 2));

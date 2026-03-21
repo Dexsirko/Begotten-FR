@@ -50,7 +50,7 @@ netstream.Hook("SalesmanAdd", function(data)
 		Clockwork.salesman.panel:Remove()
 	end
 
-	Derma_StringRequest("Name", "What is the name of the salesman?", "", function(text)
+	Derma_StringRequest("Nom", "Quel est le nom du vendeur ?", "", function(text)
 		Clockwork.salesman.name = text
 
 		gui.EnableScreenClicker(true)
@@ -102,7 +102,7 @@ netstream.Hook("SalesmanEdit", function(data)
 		Clockwork.salesman.panel:Remove()
 	end
 
-	Derma_StringRequest("Name", "Do you want to change this salesman's name?", data.name, function(text)
+	Derma_StringRequest("Nom", "Voulez-vous changer le nom de ce vendeur ?", data.name, function(text)
 		Clockwork.salesman.showChatBubble = false
 		Clockwork.salesman.buyInShipments = data.buyInShipments
 		Clockwork.salesman.priceScale = data.priceScale
@@ -150,7 +150,7 @@ Clockwork.chatBox:RegisterDefaultClass("ttalk", "ic", function(info)
 	if (info.data.focusedOn) then
 		color = Color(175, 255, 175, 255);
 	end;
-	Clockwork.chatBox:Add(info.filtered, nil, color, info.data.name.." says \""..info.text.."\"");
+	Clockwork.chatBox:Add(info.filtered, nil, color, info.data.name.." dit \""..info.text.."\"");
 end);
 
 Clockwork.chatBox:RegisterDefaultClass("tyell", "ic", function(info)		
@@ -158,5 +158,5 @@ Clockwork.chatBox:RegisterDefaultClass("tyell", "ic", function(info)
 	if (info.data.focusedOn) then
 		color = Color(175, 255, 175, 255);
 	end;
-	Clockwork.chatBox:Add(info.filtered, nil, color, info.data.name.." yells \""..info.text.."\"");
+	Clockwork.chatBox:Add(info.filtered, nil, color, info.data.name.." crie \""..info.text.."\"");
 end);

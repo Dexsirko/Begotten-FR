@@ -26,7 +26,7 @@ function cwSailing:EntityTakeDamageNew(entity, damageInfo)
 		
 		if entity.health <= 700 and IsValid(owner) and owner:GetSubfaction() == "Clan Harald" and owner:Alive() and owner:HasBelief("daring_trout") and (!owner.nextShipDamageNotif or curTime > owner.nextShipDamageNotif) then
 			owner.nextShipDamageNotif = curTime + 60;
-			Schema:EasyText(owner, "icon16/anchor.png", "rouge", "A raven lands on your shoulder, clutching a torn piece of your longship's sail in its beak! Your longship is being damaged and may soon be destroyed if you do not act!");
+			Schema:EasyText(owner, "icon16/anchor.png", "rouge", "Un corbeau se pose sur votre épaule, tenant dans son bec un morceau déchiré de la voile de votre drakkar ! Votre drakkar est endommagé et pourrait bientôt être détruit si vous n'intervenez pas !");
 		end
 		
 		if damageAmount >= 20 then

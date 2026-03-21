@@ -81,7 +81,7 @@ function cwItemSpawner:GetAdminESPInfo(info)
 				if IsValid(container) then
 					info[#info + 1] = {
 						position = container:GetPos(),
-						text = "Item Spawn Container - Time Left: "..tostring(math.Round(self.itemContainers[i].lifeTime - curTime));
+						text = "Conteneur d’apparition d’objets - Temps restant : "..tostring(math.Round(self.itemContainers[i].lifeTime - curTime));
 					};
 				end
 			end;
@@ -93,7 +93,7 @@ function cwItemSpawner:GetAdminESPInfo(info)
 			if IsValid(self.superCrate.supercrate) then
 				info[#info + 1] = {
 					position = self.superCrate.supercrate:GetPos(),
-					text = "Supercrate - Time Left: "..tostring(math.Round(self.superCrate.lifeTime - curTime));
+					text = "Supercaisse - Temps restant : "..tostring(math.Round(self.superCrate.lifeTime - curTime));
 					color = Color(255, 215, 0);
 				};
 			end

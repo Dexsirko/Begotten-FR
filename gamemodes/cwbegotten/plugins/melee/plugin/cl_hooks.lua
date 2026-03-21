@@ -160,7 +160,7 @@ function cwMelee:CreateDummyMenu(dummyEnt)
 	local helmetModel = dummyEnt:GetNWString("helmetModel")
 	
 	if armorModel and armorModel ~= "" then
-		menu:AddOption("Strip Armor", function()
+		menu:AddOption("Retirer l’armure", function()
 			netstream.Start("DummyStripArmor", {dummyEnt});
 		end);
 	else
@@ -170,7 +170,7 @@ function cwMelee:CreateDummyMenu(dummyEnt)
 		for k, v in pairs (inv) do
 			if v.category == "Armor" then
 				if !submenu then
-					submenu = menu:AddSubMenu("Give Armor", function() end);
+					submenu = menu:AddSubMenu("Donner l’armure", function() end);
 				end
 			
 				submenu:AddOption(v.name, function()
@@ -181,7 +181,7 @@ function cwMelee:CreateDummyMenu(dummyEnt)
 	end
 	
 	if helmetModel and helmetModel ~= "" then
-		menu:AddOption("Strip Helmet", function()
+		menu:AddOption("Retirer le casque", function()
 			netstream.Start("DummyStripHelmet", {dummyEnt});
 		end);
 	else
@@ -191,7 +191,7 @@ function cwMelee:CreateDummyMenu(dummyEnt)
 		for k, v in pairs (inv) do
 			if v.category == "Helms" then
 				if !submenu then
-					submenu = menu:AddSubMenu("Give Helmet", function() end);
+					submenu = menu:AddSubMenu("Donner le casque", function() end);
 				end
 			
 				submenu:AddOption(v.name, function()
@@ -201,7 +201,7 @@ function cwMelee:CreateDummyMenu(dummyEnt)
 		end;
 	end
 	
-	menu:AddOption("Examine", function()
+	menu:AddOption("Examiner", function()
 		netstream.Start("DummyExamine", {dummyEnt});
 	end);
 	

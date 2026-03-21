@@ -41,7 +41,7 @@ function cwForceFeeding:ForceFeedPlayer(player, target, itemTable)
 		if !player.cwObserverMode then
 			for k, v in pairs(ents.FindInSphere(player:GetPos(), Clockwork.config:Get("talk_radius"):Get() * 2)) do
 				if v:IsPlayer() then
-					Clockwork.chatBox:Add(v, player, "me", "commence à nourrir de force un"..itemTable.name.." to "..Clockwork.player:FormatRecognisedText(v, "%s", target)..".");
+					Clockwork.chatBox:Add(v, player, "me", "commence à nourrir de force un"..itemTable.name.." à "..Clockwork.player:FormatRecognisedText(v, "%s", target)..".");
 				end
 			end
 		end

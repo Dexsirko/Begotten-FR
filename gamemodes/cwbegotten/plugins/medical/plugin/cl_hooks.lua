@@ -14,13 +14,13 @@ local hitgroupToString = {
 }
 
 local limbs = {
-	["Chest"] = {priority = 2},
-	["Head"] = {priority = 1},
-	["Stomach"] = {priority = 3},
-	["Left Arm"] = {priority = 4},
-	["Right Arm"] = {priority = 5},
-	["Left Leg"] = {priority = 6},
-	["Right Leg"] = {priority = 7},
+	["Poitrine"] = {priority = 2},
+	["Tête"] = {priority = 1},
+	["Ventre"] = {priority = 3},
+	["Bras gauche"] = {priority = 4},
+	["Bras droit"] = {priority = 5},
+	["Jambe gauche"] = {priority = 6},
+	["Jambe droite"] = {priority = 7},
 }
 
 -- Called when the HUD is painted.
@@ -63,11 +63,11 @@ function cwMedicalSystem:GetEntityMenuOptions(entity, options)
 		local inventoryList = Clockwork.inventory:GetAsItemsList(Clockwork.inventory:GetClient());
 		
 		for k, itemTable in pairs (inventoryList) do
-			if options["Heal"] and options["Heal"][itemTable.name] then continue end;
+			if options["Soigner"] and options["Soigner"][itemTable.name] then continue end;
 		
 			if itemTable.baseItem == "medical_base" and itemTable.applicable then
-				if !options["Heal"] then
-					options["Heal"] = {}
+				if !options["Soigner"] then
+					options["Soigner"] = {}
 				end;
 				
 				local optionsTable = {};
@@ -281,7 +281,7 @@ function cwMedicalSystem:RenderScreenspaceEffects()
 				local symptoms = Clockwork.Client:GetNetVar("symptoms", {});
 				
 				if table.HasValue(symptoms, "Nausea") then
-					local strings = {"I feel like I need to puke!", "I feel like I'm gonna be sick."};
+					local strings = {"J’ai envie de vomir !", "Je me sens mal, je vais être malade."};
 					
 					CRAZYBOB = 75;
 					
@@ -301,7 +301,7 @@ function cwMedicalSystem:RenderScreenspaceEffects()
 				local symptoms = Clockwork.Client:GetNetVar("symptoms", {});
 				
 				if table.HasValue(symptoms, "Headaches") then
-					local strings = {"My head is pounding!", "My head is killing me!", "Fuck, my head hurts like hell."};
+					local strings = {"Ma tête va exploser !", "J’ai mal à la tête à en mourir !", "Putain, j’ai mal à la tête comme pas possible."};
 					
 					if cwMelee then
 						util.ScreenShake(Clockwork.Client:GetPos(), 15, 2, 3, 10);
@@ -330,19 +330,19 @@ function cwMedicalSystem:PlayerAdjustItemMenu(itemTable, menuPanel, itemFunction
 		if (itemTable.applicable) then
 			if itemTable.limbs == "all" then
 				if itemTable.useOnSelf then
-					menuPanel:AddOption(string.gsub("Apply", "^.", string.upper), function()
+					menuPanel:AddOption(string.gsub("Appliquer", "^.", string.upper), function()
 						Clockwork.inventory:InventoryAction("apply_all", itemTable.uniqueID, itemTable.itemID);
 					end);
 				end;
 				
-				menuPanel:AddOption(string.gsub("Give", "^.", string.upper), function()
+				menuPanel:AddOption(string.gsub("Donner", "^.", string.upper), function()
 					Clockwork.inventory:InventoryAction("give_all", itemTable.uniqueID, itemTable.itemID);
 				end);
 			else
 				local methods = itemTable.limbs;
 				
 				if itemTable.useOnSelf then
-					local subMenu = menuPanel:AddSubMenu("Apply to...");
+					local subMenu = menuPanel:AddSubMenu("Appliquer à...");
 				
 					if (table.IsEmpty(itemTable.limbs)) then
 						for k, v in SortedPairsByMemberValue (limbs, "priority") do
@@ -374,7 +374,7 @@ function cwMedicalSystem:PlayerAdjustItemMenu(itemTable, menuPanel, itemFunction
 						end);
 					end;
 				else
-					subMenu = menuPanel:AddSubMenu("Give...");
+					subMenu = menuPanel:AddSubMenu("Donner...");
 					
 					for i = 1, #methods do
 						local hitGroupString = hitgroupToString[methods[i]];
@@ -391,7 +391,7 @@ function cwMedicalSystem:PlayerAdjustItemMenu(itemTable, menuPanel, itemFunction
 			local methods = itemTable.ingestible;
 			
 			if (table.Count(itemTable.ingestible) > 1) then
-				local subMenu = menuPanel:AddSubMenu("Ingest...");
+				local subMenu = menuPanel:AddSubMenu("Ingérer...");
 
 				for k, v in pairs (methods) do
 					if v ~= false then
@@ -426,15 +426,15 @@ function cwMedicalSystem:DrawTargetPlayerSymptoms(target, alpha, x, y)
 		
 		if symptom == "Paleness" then
 			if symptomText then
-				symptomText = symptomText.." They look very pale and sickly.";
+				symptomText = symptomText.." Ils ont l’air très pâles et maladifs.";
 			else
-				symptomText = "They look very pale and sickly.";
+				symptomText = "Ils ont l’air très pâles et maladifs.";
 			end
 		elseif symptom == "Pustules" then
 			if symptomText then
-				symptomText = symptomText.." They are covered in pustules and buboes.";
+				symptomText = symptomText.." Ils sont couverts de pustules et de bubons.";
 			else
-				symptomText = "They are covered in pustules and buboes.";
+				symptomText = "Ils sont couverts de pustules et de bubons.";
 			end
 		--[[elseif symptom == "Deformities" then
 			if symptomText then
@@ -463,7 +463,7 @@ function cwMedicalSystem:ModifyStatusEffects(tab)
 			end
 			
 			if v.bleeding then
-				table.insert(tab, {text = "(-) "..string.gsub(hitGroupString, "^.", string.upper)..": Bleeding", color = Color(200, 40, 40)});
+				table.insert(tab, {text = "(-) "..string.gsub(hitGroupString, "^.", string.upper)..": Saignement", color = Color(200, 40, 40)});
 			end
 			
 			--[[if v.infected and v.infected > 0 then
@@ -479,13 +479,13 @@ function cwMedicalSystem:ModifyStatusEffects(tab)
 	end
 	
 	if bloodLevel <= self.maxBloodLevel - 250 and bloodLevel > self.maxBloodLevel - 750 then
-		table.insert(tab, {text = "(-) Minor Blood Loss", color = Color(200, 40, 40)});
+		table.insert(tab, {text = "(-) Perte de sang mineure", color = Color(200, 40, 40)});
 	elseif bloodLevel <= self.maxBloodLevel - 750 and bloodLevel > self.maxBloodLevel - 1500 then
-		table.insert(tab, {text = "(-) Blood Loss", color = Color(200, 40, 40)});
+		table.insert(tab, {text = "(-) Perte de sang", color = Color(200, 40, 40)});
 	elseif bloodLevel <= self.maxBloodLevel - 1500 and bloodLevel > self.lethalBloodLoss then
-		table.insert(tab, {text = "(-) Severe Blood Loss", color = Color(200, 40, 40)});
+		table.insert(tab, {text = "(-) Perte de sang sévère", color = Color(200, 40, 40)});
 	elseif bloodLevel <= self.lethalBloodLoss then
-		table.insert(tab, {text = "(-) Critical Blood Loss", color = Color(200, 40, 40)});
+		table.insert(tab, {text = "(-) Perte de sang critique", color = Color(200, 40, 40)});
 	end
 	
 	for i = 1, #symptoms do

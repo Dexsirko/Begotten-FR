@@ -54,7 +54,7 @@ end
 function cwRecipes:AddPileSpawn(pileEntity, pileType, player)
 	if !IsValid(pileEntity) or (pileEntity:GetClass() ~= "cw_woodpile" and pileEntity:GetClass() ~= "cw_ironorepile") then
 		if (player and player:IsPlayer()) then
-			Schema:EasyText(player, "darkgrey", "["..self.name.."] You are using an invalid entity!");
+			Schema:EasyText(player, "darkgrey", "["..self.name.."] Vous utilisez une entité invalide!");
 		end;
 		
 		return;
@@ -70,13 +70,13 @@ function cwRecipes:AddPileSpawn(pileEntity, pileType, player)
 		netstream.Heavy(Schema:GetAdmins(), "CraftingPileSpawnESPInfo", {self.pileLocations});
 		
 		if (player and player:IsPlayer()) then
-			Schema:EasyText(player, "cornflowerblue", "["..self.name.."] You have added a "..pileType.." resource spawn at your cursor position.");
+			Schema:EasyText(player, "cornflowerblue", "["..self.name.."] Vous avez ajouté un "..pileType.." point d’apparition de ressources à l’emplacement de votre curseur.");
 		end;
 		
 		self:SavePileEnts();
 	else
 		if (player and player:IsPlayer()) then
-			Schema:EasyText(player, "darkgrey", "["..self.name.."] You have specified an invalid category!");
+			Schema:EasyText(player, "darkgrey", "["..self.name.."] Vous avez spécifié une catégorie invalide!");
 		end;
 	end
 end
@@ -88,7 +88,7 @@ function cwRecipes:RemovePileSpawn(position, distance, player)
 				table.remove(self.pileLocations[pileType], i);
 				
 				if (player and player:IsPlayer()) then
-					Schema:EasyText(player, "cornflowerblue", "["..self.name.."] You removed a resource spawn at your cursor position.");
+					Schema:EasyText(player, "cornflowerblue", "["..self.name.."] Vous avez supprimé un point d’apparition de ressources à l’emplacement de votre curseur..");
 				end;
 				
 				netstream.Heavy(Schema:GetAdmins(), "CraftingPileSpawnESPInfo", {self.pileLocations});
@@ -194,7 +194,7 @@ function cwRecipes:PlayerCanCraft(player, uniqueID, craftAmount)
 							end
 						end
 					
-						Schema:EasyText(player, "lightslategrey", "Vous avez besoin du "..cwBeliefs:GetBeliefName(recipeTable.requiredBeliefs[i]).."' belief to craft this recipe!");
+						Schema:EasyText(player, "lightslategrey", "Vous avez besoin du "..cwBeliefs:GetBeliefName(recipeTable.requiredBeliefs[i]).."' croyance pour fabriquer cette recette!");
 						return false;
 					end
 				end
@@ -270,9 +270,9 @@ function cwRecipes:PlayerFinishedCrafting(player, recipeTable, craftAmount)
 	end
 	
 	if craftAmount > 1 then
-		Clockwork.kernel:PrintLog(LOGTYPE_MINOR, player:Name().." ("..player:SteamID()..") has crafted "..recipeTable.name.." (x"..tostring(craftAmount)..")"..".");
+		Clockwork.kernel:PrintLog(LOGTYPE_MINOR, player:Name().." ("..player:SteamID()..") a fabriqué "..recipeTable.name.." (x"..tostring(craftAmount)..")"..".");
 	else
-		Clockwork.kernel:PrintLog(LOGTYPE_MINOR, player:Name().." ("..player:SteamID()..") has crafted a "..recipeTable.name..".");
+		Clockwork.kernel:PrintLog(LOGTYPE_MINOR, player:Name().." ("..player:SteamID()..") a fabriqué un "..recipeTable.name..".");
 	end
 end;
 
@@ -356,7 +356,7 @@ function cwRecipes:Craft(player, uniqueID, itemIDs, craftAmount)
 			
 			hook.Run("PlayerFailedRecipe", player, uniqueID, recipeTable, bHasRequirements, bHasFlags)
 		else
-			player:Notify("You must wait another "..-math.ceil(curTime - player.cwNextCraft).." seconds before attempting to craft again!");
+			player:Notify("Vous devez attendre encore "..-math.ceil(curTime - player.cwNextCraft).." secondes avant de tenter à nouveau de fabriquer !");
 		end;
 	end
 end;

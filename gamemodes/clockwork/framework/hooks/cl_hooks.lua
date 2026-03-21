@@ -376,15 +376,15 @@ function GM:GetEntityMenuOptions(entity, options)
 				itemTable:GetEntityMenuOptions(entity, options)
 			end
 
-			options["Take"] = "cwItemTake"
-			options["Examine"] = "cwItemExamine"
+			options["Prendre"] = "cwItemTake"
+			options["Examiner"] = "cwItemExamine"
 		end
 	elseif (class == "cw_belongings") then
-		options["Open"] = "cwBelongingsOpen"
+		options["Ouvrir"] = "cwBelongingsOpen"
 	elseif (class == "cw_shipment") then
-		options["Open"] = "cwShipmentOpen"
+		options["Ouvrir"] = "cwShipmentOpen"
 	elseif (class == "cw_cash") then
-		options["Take"] = "cwCashTake"
+		options["Prendre"] = "cwCashTake"
 	end
 end
 
@@ -2997,7 +2997,7 @@ function GM:GetTargetPlayerText(player, targetPlayerText)
 			end
 		end;
 	elseif (player:Alive()) then
-		targetPlayerText:Add("PHYSDESC", "You do not recognize "..thirdPerson..".")
+		targetPlayerText:Add("PHYSDESC", "Vous ne reconnaissez pas "..thirdPerson..".")
 	end
 end
 
@@ -3021,7 +3021,7 @@ function GM:GetPlayerScoreboardText(player)
 			return physDesc
 		end
 	else
-		return "You do not recognize "..thirdPerson..".";
+		return "Vous ne reconnaissez pas "..thirdPerson..".";
 	end
 end
 

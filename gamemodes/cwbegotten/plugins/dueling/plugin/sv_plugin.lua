@@ -259,7 +259,7 @@ function cwDueling:Think()
 				self:PlayerExitsMatchmaking(player);
 
 				if IsValid(player) then
-					Schema:EasyText(player, "icon16/door_out.png", "orange", "Exited Duel Matchmaking");
+					Schema:EasyText(player, "icon16/door_out.png", "orange", "A quitté le système de mise en relation des duels");
 				end
 			end
 		end
@@ -525,7 +525,7 @@ function cwDueling:DuelAborted(player1, player2)
 				-- player2 dropped
 				for _, v in _player.Iterator() do
 					if v:IsAdmin() then
-						Schema:EasyText(v, "orangered","[DUEL] Joueur :"..player1:Name().." dropped from an in progress duel.");
+						Schema:EasyText(v, "orangered","[DUEL] Joueur :"..player1:Name().." a été exclu d’un duel en cours.");
 					end;
 				end;
 				
@@ -547,7 +547,7 @@ function cwDueling:DuelAborted(player1, player2)
 					end
 				end);
 				
-				Schema:EasyText(player1, "icon16/shield.png", "orange", "Draw!");
+				Schema:EasyText(player1, "icon16/shield.png", "orange", "Égalité!");
 			end
 		end
 	elseif IsValid(player2) then 
@@ -556,7 +556,7 @@ function cwDueling:DuelAborted(player1, player2)
 				-- player1 dropped
 				for _, v in _player.Iterator() do
 					if v:IsAdmin() then
-						Schema:EasyText(v, "orange","[DUEL] Joueur :"..player2:Name().." dropped from an in progress duel.");
+						Schema:EasyText(v, "orange","[DUEL] Joueur :"..player2:Name().." a été exclu d’un duel en cours.");
 					end;
 				end;
 				
@@ -652,9 +652,9 @@ function cwDueling:DuelCompleted(winner, loser)
 						end
 					end
 					
-					Schema:EasyText({winner, loser}, "icon16/shield_add.png", "forestgreen", winner:Name().." ("..level..") was the winner with "..winner:Health().." out of "..winner:GetMaxHealth().." health left!");
+					Schema:EasyText({winner, loser}, "icon16/shield_add.png", "forestgreen", winner:Name().." ("..level..") a été le gagnant avec "..winner:Health().." sur "..winner:GetMaxHealth().." points de vie restants!");
 				else
-					Schema:EasyText({winner, loser}, "icon16/shield_add.png", "forestgreen", winner:Name().." was the winner with "..winner:Health().." out of "..winner:GetMaxHealth().." health left!");
+					Schema:EasyText({winner, loser}, "icon16/shield_add.png", "forestgreen", winner:Name().." a été le gagnant avec "..winner:Health().." sur "..winner:GetMaxHealth().." points de vie restants!");
 				end
 			end
 		end
@@ -668,7 +668,7 @@ function cwDueling:DuelCompleted(winner, loser)
 			
 				for _, v in _player.Iterator() do
 					if v:IsAdmin() then
-						Schema:EasyText(v, "orangered","[DUEL] Joueur :"..loser:Name().." dropped from an in progress duel.");
+						Schema:EasyText(v, "orangered","[DUEL] Joueur :"..loser:Name().." a été exclu d’un duel en cours.");
 					end;
 				end;
 				
@@ -708,9 +708,9 @@ function cwDueling:DuelCompleted(winner, loser)
 						end
 					end
 				
-					Schema:EasyText(winner, "icon16/shield_add.png", "vert forêt", winner:Name().." ("..level..") was the winner with "..winner:Health().." out of "..winner:GetMaxHealth().." health left!");
+					Schema:EasyText(winner, "icon16/shield_add.png", "vert forêt", winner:Name().." ("..level..") a été le gagnant avec "..winner:Health().." sur "..winner:GetMaxHealth().." points de vie restants!");
 				else
-					Schema:EasyText(winner, "icon16/shield_add.png", "vert forêt", winner:Name().." was the winner with "..winner:Health().." out of "..winner:GetMaxHealth().." health left!");
+					Schema:EasyText(winner, "icon16/shield_add.png", "vert forêt", winner:Name().." a été le gagnant avec "..winner:Health().." sur "..winner:GetMaxHealth().." points de vie restants!");
 				end
 			end
 		end
@@ -724,7 +724,7 @@ function cwDueling:DuelCompleted(winner, loser)
 
 				for _, v in _player.Iterator() do
 					if v:IsAdmin() then
-						Schema:EasyText(v, "orangered","[DUEL] Joueur :"..winner:Name().." dropped from an in progress duel.");
+						Schema:EasyText(v, "orangered","[DUEL] Joueur :"..winner:Name().." a été exclu d’un duel en cours.");
 					end;
 				end;
 				
@@ -743,7 +743,7 @@ function cwDueling:DuelCompleted(winner, loser)
 					end
 				end);
 
-				Schema:EasyText(loser, "icon16/shield_delete.png", "Orangered", loser:Name().." loses!");
+				Schema:EasyText(loser, "icon16/shield_delete.png", "Orangered", loser:Name().." perd!");
 			end
 		end
 	end

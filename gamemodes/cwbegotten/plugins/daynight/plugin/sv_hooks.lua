@@ -140,7 +140,7 @@ function cwDayNight:PlayerThink(player, curTime, infoTable, alive, initialized, 
 								player:TakeDamageInfo(d);
 								player:EmitSound("player/pl_burnpain"..math.random(1, 3)..".wav");
 								
-								Clockwork.kernel:PrintLog(LOGTYPE_MAJOR, player:Name().." has taken 3 damage from the sun, leaving them at "..player:Health().." health.");
+								Clockwork.kernel:PrintLog(LOGTYPE_MAJOR, player:Name().." a subi 3 dégâts causés par le soleil, les laissant à "..player:Health().." points de vie.");
 					
 								netstream.Start(player, "Stunned", 3);
 							end
@@ -194,5 +194,5 @@ netstream.Hook("ShadowDamage", function(player, data)
 		end;
 	end
 	
-	Clockwork.chatBox:Add(listeners, player, "me", "se met à hurler et à attaquer"..selfless.."!", player:GetPos(), Clockwork.config:Get("talk_radius"):Get() * 2);
+	Clockwork.chatBox:Add(listeners, player, "me", "se met à hurler et à attaquer "..selfless.."!", player:GetPos(), Clockwork.config:Get("talk_radius"):Get() * 2);
 end)

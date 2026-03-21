@@ -31,7 +31,7 @@ local ITEM = item.New(nil, true);
 			local ammo = self:GetAmmoMagazine();
 			
 			if ammo and ammo > 0 then
-				options["Unload Shot"] = {
+				options["Décharger le coup"] = {
 					isArgTable = true,
 					arguments = "cwItemMagazineAmmo",
 					toolTip = toolTip

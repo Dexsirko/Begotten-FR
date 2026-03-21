@@ -58,10 +58,10 @@ local COMMAND = Clockwork.command:New("CharForceEnterMatchmaking")
 		local target = Clockwork.player:FindByID(arguments[1]);
 		
 		if (target) then
-			Clockwork.player:Notify(player, target:Name().." has been forcibly added to duel matchmaking!");
+			Clockwork.player:Notify(player, target:Name().." a été ajouté de force au système de mise en relation des duels!");
 			cwDueling:PlayerEntersMatchmaking(target);
 		else
-			Clockwork.player:Notify(player, arguments[1].." is not a valid player!");
+			Clockwork.player:Notify(player, arguments[1].." n’est pas un joueur valide!");
 		end
 	end
 COMMAND:Register()

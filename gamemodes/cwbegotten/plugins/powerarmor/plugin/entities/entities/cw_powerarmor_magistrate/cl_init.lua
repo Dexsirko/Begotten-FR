@@ -27,7 +27,7 @@ local function CreateMenu(state)
 		
 	menu:SetMinimumWidth(150);
 	
-	menu:AddOption("Enter Suit", function() Clockwork.Client:ConCommand("cw_EnterPowerArmor") end);
+	menu:AddOption("Entrer dans la combinaison", function() Clockwork.Client:ConCommand("cw_EnterPowerArmor") end);
 	
 	menu:Open();
 	menu:SetPos(scrW / 2 - (menu:GetWide() / 2), scrH / 2 - (menu:GetTall() / 2));

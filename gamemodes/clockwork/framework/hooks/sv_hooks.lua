@@ -1320,7 +1320,7 @@ function GM:PlayerCountryAuthed(player, countryCode)
 		local ipAddress = player:IPAddress();
 		local countryName = Clockwork.kernel:GetCountryName(player) or "Palestine";
 		
-		Clockwork.kernel:PrintLog(LOGTYPE_MINOR, steamName.." ("..steamID.." / "..ipAddress..") has connected from "..countryName..".")
+		Clockwork.kernel:PrintLog(LOGTYPE_MINOR, steamName.." ("..steamID.." / "..ipAddress..") s'est connecté depuis "..countryName..".")
 		
 		for _, v in _player.Iterator() do
 			if v:IsAdmin() then
@@ -2307,7 +2307,7 @@ function GM:PlayerCanChangeClass(player, class)
 	local curTime = CurTime()
 
 	if (player.cwNextChangeClass and curTime < player.cwNextChangeClass) then
-		Schema:EasyText(player, "peru", "Vous ne pouvez pas changer de classe avant"..math.ceil(player.cwNextChangeClass - curTime).." seconds!");
+		Schema:EasyText(player, "peru", "Vous ne pouvez pas changer de classe avant"..math.ceil(player.cwNextChangeClass - curTime).." secondes!");
 
 		return false
 	else
@@ -2874,26 +2874,26 @@ function GM:EntityHandleMenuOption(player, entity, option, arguments)
 				local itemKills = itemTable:GetData("kills");
 				
 				if itemKills and itemKills > 0 then
-					examineText = examineText.." It has \'"..itemEngraving.."\' engraved into it, alongside a tally mark of "..tostring(itemKills).." kills.";
+					examineText = examineText.." Il a \'"..itemEngraving.."\' gravée dedans, accompagnée d’un trait de comptage "..tostring(itemKills).." morts.";
 				else
-					examineText = examineText.." It has \'"..itemEngraving.."\' engraved into it.";
+					examineText = examineText.." Il a \'"..itemEngraving.."\'gravée dedans.";
 				end
 			end
 
 			if table.HasValue(conditionTextCategories, itemTable.category) then
 				if itemCondition >= 90 then
-					examineText = examineText.." It appears to be in immaculate condition.";
+					examineText = examineText.." Il semble être en parfait état.";
 				elseif itemCondition < 90 and itemCondition >= 60 then
-					examineText = examineText.." It appears to be in a somewhat battered condition.";
+					examineText = examineText.." Il semble être dans un état quelque peu abîmé.";
 				elseif itemCondition < 60 and itemCondition >= 30 then
-					examineText = examineText.." It appears to be in very poor condition.";
+					examineText = examineText.." Il semble être en très mauvais état.";
 				elseif itemCondition < 30 and itemCondition > 0 then
-					examineText = examineText.." It appears to be on the verge of breaking.";
+					examineText = examineText.." Il semble sur le point de se briser.";
 				elseif itemCondition <= 0 then
 					if itemTable:IsBroken() then
-						examineText = examineText.." It is completely destroyed and only worth its weight in scrap now.";
+						examineText = examineText.." Il est complètement détruit et ne vaut plus que son poids en ferraille.";
 					else
-						examineText = examineText.." It is broken yet still usable to some degree.";
+						examineText = examineText.." Il est cassé mais encore utilisable dans une certaine mesure.";
 					end
 				end
 			elseif itemTable.category == "Shot" and itemTable.ammoMagazineSize then
@@ -3502,7 +3502,7 @@ function GM:PlayerAdjustDeathInfo(player, info) end
 -- Called when chat box info should be adjusted.
 function GM:ChatBoxMessageAdded(info)
 	if (info.class == "ic") then
-		Clockwork.kernel:PrintLog(LOGTYPE_GENERIC, info.speaker:Name().." says \""..info.text.."\"")
+		Clockwork.kernel:PrintLog(LOGTYPE_GENERIC, info.speaker:Name().." dit \""..info.text.."\"")
 	--[[elseif (info.class == "yell") then
 		Clockwork.kernel:PrintLog(LOGTYPE_GENERIC, info.speaker:Name().." yells \""..info.text.."\"")
 	elseif (info.class == "me") then

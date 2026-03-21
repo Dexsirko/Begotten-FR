@@ -65,9 +65,9 @@ function COMMAND:OnRun(player, arguments)
 			v:ConCommand("r_cleardecals");
 		end;
 		
-		Schema:EasyText(player, "cornflowerblue", "["..self.name.."] You have removed "..count.." gore entities and cleared decals.");
+		Schema:EasyText(player, "cornflowerblue", "["..self.name.."] Vous avez retiré "..count.." les entités gores et supprimé les décalcomanies.");
 	else
-		Schema:EasyText(player, "cornflowerblue", "["..self.name.."] You have removed "..count.." gore entities.");
+		Schema:EasyText(player, "cornflowerblue", "["..self.name.."] Vous avez retiré "..count.." entités gores.");
 	end;
 end;
 

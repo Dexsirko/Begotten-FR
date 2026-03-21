@@ -21,8 +21,8 @@ local function CreateMenu(state)
 	menu:SetMinimumWidth(150);
 	
 	if state == "Gore" then
-		menu:AddOption("Summon All Goreic Warriors", function() Clockwork.kernel:RunCommand("GoreicHornSummonAll") end);
-        menu:AddOption("Summon Raiding Party", function() Clockwork.kernel:RunCommand("GoreicHornSummonRaid") end);
+		menu:AddOption("Invoquer tous les Guerriers goreics", function() Clockwork.kernel:RunCommand("GoreicHornSummonAll") end);
+        menu:AddOption("Invoquer une troupe de raid", function() Clockwork.kernel:RunCommand("GoreicHornSummonRaid") end);
 	end
 	
 	menu:Open();
